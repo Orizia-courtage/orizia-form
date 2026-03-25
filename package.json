@@ -16,7 +16,8 @@
     "react-country-flag": "^3.1.0",
     "react-datepicker": "^9.1.0",
     "react-dom": "19.2.4",
-    "react-select": "^5.10.2"
+    "react-select": "^5.10.2",
+    "resend": "^6.9.4"
   },
   "devDependencies": {
     "eslint": "^9",

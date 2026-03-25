@@ -1,4 +1,5 @@
 import '../globals.css';
+import ContactWidget from '@/components/ContactWidget';
 
 export const metadata = {
   title: 'Regroupement de crédits — Orizia Courtage',
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ContactWidget />  {/* ← ajouté */}
+      </body>
     </html>
   );
 }

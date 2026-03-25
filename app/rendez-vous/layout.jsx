@@ -1,4 +1,5 @@
-import '../globals.css'
+import '../globals.css';
+import ContactWidget from '@/components/ContactWidget';
 
 export const metadata = {
   title: 'Orizia Courtage',
@@ -10,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <body>
         {children}
+        <ContactWidget />  {/* ← ajouté */}
       </body>
     </html>
   )
