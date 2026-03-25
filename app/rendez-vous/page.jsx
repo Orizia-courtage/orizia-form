@@ -41,25 +41,16 @@ export default function RendezVous() {
         {/* CALENDRIER */}
 <section className="rdv-cal-section">
   <div className="rdv-cal-wrapper">
-    {/* DESKTOP */}
-<iframe
-  src="https://zcal.co/i/eEj96rPI?embed=1&embedType=iframe"
-  loading="lazy"
-  className="rdv-iframe-desktop"
-  id="zcal-invite"
-  scrolling="no"
-  style={{ border: 'none', minWidth: '320px', minHeight: '544px', height: '801px', width: '1000px' }}
-/>
-
-{/* MOBILE */}
-<iframe
-  src="https://zcal.co/i/eEj96rPI?showBackground=1&embed=1&embedType=iframe"
-  loading="lazy"
-  className="rdv-iframe-mobile"
-  scrolling="no"
-  style={{ border: 'none', minWidth: '320px', minHeight: '544px', height: '995px', width: '320px' }}
-/>
-
+    {/* CALENDRIER CAL.COM */}
+<section className="rdv-cal-section">
+  <div className="rdv-cal-wrapper">
+    <iframe
+      src="https://cal.eu/cindy-urbansky/rendez-vous?embed=true"
+      style={{ width: '100%', height: '100%', border: 'none' }}
+      id="cal-invite"
+    />
+  </div>
+</section>
 
   </div>
 </section>

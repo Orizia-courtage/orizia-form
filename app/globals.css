@@ -868,34 +868,27 @@ body {
 }
 
 /* CALENDRIER */
-.rdv-iframe-desktop {
-  display: block;
-}
-.rdv-iframe-mobile {
-  display: none;
-}
 .rdv-cal-section {
   background: var(--orizia-light);
   padding: 50px 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
 }
-
 .rdv-cal-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  height: 700px;
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(29,30,24,0.10);
   border: 1px solid rgba(58,111,108,0.15);
-  display: flex;
-  justify-content: center;
 }
 
 @media (max-width: 768px) {
-  .rdv-iframe-desktop { display: none; }
-  .rdv-iframe-mobile { display: block; }
+  .rdv-cal-wrapper { height: 800px; }
 }
+
 
 
 
