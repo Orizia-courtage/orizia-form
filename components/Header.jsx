@@ -186,7 +186,7 @@ export default function Header() {
       {/* Tiroir mobile */}
       <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
         <div className="mobile-drawer-header">
-          <Image src="/images/Orizia_logo.jpg" alt="Orizia" width={120} height={50} style={{ objectFit: 'contain' }} />
+          <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={120} height={50} style={{ objectFit: 'contain' }} />
           <button className="close-mobile" onClick={() => setDrawerOpen(false)}>✕</button>
         </div>
         <div className="mobile-drawer-content">

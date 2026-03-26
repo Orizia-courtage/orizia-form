@@ -2,22 +2,56 @@
 import { useState, useEffect } from 'react';
 
 const TABS = [
-  { id: 'rdv', icon: '📅', label: 'RDV' },
-  { id: 'message', icon: '💬', label: 'Message' },
+  { id: 'rdv',        icon: '📅', label: 'RDV' },
+  { id: 'message',    icon: '💬', label: 'Message' },
   { id: 'formulaire', icon: '✉️', label: 'Écrire' },
-  { id: 'appel', icon: '📞', label: 'Appeler' },
+  { id: 'appel',      icon: '📞', label: 'Appeler' },
 ];
 
+const EMPTY_FORM = {
+  prenom: '', nom: '', email: '', telephone: '',
+  typedemande: '', urgence: '', commentaire: ''
+};
+
+const ERRORS_MSG = {
+  prenom:      'Votre prénom nous permettra de personnaliser notre réponse 🙂',
+  nom:         'Votre nom est nécessaire pour traiter votre demande.',
+  email:       'Un email valide est indispensable pour vous répondre.',
+  typedemande: 'Indiquez-nous votre besoin pour mieux vous orienter.',
+  urgence:     'Votre délai nous aide à prioriser votre demande.',
+};
+
+const validate = (data) => {
+  const e = {};
+  if (!data.prenom.trim())     e.prenom      = ERRORS_MSG.prenom;
+  if (!data.nom.trim())        e.nom         = ERRORS_MSG.nom;
+  if (!data.email.trim() || !/\S+@\S+\.\S+/.test(data.email)) e.email = ERRORS_MSG.email;
+  if (!data.typedemande)       e.typedemande = ERRORS_MSG.typedemande;
+  if (!data.urgence)           e.urgence     = ERRORS_MSG.urgence;
+  return e;
+};
+
+// ← EN DEHORS du composant pour éviter le re-mount à chaque render
+const Field = ({ name, errors, children }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+    {children}
+    {errors[name] && (
+      <span style={{ fontSize: '0.73rem', color: '#dc2626', fontWeight: 500, paddingLeft: 2 }}>
+        ⚠️ {errors[name]}
+      </span>
+    )}
+  </div>
+);
+
 export default function ContactWidget() {
-  const [open, setOpen] = useState(false);
-  const [tab, setTab] = useState('rdv');
-  const [isMobile, setIsMobile] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({
-    prenom: '', nom: '', email: '', telephone: '',
-    typedemande: '', urgence: '', commentaire: ''
-  });
+  const [open, setOpen]           = useState(false);
+  const [tab, setTab]             = useState('rdv');
+  const [isMobile, setIsMobile]   = useState(false);
+  const [sent, setSent]           = useState(false);
+  const [loading, setLoading]     = useState(false);
+  const [form, setForm]           = useState(EMPTY_FORM);
+  const [errors, setErrors]       = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -26,8 +60,17 @@ export default function ContactWidget() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  const handleChange = (field, value) => {
+    const updated = { ...form, [field]: value };
+    setForm(updated);
+    if (submitted) setErrors(validate(updated));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitted(true);
+    const errs = validate(form);
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setLoading(true);
     try {
       const res = await fetch('/api/contact', {
@@ -35,7 +78,12 @@ export default function ContactWidget() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (res.ok) setSent(true);
+      if (res.ok) {
+        setSent(true);
+        setForm(EMPTY_FORM);
+        setErrors({});
+        setSubmitted(false);
+      }
     } catch (err) { console.error(err); }
     setLoading(false);
   };
@@ -46,6 +94,7 @@ export default function ContactWidget() {
 
       {open && (
         <div className={`cw-panel ${isMobile ? 'cw-panel-mobile' : 'cw-panel-desktop'}`}>
+
           {/* Header */}
           <div className="cw-header">
             <div className="cw-header-info">
@@ -84,9 +133,7 @@ export default function ContactWidget() {
                 <h3>Envoyez-moi un message</h3>
                 <p>Je vous réponds dans les plus brefs délais.</p>
                 {isMobile ? (
-                  <a href="sms:+33777259706" className="cw-btn-action">
-                    Envoyer un SMS
-                  </a>
+                  <a href="sms:+33777259706" className="cw-btn-action">Envoyer un SMS</a>
                 ) : (
                   <a href="https://web.whatsapp.com/send?phone=33777259706" target="_blank" rel="noreferrer" className="cw-btn-action cw-btn-whatsapp">
                     Envoyer sur WhatsApp
@@ -103,31 +150,94 @@ export default function ContactWidget() {
                     <p>Message envoyé ! Je vous réponds rapidement.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="cw-form">
+                  <form onSubmit={handleSubmit} className="cw-form" noValidate>
+
+                    {/* Bandeau erreur global */}
+                    {submitted && Object.keys(errors).length > 0 && (
+                      <div style={{
+                        background: '#fef2f2', border: '1px solid #fecaca',
+                        borderRadius: 8, padding: '10px 12px',
+                        fontSize: '0.78rem', color: '#dc2626', fontWeight: 600,
+                        lineHeight: 1.4
+                      }}>
+                        💡 Quelques informations manquent pour traiter votre demande.
+                      </div>
+                    )}
+
                     <div className="cw-form-row">
-                      <input placeholder="Prénom *" required value={form.prenom} onChange={e => setForm({...form, prenom: e.target.value})} />
-                      <input placeholder="Nom *" required value={form.nom} onChange={e => setForm({...form, nom: e.target.value})} />
+                      <Field name="prenom" errors={errors}>
+                        <input
+                          placeholder="Prénom *"
+                          value={form.prenom}
+                          onChange={e => handleChange('prenom', e.target.value)}
+                          style={{ borderColor: errors.prenom ? '#dc2626' : undefined }}
+                        />
+                      </Field>
+                      <Field name="nom" errors={errors}>
+                        <input
+                          placeholder="Nom *"
+                          value={form.nom}
+                          onChange={e => handleChange('nom', e.target.value)}
+                          style={{ borderColor: errors.nom ? '#dc2626' : undefined }}
+                        />
+                      </Field>
                     </div>
-                    <input type="email" placeholder="Email *" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
-                    <input placeholder="Téléphone" value={form.telephone} onChange={e => setForm({...form, telephone: e.target.value})} />
-                    <select required value={form.typedemande} onChange={e => setForm({...form, typedemande: e.target.value})}>
-                      <option value="">Type de demande *</option>
-                      <option>Crédit immobilier</option>
-                      <option>Investissement</option>
-                      <option>Assurance</option>
-                      <option>Regroupement de crédits</option>
-                      <option>Autre</option>
-                    </select>
-                    <select required value={form.urgence} onChange={e => setForm({...form, urgence: e.target.value})}>
-                      <option value="">Urgence *</option>
-                      <option>Faible — dans le mois</option>
-                      <option>Modérée — dans la semaine</option>
-                      <option>Urgente — aujourd'hui</option>
-                    </select>
-                    <textarea placeholder="Commentaire..." rows={3} value={form.commentaire} onChange={e => setForm({...form, commentaire: e.target.value})} />
+
+                    <Field name="email" errors={errors}>
+                      <input
+                        type="email"
+                        placeholder="Email *"
+                        value={form.email}
+                        onChange={e => handleChange('email', e.target.value)}
+                        style={{ borderColor: errors.email ? '#dc2626' : undefined }}
+                      />
+                    </Field>
+
+                    <input
+                      placeholder="Téléphone"
+                      value={form.telephone}
+                      onChange={e => handleChange('telephone', e.target.value)}
+                    />
+
+                    <Field name="typedemande" errors={errors}>
+                      <select
+                        value={form.typedemande}
+                        onChange={e => handleChange('typedemande', e.target.value)}
+                        style={{ borderColor: errors.typedemande ? '#dc2626' : undefined }}
+                      >
+                        <option value="">Type de demande *</option>
+                        <option>Crédit immobilier</option>
+                        <option>Investissement</option>
+                        <option>Assurance</option>
+                        <option>Regroupement de crédits</option>
+                        <option>Autre</option>
+                      </select>
+                    </Field>
+
+                    <Field name="urgence" errors={errors}>
+                      <select
+                        value={form.urgence}
+                        onChange={e => handleChange('urgence', e.target.value)}
+                        style={{ borderColor: errors.urgence ? '#dc2626' : undefined }}
+                      >
+                        <option value="">Urgence *</option>
+                        <option>Faible — dans le mois</option>
+                        <option>Modérée — dans la semaine</option>
+                        <option>Urgente — aujourd'hui</option>
+                      </select>
+                    </Field>
+
+                    <textarea
+                      placeholder="Commentaire..."
+                      rows={3}
+                      value={form.commentaire}
+                      onChange={e => handleChange('commentaire', e.target.value)}
+                    />
+
                     <button type="submit" disabled={loading}>
                       {loading ? 'Envoi...' : 'Envoyer le message'}
                     </button>
+
                   </form>
                 )}
               </div>
@@ -138,9 +248,7 @@ export default function ContactWidget() {
                 <div className="cw-action-icon">📞</div>
                 <h3>Appelez-moi directement</h3>
                 <p>Disponible du lundi au samedi.</p>
-                <a href="tel:+33777259706" className="cw-btn-action cw-btn-call">
-                  Appeler Cindy
-                </a>
+                <a href="tel:+33777259706" className="cw-btn-action cw-btn-call">Appeler Cindy</a>
                 <span className="cw-tel-num">+33 7 77 25 97 06</span>
               </div>
             )}
@@ -150,11 +258,11 @@ export default function ContactWidget() {
       )}
 
       {/* Bouton flottant — caché sur mobile quand ouvert */}
-{(!open || !isMobile) && (
-  <button className={`cw-trigger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
-    {open ? '✕' : '💬'}
-  </button>
-)}
-</>
+      {(!open || !isMobile) && (
+        <button className={`cw-trigger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
+          {open ? '✕' : '💬'}
+        </button>
+      )}
+    </>
   );
 }
