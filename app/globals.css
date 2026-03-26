@@ -15,9 +15,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  overflow-x: hidden;
-}
+
 
 body {
   font-family: var(--font-main);
@@ -26,7 +24,7 @@ body {
   color: var(--orizia-dark);
   background-color: var(--orizia-light);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 
@@ -260,7 +258,7 @@ select.orz-input { cursor:pointer;padding-right:40px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #fff;
+  background-color: var(--orizia-light);
   box-shadow: 0 2px 16px rgba(29, 30, 24, 0.08);
 }
 
