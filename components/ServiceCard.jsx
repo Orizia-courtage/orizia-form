@@ -9,7 +9,8 @@ export default function ServiceCard({ img, tag, title, desc, cta }) {
       onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-6px)'}
       onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
     >
-      <div style={{ position: 'relative', height: 220 }}>
+      <div style={{ position: 'relative', height: 220, overflow: 'hidden', flexShrink: 0 }}>
+        {/* ↑ overflow: hidden + flexShrink: 0 ajoutés */}
         <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} />
         <span style={{ position: 'absolute', top: 16, left: 16, background: 'var(--orizia-primary)', color: '#E6F5F2', padding: '4px 12px', borderRadius: 100, fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           {tag}

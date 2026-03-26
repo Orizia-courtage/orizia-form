@@ -149,10 +149,12 @@ export default function ContactWidget() {
         </div>
       )}
 
-      {/* Bouton flottant */}
-      <button className={`cw-trigger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
-        {open ? '✕' : '💬'}
-      </button>
-    </>
+      {/* Bouton flottant — caché sur mobile quand ouvert */}
+{(!open || !isMobile) && (
+  <button className={`cw-trigger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
+    {open ? '✕' : '💬'}
+  </button>
+)}
+</>
   );
 }

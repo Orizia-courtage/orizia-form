@@ -52,7 +52,7 @@ export default function HomePage() {
           <p>Concrétisez vos projets immobiliers et développez votre capital avec un accompagnement indépendant et sur-mesure. Sécurisons votre avenir dès aujourd&apos;hui.</p>
           <div className="buttons">
             <Link href="/simulation" className="orizia-btn-main">Faire une simulation gratuite</Link>
-            <Link href="/contact" className="orizia-btn-sec">Prendre rendez-vous</Link>
+            <Link href="/rendez-vous" className="orizia-btn-sec">Prendre rendez-vous</Link>
           </div>
         </div>
       </section>
@@ -134,15 +134,15 @@ export default function HomePage() {
 
       {/* ── STATS ── */}
       <section style={{ backgroundColor: 'var(--orizia-accent)', padding: '40px 20px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, textAlign: 'center' }}>
-          {STATS.map(s => (
-            <div key={s.label}>
-              <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#E6F5F2' }}>{s.value}</div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(230,245,242,0.75)', fontWeight: 600 }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="home-stats-grid">
+    {STATS.map(s => (
+      <div key={s.label}>
+        <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#E6F5F2' }}>{s.value}</div>
+        <div style={{ fontSize: '0.9rem', color: 'rgba(230,245,242,0.75)', fontWeight: 600 }}>{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* ── SERVICES ── */}
       <section style={{ padding: '80px 20px', backgroundColor: 'var(--orizia-light)' }}>
@@ -162,31 +162,38 @@ export default function HomePage() {
 
       {/* ── POURQUOI ORIZIA ── */}
       <section style={{ padding: '80px 20px', backgroundColor: '#fff' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
-          <div>
-            <p style={{ color: 'var(--orizia-primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Pourquoi nous choisir</p>
-            <h2 style={{ color: 'var(--orizia-accent)', fontSize: '2rem', fontWeight: 900, marginTop: 0, marginBottom: 24 }}>Un courtier 100% indépendant à vos côtés</h2>
-            <p style={{ color: 'var(--orizia-dark)', lineHeight: 1.7, marginBottom: 16 }}>
-              Chez Orizia Courtage, nous travaillons exclusivement pour vous. Sans lien exclusif avec aucun établissement financier, nous comparons objectivement les offres du marché pour vous obtenir les meilleures conditions.
-            </p>
-            {[
-              'Étude personnalisée et gratuite',
-              'Accès à plus de 40 partenaires bancaires',
-              'Accompagnement de A à Z',
-              'Courtier certifié ORIAS',
-            ].map(item => (
-              <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-                <span style={{ color: 'var(--orizia-primary)', fontSize: '1.2rem' }}>✓</span>
-                <span style={{ fontWeight: 600 }}>{item}</span>
-              </div>
-            ))}
-            <Link href="/contact" className="orizia-btn-main" style={{ display: 'inline-block', marginTop: 24 }}>Prendre rendez-vous</Link>
-          </div>
-          <div style={{ position: 'relative', height: 420, borderRadius: 16, overflow: 'hidden', boxShadow: '0 12px 40px rgba(29,30,24,0.12)' }}>
-            <Image src="/images/hero-orizia.jpg" alt="Cabinet Orizia Courtage" fill style={{ objectFit: 'cover' }} />
-          </div>
+  <div className="home-why-grid">
+    <div>
+      <p style={{ color: 'var(--orizia-primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>
+        Pourquoi nous choisir
+      </p>
+      <h2 style={{ color: 'var(--orizia-accent)', fontSize: '2rem', fontWeight: 900, marginTop: 0, marginBottom: 24 }}>
+        Un courtier 100% indépendant à vos côtés
+      </h2>
+      <p style={{ color: 'var(--orizia-dark)', lineHeight: 1.7, marginBottom: 16 }}>
+        Chez Orizia Courtage, nous travaillons exclusivement pour vous. Sans lien exclusif avec aucun établissement financier, nous comparons objectivement les offres du marché pour vous obtenir les meilleures conditions.
+      </p>
+      {[
+        'Étude personnalisée et gratuite',
+        'Accès à plus de 40 partenaires bancaires',
+        'Accompagnement de A à Z',
+        'Courtier certifié ORIAS',
+      ].map(item => (
+        <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+          <span style={{ color: 'var(--orizia-primary)', fontSize: '1.2rem' }}>✓</span>
+          <span style={{ fontWeight: 600 }}>{item}</span>
         </div>
-      </section>
+      ))}
+      <Link href="/rendez-vous" className="orizia-btn-main" style={{ display: 'inline-block', marginTop: 24 }}>
+        Prendre rendez-vous
+      </Link>
+    </div>
+
+    <div className="home-why-image" style={{ position: 'relative', height: 420, borderRadius: 16, overflow: 'hidden', boxShadow: '0 12px 40px rgba(29,30,24,0.12)' }}>
+      <Image src="/images/hero-orizia.jpg" alt="Cabinet Orizia Courtage" fill style={{ objectFit: 'cover' }} />
+    </div>
+  </div>
+</section>
     </>
   );
 }
