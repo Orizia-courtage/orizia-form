@@ -63,21 +63,47 @@ const SCROLL_HEADER_CONFIG = {
   },
 };
 
-const HIDE_SCROLL_HEADER = ['/contact', '/rendez-vous', '/simulation'];
+const HIDE_SCROLL_HEADER  = ['/contact', '/rendez-vous', '/simulation'];
 const STICKY_MOBILE_PAGES = ['/rendez-vous'];
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen]       = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [scrolled, setScrolled]           = useState(false);
+  const [headerHidden, setHeaderHidden]   = useState(false);
   const router   = useRouter();
   const pathname = usePathname();
 
+  // Scroll listener
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Cache le header uniquement quand [data-hide-header] est visible à l'écran
+  useEffect(() => {
+    setHeaderHidden(false); // reset à chaque changement de page
+
+    let observer;
+
+    // setTimeout pour laisser Next.js terminer le rendu de la nouvelle page
+    const timer = setTimeout(() => {
+      const target = document.querySelector('[data-hide-header]');
+      if (!target) return;
+
+      observer = new IntersectionObserver(
+        ([entry]) => setHeaderHidden(entry.isIntersecting),
+        { threshold: 0.1 }
+      );
+      observer.observe(target);
+    }, 200);
+
+    return () => {
+      clearTimeout(timer);
+      observer?.disconnect();
+    };
+  }, [pathname]);
 
   const matchKey         = Object.keys(SCROLL_HEADER_CONFIG).find(k => pathname.startsWith(k));
   const scrollConfig     = matchKey ? SCROLL_HEADER_CONFIG[matchKey] : null;
@@ -87,8 +113,13 @@ export default function Header() {
   return (
     <>
       {/* Header principal */}
-      <header className={`site-header${isStickyMobile ? ' site-header--sticky' : ''}`}>
+      <header className={[
+        'site-header',
+        isStickyMobile ? 'site-header--sticky' : '',
+        headerHidden   ? 'site-header--hidden'  : '',
+      ].filter(Boolean).join(' ')}>
         <div className="header-container">
+
           {/* Logo */}
           <Link href="/" className="site-logo">
             <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia Courtage" width={160} height={75} style={{ objectFit: 'contain' }} priority />
@@ -135,7 +166,6 @@ export default function Header() {
             <Link href="/contact" style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}>
               Contactez-nous
             </Link>
-            <Link href="/espace-client" className="btn-client">👤 Espace Client</Link>
             <button className="mobile-toggle" onClick={() => setDrawerOpen(true)} aria-label="Menu">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="3" y1="6" x2="21" y2="6"/>
@@ -144,17 +174,18 @@ export default function Header() {
               </svg>
             </button>
           </div>
+
         </div>
       </header>
 
-      {/* Mini header mobile au scroll — masqué sur certaines pages */}
+      {/* Mini header mobile au scroll */}
       {!hideScrollHeader && (
         <div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
           <Link href="/" className="mobile-scroll-logo">
             <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={90} height={40} style={{ objectFit: 'contain' }} priority />
           </Link>
           <select
-             key={pathname}
+            key={pathname}
             id="projet-select"
             name="projet"
             className="mobile-scroll-select"
@@ -209,7 +240,6 @@ export default function Header() {
           </ul>
           <div className="mobile-action-buttons">
             <Link href="/contact" className="mobile-btn-contact" onClick={() => setDrawerOpen(false)}>Contactez-nous</Link>
-            <Link href="/espace-client" className="btn-client mobile-btn-client" onClick={() => setDrawerOpen(false)}>👤 Espace Client</Link>
           </div>
         </div>
       </div>

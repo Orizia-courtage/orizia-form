@@ -261,6 +261,14 @@ select.orz-input { cursor:pointer;padding-right:40px;
   background-color: var(--orizia-light);
   border-bottom: 1px solid rgba(58,111,108,0.15);
   box-shadow: 0 2px 16px rgba(29,30,24,0.08);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+.site-header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 1024px) {
