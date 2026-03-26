@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const NAV = [
   {
@@ -37,10 +38,18 @@ const NAV = [
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      {/* ← classe site-header au lieu des styles inline */}
+      {/* Header principal */}
       <header className="site-header">
         <div className="header-container">
           {/* Logo */}
@@ -90,7 +99,7 @@ export default function Header() {
               Contactez-nous
             </Link>
             <Link href="/espace-client" className="btn-client">👤 Espace Client</Link>
-            <button id="mobileToggle" className="mobile-toggle" onClick={() => setDrawerOpen(true)} aria-label="Menu">
+            <button className="mobile-toggle" onClick={() => setDrawerOpen(true)} aria-label="Menu">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <line x1="3" y1="12" x2="21" y2="12"/>
@@ -100,6 +109,25 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+      {/* Mini header mobile au scroll */}
+<div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
+  <Link href="/" className="mobile-scroll-logo">
+    <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={90} height={40} style={{ objectFit: 'contain' }} priority />
+  </Link>
+  <select
+  id="projet-select"
+  name="projet"
+  className="mobile-scroll-select"
+  defaultValue=""
+  onChange={e => { if (e.target.value) router.push(e.target.value); }}
+>
+  <option value="" disabled>Quel est votre projet ?</option>
+  <option value="/investir">💼 Investir</option>
+  <option value="/financer">🏠 Financer</option>
+  <option value="/assurer">🛡️ Assurer</option>
+</select>
+      </div>
 
       {/* Overlay */}
       <div className={`mobile-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
