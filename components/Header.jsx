@@ -40,7 +40,8 @@ export default function Header() {
 
   return (
     <>
-      <header style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'var(--orizia-light)', borderBottom: '1px solid rgba(58,111,108,0.15)', boxShadow: '0 2px 12px rgba(29,30,24,0.06)' }}>
+      {/* ← classe site-header au lieu des styles inline */}
+      <header className="site-header">
         <div className="header-container">
           {/* Logo */}
           <Link href="/" className="site-logo">
@@ -85,11 +86,16 @@ export default function Header() {
 
           {/* Boutons droite */}
           <div className="header-right">
-            <Link href="/contact" style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15 }}>Contactez-nous</Link>
+            <Link href="/contact" style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}>
+              Contactez-nous
+            </Link>
             <Link href="/espace-client" className="btn-client">👤 Espace Client</Link>
-            {/* Burger mobile */}
             <button id="mobileToggle" className="mobile-toggle" onClick={() => setDrawerOpen(true)} aria-label="Menu">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
             </button>
           </div>
         </div>
@@ -115,7 +121,9 @@ export default function Header() {
                   {item.links.map(l => (
                     <Link key={l.href} href={l.href} onClick={() => setDrawerOpen(false)}>{l.title}</Link>
                   ))}
-                  <Link href={item.cta.href} className="mobile-accordion-cta" onClick={() => setDrawerOpen(false)}>{item.cta.label}</Link>
+                  <Link href={item.cta.href} className="mobile-accordion-cta" onClick={() => setDrawerOpen(false)}>
+                    {item.cta.label}
+                  </Link>
                 </div>
               </li>
             ))}
