@@ -265,7 +265,12 @@ select.orz-input { cursor:pointer;padding-right:40px;
 
 @media (max-width: 1024px) {
   .site-header {
-    position: relative; /* ← plus sticky sur mobile */
+    position: relative; /* mobile : pas sticky par défaut */
+  }
+
+  .site-header--sticky {
+    position: sticky; /* sticky uniquement sur /rendez-vous */
+    top: 0;
   }
 }
 
@@ -797,4 +802,46 @@ select.orz-input { cursor:pointer;padding-right:40px;
   .mobile-scroll-header {
     display: flex;
   }
+}
+
+/* =========================================
+   PAGE INVESTIR
+========================================= */
+.investir-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--orizia-light);
+  color: var(--orizia-accent);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.investir-hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.investir-card {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 24px;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 12px rgba(29,30,24,0.06);
+  transition: all 0.2s ease;
+}
+.investir-card:hover {
+  border-color: var(--orizia-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(58,111,108,0.15);
+}
+
+@media (max-width: 768px) {
+  .investir-card { padding: 20px 18px; }
 }

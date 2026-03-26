@@ -2,44 +2,76 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 const NAV = [
   {
     label: 'Investir',
     links: [
-      { href: '/investir/crowdfunding',   title: 'Crowdfunding',   sub: 'Financement participatif' },
-      { href: '/investir/per',             title: 'PERP / PER',      sub: 'Préparez votre retraite' },
-      { href: '/investir/assurance-vie',   title: 'Assurance Vie',   sub: 'Épargne & transmission' },
-      { href: '/investir/scpi',            title: 'SCPI',            sub: 'Immobilier de rendement' },
+      { href: '/investir/crowdfunding',  title: 'Crowdfunding',   sub: 'Financement participatif' },
+      { href: '/investir/per',            title: 'PERP / PER',     sub: 'Préparez votre retraite' },
+      { href: '/investir/assurance-vie',  title: 'Assurance Vie',  sub: 'Épargne & transmission' },
+      { href: '/investir/scpi',           title: 'SCPI',           sub: 'Immobilier de rendement' },
     ],
     cta: { href: '/contact', label: 'Prendre rendez-vous', img: '/images/investir.jpg', text: 'Construisez votre stratégie patrimoniale avec nos experts.' },
   },
   {
     label: 'Financer',
     links: [
-      { href: '/financer/credit-immobilier',      title: 'Crédit immobilier',       sub: 'Votre projet immobilier' },
-      { href: '/financer/regroupement-credits',   title: 'Regroupement de crédits', sub: 'Réduisez vos mensualités' },
-      { href: '/financer/pret-personnel',         title: 'Prêt personnel',          sub: 'Financez vos projets' },
+      { href: '/financer/credit-immobilier',     title: 'Crédit immobilier',       sub: 'Votre projet immobilier' },
+      { href: '/financer/regroupement-credits',  title: 'Regroupement de crédits', sub: 'Réduisez vos mensualités' },
+      { href: '/financer/pret-personnel',        title: 'Prêt personnel',          sub: 'Financez vos projets' },
     ],
     cta: { href: '/simulation', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation gratuite en quelques minutes.' },
   },
   {
     label: 'Assurer',
     links: [
-      { href: '/assurer/emprunteur',   title: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
-      { href: '/assurer/habitation',   title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
-      { href: '/assurer/auto-moto',    title: 'Assurance auto/moto',  sub: 'Roulez en toute sérénité' },
+      { href: '/assurer/emprunteur',  title: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
+      { href: '/assurer/habitation',  title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
+      { href: '/assurer/auto-moto',   title: 'Assurance auto/moto',  sub: 'Roulez en toute sérénité' },
     ],
     cta: { href: '/contact', label: 'Obtenir un devis', img: '/images/assurer.jpg', text: 'Comparez les meilleures offres du marché.' },
   },
 ];
 
+const SCROLL_HEADER_CONFIG = {
+  '/investir': {
+    placeholder: 'Choisir un produit',
+    options: [
+      { value: '/investir/crowdfunding',  label: '📈 Crowdfunding' },
+      { value: '/investir/per',           label: '🏦 PERP / PER' },
+      { value: '/investir/assurance-vie', label: '🛡️ Assurance Vie' },
+      { value: '/investir/scpi',          label: '🏢 SCPI' },
+    ],
+  },
+  '/financer': {
+    placeholder: 'Choisir un financement',
+    options: [
+      { value: '/financer/credit-immobilier',    label: '🏠 Crédit immobilier' },
+      { value: '/financer/regroupement-credits', label: '💳 Regroupement' },
+      { value: '/financer/pret-personnel',       label: '💶 Prêt personnel' },
+    ],
+  },
+  '/assurer': {
+    placeholder: 'Choisir une assurance',
+    options: [
+      { value: '/assurer/emprunteur', label: '📋 Emprunteur' },
+      { value: '/assurer/habitation', label: '🏡 Habitation' },
+      { value: '/assurer/auto-moto',  label: '🚗 Auto / Moto' },
+    ],
+  },
+};
+
+const HIDE_SCROLL_HEADER = ['/contact', '/rendez-vous', '/simulation'];
+const STICKY_MOBILE_PAGES = ['/rendez-vous'];
+
 export default function Header() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen]       = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
+  const [scrolled, setScrolled]           = useState(false);
+  const router   = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -47,10 +79,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const matchKey         = Object.keys(SCROLL_HEADER_CONFIG).find(k => pathname.startsWith(k));
+  const scrollConfig     = matchKey ? SCROLL_HEADER_CONFIG[matchKey] : null;
+  const hideScrollHeader = HIDE_SCROLL_HEADER.some(p => pathname.startsWith(p));
+  const isStickyMobile   = STICKY_MOBILE_PAGES.some(p => pathname.startsWith(p));
+
   return (
     <>
       {/* Header principal */}
-      <header className="site-header">
+      <header className={`site-header${isStickyMobile ? ' site-header--sticky' : ''}`}>
         <div className="header-container">
           {/* Logo */}
           <Link href="/" className="site-logo">
@@ -110,24 +147,38 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mini header mobile au scroll */}
-<div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
-  <Link href="/" className="mobile-scroll-logo">
-    <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={90} height={40} style={{ objectFit: 'contain' }} priority />
-  </Link>
-  <select
-  id="projet-select"
-  name="projet"
-  className="mobile-scroll-select"
-  defaultValue=""
-  onChange={e => { if (e.target.value) router.push(e.target.value); }}
->
-  <option value="" disabled>Quel est votre projet ?</option>
-  <option value="/investir">💼 Investir</option>
-  <option value="/financer">🏠 Financer</option>
-  <option value="/assurer">🛡️ Assurer</option>
-</select>
-      </div>
+      {/* Mini header mobile au scroll — masqué sur certaines pages */}
+      {!hideScrollHeader && (
+        <div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
+          <Link href="/" className="mobile-scroll-logo">
+            <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={90} height={40} style={{ objectFit: 'contain' }} priority />
+          </Link>
+          <select
+             key={pathname}
+            id="projet-select"
+            name="projet"
+            className="mobile-scroll-select"
+            defaultValue=""
+            onChange={e => { if (e.target.value) router.push(e.target.value); }}
+          >
+            <option value="" disabled>
+              {scrollConfig ? scrollConfig.placeholder : 'Quel est votre projet ?'}
+            </option>
+            {scrollConfig
+              ? scrollConfig.options.map(o => (
+                  <option key={o.value} value={o.value}>{o.label}</option>
+                ))
+              : (
+                <>
+                  <option value="/investir">💼 Investir</option>
+                  <option value="/financer">🏠 Financer</option>
+                  <option value="/assurer">🛡️ Assurer</option>
+                </>
+              )
+            }
+          </select>
+        </div>
+      )}
 
       {/* Overlay */}
       <div className={`mobile-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
