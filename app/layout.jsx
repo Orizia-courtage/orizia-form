@@ -15,6 +15,8 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <body className={urbanist.className}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
