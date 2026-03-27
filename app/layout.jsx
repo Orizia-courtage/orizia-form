@@ -1,5 +1,7 @@
 import { Urbanist } from 'next/font/google';
 import './globals.css';
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const urbanist = Urbanist({ subsets: ['latin'], weight: ['400','500','600','800','900'] });
 
