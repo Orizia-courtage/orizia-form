@@ -1,9 +1,7 @@
-// app/(site)/rendez-vous/layout.jsx
 export const metadata = {
   title: 'Prendre rendez-vous | Orizia Courtage',
-  description: 'Réservez votre rendez-vous gratuit avec un conseiller Orizia.',
+  description: 'Prenez rendez-vous gratuitement avec un conseiller Orizia Courtage.',
 };
-
-export default function RendezVousLayout({ children }) {
-  return <>{children}</>;
+export default function RendezvousLayout({ children }) {
+  return children;
 }
