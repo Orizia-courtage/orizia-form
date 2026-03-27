@@ -76,10 +76,19 @@ export default function Header() {
 
   // Scroll listener
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  let timeout;
+  const handleScroll = () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      setScrolled(window.scrollY > 200);
+    }, 50);
+  };
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+    clearTimeout(timeout);
+  };
+}, []);
 
   // Cache le header uniquement quand [data-hide-header] est visible à l'écran
   useEffect(() => {
