@@ -52,6 +52,9 @@ export default function ContactWidget() {
   const [form, setForm]           = useState(EMPTY_FORM);
   const [errors, setErrors]       = useState({});
   const [submitted, setSubmitted] = useState(false);
+  
+  // NOUVEAU : État pour stocker le message d'erreur renvoyé par le serveur ou Vercel
+  const [serverError, setServerError] = useState(''); 
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -69,8 +72,14 @@ export default function ContactWidget() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
+    setServerError(''); // Réinitialiser l'erreur serveur au début d'une nouvelle tentative
+
     const errs = validate(form);
-    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    if (Object.keys(errs).length > 0) { 
+      setErrors(errs); 
+      return; 
+    }
+    
     setLoading(true);
     try {
       const res = await fetch('/api/contact', {
@@ -78,14 +87,31 @@ export default function ContactWidget() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
+
+      // 1. Interception de la limitation de débit (Rate Limit de Vercel)
+      if (res.status === 429) {
+        setServerError("Vous avez envoyé trop de messages. Veuillez patienter quelques minutes avant de réessayer.");
+      } 
+      // 2. Interception des autres erreurs serveur (ex: erreur 500 de Resend)
+      else if (!res.ok) {
+        // Tenter de lire le message d'erreur de votre API s'il y en a un
+        const data = await res.json().catch(() => ({})); 
+        setServerError(data.error || "Une erreur inattendue est survenue lors de l'envoi.");
+      } 
+      // 3. Succès (statut 200)
+      else {
         setSent(true);
         setForm(EMPTY_FORM);
         setErrors({});
         setSubmitted(false);
       }
-    } catch (err) { console.error(err); }
-    setLoading(false);
+    } catch (err) { 
+      console.error(err); 
+      setServerError("Impossible de joindre le serveur. Vérifiez votre connexion internet.");
+    } finally {
+      // Le bloc finally s'exécute toujours, succès ou échec
+      setLoading(false);
+    }
   };
 
   return (
@@ -152,11 +178,23 @@ export default function ContactWidget() {
                 ) : (
                   <form onSubmit={handleSubmit} className="cw-form" noValidate>
 
-                    {/* Bandeau erreur global */}
+                    {/* NOUVEAU : Bandeau d'erreur Serveur (ex: 429 Vercel ou 500 Resend) */}
+                    {serverError && (
+                      <div style={{
+                        background: '#fef2f2', border: '1px solid #fecaca',
+                        borderRadius: 8, padding: '10px 12px', marginBottom: '12px',
+                        fontSize: '0.85rem', color: '#dc2626', fontWeight: 600,
+                        lineHeight: 1.4
+                      }}>
+                        🚫 {serverError}
+                      </div>
+                    )}
+
+                    {/* Bandeau erreur global validation */}
                     {submitted && Object.keys(errors).length > 0 && (
                       <div style={{
                         background: '#fef2f2', border: '1px solid #fecaca',
-                        borderRadius: 8, padding: '10px 12px',
+                        borderRadius: 8, padding: '10px 12px', marginBottom: '12px',
                         fontSize: '0.78rem', color: '#dc2626', fontWeight: 600,
                         lineHeight: 1.4
                       }}>
