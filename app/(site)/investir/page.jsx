@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Investir | Orizia Courtage',
+  description: 'Découvrez nos solutions d\'investissement : SCPI, Assurance Vie, PER, Crowdfunding.',
+};
+
 const PRODUITS = [
   {
     href: '/investir/scpi',

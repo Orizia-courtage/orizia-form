@@ -9,27 +9,27 @@ const NAV = [
     label: 'Investir',
     links: [
       { href: '/investir/crowdfunding',  title: 'Crowdfunding',   sub: 'Financement participatif' },
-      { href: '/investir/per',            title: 'PERP / PER',     sub: 'Préparez votre retraite' },
-      { href: '/investir/assurance-vie',  title: 'Assurance Vie',  sub: 'Épargne & transmission' },
-      { href: '/investir/scpi',           title: 'SCPI',           sub: 'Immobilier de rendement' },
+      { href: '/investir/per',           title: 'PERP / PER',     sub: 'Préparez votre retraite' },
+      { href: '/investir/assurance-vie', title: 'Assurance Vie',  sub: 'Épargne & transmission' },
+      { href: '/investir/scpi',          title: 'SCPI',           sub: 'Immobilier de rendement' },
     ],
     cta: { href: '/contact', label: 'Prendre rendez-vous', img: '/images/investir.jpg', text: 'Construisez votre stratégie patrimoniale avec nos experts.' },
   },
   {
     label: 'Financer',
     links: [
-      { href: '/financer/credit-immobilier',     title: 'Crédit immobilier',       sub: 'Votre projet immobilier' },
-      { href: '/financer/regroupement-credits',  title: 'Regroupement de crédits', sub: 'Réduisez vos mensualités' },
-      { href: '/financer/pret-personnel',        title: 'Prêt personnel',          sub: 'Financez vos projets' },
+      { href: '/financer/credit-immobilier',    title: 'Crédit immobilier',       sub: 'Votre projet immobilier' },
+      { href: '/financer/regroupement-credits', title: 'Regroupement de crédits', sub: 'Réduisez vos mensualités' },
+      { href: '/financer/pret-personnel',       title: 'Prêt personnel',          sub: 'Financez vos projets' },
     ],
     cta: { href: '/simulation', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation gratuite en quelques minutes.' },
   },
   {
     label: 'Assurer',
     links: [
-      { href: '/assurer/emprunteur',  title: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
-      { href: '/assurer/habitation',  title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
-      { href: '/assurer/auto-moto',   title: 'Assurance auto/moto',  sub: 'Roulez en toute sérénité' },
+      { href: '/assurer/emprunteur', title: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
+      { href: '/assurer/habitation', title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
+      { href: '/assurer/auto-moto',  title: 'Assurance auto/moto',  sub: 'Roulez en toute sérénité' },
     ],
     cta: { href: '/contact', label: 'Obtenir un devis', img: '/images/assurer.jpg', text: 'Comparez les meilleures offres du marché.' },
   },
@@ -74,40 +74,24 @@ export default function Header() {
   const router   = useRouter();
   const pathname = usePathname();
 
-  // Scroll listener
   useEffect(() => {
-  let timeout;
-  const handleScroll = () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      setScrolled(window.scrollY > 200);
-    }, 50);
-  };
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-    clearTimeout(timeout);
-  };
-}, []);
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Cache le header uniquement quand [data-hide-header] est visible à l'écran
   useEffect(() => {
-    setHeaderHidden(false); // reset à chaque changement de page
-
+    setHeaderHidden(false);
     let observer;
-
-    // setTimeout pour laisser Next.js terminer le rendu de la nouvelle page
     const timer = setTimeout(() => {
       const target = document.querySelector('[data-hide-header]');
       if (!target) return;
-
       observer = new IntersectionObserver(
         ([entry]) => setHeaderHidden(entry.isIntersecting),
         { threshold: 0.1 }
       );
       observer.observe(target);
     }, 200);
-
     return () => {
       clearTimeout(timer);
       observer?.disconnect();
@@ -121,25 +105,26 @@ export default function Header() {
 
   return (
     <>
-      {/* Header principal */}
       <header className={[
         'site-header',
         isStickyMobile ? 'site-header--sticky' : '',
         headerHidden   ? 'site-header--hidden'  : '',
+        scrolled       ? 'site-header--scrolled' : '',
       ].filter(Boolean).join(' ')}>
         <div className="header-container">
 
-          {/* Logo */}
           <Link href="/" className="site-logo">
             <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia Courtage" width={160} height={75} style={{ objectFit: 'contain' }} priority />
           </Link>
 
-          {/* Nav Desktop */}
           <nav className="desktop-nav">
             <ul className="main-menu">
               {NAV.map(item => (
                 <li key={item.label} className="menu-item">
-                  <a href="#">{item.label} <span className="arrow">▾</span></a>
+                  {/* ← Redirige vers /investir, /financer ou /assurer au clic */}
+                  <Link href={`/${item.label.toLowerCase()}`}>
+                    {item.label} <span className="arrow">▾</span>
+                  </Link>
                   <div className="mega-menu">
                     <div className="mega-menu-inner">
                       <div className="mega-links">
@@ -170,7 +155,6 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Boutons droite */}
           <div className="header-right">
             <Link href="/contact" style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}>
               Contactez-nous
@@ -187,7 +171,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mini header mobile au scroll */}
       {!hideScrollHeader && (
         <div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
           <Link href="/" className="mobile-scroll-logo">
@@ -220,10 +203,8 @@ export default function Header() {
         </div>
       )}
 
-      {/* Overlay */}
       <div className={`mobile-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
 
-      {/* Tiroir mobile */}
       <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
         <div className="mobile-drawer-header">
           <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={120} height={50} style={{ objectFit: 'contain' }} />
