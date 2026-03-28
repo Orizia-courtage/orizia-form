@@ -1,0 +1,810 @@
+import Link from 'next/link';
+
+export const metadata = {
+  title: 'Plan Épargne Retraite (PER) 2026 : Déduction Fiscale & Retraite | Orizia Courtage',
+  description:
+    'Le PER vous permet de déduire vos versements de votre revenu imposable et de préparer votre retraite. Orizia Courtage sélectionne le meilleur PER selon votre profil et votre TMI. Conseil indépendant et gratuit.',
+  keywords: [
+    'plan épargne retraite 2026',
+    'PER individuel',
+    'PER déduction fiscale',
+    'meilleur PER courtier',
+    'PER vs assurance vie',
+    'PER TNS travailleur indépendant',
+    'ouvrir PER 2026',
+    'PER sortie capital rente',
+  ],
+  alternates: { canonical: 'https://orizia.fr/investir/per' },
+  openGraph: {
+    title: 'Plan Épargne Retraite (PER) 2026 : Déduction Fiscale & Retraite | Orizia Courtage',
+    description: 'Réduisez votre impôt aujourd\'hui, préparez votre retraite pour demain. Orizia Courtage vous accompagne dans l\'ouverture du meilleur PER selon votre situation.',
+    url: 'https://orizia.fr/investir/per',
+    type: 'article',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Qu\'est-ce que le Plan Épargne Retraite (PER) ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Le PER est un produit d\'épargne retraite créé par la loi PACTE de 2019. Il remplace les anciens contrats PERP, Madelin et PERCO. Son principal avantage : les versements volontaires sont déductibles de votre revenu imposable dans la limite d\'un plafond annuel. L\'épargne est en principe bloquée jusqu\'à la retraite, avec des exceptions (achat de résidence principale, invalidité, décès du conjoint…). À la retraite, vous pouvez sortir en capital, en rente viagère, ou en combinant les deux.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Combien puis-je déduire grâce au PER en 2026 ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pour un salarié, le plafond de déduction est de 10% des revenus professionnels nets de l\'année précédente, dans la limite de 10% de 8 fois le PASS (soit environ 35 000€ en 2026). Pour un travailleur non-salarié (TNS), le plafond Madelin est plus élevé : 10% du bénéfice imposable + 15% sur la part comprise entre 1 et 8 PASS, soit jusqu\'à environ 85 000€. Les plafonds non utilisés sont reportables sur 3 ans.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Le PER bloque-t-il vraiment mon argent jusqu\'à la retraite ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'En principe oui, mais des exceptions de déblocage anticipé existent : achat de la résidence principale, invalidité de 2ème ou 3ème catégorie, décès du conjoint ou partenaire de PACS, surendettement, expiration des droits au chômage, cessation d\'activité non salariée suite à liquidation judiciaire. Ces exceptions permettent de récupérer l\'épargne avant la retraite sans pénalité.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Vaut-il mieux sortir en capital ou en rente avec un PER ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La sortie en capital est généralement plus avantageuse pour les petits et moyens capitaux : vous récupérez votre épargne en une fois ou progressivement. Les versements déduits sont imposés à l\'IR à la sortie, les gains au PFU 30%. La rente viagère est fiscalement moins attractive mais garantit un revenu à vie — utile si vous avez une espérance de vie longue ou peu d\'autres revenus à la retraite. Orizia vous aide à choisir selon votre TMI de retraite estimé.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'PER ou assurance vie : lequel choisir ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ce n\'est pas l\'un ou l\'autre — ils sont complémentaires. Le PER est optimal pour réduire votre impôt aujourd\'hui (si votre TMI est élevé) et préparer la retraite sur le long terme. L\'assurance vie est idéale pour une épargne disponible à tout moment, avec une fiscalité avantageuse après 8 ans et des avantages de transmission. Idéalement, vous combinez les deux : PER pour l\'optimisation fiscale immédiate, AV pour la liquidité et la transmission.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Le PER est-il intéressant pour un travailleur indépendant ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'C\'est l\'un des placements les plus efficaces pour un TNS. Le plafond de déduction Madelin est bien plus élevé que celui des salariés, et comme vos revenus sont souvent variables, vous pouvez moduler vos versements selon votre bénéfice. Un TNS à 41% de TMI qui verse 10 000€ sur son PER récupère immédiatement 4 100€ d\'impôt en moins. C\'est un rendement fiscal garanti dès la première année.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Pourquoi ouvrir un PER via un courtier plutôt qu\'en banque ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Les PER bancaires appliquent souvent des frais sur versements de 2 à 4% et des frais de gestion élevés qui grignotent la performance sur 20 ans. Un courtier indépendant comme Orizia accède à des contrats PER haut de gamme avec 0% de frais sur versements, une large gamme d\'UC (ETF, SCPI, fonds actions), et un suivi personnalisé de l\'allocation selon l\'horizon de retraite.',
+      },
+    },
+  ],
+};
+
+const DANGERS = [
+  {
+    icon: '🏦',
+    title: 'Votre banque vous vend son PER, pas le meilleur',
+    text: 'Avec 2 à 4% de frais sur versements et des fonds limités aux gammes maison, un PER bancaire sur 25 ans peut vous coûter plusieurs dizaines de milliers d\'euros de performance nette. La déduction fiscale attire l\'œil — mais les frais la rongeaient discrètement.',
+  },
+  {
+    icon: '📊',
+    title: 'Plafonds non utilisés : une mine d\'or ignorée',
+    text: 'Les plafonds de déduction non utilisés sont reportables sur 3 ans. La plupart des épargnants l\'ignorent et laissent filer des milliers d\'euros de déduction. Un audit de votre situation fiscale révèle souvent des capacités de versement inexploitées.',
+  },
+  {
+    icon: '⏳',
+    title: 'Attendre "d\'être plus âgé" est une erreur coûteuse',
+    text: 'Chaque année sans PER est une année de capitalisation perdue et une déduction fiscale ratée. 10 000€ investis à 35 ans valent le double à 60 ans à 5%/an. Les impôts économisés chaque année et réinvestis démultiplient l\'effet.',
+  },
+];
+
+const AVANTAGES = [
+  {
+    icon: '💰',
+    title: 'Réduction d\'impôt immédiate',
+    text: 'Chaque euro versé sur votre PER réduit votre revenu imposable. À 41% de TMI, 10 000€ versés = 4 100€ d\'impôt économisés dès l\'année suivante. Un rendement fiscal garanti dès jour 1.',
+  },
+  {
+    icon: '🏠',
+    title: 'Déblocage pour la résidence principale',
+    text: 'Votre PER n\'est pas une prison. L\'achat de votre résidence principale permet un déblocage anticipé total ou partiel, sans pénalité. Idéal pour combiner préparation retraite et projet immobilier.',
+  },
+  {
+    icon: '📈',
+    title: 'Performance sur le long terme',
+    text: 'Investi sur des UC (ETF monde, fonds actions, SCPI…) sur 20–30 ans, votre PER peut viser 4–7%/an. Combiné à l\'avantage fiscal, c\'est le placement retraite le plus puissant disponible en France.',
+  },
+  {
+    icon: '🔄',
+    title: 'Sortie flexible à la retraite',
+    text: 'En capital (en une fois ou progressivement), en rente viagère ou en combinant les deux. Vous choisissez selon votre situation à la retraite, pas aujourd\'hui.',
+  },
+  {
+    icon: '🧾',
+    title: 'Plafonds élevés pour les TNS',
+    text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour gérer les années à hauts revenus.',
+  },
+  {
+    icon: '🎁',
+    title: 'Transmission avantageuse',
+    text: 'En cas de décès avant la retraite, le capital du PER est transmis aux bénéficiaires désignés avec la même fiscalité avantageuse qu\'une assurance vie (exonération jusqu\'à 152 500€ par bénéficiaire).',
+  },
+];
+
+const PROFILS = [
+  {
+    icon: '👔',
+    title: 'Salarié cadre',
+    tmi: '30% ou 41%',
+    gain: '3 000–4 100€ d\'impôt en moins',
+    base: 'pour 10 000€ versés',
+    conseil: 'Versements réguliers mensuels + rattrapage des plafonds N-3',
+    color: 'var(--orizia-primary)',
+    featured: false,
+  },
+  {
+    icon: '⚙️',
+    title: 'Travailleur indépendant / TNS',
+    tmi: '41% ou 45%',
+    gain: 'Jusqu\'à 38 250€ d\'impôt en moins',
+    base: 'avec plafond Madelin complet',
+    conseil: 'Versements modulables selon le bénéfice annuel — idéal les bonnes années',
+    color: '#d97706',
+    featured: true,
+  },
+  {
+    icon: '🏢',
+    title: 'Dirigeant de société',
+    tmi: '41% ou 45%',
+    gain: 'Déduction IS + IR possible',
+    base: 'selon la structure de rémunération',
+    conseil: 'Combinaison PER individuel + contrat Madelin via la société selon statut',
+    color: '#7c3aed',
+    featured: false,
+  },
+];
+
+const RISQUES = [
+  {
+    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '🟠',
+    title: 'Blocage jusqu\'à la retraite',
+    text: 'Sauf exceptions légales (résidence principale, invalidité, décès conjoint…), votre épargne est bloquée. Ce n\'est pas un placement de liquidité — il faut avoir une épargne de précaution par ailleurs.',
+    mitigation: 'Notre rôle : dimensionner le PER en complément d\'une AV liquide, jamais à la place.',
+  },
+  {
+    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '🟠',
+    title: 'Perte en capital sur UC',
+    text: 'Les unités de compte sont soumises aux fluctuations des marchés. Sur le court terme, elles peuvent baisser significativement. Sur 20–30 ans, les données historiques montrent des performances positives.',
+    mitigation: 'Notre rôle : utiliser la gestion pilotée — exposition aux UC forte jeune, sécurisation progressive à l\'approche de la retraite.',
+  },
+  {
+    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '🟢',
+    title: 'Risque fiscal à la sortie',
+    text: 'Les sommes déduites à l\'entrée sont imposées à l\'IR à la sortie. Si votre TMI de retraite est aussi élevé qu\'en activité, le gain fiscal est limité. Dans la majorité des cas, le TMI baisse à la retraite.',
+    mitigation: 'Notre rôle : estimer votre TMI de retraite et valider que le PER est rentable avant d\'y verser.',
+  },
+  {
+    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '🟢',
+    title: 'Risque législatif',
+    text: 'La fiscalité du PER dépend de la loi. Des changements législatifs pourraient modifier les conditions de déduction ou de sortie. Ce risque existe pour tout placement fiscal.',
+    mitigation: 'Notre rôle : vous tenir informé des évolutions réglementaires et adapter la stratégie si nécessaire.',
+  },
+];
+
+const ETAPES = [
+  {
+    n: '01',
+    title: 'Audit fiscal de votre situation',
+    text: 'TMI, revenus, plafonds disponibles N, N-1, N-2, N-3 — nous calculons exactement combien vous pouvez déduire cette année et ce que ça représente en économie d\'impôt concrète.',
+  },
+  {
+    n: '02',
+    title: 'Sélection du contrat optimal',
+    text: 'Parmi nos contrats partenaires (Abeille Épargne Active, Cardif Elite, Celebéa Vie, SwissLife Strategic Premium, SwissLife Vie Génération) avec 0% de frais sur versements et large gamme d\'UC.',
+  },
+  {
+    n: '03',
+    title: 'Construction de l\'allocation',
+    text: 'Gestion pilotée ou libre, ETF, SCPI, fonds actions — nous construisons une allocation adaptée à votre horizon retraite avec sécurisation progressive à l\'approche de l\'échéance.',
+  },
+  {
+    n: '04',
+    title: 'Stratégie de sortie anticipée',
+    text: 'On ne pense pas qu\'à la retraite : on anticipe les cas de déblocage (résidence principale, période difficile) et on articule votre PER avec votre assurance vie pour une liquidité optimale.',
+  },
+];
+
+const OBJECTIONS = [
+  {
+    q: '« Je suis encore jeune, j\'ai le temps. »',
+    r: '10 000€ versés à 30 ans valent environ 43 000€ à 60 ans à 5%/an. Les mêmes 10 000€ versés à 50 ans : 16 000€. Plus tôt vous commencez, moins vous avez besoin de verser pour atteindre le même capital.',
+  },
+  {
+    q: '« Mon employeur me propose déjà un PERCO. »',
+    r: 'Le PERCO de votre entreprise et un PER individuel sont cumulables. Profitez de l\'abondement employeur sur le PERCO (argent gratuit) ET ouvrez un PER individuel pour les versements volontaires qui bénéficieront de votre plafond personnel.',
+  },
+  {
+    q: '« J\'ai peur que mon argent soit bloqué. »',
+    r: 'Le déblocage pour achat de résidence principale change la donne : votre PER peut servir d\'apport immobilier. Et pour le reste, c\'est précisément parce que l\'argent est bloqué que l\'État vous offre la déduction — c\'est le deal.',
+  },
+  {
+    q: '« Je ne sais pas si je serai imposable à la retraite. »',
+    r: 'C\'est exactement le calcul qu\'on fait ensemble. Si votre TMI baisse à la retraite (ce qui est le cas pour 80% des épargnants), le PER est rentable. Sinon, on privilégie l\'assurance vie. Il n\'y a pas de réponse universelle — il y a votre réponse.',
+  },
+];
+
+const FISCAL_EXEMPLES = [
+  { tmi: '11%', versement: 5000,  gain: 550,   profil: 'Salarié modeste' },
+  { tmi: '30%', versement: 8000,  gain: 2400,  profil: 'Cadre' },
+  { tmi: '41%', versement: 10000, gain: 4100,  profil: 'Cadre supérieur / TNS' },
+  { tmi: '45%', versement: 15000, gain: 6750,  profil: 'Dirigeant / TNS élevé' },
+];
+
+export default function PERPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <main>
+
+        {/* ── HERO ── */}
+        <section className="fin-hero">
+          <div className="fin-hero-bg" />
+          <div className="fin-hero-inner">
+            <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
+              <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
+              {' › '}
+              <Link href="/investir" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Investir</Link>
+              {' › '}
+              <span>Plan Épargne Retraite</span>
+            </nav>
+            <span className="fin-badge">🏦 Réduire ses impôts tout en préparant sa retraite</span>
+            <h1>PER : payez moins d'impôts<br />dès cette année</h1>
+            <p>
+              Le Plan Épargne Retraite vous permet de <strong>déduire vos versements
+              de votre revenu imposable</strong> — jusqu'à 4 100€ récupérés sur l'impôt
+              pour 10 000€ versés à 41% de TMI. Orizia Courtage sélectionne le meilleur
+              contrat et calcule votre gain fiscal réel. <strong>Gratuitement.</strong>
+            </p>
+            <div className="fin-hero-btns">
+              <Link href="/rendez-vous" className="fin-btn-primary">
+                📅 Calculer mon gain fiscal →
+              </Link>
+              <Link href="#fiscalite" className="fin-btn-secondary">
+                🧮 Voir les exemples chiffrés
+              </Link>
+            </div>
+            <div className="fin-hero-trust">
+              <span>✅ 0% de frais sur versements</span>
+              <span>📋 Plafonds calculés sur-mesure</span>
+              <span>⚡ Réponse sous 24h</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CHIFFRES CLÉS ── */}
+        <section className="fin-chiffres">
+          <div className="fin-chiffres-inner">
+            <div className="fin-chiffre"><strong>~35 000€</strong><span>Plafond déduction salarié 2026</span></div>
+            <div className="fin-chiffre"><strong>~85 000€</strong><span>Plafond Madelin TNS 2026</span></div>
+            <div className="fin-chiffre"><strong>3 ans</strong><span>Report des plafonds non utilisés</span></div>
+            <div className="fin-chiffre"><strong>0€</strong><span>Frais sur versements via Orizia</span></div>
+          </div>
+        </section>
+
+        {/* ── IDÉES REÇUES ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
+                ⚠️ Les erreurs coûteuses à éviter
+              </span>
+              <h2>Pourquoi la plupart des épargnants<br />ratent leur PER</h2>
+              <p>
+                Le PER est l'outil fiscal le plus puissant disponible en France — mais il
+                est souvent mal utilisé, mal dimensionné, ou souscrit dans le mauvais contrat.
+              </p>
+            </div>
+            <div className="crowd-avantages-grid">
+              {DANGERS.map(d => (
+                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                  <div className="crowd-avantage-icon">{d.icon}</div>
+                  <h3>{d.title}</h3>
+                  <p>{d.text}</p>
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 40 }}>
+              <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
+                Orizia calcule vos plafonds exacts et sélectionne le meilleur contrat avec 0% de frais.
+              </p>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
+                Récupérez aussi vos plafonds non utilisés des 3 dernières années — souvent plusieurs milliers d'euros de déduction oubliés.
+              </p>
+              <Link href="/rendez-vous" className="fin-btn-primary">
+                📅 Calculer mes plafonds gratuitement →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── QU'EST-CE QUE LE PER ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="crowd-2col">
+              <div>
+                <span className="fin-badge">Définition</span>
+                <h2>Le PER en clair :<br />comment ça fonctionne vraiment</h2>
+                <p>
+                  Créé par la <strong>loi PACTE en 2019</strong>, le PER individuel remplace
+                  les anciens PERP, Madelin et PERCO. C'est un contrat d'épargne retraite dans
+                  lequel vos versements sont <strong>déductibles de votre revenu imposable</strong> —
+                  ce qui réduit directement votre impôt sur le revenu l'année suivante.
+                </p>
+                <p>
+                  L'épargne est en principe bloquée jusqu'à la retraite, sauf exceptions légales
+                  (résidence principale, invalidité, décès du conjoint, surendettement).
+                  À la retraite, vous choisissez de <strong>sortir en capital</strong>,
+                  en <strong>rente viagère</strong>, ou en combinant les deux.
+                </p>
+                <p>
+                  À l'intérieur du contrat, votre épargne est investie sur les mêmes supports
+                  qu'une assurance vie : <strong>fonds en euros</strong> (capital garanti)
+                  et <strong>unités de compte</strong> (ETF, SCPI, fonds actions…).
+                  La gestion pilotée sécurise automatiquement votre portefeuille à l'approche
+                  de la retraite.
+                </p>
+              </div>
+
+              {/* Schéma flux PER */}
+              <div className="crowd-schema">
+                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
+                  Le cycle du PER
+                </div>
+                <div className="crowd-schema-step crowd-schema-step--orizia">
+                  <div className="crowd-schema-icon">💶</div>
+                  <strong>Vous versez</strong>
+                  <span>Chaque mois ou ponctuellement</span>
+                </div>
+                <div className="crowd-schema-arrow">↓</div>
+                <div className="crowd-schema-step" style={{ background: 'rgba(22,163,74,0.08)', border: '1.5px solid rgba(22,163,74,0.2)' }}>
+                  <div className="crowd-schema-icon">🧾</div>
+                  <strong>L'État vous rembourse</strong>
+                  <span>Déduction fiscale l'année suivante</span>
+                </div>
+                <div className="crowd-schema-arrow">↓</div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  <div className="crowd-schema-step" style={{ background: 'rgba(58,111,108,0.08)' }}>
+                    <div className="crowd-schema-icon">🏦</div>
+                    <strong>Fonds euros</strong>
+                    <span>Sécurisé</span>
+                  </div>
+                  <div className="crowd-schema-step" style={{ background: 'rgba(217,119,6,0.08)' }}>
+                    <div className="crowd-schema-icon">📈</div>
+                    <strong>UC / ETF</strong>
+                    <span>Performance</span>
+                  </div>
+                </div>
+                <div className="crowd-schema-arrow">↓</div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  <div className="crowd-schema-step" style={{ padding: '12px 14px' }}>
+                    <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>💸</div>
+                    <strong style={{ fontSize: '0.8rem' }}>Capital</strong>
+                    <span>Sortie flexible</span>
+                  </div>
+                  <div className="crowd-schema-step crowd-schema-step--result" style={{ padding: '12px 14px' }}>
+                    <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>🔁</div>
+                    <strong style={{ fontSize: '0.8rem' }}>Rente</strong>
+                    <span>Revenu à vie</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: 12, background: 'rgba(22,163,74,0.06)', borderRadius: 10, padding: '10px 14px', fontSize: '0.78rem', color: '#16a34a', fontWeight: 700, textAlign: 'center' }}>
+                  🏠 Déblocage anticipé possible<br />
+                  <span style={{ fontWeight: 400, opacity: 0.8 }}>pour achat résidence principale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── AVANTAGES ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Les atouts</span>
+              <h2>6 raisons pour lesquelles<br />le PER est incontournable</h2>
+              <p>
+                Le PER est le seul placement qui vous fait gagner de l'argent
+                <em> dès la première année</em> grâce à la déduction fiscale — en plus
+                de préparer votre retraite.
+              </p>
+            </div>
+            <div className="crowd-avantages-grid">
+              {AVANTAGES.map(a => (
+                <div key={a.title} className="crowd-avantage-card">
+                  <div className="crowd-avantage-icon">{a.icon}</div>
+                  <h3>{a.title}</h3>
+                  <p>{a.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── EXEMPLES FISCAUX ── */}
+        <section id="fiscalite" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Exemples chiffrés 2026</span>
+              <h2>Combien allez-vous<br />récupérer sur votre impôt ?</h2>
+              <p>
+                L'économie fiscale dépend de votre tranche marginale d'imposition (TMI).
+                Plus votre TMI est élevé, plus le PER est rentable.
+              </p>
+            </div>
+
+            <div className="per-fiscal-grid">
+              {FISCAL_EXEMPLES.map((ex) => (
+                <div key={ex.tmi} className="per-fiscal-card">
+                  <div className="per-fiscal-profil">{ex.profil}</div>
+                  <div className="per-fiscal-tmi">TMI {ex.tmi}</div>
+                  <div className="per-fiscal-row">
+                    <span>Versement PER</span>
+                    <strong>{ex.versement.toLocaleString('fr-FR')}€</strong>
+                  </div>
+                  <div className="per-fiscal-row per-fiscal-row--gain">
+                    <span>🎯 Impôt économisé</span>
+                    <strong className="per-fiscal-gain">−{ex.gain.toLocaleString('fr-FR')}€</strong>
+                  </div>
+                  <div className="per-fiscal-net">
+                    Coût réel net : <strong>{(ex.versement - ex.gain).toLocaleString('fr-FR')}€</strong>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="per-plafonds-bloc">
+              <div className="per-plafonds-header">
+                <span>📋</span>
+                <h3>Plafonds de déduction 2026 — ce que vous pouvez vraiment déduire</h3>
+              </div>
+              <div className="per-plafonds-grid">
+                <div className="per-plafond-item">
+                  <strong>Salarié</strong>
+                  <span>10% des revenus nets N-1</span>
+                  <div className="per-plafond-max">Max. ~35 000€/an</div>
+                </div>
+                <div className="per-plafond-item">
+                  <strong>TNS / Indépendant</strong>
+                  <span>Plafond Madelin : 10% du bénéfice + 15% sur 1–8 PASS</span>
+                  <div className="per-plafond-max">Max. ~85 000€/an</div>
+                </div>
+                <div className="per-plafond-item">
+                  <strong>Plafonds reportés</strong>
+                  <span>Non-utilisation des 3 dernières années cumulable</span>
+                  <div className="per-plafond-max">Report N-1, N-2, N-3</div>
+                </div>
+                <div className="per-plafond-item">
+                  <strong>Couple</strong>
+                  <span>Chaque conjoint dispose de son propre plafond — cumulables si déclaration commune</span>
+                  <div className="per-plafond-max">Jusqu'à ×2 du plafond individuel</div>
+                </div>
+              </div>
+              <div className="crowd-risques-note" style={{ marginTop: 20 }}>
+                💡 <strong>Astuce :</strong> vos plafonds disponibles sont indiqués sur votre avis d'imposition,
+                rubrique <em>« Plafond épargne retraite »</em>. Orizia les calcule et les optimise lors du premier rendez-vous.
+              </div>
+            </div>
+
+            <div className="crowd-cta-band" style={{ marginTop: 36 }}>
+              <div>
+                <strong>Votre gain fiscal exact calculé en 30 minutes.</strong>
+                <p>
+                  Apportez votre dernier avis d'imposition — Orizia calcule vos plafonds disponibles,
+                  votre économie d'impôt et le montant optimal à verser cette année.
+                </p>
+              </div>
+              <Link href="/rendez-vous" className="fin-btn-primary">
+                📅 Calculer mon gain →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── PROFILS ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Votre situation</span>
+              <h2>Le PER s'adapte<br />à votre statut professionnel</h2>
+              <p>
+                Salarié, indépendant ou dirigeant — les plafonds et la stratégie optimale
+                ne sont pas les mêmes. Orizia ajuste selon votre situation réelle.
+              </p>
+            </div>
+            <div className="av-profils-grid">
+              {PROFILS.map(p => (
+                <div key={p.title} className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}
+                  style={p.featured ? { borderColor: '#d97706' } : {}}>
+                  {p.featured && (
+                    <div className="av-profil-badge" style={{ background: '#d97706' }}>
+                      ⭐ Avantage maximal
+                    </div>
+                  )}
+                  <div className="av-profil-icon">{p.icon}</div>
+                  <h3>{p.title}</h3>
+                  <div className="av-profil-repart">
+                    <span>TMI {p.tmi}</span>
+                  </div>
+                  <div className="av-profil-rendement" style={{ color: p.color, fontSize: '1.2rem' }}>
+                    {p.gain}
+                  </div>
+                  <p className="av-profil-desc" style={{ fontSize: '0.78rem', marginBottom: 8 }}>
+                    {p.base}
+                  </p>
+                  <p className="av-profil-for">💡 {p.conseil}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── PER VS AV ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Comparaison</span>
+              <h2>PER ou assurance vie :<br />ce n'est pas l'un ou l'autre</h2>
+              <p>
+                Les deux enveloppes sont complémentaires. Le choix dépend de votre TMI,
+                de votre horizon et de vos besoins de liquidité.
+              </p>
+            </div>
+            <div className="per-vs-grid">
+              <div className="per-vs-header" />
+              <div className="per-vs-header per-vs-col--per">
+                <span className="fin-badge" style={{ margin: '0 0 8px' }}>PER</span>
+                <p>Optimisation fiscale immédiate</p>
+              </div>
+              <div className="per-vs-header per-vs-col--av">
+                <span className="fin-badge" style={{ margin: '0 0 8px', background: 'rgba(217,119,6,0.1)', color: '#d97706' }}>Assurance Vie</span>
+                <p>Liquidité & transmission</p>
+              </div>
+
+              {[
+                ['Déduction fiscale à l\'entrée', '✅ Oui — jusqu\'à 45% de TMI', '❌ Non'],
+                ['Disponibilité de l\'épargne', '⚠️ Bloqué (exceptions légales)', '✅ Disponible à tout moment'],
+                ['Fiscalité à la sortie', '📋 IR sur primes + PFU 30% sur gains', '✅ Abattement + PFNL 7,5% après 8 ans'],
+                ['Transmission au décès', '✅ Hors succession (même règles AV)', '✅ Hors succession jusqu\'à 152 500€/bénéf.'],
+                ['Idéal pour', '🎯 TMI élevé, horizon retraite long', '🎯 Liquidité, TMI faible, transmission'],
+                ['Plafond de versement', '📋 ~35 000€ à ~85 000€ selon statut', '♾️ Illimité'],
+              ].map(([critere, per, av]) => (
+                <div key={critere} className="per-vs-row">
+                  <div className="per-vs-critere">{critere}</div>
+                  <div className="per-vs-cell per-vs-col--per">{per}</div>
+                  <div className="per-vs-cell per-vs-col--av">{av}</div>
+                </div>
+              ))}
+            </div>
+            <div className="crowd-risques-note" style={{ marginTop: 24 }}>
+              💡 <strong>La stratégie optimale :</strong> PER pour réduire l'impôt sur vos revenus d'activité
+              + Assurance Vie pour l'épargne liquide et la transmission. Orizia construit les deux en parallèle
+              selon votre situation.
+            </div>
+          </div>
+        </section>
+
+        {/* ── RISQUES ── */}
+        <section className="crowd-section" style={{ background: '#fafafa' }}>
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
+                ⚠️ Analyse des risques
+              </span>
+              <h2>Les risques réels,<br />sans langue de bois</h2>
+              <p>
+                Le PER est un outil puissant — mais il comporte des contraintes spécifiques
+                qu'il faut connaître avant d'y verser.
+              </p>
+            </div>
+            <div className="crowd-risques-grid">
+              {RISQUES.map(r => (
+                <div key={r.title} className="crowd-risque-card" style={{ background: r.bg, borderColor: r.border }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                    <span style={{ fontSize: '1.4rem' }}>{r.icon}</span>
+                    <div>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', color: r.color }}>
+                        Risque {r.niveau}
+                      </span>
+                      <h3 style={{ margin: 0, color: r.color }}>{r.title}</h3>
+                    </div>
+                  </div>
+                  <p>{r.text}</p>
+                  <div className="crowd-risque-tip">🛡️ {r.mitigation}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── ACCOMPAGNEMENT ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Notre accompagnement</span>
+              <h2>Orizia optimise votre PER<br />de A à Z</h2>
+              <p>
+                Du calcul de vos plafonds à la construction de l'allocation, en passant
+                par la stratégie de sortie et le suivi annuel.
+              </p>
+            </div>
+            <div className="fin-etapes">
+              {ETAPES.map(e => (
+                <div key={e.n} className="fin-etape">
+                  <div className="fin-etape-num">{e.n}</div>
+                  <h3>{e.title}</h3>
+                  <p>{e.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="av-gratuit-bloc">
+              <div className="av-gratuit-icon">🤝</div>
+              <div>
+                <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
+                <p>
+                  Orizia Courtage est rémunéré par l'assureur partenaire sous forme de commission
+                  de distribution, encadrée par la réglementation DDA et communiquée de façon
+                  transparente. Vous ne payez rien de plus qu'en souscrivant directement —
+                  mais vous bénéficiez d'un conseil expert, d'un audit fiscal personnalisé
+                  et d'un accès à des contrats haut de gamme.
+                </p>
+              </div>
+              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
+                📅 Démarrer →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── OBJECTIONS ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">On répond à vos doutes</span>
+              <h2>Vous hésitez encore ?<br />Voici nos réponses.</h2>
+              <p>Des réponses directes aux questions les plus fréquentes — sans langue de bois.</p>
+            </div>
+            <div className="av-objections-grid">
+              {OBJECTIONS.map((o, i) => (
+                <div key={i} className="av-objection-card">
+                  <div className="av-objection-q">{o.q}</div>
+                  <div className="av-objection-r">{o.r}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Une situation particulière ? Notre conseillère vous répond en moins de 24h.
+              </p>
+              <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
+                <Link href="/rendez-vous" className="fin-btn-primary">
+                  📅 Prendre rendez-vous →
+                </Link>
+                <Link href="/contact" className="fin-btn-secondary">
+                  ✉️ Poser une question
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">FAQ</span>
+              <h2>Vos questions sur le PER,<br />nos réponses d'experts</h2>
+              <p>Des réponses honnêtes, vérifiées, sans jargon.</p>
+            </div>
+            <div className="crowd-faq-list">
+              {faqSchema.mainEntity.map((f, i) => (
+                <details key={i} className="crowd-faq-item">
+                  <summary>{f.name}</summary>
+                  <p>{f.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Une question spécifique à votre situation ?
+              </p>
+              <Link href="/contact" className="fin-btn-secondary">
+                Poser ma question →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── MAILLAGE INTERNE ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Aller plus loin</span>
+              <h2>Complétez votre stratégie<br />patrimoniale</h2>
+              <p>Le PER s'intègre dans une approche globale. Découvrez nos autres solutions.</p>
+            </div>
+            <div className="fin-cards">
+              {[
+                {
+                  href: '/investir/assurance-vie',
+                  icon: '🛡️',
+                  title: 'Assurance Vie',
+                  sub: 'Épargne disponible & transmission',
+                  text: 'Le complément naturel du PER : épargne liquide, fiscalité après 8 ans et transmission hors succession jusqu\'à 152 500€ par bénéficiaire.',
+                },
+                {
+                  href: '/investir/scpi',
+                  icon: '🏢',
+                  title: 'SCPI',
+                  sub: 'Immobilier de rendement',
+                  text: '4–6%/an, zéro gestion. Logeable dans votre PER ou votre AV pour combiner rendement immobilier et fiscalité optimisée.',
+                },
+                {
+                  href: '/investir/crowdfunding',
+                  icon: '📈',
+                  title: 'Crowdfunding',
+                  sub: 'Financement participatif',
+                  text: '8–12%/an sur 12–36 mois. Complément dynamique à court terme pour les capitaux non immobilisés dans le PER.',
+                },
+              ].map(s => (
+                <Link href={s.href} key={s.title} className="fin-card">
+                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-sub">{s.sub}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                  <span className="fin-card-link">En savoir plus →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA FINAL ── */}
+        <section className="fin-cta">
+          <div className="fin-cta-inner">
+            <h2>Récupérez vos impôts<br />dès cette année</h2>
+            <p>
+              Orizia calcule vos plafonds de déduction exacts, sélectionne le meilleur
+              contrat PER du marché et vous accompagne de la souscription au suivi annuel.
+              0% de frais sur versements. 100% indépendant.
+            </p>
+            <div className="fin-hero-btns">
+              <Link href="/rendez-vous" className="fin-btn-primary">
+                📅 Calculer mon gain fiscal →
+              </Link>
+              <Link href="/contact" className="fin-btn-outline">
+                Poser une question
+              </Link>
+            </div>
+            <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
+              Le PER comporte un risque de perte en capital sur les unités de compte.
+              Les performances passées ne préjugent pas des performances futures.
+              L'avantage fiscal dépend de votre situation personnelle et est susceptible d'évoluer.
+              Orizia Courtage, courtier en assurance régi par l'ACPR, rémunéré par les assureurs partenaires.
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </>
+  );
+}
