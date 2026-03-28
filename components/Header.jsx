@@ -35,6 +35,8 @@ const NAV = [
   },
 ];
 
+const CATEGORY_PAGES = ['/investir', '/financer', '/assurer'];
+
 const SCROLL_HEADER_CONFIG = {
   '/investir': {
     placeholder: 'Choisir un produit',
@@ -66,6 +68,16 @@ const SCROLL_HEADER_CONFIG = {
 const HIDE_SCROLL_HEADER  = ['/contact', '/rendez-vous', '/simulation'];
 const STICKY_MOBILE_PAGES = ['/rendez-vous'];
 
+// Détermine quel type de barre afficher
+function getMobileScrollType(pathname) {
+  if (HIDE_SCROLL_HEADER.some(p => pathname.startsWith(p))) return 'hidden';
+  if (pathname === '/')                                       return 'home';      // select projet
+  if (CATEGORY_PAGES.includes(pathname))                     return 'category';  // select produits
+  const isProductPage = CATEGORY_PAGES.some(c => pathname.startsWith(c + '/'));
+  if (isProductPage)                                         return 'product';   // bouton Cal
+  return 'home'; // fallback
+}
+
 export default function Header() {
   const [drawerOpen, setDrawerOpen]       = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
@@ -74,12 +86,23 @@ export default function Header() {
   const router   = useRouter();
   const pathname = usePathname();
 
+  // Charge Cal.eu une seule fois
+  useEffect(() => {
+    if (document.querySelector('script[src="https://cal.eu/embed.js"]')) return;
+    const script = document.createElement('script');
+    script.src   = 'https://cal.eu/embed.js';
+    script.async = true;
+    document.head.appendChild(script);
+  }, []);
+
+  // Scroll listener
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Cache le header quand [data-hide-header] est visible
   useEffect(() => {
     setHeaderHidden(false);
     let observer;
@@ -98,17 +121,20 @@ export default function Header() {
     };
   }, [pathname]);
 
-  const matchKey         = Object.keys(SCROLL_HEADER_CONFIG).find(k => pathname.startsWith(k));
-  const scrollConfig     = matchKey ? SCROLL_HEADER_CONFIG[matchKey] : null;
-  const hideScrollHeader = HIDE_SCROLL_HEADER.some(p => pathname.startsWith(p));
-  const isStickyMobile   = STICKY_MOBILE_PAGES.some(p => pathname.startsWith(p));
+  const isStickyMobile  = STICKY_MOBILE_PAGES.some(p => pathname.startsWith(p));
+  const mobileScrollType = getMobileScrollType(pathname);
+
+  // Config du select selon la page catégorie courante
+  const categoryKey    = CATEGORY_PAGES.find(c => pathname.startsWith(c));
+  const scrollConfig   = categoryKey ? SCROLL_HEADER_CONFIG[categoryKey] : null;
 
   return (
     <>
+      {/* ── Header principal ── */}
       <header className={[
         'site-header',
-        isStickyMobile ? 'site-header--sticky' : '',
-        headerHidden   ? 'site-header--hidden'  : '',
+        isStickyMobile ? 'site-header--sticky'  : '',
+        headerHidden   ? 'site-header--hidden'   : '',
         scrolled       ? 'site-header--scrolled' : '',
       ].filter(Boolean).join(' ')}>
         <div className="header-container">
@@ -121,7 +147,6 @@ export default function Header() {
             <ul className="main-menu">
               {NAV.map(item => (
                 <li key={item.label} className="menu-item">
-                  {/* ← Redirige vers /investir, /financer ou /assurer au clic */}
                   <Link href={`/${item.label.toLowerCase()}`}>
                     {item.label} <span className="arrow">▾</span>
                   </Link>
@@ -171,40 +196,69 @@ export default function Header() {
         </div>
       </header>
 
-      {!hideScrollHeader && (
+      {/* ── Barre sticky mobile ── */}
+      {mobileScrollType !== 'hidden' && (
         <div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
-          <Link href="/" className="mobile-scroll-logo">
-            <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={90} height={40} style={{ objectFit: 'contain' }} priority />
-          </Link>
-          <select
-            key={pathname}
-            id="projet-select"
-            name="projet"
-            className="mobile-scroll-select"
-            defaultValue=""
-            onChange={e => { if (e.target.value) router.push(e.target.value); }}
-          >
-            <option value="" disabled>
-              {scrollConfig ? scrollConfig.placeholder : 'Quel est votre projet ?'}
-            </option>
-            {scrollConfig
-              ? scrollConfig.options.map(o => (
+
+          {/* CAS 1 — Accueil : select "Quel est votre projet ?" */}
+          {mobileScrollType === 'home' && (
+            <>
+              <Link href="/" className="mobile-scroll-logo">
+                <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={80} height={36} style={{ objectFit: 'contain' }} priority />
+              </Link>
+              <select
+                key={pathname}
+                className="mobile-scroll-select"
+                defaultValue=""
+                onChange={e => { if (e.target.value) router.push(e.target.value); }}
+              >
+                <option value="" disabled>Quel est votre projet ?</option>
+                <option value="/investir">💼 Investir</option>
+                <option value="/financer">🏠 Financer</option>
+                <option value="/assurer">🛡️ Assurer</option>
+              </select>
+            </>
+          )}
+
+          {/* CAS 2 — Page catégorie : select produits */}
+          {mobileScrollType === 'category' && scrollConfig && (
+            <>
+              <Link href="/" className="mobile-scroll-logo">
+                <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={80} height={36} style={{ objectFit: 'contain' }} priority />
+              </Link>
+              <select
+                key={pathname}
+                className="mobile-scroll-select"
+                defaultValue=""
+                onChange={e => { if (e.target.value) router.push(e.target.value); }}
+              >
+                <option value="" disabled>{scrollConfig.placeholder}</option>
+                {scrollConfig.options.map(o => (
                   <option key={o.value} value={o.value}>{o.label}</option>
-                ))
-              : (
-                <>
-                  <option value="/investir">💼 Investir</option>
-                  <option value="/financer">🏠 Financer</option>
-                  <option value="/assurer">🛡️ Assurer</option>
-                </>
-              )
-            }
-          </select>
+                ))}
+              </select>
+            </>
+          )}
+
+          {/* CAS 3 — Page produit : bouton Cal RDV */}
+          {mobileScrollType === 'product' && (
+            <button
+              data-cal-link="cindy-urbansky/rendez-vous"
+              data-cal-origin="https://cal.eu"
+              data-cal-config='{"layout":"month_view"}'
+              className="mobile-sticky-btn mobile-sticky-btn--full"
+            >
+              📅 Prendre rendez-vous — Gratuit & sans engagement
+            </button>
+          )}
+
         </div>
       )}
 
+      {/* ── Overlay ── */}
       <div className={`mobile-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
 
+      {/* ── Tiroir mobile ── */}
       <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
         <div className="mobile-drawer-header">
           <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={120} height={50} style={{ objectFit: 'contain' }} />
