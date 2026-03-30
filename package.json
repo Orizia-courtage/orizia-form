@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
+    "@turf/helpers": "^7.3.4",
+    "@turf/union": "^7.3.4",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "@vnedyalk0v/react19-simple-maps": "^2.0.2",
     "date-fns": "^4.1.0",
     "libphonenumber-js": "^1.12.40",
     "next": "16.2.1",
@@ -23,6 +26,7 @@
     "resend": "^6.9.4"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.1"
   }

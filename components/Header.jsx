@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
@@ -27,8 +27,8 @@ const NAV = [
   {
     label: 'Assurer',
     links: [
-      { href: '/assurer/emprunteur', title: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
-      { href: '/assurer/habitation', title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
+      { href: '/assurer/assurance-emprunteur', title: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
+      { href: '/assurer/assurance-habitation', title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
       { href: '/assurer/auto-moto',  title: 'Assurance auto/moto',  sub: 'Roulez en toute sérénité' },
     ],
     cta: { href: '/contact', label: 'Obtenir un devis', img: '/images/assurer.jpg', text: 'Comparez les meilleures offres du marché.' },
@@ -58,8 +58,8 @@ const SCROLL_HEADER_CONFIG = {
   '/assurer': {
     placeholder: 'Choisir une assurance',
     options: [
-      { value: '/assurer/emprunteur', label: '📋 Emprunteur' },
-      { value: '/assurer/habitation', label: '🏡 Habitation' },
+      { value: '/assurer/assurance-emprunteur', label: '📋 Emprunteur' },
+      { value: '/assurer/assurance-habitation', label: '🏡 Habitation' },
       { value: '/assurer/auto-moto',  label: '🚗 Auto / Moto' },
     ],
   },
@@ -68,14 +68,16 @@ const SCROLL_HEADER_CONFIG = {
 const HIDE_SCROLL_HEADER  = ['/contact', '/rendez-vous', '/simulation'];
 const STICKY_MOBILE_PAGES = ['/rendez-vous'];
 
-// Détermine quel type de barre afficher
+const CAL_LINK   = 'cindy-urbansky/rendez-vous';
+const CAL_ORIGIN = 'https://cal.eu';
+
 function getMobileScrollType(pathname) {
   if (HIDE_SCROLL_HEADER.some(p => pathname.startsWith(p))) return 'hidden';
-  if (pathname === '/')                                       return 'home';      // select projet
-  if (CATEGORY_PAGES.includes(pathname))                     return 'category';  // select produits
+  if (pathname === '/')                                       return 'home';
+  if (CATEGORY_PAGES.includes(pathname))                     return 'category';
   const isProductPage = CATEGORY_PAGES.some(c => pathname.startsWith(c + '/'));
-  if (isProductPage)                                         return 'product';   // bouton Cal
-  return 'home'; // fallback
+  if (isProductPage)                                         return 'product';
+  return 'home';
 }
 
 export default function Header() {
@@ -83,26 +85,91 @@ export default function Header() {
   const [openAccordion, setOpenAccordion] = useState(null);
   const [scrolled, setScrolled]           = useState(false);
   const [headerHidden, setHeaderHidden]   = useState(false);
+  const [calReady, setCalReady]           = useState(false);
   const router   = useRouter();
   const pathname = usePathname();
 
-  // Charge Cal.eu une seule fois
+  // ── Chargement + initialisation Cal.eu ──────────────────────────────────
   useEffect(() => {
-    if (document.querySelector('script[src="https://cal.eu/embed.js"]')) return;
-    const script = document.createElement('script');
-    script.src   = 'https://cal.eu/embed.js';
-    script.async = true;
-    document.head.appendChild(script);
+    const initCal = () => {
+      if (!window.Cal) return;
+      // Initialisation officielle Cal.eu
+      window.Cal('init', { origin: CAL_ORIGIN });
+      window.Cal('ui', {
+        theme: 'light',
+        styles: { branding: { brandColor: '#3a6f6c' } },
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      });
+      setCalReady(true);
+    };
+
+    // Script déjà présent (navigation client-side)
+    if (window.Cal) {
+      initCal();
+      return;
+    }
+
+    // Injection du snippet Cal.eu (méthode officielle pour SPA)
+    (function (C, A, L) {
+      const p = (a, ar) => { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function (...args) {
+        const cal = C.Cal;
+        if (!cal.loaded) {
+          cal.ns  = {};
+          cal.q   = cal.q || [];
+          const s = d.createElement('script');
+          s.src   = A;
+          s.async = true;
+          s.onload = initCal;
+          d.head.appendChild(s);
+          cal.loaded = true;
+        }
+        if (args[0] === L) {
+          const api = function (...a) { p(api, a); };
+          api.q = [];
+          const ns = args[1];
+          if (typeof ns === 'string') {
+            cal.ns[ns] = api;
+            p(api, args);
+            p(cal, [L, api]);
+          } else {
+            p(cal, args);
+          }
+          return;
+        }
+        p(cal, args);
+      };
+    })(window, `${CAL_ORIGIN}/embed.js`, 'init');
   }, []);
 
-  // Scroll listener
+  // ── Ré-init Cal à chaque changement de route (navigation client-side) ──
+  useEffect(() => {
+    if (window.Cal) {
+      window.Cal('init', { origin: CAL_ORIGIN });
+      setCalReady(true);
+    }
+  }, [pathname]);
+
+  // ── Ouvre la modale Cal programmatiquement ──────────────────────────────
+  const openCalModal = useCallback(() => {
+    if (window.Cal) {
+      window.Cal('modal', {
+        calLink: CAL_LINK,
+        config: { layout: 'month_view' },
+      });
+    }
+  }, []);
+
+  // ── Scroll listener ─────────────────────────────────────────────────────
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Cache le header quand [data-hide-header] est visible
+  // ── Cache le header quand [data-hide-header] est visible ────────────────
   useEffect(() => {
     setHeaderHidden(false);
     let observer;
@@ -121,12 +188,10 @@ export default function Header() {
     };
   }, [pathname]);
 
-  const isStickyMobile  = STICKY_MOBILE_PAGES.some(p => pathname.startsWith(p));
+  const isStickyMobile   = STICKY_MOBILE_PAGES.some(p => pathname.startsWith(p));
   const mobileScrollType = getMobileScrollType(pathname);
-
-  // Config du select selon la page catégorie courante
-  const categoryKey    = CATEGORY_PAGES.find(c => pathname.startsWith(c));
-  const scrollConfig   = categoryKey ? SCROLL_HEADER_CONFIG[categoryKey] : null;
+  const categoryKey      = CATEGORY_PAGES.find(c => pathname.startsWith(c));
+  const scrollConfig     = categoryKey ? SCROLL_HEADER_CONFIG[categoryKey] : null;
 
   return (
     <>
@@ -140,7 +205,14 @@ export default function Header() {
         <div className="header-container">
 
           <Link href="/" className="site-logo">
-            <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia Courtage" width={160} height={75} style={{ objectFit: 'contain' }} priority />
+            <Image
+              src="/images/Orizia_logo-removebg-preview.png"
+              alt="Orizia Courtage"
+              width={160}
+              height={75}
+              style={{ objectFit: 'contain' }}
+              priority
+            />
           </Link>
 
           <nav className="desktop-nav">
@@ -170,7 +242,9 @@ export default function Header() {
                         <div className="cta-content">
                           <h4>{item.cta.label}</h4>
                           <p>{item.cta.text}</p>
-                          <Link href={item.cta.href} className="btn-mega">{item.cta.label} →</Link>
+                          <Link href={item.cta.href} className="btn-mega">
+                            {item.cta.label} →
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -181,10 +255,17 @@ export default function Header() {
           </nav>
 
           <div className="header-right">
-            <Link href="/contact" style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}>
+            <Link
+              href="/contact"
+              style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}
+            >
               Contactez-nous
             </Link>
-            <button className="mobile-toggle" onClick={() => setDrawerOpen(true)} aria-label="Menu">
+            <button
+              className="mobile-toggle"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="Menu"
+            >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <line x1="3" y1="12" x2="21" y2="12"/>
@@ -200,11 +281,18 @@ export default function Header() {
       {mobileScrollType !== 'hidden' && (
         <div className={`mobile-scroll-header${scrolled ? ' visible' : ''}`}>
 
-          {/* CAS 1 — Accueil : select "Quel est votre projet ?" */}
+          {/* CAS 1 — Accueil */}
           {mobileScrollType === 'home' && (
             <>
               <Link href="/" className="mobile-scroll-logo">
-                <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={80} height={36} style={{ objectFit: 'contain' }} priority />
+                <Image
+                  src="/images/Orizia_logo-removebg-preview.png"
+                  alt="Orizia"
+                  width={80}
+                  height={36}
+                  style={{ objectFit: 'contain' }}
+                  priority
+                />
               </Link>
               <select
                 key={pathname}
@@ -220,11 +308,18 @@ export default function Header() {
             </>
           )}
 
-          {/* CAS 2 — Page catégorie : select produits */}
+          {/* CAS 2 — Page catégorie */}
           {mobileScrollType === 'category' && scrollConfig && (
             <>
               <Link href="/" className="mobile-scroll-logo">
-                <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={80} height={36} style={{ objectFit: 'contain' }} priority />
+                <Image
+                  src="/images/Orizia_logo-removebg-preview.png"
+                  alt="Orizia"
+                  width={80}
+                  height={36}
+                  style={{ objectFit: 'contain' }}
+                  priority
+                />
               </Link>
               <select
                 key={pathname}
@@ -240,15 +335,14 @@ export default function Header() {
             </>
           )}
 
-          {/* CAS 3 — Page produit : bouton Cal RDV */}
+          {/* CAS 3 — Page produit : bouton Cal via onClick ✅ */}
           {mobileScrollType === 'product' && (
             <button
-              data-cal-link="cindy-urbansky/rendez-vous"
-              data-cal-origin="https://cal.eu"
-              data-cal-config='{"layout":"month_view"}'
+              onClick={openCalModal}
               className="mobile-sticky-btn mobile-sticky-btn--full"
+              disabled={!calReady}
             >
-              📅 Prendre rendez-vous — Gratuit & sans engagement
+              📅 Prendre rendez-vous — Gratuit &amp; sans engagement
             </button>
           )}
 
@@ -256,26 +350,47 @@ export default function Header() {
       )}
 
       {/* ── Overlay ── */}
-      <div className={`mobile-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
+      <div
+        className={`mobile-overlay${drawerOpen ? ' open' : ''}`}
+        onClick={() => setDrawerOpen(false)}
+      />
 
       {/* ── Tiroir mobile ── */}
       <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
         <div className="mobile-drawer-header">
-          <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia" width={120} height={50} style={{ objectFit: 'contain' }} />
+          <Image
+            src="/images/Orizia_logo-removebg-preview.png"
+            alt="Orizia"
+            width={120}
+            height={50}
+            style={{ objectFit: 'contain' }}
+          />
           <button className="close-mobile" onClick={() => setDrawerOpen(false)}>✕</button>
         </div>
         <div className="mobile-drawer-content">
           <ul className="mobile-menu">
             {NAV.map((item, i) => (
               <li key={item.label}>
-                <div className="mobile-accordion-title" onClick={() => setOpenAccordion(openAccordion === i ? null : i)}>
+                <div
+                  className="mobile-accordion-title"
+                  onClick={() => setOpenAccordion(openAccordion === i ? null : i)}
+                >
                   {item.label} <span>{openAccordion === i ? '−' : '+'}</span>
                 </div>
-                <div className="mobile-accordion-body" style={{ display: openAccordion === i ? 'flex' : 'none', flexDirection: 'column' }}>
+                <div
+                  className="mobile-accordion-body"
+                  style={{ display: openAccordion === i ? 'flex' : 'none', flexDirection: 'column' }}
+                >
                   {item.links.map(l => (
-                    <Link key={l.href} href={l.href} onClick={() => setDrawerOpen(false)}>{l.title}</Link>
+                    <Link key={l.href} href={l.href} onClick={() => setDrawerOpen(false)}>
+                      {l.title}
+                    </Link>
                   ))}
-                  <Link href={item.cta.href} className="mobile-accordion-cta" onClick={() => setDrawerOpen(false)}>
+                  <Link
+                    href={item.cta.href}
+                    className="mobile-accordion-cta"
+                    onClick={() => setDrawerOpen(false)}
+                  >
                     {item.cta.label}
                   </Link>
                 </div>
@@ -283,7 +398,20 @@ export default function Header() {
             ))}
           </ul>
           <div className="mobile-action-buttons">
-            <Link href="/contact" className="mobile-btn-contact" onClick={() => setDrawerOpen(false)}>Contactez-nous</Link>
+            {/* Bouton RDV dans le drawer aussi ✅ */}
+            <button
+              onClick={() => { setDrawerOpen(false); openCalModal(); }}
+              className="mobile-btn-rdv"
+            >
+              📅 Prendre rendez-vous
+            </button>
+            <Link
+              href="/contact"
+              className="mobile-btn-contact"
+              onClick={() => setDrawerOpen(false)}
+            >
+              Contactez-nous
+            </Link>
           </div>
         </div>
       </div>

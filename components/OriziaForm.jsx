@@ -481,40 +481,7 @@ profil_codetel: form.tel_etranger === 'oui' ? form.code_pays.split('|')[1] : '+3
   return (
     <div className="orz">
 
-      {/* ── DEV ONLY : à supprimer en prod ── */}
-      {process.env.NODE_ENV !== 'production' && (
-  <div style={{ position: 'fixed', bottom: 16, right: 16, zIndex: 9999, display: 'flex', flexDirection: 'column', gap: 6, maxHeight: '90vh', overflowY: 'auto' }}>
-    {[
-      // RDV (profils éligibles)
-      'Investisseur 1',
-      'Client projet premium 1', 'Client projet premium 2',
-      'Trésorerie 1', 'Trésorerie 2', 'Trésorerie 3', 'Trésorerie 4', 'Trésorerie 5', 'Trésorerie 6', 'Trésorerie 7',
-      'Pro Contraint 1', 'Pro Contraint 2', 'Pro Contraint 3', 'Pro Contraint 4', 'Pro Contraint 5',
-      // BDF
-      'BDF',
-      // TNS
-      'TNS 1', 'TNS 2', 'TNS 3',
-      // LOC
-      'LOC',
-      // Autres (refus)
-      'IR 1', 'IR 2',
-      'Petit Pro 1', 'Petit Pro 2', 'Petit Pro 3', 'Petit Pro 4',
-      'Client projet 1', 'Client projet 2', 'Client projet 3', 'Client projet 4', 'Client projet 5',
-      'Pro Consommateur 1', 'Pro Consommateur 2', 'Pro Consommateur 3',
-      'Autre',
-    ].map(seg => (
-      <button key={seg} onClick={() => { setSegment(seg); setDone(true); }}
-        style={{ padding: '4px 10px', fontSize: '.75rem', background: '#0d2c54', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer', textAlign: 'left' }}>
-        {seg}
-      </button>
-    ))}
-    <button onClick={() => { setDone(false); setSegment(''); }}
-      style={{ padding: '4px 10px', fontSize: '.75rem', background: '#cf1322', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
-      ↩ Reset
-    </button>
-  </div>
-)}
-
+      
 
 
 
