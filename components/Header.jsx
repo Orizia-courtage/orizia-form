@@ -206,7 +206,7 @@ export default function Header() {
 
           <Link href="/" className="site-logo">
             <Image
-              src="/images/Orizia_logo-removebg-preview.png"
+              src="/images/Orizia_logo.webp"
               alt="Orizia Courtage"
               width={160}
               height={75}
@@ -286,7 +286,7 @@ export default function Header() {
             <>
               <Link href="/" className="mobile-scroll-logo">
                 <Image
-                  src="/images/Orizia_logo-removebg-preview.png"
+                  src="/images/Orizia_logo.webp"
                   alt="Orizia"
                   width={80}
                   height={36}
@@ -313,7 +313,7 @@ export default function Header() {
             <>
               <Link href="/" className="mobile-scroll-logo">
                 <Image
-                  src="/images/Orizia_logo-removebg-preview.png"
+                  src="/images/Orizia_logo.webp"
                   alt="Orizia"
                   width={80}
                   height={36}
@@ -359,7 +359,7 @@ export default function Header() {
       <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
         <div className="mobile-drawer-header">
           <Image
-            src="/images/Orizia_logo-removebg-preview.png"
+            src="/images/Orizia_logo.webp"
             alt="Orizia"
             width={120}
             height={50}

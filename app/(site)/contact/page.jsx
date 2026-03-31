@@ -12,7 +12,7 @@ export const metadata = {
     'contact Orizia Courtage',
     'courtier assurance vie',
   ],
-  alternates: { canonical: 'https://orizia.fr/contact' },
+  alternates: { canonical: 'https://orizia-courtage.fr/contact' },
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
     description: 'Prenez rendez-vous en quelques clics. Cindy vous répond sous 24h par le canal de votre choix.',
@@ -25,7 +25,7 @@ const localBusinessSchema = {
   '@type': 'FinancialService',
   name: 'Orizia Courtage',
   description: 'Courtier indépendant en crédit immobilier, assurance vie et investissement.',
-  url: 'https://orizia.fr',
+  url: 'https://orizia-courtage.fr',
   telephone: '+33777259706',
   email: 'cindy.urbansky@orizia-courtage.fr', // ← remplacer
   sameAs: ['https://www.linkedin.com/in/cindy-urbansky'],
@@ -91,7 +91,7 @@ const SUJETS = [
   { icon: '🏦', label: 'Plan Épargne Retraite',    href: '/investir/per' },
   { icon: '🏢', label: 'SCPI',                     href: '/investir/scpi' },
   { icon: '📈', label: 'Crowdfunding',             href: '/investir/crowdfunding' },
-  { icon: '🔄', label: 'Regroupement de crédits',  href: '/financer/regroupement' },
+  { icon: '🔄', label: 'Regroupement de crédits',  href: '/financer/regroupement-credits' },
 ];
 
 const FAQ_CONTACT = [

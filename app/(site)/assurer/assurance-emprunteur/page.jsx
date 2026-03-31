@@ -1,23 +1,21 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Assurance Emprunteur 2026 : Économisez jusqu\'à 15 000€ sur votre prêt | Orizia Courtage',
+  title: 'Assurance Emprunteur : Économisez jusqu\'à 15 000€ | Orizia',
   description:
-    'L\'assurance emprunteur représente jusqu\'à 40% du coût total de votre crédit. Grâce à la loi Lemoine, changez à tout moment. Orizia Courtage vous trouve le meilleur contrat. Conseil gratuit et indépendant.',
+    'Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat et vous fais économiser des milliers d\'euros.',
   keywords: [
-    'assurance emprunteur 2026',
-    'délégation assurance emprunteur',
-    'loi Lemoine résiliation',
-    'changer assurance emprunteur',
-    'meilleure assurance prêt immobilier',
     'assurance emprunteur courtier',
-    'économiser assurance prêt',
+    'délégation assurance loi lemoine',
+    'changer assurance prêt immobilier',
+    'comparatif assurance emprunteur',
+    'résilier assurance crédit',
     'assurance emprunteur pas chère',
   ],
-  alternates: { canonical: 'https://orizia.fr/assurer/emprunteur' },
+  alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
-    title: 'Assurance Emprunteur 2026 : Économisez jusqu\'à 15 000€ | Orizia Courtage',
-    description: 'Loi Lemoine : résiliez à tout moment. Orizia Courtage compare les meilleures offres et vous fait économiser des milliers d\'euros sur votre assurance de prêt.',
+    title: 'Assurance Emprunteur : Économisez jusqu\'à 15 000€ | Orizia',
+    description: 'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
     url: 'https://orizia.fr/assurer/emprunteur',
     type: 'article',
   },
@@ -29,68 +27,60 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Qu\'est-ce que l\'assurance emprunteur ?',
+      name: 'Qu\'est-ce que l\'assurance emprunteur exactement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'L\'assurance emprunteur est un contrat qui garantit le remboursement de votre prêt immobilier en cas de décès, invalidité ou incapacité de travail. Elle est exigée par toutes les banques pour accorder un crédit immobilier. Elle représente en moyenne 25 à 40% du coût total du crédit, soit entre 8 000€ et 20 000€ sur un prêt de 200 000€ sur 20 ans.',
+        text: 'C\'est le contrat qui rembourse votre crédit immobilier à votre place si vous avez un accident de la vie (décès, invalidité, arrêt de travail). C\'est imposé par la banque, mais ce que l\'on oublie souvent de vous dire, c\'est qu\'elle représente jusqu\'à 40% du coût total de votre crédit.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Peut-on changer d\'assurance emprunteur à tout moment en 2026 ?',
+      name: 'Puis-je vraiment changer d\'assurance quand je veux ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, depuis la loi Lemoine du 1er juin 2022, vous pouvez résilier et changer votre assurance emprunteur à tout moment, sans frais et sans attendre de date anniversaire. La seule condition est que le nouveau contrat présente des garanties au moins équivalentes à celles exigées par votre banque. La procédure prend environ 3 semaines et votre taux de crédit ne change pas.',
+        text: 'Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l\'assurance de votre banque à n\'importe quel moment. Plus besoin d\'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Combien peut-on économiser en changeant d\'assurance emprunteur ?',
+      name: 'Combien d\'argent puis-je espérer récupérer ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'L\'économie moyenne constatée est de 6 500€ à 15 000€ sur la durée totale du prêt. Un emprunteur de 36 ans paie en moyenne 0,32%/an avec l\'assurance bancaire contre 0,14%/an avec un contrat délégué — soit plus de 50% d\'économie. Plus vous changez tôt dans la vie du prêt, plus l\'économie est importante.',
+        text: 'C\'est l\'un des postes où l\'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Ma banque peut-elle refuser ma délégation d\'assurance ?',
+      name: 'Ma banque a-t-elle le droit de refuser mon nouveau contrat ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Non, votre banque ne peut pas refuser votre délégation d\'assurance si le contrat présente des garanties équivalentes (critères définis par la Fiche Standardisée d\'Information). Elle dispose de 10 jours ouvrés pour accepter ou refuser — et tout refus doit être motivé par écrit. En cas de refus abusif, vous pouvez saisir le médiateur bancaire.',
+        text: 'Non. La loi l\'interdit. Si le nouveau contrat que je vous propose couvre exactement les mêmes choses que celui de la banque (ce qu\'on appelle l\'équivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la résistance, je monte au créneau pour vous.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Faut-il remplir un questionnaire de santé pour l\'assurance emprunteur ?',
+      name: 'Vais-je devoir passer des examens médicaux ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Depuis la loi Lemoine, le questionnaire médical est supprimé si : le capital emprunté est inférieur à 200 000€ par personne (400 000€ pour un couple) ET si le remboursement du prêt s\'achève avant vos 60 ans. Au-delà de ces seuils, un questionnaire de santé simplifié reste nécessaire, mais les conditions ont été assouplies.',
+        text: 'C\'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quelles sont les garanties indispensables d\'une assurance emprunteur ?',
+      name: 'Pourquoi faire appel à vous plutôt que de chercher moi-même ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les garanties obligatoires demandées par les banques sont le décès (DC) et la Perte Totale et Irréversible d\'Autonomie (PTIA). Les garanties recommandées sont l\'Invalidité Permanente Totale (IPT), l\'Invalidité Permanente Partielle (IPP) et l\'Incapacité Temporaire Totale de travail (ITT). La perte d\'emploi (PE) est optionnelle et souvent peu rentable. Orizia analyse votre profil pour ne vous faire payer que les garanties utiles.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi passer par un courtier pour son assurance emprunteur ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Un courtier comme Orizia compare simultanément les offres de nombreux assureurs (Cardif, Abeille, SwissLife…) et négocie des tarifs indisponibles en direct. Il gère aussi toute la procédure de substitution auprès de votre banque — la phase administrative la plus chronophage. Le service est 100% gratuit pour vous : Orizia est rémunéré par l\'assureur partenaire.',
+        text: 'Parce que changer d\'assurance demande d\'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m\'assure de l\'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d\'achat sans la charge mentale. Mon service est gratuit pour vous, je suis rémunérée par l\'assureur.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '25–40%', label: 'du coût total du crédit', icon: '📊' },
-  { value: '15 000€', label: 'économies possibles sur 20 ans', icon: '💰' },
-  { value: '−50%', label: 'de taux vs assurance bancaire', icon: '📉' },
-  { value: '3 sem.', label: 'pour changer de contrat', icon: '⚡' },
+  { value: 'Jusqu\'à 40%', label: 'Du coût total de votre crédit', icon: '📊' },
+  { value: '15 000€', label: 'Économies moyennes constatées', icon: '💰' },
+  { value: '−50%', label: 'Sur votre taux d\'assurance', icon: '📉' },
+  { value: '0 effort', label: 'Je gère toute la paperasse', icon: '⚡' },
 ];
 
 const TAUX_COMPARATIF = [
@@ -103,7 +93,7 @@ const TAUX_COMPARATIF = [
 const ECONOMIES_EXEMPLES = [
   {
     profil: 'Couple, 32 ans',
-    pret: '250 000€ sur 25 ans',
+    pret: '250 000€ restants sur 25 ans',
     tauxBanque: '0,32%',
     tauxCourt: '0,13%',
     economie: '11 875€',
@@ -111,15 +101,15 @@ const ECONOMIES_EXEMPLES = [
   },
   {
     profil: 'Salarié, 38 ans',
-    pret: '180 000€ sur 20 ans',
+    pret: '180 000€ restants sur 20 ans',
     tauxBanque: '0,34%',
     tauxCourt: '0,15%',
     economie: '6 840€',
     couleur: '#d97706',
   },
   {
-    profil: 'TNS, 44 ans',
-    pret: '300 000€ sur 20 ans',
+    profil: 'Indépendant, 44 ans',
+    pret: '300 000€ restants sur 20 ans',
     tauxBanque: '0,42%',
     tauxCourt: '0,24%',
     economie: '10 800€',
@@ -129,45 +119,31 @@ const ECONOMIES_EXEMPLES = [
 
 const GARANTIES = [
   {
-    code: 'DC',
-    label: 'Décès',
+    code: 'DC / PTIA',
+    label: 'Décès & Perte d\'Autonomie',
     obligatoire: true,
-    desc: 'Remboursement intégral du capital restant dû en cas de décès de l\'assuré.',
+    desc: 'Le socle exigé par toutes les banques. Rembourse le capital restant dû en cas de drame.',
     icon: '🛡️',
   },
   {
-    code: 'PTIA',
-    label: 'Perte Totale et Irréversible d\'Autonomie',
-    obligatoire: true,
-    desc: 'Déclenche le remboursement si l\'assuré ne peut plus accomplir seul les actes de la vie courante.',
-    icon: '♿',
-  },
-  {
-    code: 'IPT',
-    label: 'Invalidité Permanente Totale',
+    code: 'IPT / IPP',
+    label: 'Invalidité (Totale ou Partielle)',
     obligatoire: false,
-    desc: 'Prend en charge les mensualités si votre taux d\'invalidité dépasse 66%.',
+    desc: 'Vous protège si une maladie ou un accident réduit votre capacité à travailler de façon permanente.',
     icon: '🩺',
   },
   {
-    code: 'IPP',
-    label: 'Invalidité Permanente Partielle',
-    obligatoire: false,
-    desc: 'Couverture partielle pour un taux d\'invalidité entre 33% et 66%. Recommandée.',
-    icon: '📋',
-  },
-  {
     code: 'ITT',
-    label: 'Incapacité Temporaire Totale',
+    label: 'Arrêt de travail temporaire',
     obligatoire: false,
-    desc: 'Prend en charge vos mensualités pendant un arrêt de travail total (maladie, accident).',
+    desc: 'L\'assureur paie vos mensualités de crédit pendant votre arrêt maladie prolongé.',
     icon: '🏥',
   },
   {
     code: 'PE',
     label: 'Perte d\'Emploi',
     obligatoire: false,
-    desc: 'Optionnelle et souvent peu rentable. Délais de carence longs, conditions restrictives. À évaluer au cas par cas.',
+    desc: 'Souvent chère avec beaucoup d\'exclusions. Je vous aide à évaluer si elle vaut vraiment le coût dans votre situation.',
     icon: '💼',
   },
 ];
@@ -175,83 +151,83 @@ const GARANTIES = [
 const DANGERS = [
   {
     icon: '🏦',
-    title: 'L\'assurance groupe bancaire : confortable pour la banque, coûteuse pour vous',
-    text: 'Votre banque vous propose son assurance groupe à la signature du prêt. C\'est simple — mais les taux sont de 0,23% à 0,48%/an selon l\'âge, soit 2 à 3 fois plus chers qu\'un contrat individuel. Sur 20 ans, la différence peut dépasser 15 000€.',
+    title: 'Le piège du contrat bancaire "par défaut"',
+    text: 'À la signature du crédit, par simplicité ou par pression, vous signez l\'assurance de la banque. Problème : leurs taux sont 2 à 3 fois plus élevés que le prix réel du marché. Une "facilité" qui vous coûte le prix d\'une voiture neuve sur 20 ans.',
   },
   {
-    icon: '📋',
-    title: 'La banque ne peut légalement pas vous forcer',
-    text: 'Depuis la loi Lagarde (2010), vous êtes libre de choisir votre assureur. Depuis la loi Lemoine (2022), vous pouvez changer à tout moment. Pourtant, 80% des emprunteurs souscrivent encore l\'assurance de leur banque par méconnaissance ou pression commerciale.',
+    icon: '🤫',
+    title: 'Ce que votre conseiller ne vous crie pas sur les toits',
+    text: 'Vous êtes totalement libre de choisir votre assureur, ou d\'en changer. Les banques le savent mais freinent des quatre fers, car l\'assurance emprunteur est l\'un de leurs produits les plus rentables.',
   },
   {
-    icon: '⚠️',
-    title: 'Chaque mois sans agir est de l\'argent perdu',
-    text: 'L\'assurance emprunteur est calculée sur le capital restant dû. Plus vous changez tôt, plus vous économisez. Un changement effectué 5 ans après la signature fait encore économiser des milliers d\'euros — mais chaque mois de retard réduit le gain.',
+    icon: '⏳',
+    title: 'Le temps joue contre votre portefeuille',
+    text: 'Plus vous attendez, plus vous engraissez la banque. L\'assurance se paie chaque mois sur le capital restant. En changeant aujourd\'hui plutôt que dans 3 ans, vous sauvez des milliers d\'euros de vos propres poches.',
   },
 ];
 
 const LOI_LEMOINE_POINTS = [
   {
-    icon: '🔄',
-    title: 'Résiliation à tout moment',
-    desc: 'Plus d\'attente de date anniversaire. Résiliez et changez dès demain si vous le souhaitez, sans pénalité.',
+    icon: '🔓',
+    title: 'Liberté immédiate',
+    desc: 'Changement autorisé n\'importe quand. Plus de préavis annuel à respecter.',
   },
   {
     icon: '🩺',
-    title: 'Questionnaire médical supprimé',
-    desc: 'Pour un capital < 200 000€/personne avec remboursement avant 60 ans : aucune question de santé.',
+    title: 'Fin du questionnaire de santé',
+    desc: 'Sous conditions (capital < 200k€/pers, fin du prêt avant 60 ans), votre passé médical ne vous pénalise plus.',
   },
   {
-    icon: '📬',
-    title: 'Résiliation par lettre simple',
-    desc: 'La banque ne peut pas exiger d\'envoi recommandé. Une lettre simple suffit (recommandé conseillé pour preuve).',
+    icon: '⚖️',
+    title: 'Droit à l\'oubli réduit',
+    desc: 'Le délai passe de 10 à 5 ans pour les anciens malades (cancers, hépatite C).',
   },
   {
-    icon: '✅',
-    title: 'Refus de la banque encadré',
-    desc: 'La banque dispose de 10 jours ouvrés pour répondre. Tout refus doit être motivé par écrit.',
+    icon: '🛡️',
+    title: 'Équivalence stricte',
+    desc: 'La banque DOIT accepter le nouveau contrat s\'il vous couvre aussi bien que le sien.',
   },
 ];
 
 const ETAPES = [
   {
     n: '01',
-    title: 'Analyse de votre contrat actuel',
-    text: 'Taux, garanties, exclusions — Orizia audite votre contrat bancaire actuel et chiffre exactement combien vous payez de trop. Pas de jargon, un résultat en euros.',
+    title: 'J\'épluche votre contrat actuel',
+    text: 'Envoyez-moi votre offre de prêt. Je décortique ce que vous payez aujourd\'hui et je vous donne un chiffre clair : combien vous allez économiser.',
   },
   {
     n: '02',
-    title: 'Comparaison & sélection',
-    text: 'Parmi nos partenaires assureurs (Cardif Elite, Abeille, SwissLife…), nous sélectionnons le contrat avec les meilleures garanties au taux le plus bas pour votre profil spécifique.',
+    title: 'Je sélectionne le contrat parfait',
+    text: 'En tant qu\'indépendante, j\'interroge les grands noms de l\'assurance (Cardif, SwissLife...) pour trouver le meilleur taux, avec des garanties béton validées par la banque.',
   },
   {
     n: '03',
-    title: 'Gestion du dossier de A à Z',
-    text: 'Nous rédigeons la demande de substitution, la transmettons à votre banque et assurons le suivi jusqu\'à l\'acceptation. Vous n\'avez rien à faire, sauf signer.',
+    title: 'Je monte au front face à la banque',
+    text: 'C\'est la partie que mes clients détestent, et c\'est mon expertise. Je prépare le dossier, j\'envoie la résiliation, je relance votre banquier. Je gère le bras de fer.',
   },
   {
     n: '04',
-    title: 'Suivi & optimisation continue',
-    text: 'Un bilan annuel pour vérifier que votre contrat reste optimal. Si votre profil change (arrêt d\'une activité à risque, anniversaire fiscal…), nous réoptimisons.',
+    title: 'Vous constatez la baisse de vos mensualités',
+    text: 'Une fois la substitution acceptée, votre nouveau contrat prend le relais. Vous êtes aussi bien couvert, mais votre prélèvement mensuel fond considérablement.',
   },
 ];
 
 const OBJECTIONS = [
   {
-    q: '« Ma banque va refuser ou compliquer mon prêt. »',
-    r: 'C\'est l\'argument n°1 des banques pour vous décourager. Il est faux. La loi Lagarde interdit formellement à la banque de modifier les conditions de votre crédit (taux, durée, montant) en cas de délégation d\'assurance. Si elle le fait, c\'est illégal et sanctionnable.',
+    q: '« Si je fais ça, ma banque va changer le taux de mon crédit. »',
+    r: 'C\'est du chantage pur et simple, et c\'est illégal. La loi Lagarde interdit formellement à une banque de modifier votre taux de crédit ou vos conditions si vous prenez une assurance externe.',
   },
   {
-    q: '« J\'ai déjà signé mon prêt, c\'est trop tard. »',
-    r: 'La loi Lemoine vous permet de changer à tout moment, même 10 ans après la signature. Que vous ayez un prêt de 2015 ou de 2024, vous pouvez agir maintenant. Plus tôt vous agissez, plus vous économisez — mais il n\'est jamais trop tard.',
+    q: '« Je viens juste de signer mon prêt, je dois attendre un an, non ? »',
+    r: 'Plus maintenant ! Avec la loi Lemoine, le droit de résiliation est permanent. Vous avez signé hier ? On peut changer demain. Il n\'y a plus de période de blocage.',
   },
   {
-    q: '« C\'est trop de démarches pour moi. »',
-    r: 'Orizia gère l\'intégralité des démarches à votre place. Vous fournissez votre offre de prêt et vos coordonnées — nous faisons le reste : comparaison, sélection, demande de substitution, relances, suivi. La procédure prend 2 à 3 semaines.',
+    q: '« Ça a l\'air d\'être une montagne de démarches administratives. »',
+    r: 'Pour vous ? Aucune. Vous me signez un mandat, et je fais absolument tout. Je récupère les documents, je gère les courriers recommandés, je relance le service prêt de votre banque. C\'est du clé en main.',
   },
   {
-    q: '« Mon état de santé va me pénaliser. »',
-    r: 'Pas nécessairement. La loi Lemoine a supprimé le questionnaire médical pour les prêts < 200 000€/personne remboursés avant 60 ans. Pour les autres, les assureurs alternatifs ont souvent des conditions plus souples et plus adaptées que les contrats groupe bancaires.',
+    q: '« Mon état de santé s\'est dégradé depuis la signature. »',
+    r: 'Si vous êtes éligible à la suppression du questionnaire médical (moins de 200k€ par emprunteur, fin du prêt avant 60 ans), on ne vous posera aucune question. Votre santé actuelle n\'impactera pas le tarif.',
   },
 ];
 
@@ -264,7 +240,6 @@ export default function AssuranceEmprunteurPage() {
       />
 
       <main>
-
         {/* ── HERO ── */}
         <section className="fin-hero">
           <div className="fin-hero-bg" />
@@ -276,25 +251,24 @@ export default function AssuranceEmprunteurPage() {
               {' › '}
               <span>Assurance Emprunteur</span>
             </nav>
-            <span className="fin-badge">💰 Économisez jusqu'à 15 000€ sur votre prêt</span>
-            <h1>Assurance emprunteur :<br />payez 2× moins, à garanties égales</h1>
+            <span className="fin-badge">💰 Divisez le coût de votre assurance par deux</span>
+            <h1>Arrêtez de laisser des milliers<br />d'euros à votre banque</h1>
             <p>
-              L'assurance de prêt représente <strong>25 à 40% du coût total de votre crédit</strong>.
-              Grâce à la loi Lemoine, vous pouvez changer de contrat <strong>à tout moment, sans frais</strong>,
-              et économiser des milliers d'euros. Orizia Courtage s'occupe de tout — gratuitement.
+              Votre assurance de crédit vous coûte probablement beaucoup trop cher. Avec la <strong>loi Lemoine</strong>, changez de contrat à tout moment. 
+              En tant que courtière indépendante, je compare les taux, <strong>je défie votre banque à votre place</strong>, et je vous fais économiser <strong>jusqu'à 15 000€</strong>.
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire auditer mon contrat gratuitement →
+                📅 Calculer mon économie avec Cindy →
               </Link>
               <Link href="#economies" className="fin-btn-secondary">
-                💰 Voir les économies possibles
+                💰 Voir les vrais chiffres
               </Link>
             </div>
             <div className="fin-hero-trust">
-              <span>✅ Loi Lemoine : changement à tout moment</span>
-              <span>🏦 Contrats Cardif, Abeille, SwissLife…</span>
-              <span>⚡ Démarches gérées par Orizia</span>
+              <span>✅ Loi Lemoine : je résilie quand je veux</span>
+              <span>🤝 Service 100% délégué et gratuit</span>
+              <span>⚡ Mêmes garanties, prix divisé par 2</span>
             </div>
           </div>
         </section>
@@ -303,11 +277,56 @@ export default function AssuranceEmprunteurPage() {
         <section className="fin-chiffres">
           <div className="fin-chiffres-inner">
             {CHIFFRES.map(c => (
-              <div key={c.value} className="fin-chiffre">
+              <div key={c.label} className="fin-chiffre">
                 <strong>{c.icon} {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ── CITATION CINDY ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div style={{
+              background: '#fff',
+              borderRadius: 16,
+              padding: '36px 40px',
+              borderLeft: '5px solid var(--orizia-primary)',
+              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
+              maxWidth: 780,
+              margin: '0 auto',
+            }}>
+              <p style={{
+                fontSize: '1.2rem',
+                fontWeight: 800,
+                color: 'var(--orizia-accent)',
+                lineHeight: 1.55,
+                marginBottom: 16,
+              }}>
+                « L'assurance de prêt est la vache à lait des banques. On vous l'impose discrètement à la signature, et vous finissez par payer des milliers d'euros en trop. »
+              </p>
+              <p style={{
+                fontSize: '1rem',
+                color: 'var(--orizia-dark)',
+                lineHeight: 1.75,
+                margin: '0 0 20px',
+                opacity: 0.8,
+              }}>
+                Mon métier, c'est de reprendre cet argent pour le remettre dans votre poche. 
+                Et le meilleur ? Je monte au front face à votre banque et je m'occupe de toutes 
+                les démarches, sans que vous n'ayez à lever le petit doigt.
+              </p>
+              <span style={{
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                color: 'var(--orizia-primary)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+              }}>
+                — Cindy Urbansky, courtière indépendante · Orizia Courtage
+              </span>
+            </div>
           </div>
         </section>
 
@@ -316,13 +335,11 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Le poste oublié qui coûte le plus cher
+                ⚠️ Ce qu'on ne vous dit pas à la signature
               </span>
-              <h2>Votre assurance bancaire vous coûte<br />probablement des milliers d'euros de trop</h2>
+              <h2>Pourquoi vous engraissez votre banque<br />chaque mois (sans le savoir)</h2>
               <p>
-                Quand vous signez votre prêt, la banque vous propose son assurance groupe.
-                C'est pratique — mais c'est souvent 2 à 3 fois plus cher qu'un contrat individuel.
-                Voici pourquoi.
+                L'assurance groupe de la banque est le produit financier le plus margé du marché. Il est temps de reprendre le contrôle.
               </p>
             </div>
             <div className="crowd-avantages-grid">
@@ -336,13 +353,10 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                Un audit gratuit vous montre exactement ce que vous perdez chaque mois.
-              </p>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
-                Transmettez votre offre de prêt — Orizia calcule votre économie potentielle sous 24h.
+                Arrêtez l'hémorragie financière dès aujourd'hui.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement →
+                📅 Faire chiffrer mes économies →
               </Link>
             </div>
           </div>
@@ -352,22 +366,21 @@ export default function AssuranceEmprunteurPage() {
         <section id="economies" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Taux 2026 — Chiffres réels</span>
-              <h2>Assurance bancaire vs contrat délégué :<br />la différence en chiffres</h2>
+              <span className="fin-badge">La réalité des chiffres</span>
+              <h2>Banque vs Courtier :<br />le match est plié d'avance</h2>
               <p>
-                Ces taux sont constatés en mars 2026 pour un prêt de 200 000€.
-                L'écart est systématiquement en faveur du contrat délégué — quel que soit l'âge.
+                Voici des exemples réels de l'écart de tarification. Le constat est simple : sortir de sa banque permet presque toujours de diviser la facture par deux.
               </p>
             </div>
 
-            <div className="ae-taux-table-wrap">
+            <div className="ae-taux-table-wrap" style={{ overflowX: 'auto' }}>
               <table className="ae-taux-table">
                 <thead>
                   <tr>
-                    <th>Profil</th>
-                    <th className="ae-col--banque">Assurance bancaire</th>
-                    <th className="ae-col--courtier">Contrat Orizia</th>
-                    <th className="ae-col--gain">Économie</th>
+                    <th>Votre Âge</th>
+                    <th className="ae-col--banque">Assurance de la banque</th>
+                    <th className="ae-col--courtier">Contrat via Orizia</th>
+                    <th className="ae-col--gain">Gain net</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -387,13 +400,10 @@ export default function AssuranceEmprunteurPage() {
                   ))}
                 </tbody>
               </table>
-              <p className="ae-taux-source">
-                Source : Le Partenaire — baromètre mars 2026. Taux pour un capital de 200 000€, garanties DC/PTIA/ITT/IPT.
-              </p>
             </div>
 
             {/* Exemples concrets d'économies */}
-            <div className="ae-economies-grid">
+            <div className="ae-economies-grid" style={{ marginTop: 32 }}>
               {ECONOMIES_EXEMPLES.map(ex => (
                 <div key={ex.profil} className="ae-economie-card">
                   <div className="ae-economie-profil">{ex.profil}</div>
@@ -401,35 +411,23 @@ export default function AssuranceEmprunteurPage() {
                   <div className="ae-economie-taux-row">
                     <div className="ae-economie-taux ae-economie-taux--bad">
                       <span>Banque</span>
-                      <strong>{ex.tauxBanque}/an</strong>
+                      <strong>{ex.tauxBanque}</strong>
                     </div>
                     <div className="ae-economie-arrow">→</div>
                     <div className="ae-economie-taux ae-economie-taux--good">
                       <span>Orizia</span>
-                      <strong>{ex.tauxCourt}/an</strong>
+                      <strong>{ex.tauxCourt}</strong>
                     </div>
                   </div>
                   <div className="ae-economie-total" style={{ borderColor: ex.couleur, color: ex.couleur }}>
-                    🎯 Économie totale estimée : <strong>{ex.economie}</strong>
+                    🎯 Je vous fais économiser : <strong>{ex.economie}</strong>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="crowd-risques-note" style={{ marginTop: 24 }}>
-              💡 Ces estimations sont calculées sur la durée totale du prêt, en partant du taux actuel.
-              L'économie réelle dépend de votre profil de santé, de votre profession et du capital restant dû.
-              Orizia calcule votre économie personnalisée lors du premier rendez-vous.
-            </div>
-
-            <div className="crowd-cta-band" style={{ marginTop: 32 }}>
-              <div>
-                <strong>Votre économie personnalisée calculée en 24h.</strong>
-                <p>Transmettez-nous votre tableau d'amortissement — on fait le reste.</p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon économie →
-              </Link>
+              💡 <strong>Envoyez-moi votre tableau d'amortissement :</strong> je vous dirai en moins de 24h le montant exact que vous allez récupérer sur la durée restante de votre crédit.
             </div>
           </div>
         </section>
@@ -440,33 +438,24 @@ export default function AssuranceEmprunteurPage() {
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                  ✅ Loi Lemoine 2022
+                  ✅ La loi est de votre côté
                 </span>
-                <h2>La loi Lemoine a tout changé :<br />voici vos droits exacts</h2>
+                <h2>La loi Lemoine : l'outil ultime<br />pour reprendre le pouvoir</h2>
                 <p>
-                  Depuis le <strong>1er juin 2022</strong>, la loi Lemoine vous donne le droit de
-                  résilier et remplacer votre assurance emprunteur <strong>à tout moment</strong>,
-                  sans frais, sans pénalité et sans attendre de date anniversaire.
+                  Oubliez les anciennes règles restrictives. Aujourd'hui, changer d'assurance de prêt n'a jamais été aussi simple et rapide.
                 </p>
                 <p>
-                  Ce droit s'applique à <strong>tous les prêts immobiliers en cours</strong>,
-                  peu importe leur date de signature. Que vous ayez signé il y a 2 ans ou 15 ans,
-                  vous pouvez agir dès maintenant.
-                </p>
-                <p>
-                  La seule condition : le nouveau contrat doit présenter des garanties
-                  au moins <strong>équivalentes</strong> à celles exigées par votre banque
-                  — définies par la Fiche Standardisée d'Information (FSI).
+                  Peu importe quand vous avez signé votre crédit immobilier, la loi s'applique. <strong>La banque n'a plus le droit de vous retenir.</strong>
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }}>
-                  📅 Changer d'assurance maintenant →
+                  📅 Faire valoir mes droits →
                 </Link>
               </div>
 
               {/* Schéma loi Lemoine */}
               <div className="crowd-schema">
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
-                  Vos droits en 2026
+                  Ce qui a changé pour vous
                 </div>
                 {LOI_LEMOINE_POINTS.map(pt => (
                   <div key={pt.title} className="ae-lemoine-point">
@@ -477,23 +466,6 @@ export default function AssuranceEmprunteurPage() {
                     </div>
                   </div>
                 ))}
-                <div style={{
-                  marginTop: 16,
-                  background: 'rgba(22,163,74,0.06)',
-                  border: '1.5px solid rgba(22,163,74,0.2)',
-                  borderRadius: 12,
-                  padding: '14px 16px',
-                  fontSize: '0.82rem',
-                  color: '#16a34a',
-                  fontWeight: 700,
-                  textAlign: 'center',
-                  lineHeight: 1.5,
-                }}>
-                  🩺 Questionnaire médical supprimé<br />
-                  <span style={{ fontWeight: 400, opacity: 0.8 }}>
-                    pour capital &lt; 200 000€/pers. remboursé avant 60 ans
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -504,10 +476,9 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Les garanties</span>
-              <h2>Quelles garanties choisir ?<br />Ce qui est utile vs ce qui est superflu</h2>
+              <h2>Moins cher, oui.<br />Mais aussi bien couvert ? Mieux.</h2>
               <p>
-                Toutes les garanties ne sont pas obligatoires. Orizia ne vous fait souscrire
-                que celles qui correspondent à votre profil réel — pas à un forfait standard.
+                Je ne sacrifie jamais votre protection pour afficher un prix bas. Mon rôle est d'analyser les exigences strictes de votre banque, et de vous trouver le contrat qui matche à 100%.
               </p>
             </div>
             <div className="ae-garanties-grid">
@@ -523,18 +494,12 @@ export default function AssuranceEmprunteurPage() {
                       <div className="ae-garantie-label">{g.label}</div>
                     </div>
                     <span className={`ae-garantie-badge${g.obligatoire ? ' ae-garantie-badge--req' : ' ae-garantie-badge--opt'}`}>
-                      {g.obligatoire ? '✅ Obligatoire' : 'Optionnelle'}
+                      {g.obligatoire ? 'Base' : 'Option'}
                     </span>
                   </div>
                   <p className="ae-garantie-desc">{g.desc}</p>
                 </div>
               ))}
-            </div>
-            <div className="crowd-risques-note" style={{ marginTop: 24 }}>
-              💡 <strong>L'astuce Orizia :</strong> les contrats délégués permettent de moduler les quotités
-              (part couverte par chaque co-emprunteur) et d'activer uniquement les garanties nécessaires.
-              Un couple peut, par exemple, couvrir à 100% l'emprunteur principal et à 50% le co-emprunteur —
-              ce que les contrats groupe bancaires ne permettent pas toujours.
             </div>
           </div>
         </section>
@@ -543,11 +508,10 @@ export default function AssuranceEmprunteurPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Notre accompagnement</span>
-              <h2>Orizia gère tout,<br />vous n'avez qu'à signer</h2>
+              <span className="fin-badge">Mon engagement : le "zéro friction"</span>
+              <h2>Détendez-vous,<br />j'affronte la banque à votre place</h2>
               <p>
-                De l'audit de votre contrat actuel à l'acceptation par la banque —
-                la procédure complète prise en charge, sans frais pour vous.
+                Changer d'assurance fait peur car la banque aime faire traîner les choses. Mon job ? Mettre la pression juridique pour que ça aille vite.
               </p>
             </div>
             <div className="fin-etapes">
@@ -562,16 +526,13 @@ export default function AssuranceEmprunteurPage() {
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>
               <div>
-                <strong>Un service complet, 100% gratuit pour vous</strong>
+                <strong>Et le plus beau : c'est 100% gratuit pour vous.</strong>
                 <p>
-                  Orizia Courtage est rémunéré par l'assureur partenaire sous forme de commission,
-                  encadrée par la réglementation DDA et communiquée de façon transparente dès le
-                  premier échange. Vous ne payez pas plus cher qu'en souscrivant directement —
-                  mais vous bénéficiez d'un expert qui gère toute la procédure.
+                  Je suis rémunérée par la compagnie d'assurance partenaire, de manière totalement transparente. Vous profitez d'une experte dédiée pour affronter votre banque, sans débourser un centime d'honoraires de courtage.
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer →
+                📅 On lance la machine ? →
               </Link>
             </div>
           </div>
@@ -581,11 +542,8 @@ export default function AssuranceEmprunteurPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">On répond à vos doutes</span>
-              <h2>Votre banque vous a peut-être dit<br />que ce n'était pas possible</h2>
-              <p>
-                Ce sont les 4 freins les plus fréquents. Voici ce que dit vraiment la loi.
-              </p>
+              <span className="fin-badge">Cassons les mythes</span>
+              <h2>Ce que votre banquier<br />va essayer de vous faire croire</h2>
             </div>
             <div className="av-objections-grid">
               {OBJECTIONS.map((o, i) => (
@@ -595,19 +553,6 @@ export default function AssuranceEmprunteurPage() {
                 </div>
               ))}
             </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Votre situation est particulière ? On analyse votre dossier en 24h.
-              </p>
-              <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Prendre rendez-vous →
-                </Link>
-                <Link href="/contact" className="fin-btn-secondary">
-                  ✉️ Poser une question
-                </Link>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -616,8 +561,8 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur l'assurance emprunteur,<br />nos réponses d'experts</h2>
-              <p>Des réponses précises, vérifiées, sans jargon.</p>
+              <h2>Vos questions, mes réponses cash</h2>
+              <p>On démystifie l'assurance de prêt ensemble.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -628,11 +573,8 @@ export default function AssuranceEmprunteurPage() {
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une question sur votre contrat spécifique ?
-              </p>
               <Link href="/contact" className="fin-btn-secondary">
-                Poser ma question →
+                ✉️ Poser une autre question à Cindy
               </Link>
             </div>
           </div>
@@ -642,9 +584,8 @@ export default function AssuranceEmprunteurPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Aller plus loin</span>
-              <h2>Optimisez l'ensemble<br />de votre projet immobilier</h2>
-              <p>L'assurance emprunteur est un levier parmi d'autres. Découvrez comment réduire le coût global.</p>
+              <span className="fin-badge">Pendant qu'on y est</span>
+              <h2>Optimisez tout votre<br />budget immobilier</h2>
             </div>
             <div className="fin-cards">
               {[
@@ -652,22 +593,22 @@ export default function AssuranceEmprunteurPage() {
                   href: '/financer/credit-immobilier',
                   icon: '🏡',
                   title: 'Crédit Immobilier',
-                  sub: 'Financer votre projet',
-                  text: 'Un meilleur taux de crédit + une assurance optimisée : Orizia négocie les deux simultanément pour minimiser le coût total.',
+                  sub: 'Votre futur achat',
+                  text: 'Vous achetez un nouveau bien ? Ne signez pas les yeux fermés. Je négocie à la fois votre taux de prêt ET votre assurance dès le départ.',
                 },
                 {
-                  href: '/investir/assurance-vie',
-                  icon: '🛡️',
-                  title: 'Assurance Vie',
-                  sub: 'Épargner en parallèle',
-                  text: 'Pendant que votre prêt s\'amortit, construisez votre patrimoine. L\'assurance vie est le placement complémentaire idéal.',
+                  href: '/investir/per',
+                  icon: '💰',
+                  title: 'Plan Épargne Retraite',
+                  sub: 'Réinvestir vos gains',
+                  text: 'Vous venez d\'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.',
                 },
                 {
-                  href: '/assurer/habitation',
+                  href: '/assurer/assurance-habitation',
                   icon: '🏠',
                   title: 'Assurance Habitation',
-                  sub: 'Protéger votre bien',
-                  text: 'Obligatoire pour un logement en copropriété, fortement recommandée en maison individuelle. Orizia compare les meilleures offres.',
+                  sub: 'Protéger votre cocon',
+                  text: 'Votre prêt est protégé, mais qu\'en est-il de vos murs ? Confiez-moi votre MRH, je m\'assure que votre maison est vraiment couverte.',
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
@@ -675,7 +616,7 @@ export default function AssuranceEmprunteurPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>
@@ -685,24 +626,20 @@ export default function AssuranceEmprunteurPage() {
         {/* ── CTA FINAL ── */}
         <section className="fin-cta">
           <div className="fin-cta-inner">
-            <h2>Chaque mois sans agir,<br />c'est de l'argent laissé à votre banque</h2>
+            <h2>Ne laissez plus la banque<br />décider pour vous</h2>
             <p>
-              Orizia audite votre contrat actuel, trouve le meilleur contrat du marché
-              et gère toute la procédure de substitution. En 3 semaines, votre assurance
-              est optimisée — sans aucun risque sur votre prêt.
+              Je calcule gratuitement votre économie potentielle, je trouve le contrat qui matche parfaitement avec les exigences de votre banque, et je prends le relais sur toute la partie administrative.
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement →
+                📅 Faire mon audit avec Cindy →
               </Link>
               <Link href="/contact" className="fin-btn-outline">
-                Poser une question
+                ✉️ Lui envoyer un message
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Les économies indiquées sont des estimations basées sur les taux moyens constatés en mars 2026
-              et dépendent du profil de l'emprunteur. Orizia Courtage, courtier en assurance régi par l'ACPR,
-              rémunéré par les assureurs partenaires, jamais par le client.
+              *Les économies potentielles sont données à titre indicatif et dépendent de votre capital restant dû, de la durée de votre prêt et de votre profil. Orizia Courtage est une structure indépendante, enregistrée à l'ORIAS, qui défend vos intérêts face aux établissements bancaires.
             </p>
           </div>
         </section>

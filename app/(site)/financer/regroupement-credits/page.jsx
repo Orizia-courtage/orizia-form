@@ -13,11 +13,11 @@ export const metadata = {
     'courtier rachat de crédits',
     'simulation regroupement crédits',
   ],
-  alternates: { canonical: 'https://orizia.fr/financer/regroupement-credits' },
+  alternates: { canonical: 'https://orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',
     description: 'Un seul crédit, une seule mensualité réduite. Orizia étudie votre dossier gratuitement et vous propose la solution adaptée à votre profil.',
-    url: 'https://orizia.fr/financer/regroupement-credits',
+    url: 'https://orizia-courtage.fr/financer/regroupement-credits',
     type: 'article',
   },
 };

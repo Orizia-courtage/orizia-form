@@ -15,11 +15,11 @@ export const metadata = {
     'SCPI assurance vie',
     'SCPI risques conseils',
   ],
-  alternates: { canonical: 'https://orizia.fr/investir/scpi' },
+  alternates: { canonical: 'https://orizia-courtage.fr/investir/scpi' },
   openGraph: {
     title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
     description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant, gratuit, personnalisé.',
-    url: 'https://orizia.fr/investir/scpi',
+    url: 'https://orizia-courtage.fr/investir/scpi',
     type: 'article',
   },
 };

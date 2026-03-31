@@ -1,23 +1,22 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Assurance Auto & Moto 2026 : Comparez et Économisez | Orizia Courtage',
+  title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia',
   description:
-    'Comparez votre assurance auto ou moto en 2026 et économisez jusqu\'à 400€/an. Tiers, intermédiaire, tous risques, loi Hamon, jeune conducteur. Conseil gratuit et indépendant.',
+    'Votre assurance auto ou moto flambe ? Je compare les offres, trouve le meilleur tarif et gère la résiliation pour vous. Étude gratuite et indépendante.',
   keywords: [
-    'assurance auto 2026',
-    'assurance moto 2026',
-    'assurance auto pas chère courtier',
-    'changer assurance auto loi Hamon',
-    'assurance auto jeune conducteur',
-    'assurance moto cylindrée',
+    'assurance auto courtier',
+    'assurance moto pas chère',
+    'résilier assurance auto loi hamon',
+    'courtier indépendant auto moto',
+    'devis assurance auto jeune conducteur',
     'comparatif assurance auto moto',
     'assurance auto tous risques tiers',
   ],
-  alternates: { canonical: 'https://orizia.fr/assurer/auto-moto' },
+  alternates: { canonical: 'https://orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
-    title: 'Assurance Auto & Moto 2026 : Comparez et Économisez | Orizia Courtage',
-    description: '+4 à 6% en 2026 pour la 3ème année consécutive. Orizia compare les meilleures offres auto et moto du marché. Gratuit, indépendant, sans engagement.',
+    title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia',
+    description: 'Ne subissez plus les hausses de tarifs de votre assureur. Je compare le marché, optimise vos garanties et m\'occupe de résilier votre ancien contrat. Gratuit et sans engagement.',
     url: 'https://orizia.fr/assurer/auto-moto',
     type: 'article',
   },
@@ -32,155 +31,141 @@ const faqSchema = {
       name: 'Quelle assurance auto est obligatoire en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La garantie responsabilité civile est la seule assurance obligatoire pour tout véhicule terrestre à moteur en circulation. Elle couvre les dommages causés aux tiers. Rouler sans assurance reste un délit passible d\'une amende, d\'une suspension du permis et d\'une confiscation du véhicule.',
+        text: 'La garantie responsabilité civile (le "tiers") est la seule assurance légalement obligatoire pour tout véhicule terrestre à moteur. Elle indemnise les victimes en cas d\'accident causé par votre véhicule. Rouler sans assurance est un délit lourdement sanctionné.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quelle est la différence entre tiers, intermédiaire et tous risques ?',
+      name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le tiers couvre uniquement les dommages causés à autrui. L\'intermédiaire ajoute généralement le vol, l\'incendie et le bris de glace. Le tous risques couvre en plus vos propres dommages, même si vous êtes responsable.',
+        text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En rendez-vous, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Peut-on changer d\'assurance auto ou moto en cours d\'année ?',
+      name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, après la première année de contrat, la loi Hamon permet de résilier à tout moment sans frais ni justification. Le nouveau contrat peut prendre le relais sans interruption de couverture.',
+        text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Pourquoi les tarifs augmentent-ils encore en 2026 ?',
+      name: 'Pourquoi les tarifs des assurances augmentent-ils encore ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les prix augmentent à cause du coût des réparations, de la hausse des sinistres climatiques et de la complexité électronique des véhicules modernes.',
+        text: 'L\'inflation des pièces détachées, la technologie embarquée de plus en plus coûteuse à réparer, et la hausse des événements climatiques (grêle, tempêtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque année.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Comment réduire sa prime d\'assurance auto en 2026 ?',
+      name: 'Pourquoi confier mon assurance à un courtier indépendant ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les principaux leviers sont la comparaison des offres, l\'ajustement des franchises, le kilométrage déclaré, le choix de la formule adaptée au véhicule et le regroupement de contrats.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi passer par un courtier ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Un courtier compare plusieurs assureurs, négocie des offres adaptées à votre profil et gère souvent la résiliation à votre place. Cela permet de gagner du temps et de réduire le coût total.',
+        text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '+5%', label: 'Hausse moyenne des tarifs 2026', icon: '📈' },
-  { value: '2 177€', label: 'Prime moyenne jeune conducteur/an', icon: '🎓' },
-  { value: '602€', label: 'Prime moyenne conducteur expérimenté/an', icon: '🚗' },
-  { value: '400€', label: 'Économies max. via un courtier/an', icon: '💰' },
+  { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
+  { value: '1 an', label: 'Délai avant résiliation libre (Hamon)', icon: '🔓' },
+  { value: '0€', label: 'Frais de gestion Orizia', icon: '🤝' },
+  { value: '400€', label: 'Économies moyennes constatées/an', icon: '💰' },
 ];
 
 const FORMULES_AUTO = [
   {
     nom: 'Au tiers',
     icon: '🛡️',
-    prix: '~165–340€/an',
+    prix: 'Le plus économique',
     couleur: '#64748b',
     garanties: [
       { label: 'Responsabilité civile', inclus: true },
+      { label: 'Défense pénale et recours', inclus: true },
       { label: 'Bris de glace', inclus: false },
       { label: 'Vol & incendie', inclus: false },
-      { label: 'Catastrophes naturelles', inclus: false },
       { label: 'Dommages tous accidents', inclus: false },
-      { label: 'Véhicule de remplacement', inclus: false },
     ],
-    pour: 'Véhicule de faible valeur ou ancien',
+    pour: 'Idéal pour une voiture ancienne ou de faible valeur.',
   },
   {
     nom: 'Intermédiaire',
     icon: '⚖️',
-    prix: '~370–550€/an',
+    prix: 'Le bon compromis',
     couleur: '#d97706',
     featured: true,
     garanties: [
       { label: 'Responsabilité civile', inclus: true },
+      { label: 'Défense pénale et recours', inclus: true },
       { label: 'Bris de glace', inclus: true },
       { label: 'Vol & incendie', inclus: true },
-      { label: 'Catastrophes naturelles', inclus: true },
       { label: 'Dommages tous accidents', inclus: false },
-      { label: 'Véhicule de remplacement', inclus: false },
     ],
-    pour: 'Véhicule récent sans aller jusqu\'au tous risques',
+    pour: 'Le choix malin pour un véhicule d\'occasion de quelques années.',
   },
   {
     nom: 'Tous risques',
     icon: '✅',
-    prix: '~637–950€/an',
+    prix: 'La tranquillité absolue',
     couleur: '#16a34a',
     garanties: [
       { label: 'Responsabilité civile', inclus: true },
+      { label: 'Défense pénale et recours', inclus: true },
       { label: 'Bris de glace', inclus: true },
       { label: 'Vol & incendie', inclus: true },
-      { label: 'Catastrophes naturelles', inclus: true },
       { label: 'Dommages tous accidents', inclus: true },
-      { label: 'Véhicule de remplacement', inclus: true },
     ],
-    pour: 'Véhicule neuf, financé ou de forte valeur',
+    pour: 'Indispensable pour un véhicule neuf, récent ou en LOA/LLD.',
   },
 ];
 
 const TARIFS_MOTO = [
-  { cylindree: '≤ 50 cc', tiers: '200–300€', inter: '300–400€', tousRisques: '400€+', recommande: 'Tiers' },
-  { cylindree: '125 cc', tiers: '350–500€', inter: '500–600€', tousRisques: '600–700€', recommande: 'Intermédiaire' },
-  { cylindree: '126–600 cc', tiers: '400–500€', inter: '500–700€', tousRisques: '700–950€', recommande: 'Tous risques' },
-  { cylindree: '600–999 cc', tiers: '450–600€', inter: '600–900€', tousRisques: '900–1 200€', recommande: 'Tous risques' },
-  { cylindree: 'Grosse cylindrée', tiers: '500€+', inter: '800€+', tousRisques: '1 200–1 500€', recommande: 'Tous risques' },
+  { cylindree: '≤ 50 cc', tiers: 'Dès 200€', inter: 'Dès 300€', tousRisques: 'Sur mesure', recommande: 'Tiers' },
+  { cylindree: '125 cc', tiers: 'Dès 350€', inter: 'Dès 500€', tousRisques: 'Sur mesure', recommande: 'Intermédiaire' },
+  { cylindree: '126–600 cc', tiers: 'Dès 400€', inter: 'Dès 500€', tousRisques: 'Dès 700€', recommande: 'Tous risques' },
+  { cylindree: '600–999 cc', tiers: 'Dès 450€', inter: 'Dès 600€', tousRisques: 'Dès 900€', recommande: 'Tous risques' },
+  { cylindree: 'Grosse cylindrée', tiers: 'Dès 500€', inter: 'Dès 800€', tousRisques: 'Dès 1 200€', recommande: 'Tous risques' },
 ];
 
 const PROFILS_AUTO = [
   {
     icon: '🎓',
     title: 'Jeune conducteur',
-    desc: 'Moins de 3 ans de permis.',
+    desc: 'La prime pique les yeux la première année.',
     points: [
-      'Prime moyenne 2 177€/an en 2026',
-      'Surprime jeune conducteur',
-      'AAC réduit la prime',
-      'Boîtier télématique utile',
+      'Surprime légale applicable',
+      'La conduite accompagnée (AAC) fait baisser le prix',
+      'Boîtier connecté = bonne idée',
     ],
-    astuce: 'Un courtier trouve souvent des assureurs plus compétitifs sur ce profil.',
+    astuce: 'Mon conseil : Je démarche les assureurs qui sont plus cléments avec les novices pour diviser la note.',
     color: '#dc2626',
   },
   {
     icon: '🚗',
     title: 'Conducteur expérimenté',
-    desc: 'Bonus maximum et historique établi.',
+    desc: 'Bonus à 50% depuis des années.',
     points: [
-      'Prime moyenne 602€/an en 2026',
-      'Bonus 0,50 = réduction maximale',
-      'Large choix de formules',
-      'Regroupement multi-véhicule possible',
+      'Vous devriez payer le prix plancher',
+      'Possibilité de rachat de franchise',
+      'Regroupement familial très avantageux',
     ],
-    astuce: 'Comparer régulièrement permet d\'éviter l\'érosion silencieuse des tarifs.',
+    astuce: 'Attention à "l\'érosion de fidélité" : si vous n\'avez pas changé depuis 5 ans, vous payez très probablement trop cher.',
     color: 'var(--orizia-primary)',
     featured: true,
   },
   {
     icon: '🏍️',
     title: 'Motard',
-    desc: 'Moto, scooter ou grosse cylindrée.',
+    desc: 'Du scooter urbain à la grosse cylindrée.',
     points: [
-      'Tarif selon cylindrée',
-      'Suspension hivernale possible',
-      'Équipement conducteur en option',
-      'Contrats spécifiques selon usage',
+      'Garantie équipement (casque, gants, cuir)',
+      'Option suspension hivernale',
+      'Assistance 0km indispensable',
     ],
-    astuce: 'Les contrats saisonniers peuvent réduire la prime annuelle.',
+    astuce: 'Je construis des contrats modulables. Si votre moto hiberne 4 mois dans l\'année, votre facture aussi.',
     color: '#7c3aed',
   },
 ];
@@ -188,68 +173,68 @@ const PROFILS_AUTO = [
 const DANGERS = [
   {
     icon: '📈',
-    title: 'Les tarifs montent chaque année',
-    text: 'Sans comparaison active, vous subissez mécaniquement les hausses de renouvellement.',
+    title: 'La taxe invisible de la fidélité',
+    text: 'En assurance, être fidèle coûte cher. Votre assureur augmente discrètement votre tarif de 4 à 6% chaque année au moment du renouvellement automatique.',
   },
   {
     icon: '📋',
-    title: 'Le tacite reconduit votre contrat',
-    text: 'Si vous ne vérifiez pas l\'avis d\'échéance, vous laissez souvent passer l\'occasion d\'optimiser.',
+    title: 'Le piège des garanties inutiles',
+    text: 'Payer un "Tous risques" sur une Clio de 2010 qui ne cote plus grand-chose ? C\'est de l\'argent jeté par les fenêtres. Les formules doivent évoluer avec votre voiture.',
   },
   {
     icon: '🔍',
-    title: 'La formule n\'est plus adaptée',
-    text: 'Un tous risques sur une voiture ancienne ou un tiers sur une voiture récente peut coûter trop cher ou protéger trop peu.',
+    title: 'Le parcours du combattant',
+    text: 'Chercher, comparer 15 devis, lire les petites lignes des franchises, faire la lettre recommandée de résiliation... C\'est long. C\'est pour ça que je le fais pour vous.',
   },
 ];
 
 const ETAPES = [
   {
     n: '01',
-    title: 'Analyse de votre profil',
-    text: 'Bonus, sinistres, véhicule, kilométrage, usage perso ou pro, tout est pris en compte.',
+    title: 'J\'écoute vos besoins',
+    text: 'Pas de questionnaire robotique. On fait le point ensemble sur votre véhicule, votre usage (pro/perso) et votre historique (bonus/malus).',
   },
   {
     n: '02',
-    title: 'Comparaison des offres',
-    text: 'Les garanties, franchises, exclusions et tarifs sont comparés pour viser la meilleure formule.',
+    title: 'Je chasse le meilleur contrat',
+    text: 'Je compare les offres de mes partenaires assureurs en épluchant ce qui compte vraiment : le tarif, mais surtout les franchises et les exclusions.',
   },
   {
     n: '03',
-    title: 'Résiliation de l\'ancien contrat',
-    text: 'Après la première année, la résiliation peut être gérée pour vous sans interruption de couverture.',
+    title: 'Je m\'occupe de la paperasse',
+    text: 'Votre contrat a plus d\'un an ? Parfait. Grâce à la loi Hamon, je résilie votre ancienne assurance en votre nom. Zéro coupure, zéro stress.',
   },
   {
     n: '04',
-    title: 'Suivi annuel',
-    text: 'Une nouvelle comparaison peut être faite chaque année avant le renouvellement.',
+    title: 'Je veille sur vous chaque année',
+    text: 'Je ne disparais pas après la signature. À chaque date anniversaire, on vérifie si votre contrat est toujours le plus compétitif du marché.',
   },
 ];
 
 const OBJECTIONS = [
   {
-    q: '« Je suis fidèle depuis longtemps. »',
-    r: 'La fidélité ne garantit pas le meilleur tarif. Les écarts restent souvent significatifs.',
+    q: '« Je suis dans la même agence depuis 10 ans, ils me connaissent. »',
+    r: 'Humainement, c\'est agréable. Financièrement, c\'est souvent une erreur. Les algorithmes des assureurs ne récompensent plus la fidélité. Laissez-moi comparer, juste pour voir.',
   },
   {
-    q: '« J\'ai un malus. »',
-    r: 'Les profils malussés ont aussi des solutions, souvent via des assureurs spécialisés.',
+    q: '« J\'ai eu un accrochage récent, personne ne voudra de moi. »',
+    r: 'Faux. Même avec un petit malus, certaines compagnies spécialisées proposent des tarifs agressifs. C\'est mon métier de savoir à quelle porte frapper.',
   },
   {
-    q: '« Mon véhicule est ancien. »',
-    r: 'Dans ce cas, une formule plus légère peut être bien plus pertinente qu\'un tous risques.',
+    q: '« Je roule très peu, je télétravaille. »',
+    r: 'Excellente nouvelle pour votre portefeuille ! Les formules "Pay as you drive" ou forfait kilométrique peuvent réduire votre facture de 30%.',
   },
   {
-    q: '« Je roule peu. »',
-    r: 'Une formule faible kilométrage ou saisonnière peut réduire fortement la prime.',
+    q: '« Les démarches de changement m\'épuisent d\'avance. »',
+    r: 'C\'est la raison d\'être de mon accompagnement : je rédige et j\'envoie la résiliation (Loi Hamon). Vous n\'avez strictement rien à faire.',
   },
 ];
 
 const LOI_HAMON_POINTS = [
-  { icon: '🔄', title: 'Résiliation à tout moment', desc: 'Après 12 mois de contrat, sans frais.' },
-  { icon: '📬', title: 'Préavis d\'1 mois', desc: 'Le changement prend effet après notification.' },
-  { icon: '🤝', title: 'Orizia gère la résiliation', desc: 'La démarche peut être faite pour vous.' },
-  { icon: '📅', title: 'Alerte anniversaire', desc: 'Un rappel avant la date d\'échéance peut éviter le renouvellement automatique.' },
+  { icon: '🔄', title: 'Liberté totale', desc: 'Après 1 an, vous êtes libre de partir quand vous voulez.' },
+  { icon: '📬', title: 'Préavis express', desc: '1 mois seulement pour basculer sur le nouveau contrat.' },
+  { icon: '🤝', title: 'Je gère la transition', desc: 'Je m\'occupe de toute la liaison avec votre ancien assureur.' },
+  { icon: '🛡️', title: 'Zéro interruption', desc: 'La nouvelle assurance prend le relais à la minute près.' },
 ];
 
 export default function AssuranceAutoMotoPage() {
@@ -272,25 +257,25 @@ export default function AssuranceAutoMotoPage() {
               {' › '}
               <span>Assurance Auto & Moto</span>
             </nav>
-            <span className="fin-badge">📈 +5% en 2026 — hausse des tarifs</span>
-            <h1>Assurance auto & moto :<br />arrêtez de payer trop cher</h1>
+            <span className="fin-badge">📈 +5% d'augmentation en 2026</span>
+            <h1>Votre assurance auto flambe ?<br />Je remets les compteurs à zéro.</h1>
             <p>
-              Pour la 3ème année consécutive, les tarifs augmentent de
-              <strong> +4 à 6%</strong>. Orizia compare les offres auto et moto du marché
-              pour vous aider à économiser jusqu'à <strong>400€/an</strong>.
+              Arrêtez de payer la taxe de la fidélité. Je compare les offres du marché, 
+              <strong> je déniche le tarif le plus juste </strong> et je gère toute la résiliation 
+              à votre place. Un accompagnement <strong>100% dédié à vos intérêts</strong>.
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Comparer mon contrat gratuitement →
+                📅 Faire un bilan gratuit avec Cindy →
               </Link>
               <Link href="#formules" className="fin-btn-secondary">
-                🔍 Comparer les formules
+                🔍 Voir les formules
               </Link>
             </div>
             <div className="fin-hero-trust">
-              <span>✅ Loi Hamon : changement à tout moment</span>
-              <span>🚗 Auto & 🏍️ Moto comparés</span>
-              <span>⚡ Résiliation gérée par Orizia</span>
+              <span>✅ Loi Hamon : je m'occupe de résilier</span>
+              <span>🚗 Courtage 100% indépendant</span>
+              <span>⚡ Étude personnalisée sous 24h</span>
             </div>
           </div>
         </section>
@@ -299,11 +284,54 @@ export default function AssuranceAutoMotoPage() {
         <section className="fin-chiffres">
           <div className="fin-chiffres-inner">
             {CHIFFRES.map(c => (
-              <div key={c.value} className="fin-chiffre">
+              <div key={c.label} className="fin-chiffre">
                 <strong>{c.icon} {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* CITATION CINDY */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div style={{
+              background: '#fff',
+              borderRadius: 16,
+              padding: '36px 40px',
+              borderLeft: '5px solid var(--orizia-primary)',
+              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
+              maxWidth: 780,
+              margin: '0 auto',
+            }}>
+              <p style={{
+                fontSize: '1.2rem',
+                fontWeight: 800,
+                color: 'var(--orizia-accent)',
+                lineHeight: 1.55,
+                marginBottom: 16,
+              }}>
+                « Chaque année, votre fidélité est paradoxalement sanctionnée par une hausse de vos cotisations. »
+              </p>
+              <p style={{
+                fontSize: '1rem',
+                color: 'var(--orizia-dark)',
+                lineHeight: 1.75,
+                margin: '0 0 20px',
+                opacity: 0.8,
+              }}>
+                Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
+              </p>
+              <span style={{
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                color: 'var(--orizia-primary)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+              }}>
+                — Cindy Urbansky, courtière indépendante · Orizia Courtage
+              </span>
+            </div>
           </div>
         </section>
 
@@ -312,11 +340,11 @@ export default function AssuranceAutoMotoPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce qui fait grimper votre prime
+                ⚠️ Ce qui grignote votre budget
               </span>
-              <h2>3 raisons pour lesquelles vous payez<br />plus cher que nécessaire</h2>
+              <h2>Pourquoi vous payez certainement<br />votre assurance trop cher</h2>
               <p>
-                Sans comparaison régulière, vous laissez les renouvellements tacites et les hausses tarifaires rogner votre budget.
+                Si vous laissez faire, votre assureur en profite. Voici comment vous perdez de l'argent sans vous en rendre compte.
               </p>
             </div>
             <div className="crowd-avantages-grid">
@@ -335,10 +363,10 @@ export default function AssuranceAutoMotoPage() {
         <section id="formules" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Formules Auto 2026</span>
-              <h2>Tiers, intermédiaire ou tous risques :<br />laquelle vous correspond vraiment ?</h2>
+              <span className="fin-badge">Cibler vos besoins</span>
+              <h2>Tiers, intermédiaire ou tous risques :<br />on adapte la formule à votre voiture</h2>
               <p>
-                Le bon niveau de couverture dépend de la valeur du véhicule, de son âge et de votre usage.
+                Ne payez que pour les garanties qui ont un sens par rapport à la valeur actuelle de votre véhicule.
               </p>
             </div>
             <div className="am-formules-grid">
@@ -350,7 +378,7 @@ export default function AssuranceAutoMotoPage() {
                 >
                   {f.featured && (
                     <div className="am-formule-badge" style={{ background: f.couleur }}>
-                      ⚖️ Le plus choisi
+                      ⚖️ Le meilleur compromis
                     </div>
                   )}
                   <div className="am-formule-header" style={{ color: f.couleur }}>
@@ -366,7 +394,7 @@ export default function AssuranceAutoMotoPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="am-formule-pour">🎯 {f.pour}</div>
+                  <div className="am-formule-pour">💡 {f.pour}</div>
                 </div>
               ))}
             </div>
@@ -377,13 +405,13 @@ export default function AssuranceAutoMotoPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Tarifs Moto 2026</span>
-              <h2>Assurance moto : les tarifs<br />par cylindrée en 2026</h2>
+              <span className="fin-badge">Spécial Motards ✌️</span>
+              <h2>Assurance moto : on ajuste<br />selon la cylindrée et l'usage</h2>
               <p>
-                Le prix dépend surtout de la cylindrée, du type de moto et de l'usage réel.
+                Parce qu'on n'assure pas un scooter 125cc comme une routière de 1000cc.
               </p>
             </div>
-            <div className="am-moto-table-wrap">
+            <div className="am-moto-table-wrap" style={{ overflowX: 'auto' }}>
               <table className="ae-taux-table">
                 <thead>
                   <tr>
@@ -391,7 +419,7 @@ export default function AssuranceAutoMotoPage() {
                     <th className="ae-col--banque">Au tiers</th>
                     <th>Intermédiaire</th>
                     <th className="ae-col--courtier">Tous risques</th>
-                    <th>Recommandé</th>
+                    <th>Recommandation</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -427,14 +455,14 @@ export default function AssuranceAutoMotoPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Votre profil</span>
-              <h2>Jeune conducteur, expérimenté<br />ou motard — le conseil n'est pas le même</h2>
-              <p>Chaque profil a ses leviers spécifiques.</p>
+              <span className="fin-badge">Sur-mesure</span>
+              <h2>À chaque profil,<br />sa stratégie pour faire baisser le prix</h2>
+              <p>Je ne rentre personne dans des cases génériques. On cherche les leviers qui vous correspondent.</p>
             </div>
             <div className="av-profils-grid">
               {PROFILS_AUTO.map(p => (
                 <div key={p.title} className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}>
-                  {p.featured && <div className="av-profil-badge">✅ Profil standard</div>}
+                  {p.featured && <div className="av-profil-badge">✅ Profil le plus courant</div>}
                   <div className="av-profil-icon">{p.icon}</div>
                   <h3>{p.title}</h3>
                   <p className="av-profil-desc">{p.desc}</p>
@@ -450,10 +478,15 @@ export default function AssuranceAutoMotoPage() {
                     fontWeight: 700,
                     lineHeight: 1.4,
                   }}>
-                    💡 {p.astuce}
+                    {p.astuce}
                   </div>
                 </div>
               ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <Link href="/rendez-vous" className="fin-btn-primary">
+                📅 Étudier mon profil avec Cindy →
+              </Link>
             </div>
           </div>
         </section>
@@ -464,14 +497,14 @@ export default function AssuranceAutoMotoPage() {
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                  ✅ Loi Hamon — Vos droits
+                  ✅ Loi Hamon — Je m'occupe de tout
                 </span>
-                <h2>Changer d'assurance auto<br />à tout moment — sans frais</h2>
+                <h2>Changer d'assureur<br />n'a jamais été aussi simple</h2>
                 <p>
-                  Après la première année, la loi Hamon permet de résilier votre contrat auto ou moto à tout moment.
+                  Vous craignez la paperasse ? Rassurez-vous. Dès que votre contrat actuel a soufflé sa première bougie, <strong>vous avez le droit de partir à tout moment</strong>.
                 </p>
                 <p>
-                  Orizia peut gérer la procédure pour vous afin d\'éviter toute interruption de couverture.
+                  Et la meilleure nouvelle ? Vous ne faites aucune lettre recommandée. <strong>C'est moi qui m'occupe de résilier pour vous</strong>.
                 </p>
               </div>
               <div className="crowd-schema">
@@ -504,9 +537,9 @@ export default function AssuranceAutoMotoPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Notre accompagnement</span>
-              <h2>Orizia s'occupe de tout,<br />de A à Z</h2>
-              <p>De l'analyse de votre profil à l'alerte annuelle avant renouvellement.</p>
+              <span className="fin-badge">Mon accompagnement</span>
+              <h2>Je gère votre dossier<br />de A à Z</h2>
+              <p>Pas de plateforme téléphonique. Je suis votre interlocutrice unique, du devis jusqu'à la signature.</p>
             </div>
             <div className="fin-etapes">
               {ETAPES.map(e => (
@@ -524,8 +557,8 @@ export default function AssuranceAutoMotoPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">On répond à vos doutes</span>
-              <h2>Les 4 raisons de ne pas changer —<br />et pourquoi elles ne tiennent pas</h2>
+              <span className="fin-badge">On en parle ?</span>
+              <h2>Les excuses qu'on se donne pour ne pas changer<br />(et pourquoi il faut franchir le cap)</h2>
             </div>
             <div className="av-objections-grid">
               {OBJECTIONS.map((o, i) => (
@@ -543,7 +576,8 @@ export default function AssuranceAutoMotoPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur l'assurance auto & moto,<br />nos réponses d'experts</h2>
+              <h2>Vos questions, mes réponses d'experte</h2>
+              <p>La transparence avant tout. Si vous avez une question plus spécifique, n'hésitez pas à me contacter.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -553,6 +587,11 @@ export default function AssuranceAutoMotoPage() {
                 </details>
               ))}
             </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <Link href="/contact" className="fin-btn-secondary">
+                ✉️ Poser une autre question à Cindy
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -560,31 +599,32 @@ export default function AssuranceAutoMotoPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Aller plus loin</span>
-              <h2>Optimisez toutes vos assurances<br />en un rendez-vous</h2>
+              <span className="fin-badge">Vision globale</span>
+              <h2>Puisqu'on y est, si on optimisait<br />le reste de vos contrats ?</h2>
+              <p>Faire le tri dans l'auto, c'est bien. Regrouper ses assurances pour avoir un conseiller unique et faire des économies d'échelle, c'est mieux.</p>
             </div>
             <div className="fin-cards">
               {[
                 {
-                  href: '/assurer/habitation',
+                  href: '/assurer/assurance-habitation',
                   icon: '🏠',
                   title: 'Assurance Habitation',
-                  sub: 'Protéger votre logement',
-                  text: 'Comparez et optimisez votre contrat habitation.',
+                  sub: 'Protéger votre cocon',
+                  text: 'Comme pour l\'auto, les tarifs augmentent. Faisons le point pour protéger vos biens au prix juste.',
                 },
                 {
-                  href: '/assurer/emprunteur',
+                  href: '/assurer/assurance-emprunteur',
                   icon: '📋',
                   title: 'Assurance Emprunteur',
-                  sub: 'Optimiser votre prêt',
-                  text: 'Réduisez le coût global de votre crédit immobilier.',
+                  sub: 'L\'économie massive',
+                  text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
                 },
                 {
-                  href: '/financer/credit-immobilier',
-                  icon: '🏡',
-                  title: 'Crédit Immobilier',
-                  sub: 'Financer votre projet',
-                  text: 'Négociez votre financement et votre assurance ensemble.',
+                  href: '/investir/per',
+                  icon: '💰',
+                  title: 'Plan Épargne Retraite',
+                  sub: 'Défiscaliser utile',
+                  text: 'Vos économies d\'assurance réinvesties dans votre retraite, avec une déduction d\'impôt à la clé.',
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
@@ -592,7 +632,7 @@ export default function AssuranceAutoMotoPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
+                  <span className="fin-card-link">Découvrir l'approche →</span>
                 </Link>
               ))}
             </div>
@@ -602,18 +642,26 @@ export default function AssuranceAutoMotoPage() {
         {/* CTA FINAL */}
         <section className="fin-cta">
           <div className="fin-cta-inner">
-            <h2>+5% en 2026 — c'est le moment<br />de faire jouer la concurrence</h2>
+            <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
-              Orizia compare les meilleures offres auto et moto, gère la résiliation et vous aide à économiser sans perdre de garanties.
+              Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Comparer mon contrat gratuitement →
+                📅 Lancer ma comparaison avec Cindy →
               </Link>
               <Link href="/contact" className="fin-btn-outline">
-                Poser une question
+                ✉️ M'envoyer un message
               </Link>
             </div>
+            <p style={{
+              marginTop: 24, fontSize: '0.75rem', opacity: 0.55,
+              maxWidth: 540, margin: '24px auto 0',
+            }}>
+              L'économie réalisée dépend de votre profil, de votre bonus-malus et de votre lieu de résidence. 
+              Orizia Courtage est immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée 
+              par la compagnie d'assurance choisie, sans surcoût pour vous.
+            </p>
           </div>
         </section>
       </main>

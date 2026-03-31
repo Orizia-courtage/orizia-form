@@ -12,11 +12,11 @@ export const metadata = {
     'ouvrir assurance vie conseil gratuit',
     'assurance vie rendement unités de compte',
   ],
-  alternates: { canonical: 'https://orizia.fr/investir/assurance-vie' },
+  alternates: { canonical: 'https://orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia',
     description: 'Je sélectionne pour vous le meilleur contrat d\'assurance vie. 0% de frais sur versements, contrats haut de gamme, accompagnement personnalisé. Gratuit et indépendant.',
-    url: 'https://orizia.fr/investir/assurance-vie',
+    url: 'https://orizia-courtage.fr/investir/assurance-vie',
     type: 'article',
   },
 };

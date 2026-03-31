@@ -13,11 +13,11 @@ export const metadata = {
     'rendement crowdfunding net flat tax',
     'courtier crowdfunding indépendant',
   ],
-  alternates: { canonical: 'https://orizia.fr/investir/crowdfunding' },
+  alternates: { canonical: 'https://orizia-courtage.fr/investir/crowdfunding' },
   openGraph: {
     title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia',
     description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit.',
-    url: 'https://orizia.fr/investir/crowdfunding',
+    url: 'https://orizia-courtage.fr/investir/crowdfunding',
     type: 'article',
   },
 };

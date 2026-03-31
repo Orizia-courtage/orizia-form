@@ -1,6 +1,21 @@
 export const metadata = {
-  title: 'Prendre rendez-vous | Orizia Courtage',
-  description: 'Prenez rendez-vous gratuitement avec un conseiller Orizia Courtage. Crédit immobilier, investissement, assurance : un expert vous répond sous 24h.',
+  title: 'Prendre rendez-vous : Bilan gratuit avec votre courtière | Orizia',
+  description:
+    'Planifiez un échange téléphonique gratuit et sans engagement. Crédit, assurance ou investissement : je fais le point sur vos projets pour optimiser votre budget.',
+  keywords: [
+    'prendre rendez-vous courtier',
+    'bilan patrimonial gratuit',
+    'simulation crédit immobilier',
+    'optimisation assurance',
+    'rendez-vous Cindy Urbansky',
+  ],
+  alternates: { canonical: 'https://orizia-courtage.fr/rendez-vous' },
+  openGraph: {
+    title: 'Prendre rendez-vous : Bilan gratuit avec votre courtière | Orizia',
+    description: 'Bloquez un créneau de 30 minutes dans mon agenda. C\'est 100% gratuit, sans engagement, et je vous rappelle personnellement pour faire avancer vos projets.',
+    url: 'https://orizia-courtage.fr/rendez-vous',
+    type: 'website',
+  },
 };
 
 export default function RendezVous() {

@@ -1,23 +1,22 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Assurance Habitation 2026 : Économisez jusqu\'à 250€/an | Orizia Courtage',
+  title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
   description:
-    'Les tarifs d\'assurance habitation augmentent de 6 à 8% en 2026. Orizia Courtage compare les meilleures offres du marché pour vous faire économiser jusqu\'à 250€ par an. Conseil gratuit, indépendant, sans engagement.',
+    'Hausse des tarifs habitation en 2026. Je compare les offres, trouve les bonnes garanties et gère la résiliation à votre place. Étude 100% gratuite.',
   keywords: [
-    'assurance habitation 2026',
-    'assurance habitation pas chère',
     'assurance habitation courtier',
-    'MRH locataire propriétaire',
+    'comparateur assurance habitation indépendant',
+    'résilier assurance habitation loi hamon',
+    'devis MRH locataire propriétaire',
+    'assurance PNO pas chère',
     'assurance habitation hausse tarifs 2026',
-    'changer assurance habitation',
     'assurance habitation garanties',
-    'devis assurance habitation',
   ],
-  alternates: { canonical: 'https://orizia.fr/assurer/habitation' },
+  alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
-    title: 'Assurance Habitation 2026 : Économisez jusqu\'à 250€/an | Orizia Courtage',
-    description: 'Tarifs en hausse de 6 à 8% en 2026. Orizia compare les meilleures MRH du marché et vous fait économiser sur votre contrat. Gratuit et sans engagement.',
+    title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
+    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat sans coupure. Gratuit, indépendant et sans engagement.',
     url: 'https://orizia.fr/assurer/habitation',
     type: 'article',
   },
@@ -32,65 +31,49 @@ const faqSchema = {
       name: 'L\'assurance habitation est-elle obligatoire en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Elle est obligatoire pour les locataires (loi du 6 juillet 1989) : vous devez au minimum couvrir les risques locatifs (incendie, dégâts des eaux, explosion). Pour les propriétaires occupants, elle n\'est pas légalement obligatoire sauf en copropriété — mais elle est fortement recommandée. En l\'absence d\'assurance, vous êtes personnellement responsable de tous les dommages causés à des tiers.',
+        text: 'Pour les locataires, oui, c\'est une obligation légale stricte (loi de 1989) pour couvrir au moins les risques locatifs. Pour les propriétaires occupants, ce n\'est obligatoire qu\'en copropriété. Cependant, ne pas s\'assurer, c\'est prendre le risque d\'assumer seul des centaines de milliers d\'euros de frais en cas d\'incendie affectant les voisins.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Combien coûte une assurance habitation en 2026 ?',
+      name: 'Combien coûte une assurance habitation aujourd\'hui ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'En 2026, les tarifs ont augmenté de 6 à 8% par rapport à 2025 en raison des risques climatiques. Pour un locataire, comptez environ 160€/an pour un appartement 2 pièces et 236€/an pour un 3 pièces. Pour un propriétaire, de 170€/an pour une maison à 326€/an pour un grand appartement. Ces tarifs varient selon la superficie, la localisation, les garanties et le niveau de franchise.',
+        text: 'Avec les risques climatiques, les prix grimpent de 6 à 8% en 2026. Comptez en moyenne 160€/an pour un locataire en T2, et de 170€ à 380€/an pour un propriétaire selon la maison. Mon travail consiste justement à aller chercher des tarifs inférieurs à ces moyennes de marché.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Peut-on changer d\'assurance habitation en cours d\'année ?',
+      name: 'Changer de contrat, c\'est compliqué ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, grâce à la loi Hamon (depuis 2015), vous pouvez résilier votre assurance habitation à tout moment après la première année de contrat, sans frais ni justification. La résiliation prend effet 1 mois après la notification. Votre nouveau courtier peut se charger de la résiliation à votre place.',
+        text: 'Non, grâce à la loi Hamon, vous êtes libre de partir quand vous voulez après 1 an de contrat, sans frais. Et surtout : c\'est moi qui rédige et envoie la lettre de résiliation à votre ancien assureur. Vous n\'avez rien à faire et il n\'y a aucune coupure de couverture.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quelle est la différence entre une assurance MRH locataire et propriétaire ?',
+      name: 'Quelle est la différence entre locataire, propriétaire occupant et PNO ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le contrat MRH locataire couvre vos biens personnels et votre responsabilité civile vis-à-vis du propriétaire et des tiers. Le contrat propriétaire occupant couvre en plus les murs et la structure du bâtiment. Le contrat propriétaire non-occupant (PNO) couvre le bâtiment mais pas les biens du locataire. Chaque situation nécessite un contrat adapté.',
+        text: 'Le locataire assure ses meubles et sa responsabilité. Le propriétaire occupant assure en plus les murs de la maison. Le PNO (Propriétaire Non-Occupant) est pour les investisseurs : il couvre les murs et la responsabilité du bailleur quand le logement est vide ou en complément de l\'assurance du locataire.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quelles sont les garanties indispensables d\'une assurance habitation ?',
+      name: 'Pourquoi passer par une courtière indépendante ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les garanties essentielles sont : incendie et événements assimilés, dégâts des eaux, vol et vandalisme, bris de glace, responsabilité civile vie privée, catastrophes naturelles et technologiques. Les garanties optionnelles utiles selon votre profil : protection juridique, valeur à neuf, garantie jardin, équipements électroniques. Orizia analyse votre logement et votre mode de vie pour sélectionner les garanties vraiment utiles.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi les tarifs augmentent-ils autant en 2026 ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Trois raisons principales : l\'augmentation des sinistres climatiques (sécheresses, inondations, tempêtes), la hausse de la surprime catastrophes naturelles de 12 à 20%, et l\'inflation du coût des matériaux de construction pour les remises en état. En 2026, les tarifs augmentent de 6 à 8% en moyenne nationale, avec des pointes à +15% dans certaines régions exposées (PACA, Occitanie, zones inondables).',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi passer par un courtier pour son assurance habitation ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Un courtier compare simultanément les offres de nombreux assureurs et négocie des tarifs inaccessibles en direct. L\'économie moyenne constatée est de 150€ à 250€ par an. Il gère aussi la résiliation de l\'ancien contrat et s\'assure que les nouvelles garanties couvrent exactement vos besoins — ni plus, ni moins. Le service est 100% gratuit : le courtier est rémunéré par l\'assureur partenaire.',
+        text: 'Votre banquier vous propose "son" produit. Moi, je vous propose "le" produit du marché le plus adapté à votre logement, en comparant des dizaines d\'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, gratuitement pour vous.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '+7%',     label: 'Hausse moyenne des tarifs 2026',     icon: '📈' },
-  { value: '250€',    label: 'Économies moyennes via un courtier',  icon: '💰' },
-  { value: '180€',    label: 'Tarif moyen locataire 3 pièces/an',  icon: '🏠' },
-  { value: '1 mois',  label: 'Pour changer de contrat (loi Hamon)', icon: '⚡' },
+  { value: '+7%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
+  { value: '250€', label: 'Économie annuelle possible', icon: '💰' },
+  { value: '1 an', label: 'Délai pour changer librement', icon: '🔓' },
+  { value: '0 effort', label: 'Je gère la résiliation', icon: '⚡' },
 ];
 
 const TARIFS_GRILLE = [
@@ -99,105 +82,105 @@ const TARIFS_GRILLE = [
     icon: '🔑',
     tarifs: [
       { surface: 'Studio / 1 pièce', prix: '~100–130€/an' },
-      { surface: '2 pièces',         prix: '~160–180€/an' },
-      { surface: '3 pièces',         prix: '~185–240€/an' },
-      { surface: '4 pièces +',       prix: '~240–295€/an' },
+      { surface: '2 pièces', prix: '~160–180€/an' },
+      { surface: '3 pièces', prix: '~185–240€/an' },
+      { surface: '4 pièces +', prix: '~240–295€/an' },
     ],
     color: 'var(--orizia-primary)',
-    note: 'Obligation légale. Minimum : garantie risques locatifs.',
+    note: 'Attestation exigée par votre propriétaire à la remise des clés.',
   },
   {
     statut: 'Propriétaire occupant',
     icon: '🏡',
     tarifs: [
-      { surface: 'Appartement T2',   prix: '~170–220€/an' },
-      { surface: 'Appartement T3',   prix: '~215–265€/an' },
+      { surface: 'Appartement T2', prix: '~170–220€/an' },
+      { surface: 'Appartement T3', prix: '~215–265€/an' },
       { surface: 'Maison 80–100 m²', prix: '~140–200€/an' },
-      { surface: 'Maison 150 m²+',   prix: '~250–380€/an' },
+      { surface: 'Maison 150 m²+', prix: '~250–380€/an' },
     ],
     color: '#d97706',
-    note: 'Obligatoire en copropriété. Recommandé pour tout propriétaire.',
+    note: 'Couverture intégrale des murs, clôtures et de vos biens.',
   },
   {
-    statut: 'Propriétaire non-occupant',
+    statut: 'Propriétaire non-occupant (PNO)',
     icon: '🏢',
     tarifs: [
       { surface: 'Appartement T1/T2', prix: '~80–130€/an' },
       { surface: 'Appartement T3/T4', prix: '~100–170€/an' },
-      { surface: 'Maison',            prix: '~120–200€/an' },
-      { surface: 'Immeuble entier',   prix: 'Sur devis' },
+      { surface: 'Maison', prix: '~120–200€/an' },
+      { surface: 'Immeuble entier', prix: 'Sur devis' },
     ],
     color: '#7c3aed',
-    note: 'Couvre le bâtiment, complète l\'assurance du locataire.',
+    note: 'Indispensable pour protéger votre investissement locatif.',
   },
 ];
 
 const GARANTIES = [
   {
     icon: '🔥',
-    label: 'Incendie & événements assimilés',
+    label: 'Incendie & Explosions',
     obligatoire: true,
-    desc: 'Dommages causés par un incendie, une explosion, la foudre ou un court-circuit. Couvre la reconstruction ou le remplacement des biens.',
+    desc: 'La base absolue. Couvre la destruction de votre logement et de vos biens suite à un incendie ou un court-circuit majeur.',
   },
   {
     icon: '💧',
     label: 'Dégâts des eaux',
     obligatoire: true,
-    desc: 'Fuite, rupture de canalisation, infiltration. L\'un des sinistres les plus fréquents en France — 1 dossier sur 3 en assurance habitation.',
+    desc: 'Le sinistre n°1 en France. Fuite, canalisation rompue ou infiltration : je vérifie toujours les plafonds d\'indemnisation.',
   },
   {
     icon: '🛡️',
-    label: 'Responsabilité civile vie privée',
+    label: 'Responsabilité civile',
     obligatoire: true,
-    desc: 'Couvre les dommages que vous causez involontairement à des tiers — chez vous ou à l\'extérieur. Inclut souvent toute la famille.',
+    desc: 'Vous blessez quelqu\'un ou vous cassez un objet chez des amis ? Cette garantie prend le relais pour toute votre famille.',
   },
   {
     icon: '🌪️',
     label: 'Catastrophes naturelles',
     obligatoire: true,
-    desc: 'Inondations, séismes, glissements de terrain. Surprime spécifique (passée de 12% à 20% en 2025). Obligatoire légalement.',
+    desc: 'Inondations, sécheresse, tempêtes. Avec la taxe qui passe à 20%, c\'est le moment de comparer pour absorber cette hausse.',
   },
   {
     icon: '🔒',
-    label: 'Vol & vandalisme',
+    label: 'Vol & Vandalisme',
     obligatoire: false,
-    desc: 'Couvre le vol par effraction, le vandalisme et les tentatives de vol. Le niveau de garantie varie fortement selon les contrats.',
+    desc: 'Souvent en option. Attention aux contrats qui imposent des serrures complexes ou excluent les objets de valeur.',
   },
   {
     icon: '🪟',
     label: 'Bris de glace',
     obligatoire: false,
-    desc: 'Fenêtres, baies vitrées, véranda, miroirs. Souvent mal couverte par les contrats basiques — vérifiez le plafond et les exclusions.',
+    desc: 'Fenêtres, plaques vitrocéramiques, miroirs. Utile, mais il faut s\'assurer que la franchise ne soit pas supérieure au prix de la vitre.',
   },
   {
     icon: '⚖️',
     label: 'Protection juridique',
     obligatoire: false,
-    desc: 'Prise en charge des frais d\'avocat en cas de litige avec un voisin, votre propriétaire ou un artisan. Très utile en copropriété.',
+    desc: 'Litige avec un voisin, un artisan ou le syndic ? Vos frais d\'avocat sont pris en charge. Un vrai bouclier au quotidien.',
   },
   {
     icon: '💻',
-    label: 'Équipements électroniques',
+    label: 'Dommages Électriques',
     obligatoire: false,
-    desc: 'PC, tablettes, TV, appareils photo — souvent mal couverts par défaut. Un avenant spécifique est recommandé si vous avez du matériel de valeur.',
+    desc: 'La foudre grille votre frigo et votre TV ? Cette option (souvent ignorée) vous sauve la mise. Idéal pour le télétravail.',
   },
 ];
 
 const DANGERS = [
   {
     icon: '📈',
-    title: '+6 à +8% en 2026 : comparer n\'est plus une option',
-    text: 'Les tarifs d\'assurance habitation augmentent mécaniquement chaque année en raison des risques climatiques. Sans comparaison, vous subissez des hausses automatiques. Un audit annuel de votre contrat permet d\'identifier des alternatives plus compétitives à garanties équivalentes — ou supérieures.',
+    title: 'La hausse silencieuse chaque année',
+    text: 'En 2026, l\'assurance habitation prend +7% en moyenne. Si vous êtes chez le même assureur depuis 5 ans, vous payez probablement 30% de trop pour les mêmes garanties.',
   },
   {
     icon: '📋',
-    title: 'Sous-assurance : l\'erreur la plus coûteuse',
-    text: 'Beaucoup de contrats sont inadaptés : valeur des biens sous-estimée, superficie mal déclarée, objets de valeur non déclarés. En cas de sinistre, l\'indemnisation est réduite proportionnellement au sous-assurance — parfois de moitié. Orizia vérifie que votre déclaration est juste.',
+    title: 'La sous-assurance, un piège au moment du sinistre',
+    text: 'Si vous avez déclaré 20 000€ de meubles mais que vous en avez 40 000€ suite à des rachats, l\'assureur réduira votre indemnisation de moitié. Je m\'assure que votre contrat colle à la réalité.',
   },
   {
     icon: '🔍',
-    title: 'Les exclusions que personne ne lit... jusqu\'au sinistre',
-    text: 'Balcon non couvert, cave exclue, franchise élevée sur le vol, délai de carence sur certains risques — les contrats low-cost cachent souvent des exclusions qui se révèlent au pire moment. Notre rôle est de lire les petites lignes avant vous.',
+    title: 'Les petites lignes qui font mal',
+    text: '"Cave non couverte", "franchise vol de 800€", "vétusté déduite"... Les contrats ultra-low-cost d\'internet sont pleins de trous. Je décortique tout avant de vous faire signer.',
   },
 ];
 
@@ -205,42 +188,42 @@ const PROFILS = [
   {
     icon: '🔑',
     title: 'Locataire',
-    desc: 'Obligation légale depuis 1989.',
+    desc: 'L\'attestation qu\'il vous faut vite.',
     points: [
       'Garantie risques locatifs obligatoire',
-      'RC vie privée incluse',
-      'Attestation à fournir chaque année',
-      'Biens personnels couverts selon formule',
+      'Responsabilité civile incluse',
+      'Protection de vos meubles et effets persos',
+      'Attestation immédiate pour le propriétaire',
     ],
-    cta: 'Trouver mon contrat locataire',
+    cta: 'Assurer ma location',
     color: 'var(--orizia-primary)',
     featured: false,
   },
   {
     icon: '🏡',
     title: 'Propriétaire occupant',
-    desc: 'Obligatoire en copropriété, recommandé partout.',
+    desc: 'Le bouclier de votre patrimoine.',
     points: [
-      'Murs + biens personnels couverts',
-      'Responsabilité civile propriétaire',
-      'Garantie dommages aux tiers',
-      'Options : jardin, piscine, dépendances',
+      'Couverture des murs et de la toiture',
+      'Protection des dépendances (garage, cave)',
+      'Options piscines et aménagements extérieurs',
+      'Garantie "Valeur à neuf" recommandée',
     ],
-    cta: 'Trouver mon contrat propriétaire',
+    cta: 'Protéger ma maison',
     color: '#d97706',
     featured: true,
   },
   {
     icon: '🏢',
-    title: 'Propriétaire non-occupant',
-    desc: 'Pour les investisseurs immobiliers.',
+    title: 'Investisseur (PNO)',
+    desc: 'La sécurité pour vos biens loués.',
     points: [
-      'Couvre le bâtiment si logement vacant',
-      'Complète l\'assurance du locataire',
-      'RC propriétaire non-occupant',
-      'Indispensable lors de la vacance locative',
+      'Indispensable entre deux locataires',
+      'Prend le relais si le locataire est mal assuré',
+      'Déductible de vos revenus fonciers',
+      'Garantie loyers impayés en option possible',
     ],
-    cta: 'Trouver mon contrat PNO',
+    cta: 'Sécuriser mon investissement',
     color: '#7c3aed',
     featured: false,
   },
@@ -249,65 +232,65 @@ const PROFILS = [
 const ETAPES = [
   {
     n: '01',
-    title: 'Analyse de votre situation',
-    text: 'Statut (locataire, propriétaire, PNO), type de logement, surface, localisation, biens de valeur, mode de vie — tout est pris en compte pour identifier les garanties vraiment nécessaires.',
+    title: 'On fait connaissance',
+    text: 'Je veux comprendre votre logement : sa surface, vos objets de valeur, si vous avez une cheminée ou un chien catégorisé. Pas de robot, on en discute.',
   },
   {
     n: '02',
-    title: 'Comparaison & sélection',
-    text: 'Parmi nos assureurs partenaires, nous sélectionnons le contrat offrant les meilleures garanties au tarif le plus compétitif pour votre profil exact — sans sur-assurance inutile.',
+    title: 'Je fouille le marché',
+    text: 'Je consulte mes partenaires (Cardif, SwissLife, Abeille...) et je vous présente les 2 ou 3 meilleures options, en vous expliquant clairement pourquoi.',
   },
   {
     n: '03',
-    title: 'Résiliation de l\'ancien contrat',
-    text: 'Si vous avez déjà un contrat, nous gérons la résiliation à votre place (loi Hamon). Le nouveau contrat prend le relais sans aucun jour de découverture.',
+    title: 'Je vire l\'ancien contrat',
+    text: 'Dès qu\'on valide ensemble, je me charge de résilier votre contrat actuel (Loi Hamon). Vous n\'envoyez aucun courrier, je fais la transition sans trou de garantie.',
   },
   {
     n: '04',
-    title: 'Suivi & révision annuelle',
-    text: 'Chaque année, nous vérifions que votre contrat s\'adapte à votre situation (déménagement, travaux, nouvel équipement). Et nous comparons si une meilleure offre est disponible.',
+    title: 'Un suivi qui dure',
+    text: 'Vous faites une véranda ? Vous achetez un vélo électrique cher ? Vous m\'appelez, et j\'ajuste le contrat. Vous n\'êtes plus jamais un numéro.',
   },
 ];
 
 const OBJECTIONS = [
   {
-    q: '« Mon contrat actuel me convient, je ne veux pas changer. »',
-    r: 'C\'est souvent une habitude, pas un choix éclairé. Un audit de 15 minutes révèle souvent des économies de 100 à 250€/an à garanties égales ou supérieures. Si votre contrat est réellement optimal, on vous le dira — et vous restez où vous êtes.',
+    q: '« Je n\'ai pas le temps de m\'occuper de la paperasse. »',
+    r: 'C\'est l\'argument n°1 de mes clients ! C\'est exactement pour cela que je fais tout à votre place. La loi Hamon m\'autorise à résilier votre contrat pour vous. Votre seule action ? Me dire "oui".',
   },
   {
-    q: '« Changer d\'assurance habitation est compliqué. »',
-    r: 'Depuis la loi Hamon, c\'est une démarche simple après la première année de contrat. Et concrètement, Orizia s\'occupe de tout : résiliation de l\'ancien contrat, souscription du nouveau, coordination des dates pour éviter toute période sans couverture.',
+    q: '« Je suis chez mon banquier, c\'est plus simple pour les prélèvements. »',
+    r: 'C\'est simple, mais c\'est très cher. Les banques facturent souvent la "praticité" au prix fort. Changer avec moi vous prend 15 minutes et vous fait économiser des centaines d\'euros sur le long terme.',
   },
   {
-    q: '« Je passe déjà par mon banquier / assureur historique. »',
-    r: 'Les bancassureurs et grands réseaux facturent en moyenne 20 à 30% plus cher que les contrats disponibles via un courtier indépendant. Leur avantage : la praticité. Leur inconvénient : vous payez cette praticité chaque année, indéfiniment.',
+    q: '« Est-ce que vos contrats couvrent aussi bien ? »',
+    r: 'Souvent mieux ! Mon indépendance me permet de fuir les contrats "bas de gamme" bourrés d\'exclusions. Je ne vous propose que des assureurs solides avec qui j\'ai l\'habitude de travailler en cas de sinistre.',
   },
   {
-    q: '« J\'ai des objets de valeur, mon profil est compliqué. »',
-    r: 'C\'est précisément pour les profils atypiques (collections, bijoux, instruments de musique, matériel photo, local professionnel à domicile) que le courtier est le plus utile. Les contrats standards excluent souvent ces cas — nous trouvons des contrats spécifiques.',
+    q: '« Et si j\'ai un dégât des eaux demain ? »',
+    r: 'Je m\'assure toujours que les dates se chevauchent parfaitement. À minuit le contrat A s\'arrête, à minuit et une seconde le contrat B prend le relais. Vous n\'êtes jamais à découvert.',
   },
 ];
 
 const LOI_HAMON_POINTS = [
   {
     icon: '🔄',
-    title: 'Résiliation à tout moment',
-    desc: 'Après 12 mois de contrat, résiliez quand vous voulez, sans frais ni justification.',
+    title: 'Départ libre',
+    desc: 'Après 1 an d\'ancienneté, vous n\'êtes plus prisonnier. Vous partez quand bon vous semble.',
   },
   {
     icon: '📬',
-    title: 'Préavis d\'1 mois seulement',
-    desc: 'Le nouveau contrat prend effet 1 mois après la notification de résiliation.',
+    title: 'Transition rapide',
+    desc: 'Il suffit d\'un petit mois de préavis pour que le nouveau contrat soit actif.',
   },
   {
     icon: '🤝',
-    title: 'Votre courtier gère la résiliation',
-    desc: 'Orizia envoie la résiliation à votre place — vous n\'avez aucune démarche à effectuer.',
+    title: 'Zéro courrier pour vous',
+    desc: 'Je signe, je poste, j\'informe votre assureur. Vous ne faites rien.',
   },
   {
     icon: '✅',
-    title: 'Aucun jour sans couverture',
-    desc: 'Le nouveau contrat démarre le lendemain de la fin de l\'ancien, sans discontinuité.',
+    title: 'Continuité totale',
+    desc: 'La bascule est millimétrée. Votre maison est protégée H24, 7j/7.',
   },
 ];
 
@@ -320,7 +303,6 @@ export default function AssuranceHabitationPage() {
       />
 
       <main>
-
         {/* ── HERO ── */}
         <section className="fin-hero">
           <div className="fin-hero-bg" />
@@ -332,26 +314,25 @@ export default function AssuranceHabitationPage() {
               {' › '}
               <span>Assurance Habitation</span>
             </nav>
-            <span className="fin-badge">📈 Tarifs en hausse de +7% en 2026 — Comparez maintenant</span>
-            <h1>Assurance habitation :<br />le bon contrat au meilleur prix</h1>
+            <span className="fin-badge">📈 +7% en 2026 — L'inflation touche votre maison</span>
+            <h1>Arrêtez de surpayer<br />votre assurance habitation</h1>
             <p>
-              En 2026, les tarifs d'assurance habitation augmentent de <strong>6 à 8%</strong>.
-              Orizia Courtage compare les meilleures offres du marché pour vous faire économiser
-              jusqu'à <strong>250€ par an</strong> — à garanties équivalentes ou supérieures.
-              Locataire, propriétaire ou investisseur. <strong>100% gratuit.</strong>
+              Votre assureur profite de votre fidélité pour augmenter les prix. Je mets le marché 
+              en concurrence pour vous faire économiser <strong>jusqu'à 250€/an</strong>, 
+              avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Comparer mon contrat gratuitement →
+                📅 Lancer mon comparatif gratuit →
               </Link>
               <Link href="#profils" className="fin-btn-secondary">
-                🔍 Trouver mon profil
+                🔍 Voir selon mon profil
               </Link>
             </div>
             <div className="fin-hero-trust">
-              <span>✅ Loi Hamon : changement à tout moment</span>
-              <span>🏦 Contrats Cardif, Abeille, SwissLife…</span>
-              <span>⚡ Résiliation gérée par Orizia</span>
+              <span>✅ Loi Hamon : je résilie à votre place</span>
+              <span>🤝 Interlocutrice 100% dédiée</span>
+              <span>⚡ 0 jour sans couverture</span>
             </div>
           </div>
         </section>
@@ -360,11 +341,54 @@ export default function AssuranceHabitationPage() {
         <section className="fin-chiffres">
           <div className="fin-chiffres-inner">
             {CHIFFRES.map(c => (
-              <div key={c.value} className="fin-chiffre">
+              <div key={c.label} className="fin-chiffre">
                 <strong>{c.icon} {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ── CITATION CINDY ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div style={{
+              background: '#fff',
+              borderRadius: 16,
+              padding: '36px 40px',
+              borderLeft: '5px solid var(--orizia-primary)',
+              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
+              maxWidth: 780,
+              margin: '0 auto',
+            }}>
+              <p style={{
+                fontSize: '1.2rem',
+                fontWeight: 800,
+                color: 'var(--orizia-accent)',
+                lineHeight: 1.55,
+                marginBottom: 16,
+              }}>
+                « On paie tous notre assurance habitation par habitude, sans réaliser que les tarifs explosent chaque année. »
+              </p>
+              <p style={{
+                fontSize: '1rem',
+                color: 'var(--orizia-dark)',
+                lineHeight: 1.75,
+                margin: '0 0 20px',
+                opacity: 0.8,
+              }}>
+                Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
+              </p>
+              <span style={{
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                color: 'var(--orizia-primary)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+              }}>
+                — Cindy Urbansky, courtière indépendante · Orizia Courtage
+              </span>
+            </div>
           </div>
         </section>
 
@@ -373,12 +397,11 @@ export default function AssuranceHabitationPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce que votre assureur actuel ne vous dit pas
+                ⚠️ L'inaction vous coûte cher
               </span>
-              <h2>3 raisons pour lesquelles<br />votre contrat actuel vous coûte trop cher</h2>
+              <h2>Pourquoi garder votre contrat actuel<br />est (souvent) une mauvaise idée</h2>
               <p>
-                L'assurance habitation est le poste où les épargnants perdent le plus
-                d'argent par inertie. Voici pourquoi il faut comparer en 2026.
+                L'assurance habitation est le budget où l'on perd le plus d'argent par simple inertie.
               </p>
             </div>
             <div className="crowd-avantages-grid">
@@ -392,13 +415,10 @@ export default function AssuranceHabitationPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                Un audit de votre contrat actuel révèle en 24h ce que vous payez de trop.
-              </p>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
-                Transmettez votre contrat ou votre avis d'échéance — Orizia fait la comparaison à votre place.
+                Envoyez-moi votre avis d'échéance, je vous dis tout de suite si vous payez trop cher.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement →
+                📅 Faire analyser mon contrat actuel →
               </Link>
             </div>
           </div>
@@ -408,12 +428,11 @@ export default function AssuranceHabitationPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Tarifs 2026 — Données réelles</span>
-              <h2>Combien coûte une assurance habitation<br />en France en 2026 ?</h2>
+              <span className="fin-badge">La réalité du marché</span>
+              <h2>Combien ça coûte vraiment<br />une bonne assurance en 2026 ?</h2>
               <p>
-                Ces fourchettes sont issues du baromètre janvier 2026.
-                Les tarifs varient selon la région, le niveau de garanties et le profil.
-                Les zones PACA, Occitanie et inondables connaissent des hausses plus marquées.
+                Voici les moyennes nationales constatées. Mon défi au quotidien ? 
+                Trouver des contrats plus complets qui se situent sous ces fourchettes.
               </p>
             </div>
             <div className="ah-tarifs-grid">
@@ -431,23 +450,13 @@ export default function AssuranceHabitationPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="ah-tarif-note">{g.note}</div>
+                  <div className="ah-tarif-note">💡 {g.note}</div>
                 </div>
               ))}
             </div>
             <div className="crowd-risques-note" style={{ marginTop: 24 }}>
-              💡 <strong>Bon à savoir :</strong> ces tarifs représentent la moyenne de marché.
-              Via Orizia, vous accédez à des contrats négociés avec nos assureurs partenaires — souvent
-              15 à 30% en dessous de ces fourchettes pour un niveau de garanties supérieur.
-            </div>
-            <div className="crowd-cta-band" style={{ marginTop: 32 }}>
-              <div>
-                <strong>Votre devis personnalisé en 24h.</strong>
-                <p>Orientez-nous sur votre logement — Orizia vous envoie une comparaison sur-mesure.</p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Obtenir mon devis →
-              </Link>
+              💡 <strong>Une moyenne n'est pas une fatalité :</strong> les prix explosent dans les zones inondables, 
+              mais si vous avez le bon profil, je peux négocier avec mes partenaires pour faire baisser la facture.
             </div>
           </div>
         </section>
@@ -456,12 +465,9 @@ export default function AssuranceHabitationPage() {
         <section id="profils" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Votre situation</span>
-              <h2>Locataire, propriétaire ou investisseur :<br />le contrat n'est pas le même</h2>
-              <p>
-                Chaque statut d'occupation génère des besoins distincts. Orizia
-                sélectionne le contrat adapté à votre situation réelle — pas un forfait générique.
-              </p>
+              <span className="fin-badge">Zéro forfaits génériques</span>
+              <h2>On ajuste le contrat<br />à votre statut réel</h2>
+              <p>Parce qu'un locataire d'un studio n'a pas les mêmes besoins qu'un propriétaire d'une villa avec piscine.</p>
             </div>
             <div className="av-profils-grid">
               {PROFILS.map(p => (
@@ -472,7 +478,7 @@ export default function AssuranceHabitationPage() {
                 >
                   {p.featured && (
                     <div className="av-profil-badge" style={{ background: '#d97706' }}>
-                      🏠 Le plus courant
+                      ⭐ Le plus courant
                     </div>
                   )}
                   <div className="av-profil-icon">{p.icon}</div>
@@ -486,18 +492,6 @@ export default function AssuranceHabitationPage() {
                 </div>
               ))}
             </div>
-            <div className="crowd-cta-band" style={{ marginTop: 36 }}>
-              <div>
-                <strong>Votre profil mérite un contrat taillé sur-mesure.</strong>
-                <p>
-                  Indiquez-nous votre statut et votre logement — Orizia vous propose
-                  les meilleures offres du marché adaptées à votre situation exacte.
-                </p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Trouver mon contrat →
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -505,12 +499,9 @@ export default function AssuranceHabitationPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Les garanties</span>
-              <h2>Quelles garanties choisir ?<br />Indispensables vs optionnelles</h2>
-              <p>
-                Toutes les garanties ne se valent pas selon votre logement et votre mode de vie.
-                Orizia analyse votre profil pour ne vous faire couvrir que ce qui est utile.
-              </p>
+              <span className="fin-badge">Les garanties qui comptent</span>
+              <h2>Ne payez que pour ce qui<br />vous protège vraiment</h2>
+              <p>Je traque la "sur-assurance" (payer pour un jardin au 4ème étage) et la "sous-assurance" (matériel high-tech non couvert).</p>
             </div>
             <div className="ae-garanties-grid">
               {GARANTIES.map(g => (
@@ -524,18 +515,12 @@ export default function AssuranceHabitationPage() {
                       <div className="ae-garantie-label">{g.label}</div>
                     </div>
                     <span className={`ae-garantie-badge${g.obligatoire ? ' ae-garantie-badge--req' : ' ae-garantie-badge--opt'}`}>
-                      {g.obligatoire ? '✅ Standard' : 'Optionnelle'}
+                      {g.obligatoire ? 'Base' : 'Option'}
                     </span>
                   </div>
                   <p className="ae-garantie-desc">{g.desc}</p>
                 </div>
               ))}
-            </div>
-            <div className="crowd-risques-note" style={{ marginTop: 24 }}>
-              💡 <strong>L'astuce Orizia :</strong> les contrats bancaires packagés incluent souvent des
-              garanties inutiles (ex : garantie jardin pour un appartement au 4ème étage) et omettent
-              des garanties essentielles (ex : équipements électroniques pour un télétravailleur).
-              Nous calibrons précisément votre couverture.
             </div>
           </div>
         </section>
@@ -546,33 +531,26 @@ export default function AssuranceHabitationPage() {
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                  ✅ Loi Hamon — Vos droits
+                  ✅ Mon service "Zéro paperasse"
                 </span>
-                <h2>Changer d'assurance habitation<br />est simple et gratuit</h2>
+                <h2>Quitter votre assureur<br />n'a jamais été aussi simple</h2>
                 <p>
-                  Depuis la <strong>loi Hamon de 2014</strong>, vous pouvez résilier votre
-                  assurance habitation à tout moment après la première année de contrat,
-                  sans frais, sans pénalité, sans justification.
+                  Beaucoup n'osent pas changer d'assurance par peur des complications administratives. 
+                  <strong>La bonne nouvelle : la loi Hamon vous permet de résilier quand vous voulez après 1 an.</strong>
                 </p>
                 <p>
-                  La résiliation prend effet <strong>1 mois</strong> après la notification.
-                  Votre nouveau contrat démarre immédiatement après — aucun jour sans
-                  couverture. Orizia gère l'intégralité de la procédure à votre place.
-                </p>
-                <p>
-                  Contrairement à l'assurance emprunteur, il n'y a pas d'équivalence de
-                  garanties à justifier. Vous pouvez choisir librement votre nouvel assureur,
-                  y compris avec des garanties différentes.
+                  La meilleure nouvelle ? <strong>C'est moi qui m'en occupe.</strong> Je rédige, j'envoie, 
+                  je coordonne les dates. Vous dormez sur vos deux oreilles sans aucune coupure de garantie.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }}>
-                  📅 Changer de contrat maintenant →
+                  📅 Me déléguer votre résiliation →
                 </Link>
               </div>
 
               {/* Schéma droits */}
               <div className="crowd-schema">
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
-                  Comment ça se passe
+                  La transition en douceur
                 </div>
                 {LOI_HAMON_POINTS.map(pt => (
                   <div key={pt.title} className="ae-lemoine-point">
@@ -585,8 +563,8 @@ export default function AssuranceHabitationPage() {
                 ))}
                 <div className="crowd-schema-step crowd-schema-step--orizia" style={{ marginTop: 12 }}>
                   <div className="crowd-schema-icon">⏱️</div>
-                  <strong>Durée totale de la procédure</strong>
-                  <span>Environ 3 à 4 semaines · Orizia gère tout</span>
+                  <strong>Votre investissement temps ?</strong>
+                  <span>Environ 15 minutes. Je gère le reste.</span>
                 </div>
               </div>
             </div>
@@ -597,11 +575,11 @@ export default function AssuranceHabitationPage() {
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Notre accompagnement</span>
-              <h2>Orizia s'occupe de tout,<br />vous n'avez qu'à valider</h2>
+              <span className="fin-badge">De l'humain</span>
+              <h2>Je ne suis pas un robot comparateur.<br />Je gère tout, de A à Z.</h2>
               <p>
-                De l'audit de votre contrat actuel à la prise d'effet du nouveau —
-                une procédure complète sans effort de votre part.
+                Pas de centre d'appels à l'étranger. Je travaille seule, en totale indépendance, 
+                pour défendre uniquement vos intérêts.
               </p>
             </div>
             <div className="fin-etapes">
@@ -616,16 +594,15 @@ export default function AssuranceHabitationPage() {
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>
               <div>
-                <strong>Un service complet, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement expert, 100% gratuit pour vous</strong>
                 <p>
-                  Orizia Courtage est rémunéré par l'assureur partenaire sous forme de commission,
-                  encadrée par la réglementation DDA et communiquée de façon transparente.
-                  Vous ne payez jamais plus cher qu'en souscrivant directement — et vous
-                  bénéficiez d'un expert qui lit les petites lignes à votre place.
+                  Je suis rémunérée directement par l'assureur que nous choisissons ensemble. 
+                  Vous ne payez pas de frais de dossier, vous ne payez pas plus cher votre cotisation, 
+                  mais vous gagnez une alliée qui lit les petites lignes à votre place.
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer →
+                📅 On fait le point ? →
               </Link>
             </div>
           </div>
@@ -635,9 +612,8 @@ export default function AssuranceHabitationPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">On répond à vos doutes</span>
-              <h2>Vous hésitez encore ?<br />Voici nos réponses directes.</h2>
-              <p>Les 4 freins les plus fréquents — avec des réponses honnêtes.</p>
+              <span className="fin-badge">On en discute</span>
+              <h2>Les excuses pour ne pas s'en occuper<br />(et pourquoi il faut s'y mettre)</h2>
             </div>
             <div className="av-objections-grid">
               {OBJECTIONS.map((o, i) => (
@@ -647,15 +623,6 @@ export default function AssuranceHabitationPage() {
                 </div>
               ))}
             </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Un profil particulier ? Un logement atypique ? On analyse votre cas en 24h.
-              </p>
-              <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <Link href="/rendez-vous" className="fin-btn-primary">📅 Prendre rendez-vous →</Link>
-                <Link href="/contact" className="fin-btn-secondary">✉️ Poser une question</Link>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -664,8 +631,8 @@ export default function AssuranceHabitationPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur l'assurance habitation,<br />nos réponses d'experts</h2>
-              <p>Des réponses précises, à jour pour 2026, sans jargon.</p>
+              <h2>Vos questions, mes réponses d'experte</h2>
+              <p>Encore des doutes ? Posez-moi vos questions spécifiques, je réponds sans filtre.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -676,10 +643,7 @@ export default function AssuranceHabitationPage() {
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une question sur votre logement spécifique ?
-              </p>
-              <Link href="/contact" className="fin-btn-secondary">Poser ma question →</Link>
+              <Link href="/contact" className="fin-btn-secondary">✉️ Poser une autre question à Cindy</Link>
             </div>
           </div>
         </section>
@@ -688,32 +652,32 @@ export default function AssuranceHabitationPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Aller plus loin</span>
-              <h2>Protégez l'ensemble<br />de votre patrimoine</h2>
-              <p>L'assurance habitation s'inscrit dans une stratégie de protection globale.</p>
+              <span className="fin-badge">Vision Globale</span>
+              <h2>On fait le grand ménage<br />dans vos contrats ?</h2>
+              <p>Avoir une courtière dédiée, c'est l'occasion de centraliser et d'optimiser l'ensemble de votre budget.</p>
             </div>
             <div className="fin-cards">
               {[
                 {
-                  href: '/assurer/emprunteur',
+                  href: '/assurer/auto-moto',
+                  icon: '🚗',
+                  title: 'Assurance Auto & Moto',
+                  sub: 'Couper dans les frais',
+                  text: 'Comme pour la maison, l\'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.',
+                },
+                {
+                  href: '/assurer/assurance-emprunteur',
                   icon: '📋',
                   title: 'Assurance Emprunteur',
-                  sub: 'Protéger votre prêt',
-                  text: 'Si vous êtes propriétaire avec un crédit en cours, économisez jusqu\'à 15 000€ en changeant votre assurance de prêt. Loi Lemoine : résiliation à tout moment.',
+                  sub: 'L\'économie massive',
+                  text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
                 },
                 {
-                  href: '/financer/credit-immobilier',
-                  icon: '🏡',
-                  title: 'Crédit Immobilier',
-                  sub: 'Financer votre projet',
-                  text: 'Vous achetez un bien ? Orizia négocie votre crédit ET votre assurance emprunteur simultanément pour minimiser le coût total de votre acquisition.',
-                },
-                {
-                  href: '/investir/scpi',
-                  icon: '🏢',
-                  title: 'SCPI',
-                  sub: 'Investissement immobilier',
-                  text: '4–6%/an sans gestion. Complétez votre patrimoine immobilier avec des SCPI — en pleine propriété ou dans une assurance vie.',
+                  href: '/investir/per',
+                  icon: '💰',
+                  title: 'Plan Épargne Retraite',
+                  sub: 'Défiscaliser utile',
+                  text: 'Prenez l\'argent économisé sur vos assurances et placez-le pour réduire vos impôts et préparer l\'avenir.',
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
@@ -721,7 +685,7 @@ export default function AssuranceHabitationPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>
@@ -731,24 +695,24 @@ export default function AssuranceHabitationPage() {
         {/* ── CTA FINAL ── */}
         <section className="fin-cta">
           <div className="fin-cta-inner">
-            <h2>+7% en 2026 —<br />c'est le moment de comparer</h2>
+            <h2>Prêt(e) à remettre votre assureur<br />en concurrence ?</h2>
             <p>
-              Orizia compare les meilleures offres d'assurance habitation du marché,
-              gère la résiliation de votre contrat actuel et coordonne la prise d'effet
-              du nouveau. Zéro effort. Zéro frais. Jusqu'à 250€ économisés par an.
+              Je scanne le marché, j'ajuste vos garanties, je déniche le tarif juste et 
+              je m'occupe de la lettre de résiliation. Vous n'avez strictement rien à perdre, 
+              à part quelques dizaines d'euros d'économies chaque mois.
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Comparer mon contrat gratuitement →
+                📅 Lancer mon comparatif avec Cindy →
               </Link>
               <Link href="/contact" className="fin-btn-outline">
-                Poser une question
+                ✉️ M'envoyer un message
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Les économies indiquées sont des estimations basées sur les tarifs moyens de marché 2026.
-              Les tarifs réels dépendent du profil de l'assuré, de la localisation et des garanties souscrites.
-              Orizia Courtage, courtier en assurance régi par l'ACPR, rémunéré par les assureurs partenaires, jamais par le client.
+              Les économies dépendent de votre localisation et de vos antécédents d'assurance.
+              Orizia Courtage est une structure indépendante, régie par l'ACPR et immatriculée à l'ORIAS. 
+              Mon accompagnement est financé par les compagnies partenaires, 100% transparent pour vous.
             </p>
           </div>
         </section>

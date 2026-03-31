@@ -14,11 +14,11 @@ export const metadata = {
     'PER sortie capital rente',
     'plafond déduction PER 2026',
   ],
-  alternates: { canonical: 'https://orizia.fr/investir/per' },
+  alternates: { canonical: 'https://orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
     description: 'Réduisez votre impôt dès cette année. Je calcule vos plafonds exacts, sélectionne le meilleur PER du marché et construis l\'allocation adaptée à votre horizon. Gratuit et indépendant.',
-    url: 'https://orizia.fr/investir/per',
+    url: 'https://orizia-courtage.fr/investir/per',
     type: 'article',
   },
 };

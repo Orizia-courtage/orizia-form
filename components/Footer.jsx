@@ -12,7 +12,7 @@ export default function Footer() {
         {[
           { title: 'Investir', href: '/investir', links: [['Crowdfunding', '/investir/crowdfunding'], ['PERP / PER', '/investir/per'], ['Assurance Vie', '/investir/assurance-vie'], ['SCPI', '/investir/scpi']] },
           { title: 'Financer', href: '/financer', links: [['Crédit immobilier', '/financer/credit-immobilier'], ['Regroupement de crédits', '/financer/regroupement-credits'], ['Prêt personnel', '/financer/pret-personnel']] },
-          { title: 'Assurer', href: '/assurer',  links: [['Assurance emprunteur', '/assurer/emprunteur'], ['Assurance habitation', '/assurer/habitation'], ['Assurance auto/moto', '/assurer/auto-moto']] },
+          { title: 'Assurer', href: '/assurer',  links: [['Assurance emprunteur', '/assurer/assurance-emprunteur'], ['Assurance habitation', '/assurer/assurance-habitation'], ['Assurance auto/moto', '/assurer/auto-moto']] },
         ].map(col => (
           <div key={col.title}>
             {/* ← Titre cliquable */}
