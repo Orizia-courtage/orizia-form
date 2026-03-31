@@ -2,38 +2,35 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const fmt     = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
-const fmtDec  = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+const fmt    = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+const fmtDec = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 
 export default function SimulateurSCPI() {
-  const [mode,    setMode]    = useState('capital');  // 'capital' | 'mensuel'
+  const [mode,    setMode]    = useState('capital');
   const [capital, setCapital] = useState(20000);
   const [epargne, setEpargne] = useState(200);
-  const [duree,   setDuree]   = useState(10);         // en années
-  const [taux,    setTaux]    = useState(5);           // rendement %/an
+  const [duree,   setDuree]   = useState(10);
+  const [taux,    setTaux]    = useState(5);
 
   // ── Mode Capital ──
-  const revenusAnnuels     = capital * (taux / 100);
-  const revenusMenusuels   = revenusAnnuels / 12;
-  // Revalorisation des parts : +1%/an en moyenne
-  const valeurPartsTerme   = capital * Math.pow(1.01, duree);
+  const revenusAnnuels    = capital * (taux / 100);
+  const revenusMenusuels  = revenusAnnuels / 12;
+  const valeurPartsTerme  = capital * Math.pow(1.01, duree);
 
   // ── Mode Épargne mensuelle ──
-  // Accumulation mensuelle sur la durée (sans intérêts composés — SCPI versements directs)
-  const capitalConstitue   = epargne * 12 * duree;
-  // Revenus une fois le capital constitué
+  const capitalConstitue    = epargne * 12 * duree;
   const revenusCapitalConst = capitalConstitue * (taux / 100) / 12;
 
-  // Sliders %
-  const pctCapital = ((capital - 1000)   / (200000 - 1000))  * 100;
-  const pctEpargne = ((epargne - 50)     / (2000 - 50))      * 100;
-  const pctDuree   = ((duree - 1)        / (30 - 1))         * 100;
-  const pctTaux    = ((taux - 3)         / (8 - 3))          * 100;
+  // Sliders fill
+  const pctCapital = ((capital - 1000)  / (200000 - 1000)) * 100;
+  const pctEpargne = ((epargne - 50)    / (2000 - 50))     * 100;
+  const pctDuree   = ((duree - 1)       / (30 - 1))        * 100;
+  const pctTaux    = ((taux - 3)        / (8 - 3))         * 100;
 
   return (
     <div className="scpi-simu-outer">
 
-      {/* Sélecteur de mode */}
+      {/* ── Sélecteur de mode ── */}
       <div className="scpi-simu-modes">
         <button
           className={`scpi-simu-mode${mode === 'capital' ? ' active' : ''}`}
@@ -51,17 +48,17 @@ export default function SimulateurSCPI() {
         </button>
       </div>
 
-      {/* Simulateur */}
+      {/* ── Simulateur ── */}
       <div className="scpi-simu-wrap">
 
-        {/* Colonne inputs */}
+        {/* Inputs */}
         <div className="scpi-simu-inputs">
-
           {mode === 'capital' ? (
             <>
+              {/* Capital */}
               <div className="simu-field">
                 <div className="simu-field-header">
-                  <label>Capital à investir</label>
+                  <label>Capital à investir en SCPI</label>
                   <span className="simu-field-value">{fmt(capital)}</span>
                 </div>
                 <div className="simu-slider-wrap">
@@ -71,11 +68,13 @@ export default function SimulateurSCPI() {
                     onChange={e => setCapital(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctCapital}%` }}
+                    aria-label="Capital à investir"
                   />
                   <div className="simu-slider-labels"><span>1 000€</span><span>200 000€</span></div>
                 </div>
               </div>
 
+              {/* Durée */}
               <div className="simu-field">
                 <div className="simu-field-header">
                   <label>Durée de détention</label>
@@ -88,14 +87,16 @@ export default function SimulateurSCPI() {
                     onChange={e => setDuree(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctDuree}%` }}
+                    aria-label="Durée de détention en années"
                   />
                   <div className="simu-slider-labels"><span>1 an</span><span>30 ans</span></div>
                 </div>
               </div>
 
+              {/* Taux */}
               <div className="simu-field">
                 <div className="simu-field-header">
-                  <label>Taux de distribution estimé</label>
+                  <label>Taux de distribution estimé (SCPI)</label>
                   <span className="simu-field-value">{taux}%/an</span>
                 </div>
                 <div className="simu-slider-wrap">
@@ -105,6 +106,7 @@ export default function SimulateurSCPI() {
                     onChange={e => setTaux(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctTaux}%` }}
+                    aria-label="Taux de distribution annuel"
                   />
                   <div className="simu-slider-labels"><span>3%</span><span>8%</span></div>
                 </div>
@@ -112,9 +114,10 @@ export default function SimulateurSCPI() {
             </>
           ) : (
             <>
+              {/* Épargne mensuelle */}
               <div className="simu-field">
                 <div className="simu-field-header">
-                  <label>Épargne mensuelle</label>
+                  <label>Épargne mensuelle investie</label>
                   <span className="simu-field-value">{fmt(epargne)}/mois</span>
                 </div>
                 <div className="simu-slider-wrap">
@@ -124,11 +127,13 @@ export default function SimulateurSCPI() {
                     onChange={e => setEpargne(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctEpargne}%` }}
+                    aria-label="Épargne mensuelle"
                   />
                   <div className="simu-slider-labels"><span>50€</span><span>2 000€</span></div>
                 </div>
               </div>
 
+              {/* Durée */}
               <div className="simu-field">
                 <div className="simu-field-header">
                   <label>Durée d'épargne</label>
@@ -141,14 +146,16 @@ export default function SimulateurSCPI() {
                     onChange={e => setDuree(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctDuree}%` }}
+                    aria-label="Durée d'épargne en années"
                   />
                   <div className="simu-slider-labels"><span>1 an</span><span>30 ans</span></div>
                 </div>
               </div>
 
+              {/* Taux */}
               <div className="simu-field">
                 <div className="simu-field-header">
-                  <label>Taux de distribution estimé</label>
+                  <label>Taux de distribution estimé (SCPI)</label>
                   <span className="simu-field-value">{taux}%/an</span>
                 </div>
                 <div className="simu-slider-wrap">
@@ -158,17 +165,23 @@ export default function SimulateurSCPI() {
                     onChange={e => setTaux(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctTaux}%` }}
+                    aria-label="Taux de distribution annuel"
                   />
                   <div className="simu-slider-labels"><span>3%</span><span>8%</span></div>
                 </div>
               </div>
             </>
           )}
+
+          {/* Note pédagogique */}
+          <div className="simu-note">
+            💡 Ces taux sont représentatifs du marché SCPI en 2026.
+            La SCPI sélectionnée et la structure fiscale choisie changeront le rendement net réel.
+          </div>
         </div>
 
-        {/* Colonne résultats */}
+        {/* Résultats */}
         <div className="scpi-simu-results">
-
           {mode === 'capital' ? (
             <>
               <div className="scpi-simu-result-header">
@@ -177,13 +190,17 @@ export default function SimulateurSCPI() {
               <div className="scpi-simu-result-grid">
                 <div className="scpi-simu-result-block">
                   <span className="scpi-result-label">Revenus complémentaires potentiels</span>
-                  <strong className="scpi-result-big">{fmtDec(revenusMenusuels)}<span>/mois</span></strong>
+                  <strong key={revenusMenusuels} className="scpi-result-big">
+                    {fmtDec(revenusMenusuels)}<span>/mois</span>
+                  </strong>
                   <span className="scpi-result-sub">soit {fmt(revenusAnnuels)}/an</span>
                 </div>
                 <div className="scpi-simu-result-divider" />
                 <div className="scpi-simu-result-block">
                   <span className="scpi-result-label">Valeur estimée des parts dans {duree} ans</span>
-                  <strong className="scpi-result-big scpi-result-big--secondary">{fmt(valeurPartsTerme)}</strong>
+                  <strong key={valeurPartsTerme} className="scpi-result-big scpi-result-big--secondary">
+                    {fmt(valeurPartsTerme)}
+                  </strong>
                   <span className="scpi-result-sub">avec revalorisation +1%/an estimée</span>
                 </div>
               </div>
@@ -193,12 +210,14 @@ export default function SimulateurSCPI() {
                 </div>
                 <div className="simu-result-line">
                   <span>Revenus bruts sur {duree} ans</span>
-                  <strong>{fmt(revenusAnnuels * duree)}</strong>
+                  <strong>{fmt(Math.round(revenusAnnuels * duree))}</strong>
                 </div>
                 <div className="simu-result-line simu-result-line--sep" />
                 <div className="simu-result-line simu-result-line--bold">
                   <span>Total perçu + valeur des parts</span>
-                  <strong style={{ color: '#fff' }}>{fmt(revenusAnnuels * duree + valeurPartsTerme)}</strong>
+                  <strong style={{ color: '#fff' }}>
+                    {fmt(Math.round(revenusAnnuels * duree + valeurPartsTerme))}
+                  </strong>
                 </div>
               </div>
             </>
@@ -210,14 +229,18 @@ export default function SimulateurSCPI() {
               <div className="scpi-simu-result-grid">
                 <div className="scpi-simu-result-block">
                   <span className="scpi-result-label">Capital constitué</span>
-                  <strong className="scpi-result-big">{fmt(capitalConstitue)}</strong>
+                  <strong key={capitalConstitue} className="scpi-result-big">
+                    {fmt(capitalConstitue)}
+                  </strong>
                   <span className="scpi-result-sub">de parts SCPI accumulées</span>
                 </div>
                 <div className="scpi-simu-result-divider" />
                 <div className="scpi-simu-result-block">
                   <span className="scpi-result-label">Revenus mensuels générés ensuite</span>
-                  <strong className="scpi-result-big scpi-result-big--secondary">{fmtDec(revenusCapitalConst)}<span>/mois</span></strong>
-                  <span className="scpi-result-sub">soit {fmt(revenusCapitalConst * 12)}/an</span>
+                  <strong key={revenusCapitalConst} className="scpi-result-big scpi-result-big--secondary">
+                    {fmtDec(revenusCapitalConst)}<span>/mois</span>
+                  </strong>
+                  <span className="scpi-result-sub">soit {fmt(Math.round(revenusCapitalConst * 12))}/an</span>
                 </div>
               </div>
               <div className="scpi-simu-result-detail">
@@ -237,13 +260,13 @@ export default function SimulateurSCPI() {
           )}
 
           <Link href="/rendez-vous" className="fin-btn-primary scpi-simu-cta">
-            📅 Affiner ma simulation avec un expert →
+            📅 Affiner ma simulation avec Cindy →
           </Link>
 
           <p className="simu-disclaimer">
             Simulation indicative basée sur un taux de distribution moyen. Les performances
-            passées ne préjugent pas des performances futures. Investir dans des SCPI comporte
-            un risque de perte en capital et de liquidité.
+            passées ne préjugent pas des performances futures. Investir dans des SCPI
+            comporte un risque de perte en capital et de liquidité.
           </p>
         </div>
       </div>

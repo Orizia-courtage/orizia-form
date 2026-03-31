@@ -1540,246 +1540,289 @@ select.orz-input { cursor:pointer;padding-right:40px;
   .crowd-fiscalite-plus { transform: rotate(90deg); }
 }
 
-/* ── SIMULATEUR CROWDFUNDING ── */
+/* ══ SIMULATEUR ══ */
 .simu-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* Inputs */
-.simu-inputs {
+  align-items: start;
   background: #fff;
   border-radius: 20px;
-  padding: 32px 28px;
-  box-shadow: 0 4px 24px rgba(58,111,108,0.08);
+  padding: 36px 32px;
+  box-shadow: 0 4px 32px rgba(58,111,108,0.10);
+  border: 1.5px solid rgba(58,111,108,0.12);
+  margin-top: 8px;
 }
-.simu-inputs h3 {
+
+/* ── Titre ── */
+.simu-inputs-title {
   font-size: 1rem;
   font-weight: 800;
   color: var(--orizia-accent);
-  margin-bottom: 28px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.82rem;
+  margin: 0 0 20px;
 }
-.simu-field { margin-bottom: 28px; }
-.simu-field:last-child { margin-bottom: 0; }
 
+/* ── Presets ── */
+.simu-presets {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.simu-preset-btn {
+  flex: 1;
+  padding: 9px 12px;
+  border: 2px solid var(--orizia-primary);
+  border-radius: 100px;
+  background: #fff;
+  color: var(--orizia-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+  text-align: center;
+}
+.simu-preset-btn:hover {
+  background: var(--orizia-primary);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(58,111,108,0.2);
+}
+
+/* ── Fields ── */
+.simu-field { margin-bottom: 24px; }
 .simu-field-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  gap: 12px;
 }
 .simu-field-header label {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--orizia-dark);
+  line-height: 1.3;
 }
 .simu-field-value {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 900;
   color: var(--orizia-primary);
-  background: rgba(58,111,108,0.08);
-  padding: 4px 12px;
+  background: var(--orizia-light);
+  padding: 4px 14px;
   border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* Slider custom */
-.simu-slider-wrap { position: relative; }
+/* ── Slider ── */
+.simu-slider-wrap { display: flex; flex-direction: column; gap: 6px; }
 .simu-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 6px;
   border-radius: 100px;
-  outline: none;
-  cursor: pointer;
   background: linear-gradient(
     to right,
     var(--orizia-primary) 0%,
-    var(--orizia-primary) var(--pct),
-    #e2e8f0 var(--pct),
+    var(--orizia-primary) var(--pct, 50%),
+    #e2e8f0 var(--pct, 50%),
     #e2e8f0 100%
   );
+  outline: none;
+  cursor: pointer;
 }
 .simu-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--orizia-primary);
-  border: 3px solid #fff;
-  box-shadow: 0 2px 8px rgba(58,111,108,0.35);
+  background: #fff;
+  border: 3px solid var(--orizia-primary);
+  box-shadow: 0 2px 8px rgba(58,111,108,0.25);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 .simu-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 14px rgba(58,111,108,0.45);
+  transform: scale(1.2);
+  box-shadow: 0 4px 14px rgba(58,111,108,0.35);
 }
 .simu-slider::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--orizia-primary);
-  border: 3px solid #fff;
-  box-shadow: 0 2px 8px rgba(58,111,108,0.35);
+  background: #fff;
+  border: 3px solid var(--orizia-primary);
+  box-shadow: 0 2px 8px rgba(58,111,108,0.25);
   cursor: pointer;
 }
 .simu-slider-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 6px;
-  font-size: 0.75rem;
-  color: var(--orizia-dark);
-  opacity: 0.45;
-  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.65;
+  padding: 0 2px;
 }
 
-/* Résultats */
+/* ── Note pédagogique ── */
+.simu-note {
+  background: var(--orizia-light);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  color: var(--orizia-dark);
+  line-height: 1.55;
+  opacity: 0.85;
+  margin-top: 4px;
+  border-left: 3px solid var(--orizia-primary);
+}
+
+/* ── Résultats ── */
 .simu-results {
-  background: var(--orizia-accent);
-  border-radius: 20px;
-  padding: 32px 28px;
+  background: var(--orizia-light);
+  border-radius: 16px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0;
 }
 .simu-results-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.3rem;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 .simu-results-header h3 {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--orizia-light);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  color: var(--orizia-accent);
   margin: 0;
 }
 
+/* ── Hero résultat ── */
 .simu-result-main {
-  background: rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 16px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(58,111,108,0.15);
 }
 .simu-result-main > span:first-child {
-  display: block;
-  font-size: 0.82rem;
-  color: var(--orizia-light);
-  opacity: 0.7;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orizia-primary);
   margin-bottom: 6px;
-}
-.simu-result-big {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1;
-  margin-bottom: 4px;
 }
 .simu-result-sub {
   font-size: 0.78rem;
-  color: var(--orizia-light);
-  opacity: 0.65;
+  color: var(--orizia-dark);
+  opacity: 0.55;
+  margin-top: 4px;
 }
 
-.simu-result-lines { display: flex; flex-direction: column; gap: 8px; }
+/* Animation résultat */
+@keyframes pulse-value {
+  from { opacity: 0.5; transform: scale(0.96); }
+  to   { opacity: 1;   transform: scale(1); }
+}
+.simu-result-big {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--orizia-accent);
+  line-height: 1.1;
+  animation: pulse-value 0.25s ease;
+}
+
+/* ── Lignes détail ── */
+.simu-result-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 16px;
+}
 .simu-result-line {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
-  color: var(--orizia-light);
-  opacity: 0.85;
-}
-.simu-result-line span { opacity: 0.75; }
-.simu-result-line strong { font-weight: 700; opacity: 1; color: #fff; }
-.simu-result-line--neg strong { color: #fca5a5; }
-.simu-result-line--sep { height: 1px; background: rgba(255,255,255,0.15); margin: 4px 0; }
-.simu-result-line--bold { opacity: 1; font-size: 0.92rem; }
-.simu-result-line--bold span { opacity: 0.9; }
-
-.simu-result-tag {
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 0.85rem;
-  color: var(--orizia-light);
-  text-align: center;
-}
-.simu-result-tag strong { color: #fff; }
-
-.simu-cta {
-  display: flex !important;
-  width: 100%;
-  justify-content: center;
-  background: #fff !important;
-  color: var(--orizia-accent) !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
-}
-.simu-cta:hover {
-  background: var(--orizia-light) !important;
-  transform: translateY(-2px);
-}
-
-.simu-disclaimer {
-  font-size: 0.72rem;
-  color: var(--orizia-light);
-  opacity: 0.5;
-  text-align: center;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .simu-wrap { grid-template-columns: 1fr; }
-}
-
-/* Notes fiscales */
-.crowd-fiscalite-notes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 28px;
-  margin-bottom: 0;
-}
-.crowd-fiscalite-note {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  background: var(--orizia-light);
-  border-radius: 12px;
-  padding: 18px 20px;
-}
-.crowd-fiscalite-note-icon {
-  font-size: 1.4rem;
-  flex-shrink: 0;
-  line-height: 1;
-}
-.crowd-fiscalite-note p {
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.83rem;
   color: var(--orizia-dark);
-  opacity: 0.8;
-  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(58,111,108,0.1);
 }
-.crowd-fiscalite-note p strong {
-  color: var(--orizia-accent);
-  opacity: 1;
+.simu-result-line span { opacity: 0.72; }
+.simu-result-line--neg strong { color: #dc2626; }
+.simu-result-line--sep {
+  height: 0;
+  border-bottom: 2px solid rgba(58,111,108,0.18) !important;
+  padding: 0 !important;
+}
+.simu-result-line--bold {
+  font-weight: 800;
+  font-size: 0.9rem;
+  border-bottom: none;
+}
+.simu-result-line--bold span { opacity: 1; }
+.simu-positive { color: #16a34a; }
+
+/* ── Comparatif Livret A ── */
+.simu-result-tag {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.84rem;
+  color: var(--orizia-dark);
+  line-height: 1.55;
+  border: 1.5px solid rgba(58,111,108,0.15);
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.simu-vs-surplus {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #16a34a;
 }
 
-@media (max-width: 640px) {
-  .crowd-fiscalite-notes { grid-template-columns: 1fr; }
+/* ── CTA ── */
+.simu-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* ── Disclaimer ── */
+.simu-disclaimer {
+  font-size: 0.7rem;
+  color: var(--orizia-dark);
+  opacity: 0.45;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .simu-wrap {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    gap: 28px;
+  }
+  .simu-result-big { font-size: 2rem; }
+  .simu-slider { font-size: 16px; } /* évite zoom iOS Safari */
+  .simu-preset-btn { font-size: 0.78rem; padding: 8px 10px; }
 }
 
 /* ── SIMULATEUR SCPI ── */

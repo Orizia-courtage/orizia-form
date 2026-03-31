@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import OriziaForm from '@/components/OriziaForm'; // ← adapter le chemin selon votre structure
+import OriziaForm from '@/components/OriziaForm'; // à adapter selon votre arborescence
 
 export const metadata = {
-  title: 'Regroupement de Crédits 2026 : Réduisez vos mensualités | Orizia Courtage',
+  title: 'Regroupement de Crédits 2026 : Réduisez vos Mensualités | Orizia Courtage',
   description:
-    'Réunissez tous vos crédits en un seul — immobilier, conso, LOA — et réduisez vos mensualités jusqu\'à 60%. Étude gratuite & sans engagement. Réponse sous 24h par Orizia Courtage.',
+    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Étude gratuite, sans engagement, réponse sous 24h par Orizia Courtage.',
   keywords: [
     'regroupement de crédits 2026',
     'rachat de crédits',
@@ -31,7 +31,7 @@ const faqSchema = {
       name: 'Qu\'est-ce que le regroupement de crédits ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le regroupement de crédits (ou rachat de crédits) consiste à réunir plusieurs emprunts en cours — crédit immobilier, crédits à la consommation, LOA, dettes — en un seul crédit unique avec une mensualité réduite et un taux négocié. L\'objectif est de diminuer votre reste à vivre mensuel et de simplifier votre gestion budgétaire.',
+        text: 'Le regroupement de crédits consiste à réunir plusieurs emprunts en cours — crédit immobilier, crédits à la consommation, LOA, dettes — en un seul crédit avec une mensualité réduite et une durée renégociée.',
       },
     },
     {
@@ -39,7 +39,7 @@ const faqSchema = {
       name: 'Quelle économie mensuelle peut-on espérer ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La réduction de mensualité varie selon votre profil, mais elle est en moyenne de 30 à 60% sur l\'ensemble de vos remboursements. Par exemple, un foyer avec 1 800€/mois de mensualités cumulées peut descendre à 900–1 100€/mois après regroupement. Cette baisse est obtenue en allongeant la durée de remboursement — ce qui augmente le coût total du crédit, mais libère immédiatement du pouvoir d\'achat mensuel.',
+        text: 'La baisse de mensualité dépend du dossier, mais elle peut aller de 30 à 60% selon la situation. Cette baisse s’obtient en contrepartie d’un allongement de la durée de remboursement.',
       },
     },
     {
@@ -47,7 +47,7 @@ const faqSchema = {
       name: 'Qui peut bénéficier d\'un regroupement de crédits ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Toute personne avec au moins 2 crédits en cours peut y prétendre : salarié en CDI, fonctionnaire, retraité. Les dossiers TNS (travailleurs non-salariés) sont étudiés au cas par cas. En revanche, être fiché FICP ou FCC bloque l\'accès au regroupement dans les conditions bancaires standard — Orizia vous en informe dès la première analyse.',
+        text: 'Les profils avec au moins deux crédits en cours peuvent être étudiés : salariés, fonctionnaires, retraités et certains indépendants. Les dossiers fichés FICP ou FCC nécessitent une analyse spécifique.',
       },
     },
     {
@@ -55,7 +55,7 @@ const faqSchema = {
       name: 'Le regroupement de crédits coûte-t-il plus cher au total ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, en règle générale, le coût total du crédit augmente du fait de l\'allongement de la durée. C\'est le compromis fondamental : vous payez moins chaque mois, mais sur une période plus longue. Orizia vous présente une simulation complète avec coût total, mensualité avant/après et gain de reste à vivre — pour que vous décidiez en toute connaissance de cause.',
+        text: 'Oui, le coût total augmente souvent à cause de la durée plus longue. En revanche, la mensualité baisse immédiatement et le reste à vivre s’améliore.',
       },
     },
     {
@@ -63,63 +63,63 @@ const faqSchema = {
       name: 'Combien de temps dure une étude de dossier ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Après soumission du formulaire, Orizia analyse votre profil sous 24h ouvrées et vous contacte pour présenter les solutions disponibles. La procédure complète (de l\'étude à la mise en place du nouveau crédit) prend généralement 4 à 8 semaines selon l\'établissement prêteur retenu.',
+        text: 'La première réponse peut intervenir sous 24h ouvrées. La mise en place complète prend généralement de 4 à 8 semaines selon le dossier.',
       },
     },
     {
       '@type': 'Question',
-      name: 'L\'étude est-elle vraiment gratuite et sans engagement ?',
+      name: 'L\'étude est-elle gratuite et sans engagement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, l\'étude de dossier par Orizia Courtage est 100% gratuite et sans engagement. Aucune somme ne vous sera demandée avant la mise en place effective du regroupement, conformément à la réglementation Lagarde sur le crédit à la consommation. Les honoraires d\'intermédiation sont perçus auprès de l\'établissement de crédit partenaire.',
+        text: 'Oui, l’étude est gratuite et sans engagement. Aucun frais n’est demandé avant la mise en place effective du regroupement.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '−60%',    label: 'de réduction de mensualités possible',   icon: '📉' },
-  { value: '24h',     label: 'pour une première réponse de principe',   icon: '⚡' },
-  { value: '100%',    label: 'gratuit & sans engagement',               icon: '🤝' },
+  { value: '−60%', label: 'de réduction de mensualités possible', icon: '📉' },
+  { value: '24h', label: 'pour une première réponse de principe', icon: '⚡' },
+  { value: '100%', label: 'gratuit & sans engagement', icon: '🤝' },
   { value: '13 étapes', label: 'pour une analyse complète de votre profil', icon: '🔍' },
 ];
 
 const CREDITS_REGROUPABLES = [
-  { icon: '🏡', label: 'Crédit immobilier',          desc: 'Résidence principale, secondaire ou investissement locatif' },
-  { icon: '🛒', label: 'Crédits à la consommation',  desc: 'Prêts personnels, crédits renouvelables, travaux' },
-  { icon: '🚗', label: 'LOA / LLD',                  desc: 'Crédit-bail auto, rachat de contrat de location' },
-  { icon: '💳', label: 'Dettes diverses',             desc: 'Paiements en plusieurs fois, découverts chroniques' },
-  { icon: '🏢', label: 'Crédits professionnels',     desc: 'Sous conditions selon le profil et le montant' },
-  { icon: '💰', label: 'Trésorerie complémentaire',   desc: 'Vous pouvez inclure une enveloppe de liquidités dans le nouveau crédit' },
+  { icon: '🏡', label: 'Crédit immobilier', desc: 'Résidence principale, secondaire ou investissement locatif' },
+  { icon: '🛒', label: 'Crédits à la consommation', desc: 'Prêts personnels, crédits renouvelables, travaux' },
+  { icon: '🚗', label: 'LOA / LLD', desc: 'Crédit-bail auto, rachat de contrat de location' },
+  { icon: '💳', label: 'Dettes diverses', desc: 'Paiements en plusieurs fois, découverts chroniques' },
+  { icon: '🏢', label: 'Crédits professionnels', desc: 'Sous conditions selon le profil et le montant' },
+  { icon: '💰', label: 'Trésorerie complémentaire', desc: 'Possibilité d’intégrer une enveloppe de liquidités' },
 ];
 
 const PROFILS = [
   {
     icon: '👨‍👩‍👧',
     title: 'Famille en CDI',
-    desc: 'Revenus stables, multiple crédits accumulés après des achats successifs (voiture, travaux, mobilier).',
+    desc: 'Revenus stables, crédits accumulés après plusieurs achats.',
     resultat: 'Profil le plus favorable — réduction de 40 à 60% de la mensualité.',
     color: '#16a34a',
   },
   {
     icon: '👴',
     title: 'Retraité propriétaire',
-    desc: 'Revenu fixe, patrimoine immobilier, souhait de libérer du reste à vivre.',
-    resultat: 'Rachat adossé à l\'immobilier — durée adaptée à l\'âge.',
+    desc: 'Revenu fixe, patrimoine immobilier, besoin de reste à vivre.',
+    resultat: 'Rachat adossé à l’immobilier — durée adaptée à l’âge.',
     color: 'var(--orizia-primary)',
   },
   {
     icon: '💼',
     title: 'Fonctionnaire',
-    desc: 'Emploi garanti, solvabilité reconnue par les banques, dossier prioritaire.',
-    resultat: 'Conditions négociées préférentielles — taux parmi les plus bas.',
+    desc: 'Emploi stable, solvabilité reconnue, dossier prioritaire.',
+    resultat: 'Conditions souvent plus avantageuses.',
     color: '#d97706',
   },
   {
     icon: '🔧',
     title: 'TNS / Indépendant',
-    desc: 'Revenus variables, bilans à présenter, étude spécifique requise.',
-    resultat: 'Étude au cas par cas — solutions partielles parfois disponibles.',
+    desc: 'Revenus variables, bilans à analyser, étude spécifique requise.',
+    resultat: 'Étude au cas par cas — solutions partielles parfois possibles.',
     color: '#7c3aed',
   },
 ];
@@ -129,49 +129,34 @@ const COMMENT_CA_MARCHE = [
     n: '01',
     icon: '📋',
     title: 'Vous complétez le formulaire',
-    text: '13 questions sur votre situation financière actuelle — revenus, charges, crédits en cours. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
+    text: '13 questions sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
   },
   {
     n: '02',
     icon: '🔍',
     title: 'Orizia analyse votre profil',
-    text: 'Sous 24h ouvrées, Cindy étudie votre dossier, calcule votre taux d\'endettement, votre MAF (Montant À Financer) et détermine le segment le plus adapté.',
+    text: 'Sous 24h ouvrées, Cindy étudie votre dossier, calcule votre taux d’endettement et identifie le bon segment.',
   },
   {
     n: '03',
     icon: '📞',
     title: 'Vous recevez une proposition',
-    text: 'Appel ou visioconférence pour vous présenter la simulation : mensualité avant/après, durée, taux, coût total. Vous décidez en toute transparence.',
+    text: 'Simulation avant/après, durée, taux, coût total. Vous décidez en toute transparence.',
   },
   {
     n: '04',
     icon: '✅',
     title: 'Montage et mise en place',
-    text: 'Si vous acceptez, Orizia monte le dossier, le transmet à l\'établissement prêteur et suit la procédure jusqu\'au déblocage des fonds. Délai : 4 à 8 semaines.',
+    text: 'Si vous acceptez, Orizia transmet le dossier et suit la procédure jusqu’au déblocage des fonds.',
   },
 ];
 
 const ALERTES = [
-  {
-    icon: '✅',
-    label: 'Idéal si votre taux d\'endettement dépasse 35%',
-  },
-  {
-    icon: '✅',
-    label: 'Idéal si vous avez 3 crédits ou plus en cours',
-  },
-  {
-    icon: '✅',
-    label: 'Idéal si vous avez un projet (travaux, auto) à financer en même temps',
-  },
-  {
-    icon: '❌',
-    label: 'Non adapté si vous êtes fiché FICP / FCC',
-  },
-  {
-    icon: '❌',
-    label: 'Non adapté si vous avez moins d\'1 an de crédits en cours',
-  },
+  { icon: '✅', label: 'Idéal si votre taux d’endettement dépasse 35%' },
+  { icon: '✅', label: 'Idéal si vous avez 3 crédits ou plus en cours' },
+  { icon: '✅', label: 'Idéal si vous avez un projet à financer en même temps' },
+  { icon: '❌', label: 'Non adapté si vous êtes fiché FICP / FCC' },
+  { icon: '❌', label: 'Non adapté si vous avez moins d’1 an de crédits en cours' },
 ];
 
 export default function RegroupementCreditsPage() {
@@ -183,8 +168,6 @@ export default function RegroupementCreditsPage() {
       />
 
       <main>
-
-        {/* ── HERO ── */}
         <section className="fin-hero">
           <div className="fin-hero-bg" />
           <div className="fin-hero-inner">
@@ -195,6 +178,7 @@ export default function RegroupementCreditsPage() {
               {' › '}
               <span>Regroupement de crédits</span>
             </nav>
+
             <span className="fin-badge">💡 Étude gratuite · Réponse sous 24h</span>
             <h1>Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à −60%</h1>
             <p>
@@ -203,6 +187,7 @@ export default function RegroupementCreditsPage() {
               avec une mensualité unique et allégée. Orizia Courtage étudie votre
               dossier <strong>gratuitement</strong> et sans engagement.
             </p>
+
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
                 🔍 Démarrer mon étude gratuite →
@@ -211,6 +196,7 @@ export default function RegroupementCreditsPage() {
                 Comment ça marche ?
               </a>
             </div>
+
             <div className="fin-hero-trust">
               <span>✅ 100% gratuit & sans engagement</span>
               <span>⚡ Réponse sous 24h</span>
@@ -219,7 +205,6 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
           <div className="fin-chiffres-inner">
             {CHIFFRES.map(c => (
@@ -231,7 +216,6 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── EXPLICATION ── */}
         <section id="comment" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="crowd-2col">
@@ -255,7 +239,6 @@ export default function RegroupementCreditsPage() {
                   une simulation complète pour décider en connaissance de cause.
                 </p>
 
-                {/* Alertes synthétiques */}
                 <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {ALERTES.map((a, i) => (
                     <div
@@ -276,7 +259,6 @@ export default function RegroupementCreditsPage() {
                 </div>
               </div>
 
-              {/* Crédits regroupables */}
               <div>
                 <div style={{
                   background: 'var(--orizia-light)',
@@ -327,15 +309,12 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── COMMENT ÇA MARCHE ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Le processus</span>
               <h2>De votre formulaire à votre<br />nouvelle mensualité en 4 étapes</h2>
-              <p>
-                Tout commence par 5 minutes de formulaire. Orizia s'occupe du reste.
-              </p>
+              <p>Tout commence par quelques minutes de formulaire. Orizia s’occupe du reste.</p>
             </div>
             <div className="fin-etapes">
               {COMMENT_CA_MARCHE.map(e => (
@@ -349,17 +328,17 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── PROFILS ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre profil</span>
               <h2>Le regroupement est-il<br />fait pour votre situation ?</h2>
               <p>
-                Les conditions varient selon votre statut. Voici les 4 profils
-                les plus fréquents et leur potentiel de solution.
+                Les conditions varient selon votre statut. Voici les profils les plus fréquents
+                et leur potentiel de solution.
               </p>
             </div>
+
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 32 }}>
               {PROFILS.map(p => (
                 <div
@@ -369,7 +348,6 @@ export default function RegroupementCreditsPage() {
                     borderRadius: 16,
                     padding: '22px 20px',
                     border: `2px solid ${p.color}22`,
-                    transition: 'box-shadow 0.2s',
                   }}
                 >
                   <div style={{ fontSize: '1.8rem', marginBottom: 10 }}>{p.icon}</div>
@@ -393,6 +371,7 @@ export default function RegroupementCreditsPage() {
                 </div>
               ))}
             </div>
+
             <div className="crowd-cta-band">
               <div>
                 <strong>Vous ne savez pas si votre profil est éligible ?</strong>
@@ -408,9 +387,6 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════
-            LE FORMULAIRE — section centrale
-        ══════════════════════════════════════════ */}
         <section
           id="formulaire"
           className="crowd-section crowd-section--light"
@@ -428,13 +404,10 @@ export default function RegroupementCreditsPage() {
               </p>
             </div>
 
-            {/* Le formulaire multi-étapes */}
             <OriziaForm />
-
           </div>
         </section>
 
-        {/* ── FAQ ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -453,7 +426,6 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── CONFIANCE ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="av-gratuit-bloc">
@@ -461,17 +433,14 @@ export default function RegroupementCreditsPage() {
               <div>
                 <strong>Vos données sont sécurisées et ne seront jamais revendues</strong>
                 <p>
-                  Orizia Courtage est un courtier en crédit immatriculé à l'ORIAS.
-                  Vos informations sont transmises exclusivement aux établissements
-                  de crédit partenaires dans le cadre de votre demande, conformément
-                  au RGPD. Aucune revente à des tiers. Aucun démarchage commercial non sollicité.
+                  Orizia Courtage transmet vos informations uniquement aux établissements partenaires
+                  dans le cadre de votre demande, conformément au RGPD.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── MAILLAGE INTERNE ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -493,14 +462,14 @@ export default function RegroupementCreditsPage() {
                   icon: '📋',
                   title: 'Assurance Emprunteur',
                   sub: 'Réduire le coût de votre prêt',
-                  text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer 5 000 à 15 000€ d\'économies supplémentaires.',
+                  text: 'Si votre regroupement inclut un prêt immobilier, optimiser l’assurance emprunteur peut générer des économies supplémentaires.',
                 },
                 {
                   href: '/investir/assurance-vie',
                   icon: '🛡️',
                   title: 'Assurance Vie',
                   sub: 'Épargner en parallèle',
-                  text: 'Une mensualité allégée libère de la capacité d\'épargne. L\'assurance vie est l\'outil idéal pour faire fructifier ce surplus mensuel.',
+                  text: 'Une mensualité allégée libère de la capacité d’épargne. L’assurance vie est l’outil idéal pour faire fructifier ce surplus mensuel.',
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
@@ -515,7 +484,6 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── CTA FINAL ── */}
         <section className="fin-cta">
           <div className="fin-cta-inner">
             <h2>Vos mensualités pèsent trop.<br />Faites-les baisser dès maintenant.</h2>
@@ -533,13 +501,11 @@ export default function RegroupementCreditsPage() {
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
-              Orizia Courtage, courtier en crédit immatriculé à l'ORIAS. Le regroupement de crédits peut allonger
-              la durée de remboursement et augmenter le coût total du crédit. Une simulation complète vous sera
-              fournie avant toute décision. Aucun frais perçu auprès de l'emprunteur avant déblocage des fonds (loi Lagarde).
+              Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
+              Une simulation complète vous sera fournie avant toute décision.
             </p>
           </div>
         </section>
-
       </main>
     </>
   );
