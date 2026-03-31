@@ -6,7 +6,7 @@ export default function Footer() {
     <footer style={{ backgroundColor: 'var(--orizia-accent)', color: 'var(--orizia-light)', padding: '60px 20px 30px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, marginBottom: 40 }}>
         <div>
-          <Image src="/images/Orizia_logo-removebg-preview.png" alt="Orizia Courtage" width={130} height={60} style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)', marginBottom: 16 }} />
+          <Image src="/images/Orizia_logo.webp" alt="Orizia Courtage" width={130} height={60} style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)', marginBottom: 16 }} />
           <p style={{ fontSize: '0.88rem', opacity: 0.8, lineHeight: 1.6 }}>Expert en Financement &amp; Patrimoine. Courtier certifié ORIAS.</p>
         </div>
         {[
