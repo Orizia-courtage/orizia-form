@@ -225,7 +225,8 @@ export default function Header() {
                   <div className="mega-menu">
                     <div className="mega-menu-inner">
                       <div className="mega-links">
-                        <h3>{item.label}</h3>
+                        {/* Remplacement du <h3> par un <div> */}
+                        <div className="mega-menu-title">{item.label}</div>
                         <ul>
                           {item.links.map(l => (
                             <li key={l.href}>
@@ -240,7 +241,8 @@ export default function Header() {
                       <div className="mega-cta">
                         <div className="cta-image" style={{ backgroundImage: `url(${item.cta.img})` }} />
                         <div className="cta-content">
-                          <h4>{item.cta.label}</h4>
+                          {/* Remplacement du <h4> par un <div> */}
+                          <div className="mega-cta-title">{item.cta.label}</div>
                           <p>{item.cta.text}</p>
                           <Link href={item.cta.href} className="btn-mega">
                             {item.cta.label} →

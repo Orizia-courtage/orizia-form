@@ -397,7 +397,6 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 
 .mega-links { flex: 1.2; }
-.mega-links h3 { color:var(--orizia-accent);font-size:18px;margin-top:0;margin-bottom:20px;font-weight:800; }
 .mega-links ul { list-style:none !important;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:15px 30px; }
 .mega-links ul li { list-style-type:none !important; }
 .mega-links a { text-decoration:none;display:block;padding:10px;border-radius:6px;transition:all 0.2s ease; }
@@ -408,7 +407,20 @@ select.orz-input { cursor:pointer;padding-right:40px;
 .mega-cta { flex:1;display:flex;border-radius:10px;overflow:hidden;background-color:var(--orizia-primary);box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 .cta-image { width:45%;background-size:cover;background-position:center; }
 .cta-content { width:55%;padding:25px;display:flex;flex-direction:column;justify-content:center; }
-.cta-content h4 { color:var(--orizia-light);margin:0 0 10px 0;font-size:18px;font-weight:800; }
+.mega-links .mega-menu-title { 
+  color: var(--orizia-accent);
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 800; 
+}
+
+.cta-content .mega-cta-title { 
+  color: var(--orizia-light);
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 800; 
+}
 .cta-content p { color:var(--orizia-light);font-size:13px;margin:0 0 15px 0;opacity:0.9; }
 .btn-mega { background-color:var(--orizia-light);color:var(--orizia-dark);padding:10px 15px;text-decoration:none;text-align:center;border-radius:6px;font-weight:800;font-size:14px;transition:transform 0.2s; }
 .btn-mega:hover { transform:scale(1.03); }
