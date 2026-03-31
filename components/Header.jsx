@@ -261,7 +261,7 @@ export default function Header() {
               href="/contact"
               style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}
             >
-              Contactez-nous
+              Contactez-moi
             </Link>
             <button
               className="mobile-toggle"
@@ -412,7 +412,7 @@ export default function Header() {
               className="mobile-btn-contact"
               onClick={() => setDrawerOpen(false)}
             >
-              Contactez-nous
+              Contactez-moi
             </Link>
           </div>
         </div>
