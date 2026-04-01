@@ -3475,3 +3475,291 @@ select.orz-input { cursor:pointer;padding-right:40px;
 @media (max-width: 640px) {
   .am-formules-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   PAGE PARRAINAGE
+========================================= */
+
+/* Hero Section */
+.parrainage-hero {
+  background-color: var(--orizia-accent);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.parrainage-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.parrainage-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.parrainage-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.parrainage-hero p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Rewards Section */
+.parrainage-rewards-section {
+  padding: 60px 20px;
+  background-color: var(--orizia-light);
+}
+
+.parrainage-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.parrainage-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.parrainage-header h2 {
+  color: var(--orizia-accent);
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.parrainage-header p {
+  color: var(--orizia-dark);
+  opacity: 0.7;
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.reward-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-financement { border-top: 5px solid var(--orizia-primary); }
+.card-assurance { border-top: 5px solid #d97706; }
+.card-placement { border-top: 5px solid #7c3aed; }
+
+.reward-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.reward-card h3 {
+  color: var(--orizia-accent);
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.reward-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  color: var(--orizia-dark);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.reward-badge-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reward-badge {
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.badge-financement { background-color: var(--orizia-light); color: var(--orizia-primary); }
+.badge-assurance { background-color: #fef3c7; color: #d97706; }
+.badge-assurance.light { opacity: 0.8; }
+.badge-placement { background-color: #f3e8ff; color: #7c3aed; }
+.badge-placement.light { opacity: 0.8; }
+
+/* Form Section */
+.parrainage-form-section {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.parrainage-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.parrainage-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.parrainage-success h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.btn-success {
+  margin-top: 24px;
+  padding: 10px 20px;
+  background-color: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.parrainage-form {
+  background: var(--orizia-light);
+  padding: 40px;
+  border-radius: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.form-block-title {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.parrain-title {
+  color: var(--orizia-primary);
+  border-bottom: 2px solid var(--orizia-primary);
+}
+
+.filleul-title {
+  color: var(--orizia-accent);
+  border-bottom: 2px solid var(--orizia-accent);
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--orizia-dark);
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-submit-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.btn-submit {
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: var(--orizia-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-submit:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.legal-asterisk {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+.legal-asterisk p {
+  font-size: 0.8rem;
+  color: var(--orizia-dark);
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.legal-asterisk a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Erreurs de formulaire Parrainage */
+.error-text {
+  color: #dc2626; /* Rouge bien visible mais pas agressif */
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 4px;
+  display: block;
+}
+
+.input-error {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important; /* Petit fond très légèrement rouge */
+}

@@ -1,79 +1,107 @@
 import Link from 'next/link';
 
+// ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
   title: 'Assurance Emprunteur : Économisez jusqu\'à 15 000€ | Orizia',
   description:
     'Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat et vous fais économiser des milliers d\'euros.',
-  keywords: [
-    'assurance emprunteur courtier',
-    'délégation assurance loi lemoine',
-    'changer assurance prêt immobilier',
-    'comparatif assurance emprunteur',
-    'résilier assurance crédit',
-    'assurance emprunteur pas chère',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
     title: 'Assurance Emprunteur : Économisez jusqu\'à 15 000€ | Orizia',
-    description: 'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
-    url: 'https://orizia.fr/assurer/emprunteur',
-    type: 'article',
+    description: 
+      'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
+    url: 'https://orizia-courtage.fr/assurer/assurance-emprunteur',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/assurer.jpg', // ⚠️ Remplace par l'image principale de cette page
+        width: 1200,
+        height: 630,
+        alt: 'Délégation d\'assurance emprunteur avec Orizia Courtage',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'article', // 'article' ou 'website' conviennent ici
   },
 };
 
-const faqSchema = {
+// ── 2. DONNÉES STRUCTURÉES (JSON-LD Optimisées) ──
+// Utilisation de @graph pour combiner le Service (FinancialProduct) ET la FAQ
+const assuranceEmprunteurSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
     {
-      '@type': 'Question',
-      name: 'Qu\'est-ce que l\'assurance emprunteur exactement ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'C\'est le contrat qui rembourse votre crédit immobilier à votre place si vous avez un accident de la vie (décès, invalidité, arrêt de travail). C\'est imposé par la banque, mais ce que l\'on oublie souvent de vous dire, c\'est qu\'elle représente jusqu\'à 40% du coût total de votre crédit.',
+      // 1er Schéma : Le service proposé (Délégation d'assurance)
+      '@type': 'FinancialProduct',
+      name: 'Courtage et Délégation d\'Assurance Emprunteur',
+      description: 'Service d\'optimisation et de substitution d\'assurance de prêt immobilier via la loi Lemoine. Économies moyennes de 15 000€ constatées.',
+      provider: {
+        '@type': 'FinancialService',
+        name: 'Orizia Courtage',
+        url: 'https://orizia-courtage.fr'
       },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Étude de faisabilité et gestion administrative de la résiliation 100% gratuites pour l\'emprunteur (rémunération par l\'assureur).'
+      }
     },
     {
-      '@type': 'Question',
-      name: 'Puis-je vraiment changer d\'assurance quand je veux ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l\'assurance de votre banque à n\'importe quel moment. Plus besoin d\'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Combien d\'argent puis-je espérer récupérer ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'C\'est l\'un des postes où l\'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Ma banque a-t-elle le droit de refuser mon nouveau contrat ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Non. La loi l\'interdit. Si le nouveau contrat que je vous propose couvre exactement les mêmes choses que celui de la banque (ce qu\'on appelle l\'équivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la résistance, je monte au créneau pour vous.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Vais-je devoir passer des examens médicaux ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'C\'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi faire appel à vous plutôt que de chercher moi-même ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Parce que changer d\'assurance demande d\'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m\'assure de l\'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d\'achat sans la charge mentale. Mon service est gratuit pour vous, je suis rémunérée par l\'assureur.',
-      },
-    },
-  ],
+      // 2ème Schéma : La FAQ pour générer des extraits enrichis dans Google
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Qu\'est-ce que l\'assurance emprunteur exactement ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'C\'est le contrat qui rembourse votre crédit immobilier à votre place si vous avez un accident de la vie (décès, invalidité, arrêt de travail). C\'est imposé par la banque, mais ce que l\'on oublie souvent de vous dire, c\'est qu\'elle représente jusqu\'à 40% du coût total de votre crédit.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Puis-je vraiment changer d\'assurance quand je veux ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l\'assurance de votre banque à n\'importe quel moment. Plus besoin d\'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Combien d\'argent puis-je espérer récupérer ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'C\'est l\'un des postes où l\'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Ma banque a-t-elle le droit de refuser mon nouveau contrat ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Non. La loi l\'interdit. Si le nouveau contrat que je vous propose couvre exactement les mêmes choses que celui de la banque (ce qu\'on appelle l\'équivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la résistance, je monte au créneau pour vous.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Vais-je devoir passer des examens médicaux ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'C\'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Pourquoi faire appel à vous plutôt que de chercher moi-même ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Parce que changer d\'assurance demande d\'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m\'assure de l\'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d\'achat sans la charge mentale. Mon service est gratuit pour vous, je suis rémunérée par l\'assureur.'
+          }
+        }
+      ]
+    }
+  ]
 };
 
 const CHIFFRES = [

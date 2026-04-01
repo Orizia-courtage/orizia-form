@@ -2,50 +2,61 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 
-// ── 1. MÉTADONNÉES SEO ──
+// ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
   title: 'Orizia Courtage | Courtière Indépendante Crédit & Assurance',
   description:
-    'Cindy Urbansky, courtière indépendante. Je négocie vos crédits immobiliers, optimise vos assurances et dynamise vos placements. Étude 100% gratuite.',
-  keywords: [
-    'courtier indépendant Lille',
-    'Orizia Courtage',
-    'Cindy Urbansky',
-    'courtier crédit immobilier',
-    'gestion de patrimoine',
-    'courtier assurance',
-    'simulation prêt immobilier',
-  ],
+    'Cindy Urbansky, courtière indépendante à Lille. Je négocie vos crédits immobiliers, optimise vos assurances et dynamise vos placements. Étude de faisabilité gratuite.',
   alternates: { canonical: 'https://orizia-courtage.fr' },
   openGraph: {
     title: 'Orizia Courtage | Courtière Indépendante Crédit & Assurance',
     description:
-      'Ne laissez plus les banques décider pour vous. Je défends vos intérêts pour vos crédits, assurances et investissements. Bilan gratuit.',
+      'Ne laissez plus les banques décider pour vous. Je défends vos intérêts pour vos crédits, assurances et investissements. Bilan patrimonial gratuit.',
     url: 'https://orizia-courtage.fr',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/hero-orizia.jpg', // C'est fameux og:image !
+        width: 1200,
+        height: 630,
+        alt: 'Cindy Urbansky - Orizia Courtage',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'website',
   },
 };
 
-// ── 2. DONNÉES STRUCTURÉES (JSON-LD) ──
+// ── 2. DONNÉES STRUCTURÉES (JSON-LD Optimisées E-E-A-T) ──
 const oriziaSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FinancialService',
+  '@type': ['FinancialService', 'LocalBusiness', 'InsuranceAgency'],
   name: 'Orizia Courtage',
-  legalName: 'Orizia Courtage SARL', // ⚠️ La vraie forme juridique de ta société (SAS, SASU, EI...)
+  // legalName: 'Orizia Courtage SARL', // ⏳ À DÉCOMMENTER : Quand tu auras ta forme juridique exacte
   alternateName: 'Cindy Urbansky Courtage',
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
   url: 'https://orizia-courtage.fr',
   logo: 'https://orizia-courtage.fr/images/Orizia_logo.webp', 
-  image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+  image: 'https://orizia-courtage.fr/images/hero-orizia.jpg',
   description: 'Cabinet de courtage indépendant géré par Cindy Urbansky. Expertise en crédit immobilier, assurances, regroupement de crédits et stratégie patrimoniale (SCPI, PER, Assurance-Vie).',
   
-  // ── AUTORITÉ & LÉGAL (Fondamental pour le E-E-A-T financier) ──
-  // taxID: '12345678900012', // ⚠️ Ton numéro de SIRET
-  //award: 'Immatriculée à l\'ORIAS sous le numéro 12345678', // ⚠️ Ton numéro ORIAS
+  // ── AUTORITÉ & LÉGAL (En attente d'immatriculation) ──
+  // taxID: 'TON_SIRET_ICI', // ⏳ À DÉCOMMENTER : Quand tu auras ton SIRET
+  // award: 'Immatriculée à l\'ORIAS sous le numéro TON_ORIAS_ICI', // ⏳ À DÉCOMMENTER : Quand tu auras ton ORIAS
   
+  // ── AVIS CLIENS (En attente de récolte d'avis) ──
+  /* ⏳ À DÉCOMMENTER : Quand tu auras une fiche Google My Business avec des avis
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    bestRating: '5',
+    ratingCount: '1' 
+  },
+  */
+
   // ── INFOS DE CONTACT ──
-  telephone: '+33777259706', // ⚠️ Ton numéro
-  email: 'cindy.urbansky@orizia-courtage.fr', // ⚠️ Ton mail
+  telephone: '+33777259706',
+  email: 'cindy.urbansky@orizia-courtage.fr',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+33777259706',
@@ -55,10 +66,9 @@ const oriziaSchema = {
   
   // ── RÉSEAUX SOCIAUX ──
   sameAs: [
-    'https://www.linkedin.com/company/orizia-courtage', // ⚠️ Ton lien LinkedIn (entreprise ou perso)
+    'https://www.linkedin.com/company/orizia-courtage', 
     'https://www.facebook.com/orizia.courtage/',
     'https://www.instagram.com/orizia.courtage/',
-    'https://www.linkedin.com/company/orizia-courtage/' // ⚠️ Si tu as une page pro
   ],
 
   // ── L'EXPERTE (Cindy Urbansky) ──
@@ -66,45 +76,43 @@ const oriziaSchema = {
     '@type': 'Person',
     name: 'Cindy Urbansky',
     jobTitle: 'Courtière Indépendante en financement et assurance',
-    description: 'Experte en financement immobilier et gestion de patrimoine avec plus de 15 ans d\'expérience.',
+    description: 'Experte en financement immobilier et gestion de patrimoine avec plus de 15 ans d\'expérience terrain.',
     image: 'https://orizia-courtage.fr/images/photo-cindy.webp',
-    sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/', // ⚠️ Ton LinkedIn perso
-    // 💡 Ce champ est magique : il dit à Google quels sont tes mots-clés d'expertise !
+    sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
     knowsAbout: [
-      'Crédit Immobilier', 
+      'Courtage en Crédit Immobilier', 
       'Assurance Emprunteur', 
       'Loi Lemoine', 
-      'Loi Hamon', 
       'Regroupement de crédits', 
-      'SCPI', 
-      'Plan Épargne Retraite (PER)'
+      'SCPI de rendement', 
+      'Plan Épargne Retraite (PER)',
+      'Assurance Vie'
     ]
   },
 
-  // ── ADRESSE ET GÉOLOCALISATION (SEO Local / Google Maps) ──
+  // ── ADRESSE ET GÉOLOCALISATION ──
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '23 boulevard Clemenceau', // ⚠️ Ton adresse
+    streetAddress: '23 boulevard Clemenceau',
     addressLocality: 'Marcq-en-Barœul',
-    postalCode: '59700', // ⚠️ Ton code postal
+    postalCode: '59700',
     addressRegion: 'Hauts-de-France',
     addressCountry: 'FR'
   },
-  // ⚠️ Tes coordonnées GPS exactes (tu les trouves via Google Maps : clic droit sur ton lieu > copier les chiffres)
   geo: {
     '@type': 'GeoCoordinates',
     latitude: '50.66575178239067', 
     longitude: '3.0792706233086244'
   },
-  hasMap: 'https://goo.gl/maps/ton-lien-google-maps', // ⚠️ Le lien vers ta fiche Google My Business
+  // hasMap: 'https://goo.gl/maps/ton-lien-google-maps', // ⏳ À DÉCOMMENTER : Dès que tu as ta fiche Google My Business
   areaServed: [
     { '@type': 'City', name: 'Marcq-en-Barœul' },
+    { '@type': 'City', name: 'Lille' },
     { '@type': 'State', name: 'Hauts-de-France' },
     { '@type': 'Country', name: 'France' }
   ],
 
   // ── HORAIRES ET PAIEMENT ──
-  // ── HORAIRES D'OUVERTURE ──
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -121,9 +129,7 @@ const oriziaSchema = {
   ],
   paymentAccepted: 'Virement bancaire, Prélèvement',
   currenciesAccepted: 'EUR',
-  priceRange: '0€ pour l\'étude de faisabilité', // Très rassurant pour l'utilisateur
-
-  
+  priceRange: '0€ pour l\'étude de faisabilité', 
 
   // ── CATALOGUE DÉTAILLÉ DE SERVICES ──
   hasOfferCatalog: {
@@ -133,31 +139,32 @@ const oriziaSchema = {
       {
         '@type': 'Offer',
         itemOffered: { 
-          '@type': 'Service', 
+          '@type': 'FinancialProduct',
           name: 'Courtage en Crédit Immobilier',
-          description: 'Négociation de taux, montage du plan de financement et accompagnement bancaire.'
+          description: 'Négociation de taux, montage du plan de financement et accompagnement bancaire de A à Z.'
         }
       },
       {
         '@type': 'Offer',
         itemOffered: { 
-          '@type': 'Service', 
+          '@type': 'FinancialProduct', 
           name: 'Délégation d\'Assurance Emprunteur',
-          description: 'Substitution d\'assurance de prêt via la loi Lemoine pour réduire le coût total du crédit.'
+          description: 'Substitution d\'assurance de prêt via la loi Lemoine pour réduire le coût total du crédit immobilier.'
         }
       },
       {
         '@type': 'Offer',
         itemOffered: { 
-          '@type': 'Service', 
-          name: 'Conseil en Investissement (SCPI, PER, Assurance-Vie)',
-          description: 'Création de stratégies patrimoniales sur-mesure pour préparer la retraite et réduire les impôts.'
+          '@type': 'FinancialProduct', 
+          name: 'Conseil en Investissement Patrimonial',
+          description: 'Création de stratégies patrimoniales sur-mesure via SCPI, PER et Assurance-Vie pour préparer la retraite.'
         }
       }
     ]
   }
 };
 
+// ... la suite de ton code (const SERVICES etc.)
 const SERVICES = [
   {
     img: '/images/investir.jpg',
