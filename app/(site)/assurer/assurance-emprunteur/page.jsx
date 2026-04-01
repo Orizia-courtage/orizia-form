@@ -104,6 +104,9 @@ const assuranceEmprunteurSchema = {
   ]
 };
 
+const faqSchema = assuranceEmprunteurSchema['@graph'][1];
+
+
 const CHIFFRES = [
   { value: 'Jusqu\'à 40%', label: 'Du coût total de votre crédit', icon: '📊' },
   { value: '15 000€', label: 'Économies moyennes constatées', icon: '💰' },
