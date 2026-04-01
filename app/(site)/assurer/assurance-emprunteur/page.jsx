@@ -263,9 +263,9 @@ export default function AssuranceEmprunteurPage() {
   return (
     <>
       <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(assuranceEmprunteurSchema) }}
+/>
 
       <main>
         {/* ── HERO ── */}
