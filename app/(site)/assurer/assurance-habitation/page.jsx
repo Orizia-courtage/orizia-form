@@ -102,6 +102,9 @@ const assuranceHabitationSchema = {
   ],
 };
 
+const faqSchema = assuranceHabitationSchema['@graph'][1];
+
+
 
 
 const CHIFFRES = [
