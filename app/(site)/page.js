@@ -4,12 +4,12 @@ import ServiceCard from '@/components/ServiceCard';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
-  title: 'Orizia Courtage | Courtière Indépendante Crédit & Assurance',
+  title: 'Orizia Courtage, courtier indépendant crédit et assurance',
   description:
-    'Cindy Urbansky, courtière indépendante à Lille. Je négocie vos crédits immobiliers, optimise vos assurances et dynamise vos placements. Étude de faisabilité gratuite.',
+    'Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Je négocie vos crédits immobiliers, optimise vos assurances et dynamise vos placements. Étude de faisabilité gratuite.',
   alternates: { canonical: 'https://orizia-courtage.fr' },
   openGraph: {
-    title: 'Orizia Courtage | Courtière Indépendante Crédit & Assurance',
+    title: 'Orizia Courtage | Courtier Indépendant Crédit & Assurance',
     description:
       'Ne laissez plus les banques décider pour vous. Je défends vos intérêts pour vos crédits, assurances et investissements. Bilan patrimonial gratuit.',
     url: 'https://orizia-courtage.fr',
@@ -33,7 +33,7 @@ const oriziaSchema = {
   '@type': ['FinancialService', 'LocalBusiness', 'InsuranceAgency'],
   name: 'Orizia Courtage',
   // legalName: 'Orizia Courtage SARL', // ⏳ À DÉCOMMENTER : Quand tu auras ta forme juridique exacte
-  alternateName: ['Orizia','Cindy Urbansky Courtage'],
+  alternateName: ['Orizia','Cindy Urbansky'],
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
   url: 'https://orizia-courtage.fr',
   logo: 'https://orizia-courtage.fr/images/Orizia_logo.webp', 
@@ -75,7 +75,7 @@ const oriziaSchema = {
   founder: {
     '@type': 'Person',
     name: 'Cindy Urbansky',
-    jobTitle: 'Courtière Indépendante en financement et assurance',
+    jobTitle: 'Courtier Indépendant en financement et assurance',
     description: 'Experte en financement immobilier et gestion de patrimoine avec plus de 15 ans d\'expérience terrain.',
     image: 'https://orizia-courtage.fr/images/photo-cindy.webp',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
@@ -226,10 +226,10 @@ export default function HomePage() {
               letterSpacing: '0.1em',
               marginBottom: 12,
             }}>
-              Courtière indépendante · Certifiée ORIAS · Lille
+              Courtier indépendant · Certifiée ORIAS · Hauts-de-France
             </p>
             <h1>
-              Votre courtière indépendante,<br />
+              Votre courtier indépendant,<br />
               de la première question<br />
               jusqu'à la signature
             </h1>
