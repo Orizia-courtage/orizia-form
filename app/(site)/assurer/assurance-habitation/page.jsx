@@ -39,12 +39,12 @@ const assuranceHabitationSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'FinancialProduct',
+      '@type': 'Service',
       name: "Courtage et Comparaison d'Assurance Habitation (MRH)",
       description:
         "Service d'optimisation, de comparaison et de souscription d'assurance habitation pour locataires, propriétaires et PNO. Prise en charge de la résiliation via la loi Hamon.",
       provider: {
-        '@type': 'FinancialService',
+        '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         url: 'https://orizia-courtage.fr',
       },
@@ -104,7 +104,7 @@ const assuranceHabitationSchema = {
   ],
 };
 
-const faqSchema = assuranceHabitationSchema['@graph'][1];
+
 
 const CHIFFRES = [
   { value: '+7%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
@@ -336,7 +336,9 @@ export default function AssuranceHabitationPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(assuranceHabitationSchema),
+        }}
       />
 
       <main>

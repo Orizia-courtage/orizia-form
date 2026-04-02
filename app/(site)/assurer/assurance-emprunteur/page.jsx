@@ -31,12 +31,12 @@ const assuranceEmprunteurSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'FinancialProduct',
+      '@type': 'Service',
       name: "Courtage et Délégation d'Assurance Emprunteur",
       description:
         "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Économies moyennes de 15 000€ constatées.",
       provider: {
-        '@type': 'FinancialService',
+        '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         url: 'https://orizia-courtage.fr',
       },
