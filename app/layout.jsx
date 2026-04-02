@@ -8,10 +8,9 @@ const urbanist = Urbanist({ subsets: ['latin'], weight: ['400','500','600','800'
 export const metadata = {
   title: 'Orizia Courtage – Expert en Financement & Stratégie Patrimoniale',
   description: 'Concrétisez vos projets immobiliers et développez votre capital.',
-  // Ajout de la règle pour empêcher l'indexation par Google :
   robots: {
     index: false,
-    follow: false, // Vous pouvez mettre "true" si vous voulez que les moteurs suivent les liens internes de votre site
+    follow: false,
   },
 };
 
@@ -20,6 +19,9 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <body className={urbanist.className}>
         {children}
+        {/* Ajout des composants Vercel ici pour qu'ils s'activent */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
