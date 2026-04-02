@@ -36,10 +36,8 @@ const assuranceEmprunteurSchema = {
       description:
         "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Économies moyennes de 15 000€ constatées.",
       provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        url: 'https://orizia-courtage.fr',
-      },
+  '@id': 'https://orizia-courtage.fr/#organization'
+},
       offers: {
         '@type': 'Offer',
         price: '0',

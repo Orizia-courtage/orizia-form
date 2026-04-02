@@ -33,7 +33,7 @@ const oriziaSchema = {
   '@type': ['FinancialService', 'LocalBusiness', 'InsuranceAgency'],
   name: 'Orizia Courtage',
   // legalName: 'Orizia Courtage SARL', // ⏳ À DÉCOMMENTER : Quand tu auras ta forme juridique exacte
-  alternateName: 'Cindy Urbansky Courtage',
+  alternateName: ['Orizia','Cindy Urbansky Courtage'],
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
   url: 'https://orizia-courtage.fr',
   logo: 'https://orizia-courtage.fr/images/Orizia_logo.webp', 

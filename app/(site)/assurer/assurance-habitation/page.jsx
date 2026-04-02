@@ -44,10 +44,8 @@ const assuranceHabitationSchema = {
       description:
         "Service d'optimisation, de comparaison et de souscription d'assurance habitation pour locataires, propriétaires et PNO. Prise en charge de la résiliation via la loi Hamon.",
       provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        url: 'https://orizia-courtage.fr',
-      },
+  '@id': 'https://orizia-courtage.fr/#organization'
+},
       offers: {
         '@type': 'Offer',
         price: '0',
