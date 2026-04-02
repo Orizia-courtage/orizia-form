@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
   description:
@@ -17,57 +19,92 @@ export const metadata = {
   openGraph: {
     title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
     description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat sans coupure. Gratuit, indépendant et sans engagement.',
-    url: 'https://orizia.fr/assurer/habitation',
+    url: 'https://orizia-courtage.fr/assurer/assurance-habitation',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/facture-assurance-hausse.webp',
+        width: 1200,
+        height: 630,
+        alt: "Comparaison et courtage en assurance habitation avec Orizia",
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
 };
 
-const faqSchema = {
+// ── 2. DONNÉES STRUCTURÉES ──
+const assuranceHabitationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
     {
-      '@type': 'Question',
-      name: 'L\'assurance habitation est-elle obligatoire en 2026 ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Pour les locataires, oui, c\'est une obligation légale stricte (loi de 1989) pour couvrir au moins les risques locatifs. Pour les propriétaires occupants, ce n\'est obligatoire qu\'en copropriété. Cependant, ne pas s\'assurer, c\'est prendre le risque d\'assumer seul des centaines de milliers d\'euros de frais en cas d\'incendie affectant les voisins.',
+      '@type': 'FinancialProduct',
+      name: "Courtage et Comparaison d'Assurance Habitation (MRH)",
+      description:
+        "Service d'optimisation, de comparaison et de souscription d'assurance habitation pour locataires, propriétaires et PNO. Prise en charge de la résiliation via la loi Hamon.",
+      provider: {
+        '@type': 'FinancialService',
+        name: 'Orizia Courtage',
+        url: 'https://orizia-courtage.fr',
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description:
+          "Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré (rémunération par la compagnie d'assurance partenaire).",
       },
     },
     {
-      '@type': 'Question',
-      name: 'Combien coûte une assurance habitation aujourd\'hui ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Avec les risques climatiques, les prix grimpent de 6 à 8% en 2026. Comptez en moyenne 160€/an pour un locataire en T2, et de 170€ à 380€/an pour un propriétaire selon la maison. Mon travail consiste justement à aller chercher des tarifs inférieurs à ces moyennes de marché.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Changer de contrat, c\'est compliqué ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Non, grâce à la loi Hamon, vous êtes libre de partir quand vous voulez après 1 an de contrat, sans frais. Et surtout : c\'est moi qui rédige et envoie la lettre de résiliation à votre ancien assureur. Vous n\'avez rien à faire et il n\'y a aucune coupure de couverture.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Quelle est la différence entre locataire, propriétaire occupant et PNO ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Le locataire assure ses meubles et sa responsabilité. Le propriétaire occupant assure en plus les murs de la maison. Le PNO (Propriétaire Non-Occupant) est pour les investisseurs : il couvre les murs et la responsabilité du bailleur quand le logement est vide ou en complément de l\'assurance du locataire.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi passer par une courtière indépendante ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Votre banquier vous propose "son" produit. Moi, je vous propose "le" produit du marché le plus adapté à votre logement, en comparant des dizaines d\'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, gratuitement pour vous.',
-      },
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: "L'assurance habitation est-elle obligatoire en 2026 ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Pour les locataires, oui, c'est une obligation légale stricte (loi de 1989) pour couvrir au moins les risques locatifs. Pour les propriétaires occupants, ce n'est obligatoire qu'en copropriété. Cependant, ne pas s'assurer, c'est prendre le risque d'assumer seul des centaines de milliers d'euros de frais en cas d'incendie affectant les voisins.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Combien coûte une assurance habitation aujourd'hui ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Avec les risques climatiques, les prix grimpent de 6 à 8% en 2026. Comptez en moyenne 160€/an pour un locataire en T2, et de 170€ à 380€/an pour un propriétaire selon la maison. Mon travail consiste justement à aller chercher des tarifs inférieurs à ces moyennes de marché.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Changer de contrat, c'est compliqué ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Non, grâce à la loi Hamon, vous êtes libre de partir quand vous voulez après 1 an de contrat, sans frais. Et surtout : c'est moi qui rédige et envoie la lettre de résiliation à votre ancien assureur. Vous n'avez rien à faire et il n'y a aucune coupure de couverture.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Quelle est la différence entre locataire, propriétaire occupant et PNO ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Le locataire assure ses meubles et sa responsabilité. Le propriétaire occupant assure en plus les murs de la maison. Le PNO (Propriétaire Non-Occupant) est pour les investisseurs : il couvre les murs et la responsabilité du bailleur quand le logement est vide ou en complément de l'assurance du locataire.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Pourquoi passer par une courtière indépendante ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, gratuitement pour vous.",
+          },
+        },
+      ],
     },
   ],
 };
+
+const faqSchema = assuranceHabitationSchema['@graph'][1];
 
 const CHIFFRES = [
   { value: '+7%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
@@ -303,25 +340,35 @@ export default function AssuranceHabitationPage() {
       />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
-            <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
-              <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
+        {/* ── HERO (Avec l'image de fond discrète et les classes de l'assurance emprunteur) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={80}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner">
+            <nav aria-label="breadcrumb" className="ae-breadcrumb">
+              <Link href="/">Accueil</Link>
               {' › '}
-              <Link href="/assurer" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Assurer</Link>
+              <Link href="/assurer">Assurer</Link>
               {' › '}
               <span>Assurance Habitation</span>
             </nav>
-            <span className="fin-badge">📈 +7% en 2026 — L'inflation touche votre maison</span>
-            <h1>Arrêtez de surpayer<br />votre assurance habitation</h1>
-            <p>
+            <span className="fin-badge ae-hero-badge">📈 +7% en 2026 — L'inflation touche votre maison</span>
+            <h1 className="ae-hero-title">Arrêtez de surpayer<br />votre assurance habitation</h1>
+            <p className="ae-hero-intro">
               Votre assureur profite de votre fidélité pour augmenter les prix. Je mets le marché 
               en concurrence pour vous faire économiser <strong>jusqu'à 250€/an</strong>, 
               avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Lancer mon comparatif gratuit →
               </Link>
@@ -329,7 +376,7 @@ export default function AssuranceHabitationPage() {
                 🔍 Voir selon mon profil
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust">
               <span>✅ Loi Hamon : je résilie à votre place</span>
               <span>🤝 Interlocutrice 100% dédiée</span>
               <span>⚡ 0 jour sans couverture</span>
@@ -339,10 +386,10 @@ export default function AssuranceHabitationPage() {
 
         {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
+          <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.value}</strong>
+                <strong>{c.icon}{c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -352,47 +399,33 @@ export default function AssuranceHabitationPage() {
         {/* ── CITATION CINDY ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « On paie tous notre assurance habitation par habitude, sans réaliser que les tarifs explosent chaque année. »
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière indépendante"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « On paie tous notre assurance habitation par habitude, sans réaliser que les tarifs explosent chaque année. »
+                </p>
+                <p className="ae-citation-text">
+                  Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── PROBLÈME ── */}
+        {/* ── PROBLÈME (Avec nouvelle image) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -404,19 +437,35 @@ export default function AssuranceHabitationPage() {
                 L'assurance habitation est le budget où l'on perd le plus d'argent par simple inertie.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+            
+            <div className="ae-probleme-layout">
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* IMAGE 1 AJOUTÉE ICI */}
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/facture-assurance-hausse.webp"
+                  alt="Hausse des tarifs d'assurance habitation"
+                  title="Ne subissez plus la hausse des cotisations"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <div style={{ textAlign: 'center', marginTop: 40 }}>
-              <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                Envoyez-moi votre avis d'échéance, je vous dis tout de suite si vous payez trop cher.
-              </p>
+
+            <div className="ae-probleme-cta">
+              <p className="ae-probleme-cta-text">Envoyez-moi votre avis d'échéance, je vous dis tout de suite si vous payez trop cher.</p>
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire analyser mon contrat actuel →
               </Link>
@@ -495,38 +544,97 @@ export default function AssuranceHabitationPage() {
           </div>
         </section>
 
-        {/* ── GARANTIES ── */}
+        {/* ── GARANTIES (Optimisées pour utiliser le CSS de l'assurance emprunteur) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div className="fin-section-head">
+            <div className="ae-garanties-head">
               <span className="fin-badge">Les garanties qui comptent</span>
               <h2>Ne payez que pour ce qui<br />vous protège vraiment</h2>
               <p>Je traque la "sur-assurance" (payer pour un jardin au 4ème étage) et la "sous-assurance" (matériel high-tech non couvert).</p>
             </div>
-            <div className="ae-garanties-grid">
+            
+            <div className="ae-garanties-flex">
               {GARANTIES.map(g => (
                 <div
                   key={g.label}
-                  className={`ae-garantie-card${g.obligatoire ? ' ae-garantie-card--obligatoire' : ''}`}
+                  className={`ae-garantie-flex-card ${g.obligatoire ? 'ae-garantie-flex-card--base' : 'ae-garantie-flex-card--option'}`}
                 >
-                  <div className="ae-garantie-header">
-                    <span className="ae-garantie-icon">{g.icon}</span>
-                    <div style={{ flex: 1 }}>
-                      <div className="ae-garantie-label">{g.label}</div>
+                  <div className="ae-garantie-flex-header">
+                    <span className="ae-garantie-flex-icon">{g.icon}</span>
+                    <div style={{ flex: 1, marginTop: '4px' }}>
+                      <div className="ae-garantie-flex-label" style={{ fontSize: '1.1rem' }}>{g.label}</div>
                     </div>
-                    <span className={`ae-garantie-badge${g.obligatoire ? ' ae-garantie-badge--req' : ' ae-garantie-badge--opt'}`}>
+                    <span className={`ae-garantie-flex-badge ${g.obligatoire ? 'ae-garantie-flex-badge--base' : 'ae-garantie-flex-badge--option'}`}>
                       {g.obligatoire ? 'Base' : 'Option'}
                     </span>
                   </div>
-                  <p className="ae-garantie-desc">{g.desc}</p>
+                  <p className="ae-garantie-flex-desc">{g.desc}</p>
                 </div>
               ))}
+            </div>
+            
+          </div>
+        </section>
+
+        {/* ── ACCOMPAGNEMENT & ETAPES (Avec nouvelle image) ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">De l'humain</span>
+              <h2>Je ne suis pas un robot comparateur.<br />Je gère tout, de A à Z.</h2>
+              <p>
+                Pas de centre d'appels à l'étranger. Je travaille seule, en totale indépendance, 
+                pour défendre uniquement vos intérêts.
+              </p>
+            </div>
+            
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* IMAGE 2 AJOUTÉE ICI */}
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage-habitation.webp"
+                  alt="Courtier préparant un dossier d'assurance habitation"
+                  title="Un accompagnement transparent et sans effort"
+                  width={863}
+                  height={1080}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
+              <div className="av-gratuit-icon">🤝</div>
+              <div>
+                <strong>Un accompagnement expert, 100% gratuit pour vous</strong>
+                <p>
+                  Je suis rémunérée directement par l'assureur que nous choisissons ensemble. 
+                  Vous ne payez pas de frais de dossier, vous ne payez pas plus cher votre cotisation, 
+                  mais vous gagnez une alliée qui lit les petites lignes à votre place.
+                </p>
+              </div>
+              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
+                📅 On fait le point ? →
+              </Link>
             </div>
           </div>
         </section>
 
         {/* ── LOI HAMON ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
@@ -536,7 +644,7 @@ export default function AssuranceHabitationPage() {
                 <h2>Quitter votre assureur<br />n'a jamais été aussi simple</h2>
                 <p>
                   Beaucoup n'osent pas changer d'assurance par peur des complications administratives. 
-                  <strong>La bonne nouvelle : la loi Hamon vous permet de résilier quand vous voulez après 1 an.</strong>
+                  <strong> La bonne nouvelle : la loi Hamon vous permet de résilier quand vous voulez après 1 an.</strong>
                 </p>
                 <p>
                   La meilleure nouvelle ? <strong>C'est moi qui m'en occupe.</strong> Je rédige, j'envoie, 
@@ -552,58 +660,23 @@ export default function AssuranceHabitationPage() {
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
                   La transition en douceur
                 </div>
-                {LOI_HAMON_POINTS.map(pt => (
-                  <div key={pt.title} className="ae-lemoine-point">
-                    <div className="ae-lemoine-icon">{pt.icon}</div>
-                    <div>
-                      <strong>{pt.title}</strong>
-                      <span>{pt.desc}</span>
+                <div className="ae-lemoine-points-list">
+                  {LOI_HAMON_POINTS.map(pt => (
+                    <div key={pt.title} className="ae-lemoine-point-item">
+                      <div className="ae-lemoine-point-icon">{pt.icon}</div>
+                      <div className="ae-lemoine-point-text">
+                        <strong>{pt.title}</strong>
+                        <span>{pt.desc}</span>
+                      </div>
                     </div>
-                  </div>
-                ))}
-                <div className="crowd-schema-step crowd-schema-step--orizia" style={{ marginTop: 12 }}>
+                  ))}
+                </div>
+                <div className="crowd-schema-step crowd-schema-step--orizia" style={{ marginTop: 24, textAlign: 'center' }}>
                   <div className="crowd-schema-icon">⏱️</div>
                   <strong>Votre investissement temps ?</strong>
                   <span>Environ 15 minutes. Je gère le reste.</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── ACCOMPAGNEMENT ── */}
-        <section className="crowd-section crowd-section--light">
-          <div className="fin-section-inner">
-            <div className="fin-section-head">
-              <span className="fin-badge">De l'humain</span>
-              <h2>Je ne suis pas un robot comparateur.<br />Je gère tout, de A à Z.</h2>
-              <p>
-                Pas de centre d'appels à l'étranger. Je travaille seule, en totale indépendance, 
-                pour défendre uniquement vos intérêts.
-              </p>
-            </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
-            </div>
-            <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
-              <div>
-                <strong>Un accompagnement expert, 100% gratuit pour vous</strong>
-                <p>
-                  Je suis rémunérée directement par l'assureur que nous choisissons ensemble. 
-                  Vous ne payez pas de frais de dossier, vous ne payez pas plus cher votre cotisation, 
-                  mais vous gagnez une alliée qui lit les petites lignes à votre place.
-                </p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 On fait le point ? →
-              </Link>
             </div>
           </div>
         </section>
@@ -701,7 +774,7 @@ export default function AssuranceHabitationPage() {
               je m'occupe de la lettre de résiliation. Vous n'avez strictement rien à perdre, 
               à part quelques dizaines d'euros d'économies chaque mois.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Lancer mon comparatif avec Cindy →
               </Link>

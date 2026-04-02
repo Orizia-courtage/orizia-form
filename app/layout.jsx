@@ -1,17 +1,23 @@
 import { Urbanist } from 'next/font/google';
+
 import './globals.css';
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+
+import { Analytics } from "@vercel/analytics/next"
+
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
+
 
 const urbanist = Urbanist({ subsets: ['latin'], weight: ['400','500','600','800','900'] });
 
+
+
 export const metadata = {
+
   title: 'Orizia Courtage – Expert en Financement & Stratégie Patrimoniale',
+
   description: 'Concrétisez vos projets immobiliers et développez votre capital.',
-  robots: {
-    index: false,
-    follow: false,
-  },
+
 };
 
 export default function RootLayout({ children }) {

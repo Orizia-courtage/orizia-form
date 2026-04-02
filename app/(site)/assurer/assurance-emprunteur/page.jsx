@@ -172,17 +172,17 @@ export default function AssuranceEmprunteurPage() {
 
         {/* ── HERO ── */}
         <section className="fin-hero ae-hero">
-          <div className="ae-hero-bg">
-            <Image
-              src="/images/discret-hero-bg.webp"
-              alt=""
-              fill
-              priority
-              quality={80}
-              style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.5 }}
-              sizes="100vw"
-            />
-          </div>
+  <div className="ae-hero-bg">
+    <Image
+      src="/images/discret-hero-bg.webp"
+      alt=""
+      fill
+      priority
+      quality={80}
+      className="hero-image" /* On utilise une classe ici */
+      sizes="100vw"
+    />
+  </div>
 
           <div className="ae-hero-inner">
             <nav aria-label="breadcrumb" className="ae-breadcrumb">
@@ -231,7 +231,7 @@ export default function AssuranceEmprunteurPage() {
           <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.value}</strong>
+                <strong>{c.icon}{c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}

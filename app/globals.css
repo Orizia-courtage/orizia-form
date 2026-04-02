@@ -964,10 +964,12 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 .fin-hero-inner {
   position: relative;
+  z-index: 1; /* Force le texte à rester par-dessus le background */
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
+
 .fin-hero-inner h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 900;
@@ -1085,12 +1087,18 @@ select.orz-input { cursor:pointer;padding-right:40px;
   text-align: center;
 }
 .fin-chiffre strong {
-  display: block;
-  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permet de plier l'émoji et le texte sans déborder si c'est trop serré */
+  gap: 8px;
+  /* clamp(Taille Min, Taille idéale dynamique, Taille Max) */
+  font-size: clamp(1.4rem, 2.5vw, 2rem); 
   font-weight: 900;
   color: #fff;
   margin-bottom: 4px;
 }
+
 .fin-chiffre span {
   font-size: 0.82rem;
   color: var(--orizia-light);
@@ -1311,6 +1319,11 @@ select.orz-input { cursor:pointer;padding-right:40px;
   .fin-chiffres-inner { grid-template-columns: repeat(2, 1fr); }
   .fin-hero-btns { flex-direction: column; align-items: center; }
   .fin-hero-trust { flex-direction: column; gap: 8px; }
+  
+  /* L'ajout est ici : on réduit la taille du texte sur mobile */
+  .fin-chiffre strong {
+    font-size: 1.4rem; 
+  }
 }
 
 /* FOCUS CARDS (page Assurer) */
@@ -1383,6 +1396,8 @@ select.orz-input { cursor:pointer;padding-right:40px;
   opacity: 0.8;
   margin-bottom: 16px;
 }
+
+
 
 /* Schéma */
 .crowd-schema {
@@ -3101,12 +3116,15 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 .ae-hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0; /* Remplace top: 0, left: 0, width: 100%, height: 100% en une ligne ! */
   z-index: 0;
 }
+.hero-image {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+}
+
 .ae-hero-inner {
   position: relative;
   z-index: 1;
@@ -3162,8 +3180,11 @@ select.orz-input { cursor:pointer;padding-right:40px;
 
 /* ══ CHIFFRES (override de fin-chiffres-inner pour la page AE) ══ */
 .ae-chiffres-inner {
+  max-width: 960px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  /* On force 4 colonnes strictes sur ordinateur (4x1) */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
   text-align: center;
 }
@@ -3297,15 +3318,18 @@ select.orz-input { cursor:pointer;padding-right:40px;
 .ae-taux-table tbody tr:last-child td { border-bottom: none; }
 .ae-taux-table tbody tr:hover { background: rgba(58, 111, 108, 0.03); }
 
+/* Couleurs des colonnes */
 .ae-col--banque   { background: rgba(220, 38, 38, 0.03); }
 .ae-col--courtier { background: rgba(22, 163, 74, 0.04); }
 .ae-col--gain     { background: rgba(58, 111, 108, 0.04); }
 
+/* Typographie des taux */
 .ae-taux--bad span  { font-weight: 800; color: #dc2626; font-size: 1rem; }
 .ae-taux--good span { font-weight: 800; color: #16a34a; font-size: 1rem; }
 .ae-taux--bad small,
 .ae-taux--good small { font-size: 0.7rem; font-weight: 500; opacity: 0.6; margin-left: 2px; }
 
+/* Badge de gain */
 .ae-gain-badge {
   display: inline-block;
   background: rgba(22, 163, 74, 0.1);
@@ -3315,6 +3339,8 @@ select.orz-input { cursor:pointer;padding-right:40px;
   padding: 4px 14px;
   border-radius: 100px;
 }
+
+
 
 
 /* ══ EXEMPLES D'ÉCONOMIES ══ */
@@ -3378,6 +3404,7 @@ select.orz-input { cursor:pointer;padding-right:40px;
   font-size: 0.85rem;
 }
 .ae-economie-total strong { font-size: 1.05rem; font-weight: 900; }
+
 
 
 /* ══ LOI LEMOINE ══ */
@@ -3609,28 +3636,67 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 
 
-/* ══ RESPONSIVE ══ */
+/* ══ RESPONSIVE GLOBAL ══ */
+
+/* 💻 TABLETTE & PETITS ÉCRANS (Max 900px) */
 @media (max-width: 900px) {
-  .ae-economies-grid  { grid-template-columns: 1fr; }
+  .ae-economies-grid { grid-template-columns: 1fr; }
+  .ae-chiffres-inner { grid-template-columns: repeat(2, 1fr); } /* Chiffres en 2x2 */
 }
 
+/* 📱 TABLETTE PORTRAIT (Max 768px) */
 @media (max-width: 768px) {
-  .ae-citation-card         { flex-direction: column; padding: 28px 24px; }
+  .ae-citation-card          { flex-direction: column; padding: 28px 24px; }
   
   .ae-probleme-layout, 
   .ae-accompagnement-layout, 
-  .ae-lemoine-layout        { flex-direction: column; gap: 32px; }
+  .ae-lemoine-layout         { flex-direction: column; gap: 32px; }
   
   .ae-probleme-image,
-  .ae-accompagnement-image  { width: 100%; flex-basis: auto; }
+  .ae-accompagnement-image   { width: 100%; flex-basis: auto; }
   
-  .ae-garantie-flex-card    { flex: 1 1 100%; }
-  .ae-lemoine-text h2       { font-size: 1.8rem; }
-  .ae-garanties-head h2     { font-size: 1.8rem; }
+  .ae-garantie-flex-card     { flex: 1 1 100%; }
+  .ae-lemoine-text h2        { font-size: 1.8rem; }
+  .ae-garanties-head h2      { font-size: 1.8rem; }
 }
 
+/* 📱 GRAND MOBILE (Max 640px) */
 @media (max-width: 640px) {
   .ae-hero-inner { padding: 60px 16px; }
+}
+
+/* 📱 MOBILE STANDARD (Max 600px) */
+@media (max-width: 600px) {
+  /* Layout global */
+  .ae-chiffres-inner { grid-template-columns: 1fr; } /* Chiffres en 1x4 */
+  
+  /* Image Hero */
+  .hero-image { object-position: center; }
+
+  /* Tableau Taux Comparatif (0 scroll) */
+  .ae-taux-table-wrap { overflow-x: hidden; }
+  .ae-taux-table th, 
+  .ae-taux-table td   { padding: 12px 4px; }
+  .ae-taux-table th   { font-size: 0.65rem; line-height: 1.2; }
+  .ae-taux-table td   { font-size: 0.8rem; }
+  
+  .ae-taux--bad span, 
+  .ae-taux--good span { font-size: 0.85rem; }
+  
+  .ae-taux--bad small, 
+  .ae-taux--good small { 
+    display: block; 
+    margin-left: 0; 
+    margin-top: 2px; 
+  }
+  
+  .ae-gain-badge { 
+    padding: 4px 6px; 
+    font-size: 0.8rem; 
+  }
+  
+  /* Classe utilitaire pour cacher les textes longs */
+  .hide-mobile { display: none; }
 }
 
 /* ══ GRILLE TARIFS HABITATION ══ */
