@@ -3087,6 +3087,178 @@ select.orz-input { cursor:pointer;padding-right:40px;
   .contact-cal-reassurance    { grid-template-columns: 1fr; }
 }
 
+/* ══════════════════════════════════════════════
+   ASSURANCE EMPRUNTEUR — styles spécifiques
+   Toutes les classes de cette page sont préfixées
+   ae- pour éviter tout conflit avec globals.css
+══════════════════════════════════════════════ */
+
+
+/* ══ HERO ══ */
+.ae-hero {
+  position: relative;
+  overflow: hidden;
+}
+.ae-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.ae-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.ae-breadcrumb {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+.ae-breadcrumb a {
+  color: var(--orizia-accent);
+  text-decoration: none;
+}
+.ae-hero-badge {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.ae-hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.ae-hero-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: var(--orizia-dark);
+}
+.ae-hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.ae-hero-trust {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.ae-hero-trust span {
+  white-space: nowrap;
+}
+
+
+/* ══ CHIFFRES (override de fin-chiffres-inner pour la page AE) ══ */
+.ae-chiffres-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+
+/* ══ CITATION CINDY ══ */
+.ae-citation-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 40px;
+  border-left: 5px solid var(--orizia-primary);
+  box-shadow: 0 4px 24px rgba(58, 111, 108, 0.08);
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ae-citation-photo {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--orizia-light);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.ae-citation-content {
+  flex: 1 1 300px;
+}
+.ae-citation-quote {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--orizia-accent);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+.ae-citation-text {
+  font-size: 1rem;
+  color: var(--orizia-dark);
+  line-height: 1.75;
+  margin: 0 0 20px;
+  opacity: 0.8;
+}
+.ae-citation-author {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--orizia-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+
+/* ══ SECTION PROBLÈME ══ */
+.ae-probleme-layout {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.ae-probleme-dangers {
+  flex: 1 1 400px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ae-probleme-image {
+  flex: 1 1 300px;
+  max-width: 100%; /* Empêche le débordement sur mobile */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  align-self: center;
+}
+.ae-probleme-image img {
+  width: 100%;
+  height: auto; /* Garantit que l'image ne sera jamais coupée */
+  display: block;
+}
+.ae-probleme-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+.ae-probleme-cta-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--orizia-accent);
+  margin-bottom: 6px;
+}
+
+
 /* ══ TABLEAU TAUX COMPARATIF ══ */
 .ae-taux-table-wrap {
   overflow-x: auto;
@@ -3123,11 +3295,11 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 .ae-taux-table td:first-child { text-align: left; }
 .ae-taux-table tbody tr:last-child td { border-bottom: none; }
-.ae-taux-table tbody tr:hover { background: rgba(58,111,108,0.03); }
+.ae-taux-table tbody tr:hover { background: rgba(58, 111, 108, 0.03); }
 
-.ae-col--banque  { background: rgba(220,38,38,0.03); }
-.ae-col--courtier{ background: rgba(22,163,74,0.04); }
-.ae-col--gain    { background: rgba(58,111,108,0.04); }
+.ae-col--banque   { background: rgba(220, 38, 38, 0.03); }
+.ae-col--courtier { background: rgba(22, 163, 74, 0.04); }
+.ae-col--gain     { background: rgba(58, 111, 108, 0.04); }
 
 .ae-taux--bad span  { font-weight: 800; color: #dc2626; font-size: 1rem; }
 .ae-taux--good span { font-weight: 800; color: #16a34a; font-size: 1rem; }
@@ -3136,27 +3308,21 @@ select.orz-input { cursor:pointer;padding-right:40px;
 
 .ae-gain-badge {
   display: inline-block;
-  background: rgba(22,163,74,0.1);
+  background: rgba(22, 163, 74, 0.1);
   color: #16a34a;
   font-weight: 900;
   font-size: 0.95rem;
   padding: 4px 14px;
   border-radius: 100px;
 }
-.ae-taux-source {
-  font-size: 0.72rem;
-  color: var(--orizia-dark);
-  opacity: 0.45;
-  padding: 10px 20px;
-  text-align: right;
-  margin: 0;
-}
+
 
 /* ══ EXEMPLES D'ÉCONOMIES ══ */
 .ae-economies-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  margin-top: 32px;
 }
 .ae-economie-card {
   background: #fff;
@@ -3167,7 +3333,7 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 .ae-economie-card:hover {
   border-color: var(--orizia-primary);
-  box-shadow: 0 4px 18px rgba(58,111,108,0.1);
+  box-shadow: 0 4px 18px rgba(58, 111, 108, 0.1);
 }
 .ae-economie-profil {
   font-size: 0.95rem;
@@ -3193,111 +3359,278 @@ select.orz-input { cursor:pointer;padding-right:40px;
   padding: 10px 12px;
   text-align: center;
 }
-.ae-economie-taux--bad  { background: rgba(220,38,38,0.06); }
-.ae-economie-taux--good { background: rgba(22,163,74,0.06); }
-.ae-economie-taux span { display: block; font-size: 0.7rem; opacity: 0.6; margin-bottom: 3px; }
+.ae-economie-taux--bad  { background: rgba(220, 38, 38, 0.06); }
+.ae-economie-taux--good { background: rgba(22, 163, 74, 0.06); }
+.ae-economie-taux span  { display: block; font-size: 0.7rem; opacity: 0.6; margin-bottom: 3px; }
 .ae-economie-taux--bad  strong { color: #dc2626; font-size: 1rem; font-weight: 900; }
 .ae-economie-taux--good strong { color: #16a34a; font-size: 1rem; font-weight: 900; }
-.ae-economie-arrow { font-size: 1.2rem; color: var(--orizia-primary); opacity: 0.5; flex-shrink: 0; }
+.ae-economie-arrow {
+  font-size: 1.2rem;
+  color: var(--orizia-primary);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
 .ae-economie-total {
   text-align: center;
   padding: 12px 10px;
-  border: 2px solid;
+  border: 2px solid; /* la couleur est injectée en inline */
   border-radius: 10px;
   font-size: 0.85rem;
 }
 .ae-economie-total strong { font-size: 1.05rem; font-weight: 900; }
 
-/* ══ LOI LEMOINE POINTS ══ */
-.ae-lemoine-point {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: var(--orizia-light);
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 10px;
+
+/* ══ LOI LEMOINE ══ */
+.ae-lemoine-banner {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.1);
 }
-.ae-lemoine-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-.ae-lemoine-point strong {
+.ae-lemoine-banner img {
+  width: 100%;
+  height: auto;
   display: block;
-  font-size: 0.87rem;
-  font-weight: 800;
-  color: var(--orizia-accent);
-  margin-bottom: 3px;
 }
-.ae-lemoine-point span {
-  font-size: 0.78rem;
+
+.ae-lemoine-layout {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ae-lemoine-text {
+  flex: 1 1 400px;
+}
+.ae-lemoine-text-badge {
+  display: inline-block;
+  margin-bottom: 20px;
+  background: rgba(22, 163, 74, 0.1);
+  color: #16a34a;
+}
+.ae-lemoine-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.ae-lemoine-text p {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
   color: var(--orizia-dark);
-  opacity: 0.65;
-  line-height: 1.45;
+  opacity: 0.8;
+  line-height: 1.6;
 }
+.ae-lemoine-text p:last-of-type { margin-bottom: 32px; }
+
+.ae-lemoine-card {
+  flex: 1 1 450px;
+  background: #f4fbf7;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(22, 163, 74, 0.06);
+  border: 1px solid rgba(22, 163, 74, 0.1);
+}
+.ae-lemoine-card-title {
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orizia-primary);
+}
+.ae-lemoine-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.ae-lemoine-point-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.ae-lemoine-point-icon {
+  font-size: 1.4rem;
+  background: #ffffff;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+.ae-lemoine-point-text strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--orizia-accent);
+  margin-bottom: 4px;
+}
+.ae-lemoine-point-text span {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--orizia-dark);
+  opacity: 0.75;
+}
+
 
 /* ══ GARANTIES ══ */
-.ae-garanties-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+.ae-garanties-head {
+  text-align: center;
+  margin-bottom: 48px;
 }
-.ae-garantie-card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px 18px;
-  border: 1.5px solid #e2e8f0;
-  transition: border-color 0.2s;
+.ae-garanties-head h2 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
-.ae-garantie-card--obligatoire {
-  border-color: var(--orizia-primary);
-  background: rgba(58,111,108,0.03);
-}
-.ae-garantie-card:hover { border-color: var(--orizia-primary); }
-.ae-garantie-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-.ae-garantie-icon { font-size: 1.4rem; flex-shrink: 0; }
-.ae-garantie-code {
-  font-size: 0.75rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--orizia-primary);
-  margin-bottom: 2px;
-}
-.ae-garantie-label {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--orizia-accent);
-  line-height: 1.3;
-}
-.ae-garantie-badge {
-  margin-left: auto;
-  flex-shrink: 0;
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-.ae-garantie-badge--req { background: rgba(22,163,74,0.1);  color: #16a34a; }
-.ae-garantie-badge--opt { background: rgba(217,119,6,0.1);  color: #d97706; }
-.ae-garantie-desc {
-  font-size: 0.8rem;
+.ae-garanties-head p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
   color: var(--orizia-dark);
-  opacity: 0.7;
-  line-height: 1.5;
-  margin: 0;
+  opacity: 0.8;
+  line-height: 1.6;
 }
 
-/* ══ Responsive ══ */
+.ae-garanties-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.ae-garantie-flex-card {
+  flex: 1 1 calc(50% - 12px);
+  min-width: 320px;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+.ae-garantie-flex-card--base {
+  background: #f4fbf7;
+  border: 1px solid #16a34a;
+}
+.ae-garantie-flex-card--option {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.ae-garantie-flex-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.ae-garantie-flex-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.ae-garantie-flex-code {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--orizia-accent);
+  letter-spacing: 0.05em;
+}
+.ae-garantie-flex-label {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--orizia-dark);
+  margin-top: 2px;
+}
+.ae-garantie-flex-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.ae-garantie-flex-badge--base   { background-color: rgba(22, 163, 74, 0.1); color: #16a34a; }
+.ae-garantie-flex-badge--option { background-color: rgba(217, 119, 6, 0.1); color: #d97706; }
+.ae-garantie-flex-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--orizia-dark);
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+
+/* ══ ACCOMPAGNEMENT ══ */
+.ae-accompagnement-layout {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ae-accompagnement-etapes {
+  flex: 1 1 400px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.ae-etape-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: left;
+}
+.ae-etape-row h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  color: var(--orizia-accent);
+}
+.ae-etape-row p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--orizia-dark);
+  opacity: 0.85;
+}
+.ae-accompagnement-image {
+  flex: 1 1 300px;
+  max-width: 100%; /* Empêche le débordement sur mobile */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  align-self: center;
+}
+.ae-accompagnement-image img {
+  width: 100%;
+  height: auto; /* Garantit que l'image ne sera jamais coupée */
+  display: block;
+}
+
+
+/* ══ RESPONSIVE ══ */
 @media (max-width: 900px) {
   .ae-economies-grid  { grid-template-columns: 1fr; }
-  .ae-garanties-grid  { grid-template-columns: 1fr 1fr; }
 }
+
+@media (max-width: 768px) {
+  .ae-citation-card         { flex-direction: column; padding: 28px 24px; }
+  
+  .ae-probleme-layout, 
+  .ae-accompagnement-layout, 
+  .ae-lemoine-layout        { flex-direction: column; gap: 32px; }
+  
+  .ae-probleme-image,
+  .ae-accompagnement-image  { width: 100%; flex-basis: auto; }
+  
+  .ae-garantie-flex-card    { flex: 1 1 100%; }
+  .ae-lemoine-text h2       { font-size: 1.8rem; }
+  .ae-garanties-head h2     { font-size: 1.8rem; }
+}
+
 @media (max-width: 640px) {
-  .ae-garanties-grid  { grid-template-columns: 1fr; }
+  .ae-hero-inner { padding: 60px 16px; }
 }
 
 /* ══ GRILLE TARIFS HABITATION ══ */
@@ -3763,3 +4096,4 @@ select.orz-input { cursor:pointer;padding-right:40px;
   border-color: #dc2626 !important;
   background-color: #fef2f2 !important; /* Petit fond très légèrement rouge */
 }
+
