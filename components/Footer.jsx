@@ -97,8 +97,15 @@ export default function Footer() {
           
           <div style={{ fontSize: '0.85rem', marginBottom: 12, opacity: 0.85, lineHeight: 1.5 }}>
             <span style={{ marginRight: 8 }}>📍</span> 
-            23 bd Clemenceau<br/>
-            <span style={{ marginLeft: 24 }}>59700 Marcq-en-Barœul</span>
+            <a
+    href="https://www.google.com/maps/search/?api=1&query=23+bd+Clemenceau+59700+Marcq-en-Baroeul"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: 'inherit', textDecoration: 'none' }}
+  >
+    23 bd Clemenceau<br />
+    <span style={{ marginLeft: 24 }}>59700 Marcq-en-Barœul</span>
+  </a>
           </div>
 
           <div style={{ fontSize: '0.85rem', marginBottom: 12, opacity: 0.85 }}>

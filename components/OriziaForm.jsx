@@ -700,7 +700,7 @@ function Step4({ form, set, errors, clearErr, next, prev }) {
           <div className="orz-field">
             <label className="orz-label">Montant des mensualités</label>
             <div className="orz-input-u">
-              <input type="number" className="orz-input" placeholder="Montant" min="100"
+              <input type="numeric" className="orz-input" placeholder="Montant" min="100"
                 value={form.mensualite_immo} onChange={e => { set('mensualite_immo', e.target.value); clearErr('mensualite_immo'); }} />
               <span className="orz-unit">€/mois</span>
             </div>
@@ -709,7 +709,7 @@ function Step4({ form, set, errors, clearErr, next, prev }) {
           <div className="orz-field">
             <label className="orz-label">Capital restant dû</label>
             <div className="orz-input-u">
-              <input type="number" className="orz-input" placeholder="Montant" min="5000"
+              <input type="numeric" className="orz-input" placeholder="Montant" min="5000"
                 value={form.capital_immo} onChange={e => { set('capital_immo', e.target.value); clearErr('capital_immo'); }} />
               <span className="orz-unit">€</span>
             </div>
@@ -723,7 +723,7 @@ function Step4({ form, set, errors, clearErr, next, prev }) {
           <div className="orz-field">
             <label className="orz-label">Montant des mensualités</label>
             <div className="orz-input-u">
-              <input type="number" className="orz-input" placeholder="Montant" min="30"
+              <input type="numeric" className="orz-input" placeholder="Montant" min="30"
                 value={form.mensualite_conso} onChange={e => { set('mensualite_conso', e.target.value); clearErr('mensualite_conso'); }} />
               <span className="orz-unit">€/mois</span>
             </div>
@@ -732,7 +732,7 @@ function Step4({ form, set, errors, clearErr, next, prev }) {
           <div className="orz-field">
             <label className="orz-label">Capital restant dû</label>
             <div className="orz-input-u">
-              <input type="number" className="orz-input" placeholder="Montant" min="500"
+              <input type="numeric" className="orz-input" placeholder="Montant" min="500"
                 value={form.capital_conso} onChange={e => { set('capital_conso', e.target.value); clearErr('capital_conso'); }} />
               <span className="orz-unit">€</span>
             </div>
@@ -769,7 +769,7 @@ function Step5({ form, set, errors, clearErr, next, prev }) {
             <div className="orz-field">
               <label className="orz-label">Mensualité</label>
               <div className="orz-input-u">
-                <input type="number" className="orz-input" placeholder="Montant mensuel" min="1" step="0.01"
+                <input type="numeric" className="orz-input" placeholder="Montant mensuel" min="1" step="0.01"
                   value={form.loa_mensualite} onChange={e => { set('loa_mensualite', e.target.value); clearErr('loa_mensualite'); }} />
                 <span className="orz-unit">€/mois</span>
               </div>
@@ -778,7 +778,7 @@ function Step5({ form, set, errors, clearErr, next, prev }) {
             <div className="orz-field">
               <label className="orz-label">Durée restante</label>
               <div className="orz-input-u">
-                <input type="number" className="orz-input" placeholder="Nombre de mois" min="1"
+                <input type="numeric" className="orz-input" placeholder="Nombre de mois" min="1"
                   value={form.loa_duree} onChange={e => { set('loa_duree', e.target.value); clearErr('loa_duree'); }} />
                 <span className="orz-unit">mois</span>
               </div>
@@ -787,7 +787,7 @@ function Step5({ form, set, errors, clearErr, next, prev }) {
             <div className="orz-field">
               <label className="orz-label">Total à rembourser</label>
               <div className="orz-input-u">
-                <input type="number" className="orz-input" readOnly value={loaTotal}
+                <input type="numeric" className="orz-input" readOnly value={loaTotal}
                   style={{ background:'#e9ecef', color:'var(--muted)' }} />
                 <span className="orz-unit">€</span>
               </div>
@@ -809,7 +809,7 @@ function Step5({ form, set, errors, clearErr, next, prev }) {
             <div className="orz-field">
               <label className="orz-label">Total à rembourser</label>
               <div className="orz-input-u">
-                <input type="number" className="orz-input" placeholder="Montant total" min="1" step="0.01"
+                <input type="numeric" className="orz-input" placeholder="Montant total" min="1" step="0.01"
                   value={form.paiement_total} onChange={e => { set('paiement_total', e.target.value); clearErr('paiement_total'); }} />
                 <span className="orz-unit">€</span>
               </div>
@@ -847,7 +847,7 @@ function Step6({ form, set, errors, clearErr, next, prev }) {
         <label className="orz-label">Somme complémentaire souhaitée <span style={{ fontWeight:400, color:'var(--muted)' }}>(Optionnel)</span></label>
         <span className="orz-sublbl">Besoin de financer un projet en plus de votre regroupement ?</span>
         <div className="orz-input-u">
-          <input type="number" className="orz-input" placeholder="Montant" min="1" step="0.01"
+          <input type="numeric" className="orz-input" placeholder="Montant" min="1" step="0.01"
             value={form.somme_comp}
             onChange={e => { set('somme_comp', e.target.value); if (!e.target.value) set('type_projet',''); clearErr('type_projet'); }} />
           <span className="orz-unit">€</span>
@@ -913,7 +913,7 @@ function Step9({ form, set, errors, clearErr, next, prev }) {
         <label className="orz-label">Revenus nets mensuels du foyer</label>
         <span className="orz-sublbl">Net à payer avant impôts, tel qu'il figure sur votre bulletin de salaire.</span>
         <div className="orz-input-u">
-          <input type="number" className="orz-input" placeholder="Ex : 2 500" min="1" step="0.01"
+          <input type="numeric" className="orz-input" placeholder="Ex : 2 500" min="1" step="0.01"
             value={form.revenus_nets} onChange={e => { set('revenus_nets', e.target.value); clearErr('revenus_nets'); }} />
           <span className="orz-unit">€/mois</span>
         </div>
@@ -923,7 +923,7 @@ function Step9({ form, set, errors, clearErr, next, prev }) {
         <label className="orz-label">Autres revenus <span style={{ fontWeight:400, color:'var(--muted)' }}>— Optionnel</span></label>
         <span className="orz-sublbl">Pension perçue, revenus locatifs, allocations…</span>
         <div className="orz-input-u">
-          <input type="number" className="orz-input" placeholder="Ex : 300" min="0" step="0.01"
+          <input type="numeric" className="orz-input" placeholder="Ex : 300" min="0" step="0.01"
             value={form.autres_revenus} onChange={e => set('autres_revenus', e.target.value)} />
           <span className="orz-unit">€/mois</span>
         </div>
@@ -941,7 +941,7 @@ function Step10({ form, set, errors, clearErr, next, prev }) {
         <div className="orz-field">
           <label className="orz-label">Montant du loyer <span style={{ fontWeight:400, fontSize:'.82rem', color:'var(--muted)' }}>(charges comprises)</span></label>
           <div className="orz-input-u">
-            <input type="number" className="orz-input" placeholder="Montant" min="100" max="10000"
+            <input type="numeric" className="orz-input" placeholder="Montant" min="100" max="10000"
               value={form.loyer} onChange={e => { set('loyer', e.target.value); clearErr('loyer'); }} />
             <span className="orz-unit">€/mois</span>
           </div>
@@ -952,7 +952,7 @@ function Step10({ form, set, errors, clearErr, next, prev }) {
         <label className="orz-label">Autres charges récurrentes hors crédit <span style={{ fontWeight:400, fontSize:'.82rem', color:'var(--muted)' }}>(Optionnel)</span></label>
         <span className="orz-sublbl">Pension alimentaire, loyer parking/box… Laisser vide si aucune charge.</span>
         <div className="orz-input-u">
-          <input type="number" className="orz-input" placeholder="Montant" min="0"
+          <input type="numeric" className="orz-input" placeholder="Montant" min="0"
             value={form.autres_charges} onChange={e => set('autres_charges', e.target.value)} />
           <span className="orz-unit">€/mois</span>
         </div>
