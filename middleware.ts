@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // On renomme la fonction exportée de "middleware" à "proxy"
-export function proxy(req: NextRequest) {
+export function middleware(req: NextRequest) {
   const basicAuth = req.headers.get('authorization');
 
   if (basicAuth) {
