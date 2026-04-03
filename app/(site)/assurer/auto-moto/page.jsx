@@ -1,73 +1,125 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
+// ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
-  title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia',
+  title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Je compare les offres, trouve le meilleur tarif et gère la résiliation pour vous. Étude gratuite et indépendante.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtière dans les Hauts-de-France, compare les offres, trouve le meilleur tarif et gère la résiliation.',
   keywords: [
     'assurance auto courtier',
     'assurance moto pas chère',
     'résilier assurance auto loi hamon',
-    'courtier indépendant auto moto',
+    'courtier indépendant auto moto Hauts-de-France',
     'devis assurance auto jeune conducteur',
     'comparatif assurance auto moto',
     'assurance auto tous risques tiers',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
-    title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia',
-    description: 'Ne subissez plus les hausses de tarifs de votre assureur. Je compare le marché, optimise vos garanties et m\'occupe de résilier votre ancien contrat. Gratuit et sans engagement.',
-    url: 'https://orizia.fr/assurer/auto-moto',
+    title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
+    description: 'Ne subissez plus les hausses de tarifs de votre assureur. Je compare le marché, optimise vos garanties et m\'occupe de résilier votre ancien contrat. Gratuit et indépendant.',
+    url: 'https://orizia-courtage.fr/assurer/auto-moto', // ⚠️ Corrigé pour ton domaine exact
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/assurance-auto-moto.webp',
+        width: 1200,
+        height: 630,
+        alt: "Comparaison et courtage en assurance auto moto avec Orizia Courtage - Cindy Urbansky",
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
 };
 
-const faqSchema = {
+// ── 2. DONNÉES STRUCTURÉES (Optimisées E-E-A-T & GEO) ──
+const assuranceAutoMotoSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
     {
-      '@type': 'Question',
-      name: 'Quelle assurance auto est obligatoire en 2026 ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'La garantie responsabilité civile (le "tiers") est la seule assurance légalement obligatoire pour tout véhicule terrestre à moteur. Elle indemnise les victimes en cas d\'accident causé par votre véhicule. Rouler sans assurance est un délit lourdement sanctionné.',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Auto & Moto', item: 'https://orizia-courtage.fr/assurer/auto-moto' }
+      ]
+    },
+    {
+      '@type': 'Service',
+      name: "Courtage et Comparaison d'Assurance Auto et Moto",
+      serviceType: 'Assurance Véhicule (Auto, Moto, Scooter)',
+      description:
+        "Service d'optimisation, de comparaison et de souscription d'assurance auto et moto. Prise en charge de la résiliation via la loi Hamon.",
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' }
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description:
+          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré (rémunération par la compagnie d'assurance partenaire).",
       },
     },
     {
-      '@type': 'Question',
-      name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En rendez-vous, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
-      },
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Quelle assurance auto est obligatoire en 2026 ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'La garantie responsabilité civile (le "tiers") est la seule assurance légalement obligatoire pour tout véhicule terrestre à moteur. Elle indemnise les victimes en cas d\'accident causé par votre véhicule. Rouler sans assurance est un délit lourdement sanctionné.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En tant que courtière, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Pourquoi les tarifs des assurances augmentent-ils encore ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'L\'inflation des pièces détachées, la technologie embarquée de plus en plus coûteuse à réparer, et la hausse des événements climatiques (grêle, tempêtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque année.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Pourquoi confier mon assurance à un courtier indépendant comme Orizia ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
+          },
+        },
+      ],
     },
-    {
-      '@type': 'Question',
-      name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi les tarifs des assurances augmentent-ils encore ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'L\'inflation des pièces détachées, la technologie embarquée de plus en plus coûteuse à réparer, et la hausse des événements climatiques (grêle, tempêtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque année.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi confier mon assurance à un courtier indépendant ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
-      },
-    },
-  ],
+  ]
 };
+
+const faqSchema = assuranceAutoMotoSchema['@graph'][2];
 
 const CHIFFRES = [
   { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
@@ -242,29 +294,39 @@ export default function AssuranceAutoMotoPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(assuranceAutoMotoSchema) }}
       />
 
       <main>
-        {/* HERO */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
-            <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
-              <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
+        {/* ── HERO (Avec image de fond) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={80}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner">
+            <nav aria-label="breadcrumb" className="ae-breadcrumb">
+              <Link href="/">Accueil</Link>
               {' › '}
-              <Link href="/assurer" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Assurer</Link>
+              <Link href="/assurer">Assurer</Link>
               {' › '}
               <span>Assurance Auto & Moto</span>
             </nav>
-            <span className="fin-badge">📈 +5% d'augmentation en 2026</span>
-            <h1>Votre assurance auto flambe ?<br />Je remets les compteurs à zéro.</h1>
-            <p>
+            <span className="fin-badge ae-hero-badge">📈 +5% d'augmentation en 2026</span>
+            <h1 className="ae-hero-title">Votre assurance auto flambe ?<br />Je remets les compteurs à zéro.</h1>
+            <p className="ae-hero-intro">
               Arrêtez de payer la taxe de la fidélité. Je compare les offres du marché, 
               <strong> je déniche le tarif le plus juste </strong> et je gère toute la résiliation 
               à votre place. Un accompagnement <strong>100% dédié à vos intérêts</strong>.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire un bilan gratuit avec Cindy →
               </Link>
@@ -272,7 +334,7 @@ export default function AssuranceAutoMotoPage() {
                 🔍 Voir les formules
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust">
               <span>✅ Loi Hamon : je m'occupe de résilier</span>
               <span>🚗 Courtage 100% indépendant</span>
               <span>⚡ Étude personnalisée sous 24h</span>
@@ -280,9 +342,9 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* CHIFFRES */}
+        {/* ── CHIFFRES ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
+          <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
                 <strong>{c.icon} {c.value}</strong>
@@ -292,50 +354,37 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* CITATION CINDY */}
+        {/* ── CITATION CINDY (Avec photo intégrée) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « Chaque année, votre fidélité est paradoxalement sanctionnée par une hausse de vos cotisations. »
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière indépendante"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « Chaque année, votre fidélité est paradoxalement sanctionnée par une hausse de vos cotisations. »
+                </p>
+                <p className="ae-citation-text">
+                  Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
+                </p>
+                <span className="ae-citation-author">
+                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* DANGERS */}
+        {/* ── DANGERS (Avec nouvelle image) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -347,19 +396,36 @@ export default function AssuranceAutoMotoPage() {
                 Si vous laissez faire, votre assureur en profite. Voici comment vous perdez de l'argent sans vous en rendre compte.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+            
+            <div className="ae-probleme-layout">
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* IMAGE 1 AJOUTÉE ICI */}
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/hausse-assurance-auto.webp" // À adapter avec ton nom de fichier réel
+                  alt="Hausse des tarifs d'assurance auto et moto"
+                  title="La fidélité coûte cher en assurance"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
 
-        {/* FORMULES AUTO */}
+        {/* ── FORMULES AUTO ── */}
         <section id="formules" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -401,7 +467,7 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* MOTO */}
+        {/* ── MOTO ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -451,7 +517,7 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* PROFILS */}
+        {/* ── PROFILS ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -491,70 +557,53 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* LOI HAMON */}
+        {/* ── LOI HAMON / ACCOMPAGNEMENT (Avec nouvelle image) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
-            <div className="crowd-2col">
-              <div>
-                <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                  ✅ Loi Hamon — Je m'occupe de tout
-                </span>
-                <h2>Changer d'assureur<br />n'a jamais été aussi simple</h2>
-                <p>
-                  Vous craignez la paperasse ? Rassurez-vous. Dès que votre contrat actuel a soufflé sa première bougie, <strong>vous avez le droit de partir à tout moment</strong>.
-                </p>
-                <p>
-                  Et la meilleure nouvelle ? Vous ne faites aucune lettre recommandée. <strong>C'est moi qui m'occupe de résilier pour vous</strong>.
-                </p>
-              </div>
-              <div className="crowd-schema">
-                <div style={{
-                  textAlign: 'center',
-                  marginBottom: 16,
-                  fontWeight: 800,
-                  fontSize: '0.85rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  color: 'var(--orizia-primary)',
-                }}>
-                  Comment ça se passe
-                </div>
-                {LOI_HAMON_POINTS.map(pt => (
-                  <div key={pt.title} className="ae-lemoine-point">
-                    <div className="ae-lemoine-icon">{pt.icon}</div>
+            <div className="fin-section-head">
+              <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
+                ✅ Loi Hamon — Je m'occupe de tout
+              </span>
+              <h2>Changer d'assureur<br />n'a jamais été aussi simple</h2>
+              <p>
+                Dès que votre contrat actuel a soufflé sa première bougie, vous avez le droit de partir à tout moment. 
+                Et c'est moi qui m'occupe de la transition !
+              </p>
+            </div>
+
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
                     <div>
-                      <strong>{pt.title}</strong>
-                      <span>{pt.desc}</span>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* IMAGE 2 AJOUTÉE ICI */}
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage-auto.webp" // À adapter avec ton nom de fichier réel
+                  alt="Courtier préparant un dossier d'assurance auto/moto"
+                  title="Un accompagnement de A à Z sans coupure"
+                  width={863}
+                  height={1080}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
+        
 
-        {/* ACCOMPAGNEMENT */}
+        {/* ── OBJECTIONS ── */}
         <section className="crowd-section crowd-section--light">
-          <div className="fin-section-inner">
-            <div className="fin-section-head">
-              <span className="fin-badge">Mon accompagnement</span>
-              <h2>Je gère votre dossier<br />de A à Z</h2>
-              <p>Pas de plateforme téléphonique. Je suis votre interlocutrice unique, du devis jusqu'à la signature.</p>
-            </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* OBJECTIONS */}
-        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">On en parle ?</span>
@@ -571,8 +620,8 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="crowd-section crowd-section--light">
+        {/* ── FAQ ── */}
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -595,8 +644,8 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* MAILLAGE INTERNE */}
-        <section className="crowd-section crowd-section--white">
+        {/* ── MAILLAGE INTERNE ── */}
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vision globale</span>
@@ -639,14 +688,14 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
+        {/* ── CTA FINAL ── */}
         <section className="fin-cta">
           <div className="fin-cta-inner">
             <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
               Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Lancer ma comparaison avec Cindy →
               </Link>

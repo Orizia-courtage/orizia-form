@@ -134,31 +134,36 @@ const oriziaSchema = {
   // ── CATALOGUE DÉTAILLÉ DE SERVICES ──
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Services de courtage et conseil en gestion de patrimoine',
+    name: 'Piliers d\'expertise Orizia : Investir, Financer, Assurer',
     itemListElement: [
       {
-        '@type': 'Offer',
-        itemOffered: { 
-          '@type': 'FinancialProduct',
-          name: 'Courtage en Crédit Immobilier',
-          description: 'Négociation de taux, montage du plan de financement et accompagnement bancaire de A à Z.'
-        }
+        '@type': 'OfferCatalog',
+        name: 'Investir (Stratégie Patrimoniale)',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Crowdfunding et Financement participatif' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Plan Épargne Retraite (PER / PERP)' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance Vie (Épargne & transmission)' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'SCPI (Immobilier de rendement)' } }
+        ]
       },
       {
-        '@type': 'Offer',
-        itemOffered: { 
-          '@type': 'FinancialProduct', 
-          name: 'Délégation d\'Assurance Emprunteur',
-          description: 'Substitution d\'assurance de prêt via la loi Lemoine pour réduire le coût total du crédit immobilier.'
-        }
+        '@type': 'OfferCatalog',
+        name: 'Financer (Crédits)',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Crédit immobilier' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Regroupement de crédits' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Prêt personnel' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Rachat de soulte' } }
+        ]
       },
       {
-        '@type': 'Offer',
-        itemOffered: { 
-          '@type': 'FinancialProduct', 
-          name: 'Conseil en Investissement Patrimonial',
-          description: 'Création de stratégies patrimoniales sur-mesure via SCPI, PER et Assurance-Vie pour préparer la retraite.'
-        }
+        '@type': 'OfferCatalog',
+        name: 'Assurer (Protection)',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance emprunteur' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance habitation' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance auto/moto' } }
+        ]
       }
     ]
   }

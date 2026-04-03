@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: "Assurance Emprunteur : Économisez jusqu'à 15 000€ | Orizia",
+  title: "Assurance Emprunteur avec Orizia Courtage Hauts-de-Frances",
   description:
     "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat et vous fais économiser des milliers d'euros.",
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
-    title: "Assurance Emprunteur : Économisez jusqu'à 15 000€ | Orizia",
+    title: "Assurance Emprunteur avec Orizia Courtage",
     description:
       'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
     url: 'https://orizia-courtage.fr/assurer/assurance-emprunteur',
@@ -31,19 +31,35 @@ const assuranceEmprunteurSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Emprunteur', item: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' }
+      ]
+      },
+    {
       '@type': 'Service',
       name: "Courtage et Délégation d'Assurance Emprunteur",
       description:
         "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Économies moyennes de 15 000€ constatées.",
       provider: {
-  '@id': 'https://orizia-courtage.fr/#organization'
-},
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' } // Tu peux gérer à distance donc on inclut la France
+      ],  
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Étude de faisabilité et gestion administrative de la résiliation 100% gratuites pour l'emprunteur (rémunération par l'assureur).",
+          "Étude de faisabilité et gestion administrative de la résiliation 100% gratuites pour l'emprunteur (rémunération par l'assureur partenaire).",
       },
     },
     {
@@ -102,7 +118,7 @@ const assuranceEmprunteurSchema = {
   ],
 };
 
-const faqSchema = assuranceEmprunteurSchema['@graph'][1];
+const faqSchema = assuranceEmprunteurSchema['@graph'][2];
 
 const CHIFFRES = [
   { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: '📊' },
@@ -264,7 +280,7 @@ export default function AssuranceEmprunteurPage() {
                   démarches, sans que vous n'ayez à lever le petit doigt.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante
+                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
                 </span>
               </div>
             </div>

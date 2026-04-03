@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
+  title: 'Assurance Habitation : Baissez la facture avec Orizia Courtage',
   description:
-    'Hausse des tarifs habitation en 2026. Je compare les offres, trouve les bonnes garanties et gère la résiliation à votre place. Étude 100% gratuite.',
+'Hausse des tarifs habitation en 2026. Cindy Urbansky, courtière dans les Hauts-de-France, compare les offres MRH, ajuste vos garanties et gère la résiliation. Gratuit.',
   keywords: [
     'assurance habitation courtier',
     'comparateur assurance habitation indépendant',
@@ -17,8 +17,8 @@ export const metadata = {
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
-    title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
-    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat sans coupure. Gratuit, indépendant et sans engagement.',
+    title: 'Assurance Habitation : Baissez la facture avec Orizia Courtage',
+description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat sans coupure. Service de courtage gratuit et indépendant.',
     url: 'https://orizia-courtage.fr/assurer/assurance-habitation',
     siteName: 'Orizia Courtage',
     images: [
@@ -39,20 +39,36 @@ const assuranceHabitationSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Habitation', item: 'https://orizia-courtage.fr/assurer/assurance-habitation' }
+      ]
+    },
+    {
       '@type': 'Service',
       name: "Courtage et Comparaison d'Assurance Habitation (MRH)",
+      serviceType: 'Assurance Habitation (MRH, Locataire, Propriétaire, PNO)',
       description:
-        "Service d'optimisation, de comparaison et de souscription d'assurance habitation pour locataires, propriétaires et PNO. Prise en charge de la résiliation via la loi Hamon.",
-      provider: {
-  '@id': 'https://orizia-courtage.fr/#organization'
-},
+"Service d'optimisation, de comparaison et de souscription d'assurance habitation pour locataires, propriétaires et PNO. Prise en charge de la résiliation via la loi Hamon.",      provider: {
+provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' }
+      ],},
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré (rémunération par la compagnie d'assurance partenaire).",
-      },
+"Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré (rémunération par la compagnie d'assurance partenaire).",      },
     },
     {
       '@type': 'FAQPage',
@@ -102,7 +118,7 @@ const assuranceHabitationSchema = {
   ],
 };
 
-const faqSchema = assuranceHabitationSchema['@graph'][1];
+const faqSchema = assuranceHabitationSchema['@graph'][2];
 
 
 
@@ -421,7 +437,7 @@ export default function AssuranceHabitationPage() {
                   Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia
+                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
                 </span>
               </div>
             </div>

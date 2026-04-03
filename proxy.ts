@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// C'est cette ligne précise que Next.js cherchait et ne trouvait pas :
-export function middleware(req: NextRequest) {
+// On renomme la fonction exportée de "middleware" à "proxy"
+export function proxy(req: NextRequest) {
   const basicAuth = req.headers.get('authorization');
 
   if (basicAuth) {
@@ -25,7 +25,9 @@ export function middleware(req: NextRequest) {
   });
 }
 
-// Définir les routes à protéger (le site entier)
+// Définir les routes à protéger (en excluant les images et fichiers vitaux)
 export const config = {
-  matcher: '/:path*',
+  matcher: [
+    '/((?!_next/static|_next/image|images/|.*\\.(?:webp|png|jpg|jpeg|svg|ico)$).*)',
+  ],
 };
