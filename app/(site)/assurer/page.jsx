@@ -109,7 +109,7 @@ const assurerHubSchema = {
   ]
 };
 
-// On récupère le bloc FAQ (C'est le 4ème élément du @graph, donc index 3)
+// On récupère le bloc FAAQ (C'est le 4ème élément du @graph, donc index 3)
 const faqSchema = assurerHubSchema['@graph'][3];
 
 const SOLUTIONS = [
@@ -209,8 +209,8 @@ export default function AssurerPage() {
               </div>
             ))}
           </div>
-        </section>
-
+        </section> 
+        
         {/* ── CITATION CINDY ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
