@@ -15,7 +15,7 @@ console.log("Utilisateur tapé :", user, "(Longueur:", user.length, ")");
 console.log("Env SITE_USER :", !!process.env.SITE_USER, "(Longueur:", process.env.SITE_USER?.length, ")");
 console.log("Mdp tapé longueur :", pwd.length);
 console.log("Env SITE_PASSWORD longueur :", process.env.SITE_PASSWORD?.length);
-// --- FIN DU DEBUG --
+// --- FIN DU DEBUG 
     // Vérifier les identifiants
     if (user === process.env.SITE_USER && pwd === process.env.SITE_PASSWORD) {
       return NextResponse.next();
