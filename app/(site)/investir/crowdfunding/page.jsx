@@ -1,73 +1,136 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import SimulateurCrowdfunding from '@/components/SimulateurCrowdfunding';
 
+// ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
-  title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia',
+  title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
   description:
-    'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant, gratuit, par Cindy Urbansky – Orizia Courtage.',
+    'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit par Cindy Urbansky.',
   keywords: [
     'crowdfunding immobilier 2026',
     'crowdfunding immobilier risques avis',
     'meilleure plateforme crowdfunding immobilier',
     'investissement participatif immobilier conseil',
     'rendement crowdfunding net flat tax',
-    'courtier crowdfunding indépendant',
+    'courtier crowdfunding indépendant Hauts-de-France',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/investir/crowdfunding' },
   openGraph: {
-    title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia',
+    title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
     description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit.',
     url: 'https://orizia-courtage.fr/investir/crowdfunding',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/crowdfunding-immobilier.jpg',
+        width: 1200,
+        height: 630,
+        alt: "Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky",
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
 };
 
-const faqSchema = {
+// ── 2. DONNÉES STRUCTURÉES (Optimisées E-E-A-T & GEO) ──
+const investirCrowdfundingSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
+    // 1. Fil d'Ariane
     {
-      '@type': 'Question',
-      name: 'Quel est le rendement moyen du crowdfunding immobilier en 2026 ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an — bien au-dessus du livret A (3%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'Crowdfunding Immobilier', item: 'https://orizia-courtage.fr/investir/crowdfunding' }
+      ]
+    },
+    // 2. Le Service proposé
+    {
+      '@type': 'Service',
+      name: "Courtage et Conseil en Crowdfunding Immobilier",
+      serviceType: 'Investissement Participatif Immobilier',
+      description:
+        "Sélection, audit et conseil indépendant pour investir dans des projets de crowdfunding immobilier. Objectif de rendement 8-12%/an.",
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' }
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description:
+          "Audit des promoteurs, sélection des projets et définition de la stratégie de diversification 100% gratuites pour l'investisseur (rémunération par les plateformes partenaires).",
       },
     },
+    // 3. La FAQ existante
     {
-      '@type': 'Question',
-      name: 'Quels sont les risques du crowdfunding immobilier ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Le risque principal est la perte partielle ou totale du capital si le promoteur fait défaut. S\'y ajoutent le risque de retard, le capital bloqué 12 à 36 mois, et la qualité inégale des plateformes. Une diversification rigoureuse et un accompagnement expert limitent significativement l\'exposition à ces risques.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi passer par un courtier pour investir dans le crowdfunding ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Les plateformes sont rémunérées par les promoteurs, pas par vous. Leurs intérêts ne sont pas toujours alignés avec les vôtres. En tant que courtière indépendante, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil — le tout gratuitement.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Quelle fiscalité s\'applique au crowdfunding immobilier ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impôt sur le revenu + 17,2% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Combien de temps mon capital est-il bloqué ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'La durée d\'immobilisation est généralement de 12 à 36 mois. Il n\'existe pas de marché secondaire : vous ne pouvez pas récupérer votre capital avant l\'échéance. N\'investissez donc que de l\'épargne dont vous n\'aurez pas besoin sur cette période.',
-      },
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Quel est le rendement moyen du crowdfunding immobilier en 2026 ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an — bien au-dessus du livret A (3%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quels sont les risques du crowdfunding immobilier ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Le risque principal est la perte partielle ou totale du capital si le promoteur fait défaut. S\'y ajoutent le risque de retard, le capital bloqué 12 à 36 mois, et la qualité inégale des plateformes. Une diversification rigoureuse et un accompagnement expert limitent significativement l\'exposition à ces risques.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Pourquoi passer par un courtier pour investir dans le crowdfunding ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Les plateformes sont rémunérées par les promoteurs, pas par vous. Leurs intérêts ne sont pas toujours alignés avec les vôtres. En tant que courtière indépendante chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil — le tout gratuitement.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quelle fiscalité s\'applique au crowdfunding immobilier ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impôt sur le revue + 17,2% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Combien de temps mon capital est-il bloqué ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'La durée d\'immobilisation est généralement de 12 à 36 mois. Il n\'existe pas de marché secondaire : vous ne pouvez pas récupérer votre capital avant l\'échéance. N\'investissez donc que de l\'épargne dont vous n\'aurez pas besoin sur cette période.',
+          },
+        },
+      ],
     },
   ],
 };
+
+const faqSchema = investirCrowdfundingSchema['@graph'][2];
+
+const CHIFFRES = [
+  { value: '8–12%', label: 'Rendement annuel brut moyen', icon: '📈 ' },
+  { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: '💶 ' },
+  { value: '12–36 mois', label: "Durée d'investissement typique", icon: '⏳ ' },
+  // ⚠️ Le fix est ici 👇
+  { value: '⚖️\u00A0Flat\u00A0tax\u00A030%', label: 'Fiscalité applicable aux intérêts', icon: '' },
+];
 
 const DANGERS = [
   {
@@ -124,11 +187,11 @@ const RISQUES = [
 ];
 
 const COMPARATIF = [
-  { produit: 'Livret A',              rendement: '3%',       duree: 'Libre',    risque: '⭐ Très faible',  liquidite: '✅ Immédiate',  highlight: false },
-  { produit: 'Assurance Vie',         rendement: '2–4%',     duree: '8 ans+',   risque: '⭐ Très faible',  liquidite: '✅ Bonne',      highlight: false },
-  { produit: 'SCPI',                  rendement: '4–6%',     duree: '8–10 ans', risque: '⭐⭐ Faible',     liquidite: '⚠️ Limitée',   highlight: false },
-  { produit: '📈 Crowdfunding immo',  rendement: '8–12%',    duree: '1–3 ans',  risque: '⭐⭐⭐ Moyen',   liquidite: '❌ Bloqué',     highlight: true  },
-  { produit: 'Actions bourse',        rendement: 'Variable', duree: 'Variable', risque: '⭐⭐⭐⭐ Élevé', liquidite: '✅ Immédiate',  highlight: false },
+  { produit: 'Livret A', rendement: '3%', duree: 'Libre', risque: '⭐ Très faible', liquidite: '✅ Immédiate', highlight: false },
+  { produit: 'Assurance Vie', rendement: '2–4%', duree: '8 ans+', risque: '⭐ Très faible', liquidite: '✅ Bonne', highlight: false },
+  { produit: 'SCPI', rendement: '4–6%', duree: '8–10 ans', risque: '⭐⭐ Faible', liquidite: '⚠️ Limitée', highlight: false },
+  { produit: '📈 Crowdfunding immo', rendement: '8–12%', duree: '1–3 ans', risque: '⭐⭐⭐ Moyen', liquidite: '❌ Bloqué', highlight: true },
+  { produit: 'Actions bourse', rendement: 'Variable', duree: 'Variable', risque: '⭐⭐⭐⭐ Élevé', liquidite: '✅ Immédiate', highlight: false },
 ];
 
 const ETAPES = [
@@ -159,31 +222,42 @@ export default function CrowdfundingPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(investirCrowdfundingSchema) }}
       />
 
       <main>
 
-        {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
-            <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
-              <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
+        {/* ── HERO (Avec background) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={80}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+
+          <div className="ae-hero-inner">
+            <nav aria-label="breadcrumb" className="ae-breadcrumb">
+              <Link href="/">Accueil</Link>
               {' › '}
-              <Link href="/investir" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Investir</Link>
+              <Link href="/investir">Investir</Link>
               {' › '}
               <span>Crowdfunding immobilier</span>
             </nav>
             <span className="fin-badge">📈 Financement participatif immobilier 2026</span>
-            <h1>Crowdfunding immobilier :<br />8 à 12% par an, sans naviguer à l'aveugle</h1>
-            <p>
+            <h1 className="ae-hero-title">Crowdfunding immobilier :<br />8 à 12% par an, sans naviguer à l'aveugle</h1>
+            <p className="ae-hero-intro">
               Investir seul dans le crowdfunding, c'est analyser des bilans de promoteurs
               sans formation, comparer des plateformes sans critères objectifs, et diversifier
               sans stratégie. Je m'occupe de tout ça à votre place.{' '}
               <strong>Gratuitement.</strong>
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Échanger avec Cindy gratuitement →
               </Link>
@@ -191,7 +265,7 @@ export default function CrowdfundingPage() {
                 Poser une question
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust">
               <span>✅ Conseil 100% indépendant</span>
               <span>🏦 Plateformes agréées AMF uniquement</span>
               <span>⚡ Réponse sous 24h</span>
@@ -199,63 +273,53 @@ export default function CrowdfundingPage() {
           </div>
         </section>
 
-        {/* ── CHIFFRES ── */}
+        {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
-            <div className="fin-chiffre"><strong>8–12%</strong><span>Rendement annuel brut moyen</span></div>
-            <div className="fin-chiffre"><strong>Dès 1 000€</strong><span>Ticket d'entrée accessible</span></div>
-            <div className="fin-chiffre"><strong>12–36 mois</strong><span>Durée d'investissement typique</span></div>
-            <div className="fin-chiffre"><strong>Flat tax 30%</strong><span>Fiscalité applicable aux intérêts</span></div>
+          <div className="ae-chiffres-inner">
+            {CHIFFRES.map(c => (
+              <div key={c.label} className="fin-chiffre">
+                <strong>{c.icon}{c.value}</strong>
+                <span>{c.label}</span>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* ── CITATION CINDY ── */}
+        {/* ── CITATION CINDY (Avec photo insérée) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « Je ne vous recommande jamais un projet que je n'investirais pas moi-même.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Avant chaque recommandation, j'analyse le bilan du promoteur, l'historique
-                de la plateforme et la cohérence du plan de financement. Ce travail prend
-                du temps — mais c'est précisément ce que vous méritez avant d'engager
-                votre épargne. »
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière experte en crowdfunding immobilier"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « Je ne vous recommande jamais un projet que je n'investirais pas moi-même. »
+                </p>
+                <p className="ae-citation-text">
+                  Avant chaque recommandation, j'analyse le bilan du promoteur, l'historique
+                  de la plateforme et la cohérence du plan de financement. Ce travail prend
+                  du temps — mais c'est précisément ce que vous méritez avant d'engager
+                  votre épargne.
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── DANGER — INVESTIR SEUL ── */}
+        {/* ── DANGER — INVESTIR SEUL (Avec image contextuelle) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -268,15 +332,33 @@ export default function CrowdfundingPage() {
                 Voici les 3 erreurs qui coûtent cher — et comment je les évite pour vous.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+
+            <div className="ae-probleme-layout">
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* IMAGE 1 AJOUTÉE ICI */}
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/banque-pression.webp"
+                  alt="Particulier inquiet face à la complexité de l'analyse financière"
+                  title="Les risques d'investir seul sans analyse expert"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
+
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
                 C'est exactement pour ça que j'existe.
@@ -328,34 +410,53 @@ export default function CrowdfundingPage() {
                 }}>
                   Comment ça fonctionne
                 </div>
+
                 <div className="crowd-schema-step">
                   <div className="crowd-schema-icon">👤</div>
-                  <strong>Vous investissez</strong>
-                  <span>Dès 1 000€, en ligne</span>
+                  <div className="crowd-schema-text">
+                    <strong>Vous investissez</strong>
+                    <span>Dès 1 000€, en ligne</span>
+                  </div>
                 </div>
+
                 <div className="crowd-schema-arrow">↓</div>
+
                 <div className="crowd-schema-step crowd-schema-step--orizia">
                   <div className="crowd-schema-icon">🏢</div>
-                  <strong>Je sélectionne & audite</strong>
-                  <span>Audit promoteur + stratégie personnalisée</span>
+                  <div className="crowd-schema-text">
+                    <strong>Je sélectionne & audite</strong>
+                    <span>Audit promoteur + stratégie personnalisée</span>
+                  </div>
                 </div>
+
                 <div className="crowd-schema-arrow">↓</div>
+
                 <div className="crowd-schema-step crowd-schema-step--platform">
                   <div className="crowd-schema-icon">🏦</div>
-                  <strong>Plateforme agréée AMF</strong>
-                  <span>Collecte et gestion des fonds</span>
+                  <div className="crowd-schema-text">
+                    <strong>Plateforme agréée AMF</strong>
+                    <span>Collecte et gestion des fonds</span>
+                  </div>
                 </div>
+
                 <div className="crowd-schema-arrow">↓</div>
+
                 <div className="crowd-schema-step">
                   <div className="crowd-schema-icon">🏗️</div>
-                  <strong>Promoteur immobilier</strong>
-                  <span>Construit / rénove / revend</span>
+                  <div className="crowd-schema-text">
+                    <strong>Promoteur immobilier</strong>
+                    <span>Construit / rénove / revend</span>
+                  </div>
                 </div>
+
                 <div className="crowd-schema-arrow">↓</div>
+
                 <div className="crowd-schema-step crowd-schema-step--result">
                   <div className="crowd-schema-icon">💰</div>
-                  <strong>Vous êtes remboursé</strong>
-                  <span>Capital + 8–12%/an à l'échéance</span>
+                  <div className="crowd-schema-text">
+                    <strong>Vous êtes remboursé</strong>
+                    <span>Capital + 8–12%/an à l'échéance</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -611,7 +712,7 @@ export default function CrowdfundingPage() {
           </div>
         </section>
 
-        {/* ── ACCOMPAGNEMENT ── */}
+        {/* ── ACCOMPAGNEMENT (Avec image contextuelle) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -622,15 +723,35 @@ export default function CrowdfundingPage() {
                 voici comment je travaille, pas à pas.
               </p>
             </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* IMAGE 2 AJOUTÉE ICI */}
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage.webp"
+                  alt="Dossier de courtage Orizia parfaitement organisé"
+                  title="Un accompagnement transparent de A à Z"
+                  width={863}
+                  height={1080}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
+
             <div className="crowd-cta-band" style={{ marginTop: 48 }}>
               <div>
                 <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
@@ -730,7 +851,7 @@ export default function CrowdfundingPage() {
               les projets adaptés à votre profil et éviter les pièges les plus courants.
               Pas de discours commercial — juste une analyse honnête.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Prendre rendez-vous avec Cindy →
               </Link>

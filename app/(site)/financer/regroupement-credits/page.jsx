@@ -1,25 +1,75 @@
 import Link from 'next/link';
-import OriziaForm from '@/components/OriziaForm'; // à adapter selon votre arborescence
+import Image from 'next/image';
+import OriziaForm from '@/components/OriziaForm';
 
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Regroupement de Crédits 2026 : Réduisez vos Mensualités | Orizia Courtage',
   description:
-    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Étude gratuite, sans engagement, réponse sous 24h par Orizia Courtage.',
+    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Étude gratuite, sans engagement, réponse sous 24h.',
   keywords: [
     'regroupement de crédits 2026',
-    'rachat de crédits',
-    'réduire mensualités',
+    'rachat de crédits courtier indépendant',
+    'réduire mensualités crédit',
     'regroupement crédit immobilier consommation',
-    'courtier rachat de crédits',
-    'simulation regroupement crédits',
+    'courtier rachat de crédits Hauts-de-France',
+    'simulation regroupement crédits gratuit',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',
     description: 'Un seul crédit, une seule mensualité réduite. Orizia étudie votre dossier gratuitement et vous propose la solution adaptée à votre profil.',
     url: 'https://orizia-courtage.fr/financer/regroupement-credits',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Regroupement de crédits avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
+};
+
+// ── 2. DONNÉES STRUCTURÉES ──
+const regroupementSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Regroupement de crédits', item: 'https://orizia-courtage.fr/financer/regroupement-credits' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Courtage en Regroupement de Crédits',
+      serviceType: 'Rachat et Consolidation de Crédits',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. Réduction de mensualité jusqu\'à 60%.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' },
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Étude de dossier gratuite et sans engagement.',
+      },
+    },
+  ],
 };
 
 const faqSchema = {
@@ -164,13 +214,28 @@ export default function RegroupementCreditsPage() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(regroupementSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main>
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
+        {/* ── HERO (Avec background) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={75}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
               {' › '}
@@ -178,17 +243,15 @@ export default function RegroupementCreditsPage() {
               {' › '}
               <span>Regroupement de crédits</span>
             </nav>
-
             <span className="fin-badge">💡 Étude gratuite · Réponse sous 24h</span>
-            <h1>Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à −60%</h1>
-            <p>
+            <h1 className="ae-hero-title">Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à −60%</h1>
+            <p className="ae-hero-intro">
               Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
               Le regroupement de crédits réunit tous vos emprunts en <strong>un seul</strong>,
-              avec une mensualité unique et allégée. Orizia Courtage étudie votre
+              avec une mensualité unique et allégée. J'étudie votre
               dossier <strong>gratuitement</strong> et sans engagement.
             </p>
-
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
                 🔍 Démarrer mon étude gratuite →
               </a>
@@ -196,8 +259,7 @@ export default function RegroupementCreditsPage() {
                 Comment ça marche ?
               </a>
             </div>
-
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust fin-hero-trust">
               <span>✅ 100% gratuit & sans engagement</span>
               <span>⚡ Réponse sous 24h</span>
               <span>🔒 Données sécurisées</span>
@@ -205,14 +267,45 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
+        {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
+          <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.value} className="fin-chiffre">
                 <strong>{c.icon} {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ── CITATION CINDY (Avec photo) ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière indépendante en regroupement de crédits"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « Quand les mensualités dépassent 35% de vos revenus, ce n'est plus un problème de budget — c'est un problème de structure. »
+                </p>
+                <p className="ae-citation-text">
+                  Le regroupement de crédits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immédiatement. Mon rôle est d'analyser votre situation honnêtement, de vous présenter les chiffres réels — économies immédiates et coût total — et de vous laisser décider en toute connaissance de cause.
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -316,14 +409,30 @@ export default function RegroupementCreditsPage() {
               <h2>De votre formulaire à votre<br />nouvelle mensualité en 4 étapes</h2>
               <p>Tout commence par quelques minutes de formulaire. Orizia s’occupe du reste.</p>
             </div>
-            <div className="fin-etapes">
-              {COMMENT_CA_MARCHE.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.icon} {e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {COMMENT_CA_MARCHE.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.icon} {e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage.webp"
+                  alt="Cindy Urbansky analysant un dossier de regroupement de crédits"
+                  title="Analyse et montage de dossier de regroupement de crédits"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -339,51 +448,88 @@ export default function RegroupementCreditsPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 32 }}>
-              {PROFILS.map(p => (
-                <div
-                  key={p.title}
-                  style={{
-                    background: '#fff',
-                    borderRadius: 16,
-                    padding: '22px 20px',
-                    border: `2px solid ${p.color}22`,
-                  }}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 48,
+              alignItems: 'start',
+            }}
+              className="rc-profils-layout"
+            >
+              {/* Image à gauche */}
+              <div>
+                <Image
+                  src="/images/banque-pression.webp"
+                  alt="Pression financière liée à l'accumulation de crédits"
+                  title="Le regroupement de crédits pour retrouver de l'air dans son budget"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 16 }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Grille 2×2 à droite */}
+              <div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 24 }}
+                  className="rc-profils-grid"
                 >
-                  <div style={{ fontSize: '1.8rem', marginBottom: 10 }}>{p.icon}</div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 900, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                    {p.title}
-                  </h3>
-                  <p style={{ fontSize: '0.82rem', color: 'var(--orizia-dark)', opacity: 0.7, marginBottom: 12, lineHeight: 1.5 }}>
-                    {p.desc}
-                  </p>
-                  <div style={{
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: p.color,
-                    background: `${p.color}12`,
-                    padding: '8px 12px',
-                    borderRadius: 8,
-                    lineHeight: 1.4,
-                  }}>
-                    🎯 {p.resultat}
-                  </div>
+                  {PROFILS.map(p => (
+                    <div
+                      key={p.title}
+                      style={{
+                        background: '#fff',
+                        borderRadius: 16,
+                        padding: '22px 20px',
+                        border: `2px solid ${p.color}22`,
+                      }}
+                    >
+                      <div style={{ fontSize: '1.8rem', marginBottom: 10 }}>{p.icon}</div>
+                      <h3 style={{ fontSize: '1rem', fontWeight: 900, color: 'var(--orizia-accent)', marginBottom: 6 }}>
+                        {p.title}
+                      </h3>
+                      <p style={{ fontSize: '0.82rem', color: 'var(--orizia-dark)', opacity: 0.7, marginBottom: 12, lineHeight: 1.5 }}>
+                        {p.desc}
+                      </p>
+                      <div style={{
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        color: p.color,
+                        background: `${p.color}12`,
+                        padding: '8px 12px',
+                        borderRadius: 8,
+                        lineHeight: 1.4,
+                      }}>
+                        🎯 {p.resultat}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+
+                <div className="crowd-cta-band" style={{ margin: 0 }}>
+                  <div>
+                    <strong>Vous ne savez pas si votre profil est éligible ?</strong>
+                    <p>
+                      Le formulaire ci-dessous analyse votre situation en détail et
+                      vous donne une réponse de principe sous 24h — sans engagement.
+                    </p>
+                  </div>
+                  <a href="#formulaire" className="fin-btn-primary">
+                    🔍 Démarrer l'analyse →
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div className="crowd-cta-band">
-              <div>
-                <strong>Vous ne savez pas si votre profil est éligible ?</strong>
-                <p>
-                  Le formulaire ci-dessous analyse votre situation en détail et
-                  vous donne une réponse de principe sous 24h — sans engagement.
-                </p>
-              </div>
-              <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer l'analyse →
-              </a>
-            </div>
+            <style>{`
+              @media (max-width: 900px) {
+                .rc-profils-layout { grid-template-columns: 1fr !important; }
+              }
+              @media (max-width: 500px) {
+                .rc-profils-grid { grid-template-columns: 1fr !important; }
+              }
+            `}</style>
           </div>
         </section>
 

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia',
@@ -17,8 +18,56 @@ export const metadata = {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia',
     description: 'Je sélectionne pour vous le meilleur contrat d\'assurance vie. 0% de frais sur versements, contrats haut de gamme, accompagnement personnalisé. Gratuit et indépendant.',
     url: 'https://orizia-courtage.fr/investir/assurance-vie',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/investir.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Assurance Vie avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
+};
+
+const assuranceVieSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Vie', item: 'https://orizia-courtage.fr/investir/assurance-vie' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Conseil et Courtage en Assurance Vie',
+      serviceType: 'Épargne & Transmission Patrimoniale',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      description:
+        'Audit de contrat existant, sélection de contrats haut de gamme (Abeille, Cardif, SwissLife), construction d\'allocation sur-mesure et rédaction de clause bénéficiaire. 0% de frais sur versements.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' },
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Audit, conseil et accompagnement 100% gratuits pour le client (rémunération par les assureurs partenaires).',
+      },
+    },
+  ],
 };
 
 const faqSchema = {
@@ -240,15 +289,29 @@ export default function AssuranceViePage() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(assuranceVieSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main>
 
         {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={75}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
               {' › '}
@@ -257,15 +320,15 @@ export default function AssuranceViePage() {
               <span>Assurance Vie</span>
             </nav>
             <span className="fin-badge">🛡️ L'enveloppe fiscale préférée des Français</span>
-            <h1>Assurance vie : le placement<br />que vous avez — mais pas optimisé</h1>
-            <p>
+            <h1 className="ae-hero-title">Assurance vie : le placement<br />que vous avez — mais pas optimisé</h1>
+            <p className="ae-hero-intro">
               La majorité des Français possède une assurance vie en banque — et paient
               trop de frais pour des performances insuffisantes. Je sélectionne pour vous
               les meilleurs contrats du marché, construis l'allocation adaptée à votre profil
               et rédige votre clause bénéficiaire sur-mesure.{' '}
               <strong>Gratuitement.</strong>
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Auditer mon contrat gratuitement →
               </Link>
@@ -273,7 +336,7 @@ export default function AssuranceViePage() {
                 🔍 Découvrir mon approche
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust fin-hero-trust">
               <span>✅ 0% de frais sur versements</span>
               <span>🏦 Contrats haut de gamme exclusifs</span>
               <span>⚡ Réponse sous 24h</span>
@@ -283,57 +346,44 @@ export default function AssuranceViePage() {
 
         {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
-            <div className="fin-chiffre"><strong>1 900 Mds€</strong><span>Encours total en France</span></div>
-            <div className="fin-chiffre"><strong>2,5–5%</strong><span>Rendement annuel selon profil</span></div>
-            <div className="fin-chiffre"><strong>152 500€</strong><span>Exonération par bénéficiaire</span></div>
-            <div className="fin-chiffre"><strong>8 ans</strong><span>Pour la fiscalité optimale</span></div>
+          <div className="ae-chiffres-inner fin-chiffres-inner">
+            <div className="fin-chiffre"><strong>💰 1 900 Mds€</strong><span>Encours total en France</span></div>
+            <div className="fin-chiffre"><strong>📈 2,5–5%</strong><span>Rendement annuel selon profil</span></div>
+            <div className="fin-chiffre"><strong>🎁 152 500€</strong><span>Exonération par bénéficiaire</span></div>
+            <div className="fin-chiffre"><strong>⏳ 8 ans</strong><span>Pour la fiscalité optimale</span></div>
           </div>
         </section>
 
-        {/* ── CITATION CINDY ── */}
+        {/* ── CITATION CINDY (Avec photo) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « L'assurance vie est le placement que presque tout le monde possède
-                — et que presque personne n'a vraiment optimisé.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Trop de frais, une allocation trop prudente, une clause bénéficiaire
-                rédigée à la va-vite : trois erreurs silencieuses qui coûtent des milliers
-                d'euros sur 20 ans. Mon travail, c'est de les corriger — dès le premier
-                rendez-vous. »
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière indépendante en assurance vie"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « L'assurance vie est le placement que presque tout le monde possède
+                  — et que presque personne n'a vraiment optimisé.
+                </p>
+                <p className="ae-citation-text">
+                  Trop de frais, une allocation trop prudente, une clause bénéficiaire
+                  rédigée à la va-vite : trois erreurs silencieuses qui coûtent des milliers
+                  d'euros sur 20 ans. Mon travail, c'est de les corriger — dès le premier
+                  rendez-vous. »
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -352,14 +402,28 @@ export default function AssuranceViePage() {
                 en-dessous de ce qui est accessible sur le marché.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+            <div className="ae-probleme-layout">
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/facture-assurance-hausse.webp"
+                  alt="Facture d'assurance vie bancaire avec frais élevés"
+                  title="Les frais cachés de votre assurance vie en banque"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
@@ -677,14 +741,30 @@ export default function AssuranceViePage() {
                 c'est moi qui gère tout.
               </p>
             </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/courtier-assurance-independant.webp"
+                  alt="Cindy Urbansky accompagnant un client pour son assurance vie"
+                  title="Accompagnement personnalisé en assurance vie – Orizia Courtage"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>

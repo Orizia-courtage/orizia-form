@@ -1,24 +1,74 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia',
-  description: 'Achat, construction ou investissement. Ne laissez pas la banque dicter ses règles. Je négocie votre taux et votre assurance pour faire baisser la facture.',
+  title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
+  description: 'Achat, construction ou investissement locatif. Cindy Urbansky, courtière indépendante dans les Hauts-de-France, négocie votre taux et votre assurance emprunteur. Étude gratuite.',
   keywords: [
-    'courtier crédit immobilier',
+    'courtier crédit immobilier Hauts-de-France',
     'meilleur taux immobilier 2026',
-    'simulation prêt immobilier',
-    'financement achat maison',
-    'capacité emprunt courtier',
-    'courtier indépendant crédit',
+    'simulation prêt immobilier gratuit',
+    'financement achat maison courtier',
+    'capacité emprunt courtier indépendant',
+    'délégation assurance emprunteur',
+    'primo-accédant PTZ 2026',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/financer/credit-immobilier' },
   openGraph: {
-    title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia',
+    title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
     description: 'Ne vous épuisez pas à faire le tour des banques. Je négocie votre crédit immobilier et votre assurance de prêt pour faire baisser le coût total de votre achat.',
     url: 'https://orizia-courtage.fr/financer/credit-immobilier',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Crédit immobilier avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
+};
+
+// ── 2. DONNÉES STRUCTURÉES ──
+const creditImmobilierSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Crédit Immobilier', item: 'https://orizia-courtage.fr/financer/credit-immobilier' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Courtage en Crédit Immobilier',
+      serviceType: 'Courtage en Opérations de Banque (COBSP)',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      description: 'Négociation du taux, délégation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'à la signature chez le notaire. Accès à plus de 40 banques partenaires.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' },
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Étude de faisabilité gratuite et sans engagement.',
+      },
+    },
+  ],
 };
 
 const faqSchema = {
@@ -185,14 +235,28 @@ export default function CreditImmobilierPage() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(creditImmobilierSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
+        {/* ── HERO (Avec background) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={75}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
               {' › '}
@@ -201,13 +265,13 @@ export default function CreditImmobilierPage() {
               <span>Crédit Immobilier</span>
             </nav>
             <span className="fin-badge">🏡 Votre projet de vie</span>
-            <h1>Le bon crédit n'est pas qu'un taux.<br />C'est une stratégie.</h1>
-            <p>
-              Ne vous épuisez pas à faire le tour des banques. Je calcule votre enveloppe, 
-              <strong> je mets les banques en concurrence </strong> et je négocie les moindres frais 
+            <h1 className="ae-hero-title">Le bon crédit n'est pas qu'un taux.<br />C'est une stratégie.</h1>
+            <p className="ae-hero-intro">
+              Ne vous épuisez pas à faire le tour des banques. Je calcule votre enveloppe,
+              <strong> je mets les banques en concurrence </strong> et je négocie les moindres frais
               à votre place. Concentrez-vous sur les cartons, je m'occupe des millions.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer ma capacité d'emprunt →
               </Link>
@@ -215,7 +279,7 @@ export default function CreditImmobilierPage() {
                 🔍 Voir selon mon projet
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust fin-hero-trust">
               <span>✅ +40 banques interrogées</span>
               <span>🛡️ Accompagnement jusqu'au notaire</span>
               <span>⚡ Étude de faisabilité en 24h</span>
@@ -225,7 +289,7 @@ export default function CreditImmobilierPage() {
 
         {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
+          <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
                 <strong>{c.icon} {c.value}</strong>
@@ -235,45 +299,32 @@ export default function CreditImmobilierPage() {
           </div>
         </section>
 
-        {/* ── CITATION CINDY ── */}
+        {/* ── CITATION CINDY (Avec photo) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière indépendante en crédit immobilier"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
+                </p>
+                <p className="ae-citation-text">
+                  Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -290,14 +341,28 @@ export default function CreditImmobilierPage() {
                 Le banquier défend les intérêts de sa banque. Mon travail est de défendre exclusivement les vôtres.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+            <div className="ae-probleme-layout">
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/banque-pression.webp"
+                  alt="Pression bancaire lors d'une négociation de crédit immobilier"
+                  title="Pourquoi négocier seul son crédit est risqué"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -392,15 +457,30 @@ export default function CreditImmobilierPage() {
               <h2>On y va étape par étape,<br />je suis à vos côtés</h2>
               <p>Pas de plateforme impersonnelle, pas de changement d'interlocuteur. Je gère votre dossier du début à la fin.</p>
             </div>
-            <div className="fin-etapes">
-              {ETAPES.map((e, i) => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  {i < ETAPES.length - 1 && <div className="fin-etape-line" />}
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage.webp"
+                  alt="Cindy Urbansky montant un dossier de crédit immobilier"
+                  title="Accompagnement de A à Z pour votre crédit immobilier"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>

@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import SimulateurSCPI from '@/components/SimulateurSCPI';
 
+// ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
   title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
   description:
-    'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky – Orizia Courtage.',
+    'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
   keywords: [
-    'SCPI 2026',
+    'SCPI 2026 Hauts-de-France',
     'investir SCPI courtier indépendant',
     'meilleure SCPI rendement',
     'SCPI pierre papier immobilier',
@@ -20,8 +22,55 @@ export const metadata = {
     title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
     description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant, gratuit, personnalisé.',
     url: 'https://orizia-courtage.fr/investir/scpi',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/scpi-investissement.jpg',
+        width: 1200,
+        height: 630,
+        alt: "Investissement en SCPI avec Orizia Courtage - Cindy Urbansky",
+      },
+    ],
     type: 'article',
   },
+};
+
+// ── 2. DONNÉES STRUCTURÉES (E-E-A-T & Service) ──
+const investirSCPISchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'SCPI', item: 'https://orizia-courtage.fr/investir/scpi' }
+      ]
+    },
+    {
+      '@type': 'Service',
+      name: 'Conseil et Courtage en SCPI (Société Civile de Placement Immobilier)',
+      serviceType: 'Investissement Immobilier / Pierre-Papier',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      description: 'Analyse du marché, sélection indépendante de SCPI (rendement, européennes, assurance vie) et optimisation fiscale de la détention.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' }
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Bilan patrimonial, sélection des SCPI et montage du dossier 100% gratuits pour le client (rémunération par les sociétés de gestion partenaires).'
+      }
+    }
+  ]
 };
 
 const faqSchema = {
@@ -70,6 +119,13 @@ const faqSchema = {
     },
   ],
 };
+
+const CHIFFRES = [
+  { value: '📈\u00A04–6%', label: 'Rendement annuel brut moyen', icon: '' },
+  { value: "💶\u00A0Dès 1\u00A0000€", label: "Ticket d'entrée accessible", icon: '' },
+  { value: '🔍\u00A0200+', label: 'SCPI analysées par mes soins', icon: '' },
+  { value: '⏳\u00A08–10 ans', label: 'Durée de détention recommandée', icon: '' },
+];
 
 const DANGERS = [
   {
@@ -150,11 +206,11 @@ const RISQUES = [
 ];
 
 const TYPES_SCPI = [
-  { type: 'SCPI de rendement',     description: 'Génèrent des revenus locatifs réguliers via bureaux, commerces, entrepôts',    rendement: '4–7%',  horizon: '8–15 ans',  fiscal: '⚠️ Revenus fonciers' },
-  { type: 'SCPI européennes',      description: 'Investies en zone euro, fiscalité souvent plus avantageuse pour TMI élevés',   rendement: '4–6%',  horizon: '8–12 ans',  fiscal: '✅ Fiscal avantageux' },
-  { type: 'SCPI de plus-value',    description: 'Axées sur la valorisation des parts plutôt que les revenus immédiats',         rendement: '2–3%',  horizon: '10–20 ans', fiscal: '✅ PV mobilières' },
-  { type: 'SCPI fiscales',         description: 'Pinel, Déficit Foncier : réduction d\'impôt en contrepartie d\'un rendement moindre', rendement: '1–3%', horizon: '15+ ans', fiscal: '✅ Réduction IR' },
-  { type: 'SCPI en assurance vie', description: 'Accessibles dans une AV : fiscalité optimisée et liquidité améliorée',         rendement: '3–5%',  horizon: '8+ ans',    fiscal: '✅ Flat tax 30%' },
+  { type: 'SCPI de rendement', description: 'Génèrent des revenus locatifs réguliers via bureaux, commerces, entrepôts', rendement: '4–7%', horizon: '8–15 ans', fiscal: '⚠️ Revenus fonciers' },
+  { type: 'SCPI européennes', description: 'Investies en zone euro, fiscalité souvent plus avantageuse pour TMI élevés', rendement: '4–6%', horizon: '8–12 ans', fiscal: '✅ Fiscal avantageux' },
+  { type: 'SCPI de plus-value', description: 'Axées sur la valorisation des parts plutôt que les revenus immédiats', rendement: '2–3%', horizon: '10–20 ans', fiscal: '✅ PV mobilières' },
+  { type: 'SCPI fiscales', description: 'Pinel, Déficit Foncier : réduction d\'impôt en contrepartie d\'un rendement moindre', rendement: '1–3%', horizon: '15+ ans', fiscal: '✅ Réduction IR' },
+  { type: 'SCPI en assurance vie', description: 'Accessibles dans une AV : fiscalité optimisée et liquidité améliorée', rendement: '3–5%', horizon: '8+ ans', fiscal: '✅ Flat tax 30%' },
 ];
 
 const ETAPES = [
@@ -185,15 +241,29 @@ export default function SCPIPage() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(investirSCPISchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main>
 
-        {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
+        {/* ── HERO (Avec background) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={80}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
               {' › '}
@@ -202,14 +272,14 @@ export default function SCPIPage() {
               <span>SCPI</span>
             </nav>
             <span className="fin-badge">🏢 Pierre-papier & immobilier de rendement</span>
-            <h1>SCPI : percevez des loyers<br />sans gérer un seul bien</h1>
-            <p>
+            <h1 className="ae-hero-title">SCPI : percevez des loyers<br />sans gérer un seul bien</h1>
+            <p className="ae-hero-intro">
               Investissez dans l'immobilier professionnel dès 1 000€ et percevez des revenus
               locatifs trimestriels sans aucune contrainte de gestion. Je sélectionne pour vous
               les meilleures SCPI parmi 200+ analysées et j'optimise votre stratégie fiscale.{' '}
               <strong>Gratuitement.</strong>
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Trouver mes SCPI idéales →
               </Link>
@@ -217,7 +287,7 @@ export default function SCPIPage() {
                 Poser une question
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust fin-hero-trust">
               <span>✅ Conseil 100% indépendant</span>
               <span>🏦 200+ SCPI analysées</span>
               <span>⚡ Réponse sous 24h</span>
@@ -225,64 +295,54 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* ── CHIFFRES CLÉS ── */}
+        {/* ── CHIFFRES CLÉS (Avec icônes) ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
-            <div className="fin-chiffre"><strong>4–6%</strong><span>Rendement annuel brut moyen</span></div>
-            <div className="fin-chiffre"><strong>Dès 1 000€</strong><span>Ticket d'entrée accessible</span></div>
-            <div className="fin-chiffre"><strong>200+</strong><span>SCPI analysées par mes soins</span></div>
-            <div className="fin-chiffre"><strong>8–10 ans</strong><span>Durée de détention recommandée</span></div>
+          <div className="ae-chiffres-inner fin-chiffres-inner">
+            {CHIFFRES.map(c => (
+              <div key={c.label} className="fin-chiffre">
+                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}>{c.icon}</div>
+                <strong>{c.value}</strong>
+                <span>{c.label}</span>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* ── CITATION CINDY ── */}
+        {/* ── CITATION CINDY (Avec photo) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « La SCPI, c'est l'immobilier locatif dans sa meilleure version :
-                les loyers arrivent, les problèmes restent chez la société de gestion.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Ce que je fais, c'est aller plus loin : choisir les SCPI qui ont
-                résisté aux crises de 2022–2024, et structurer la détention pour
-                que vous touchiez vraiment ce qui est affiché — pas une version
-                amputée par la fiscalité. »
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière experte en SCPI"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « La SCPI, c'est l'immobilier locatif dans sa meilleure version :
+                  les loyers arrivent, les problèmes restent chez la société de gestion.
+                </p>
+                <p className="ae-citation-text">
+                  Ce que je fais, c'est aller plus loin : choisir les SCPI qui ont
+                  résisté aux crises de 2022–2024, et structurer la détention pour
+                  que vous touchiez vraiment ce qui est affiché — pas une version
+                  amputée par la fiscalité. »
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── DANGERS ── */}
+        {/* ── DANGERS (Avec image contextuelle) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -296,20 +356,37 @@ export default function SCPIPage() {
                 mes clients à éviter — avant d'investir.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+
+            <div className="ae-probleme-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center', marginTop: '40px' }}>
+              <div className="crowd-avantages-grid" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626', background: '#fff' }}>
+                    <div className="crowd-avantage-icon" style={{ display: 'none' }}>{d.icon}</div>
+                    <div className="ae-danger-icon" style={{ fontSize: '2rem', marginBottom: '12px' }}>{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* IMAGE 1 */}
+              <div className="ae-probleme-image" style={{ position: 'relative', width: '100%', height: '100%', minHeight: 400 }}>
+                <Image 
+                  src="/images/marche-immobilier-scpi.webp" // Image à ajuster si besoin
+                  alt="Analyse de la complexité du marché immobilier des SCPI"
+                  title="Éviter les pièges du marché de la pierre-papier"
+                  fill
+                  style={{ objectFit: 'cover', borderRadius: 20 }}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
+
             <div style={{ textAlign: 'center', marginTop: 40 }}>
-              <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
+              <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
                 J'analyse les SCPI à votre place — vous investissez sereinement.
               </p>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
+              <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
                 Gratuit, indépendant, personnalisé selon votre situation fiscale et patrimoniale réelle.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
@@ -319,7 +396,7 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* ── DÉFINITION ── */}
+        {/* ── DÉFINITION (Avec classes de schéma corrigées) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="crowd-2col">
@@ -346,7 +423,7 @@ export default function SCPIPage() {
                 </p>
               </div>
 
-              {/* Schéma */}
+              {/* Schéma avec classes corrigées pour alignement icône/texte */}
               <div className="crowd-schema">
                 <div style={{
                   textAlign: 'center', marginBottom: 16, fontWeight: 800,
@@ -355,34 +432,53 @@ export default function SCPIPage() {
                 }}>
                   Comment ça fonctionne
                 </div>
+                
                 <div className="crowd-schema-step crowd-schema-step--orizia">
                   <div className="crowd-schema-icon">🏢</div>
-                  <strong>Cindy analyse & recommande</strong>
-                  <span>Sélection des meilleures SCPI pour votre profil fiscal</span>
+                  <div className="crowd-schema-text">
+                    <strong>Cindy analyse & recommande</strong>
+                    <span>Sélection des meilleures SCPI pour votre profil fiscal</span>
+                  </div>
                 </div>
+                
                 <div className="crowd-schema-arrow">↓</div>
+                
                 <div className="crowd-schema-step">
                   <div className="crowd-schema-icon">👤</div>
-                  <strong>Vous achetez des parts</strong>
-                  <span>Dès 1 000€ comptant, à crédit ou mensuel</span>
+                  <div className="crowd-schema-text">
+                    <strong>Vous achetez des parts</strong>
+                    <span>Dès 1 000€ comptant, à crédit ou mensuel</span>
+                  </div>
                 </div>
+                
                 <div className="crowd-schema-arrow">↓</div>
+                
                 <div className="crowd-schema-step crowd-schema-step--platform">
                   <div className="crowd-schema-icon">🏦</div>
-                  <strong>Société de gestion agréée AMF</strong>
-                  <span>Gère l'intégralité du portefeuille immobilier</span>
+                  <div className="crowd-schema-text">
+                    <strong>Société de gestion agréée AMF</strong>
+                    <span>Gère l'intégralité du portefeuille immobilier</span>
+                  </div>
                 </div>
+                
                 <div className="crowd-schema-arrow">↓</div>
+                
                 <div className="crowd-schema-step">
                   <div className="crowd-schema-icon">🏗️</div>
-                  <strong>Centaines d'actifs immobiliers</strong>
-                  <span>Bureaux, commerces, santé, logistique…</span>
+                  <div className="crowd-schema-text">
+                    <strong>Centaines d'actifs immobiliers</strong>
+                    <span>Bureaux, commerces, santé, logistique…</span>
+                  </div>
                 </div>
+                
                 <div className="crowd-schema-arrow">↓</div>
+                
                 <div className="crowd-schema-step crowd-schema-step--result">
                   <div className="crowd-schema-icon">💰</div>
-                  <strong>Vous percevez vos loyers</strong>
-                  <span>Trimestriellement, sans rien faire</span>
+                  <div className="crowd-schema-text">
+                    <strong>Vous percevez vos loyers</strong>
+                    <span>Trimestriellement, sans rien faire</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -602,7 +698,7 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* ── ACCOMPAGNEMENT ── */}
+        {/* ── ACCOMPAGNEMENT (Avec image) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -613,25 +709,44 @@ export default function SCPIPage() {
                 et le suivi annuel — sans délégation, sans intermédiaire supplémentaire.
               </p>
             </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+            
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image 
+                  src="/images/dossier-courtage.webp" 
+                  alt="Préparation et gestion d'un portefeuille SCPI par un courtier"
+                  title="Gestion complète de votre investissement SCPI"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <div className="crowd-cta-band" style={{ marginTop: 48 }}>
+
+            <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
+              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
               <div>
                 <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
-                <p>
+                <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
                   Je suis rémunérée par les sociétés de gestion partenaires — jamais
                   par vous. Mon indépendance garantit que je travaille exclusivement
                   dans votre intérêt.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
                 📅 Démarrer gratuitement →
               </Link>
             </div>

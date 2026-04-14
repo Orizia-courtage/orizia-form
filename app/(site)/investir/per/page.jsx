@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
+// ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
   description:
-    'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés. Cindy Urbansky – Orizia Courtage.',
+    'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés. Cindy Urbansky.',
   keywords: [
-    'PER individuel 2026',
+    'PER individuel 2026 Hauts-de-France',
     'plan épargne retraite déduction fiscale',
-    'meilleur PER courtier indépendant',
+    'meilleur PER courtier indépendant Lille',
     'PER TNS travailleur indépendant',
     'PER vs assurance vie',
     'ouvrir PER 0 frais versement',
@@ -17,10 +19,61 @@ export const metadata = {
   alternates: { canonical: 'https://orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
-    description: 'Réduisez votre impôt dès cette année. Je calcule vos plafonds exacts, sélectionne le meilleur PER du marché et construis l\'allocation adaptée à votre horizon. Gratuit et indépendant.',
-    url: 'https://orizia-courtage.fr/investir/per',
+    description: 'Réduisez votre impôt dès cette année. Je calcule vos plafonds exacts, sélectionne le meilleur PER du marché et construis l\'allocation adaptée à votre horizon.',
+    url: 'https://orizia-courtage.fr/investir/per', // ⚠️ Corrigé pour cohérence domaine
     type: 'article',
   },
+};
+
+// ── 2. DONNÉES STRUCTURÉES (E-E-A-T, GEO & Service) ──
+const investirPerSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    // 1. Fil d'Ariane
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'Plan Épargne Retraite (PER)', item: 'https://orizia-courtage.fr/investir/per' }
+      ]
+    },
+    // 2. L'Organisation (Agence) pour l'E-E-A-T
+    {
+      '@type': 'InsuranceAgency',
+      '@id': 'https://orizia-courtage.fr/#organization',
+      name: 'Orizia Courtage',
+      image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      description: 'Cabinet de courtage indépendant spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '15 Av. de l\'Europe', // ⚠️ À vérifier/compléter
+        addressLocality: 'Marcq-en-Barœul',
+        postalCode: '59700',
+        addressRegion: 'Hauts-de-France',
+        addressCountry: 'FR'
+      }
+    },
+    // 3. Le Service spécifique
+    {
+      '@type': 'Service',
+      name: 'Conseil et Courtage en Plan Épargne Retraite (PER)',
+      serviceType: 'Conseil en Investissement Financier',
+      provider: { '@id': 'https://orizia-courtage.fr/#organization' },
+      description: 'Audit fiscal, calcul des plafonds de déduction, sélection du meilleur PER du marché (0% de frais) et construction de l\'allocation d\'actifs.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' }
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'L\'audit initial et le conseil en sélection de PER sont gratuits pour le client (rémunération par l\'assureur partenaire).'
+      }
+    }
+  ]
 };
 
 const faqSchema = {
@@ -86,6 +139,13 @@ const faqSchema = {
   ],
 };
 
+const CHIFFRES = [
+  { value: '👔\u00A0~35\u00A0000€', label: 'Plafond déduction salarié 2026', icon: '' },
+  { value: '⚙️\u00A0~85\u00A0000€', label: 'Plafond Madelin TNS 2026', icon: '' },
+  { value: '⏳\u00A03 ans', label: 'Report des plafonds non utilisés', icon: '' },
+  { value: '✨\u00A00€', label: 'Frais sur versements via Orizia', icon: '' },
+];
+
 const DANGERS = [
   {
     icon: '🏦',
@@ -126,7 +186,7 @@ const AVANTAGES = [
     text: 'Capital en une fois ou progressivement, rente viagère, ou combinaison des deux. Vous choisissez à la retraite selon votre situation réelle — pas aujourd\'hui selon une hypothèse.',
   },
   {
-    icon: '🧾',
+    icon: '🚫', // Icône générique "TNS/Indépendant" (⚙️ ou 🧾 mieux adaptés ?)
     title: 'Plafonds exceptionnels pour les TNS',
     text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
   },
@@ -240,8 +300,8 @@ const OBJECTIONS = [
 ];
 
 const FISCAL_EXEMPLES = [
-  { tmi: '11%', versement: 5000,  gain: 550,  profil: 'Salarié modeste' },
-  { tmi: '30%', versement: 8000,  gain: 2400, profil: 'Cadre' },
+  { tmi: '11%', versement: 5000, gain: 550, profil: 'Salarié modeste' },
+  { tmi: '30%', versement: 8000, gain: 2400, profil: 'Cadre' },
   { tmi: '41%', versement: 10000, gain: 4100, profil: 'Cadre supérieur / TNS' },
   { tmi: '45%', versement: 15000, gain: 6750, profil: 'Dirigeant / TNS élevé' },
 ];
@@ -251,15 +311,29 @@ export default function PERPage() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(investirPerSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main>
 
-        {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
+        {/* ── HERO (Avec background) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={80}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
               {' › '}
@@ -276,7 +350,7 @@ export default function PERPage() {
               Je calcule vos plafonds exacts, sélectionne le meilleur contrat et construis
               votre allocation. <strong>Gratuitement.</strong>
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer mon gain fiscal →
               </Link>
@@ -284,7 +358,7 @@ export default function PERPage() {
                 🧮 Voir les exemples chiffrés
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust fin-hero-trust">
               <span>✅ 0% de frais sur versements</span>
               <span>📋 Plafonds calculés sur-mesure</span>
               <span>⚡ Réponse sous 24h</span>
@@ -292,64 +366,54 @@ export default function PERPage() {
           </div>
         </section>
 
-        {/* ── CHIFFRES CLÉS ── */}
+        {/* ── CHIFFRES CLÉS (Dynamique avec icônes) ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
-            <div className="fin-chiffre"><strong>~35 000€</strong><span>Plafond déduction salarié 2026</span></div>
-            <div className="fin-chiffre"><strong>~85 000€</strong><span>Plafond Madelin TNS 2026</span></div>
-            <div className="fin-chiffre"><strong>3 ans</strong><span>Report des plafonds non utilisés</span></div>
-            <div className="fin-chiffre"><strong>0€</strong><span>Frais sur versements via Orizia</span></div>
+          <div className="ae-chiffres-inner fin-chiffres-inner">
+            {CHIFFRES.map(c => (
+              <div key={c.label} className="fin-chiffre">
+                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}>{c.icon}</div>
+                <strong>{c.value}</strong>
+                <span>{c.label}</span>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* ── CITATION CINDY ── */}
+        {/* ── CITATION CINDY (Avec photo) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « Le PER est l'outil fiscal le plus puissant disponible en France
-                — et le plus mal utilisé.
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                La plupart de mes clients arrivent avec des plafonds non utilisés
-                depuis 3 ans, un contrat bancaire chargé en frais, et aucune idée
-                du montant qu'ils auraient pu récupérer sur leur impôt. Ce
-                rendez-vous, c'est souvent une révélation. »
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière experte en Plan Épargne Retraite"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « Le PER est l'outil fiscal le plus puissant disponible en France
+                  — et le plus mal utilisé.
+                </p>
+                <p className="ae-citation-text">
+                  La plupart de mes clients arrivent avec des plafonds non utilisés
+                  depuis 3 ans, un contrat bancaire chargé en frais, et aucune idée
+                  du montant qu'ils auraient pu récupérer sur leur impôt. Ce
+                  rendez-vous, c'est souvent une révélation. »
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── ERREURS COURANTES ── */}
+        {/* ── ERREURS COURANTES (Avec image) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -362,20 +426,35 @@ export default function PERPage() {
                 mal utilisé, mal dimensionné, ou souscrit dans le mauvais contrat.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+            
+            <div className="ae-probleme-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center', marginTop: '40px' }}>
+              <div className="crowd-avantages-grid" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626', background: '#fff' }}>
+                    <div className="crowd-avantage-icon" style={{ display: 'none' }}>{d.icon}</div>
+                    <div className="ae-danger-icon" style={{ fontSize: '2rem', marginBottom: '12px' }}>{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="ae-probleme-image" style={{ position: 'relative', width: '100%', height: '100%', minHeight: 400 }}>
+                <Image 
+                  src="/images/banque-pression.webp" 
+                  alt="Pression bancaire et complexité fiscale pour le PER"
+                  fill
+                  style={{ objectFit: 'cover', borderRadius: 20 }}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
-            <div style={{ textAlign: 'center', marginTop: 40 }}>
-              <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
+
+            <div style={{ textAlign: 'center', marginTop: 48 }}>
+              <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 12 }}>
                 Je calcule vos plafonds exacts et sélectionne le meilleur contrat avec 0% de frais.
               </p>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
+              <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
                 Je récupère aussi vos plafonds non utilisés des 3 dernières années —
                 souvent plusieurs milliers d'euros de déduction oubliés.
               </p>
@@ -568,7 +647,7 @@ export default function PERPage() {
                 <p>
                   Apportez votre dernier avis d'imposition — je calcule vos plafonds
                   disponibles, votre économie d'impôt et le montant optimal à verser
-                  cette année.
+                  vis-à-vis de votre TMI.
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary">
@@ -709,7 +788,7 @@ export default function PERPage() {
           </div>
         </section>
 
-        {/* ── ACCOMPAGNEMENT ── */}
+        {/* ── ACCOMPAGNEMENT (Avec image) ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -721,20 +800,38 @@ export default function PERPage() {
                 sans intermédiaire.
               </p>
             </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+            
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image 
+                  src="/images/dossier-courtage.webp" 
+                  alt="Cindy Urbansky gérant le dossier de courtage PER"
+                  title="Accompagnement Orizia Courtage de A à Z"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+
+            <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
+              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
               <div>
                 <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
-                <p>
+                <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
                   Je suis rémunérée par l'assureur partenaire sous forme de commission
                   de distribution, encadrée par la réglementation DDA et communiquée
                   de façon transparente. Vous ne payez rien de plus qu'en souscrivant
@@ -772,7 +869,7 @@ export default function PERPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Une situation particulière ? Je vous réponds personnellement sous 24h.
               </p>
-              <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
+              <div className="ae-hero-btns" style={{ justifyContent: 'center' }}>
                 <Link href="/rendez-vous" className="fin-btn-primary">
                   📅 Prendre rendez-vous →
                 </Link>
@@ -868,7 +965,7 @@ export default function PERPage() {
               contrat PER du marché et vous accompagne de la souscription au suivi annuel.
               0% de frais sur versements. 100% gratuit pour vous.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer mon gain fiscal avec Cindy →
               </Link>

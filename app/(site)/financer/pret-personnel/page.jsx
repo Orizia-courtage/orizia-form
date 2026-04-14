@@ -1,25 +1,74 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia',
+  title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
   description:
-    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Je compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite.',
+    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtière indépendante, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite.',
   keywords: [
-    'prêt personnel meilleur taux',
-    'courtier crédit consommation',
-    'prêt travaux pas cher',
-    'financement auto courtier',
-    'regroupement de crédits',
-    'simulation prêt personnel 2026',
-    'taux prêt conso',
+    'prêt personnel meilleur taux 2026',
+    'courtier crédit consommation indépendant',
+    'prêt travaux pas cher courtier',
+    'financement auto courtier Hauts-de-France',
+    'simulation prêt personnel gratuit',
+    'TAEG prêt conso négocié',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/financer/pret-personnel' },
   openGraph: {
-    title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia',
+    title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
     description: 'Auto, travaux ou trésorerie : obtenez les fonds nécessaires à vos projets sans vous ruiner. Je négocie votre crédit au meilleur TAEG.',
     url: 'https://orizia-courtage.fr/financer/pret-personnel',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Prêt personnel avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
+};
+
+// ── 2. DONNÉES STRUCTURÉES ──
+const pretPersonnelSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Prêt Personnel', item: 'https://orizia-courtage.fr/financer/pret-personnel' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Courtage en Prêt Personnel et Crédit à la Consommation',
+      serviceType: 'Courtage en Opérations de Banque (COBSP)',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      description: 'Comparaison et négociation du meilleur TAEG pour vos projets auto, travaux ou trésorerie. Élimination des assurances facultatives imposées. Accès à un réseau de partenaires bancaires.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' },
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Étude et accompagnement 100% gratuits (rémunération par l\'organisme prêteur partenaire).',
+      },
+    },
+  ],
 };
 
 const faqSchema = {
@@ -70,10 +119,10 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: 'Jusqu\'à 75k€', label: 'Plafond légal d\'emprunt', icon: '💰' },
+  { value: 'Jusqu\'à\u00A075k€', label: 'Plafond légal d\'emprunt', icon: '💰' },
   { value: '1 à 7 ans', label: 'Durée de remboursement', icon: '⏳' },
   { value: '0€', label: 'De frais d\'étude Orizia', icon: '🤝' },
-  { value: '24 à 48h', label: 'Pour une réponse de principe', icon: '⚡' },
+  { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: '⚡' },
 ];
 
 const TYPES_PRET = [
@@ -186,14 +235,28 @@ export default function PretPersonnelPage() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pretPersonnelSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main>
-        {/* ── HERO ── */}
-        <section className="fin-hero">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
+        {/* ── HERO (Avec background) ── */}
+        <section className="fin-hero ae-hero">
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={75}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
+          <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
               {' › '}
@@ -202,13 +265,13 @@ export default function PretPersonnelPage() {
               <span>Prêt Personnel</span>
             </nav>
             <span className="fin-badge">💡 Auto, Travaux, Trésorerie</span>
-            <h1>Financez vos projets,<br />pas les marges des banques</h1>
-            <p>
-              Souscrire un prêt personnel sur internet est devenu trop facile, et souvent <strong>trop cher</strong>. 
-              En tant que courtière indépendante, je compare les taux (TAEG), j'élimine les assurances inutiles 
+            <h1 className="ae-hero-title">Financez vos projets,<br />pas les marges des banques</h1>
+            <p className="ae-hero-intro">
+              Souscrire un prêt personnel sur internet est devenu trop facile, et souvent <strong>trop cher</strong>.
+              En tant que courtière indépendante, je compare les taux (TAEG), j'élimine les assurances inutiles
               et je vous trouve la mensualité qui <strong>respecte votre budget</strong>.
             </p>
-            <div className="fin-hero-btns">
+            <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire une simulation avec Cindy →
               </Link>
@@ -216,7 +279,7 @@ export default function PretPersonnelPage() {
                 🔍 Voir les types de prêts
               </Link>
             </div>
-            <div className="fin-hero-trust">
+            <div className="ae-hero-trust fin-hero-trust">
               <span>✅ Accompagnement 100% gratuit</span>
               <span>🛡️ Zéro crédit toxique (renouvelable)</span>
               <span>⚡ Réponse de principe sous 48h</span>
@@ -226,55 +289,42 @@ export default function PretPersonnelPage() {
 
         {/* ── CHIFFRES CLÉS ── */}
         <section className="fin-chiffres">
-          <div className="fin-chiffres-inner">
+          <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.value}</strong>
+                <strong style={{ whiteSpace: 'nowrap' }}>{c.icon} {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── CITATION CINDY ── */}
+        {/* ── CITATION CINDY (Avec photo) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div style={{
-              background: '#fff',
-              borderRadius: 16,
-              padding: '36px 40px',
-              borderLeft: '5px solid var(--orizia-primary)',
-              boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-              maxWidth: 780,
-              margin: '0 auto',
-            }}>
-              <p style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: 'var(--orizia-accent)',
-                lineHeight: 1.55,
-                marginBottom: 16,
-              }}>
-                « Aujourd'hui, on peut souscrire un crédit en trois clics sur son smartphone. C'est rapide, oui. Mais c'est souvent hors de prix. »
-              </p>
-              <p style={{
-                fontSize: '1rem',
-                color: 'var(--orizia-dark)',
-                lineHeight: 1.75,
-                margin: '0 0 20px',
-                opacity: 0.8,
-              }}>
-                Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.
-              </p>
-              <span style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--orizia-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
-                — Cindy Urbansky, courtière indépendante · Orizia Courtage
-              </span>
+            <div className="ae-citation-card">
+              <div className="ae-citation-photo">
+                <Image
+                  src="/images/photo-cindy.webp"
+                  alt="Cindy Urbansky, courtière indépendante en prêt personnel"
+                  title="Cindy Urbansky - Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                  sizes="(max-width: 768px) 150px, 180px"
+                  priority
+                />
+              </div>
+              <div className="ae-citation-content">
+                <p className="ae-citation-quote">
+                  « Aujourd'hui, on peut souscrire un crédit en trois clics sur son smartphone. C'est rapide, oui. Mais c'est souvent hors de prix. »
+                </p>
+                <p className="ae-citation-text">
+                  Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.
+                </p>
+                <span className="ae-citation-author">
+                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -291,14 +341,28 @@ export default function PretPersonnelPage() {
                 Derrière les offres alléchantes des organismes de crédit se cachent souvent des pratiques qui font gonfler la note finale.
               </p>
             </div>
-            <div className="crowd-avantages-grid">
-              {DANGERS.map(d => (
-                <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                  <div className="crowd-avantage-icon">{d.icon}</div>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))}
+            <div className="ae-probleme-layout">
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/banque-pression.webp"
+                  alt="Pression des organismes de crédit lors d'une souscription de prêt personnel"
+                  title="Les pièges des crédits à la consommation"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
@@ -407,14 +471,30 @@ export default function PretPersonnelPage() {
                 Pas de démarches épuisantes. Vous me confiez vos documents, je m'occupe de trouver l'argent.
               </p>
             </div>
-            <div className="fin-etapes">
-              {ETAPES.map(e => (
-                <div key={e.n} className="fin-etape">
-                  <div className="fin-etape-num">{e.n}</div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                </div>
-              ))}
+            <div className="ae-accompagnement-layout">
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage.webp"
+                  alt="Cindy Urbansky montant un dossier de prêt personnel"
+                  title="Accompagnement de A à Z pour votre prêt personnel"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>

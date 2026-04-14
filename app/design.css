@@ -1,0 +1,66 @@
+/* =============================================
+   DESIGN SYSTEM — ORIZIA COURTAGE
+   Classes courtes pour modifier le site entier
+   depuis un seul fichier.
+
+   SECTIONS (s-)
+   s-light  → fond vert clair  (#E6F5F2)
+   s-white  → fond blanc       (#fff)
+   s-accent → fond vert foncé  (CTA, chiffres)
+   s-grey   → fond gris neutre (risques)
+
+   UTILITAIRES (u-)
+   u-center → text-align: center
+   u-muted  → texte légal petit
+   u-img    → image responsive sans style inline
+   u-img-r  → image responsive + border-radius
+   u-img-s  → image responsive + shadow
+============================================= */
+
+/* ── Padding standard de toutes les sections ── */
+:root {
+  --s-pad: 80px 20px;
+  --s-pad-sm: 60px 20px;
+}
+
+/* ── Sections ── */
+.s-light  { background: var(--orizia-light); padding: var(--s-pad); }
+.s-white  { background: #fff;               padding: var(--s-pad); }
+.s-accent { background: var(--orizia-accent); padding: var(--s-pad); text-align: center; }
+.s-grey   { background: #fafafa;            padding: var(--s-pad); }
+.s-light-sm { background: var(--orizia-light); padding: var(--s-pad-sm); }
+.s-white-sm { background: #fff;               padding: var(--s-pad-sm); }
+
+/* ── Images responsives (remplace les style={{ width:'100%'... }}) ── */
+.u-img   { width: 100%; height: auto; display: block; }
+.u-img-r { width: 100%; height: auto; display: block; border-radius: 16px; }
+.u-img-s { width: 100%; height: auto; display: block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+/* ── Utilitaires texte ── */
+.u-center { text-align: center; }
+.u-muted  { font-size: 0.75rem; opacity: 0.55; max-width: 540px; margin: 24px auto 0; }
+.u-italic { font-style: italic; opacity: 0.7; font-size: 0.9rem; }
+
+/* ── Grille produits hub 4→2→1 ── */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .hub-grid { grid-template-columns: 1fr; } }
+
+/* ── Grille 2×2 avantages ── */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+@media (max-width: 500px) { .grid-2x2 { grid-template-columns: 1fr; } }
+
+/* ── Carte avantage ── */
+.adv-card { padding: 20px; background: var(--orizia-light); border-radius: 12px; }
+.adv-card-icon { font-size: 1.6rem; margin-bottom: 10px; }
+.adv-card h4 { font-size: 0.95rem; font-weight: 800; color: var(--orizia-accent); margin-bottom: 6px; }
+.adv-card p  { font-size: 0.83rem; color: var(--orizia-dark); opacity: 0.75; line-height: 1.5; margin: 0; }

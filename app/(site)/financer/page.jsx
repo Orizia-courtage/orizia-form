@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Financer vos projets en 2026 : Crédit & Rachat | Orizia',
+  title: 'Financer vos projets en 2026 : Crédit & Rachat | Orizia Courtage',
   description: 'Crédit immobilier, prêt personnel ou regroupement de crédits. Courtière indépendante, je négocie les meilleurs taux pour vos projets. Étude gratuite.',
   keywords: [
     'courtier crédit immobilier',
@@ -10,14 +11,102 @@ export const metadata = {
     'financement prêt personnel courtier',
     'meilleur taux crédit 2026',
     'courtier indépendant',
+    'courtier Hauts-de-France',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/financer' },
   openGraph: {
-    title: 'Financer vos projets en 2026 : Crédit & Rachat | Orizia',
+    title: 'Financer vos projets en 2026 : Crédit & Rachat | Orizia Courtage',
     description: 'Ne financez plus les marges des banques. Je compare le marché et négocie votre crédit au meilleur taux. Étude gratuite et sans engagement.',
     url: 'https://orizia-courtage.fr/financer',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Financer vos projets avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'website',
   },
+};
+
+// ── 2. DONNÉES STRUCTURÉES ──
+const financerHubSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Courtage en Crédit Immobilier et Financement',
+      serviceType: 'Courtage en Opérations de Banque (COBSP)',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      },
+      description:
+        'Négociation de crédit immobilier, regroupement de crédits et prêt personnel. Accès à plus de 40 banques partenaires. Étude gratuite et sans engagement.',
+      areaServed: [
+        { '@type': 'State', name: 'Hauts-de-France' },
+        { '@type': 'City', name: 'Lille' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'Country', name: 'France' },
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Solutions de financement Orizia',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Crédit immobilier' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Regroupement de crédits' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Prêt personnel' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Rachat de soulte' } },
+        ],
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Étude de faisabilité et accompagnement gratuits (rémunération par la banque partenaire à la signature).',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Combien coûte le service d\'un courtier en crédit immobilier ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Pour la majorité des financements, ma rémunération est prise en charge par la banque chez qui nous signons. Vous ne payez aucun honoraire. L\'étude de faisabilité et l\'accompagnement complet sont 100% gratuits pour vous.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Combien de banques comparez-vous pour mon crédit ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'J\'interroge plus de 40 banques et organismes partenaires pour chaque dossier. Contrairement à votre banque habituelle qui ne peut vous proposer que ses propres offres, je mets l\'ensemble du marché en concurrence pour vous obtenir le meilleur taux et les meilleures conditions.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quel est le délai pour obtenir une réponse de principe ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Après notre premier échange et la réception de vos documents, je vous fournis une première estimation sous 24 à 48h. L\'accord de principe bancaire intervient généralement sous 1 à 2 semaines selon la complexité du dossier.',
+          },
+        },
+      ],
+    },
+  ],
 };
 
 const SOLUTIONS = [
@@ -55,28 +144,71 @@ const ETAPES = [
 ];
 
 const CHIFFRES = [
-  { val: '+40', label: 'Banques & organismes comparés' },
-  { val: '24h', label: 'Pour une 1ère estimation gratuite' },
-  { val: '100%', label: 'Indépendante & objective' },
-  { val: '1', label: 'Interlocutrice unique : moi' },
+  { val: '+40', label: 'Banques & organismes comparés', icon: '🏦' },
+  { val: '24h', label: 'Pour une 1ère estimation gratuite', icon: '⚡' },
+  { val: '100%', label: 'Indépendante & objective', icon: '🎯' },
+  { val: '1', label: 'Interlocutrice unique : moi', icon: '🤝' },
+];
+
+const FAQ_FINANCER = [
+  {
+    q: 'Combien coûte le service d\'un courtier en crédit immobilier ?',
+    r: 'Pour la majorité des financements, ma rémunération est prise en charge par la banque chez qui nous signons. Vous ne payez aucun honoraire. L\'étude de faisabilité et l\'accompagnement complet sont 100% gratuits pour vous.',
+  },
+  {
+    q: 'Combien de banques comparez-vous pour mon crédit ?',
+    r: 'J\'interroge plus de 40 banques et organismes partenaires pour chaque dossier. Contrairement à votre banque habituelle qui ne peut vous proposer que ses propres offres, je mets l\'ensemble du marché en concurrence pour vous obtenir le meilleur taux et les meilleures conditions.',
+  },
+  {
+    q: 'Quel est le délai pour obtenir une réponse de principe ?',
+    r: 'Après notre premier échange et la réception de vos documents, je vous fournis une première estimation sous 24 à 48h. L\'accord de principe bancaire intervient généralement sous 1 à 2 semaines selon la complexité du dossier.',
+  },
+  {
+    q: 'Mon dossier est-il finançable si j\'ai des crédits en cours ?',
+    r: 'Avoir des crédits en cours n\'est pas un obstacle en soi. Tout dépend de votre taux d\'endettement global. Si celui-ci est trop élevé, le regroupement de crédits peut être une solution pour le faire baisser avant de monter un nouveau dossier. Je fais le point avec vous lors du premier échange.',
+  },
+  {
+    q: 'Puis-je faire appel à vous si ma banque a déjà refusé mon dossier ?',
+    r: 'Oui, et c\'est même l\'une des situations où je suis le plus utile. Un refus d\'une banque ne signifie pas un refus du marché. Chaque établissement a ses propres critères. Je connais les politiques de crédit de mes 40+ partenaires et je sais vers qui orienter votre dossier selon votre profil.',
+  },
+  {
+    q: 'Que se passe-t-il après l\'accord de principe ?',
+    r: 'Je vous accompagne jusqu\'à la signature de l\'offre de prêt chez le notaire. Je gère les relances bancaires, la négociation de l\'assurance emprunteur, et je vous explique chaque document avant signature. Vous n\'êtes jamais seul(e) face à la banque.',
+  },
 ];
 
 export default function FinancerPage() {
   return (
     <main className="financer-page">
 
-      {/* ── HERO ── */}
-      <section className="fin-hero">
-        <div className="fin-hero-bg" />
-        <div className="fin-hero-inner">
+      {/* ── INJECTION DONNÉES STRUCTURÉES ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(financerHubSchema) }}
+      />
+
+      {/* ── HERO (Avec background) ── */}
+      <section className="fin-hero ae-hero">
+        <div className="ae-hero-bg">
+          <Image
+            src="/images/discret-hero-bg.webp"
+            alt=""
+            fill
+            priority
+            quality={75}
+            className="hero-image"
+            sizes="100vw"
+          />
+        </div>
+        <div className="ae-hero-inner fin-hero-inner">
           <span className="fin-badge">💶 Financement sur-mesure</span>
-          <h1>Financez vos projets<br />sans vous faire plumer</h1>
-          <p>
-            Crédit immobilier, prêt personnel ou regroupement de crédits. En tant que 
-            courtière indépendante, je compare, je négocie et je vais chercher <strong>le taux 
+          <h1 className="ae-hero-title">Financez vos projets<br />sans vous faire plumer</h1>
+          <p className="ae-hero-intro">
+            Crédit immobilier, prêt personnel ou regroupement de crédits. En tant que
+            courtière indépendante, je compare, je négocie et je vais chercher <strong>le taux
             qui respecte vraiment votre budget</strong>.
           </p>
-          <div className="fin-hero-btns">
+          <div className="ae-hero-btns fin-hero-btns">
             <Link href="/simulation" className="fin-btn-primary">
               💻 Lancer une simulation gratuite →
             </Link>
@@ -84,7 +216,7 @@ export default function FinancerPage() {
               📅 Faire le point avec Cindy
             </Link>
           </div>
-          <div className="fin-hero-trust">
+          <div className="ae-hero-trust fin-hero-trust">
             <span>✅ Accompagnement de A à Z</span>
             <span>🛡️ Étude 100% sans engagement</span>
             <span>⚡ Réponse de principe sous 48h</span>
@@ -92,57 +224,46 @@ export default function FinancerPage() {
         </div>
       </section>
 
-      {/* ── CHIFFRES CLÉS ── */}
+      {/* ── CHIFFRES CLÉS (Avec icônes) ── */}
       <section className="fin-chiffres">
-        <div className="fin-chiffres-inner">
+        <div className="ae-chiffres-inner fin-chiffres-inner">
           {CHIFFRES.map(c => (
             <div key={c.val} className="fin-chiffre">
-              <strong>{c.val}</strong>
+              <strong>{c.icon} {c.val}</strong>
               <span>{c.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── CITATION CINDY ── */}
+      {/* ── CITATION CINDY (Avec photo) ── */}
       <section className="crowd-section crowd-section--light" style={{ padding: '40px 20px 20px' }}>
         <div className="fin-section-inner">
-          <div style={{
-            background: '#fff',
-            borderRadius: 16,
-            padding: '36px 40px',
-            borderLeft: '5px solid var(--orizia-primary)',
-            boxShadow: '0 4px 24px rgba(58,111,108,0.08)',
-            maxWidth: 780,
-            margin: '0 auto',
-          }}>
-            <p style={{
-              fontSize: '1.2rem',
-              fontWeight: 800,
-              color: 'var(--orizia-accent)',
-              lineHeight: 1.55,
-              marginBottom: 16,
-            }}>
-              « Une banque ne vous proposera jamais l'offre de son concurrent, même si elle est meilleure pour vous. »
-            </p>
-            <p style={{
-              fontSize: '1rem',
-              color: 'var(--orizia-dark)',
-              lineHeight: 1.75,
-              margin: '0 0 20px',
-              opacity: 0.8,
-            }}>
-              C'est là que j'interviens. Je ne vends pas de crédits : je mets les banques en compétition pour vous obtenir le financement qui respecte vraiment votre budget et vos projets. Sans jargon, sans frais cachés, et en toute indépendance.
-            </p>
-            <span style={{
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              color: 'var(--orizia-primary)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-            }}>
-              — Cindy Urbansky, courtière indépendante · Orizia Courtage
-            </span>
+          <div className="ae-citation-card">
+            <div className="ae-citation-photo">
+              <Image
+                src="/images/photo-cindy.webp"
+                alt="Cindy Urbansky, courtière indépendante en crédit immobilier"
+                title="Cindy Urbansky - Orizia Courtage"
+                fill
+                style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                sizes="(max-width: 768px) 150px, 180px"
+                priority
+              />
+            </div>
+            <div className="ae-citation-content">
+              <p className="ae-citation-quote">
+                « Une banque ne vous proposera jamais l'offre de son concurrent, même si elle est meilleure pour vous. »
+              </p>
+              <p className="ae-citation-text">
+                C'est là que j'interviens. Je ne vends pas de crédits : je mets les banques en compétition
+                pour vous obtenir le financement qui respecte vraiment votre budget et vos projets.
+                Sans jargon, sans frais cachés, et en toute indépendance.
+              </p>
+              <span className="ae-citation-author">
+                — Cindy Urbansky, courtière indépendante · Orizia Courtage
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -182,15 +303,30 @@ export default function FinancerPage() {
             <h2>Vous choisissez, je m'occupe du reste</h2>
             <p>Faire un crédit est souvent un parcours du combattant. Mon rôle est de vous décharger de toute la charge mentale bancaire.</p>
           </div>
-          <div className="fin-etapes">
-            {ETAPES.map((e, i) => (
-              <div key={e.n} className="fin-etape">
-                <div className="fin-etape-num">{e.n}</div>
-                {i < ETAPES.length - 1 && <div className="fin-etape-line" />}
-                <h3>{e.title}</h3>
-                <p>{e.text}</p>
-              </div>
-            ))}
+          <div className="ae-accompagnement-layout">
+            <div className="ae-accompagnement-etapes">
+              {ETAPES.map(e => (
+                <div key={e.n} className="ae-etape-row">
+                  <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                  <div>
+                    <h3>{e.title}</h3>
+                    <p>{e.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="ae-accompagnement-image">
+              <Image
+                src="/images/dossier-courtage.webp"
+                alt="Cindy Urbansky montant un dossier de crédit immobilier pour ses clients"
+                title="Montage de dossier de crédit – Orizia Courtage"
+                width={716}
+                height={1024}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -228,6 +364,30 @@ export default function FinancerPage() {
               height={420}
               style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="crowd-section crowd-section--light">
+        <div className="fin-section-inner">
+          <div className="fin-section-head">
+            <span className="fin-badge">FAQ</span>
+            <h2>Vos questions sur le financement,<br />mes réponses directes</h2>
+            <p>Sans jargon. Sans langue de bois. Les vraies réponses.</p>
+          </div>
+          <div className="crowd-faq-list">
+            {FAQ_FINANCER.map((f, i) => (
+              <details key={i} className="crowd-faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.r}</p>
+              </details>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 36 }}>
+            <Link href="/contact" className="fin-btn-secondary">
+              ✉️ Poser une autre question à Cindy
+            </Link>
           </div>
         </div>
       </section>
