@@ -551,11 +551,11 @@ export default function CreditImmobilierPage() {
                   text: 'Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.',
                 },
                 {
-                  href: '/investir/scpi',
-                  icon: '🏢',
-                  title: 'SCPI',
-                  sub: 'L\'immobilier pierre-papier',
-                  text: 'Vous cherchez plutôt à investir sans les soucis d\'un achat physique ? Découvrez le rendement des SCPI.',
+                  href: '/financer/rachat-soulte',
+                  icon: '⚖️',
+                  title: 'Rachat de soulte',
+                  sub: 'Divorce · Séparation · Succession',
+                  text: 'Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.',
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">

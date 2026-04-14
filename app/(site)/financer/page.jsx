@@ -158,6 +158,14 @@ const SOLUTIONS = [
     description: 'Auto, travaux ou trésorerie. Je vous trouve le meilleur TAEG du marché pour que vous financiez vos projets, pas les marges de l\'organisme prêteur.',
     avantages: ['Sans assurances toxiques imposées', 'Mensualités fixes', 'Déblocage rapide'],
   },
+  {
+    icon: '⚖️',
+    title: 'Rachat de soulte',
+    sub: 'Divorce · Séparation · Succession',
+    href: '/financer/rachat-soulte',
+    description: 'Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.',
+    avantages: ['Calcul de la soulte expliqué', 'Coordination notaire incluse', '+40 banques comparées'],
+  },
 ];
 
 const ETAPES = [

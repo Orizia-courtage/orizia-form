@@ -49,12 +49,12 @@ export default function Footer() {
         {/* ── COLONNES 2, 3, 4 : MENU DES SERVICES ── */}
         {[
           { title: 'Investir', href: '/investir', links: [['Crowdfunding', '/investir/crowdfunding'], ['PERP / PER', '/investir/per'], ['Assurance Vie', '/investir/assurance-vie'], ['SCPI', '/investir/scpi']] },
-          { title: 'Financer', href: '/financer', links: [['Crédit immobilier', '/financer/credit-immobilier'], ['Regroupement de crédits', '/financer/regroupement-credits'], ['Prêt personnel', '/financer/pret-personnel']] },
+          { title: 'Financer', href: '/financer', links: [['Crédit immobilier', '/financer/credit-immobilier'], ['Regroupement de crédits', '/financer/regroupement-credits'], ['Prêt personnel', '/financer/pret-personnel'], ['Rachat de soulte', '/financer/rachat-soulte']] },
           { title: 'Assurer', href: '/assurer',  links: [['Assurance emprunteur', '/assurer/assurance-emprunteur'], ['Assurance habitation', '/assurer/assurance-habitation'], ['Assurance auto/moto', '/assurer/auto-moto']] },
         ].map(col => (
           <div key={col.title}>
             <Link href={col.href} style={{ display: 'block', textDecoration: 'none' }}>
-              <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, opacity: 0.6, color: 'var(--orizia-light)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, color: 'var(--orizia-gold)' }}>
                 {col.title}
               </div>
             </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
 
         {/* ── COLONNE 5 : PARRAINAGE ── */}
         <div>
-          <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, opacity: 0.6, color: 'var(--orizia-light)' }}>
+          <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, color: 'var(--orizia-gold)' }}>
             Parrainage
           </div>
           <p style={{ fontSize: '0.85rem', opacity: 0.85, lineHeight: 1.6, margin: '0 0 14px 0' }}>
@@ -91,7 +91,7 @@ export default function Footer() {
 
         {/* ── COLONNE 6 : CONTACT & HORAIRES ── */}
         <div>
-          <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, opacity: 0.6, color: 'var(--orizia-light)' }}>
+          <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, color: 'var(--orizia-gold)' }}>
             Contact & Horaires
           </div>
           

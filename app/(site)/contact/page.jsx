@@ -108,12 +108,17 @@ const MOYENS = [
 ];
 
 const SUJETS = [
-  { icon: '🏡', label: 'Crédit immobilier',       href: '/financer/credit-immobilier' },
-  { icon: '🛡️', label: 'Assurance vie',           href: '/investir/assurance-vie' },
-  { icon: '🏦', label: 'Plan Épargne Retraite',    href: '/investir/per' },
-  { icon: '🏢', label: 'SCPI',                     href: '/investir/scpi' },
-  { icon: '📈', label: 'Crowdfunding',             href: '/investir/crowdfunding' },
+  { icon: '🏡', label: 'Crédit immobilier',        href: '/financer/credit-immobilier' },
   { icon: '🔄', label: 'Regroupement de crédits',  href: '/financer/regroupement-credits' },
+  { icon: '💶', label: 'Prêt personnel',            href: '/financer/pret-personnel' },
+  { icon: '⚖️', label: 'Rachat de soulte',          href: '/financer/rachat-soulte' },
+  { icon: '🛡️', label: 'Assurance vie',            href: '/investir/assurance-vie' },
+  { icon: '🏦', label: 'Plan Épargne Retraite',     href: '/investir/per' },
+  { icon: '🏢', label: 'SCPI',                      href: '/investir/scpi' },
+  { icon: '📈', label: 'Crowdfunding',              href: '/investir/crowdfunding' },
+  { icon: '📋', label: 'Assurance emprunteur',      href: '/assurer/assurance-emprunteur' },
+  { icon: '🏠', label: 'Assurance habitation',      href: '/assurer/assurance-habitation' },
+  { icon: '🚗', label: 'Assurance auto & moto',     href: '/assurer/auto-moto' },
 ];
 
 const FAQ_CONTACT = [

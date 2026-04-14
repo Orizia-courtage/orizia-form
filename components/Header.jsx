@@ -13,7 +13,7 @@ const NAV = [
       { href: '/investir/assurance-vie', title: 'Assurance Vie',  sub: 'Épargne & transmission' },
       { href: '/investir/scpi',          title: 'SCPI',           sub: 'Immobilier de rendement' },
     ],
-    cta: { href: '/contact', label: 'Prendre rendez-vous', img: '/images/investir.jpg', text: 'Construisez votre stratégie patrimoniale avec nos experts.' },
+    cta: { href: '/contact', label: 'Contact', img: '/images/investir.jpg', text: 'Construisez votre stratégie patrimoniale avec nos experts.' },
   },
   {
     label: 'Financer',
@@ -21,6 +21,7 @@ const NAV = [
       { href: '/financer/credit-immobilier',    title: 'Crédit immobilier',       sub: 'Votre projet immobilier' },
       { href: '/financer/regroupement-credits', title: 'Regroupement de crédits', sub: 'Réduisez vos mensualités' },
       { href: '/financer/pret-personnel',       title: 'Prêt personnel',          sub: 'Financez vos projets' },
+      { href: '/financer/rachat-soulte',        title: 'Rachat de soulte',        sub: 'Divorce · Séparation · Succession' },
     ],
     cta: { href: '/simulation', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation gratuite en quelques minutes.' },
   },
@@ -53,6 +54,7 @@ const SCROLL_HEADER_CONFIG = {
       { value: '/financer/credit-immobilier',    label: '🏠 Crédit immobilier' },
       { value: '/financer/regroupement-credits', label: '💳 Regroupement' },
       { value: '/financer/pret-personnel',       label: '💶 Prêt personnel' },
+      { value: '/financer/rachat-soulte',        label: '⚖️ Rachat de soulte' },
     ],
   },
   '/assurer': {
@@ -257,10 +259,7 @@ export default function Header() {
           </nav>
 
           <div className="header-right">
-            <Link
-              href="/contact"
-              style={{ textDecoration: 'none', color: 'var(--orizia-dark)', fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap' }}
-            >
+            <Link href="/contact" className="header-contact-btn">
               Contactez-moi
             </Link>
             <button
@@ -400,20 +399,12 @@ export default function Header() {
             ))}
           </ul>
           <div className="mobile-action-buttons">
-            {/* Bouton RDV dans le drawer aussi ✅ */}
             <button
               onClick={() => { setDrawerOpen(false); openCalModal(); }}
               className="mobile-btn-rdv"
             >
-              📅 Prendre rendez-vous
+              Prendre rendez-vous — Gratuit &amp; sans engagement
             </button>
-            <Link
-              href="/contact"
-              className="mobile-btn-contact"
-              onClick={() => setDrawerOpen(false)}
-            >
-              Contactez-moi
-            </Link>
           </div>
         </div>
       </div>
