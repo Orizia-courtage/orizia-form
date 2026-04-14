@@ -16,31 +16,53 @@ export const metadata = {
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
     description: 'Prenez rendez-vous en quelques clics. Cindy vous répond sous 24h par le canal de votre choix.',
-    url: 'https://orizia.fr/contact',
+    url: 'https://orizia-courtage.fr/contact',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/photo-cindy.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Contacter Cindy Urbansky - Orizia Courtage',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
   },
 };
 
-const localBusinessSchema = {
+const contactSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FinancialService',
-  name: 'Orizia Courtage',
-  description: 'Courtier indépendant en crédit immobilier, assurance vie et investissement.',
-  url: 'https://orizia-courtage.fr',
-  telephone: '+33777259706',
-  email: 'cindy.urbansky@orizia-courtage.fr', // ← remplacer
-  sameAs: ['https://www.linkedin.com/in/cindy-urbansky'],
-  openingHoursSpecification: [
+  '@graph': [
     {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '19:00',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://orizia-courtage.fr/contact' },
+      ],
     },
     {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Saturday'],
-      opens: '09:00',
-      closes: '13:00',
+      '@type': 'FinancialService',
+      name: 'Orizia Courtage',
+      description: 'Courtier indépendant en crédit immobilier, assurance vie et investissement.',
+      url: 'https://orizia-courtage.fr',
+      telephone: '+33777259706',
+      email: 'cindy.urbansky@orizia-courtage.fr',
+      sameAs: ['https://www.linkedin.com/in/cindy-urbansky'],
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '19:00',
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Saturday'],
+          opens: '09:00',
+          closes: '13:00',
+        },
+      ],
     },
   ],
 };
@@ -122,7 +144,7 @@ export default function ContactPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
       <main>

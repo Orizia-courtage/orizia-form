@@ -1,15 +1,33 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Politique de Confidentialité | Orizia Courtage',
-  description: 'Découvrez comment Orizia Courtage protège et gère vos données personnelles en toute transparence.',
-  // On indique temporairement à Google de ne pas indexer cette page tant que les crochets ne sont pas remplis
+  title: 'Politique de Confidentialité & Protection des Données | Orizia Courtage',
+  description: 'Découvrez comment Orizia Courtage collecte, utilise et protège vos données personnelles. Conformité RGPD, droits d\'accès et de suppression, gestion des cookies.',
   robots: { index: false, follow: false },
+  alternates: { canonical: 'https://orizia-courtage.fr/confidentialite' },
+};
+
+const confidentialiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Politique de Confidentialité — Orizia Courtage',
+  url: 'https://orizia-courtage.fr/confidentialite',
+  description: 'Politique de protection des données personnelles du cabinet de courtage Orizia Courtage, conformément au RGPD.',
+  publisher: {
+    '@type': 'LocalBusiness',
+    name: 'Orizia Courtage',
+    url: 'https://orizia-courtage.fr',
+  },
 };
 
 export default function ConfidentialitePage() {
   return (
-    <main style={{ 
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(confidentialiteSchema) }}
+      />
+      <main style={{ 
       maxWidth: '800px', 
       margin: '0 auto', 
       padding: '100px 20px 80px', 
@@ -122,5 +140,6 @@ export default function ConfidentialitePage() {
       </div>
 
     </main>
+    </>
   );
 }

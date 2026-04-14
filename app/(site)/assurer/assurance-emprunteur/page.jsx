@@ -3,19 +3,27 @@ import Image from 'next/image';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: "Assurance Emprunteur avec Orizia Courtage Hauts-de-Frances",
+  title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
   description:
-    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat et vous fais économiser des milliers d'euros.",
+    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat à tout moment et vous fais économiser jusqu'à 15 000€. Cindy Urbansky, courtière dans les Hauts-de-France.",
+  keywords: [
+    'assurance emprunteur loi lemoine',
+    'délégation assurance prêt immobilier',
+    'changer assurance emprunteur courtier',
+    'économiser assurance de prêt',
+    'résiliation assurance emprunteur banque',
+    'courtier assurance emprunteur Hauts-de-France',
+    'assurance prêt moins chère 2026',
+  ],
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
-    title: "Assurance Emprunteur avec Orizia Courtage",
-    description:
-      'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
+    title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
+    description: 'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
     url: 'https://orizia-courtage.fr/assurer/assurance-emprunteur',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/loi-lemoine.jpg',
+        url: 'https://orizia-courtage.fr/images/loi-lemoine.webp',
         width: 1200,
         height: 630,
         alt: "Délégation d'assurance emprunteur avec Orizia Courtage",

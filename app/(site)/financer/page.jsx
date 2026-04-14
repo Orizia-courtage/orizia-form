@@ -104,6 +104,30 @@ const financerHubSchema = {
             text: 'Après notre premier échange et la réception de vos documents, je vous fournis une première estimation sous 24 à 48h. L\'accord de principe bancaire intervient généralement sous 1 à 2 semaines selon la complexité du dossier.',
           },
         },
+        {
+          '@type': 'Question',
+          name: 'Mon dossier est-il finançable si j\'ai des crédits en cours ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Avoir des crédits en cours n\'est pas un obstacle en soi. Tout dépend de votre taux d\'endettement global. Si celui-ci est trop élevé, le regroupement de crédits peut être une solution pour le faire baisser avant de monter un nouveau dossier. Je fais le point avec vous lors du premier échange.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Puis-je faire appel à vous si ma banque a déjà refusé mon dossier ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Oui, et c\'est même l\'une des situations où je suis le plus utile. Un refus d\'une banque ne signifie pas un refus du marché. Chaque établissement a ses propres critères. Je connais les politiques de crédit de mes 40+ partenaires et je sais vers qui orienter votre dossier selon votre profil.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Que se passe-t-il après l\'accord de principe ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Je vous accompagne jusqu\'à la signature de l\'offre de prêt chez le notaire. Je gère les relances bancaires, la négociation de l\'assurance emprunteur, et je vous explique chaque document avant signature. Vous n\'êtes jamais seul(e) face à la banque.',
+          },
+        },
       ],
     },
   ],

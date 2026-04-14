@@ -1,26 +1,132 @@
 export const metadata = {
-  title: 'Prendre rendez-vous : Bilan gratuit avec votre courtière | Orizia',
+  title: 'Prendre rendez-vous avec Cindy Urbansky — Courtière Indépendante | Orizia Courtage',
   description:
-    'Planifiez un échange téléphonique gratuit et sans engagement. Crédit, assurance ou investissement : je fais le point sur vos projets pour optimiser votre budget.',
+    'Réservez un créneau gratuit de 30 minutes avec Cindy Urbansky, courtière indépendante à Marcq-en-Barœul. Crédit immobilier, assurance, placements : je fais le point sur votre situation sans engagement.',
   keywords: [
-    'prendre rendez-vous courtier',
-    'bilan patrimonial gratuit',
-    'simulation crédit immobilier',
-    'optimisation assurance',
-    'rendez-vous Cindy Urbansky',
+    'prendre rendez-vous courtier indépendant',
+    'bilan patrimonial gratuit Hauts-de-France',
+    'rendez-vous crédit immobilier Lille',
+    'consultation gratuite courtière',
+    'rendez-vous Cindy Urbansky Orizia',
   ],
   alternates: { canonical: 'https://orizia-courtage.fr/rendez-vous' },
   openGraph: {
-    title: 'Prendre rendez-vous : Bilan gratuit avec votre courtière | Orizia',
-    description: 'Bloquez un créneau de 30 minutes dans mon agenda. C\'est 100% gratuit, sans engagement, et je vous rappelle personnellement pour faire avancer vos projets.',
+    title: 'Prendre rendez-vous avec Cindy Urbansky — Courtière Indépendante',
+    description: 'Bloquez un créneau de 30 minutes dans mon agenda. 100% gratuit, sans engagement. Je vous rappelle personnellement pour faire avancer vos projets.',
     url: 'https://orizia-courtage.fr/rendez-vous',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/photo-cindy.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Prendre rendez-vous avec Cindy Urbansky - Orizia Courtage',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'website',
   },
 };
 
+const rdvSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Rendez-vous', item: 'https://orizia-courtage.fr/rendez-vous' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Consultation gratuite avec Cindy Urbansky — Courtière Indépendante',
+      serviceType: 'Bilan patrimonial et conseil en courtage',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Orizia Courtage',
+        telephone: '+33777259706',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '23 boulevard Clemenceau',
+          addressLocality: 'Marcq-en-Barœul',
+          postalCode: '59700',
+          addressRegion: 'Hauts-de-France',
+          addressCountry: 'FR',
+        },
+      },
+      description:
+        'Consultation téléphonique ou visio de 30 minutes, gratuite et sans engagement. Analyse de votre situation financière, de vos projets de crédit, d\'assurance ou d\'investissement.',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Consultation 100% gratuite et sans engagement.',
+      },
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: 'https://orizia-courtage.fr/rendez-vous',
+        serviceType: 'Prise de rendez-vous en ligne',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Le rendez-vous est-il vraiment gratuit ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Oui, totalement. La consultation de 30 minutes est 100% gratuite et sans engagement. Je suis rémunérée par les partenaires bancaires ou assureurs uniquement si vous décidez de signer un contrat — jamais par vous directement.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Comment se déroule le rendez-vous ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Vous choisissez un créneau dans le calendrier. À l\'heure convenue, Cindy vous appelle directement sur votre téléphone ou vous rejoignez en visioconférence. En 30 minutes, on fait le point sur votre situation, vos objectifs et je vous indique clairement ce qui est possible et dans quel délai.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quels sujets peut-on aborder lors du rendez-vous ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Tout ce qui touche à votre patrimoine et vos finances : crédit immobilier, regroupement de crédits, prêt personnel, assurance emprunteur, assurance habitation ou auto, SCPI, PER, assurance vie, crowdfunding. Vous pouvez aussi venir avec plusieurs sujets — je m\'adapte à votre situation.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Dois-je préparer des documents avant le rendez-vous ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Non, aucun document n\'est nécessaire pour le premier échange. C\'est une conversation libre pour comprendre votre situation. Si votre projet avance, je vous indiquerai ensuite précisément quels documents rassembler.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Puis-je annuler ou reporter mon rendez-vous ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Oui, vous recevez un e-mail de confirmation avec un lien pour annuler ou reporter votre créneau à tout moment, sans frais ni justification.',
+          },
+        },
+      ],
+    },
+  ],
+};
+
+const faqItems = rdvSchema['@graph'][2].mainEntity;
+
 export default function RendezVous() {
   return (
-    <main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(rdvSchema) }}
+      />
+      <main>
 
       <section className="rdv-hero">
         <div className="rdv-hero-inner">
@@ -65,6 +171,26 @@ export default function RendezVous() {
         </div>
       </section>
 
+      {/* ── FAQ ── */}
+      <section className="crowd-section crowd-section--light">
+        <div className="fin-section-inner">
+          <div className="fin-section-head">
+            <span className="fin-badge">FAQ</span>
+            <h2>Vos questions avant de réserver,<br />mes réponses directes</h2>
+            <p>Tout ce que vous devez savoir sur le déroulement du rendez-vous.</p>
+          </div>
+          <div className="crowd-faq-list">
+            {faqItems.map((f, i) => (
+              <details key={i} className="crowd-faq-item">
+                <summary>{f.name}</summary>
+                <p>{f.acceptedAnswer.text}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
+    </>
   );
 }

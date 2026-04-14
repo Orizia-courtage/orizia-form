@@ -1,15 +1,33 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Mentions Légales | Orizia Courtage',
-  description: 'Mentions légales et informations réglementaires du cabinet Orizia Courtage.',
-  // On dit temporairement à Google de ne pas indexer cette page tant qu'elle n'est pas 100% complète
+  title: 'Mentions Légales — Informations Réglementaires ORIAS & ACPR | Orizia Courtage',
+  description: 'Mentions légales du cabinet Orizia Courtage : éditeur, hébergeur, immatriculation ORIAS, contrôle ACPR, médiation et traitement des données personnelles.',
   robots: { index: false, follow: false },
+  alternates: { canonical: 'https://orizia-courtage.fr/mentions-legales' },
+};
+
+const mentionsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Mentions Légales — Orizia Courtage',
+  url: 'https://orizia-courtage.fr/mentions-legales',
+  description: 'Mentions légales et informations réglementaires du cabinet de courtage Orizia Courtage, immatriculé à l\'ORIAS et contrôlé par l\'ACPR.',
+  publisher: {
+    '@type': 'LocalBusiness',
+    name: 'Orizia Courtage',
+    url: 'https://orizia-courtage.fr',
+  },
 };
 
 export default function MentionsLegalesPage() {
   return (
-    <main style={{ 
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(mentionsSchema) }}
+      />
+      <main style={{ 
       maxWidth: '800px', 
       margin: '0 auto', 
       padding: '100px 20px 80px', 
@@ -117,5 +135,6 @@ export default function MentionsLegalesPage() {
       </div>
 
     </main>
+    </>
   );
 }

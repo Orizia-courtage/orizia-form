@@ -17,6 +17,16 @@ export const metadata = {
     title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',
     description: 'Ne laissez plus vos contrats s\'envoler chaque année. Je mets le marché en concurrence et je gère vos résiliations. Devis gratuit et sans engagement.',
     url: 'https://orizia-courtage.fr/assurer',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/assurer.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Courtage en assurance avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'website',
   },
 };

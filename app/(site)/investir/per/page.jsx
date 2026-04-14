@@ -20,7 +20,17 @@ export const metadata = {
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
     description: 'Réduisez votre impôt dès cette année. Je calcule vos plafonds exacts, sélectionne le meilleur PER du marché et construis l\'allocation adaptée à votre horizon.',
-    url: 'https://orizia-courtage.fr/investir/per', // ⚠️ Corrigé pour cohérence domaine
+    url: 'https://orizia-courtage.fr/investir/per',
+    siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://orizia-courtage.fr/images/investir.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Plan Épargne Retraite avec Orizia Courtage - Cindy Urbansky',
+      },
+    ],
+    locale: 'fr_FR',
     type: 'article',
   },
 };
@@ -47,7 +57,7 @@ const investirPerSchema = {
       description: 'Cabinet de courtage indépendant spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '15 Av. de l\'Europe', // ⚠️ À vérifier/compléter
+        streetAddress: '23 boulevard Clemenceau',
         addressLocality: 'Marcq-en-Barœul',
         postalCode: '59700',
         addressRegion: 'Hauts-de-France',

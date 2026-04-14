@@ -25,12 +25,13 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/scpi-investissement.jpg',
+        url: 'https://orizia-courtage.fr/images/investir.jpg',
         width: 1200,
         height: 630,
         alt: "Investissement en SCPI avec Orizia Courtage - Cindy Urbansky",
       },
     ],
+    locale: 'fr_FR',
     type: 'article',
   },
 };
