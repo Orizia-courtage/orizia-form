@@ -576,8 +576,10 @@ export default function PERPage() {
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
                 <div key={a.title} className="crowd-avantage-card">
-                  <div className="crowd-avantage-icon">{a.icon}</div>
-                  <h3>{a.title}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                    <h3 style={{ margin: 0 }}>{a.title}</h3>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                  </div>
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -799,7 +801,7 @@ export default function PERPage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT (Avec image) ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -857,7 +859,7 @@ export default function PERPage() {
         </section>
 
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vous hésitez encore ?</span>
@@ -892,7 +894,7 @@ export default function PERPage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -909,17 +911,17 @@ export default function PERPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une question spécifique à votre situation personnelle ?
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <Link href="/contact" className="fin-btn-secondary">
-                Poser ma question à Cindy →
+                ✉️ Poser une autre question à Cindy
               </Link>
             </div>
           </div>
         </section>
 
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
@@ -967,7 +969,7 @@ export default function PERPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Récupérez vos impôts<br />dès cette année</h2>
             <p>
@@ -979,7 +981,7 @@ export default function PERPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer mon gain fiscal avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
               </Link>
             </div>

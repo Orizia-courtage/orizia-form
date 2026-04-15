@@ -524,8 +524,10 @@ export default function AssuranceViePage() {
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
                 <div key={a.title} className="crowd-avantage-card">
-                  <div className="crowd-avantage-icon">{a.icon}</div>
-                  <h3>{a.title}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                    <h3 style={{ margin: 0 }}>{a.title}</h3>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                  </div>
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -620,7 +622,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── FISCALITÉ ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Fiscalité 2026</span>
@@ -672,33 +674,33 @@ export default function AssuranceViePage() {
               </div>
             </div>
 
-            <div className="av-transmission-bloc">
+            <div className="av-transmission-bloc" style={{ background: 'var(--orizia-light)' }}>
               <div className="av-transmission-header">
                 <span>🎁</span>
                 <h3>Transmission : l'atout que la banque ne met jamais en avant</h3>
               </div>
               <div className="av-transmission-grid">
-                <div className="av-transm-item">
+                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
                   <strong>Versements avant 70 ans</strong>
                   <span>
                     Jusqu'à <strong>152 500€ par bénéficiaire</strong> transmis
                     sans droits de succession
                   </span>
                 </div>
-                <div className="av-transm-item">
+                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
                   <strong>Versements après 70 ans</strong>
                   <span>
                     Abattement global de <strong>30 500€</strong> sur les primes versées.
                     Les gains restent entièrement exonérés.
                   </span>
                 </div>
-                <div className="av-transm-item">
+                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
                   <strong>Conjoint / partenaire PACS</strong>
                   <span>
                     Exonération <strong>totale</strong> des droits de succession, sans plafond.
                   </span>
                 </div>
-                <div className="av-transm-item">
+                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
                   <strong>Hors succession</strong>
                   <span>
                     Le capital ne rentre pas dans l'actif successoral : vous transmettez
@@ -730,7 +732,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT ── */}
-        <section id="notre-approche" className="crowd-section crowd-section--light">
+        <section id="notre-approche" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -786,7 +788,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vous hésitez encore ?</span>
@@ -798,7 +800,7 @@ export default function AssuranceViePage() {
             </div>
             <div className="av-objections-grid">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card">
+                <div key={i} className="av-objection-card" style={{ background: 'var(--orizia-white)', borderLeft: '4px solid var(--orizia-gold)' }}>
                   <div className="av-objection-q">{o.q}</div>
                   <div className="av-objection-r">{o.r}</div>
                 </div>
@@ -821,7 +823,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -830,7 +832,7 @@ export default function AssuranceViePage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -838,17 +840,17 @@ export default function AssuranceViePage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une question spécifique à votre situation personnelle ?
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <Link href="/contact" className="fin-btn-secondary">
-                Poser ma question à Cindy →
+                ✉️ Poser une autre question à Cindy
               </Link>
             </div>
           </div>
         </section>
 
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
@@ -896,7 +898,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Votre argent mérite mieux<br />qu'un contrat bancaire standard</h2>
             <p>
@@ -908,7 +910,7 @@ export default function AssuranceViePage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Prendre rendez-vous avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
               </Link>
             </div>

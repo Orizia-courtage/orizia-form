@@ -477,8 +477,10 @@ export default function CrowdfundingPage() {
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
                 <div key={a.title} className="crowd-avantage-card">
-                  <div className="crowd-avantage-icon">{a.icon}</div>
-                  <h3>{a.title}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                    <h3 style={{ margin: 0 }}>{a.title}</h3>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                  </div>
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -591,7 +593,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── FISCALITÉ + SIMULATEUR ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Fiscalité 2026</span>
@@ -605,17 +607,17 @@ export default function CrowdfundingPage() {
 
             {/* Décomposition flat tax */}
             <div className="crowd-fiscalite-grid">
-              <div className="crowd-fiscalite-item">
+              <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
                 <strong>12,8%</strong>
                 <span>Impôt sur le revenu</span>
               </div>
               <div className="crowd-fiscalite-plus">+</div>
-              <div className="crowd-fiscalite-item">
+              <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
                 <strong>17,2%</strong>
                 <span>Prélèvements sociaux</span>
               </div>
               <div className="crowd-fiscalite-plus">=</div>
-              <div className="crowd-fiscalite-item crowd-fiscalite-total">
+              <div className="crowd-fiscalite-item crowd-fiscalite-total" style={{ border: '2px solid var(--orizia-gold)' }}>
                 <strong>30%</strong>
                 <span>Flat tax totale</span>
               </div>
@@ -623,7 +625,7 @@ export default function CrowdfundingPage() {
 
             {/* Notes fiscales */}
             <div className="crowd-fiscalite-notes">
-              <div className="crowd-fiscalite-note">
+              <div className="crowd-fiscalite-note" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.3)' }}>
                 <span className="crowd-fiscalite-note-icon">💡</span>
                 <p>
                   <strong>Bon à savoir :</strong> si votre taux marginal d'imposition est
@@ -632,7 +634,7 @@ export default function CrowdfundingPage() {
                   Je peux vous guider sur ce choix lors de notre rendez-vous.
                 </p>
               </div>
-              <div className="crowd-fiscalite-note">
+              <div className="crowd-fiscalite-note" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.3)' }}>
                 <span className="crowd-fiscalite-note-icon">⚠️</span>
                 <p>
                   Il n'existe <strong>pas d'enveloppe fiscale dédiée</strong> pour le
@@ -788,7 +790,7 @@ export default function CrowdfundingPage() {
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <Link href="/contact" className="fin-btn-secondary">
-                Poser ma question à Cindy →
+                ✉️ Poser une autre question à Cindy
               </Link>
             </div>
           </div>
@@ -843,7 +845,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt à investir<br />intelligemment ?</h2>
             <p>
@@ -855,7 +857,7 @@ export default function CrowdfundingPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Prendre rendez-vous avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
               </Link>
             </div>

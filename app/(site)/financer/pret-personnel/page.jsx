@@ -545,6 +545,14 @@ export default function PretPersonnelPage() {
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+              </p>
+              <Link href="/contact" className="fin-btn-secondary">
+                ✉️ Poser une autre question à Cindy
+              </Link>
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une question à Cindy
               </Link>

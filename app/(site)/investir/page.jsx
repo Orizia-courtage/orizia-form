@@ -311,11 +311,8 @@ export default function InvestirPage() {
               <h2>Mes solutions d'investissement</h2>
               <p>Je sélectionne rigoureusement chaque fonds pour vous offrir le meilleur rapport rendement / risque.</p>
             </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: 20,
-            }}
+            <div
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}
               className="investir-produits-grid"
             >
               {PRODUITS.map(p => (
@@ -323,26 +320,16 @@ export default function InvestirPage() {
                   key={p.href}
                   href={p.href}
                   className="investir-card"
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    padding: 24,
-                    background: '#fff',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: 16,
-                    textDecoration: 'none',
-                    transition: 'all 0.3s ease',
-                  }}
+                  style={{ display: 'flex', flexDirection: 'column', padding: 24, background: 'var(--orizia-white)', border: '1px solid #e2e8f0', borderRadius: 16, textDecoration: 'none', transition: 'all 0.3s ease' }}
                 >
-                  <div style={{ fontSize: '2rem', marginBottom: 12 }}>{p.icon}</div>
-                  <span style={{
-                    display: 'inline-block', background: p.tagColor, color: '#fff',
-                    fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px',
-                    borderRadius: 100, marginBottom: 10, letterSpacing: 0.5,
-                  }}>
+                  {/* Titre + emoji sur la même ligne */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: 900, color: 'var(--orizia-accent)', margin: 0 }}>{p.title}</h3>
+                    <span style={{ fontSize: '1.8rem', flexShrink: 0, marginLeft: 8 }}>{p.icon}</span>
+                  </div>
+                  <span style={{ display: 'inline-block', background: p.tagColor, color: 'var(--orizia-white)', fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100, marginBottom: 10, letterSpacing: 0.5, alignSelf: 'flex-start' }}>
                     {p.tag}
                   </span>
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 900, color: 'var(--orizia-accent)', marginBottom: 4 }}>{p.title}</h3>
                   <p style={{ fontSize: '0.82rem', color: 'var(--orizia-primary)', fontWeight: 600, marginBottom: 10 }}>{p.sub}</p>
                   <p style={{ fontSize: '0.85rem', color: 'var(--orizia-dark)', opacity: 0.75, lineHeight: 1.55, flex: 1 }}>{p.desc}</p>
                   <div style={{ marginTop: 16, fontSize: '0.85rem', fontWeight: 700, color: 'var(--orizia-primary)' }}>
@@ -367,8 +354,8 @@ export default function InvestirPage() {
           </div>
         </section>
 
-        {/* ── POURQUOI ORIZIA (Avec image) ── */}
-        <section className="fin-why">
+        {/* ── POURQUOI ORIZIA ── */}
+        <section style={{ background: 'var(--orizia-light)', padding: '80px 20px' }}>
           <div className="fin-section-inner fin-why-inner">
             <div className="fin-why-text">
               <span className="fin-badge">Pourquoi Orizia ?</span>
@@ -379,9 +366,11 @@ export default function InvestirPage() {
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 24 }}>
                 {POURQUOI.map(item => (
-                  <div key={item.title} style={{ padding: 20, background: 'var(--orizia-light)', borderRadius: 12 }}>
-                    <div style={{ fontSize: '1.6rem', marginBottom: 10 }}>{item.icon}</div>
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--orizia-accent)', marginBottom: 6 }}>{item.title}</h4>
+                  <div key={item.title} style={{ padding: 20, background: 'var(--orizia-gold-light)', borderRadius: 12, border: '1px solid rgba(201,169,110,0.25)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+                      <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                      <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--orizia-accent)', margin: 0 }}>{item.title}</h4>
+                    </div>
                     <p style={{ fontSize: '0.83rem', color: 'var(--orizia-dark)', opacity: 0.75, lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
                   </div>
                 ))}
@@ -402,8 +391,8 @@ export default function InvestirPage() {
           </div>
         </section>
 
-        {/* ── ÉTAPES (ae-accompagnement-layout) ── */}
-        <section className="crowd-section crowd-section--light">
+        {/* ── ÉTAPES ── */}
+        <section style={{ background: 'var(--orizia-white)', padding: '80px 20px' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -439,7 +428,7 @@ export default function InvestirPage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section style={{ background: 'var(--orizia-light)', padding: '80px 20px' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -455,6 +444,9 @@ export default function InvestirPage() {
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+              </p>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une autre question à Cindy
               </Link>
@@ -463,7 +455,7 @@ export default function InvestirPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt à réveiller votre épargne ?</h2>
             <p>
@@ -474,7 +466,7 @@ export default function InvestirPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Planifier mon bilan gratuit →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une question à Cindy
               </Link>
             </div>

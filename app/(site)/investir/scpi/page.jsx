@@ -501,8 +501,10 @@ export default function SCPIPage() {
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
                 <div key={a.title} className="crowd-avantage-card">
-                  <div className="crowd-avantage-icon">{a.icon}</div>
-                  <h3>{a.title}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                    <h3 style={{ margin: 0 }}>{a.title}</h3>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                  </div>
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -619,7 +621,7 @@ export default function SCPIPage() {
         </section>
 
         {/* ── FISCALITÉ ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Fiscalité SCPI 2026</span>
@@ -632,8 +634,10 @@ export default function SCPIPage() {
             </div>
             <div className="scpi-fiscalite-grid">
               <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-icon">🇫🇷</div>
-                <h3>SCPI françaises en direct</h3>
+                <div className="scpi-fiscalite-card-header">
+                  <h3>SCPI françaises en direct</h3>
+                  <span className="scpi-fiscalite-card-icon">🧾</span>
+                </div>
                 <p>
                   Revenus fonciers soumis à votre{' '}
                   <strong>TMI + 17,2%</strong> de prélèvements sociaux.
@@ -643,8 +647,10 @@ export default function SCPIPage() {
                 <div className="scpi-fiscalite-tag scpi-fiscalite-tag--warn">⚠️ Attention aux TMI élevés</div>
               </div>
               <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-icon">🌍</div>
-                <h3>SCPI européennes</h3>
+                <div className="scpi-fiscalite-card-header">
+                  <h3>SCPI européennes</h3>
+                  <span className="scpi-fiscalite-card-icon">🌍</span>
+                </div>
                 <p>
                   Grâce aux{' '}
                   <strong>conventions fiscales bilatérales</strong>, les revenus issus
@@ -654,8 +660,10 @@ export default function SCPIPage() {
                 <div className="scpi-fiscalite-tag scpi-fiscalite-tag--good">✅ Idéal pour TMI 30%+</div>
               </div>
               <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-icon">🛡️</div>
-                <h3>SCPI en assurance vie</h3>
+                <div className="scpi-fiscalite-card-header">
+                  <h3>SCPI en assurance vie</h3>
+                  <span className="scpi-fiscalite-card-icon">🛡️</span>
+                </div>
                 <p>
                   Logée dans une assurance vie, la SCPI bénéficie de la{' '}
                   <strong>flat tax à 30%</strong> — voire 7,5% + abattements après 8 ans.
@@ -664,8 +672,10 @@ export default function SCPIPage() {
                 <div className="scpi-fiscalite-tag scpi-fiscalite-tag--good">✅ Meilleur ratio net/brut</div>
               </div>
               <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-icon">📊</div>
-                <h3>SCPI en nue-propriété</h3>
+                <div className="scpi-fiscalite-card-header">
+                  <h3>SCPI en nue-propriété</h3>
+                  <span className="scpi-fiscalite-card-icon">📊</span>
+                </div>
                 <p>
                   Vous achetez des parts à prix décoté (15–30%) et{' '}
                   <strong>aucun revenu n'est généré</strong> pendant la période de
@@ -684,7 +694,7 @@ export default function SCPIPage() {
         </section>
 
         {/* ── SIMULATEUR ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Simulation interactive</span>
@@ -695,12 +705,14 @@ export default function SCPIPage() {
                 les chiffres en rendez-vous selon les SCPI sélectionnées pour vous.
               </p>
             </div>
-            <SimulateurSCPI />
+            <div style={{ borderRadius: 20, overflow: 'hidden' }}>
+              <SimulateurSCPI />
+            </div>
           </div>
         </section>
 
         {/* ── ACCOMPAGNEMENT (Avec image) ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -755,7 +767,7 @@ export default function SCPIPage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -764,7 +776,7 @@ export default function SCPIPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -772,17 +784,17 @@ export default function SCPIPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une question spécifique à votre situation ? Je vous réponds personnellement sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <Link href="/contact" className="fin-btn-secondary">
-                Poser ma question à Cindy →
+                ✉️ Poser une autre question à Cindy
               </Link>
             </div>
           </div>
         </section>
 
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
@@ -830,7 +842,7 @@ export default function SCPIPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Prête à percevoir vos premiers<br />loyers sans gérer un bien ?</h2>
             <p>
@@ -842,7 +854,7 @@ export default function SCPIPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Prendre rendez-vous avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
               </Link>
             </div>
