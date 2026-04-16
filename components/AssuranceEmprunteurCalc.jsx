@@ -143,7 +143,7 @@ export default function AssuranceEmprunteurCalc() {
         </div>
 
         {/* CTA */}
-        <Link href="/rendez-vous" className="fin-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+        <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
           📅 Calculer mon économie exacte →
         </Link>
         <p className="aec-disclaimer">

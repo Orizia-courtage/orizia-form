@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ParrainageForm from '@/components/ParrainageForm';
 
 // ── 1. MÉTADONNÉES SEO ──
