@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import GarantiesCarousel from '@/components/GarantiesCarousel';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -563,7 +564,7 @@ export default function AssuranceHabitationPage() {
           </div>
         </section>
 
-        {/* ── GARANTIES (Optimisées pour utiliser le CSS de l'assurance emprunteur) ── */}
+        {/* ── GARANTIES (Carousel Base / Option) ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-garanties-head">
@@ -571,27 +572,7 @@ export default function AssuranceHabitationPage() {
               <h2>Ne payez que pour ce qui<br />vous protège vraiment</h2>
               <p>Je traque la "sur-assurance" (payer pour un jardin au 4ème étage) et la "sous-assurance" (matériel high-tech non couvert).</p>
             </div>
-            
-            <div className="ae-garanties-flex">
-              {GARANTIES.map(g => (
-                <div
-                  key={g.label}
-                  className={`ae-garantie-flex-card ${g.obligatoire ? 'ae-garantie-flex-card--base' : 'ae-garantie-flex-card--option'}`}
-                >
-                  <div className="ae-garantie-flex-header">
-                    <span className="ae-garantie-flex-icon">{g.icon}</span>
-                    <div style={{ flex: 1, marginTop: '4px' }}>
-                      <div className="ae-garantie-flex-label" style={{ fontSize: '1.1rem' }}>{g.label}</div>
-                    </div>
-                    <span className={`ae-garantie-flex-badge ${g.obligatoire ? 'ae-garantie-flex-badge--base' : 'ae-garantie-flex-badge--option'}`}>
-                      {g.obligatoire ? 'Base' : 'Option'}
-                    </span>
-                  </div>
-                  <p className="ae-garantie-flex-desc">{g.desc}</p>
-                </div>
-              ))}
-            </div>
-            
+            <GarantiesCarousel />
           </div>
         </section>
 

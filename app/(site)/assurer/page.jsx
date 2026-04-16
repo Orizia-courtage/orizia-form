@@ -251,32 +251,7 @@ export default function AssurerPage() {
           </div>
         </section>
 
-        {/* ── NOS SOLUTIONS ── */}
-        <section className="fin-solutions">
-          <div className="fin-section-inner">
-            <div className="fin-section-head">
-              <span className="fin-badge">Vos contrats au crible</span>
-              <h2>Quelle assurance voulez-vous<br />optimiser aujourd'hui ?</h2>
-              <p>On peut commencer par un seul contrat, ou tout regrouper pour maximiser les économies et simplifier votre gestion.</p>
-            </div>
-            <div className="fin-cards">
-              {SOLUTIONS.map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  <div className="fin-card-icon">{s.icon}</div>
-                  <div className="fin-card-sub">{s.sub}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.description}</p>
-                  <ul className="fin-card-avantages">
-                    {s.avantages.map(a => (
-                      <li key={a}>✓ {a}</li>
-                    ))}
-                  </ul>
-                  <span className="fin-card-link">Optimiser ce contrat →</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        
 
         {/* ── FOCUS ASSURANCE EMPRUNTEUR ── */}
         <section className="fin-process" style={{ background: '#fff' }}>
@@ -397,16 +372,39 @@ export default function AssurerPage() {
                 ✉️ Poser une autre question à Cindy
               </Link>
             </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+            
+          </div>
+        </section>
+
+        {/* ── NOS SOLUTIONS ── */}
+        <section className="fin-solutions">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Vos contrats au crible</span>
+              <h2>Quelle assurance voulez-vous<br />optimiser aujourd'hui ?</h2>
+              <p>On peut commencer par un seul contrat, ou tout regrouper pour maximiser les économies et simplifier votre gestion.</p>
+            </div>
+            <div className="fin-cards">
+              {SOLUTIONS.map(s => (
+                <Link href={s.href} key={s.title} className="fin-card">
+                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-sub">{s.sub}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.description}</p>
+                  <ul className="fin-card-avantages">
+                    {s.avantages.map(a => (
+                      <li key={a}>✓ {a}</li>
+                    ))}
+                  </ul>
+                  <span className="fin-card-link">Optimiser ce contrat →</span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+      <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à arrêter de payer trop cher ?</h2>
             <p>
@@ -416,7 +414,7 @@ export default function AssurerPage() {
               <Link href="/contact" className="fin-btn-primary">
                 ✉️ M'envoyer mes contrats actuels →
               </Link>
-              <Link href="/rendez-vous" className="fin-btn-outline">
+              <Link href="/rendez-vous" className="fin-btn-secondary">
                 📅 Prendre un rendez-vous téléphonique
               </Link>
             </div>

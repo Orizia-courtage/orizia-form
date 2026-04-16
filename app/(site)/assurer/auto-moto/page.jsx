@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import MotoTarifSelector from '@/components/MotoTarifSelector';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -477,43 +478,7 @@ export default function AssuranceAutoMotoPage() {
                 Parce qu'on n'assure pas un scooter 125cc comme une routière de 1000cc.
               </p>
             </div>
-            <div className="am-moto-table-wrap" style={{ overflowX: 'auto' }}>
-              <table className="ae-taux-table">
-                <thead>
-                  <tr>
-                    <th style={{ textAlign: 'left' }}>Cylindrée</th>
-                    <th className="ae-col--banque">Au tiers</th>
-                    <th>Intermédiaire</th>
-                    <th className="ae-col--courtier">Tous risques</th>
-                    <th>Recommandation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {TARIFS_MOTO.map(row => (
-                    <tr key={row.cylindree}>
-                      <td><strong>{row.cylindree}</strong></td>
-                      <td className="ae-col--banque" style={{ fontSize: '0.85rem' }}>{row.tiers}</td>
-                      <td style={{ fontSize: '0.85rem' }}>{row.inter}</td>
-                      <td className="ae-col--courtier" style={{ fontSize: '0.85rem' }}>{row.tousRisques}</td>
-                      <td>
-                        <span style={{
-                          display: 'inline-block',
-                          background: 'rgba(58,111,108,0.1)',
-                          color: 'var(--orizia-primary)',
-                          fontSize: '0.72rem',
-                          fontWeight: 800,
-                          padding: '3px 10px',
-                          borderRadius: '100px',
-                          whiteSpace: 'nowrap',
-                        }}>
-                          {row.recommande}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <MotoTarifSelector />
           </div>
         </section>
 

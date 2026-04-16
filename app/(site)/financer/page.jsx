@@ -308,7 +308,7 @@ export default function FinancerPage() {
             <h2>On finance quoi aujourd'hui ?</h2>
             <p>À chaque étape de vie son financement. Je vous oriente vers le montage bancaire le plus économique pour vous.</p>
           </div>
-          <div className="fin-cards">
+          <div className="fin-cards financer-solutions-grid">
             {SOLUTIONS.map(s => (
               <Link href={s.href} key={s.title} className="fin-card">
                 <div className="fin-card-icon">{s.icon}</div>

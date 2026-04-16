@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import AssuranceEmprunteurCalc from '@/components/AssuranceEmprunteurCalc';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -343,79 +344,18 @@ export default function AssuranceEmprunteurPage() {
           </div>
         </section>
 
-        {/* ── TABLEAU TAUX COMPARATIFS ── */}
+        {/* ── CALCULATEUR TAUX COMPARATIFS ── */}
         <section id="economies" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">La réalité des chiffres</span>
               <h2>Banque vs Courtier :<br />le match est plié d'avance</h2>
               <p>
-                Voici des exemples réels de l'écart de tarification. Le constat est simple : sortir
-                de sa banque permet presque toujours de diviser la facture par deux.
+                Entrez votre situation et voyez en temps réel combien vous pouvez récupérer.
+                Le constat est simple : sortir de sa banque permet presque toujours de diviser la facture par deux.
               </p>
             </div>
-
-            <div className="ae-taux-table-wrap">
-              <table className="ae-taux-table">
-                <thead>
-                  <tr>
-                    <th>Votre Âge</th>
-                    <th className="ae-col--banque">Assurance de la banque</th>
-                    <th className="ae-col--courtier">Contrat via Orizia</th>
-                    <th className="ae-col--gain">Gain net</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {TAUX_COMPARATIF.map(row => (
-                    <tr key={row.age}>
-                      <td><strong>{row.age}</strong></td>
-                      <td className="ae-col--banque ae-taux--bad">
-                        <span>{row.banque}<small>/an</small></span>
-                      </td>
-                      <td className="ae-col--courtier ae-taux--good">
-                        <span>{row.courtier}<small>/an</small></span>
-                      </td>
-                      <td className="ae-col--gain">
-                        <span className="ae-gain-badge">−{row.gain}</span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="ae-economies-grid">
-              {ECONOMIES_EXEMPLES.map(ex => (
-                <div key={ex.profil} className="ae-economie-card">
-                  <div className="ae-economie-profil">{ex.profil}</div>
-                  <div className="ae-economie-pret">{ex.pret}</div>
-                  <div className="ae-economie-taux-row">
-                    <div className="ae-economie-taux ae-economie-taux--bad">
-                      <span>Banque</span>
-                      <strong>{ex.tauxBanque}</strong>
-                    </div>
-                    <div className="ae-economie-arrow">→</div>
-                    <div className="ae-economie-taux ae-economie-taux--good">
-                      <span>Orizia</span>
-                      <strong>{ex.tauxCourt}</strong>
-                    </div>
-                  </div>
-                  {/* ⚠️ borderColor et color sont dynamiques : ils restent en inline */}
-                  <div
-                    className="ae-economie-total"
-                    style={{ borderColor: ex.couleur, color: ex.couleur }}
-                  >
-                    🎯 Je vous fais économiser : <strong>{ex.economie}</strong>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="crowd-risques-note" style={{ marginTop: 24 }}>
-              💡 <strong>Envoyez-moi votre tableau d'amortissement :</strong> je vous dirai en
-              moins de 24h le montant exact que vous allez récupérer sur la durée restante de votre
-              crédit.
-            </div>
+            <AssuranceEmprunteurCalc />
           </div>
         </section>
 
