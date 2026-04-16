@@ -539,7 +539,7 @@ export default function CrowdfundingPage() {
                   répartition optimale selon vos objectifs et votre tolérance au risque.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Définir ma stratégie →
               </Link>
             </div>
@@ -585,7 +585,7 @@ export default function CrowdfundingPage() {
                   vous convaincre.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Analyser mon profil →
               </Link>
             </div>
@@ -762,7 +762,7 @@ export default function CrowdfundingPage() {
                   Cette indépendance est ma garantie de travailler uniquement dans votre intérêt.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Démarrer gratuitement →
               </Link>
             </div>

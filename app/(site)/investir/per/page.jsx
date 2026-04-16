@@ -437,8 +437,8 @@ export default function PERPage() {
               </p>
             </div>
             
-            <div className="ae-probleme-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center', marginTop: '40px' }}>
-              <div className="crowd-avantages-grid" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="ae-probleme-layout" style={{ marginTop: '40px' }}>
+              <div className="ae-probleme-dangers" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {DANGERS.map(d => (
                   <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626', background: '#fff' }}>
                     <div className="crowd-avantage-icon" style={{ display: 'none' }}>{d.icon}</div>
@@ -449,13 +449,15 @@ export default function PERPage() {
                 ))}
               </div>
               
-              <div className="ae-probleme-image" style={{ position: 'relative', width: '100%', height: '100%', minHeight: 400 }}>
+              <div className="ae-probleme-image">
                 <Image 
                   src="/images/banque-pression.webp" 
                   alt="Pression bancaire et complexité fiscale pour le PER"
-                  fill
-                  style={{ objectFit: 'cover', borderRadius: 20 }}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -523,7 +525,7 @@ export default function PERPage() {
                   <span>Déduction fiscale l'année suivante</span>
                 </div>
                 <div className="crowd-schema-arrow">↓</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12 }}>
                   <div className="crowd-schema-step" style={{ background: 'rgba(58,111,108,0.08)' }}>
                     <div className="crowd-schema-icon">🏦</div>
                     <strong>Fonds euros</strong>
@@ -536,7 +538,7 @@ export default function PERPage() {
                   </div>
                 </div>
                 <div className="crowd-schema-arrow">↓</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12 }}>
                   <div className="crowd-schema-step" style={{ padding: '12px 14px' }}>
                     <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>💸</div>
                     <strong style={{ fontSize: '0.8rem' }}>Capital</strong>
@@ -662,7 +664,7 @@ export default function PERPage() {
                   vis-à-vis de votre TMI.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Calculer mon gain →
               </Link>
             </div>

@@ -417,15 +417,18 @@ export default function FinancerPage() {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 36 }}>
-            <Link href="/contact" className="fin-btn-secondary">
-              ✉️ Poser une autre question à Cindy
-            </Link>
-          </div>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+              </p>
+              <Link href="/contact" className="fin-btn-secondary">
+                ✉️ Poser une autre question à Cindy
+              </Link>
+            </div>
         </div>
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="fin-cta">
+      <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
         <div className="fin-cta-inner">
           <h2>Prêt(e) à faire décoller votre projet ?</h2>
           <p>Ne vous épuisez pas à faire le tour des banques. Confiez-moi votre dossier, je m'occupe d'aller chercher le meilleur accord de principe.</p>
@@ -433,7 +436,7 @@ export default function FinancerPage() {
             <Link href="/simulation" className="fin-btn-primary">
               💻 Estimer mon financement →
             </Link>
-            <Link href="/rendez-vous" className="fin-btn-outline">
+            <Link href="/rendez-vous" className="fin-btn-secondary">
               ✉️ Poser une question à Cindy
             </Link>
           </div>

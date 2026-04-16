@@ -573,7 +573,7 @@ export default function AssuranceViePage() {
                   patrimoine existant pour définir l'allocation la plus pertinente pour vous.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Définir mon profil →
               </Link>
             </div>
@@ -724,7 +724,7 @@ export default function AssuranceViePage() {
                   assurance vie selon votre situation réelle, pas une moyenne statistique.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Optimiser ma fiscalité →
               </Link>
             </div>

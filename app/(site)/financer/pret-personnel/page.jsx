@@ -552,11 +552,6 @@ export default function PretPersonnelPage() {
                 ✉️ Poser une autre question à Cindy
               </Link>
             </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question à Cindy
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -604,7 +599,7 @@ export default function PretPersonnelPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à financer votre projet<br />au juste prix ?</h2>
             <p>
@@ -614,7 +609,7 @@ export default function PretPersonnelPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Lancer mon étude avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Lui envoyer un message
               </Link>
             </div>

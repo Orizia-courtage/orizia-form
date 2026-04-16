@@ -527,11 +527,6 @@ export default function CreditImmobilierPage() {
                 ✉️ Poser une autre question à Cindy
               </Link>
             </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question spécifique à Cindy
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -579,7 +574,7 @@ export default function CreditImmobilierPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à savoir combien<br />vous pouvez emprunter ?</h2>
             <p>
@@ -590,7 +585,7 @@ export default function CreditImmobilierPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire un point avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Lui envoyer un message
               </Link>
             </div>

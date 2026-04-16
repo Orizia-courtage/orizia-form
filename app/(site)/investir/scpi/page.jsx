@@ -358,8 +358,8 @@ export default function SCPIPage() {
               </p>
             </div>
 
-            <div className="ae-probleme-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center', marginTop: '40px' }}>
-              <div className="crowd-avantages-grid" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="ae-probleme-layout" style={{ marginTop: '40px' }}>
+              <div className="ae-probleme-dangers" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {DANGERS.map(d => (
                   <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626', background: '#fff' }}>
                     <div className="crowd-avantage-icon" style={{ display: 'none' }}>{d.icon}</div>
@@ -371,14 +371,16 @@ export default function SCPIPage() {
               </div>
 
               {/* IMAGE 1 */}
-              <div className="ae-probleme-image" style={{ position: 'relative', width: '100%', height: '100%', minHeight: 400 }}>
+              <div className="ae-probleme-image">
                 <Image 
-                  src="/images/marche-immobilier-scpi.webp" // Image à ajuster si besoin
+                  src="/images/banque-pression.webp"
                   alt="Analyse de la complexité du marché immobilier des SCPI"
                   title="Éviter les pièges du marché de la pierre-papier"
-                  fill
-                  style={{ objectFit: 'cover', borderRadius: 20 }}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -560,7 +562,7 @@ export default function SCPIPage() {
                   Je la calcule avec vous en rendez-vous, en 30 minutes.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Trouver ma SCPI idéale →
               </Link>
             </div>
@@ -613,7 +615,7 @@ export default function SCPIPage() {
                   vers ces acteurs solides.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary">
+              <Link href="/rendez-vous" className="fin-btn-on-dark">
                 📅 Analyser mon profil →
               </Link>
             </div>

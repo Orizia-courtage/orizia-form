@@ -563,31 +563,26 @@ export default function RegroupementCreditsPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="crowd-section crowd-section--light">
-          <div className="fin-section-inner">
-            <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🔒</div>
-              <div>
-                <strong>Vos données sont sécurisées et ne seront jamais revendues</strong>
-                <p>
-                  Orizia Courtage transmet vos informations uniquement aux établissements partenaires
-                  dans le cadre de votre demande, conformément au RGPD.
-                </p>
-              </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+              </p>
+              <Link href="/contact" className="fin-btn-secondary">
+                ✉️ Poser une autre question à Cindy
+              </Link>
             </div>
           </div>
         </section>
 
-        <section className="crowd-section crowd-section--white">
+        
+
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
@@ -630,7 +625,7 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Vos mensualités pèsent trop.<br />Faites-les baisser dès maintenant.</h2>
             <p>
@@ -642,7 +637,7 @@ export default function RegroupementCreditsPage() {
               <a href="#formulaire" className="fin-btn-primary">
                 🔍 Démarrer mon étude gratuite →
               </a>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
               </Link>
             </div>

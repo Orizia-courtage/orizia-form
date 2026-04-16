@@ -570,9 +570,9 @@ export default function AssuranceEmprunteurPage() {
               <span className="fin-badge">Cassons les mythes</span>
               <h2>Ce que votre banquier<br />va essayer de vous faire croire</h2>
             </div>
-            <div className="av-objections-grid">
+            <div className="av-objections-grid" >
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card">
+                <div key={i} className="av-objection-card" style={{ background: 'var(--orizia-white)' }}>
                   <div className="av-objection-q">{o.q}</div>
                   <div className="av-objection-r">{o.r}</div>
                 </div>
@@ -591,7 +591,7 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -601,11 +601,6 @@ export default function AssuranceEmprunteurPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
-            </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une autre question à Cindy
               </Link>
@@ -639,7 +634,7 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Ne laissez plus la banque<br />décider pour vous</h2>
             <p>
@@ -651,7 +646,7 @@ export default function AssuranceEmprunteurPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire mon audit avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Lui envoyer un message
               </Link>
             </div>

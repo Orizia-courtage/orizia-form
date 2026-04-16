@@ -492,7 +492,7 @@ export default function RachatSoultePage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à conserver votre bien ?</h2>
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
@@ -500,7 +500,7 @@ export default function RachatSoultePage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Étudier mon rachat de soulte →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une question
               </Link>
             </div>

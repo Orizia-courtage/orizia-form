@@ -611,7 +611,7 @@ export default function AssuranceAutoMotoPage() {
             </div>
             <div className="av-objections-grid">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card">
+                <div key={i} className="av-objection-card" style={{ background: 'var(--orizia-white)' }}>
                   <div className="av-objection-q">{o.q}</div>
                   <div className="av-objection-r">{o.r}</div>
                 </div>
@@ -630,7 +630,7 @@ export default function AssuranceAutoMotoPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -643,12 +643,7 @@ export default function AssuranceAutoMotoPage() {
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une autre question à Cindy
               </Link>
-            </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
-            </div>
+            </div>          
           </div>
         </section>
 
@@ -697,7 +692,7 @@ export default function AssuranceAutoMotoPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta">
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
@@ -707,7 +702,7 @@ export default function AssuranceAutoMotoPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Lancer ma comparaison avec Cindy →
               </Link>
-              <Link href="/contact" className="fin-btn-outline">
+              <Link href="/contact" className="fin-btn-secondary">
                 ✉️ M'envoyer un message
               </Link>
             </div>
