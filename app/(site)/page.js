@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
+import AnimatedStats from '@/components/AnimatedStats';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -329,20 +330,7 @@ export default function HomePage() {
         </section>
 
         {/* ── STATS ── */}
-        <section style={{ backgroundColor: 'var(--orizia-accent)', padding: '40px 20px' }}>
-          <div className="home-stats-grid">
-            {STATS.map(s => (
-              <div key={s.label}>
-                <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#E6F5F2' }}>
-                  {s.value}
-                </div>
-                <div style={{ fontSize: '0.9rem', color: 'rgba(230,245,242,0.75)', fontWeight: 600 }}>
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <AnimatedStats />
 
         {/* ── SERVICES ── */}
         <section style={{ padding: '80px 20px', backgroundColor: 'var(--orizia-light)' }}>

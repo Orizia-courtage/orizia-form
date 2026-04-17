@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import PERCalculateur from '@/components/PERCalculateur';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -589,37 +590,17 @@ export default function PERPage() {
           </div>
         </section>
 
-        {/* ── EXEMPLES FISCAUX ── */}
+        {/* ── CALCULATEUR FISCAL PER ── */}
         <section id="fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Exemples chiffrés 2026</span>
+              <span className="fin-badge">Calculateur fiscal 2026</span>
               <h2>Combien allez-vous<br />récupérer sur votre impôt ?</h2>
               <p>
-                L'économie fiscale dépend de votre tranche marginale d'imposition (TMI).
-                Plus votre TMI est élevé, plus le PER est rentable — dès la première année.
+                Sélectionnez votre TMI et ajustez votre versement pour voir votre économie en temps réel.
               </p>
             </div>
-
-            <div className="per-fiscal-grid">
-              {FISCAL_EXEMPLES.map((ex) => (
-                <div key={ex.tmi} className="per-fiscal-card">
-                  <div className="per-fiscal-profil">{ex.profil}</div>
-                  <div className="per-fiscal-tmi">TMI {ex.tmi}</div>
-                  <div className="per-fiscal-row">
-                    <span>Versement PER</span>
-                    <strong>{ex.versement.toLocaleString('fr-FR')}€</strong>
-                  </div>
-                  <div className="per-fiscal-row per-fiscal-row--gain">
-                    <span>🎯 Impôt économisé</span>
-                    <strong className="per-fiscal-gain">−{ex.gain.toLocaleString('fr-FR')}€</strong>
-                  </div>
-                  <div className="per-fiscal-net">
-                    Coût réel net : <strong>{(ex.versement - ex.gain).toLocaleString('fr-FR')}€</strong>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <PERCalculateur />
 
             <div className="per-plafonds-bloc">
               <div className="per-plafonds-header">

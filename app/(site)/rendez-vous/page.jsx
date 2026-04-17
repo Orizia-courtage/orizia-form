@@ -1,3 +1,5 @@
+import RdvReassurance from '@/components/RdvReassurance';
+
 export const metadata = {
   title: 'Prendre rendez-vous avec Cindy Urbansky — Courtière Indépendante | Orizia Courtage',
   description:
@@ -153,6 +155,9 @@ export default function RendezVous() {
       </section>
 
       <section className="rdv-cal-section">
+        <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 20px' }}>
+          <RdvReassurance />
+        </div>
         <div className="rdv-cal-wrapper" data-hide-header>
           <iframe
             src="https://cal.eu/cindy-urbansky/rendez-vous?embed=true"

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AssuranceEmprunteurCalc from '@/components/AssuranceEmprunteurCalc';
+import LemoineQuiz from '@/components/LemoineQuiz';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -360,6 +361,20 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── LOI LEMOINE ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head" style={{ marginBottom: 32 }}>
+              <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
+                🧪 Êtes-vous éligible ?
+              </span>
+              <h2>Vérifiez votre éligibilité<br />à la loi Lemoine en 3 questions</h2>
+              <p>Répondez à 3 questions pour savoir si vous pouvez changer d'assurance sans questionnaire médical.</p>
+            </div>
+            <LemoineQuiz />
+          </div>
+        </section>
+
+        {/* ── LOI LEMOINE DÉTAIL ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="ae-lemoine-banner">

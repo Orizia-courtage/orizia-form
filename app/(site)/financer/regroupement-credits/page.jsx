@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import OriziaForm from '@/components/OriziaForm';
+import FormStepper from '@/components/FormStepper';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -550,6 +551,7 @@ export default function RegroupementCreditsPage() {
               </p>
             </div>
 
+            <FormStepper />
             <OriziaForm />
           </div>
         </section>

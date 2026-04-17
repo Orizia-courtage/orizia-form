@@ -7,6 +7,7 @@ export default function ParrainageForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState({});
+  const [step, setStep] = useState(1); // 1 = parrain, 2 = filleul
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,6 +70,18 @@ export default function ParrainageForm() {
 
   return (
     <form onSubmit={handleSubmit} className="parrainage-form" noValidate>
+
+      {/* ── Stepper ── */}
+      <div className="parr-stepper">
+        <div className="parr-stepper-header">
+          <span className="parr-stepper-step">Étape {step} / 2</span>
+          <span className="parr-stepper-label">{step === 1 ? 'Vos informations' : 'Informations de votre filleul'}</span>
+        </div>
+        <div className="parr-stepper-bar">
+          <div className="parr-stepper-fill" style={{ width: step === 1 ? '50%' : '100%' }} />
+        </div>
+      </div>
+
       <div className="form-grid">
         <div className="form-block">
           <h3 className="form-block-title parrain-title">INFORMATIONS DU PARRAIN</h3>

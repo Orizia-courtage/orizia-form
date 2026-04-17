@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import ContactSujetsFilter from '@/components/ContactSujetsFilter';
 
 export const metadata = {
   title: 'Contacter Orizia Courtage — Prenez Rendez-vous Gratuitement',
@@ -281,15 +282,7 @@ export default function ContactPage() {
                 Consultez-la avant votre rendez-vous pour gagner du temps.
               </p>
             </div>
-            <div className="contact-sujets-grid">
-              {SUJETS.map(s => (
-                <Link key={s.label} href={s.href} className="contact-sujet-card">
-                  <span className="contact-sujet-icon">{s.icon}</span>
-                  <span className="contact-sujet-label">{s.label}</span>
-                  <span className="contact-sujet-arrow">→</span>
-                </Link>
-              ))}
-            </div>
+            <ContactSujetsFilter />
             <p style={{ textAlign: 'center', fontSize: '0.85rem', opacity: 0.6, marginTop: 20 }}>
               Votre projet ne figure pas dans la liste ?{' '}
               <a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: 'var(--orizia-primary)', fontWeight: 700 }}>

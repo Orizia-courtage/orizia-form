@@ -808,37 +808,30 @@ export default function SCPIPage() {
               </p>
             </div>
             <div className="fin-cards">
-              {[
-                {
-                  href: '/investir/crowdfunding',
-                  icon: '📈',
-                  title: 'Crowdfunding immobilier',
-                  sub: 'Financement participatif',
-                  text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.',
-                },
-                {
-                  href: '/investir/assurance-vie',
-                  icon: '🛡️',
-                  title: 'Assurance Vie',
-                  sub: 'Épargne & transmission',
-                  text: 'L\'enveloppe pour loger vos SCPI et bénéficier d\'une fiscalité optimisée. Idéal pour les profils TMI 30%+ qui veulent garder la liquidité.',
-                },
-                {
-                  href: '/investir/per',
-                  icon: '🏦',
-                  title: 'PER',
-                  sub: 'Préparez votre retraite',
-                  text: 'Réduisez vos impôts dès cette année et préparez votre retraite. Combiné aux SCPI dans une AV, un duo particulièrement puissant.',
-                },
-              ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  <div className="fin-card-icon">{s.icon}</div>
-                  <div className="fin-card-sub">{s.sub}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
-                </Link>
-              ))}
+              <Link href="/investir/crowdfunding" className="fin-card">
+                <div className="fin-card-icon">📈</div>
+                <div className="fin-card-sub">Financement participatif</div>
+                <h3>Crowdfunding immobilier</h3>
+                <p>8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
+                <span className="fin-card-link">En savoir plus →</span>
+              </Link>
+              <Link href="/investir/assurance-vie" className="fin-card" style={{ position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 14, right: 14, background: 'var(--orizia-primary)', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap' }}>
+                  ✅ Fiscalité optimisée
+                </div>
+                <div className="fin-card-icon">🛡️</div>
+                <div className="fin-card-sub">Épargne & transmission</div>
+                <h3>Assurance Vie</h3>
+                <p>L'enveloppe pour loger vos SCPI et bénéficier d'une fiscalité optimisée. Idéal pour les profils TMI 30%+ qui veulent garder la liquidité.</p>
+                <span className="fin-card-link">En savoir plus →</span>
+              </Link>
+              <Link href="/investir/per" className="fin-card">
+                <div className="fin-card-icon">🏦</div>
+                <div className="fin-card-sub">Préparez votre retraite</div>
+                <h3>PER</h3>
+                <p>Réduisez vos impôts dès cette année et préparez votre retraite. Combiné aux SCPI dans une AV, un duo particulièrement puissant.</p>
+                <span className="fin-card-link">En savoir plus →</span>
+              </Link>
             </div>
           </div>
         </section>

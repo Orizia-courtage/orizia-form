@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import CapaciteEmpruntCalc from '@/components/CapaciteEmpruntCalc';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -485,6 +486,18 @@ export default function CreditImmobilierPage() {
           </div>
         </section>
 
+        {/* ── SIMULATEUR CAPACITÉ D'EMPRUNT ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Estimation rapide</span>
+              <h2>Combien pouvez-vous<br />emprunter ?</h2>
+              <p>Ajustez vos revenus et la durée pour obtenir une première estimation. Je calcule votre capacité exacte en rendez-vous.</p>
+            </div>
+            <CapaciteEmpruntCalc />
+          </div>
+        </section>
+
         {/* ── OBJECTIONS ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
@@ -538,37 +551,31 @@ export default function CreditImmobilierPage() {
               <h2>On sécurise le reste de votre projet ?</h2>
             </div>
             <div className="fin-cards">
-              {[
-                {
-                  href: '/assurer/assurance-emprunteur',
-                  icon: '📋',
-                  title: 'Assurance Emprunteur',
-                  sub: 'L\'économie cachée',
-                  text: 'Obligatoire avec votre prêt immobilier. Découvrez comment je la négocie pour vous faire économiser des milliers d\'euros.',
-                },
-                {
-                  href: '/assurer/assurance-habitation',
-                  icon: '🏠',
-                  title: 'Assurance Habitation',
-                  sub: 'Protéger votre nouvel achat',
-                  text: 'Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.',
-                },
-                {
-                  href: '/financer/rachat-soulte',
-                  icon: '⚖️',
-                  title: 'Rachat de soulte',
-                  sub: 'Divorce · Séparation · Succession',
-                  text: 'Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.',
-                },
-              ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  <div className="fin-card-icon">{s.icon}</div>
-                  <div className="fin-card-sub">{s.sub}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
-                </Link>
-              ))}
+              {/* Carte avec badge contextuel */}
+              <Link href="/assurer/assurance-emprunteur" className="fin-card" style={{ position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 14, right: 14, background: '#16a34a', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap' }}>
+                  💰 Économisez jusqu'à 15 000€
+                </div>
+                <div className="fin-card-icon">📋</div>
+                <div className="fin-card-sub">L'économie cachée</div>
+                <h3>Assurance Emprunteur</h3>
+                <p>Obligatoire avec votre prêt immobilier. Découvrez comment je la négocie pour vous faire économiser des milliers d'euros.</p>
+                <span className="fin-card-link">Découvrir →</span>
+              </Link>
+              <Link href="/assurer/assurance-habitation" className="fin-card">
+                <div className="fin-card-icon">🏠</div>
+                <div className="fin-card-sub">Protéger votre nouvel achat</div>
+                <h3>Assurance Habitation</h3>
+                <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
+                <span className="fin-card-link">Découvrir →</span>
+              </Link>
+              <Link href="/financer/rachat-soulte" className="fin-card">
+                <div className="fin-card-icon">⚖️</div>
+                <div className="fin-card-sub">Divorce · Séparation · Succession</div>
+                <h3>Rachat de soulte</h3>
+                <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
+                <span className="fin-card-link">Découvrir →</span>
+              </Link>
             </div>
           </div>
         </section>

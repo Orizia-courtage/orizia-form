@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import GarantiesCarousel from '@/components/GarantiesCarousel';
+import ProfilHabitationSelector from '@/components/ProfilHabitationSelector';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -538,29 +539,7 @@ export default function AssuranceHabitationPage() {
               <h2>On ajuste le contrat<br />à votre statut réel</h2>
               <p>Parce qu'un locataire d'un studio n'a pas les mêmes besoins qu'un propriétaire d'une villa avec piscine.</p>
             </div>
-            <div className="av-profils-grid">
-              {PROFILS.map(p => (
-                <div
-                  key={p.title}
-                  className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}
-                  style={p.featured ? { borderColor: '#d97706' } : {}}
-                >
-                  {p.featured && (
-                    <div className="av-profil-badge" style={{ background: '#d97706' }}>
-                      ⭐ Le plus courant
-                    </div>
-                  )}
-                  <div className="av-profil-icon">{p.icon}</div>
-                  <h3>{p.title}</h3>
-                  <p className="av-profil-desc" style={{ marginBottom: 14 }}>{p.desc}</p>
-                  <ul className="ah-profil-points">
-                    {p.points.map((pt, i) => (
-                      <li key={i}>✅ {pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <ProfilHabitationSelector />
           </div>
         </section>
 

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import SimulateurCrowdfunding from '@/components/SimulateurCrowdfunding';
+import PlacementsComparatif from '@/components/PlacementsComparatif';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -497,40 +498,10 @@ export default function CrowdfundingPage() {
               <p>
                 Le crowdfunding n'est pas fait pour 100% de votre épargne — mais il a
                 une place précise dans une stratégie patrimoniale bien construite.
-                Voici où il se situe objectivement.
+                Cliquez sur chaque placement pour comparer.
               </p>
             </div>
-            <div className="crowd-table-wrap">
-              <table className="crowd-table">
-                <thead>
-                  <tr>
-                    <th>Placement</th>
-                    <th>Rendement</th>
-                    <th>Durée recommandée</th>
-                    <th>Niveau de risque</th>
-                    <th>Liquidité</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {COMPARATIF.map(row => (
-                    <tr key={row.produit} className={row.highlight ? 'crowd-table-highlight' : ''}>
-                      <td><strong>{row.produit}</strong></td>
-                      <td>
-                        <strong style={row.highlight ? { color: 'var(--orizia-primary)' } : {}}>
-                          {row.rendement}
-                        </strong>
-                      </td>
-                      <td>{row.duree}</td>
-                      <td>{row.risque}</td>
-                      <td>{row.liquidite}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="crowd-table-note">
-              ⚠️ Rendements indicatifs. Tout investissement comporte un risque de perte en capital.
-            </p>
+            <PlacementsComparatif />
             <div className="crowd-cta-band" style={{ marginTop: 36 }}>
               <div>
                 <strong>Quelle allocation pour votre profil ?</strong>
