@@ -2,37 +2,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AssuranceEmprunteurCalc from '@/components/AssuranceEmprunteurCalc';
 import LemoineQuiz from '@/components/LemoineQuiz';
+import EmprunteurChecklist from '@/components/EmprunteurChecklist';
+import ReadingProgressEmprunteur from '@/components/ReadingProgressEmprunteur';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
   description:
     "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat à tout moment et vous fais économiser jusqu'à 15 000€. Cindy Urbansky, courtière dans les Hauts-de-France.",
-  keywords: [
-    'assurance emprunteur loi lemoine',
-    'délégation assurance prêt immobilier',
-    'changer assurance emprunteur courtier',
-    'économiser assurance de prêt',
-    'résiliation assurance emprunteur banque',
-    'courtier assurance emprunteur Hauts-de-France',
-    'assurance prêt moins chère 2026',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
     title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
-    description: 'Ne laissez plus votre banque monopoliser votre assurance de prêt. Je compare les offres, gère la résiliation et vous fais économiser massivement.',
+    description: "Ne laissez plus votre banque monopoliser votre assurance de prêt. Économisez jusqu'à 15 000€ grâce à la loi Lemoine. Je compare, je résilie, je gère tout.",
     url: 'https://orizia-courtage.fr/assurer/assurance-emprunteur',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/loi-lemoine.webp',
+        url: 'https://orizia-courtage.fr/images/og-assurance-emprunteur.jpg',
         width: 1200,
         height: 630,
         alt: "Délégation d'assurance emprunteur avec Orizia Courtage",
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -47,7 +40,7 @@ const assuranceEmprunteurSchema = {
         { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' },
         { '@type': 'ListItem', position: 3, name: 'Assurance Emprunteur', item: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' }
       ]
-      },
+    },
     {
       '@type': 'Service',
       name: "Courtage et Délégation d'Assurance Emprunteur",
@@ -62,86 +55,79 @@ const assuranceEmprunteurSchema = {
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
         { '@type': 'City', name: 'Marcq-en-Barœul' },
-        { '@type': 'Country', name: 'France' } // Tu peux gérer à distance donc on inclut la France
-      ],  
+        { '@type': 'Country', name: 'France' }
+      ],
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Étude de faisabilité et gestion administrative de la résiliation 100% gratuites pour l'emprunteur (rémunération par l'assureur partenaire).",
+          "Étude de faisabilité et gestion administrative de la résiliation 100% gratuites pour l'emprunteur.",
       },
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: "Qu'est-ce que l'assurance emprunteur exactement ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "C'est le contrat qui rembourse votre crédit immobilier à votre place si vous avez un accident de la vie (décès, invalidité, arrêt de travail). C'est imposé par la banque, mais ce que l'on oublie souvent de vous dire, c'est qu'elle représente jusqu'à 40% du coût total de votre crédit.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "Puis-je vraiment changer d'assurance quand je veux ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l'assurance de votre banque à n'importe quel moment. Plus besoin d'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "Combien d'argent puis-je espérer récupérer ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "C'est l'un des postes où l'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "Ma banque a-t-elle le droit de refuser mon nouveau contrat ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Non. La loi l'interdit. Si le nouveau contrat que je vous propose couvre exactement les mêmes choses que celui de la banque (ce qu'on appelle l'équivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la résistance, je monte au créneau pour vous.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "Vais-je devoir passer des examens médicaux ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "C'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "Pourquoi faire appel à vous plutôt que de chercher moi-même ?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d'achat sans la charge mentale. Mon service est gratuit pour vous, je suis rémunérée par l'assureur.",
-          },
-        },
-      ],
     },
   ],
 };
 
-const faqSchema = assuranceEmprunteurSchema['@graph'][2];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: "Qu'est-ce que l'assurance emprunteur exactement ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "C'est le contrat qui rembourse votre crédit immobilier à votre place si vous avez un accident de la vie (décès, invalidité, arrêt de travail). C'est imposé par la banque, mais ce que l'on oublie souvent de vous dire, c'est qu'elle représente jusqu'à 40% du coût total de votre crédit.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Puis-je vraiment changer d'assurance quand je veux ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l'assurance de votre banque à n'importe quel moment. Plus besoin d'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Combien d'argent puis-je espérer récupérer ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "C'est l'un des postes où l'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Ma banque a-t-elle le droit de refuser mon nouveau contrat ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Non. La loi l'interdit. Si le nouveau contrat que je vous propose couvre exactement les mêmes choses que celui de la banque (ce qu'on appelle l'équivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la résistance, je monte au créneau pour vous.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Vais-je devoir passer des examens médicaux ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "C'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Pourquoi faire appel à vous plutôt que de chercher moi-même ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d'achat sans la charge mentale. Mon service est gratuit pour vous, je suis rémunérée par l'assureur.",
+      },
+    },
+  ],
+};
 
 const CHIFFRES = [
   { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: '📊' },
   { value: '15\u00A0000€', label: 'Économies moyennes constatées', icon: '💰' },
   { value: '−50%', label: "Sur votre taux d'assurance", icon: '📉' },
   { value: '0\u00A0effort', label: 'Je gère toute la paperasse', icon: '⚡' },
-];
-
-const TAUX_COMPARATIF = [
-  { age: '26 ans', banque: '0,23%', courtier: '0,08%', gain: '65%' },
-  { age: '36 ans', banque: '0,32%', courtier: '0,14%', gain: '56%' },
-  { age: '46 ans', banque: '0,40%', courtier: '0,22%', gain: '45%' },
-  { age: '56 ans', banque: '0,48%', courtier: '0,30%', gain: '37%' },
 ];
 
 const ECONOMIES_EXEMPLES = [
@@ -191,22 +177,27 @@ export default function AssuranceEmprunteurPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(assuranceEmprunteurSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <main>
+        <ReadingProgressEmprunteur />
 
         {/* ── HERO ── */}
         <section className="fin-hero ae-hero">
-  <div className="ae-hero-bg">
-    <Image
-      src="/images/discret-hero-bg.webp"
-      alt=""
-      fill
-      priority
-      quality={80}
-      className="hero-image" /* On utilise une classe ici */
-      sizes="100vw"
-    />
-  </div>
+          <div className="ae-hero-bg">
+            <Image
+              src="/images/discret-hero-bg.webp"
+              alt=""
+              fill
+              priority
+              quality={80}
+              className="hero-image"
+              sizes="100vw"
+            />
+          </div>
 
           <div className="ae-hero-inner">
             <nav aria-label="breadcrumb" className="ae-breadcrumb">
@@ -237,7 +228,7 @@ export default function AssuranceEmprunteurPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer mon économie avec Cindy →
               </Link>
-              <Link href="#economies" className="fin-btn-secondary">
+              <Link href="#section-calculateur" className="fin-btn-secondary">
                 💰 Voir les vrais chiffres
               </Link>
             </div>
@@ -312,29 +303,28 @@ export default function AssuranceEmprunteurPage() {
             </div>
 
             <div className="ae-probleme-layout">
-  <div className="ae-probleme-dangers">
-    {DANGERS.map(d => (
-      <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-        <div className="crowd-avantage-icon">{d.icon}</div>
-        <h3>{d.title}</h3>
-        <p>{d.text}</p>
-      </div>
-    ))}
-  </div>
-
-  <div className="ae-probleme-image">
-    <Image
-      src="/images/banque-pression.webp"
-      alt="Client surpris par le coût caché de son assurance emprunteur bancaire"
-      title="Les coûts cachés de l'assurance bancaire"
-      width={716}
-      height={1024}
-      style={{ width: '100%', height: 'auto', display: 'block' }}
-      sizes="(max-width: 768px) 100vw, 50vw"
-      loading="lazy"
-    />
-  </div>
-</div>
+              <div className="ae-probleme-dangers">
+                {DANGERS.map(d => (
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
+                    <div className="crowd-avantage-icon">{d.icon}</div>
+                    <h3>{d.title}</h3>
+                    <p>{d.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-probleme-image">
+                <Image
+                  src="/images/banque-pression.webp"
+                  alt="Client surpris par le coût caché de son assurance emprunteur bancaire"
+                  title="Les coûts cachés de l'assurance bancaire"
+                  width={716}
+                  height={1024}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
+            </div>
 
             <div className="ae-probleme-cta">
               <p className="ae-probleme-cta-text">Arrêtez l'hémorragie financière dès aujourd'hui.</p>
@@ -346,7 +336,7 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── CALCULATEUR TAUX COMPARATIFS ── */}
-        <section id="economies" className="crowd-section crowd-section--light">
+        <section id="section-calculateur" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">La réalité des chiffres</span>
@@ -357,11 +347,39 @@ export default function AssuranceEmprunteurPage() {
               </p>
             </div>
             <AssuranceEmprunteurCalc />
+
+            {/* Exemples concrets */}
+            <div className="ae-economies-grid">
+              <div className="ae-economies-title">📊 Exemples concrets de clients accompagnés</div>
+              <div className="ae-economies-cards">
+                {ECONOMIES_EXEMPLES.map(e => (
+                  <div key={e.profil} className="ae-economie-card" style={{ borderTopColor: e.couleur }}>
+                    <div className="ae-economie-profil">{e.profil}</div>
+                    <div className="ae-economie-pret">{e.pret}</div>
+                    <div className="ae-economie-taux-row">
+                      <div className="ae-economie-taux-item ae-economie-taux-item--bad">
+                        <div className="ae-economie-taux-label">Banque</div>
+                        <div className="ae-economie-taux-val">{e.tauxBanque}/an</div>
+                      </div>
+                      <div className="ae-economie-taux-arrow">→</div>
+                      <div className="ae-economie-taux-item ae-economie-taux-item--good">
+                        <div className="ae-economie-taux-label">Orizia</div>
+                        <div className="ae-economie-taux-val" style={{ color: e.couleur }}>{e.tauxCourt}/an</div>
+                      </div>
+                    </div>
+                    <div className="ae-economie-gain" style={{ color: e.couleur, borderTopColor: `${e.couleur}20` }}>
+                      <span className="ae-economie-gain-label">Économie totale</span>
+                      <span className="ae-economie-gain-val">{e.economie}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ── LOI LEMOINE ── */}
-        <section className="crowd-section crowd-section--white">
+        {/* ── LOI LEMOINE QUIZ ── */}
+        <section id="section-lemoine" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head" style={{ marginBottom: 32 }}>
               <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
@@ -375,7 +393,7 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── LOI LEMOINE DÉTAIL ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-lemoine-banner">
               <Image
@@ -426,7 +444,7 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── GARANTIES ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-garanties" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="ae-garanties-head">
               <span className="fin-badge">Les garanties</span>
@@ -462,7 +480,7 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon engagement : le "zéro friction"</span>
@@ -474,32 +492,30 @@ export default function AssuranceEmprunteurPage() {
             </div>
 
             <div className="ae-accompagnement-layout">
-  <div className="ae-accompagnement-etapes">
-    {ETAPES.map(e => (
-      <div key={e.n} className="ae-etape-row">
-        <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
-        <div>
-          <h3>{e.title}</h3>
-          <p>{e.text}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-
-  <div className="ae-accompagnement-image">
-    <Image
-      src="/images/dossier-courtage.webp"
-      alt="Courtière Orizia Courtage gérant un dossier de délégation d'assurance"
-      title="Un accompagnement de A à Z"
-      width={863}
-      height={1080}
-      /* On retire le objectFit: 'cover' et on met height: 'auto' */
-      style={{ width: '100%', height: 'auto', display: 'block' }}
-      sizes="(max-width: 768px) 100vw, 50vw"
-      loading="lazy"
-    />
-  </div>
-</div>
+              <div className="ae-accompagnement-etapes">
+                {ETAPES.map(e => (
+                  <div key={e.n} className="ae-etape-row">
+                    <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p>{e.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="ae-accompagnement-image">
+                <Image
+                  src="/images/dossier-courtage.webp"
+                  alt="Courtière Orizia Courtage gérant un dossier de délégation d'assurance"
+                  title="Un accompagnement de A à Z"
+                  width={863}
+                  height={1080}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
+            </div>
 
             <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
               <div className="av-gratuit-icon">🤝</div>
@@ -519,20 +535,27 @@ export default function AssuranceEmprunteurPage() {
         </section>
 
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Cassons les mythes</span>
               <h2>Ce que votre banquier<br />va essayer de vous faire croire</h2>
             </div>
-            <div className="av-objections-grid" >
+            <div className="crowd-faq-list">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card" style={{ background: 'var(--orizia-white)' }}>
-                  <div className="av-objection-q">{o.q}</div>
-                  <div className="av-objection-r">{o.r}</div>
-                </div>
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <EmprunteurChecklist />
           </div>
         </section>
 
@@ -570,13 +593,18 @@ export default function AssuranceEmprunteurPage() {
               <span className="fin-badge">Pendant qu'on y est</span>
               <h2>Optimisez tout votre<br />budget immobilier</h2>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--white">
               {[
-                { href: '/financer/credit-immobilier',      icon: '🏡', title: 'Crédit Immobilier',      sub: 'Votre futur achat',  text: "Vous achetez un nouveau bien ? Ne signez pas les yeux fermés. Je négocie à la fois votre taux de prêt ET votre assurance dès le départ." },
-                { href: '/investir/per',                    icon: '💰', title: 'Plan Épargne Retraite',  sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment." },
-                { href: '/assurer/assurance-habitation',    icon: '🏠', title: 'Assurance Habitation',   sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte." },
+                { href: '/financer/credit-immobilier', icon: '🏡', title: 'Crédit Immobilier', sub: 'Votre futur achat', text: "Vous achetez un nouveau bien ? Ne signez pas les yeux fermés. Je négocie à la fois votre taux de prêt ET votre assurance dès le départ.", badge: '🏡 Négociez aussi votre taux' },
+                { href: '/investir/per', icon: '💰', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: '🔗 Réinvestissez vos économies' },
+                { href: '/assurer/assurance-habitation', icon: '🏠', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: null },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
+                <Link href={s.href} key={s.title} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                  {s.badge && (
+                    <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>
+                      {s.badge}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>

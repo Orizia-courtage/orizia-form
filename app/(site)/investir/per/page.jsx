@@ -363,7 +363,7 @@ export default function PERPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer mon gain fiscal →
               </Link>
-              <Link href="#fiscalite" className="fin-btn-secondary">
+              <Link href="#section-fiscalite" className="fin-btn-secondary">
                 🧮 Voir les exemples chiffrés
               </Link>
             </div>

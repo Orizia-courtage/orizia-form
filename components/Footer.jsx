@@ -120,8 +120,7 @@ export default function Footer() {
 
           <div style={{ fontSize: '0.8rem', opacity: 0.7, lineHeight: 1.6, backgroundColor: 'rgba(255,255,255,0.05)', padding: '10px 12px', borderRadius: 8 }}>
             <strong>Horaires :</strong><br/>
-            Lun - Ven : 9h00 – 19h00<br/>
-            Samedi : 9h00 – 13h00
+            Lun - Ven : 9h00 – 18h00<br/>
           </div>
         </div>
 

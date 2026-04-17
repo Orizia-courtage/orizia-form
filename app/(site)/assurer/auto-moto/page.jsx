@@ -1,41 +1,36 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import MotoTarifSelector from '@/components/MotoTarifSelector';
+import AutoFormuleSelector from '@/components/AutoFormuleSelector';
+import AutoProfilSelector from '@/components/AutoProfilSelector';
+import AutoChecklist from '@/components/AutoChecklist';
+import ReadingProgressAutoMoto from '@/components/ReadingProgressAutoMoto';
 
-// ── 1. MÉTADONNÉES SEO (Optimisées) ──
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
+  title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs à Lille & Hauts-de-France | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtière dans les Hauts-de-France, compare les offres, trouve le meilleur tarif et gère la résiliation.',
-  keywords: [
-    'assurance auto courtier',
-    'assurance moto pas chère',
-    'résilier assurance auto loi hamon',
-    'courtier indépendant auto moto Hauts-de-France',
-    'devis assurance auto jeune conducteur',
-    'comparatif assurance auto moto',
-    'assurance auto tous risques tiers',
-  ],
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtière dans les Hauts-de-France, compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon. Gratuit.',
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
-    description: 'Ne subissez plus les hausses de tarifs de votre assureur. Je compare le marché, optimise vos garanties et m\'occupe de résilier votre ancien contrat. Gratuit et indépendant.',
-    url: 'https://orizia-courtage.fr/assurer/auto-moto', // ⚠️ Corrigé pour ton domaine exact
+    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon. Gratuit et indépendant.',
+    url: 'https://orizia-courtage.fr/assurer/auto-moto',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/assurance-auto-moto.webp',
+        url: 'https://orizia-courtage.fr/images/og-auto-moto.jpg',
         width: 1200,
         height: 630,
-        alt: "Comparaison et courtage en assurance auto moto avec Orizia Courtage - Cindy Urbansky",
+        alt: 'Comparaison et courtage en assurance auto moto avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
-// ── 2. DONNÉES STRUCTURÉES (Optimisées E-E-A-T & GEO) ──
+// ── 2. DONNÉES STRUCTURÉES ──
 const assuranceAutoMotoSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -69,158 +64,64 @@ const assuranceAutoMotoSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré (rémunération par la compagnie d'assurance partenaire).",
+          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré.",
       },
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Quelle assurance auto est obligatoire en 2026 ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'La garantie responsabilité civile (le "tiers") est la seule assurance légalement obligatoire pour tout véhicule terrestre à moteur. Elle indemnise les victimes en cas d\'accident causé par votre véhicule. Rouler sans assurance est un délit lourdement sanctionné.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En tant que courtière, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Pourquoi les tarifs des assurances augmentent-ils encore ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'L\'inflation des pièces détachées, la technologie embarquée de plus en plus coûteuse à réparer, et la hausse des événements climatiques (grêle, tempêtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque année.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Pourquoi confier mon assurance à un courtier indépendant comme Orizia ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
-          },
-        },
-      ],
     },
   ]
 };
 
-const faqSchema = assuranceAutoMotoSchema['@graph'][2];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Quelle assurance auto est obligatoire en 2026 ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La garantie responsabilité civile (le "tiers") est la seule assurance légalement obligatoire pour tout véhicule terrestre à moteur. Elle indemnise les victimes en cas d\'accident causé par votre véhicule. Rouler sans assurance est un délit lourdement sanctionné.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En tant que courtière, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Pourquoi les tarifs des assurances augmentent-ils encore ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'L\'inflation des pièces détachées, la technologie embarquée de plus en plus coûteuse à réparer, et la hausse des événements climatiques (grêle, tempêtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque année.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Pourquoi confier mon assurance à un courtier indépendant comme Orizia ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
+      },
+    },
+  ],
+};
 
 const CHIFFRES = [
   { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
   { value: '1 an', label: 'Délai avant résiliation libre (Hamon)', icon: '🔓' },
   { value: '0€', label: 'Frais de gestion Orizia', icon: '🤝' },
   { value: '400€', label: 'Économies moyennes constatées/an', icon: '💰' },
-];
-
-const FORMULES_AUTO = [
-  {
-    nom: 'Au tiers',
-    icon: '🛡️',
-    prix: 'Le plus économique',
-    couleur: '#64748b',
-    garanties: [
-      { label: 'Responsabilité civile', inclus: true },
-      { label: 'Défense pénale et recours', inclus: true },
-      { label: 'Bris de glace', inclus: false },
-      { label: 'Vol & incendie', inclus: false },
-      { label: 'Dommages tous accidents', inclus: false },
-    ],
-    pour: 'Idéal pour une voiture ancienne ou de faible valeur.',
-  },
-  {
-    nom: 'Intermédiaire',
-    icon: '⚖️',
-    prix: 'Le bon compromis',
-    couleur: '#d97706',
-    featured: true,
-    garanties: [
-      { label: 'Responsabilité civile', inclus: true },
-      { label: 'Défense pénale et recours', inclus: true },
-      { label: 'Bris de glace', inclus: true },
-      { label: 'Vol & incendie', inclus: true },
-      { label: 'Dommages tous accidents', inclus: false },
-    ],
-    pour: 'Le choix malin pour un véhicule d\'occasion de quelques années.',
-  },
-  {
-    nom: 'Tous risques',
-    icon: '✅',
-    prix: 'La tranquillité absolue',
-    couleur: '#16a34a',
-    garanties: [
-      { label: 'Responsabilité civile', inclus: true },
-      { label: 'Défense pénale et recours', inclus: true },
-      { label: 'Bris de glace', inclus: true },
-      { label: 'Vol & incendie', inclus: true },
-      { label: 'Dommages tous accidents', inclus: true },
-    ],
-    pour: 'Indispensable pour un véhicule neuf, récent ou en LOA/LLD.',
-  },
-];
-
-const TARIFS_MOTO = [
-  { cylindree: '≤ 50 cc', tiers: 'Dès 200€', inter: 'Dès 300€', tousRisques: 'Sur mesure', recommande: 'Tiers' },
-  { cylindree: '125 cc', tiers: 'Dès 350€', inter: 'Dès 500€', tousRisques: 'Sur mesure', recommande: 'Intermédiaire' },
-  { cylindree: '126–600 cc', tiers: 'Dès 400€', inter: 'Dès 500€', tousRisques: 'Dès 700€', recommande: 'Tous risques' },
-  { cylindree: '600–999 cc', tiers: 'Dès 450€', inter: 'Dès 600€', tousRisques: 'Dès 900€', recommande: 'Tous risques' },
-  { cylindree: 'Grosse cylindrée', tiers: 'Dès 500€', inter: 'Dès 800€', tousRisques: 'Dès 1 200€', recommande: 'Tous risques' },
-];
-
-const PROFILS_AUTO = [
-  {
-    icon: '🎓',
-    title: 'Jeune conducteur',
-    desc: 'La prime pique les yeux la première année.',
-    points: [
-      'Surprime légale applicable',
-      'La conduite accompagnée (AAC) fait baisser le prix',
-      'Boîtier connecté = bonne idée',
-    ],
-    astuce: 'Mon conseil : Je démarche les assureurs qui sont plus cléments avec les novices pour diviser la note.',
-    color: '#dc2626',
-  },
-  {
-    icon: '🚗',
-    title: 'Conducteur expérimenté',
-    desc: 'Bonus à 50% depuis des années.',
-    points: [
-      'Vous devriez payer le prix plancher',
-      'Possibilité de rachat de franchise',
-      'Regroupement familial très avantageux',
-    ],
-    astuce: 'Attention à "l\'érosion de fidélité" : si vous n\'avez pas changé depuis 5 ans, vous payez très probablement trop cher.',
-    color: 'var(--orizia-primary)',
-    featured: true,
-  },
-  {
-    icon: '🏍️',
-    title: 'Motard',
-    desc: 'Du scooter urbain à la grosse cylindrée.',
-    points: [
-      'Garantie équipement (casque, gants, cuir)',
-      'Option suspension hivernale',
-      'Assistance 0km indispensable',
-    ],
-    astuce: 'Je construis des contrats modulables. Si votre moto hiberne 4 mois dans l\'année, votre facture aussi.',
-    color: '#7c3aed',
-  },
 ];
 
 const DANGERS = [
@@ -297,8 +198,14 @@ export default function AssuranceAutoMotoPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(assuranceAutoMotoSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <main>
+        <ReadingProgressAutoMoto />
+
         {/* ── HERO (Avec image de fond) ── */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
@@ -331,7 +238,7 @@ export default function AssuranceAutoMotoPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire un bilan gratuit avec Cindy →
               </Link>
-              <Link href="#formules" className="fin-btn-secondary">
+              <Link href="#section-formules" className="fin-btn-secondary">
                 🔍 Voir les formules
               </Link>
             </div>
@@ -427,7 +334,7 @@ export default function AssuranceAutoMotoPage() {
         </section>
 
         {/* ── FORMULES AUTO ── */}
-        <section id="formules" className="crowd-section crowd-section--light">
+        <section id="section-formules" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Cibler vos besoins</span>
@@ -436,40 +343,12 @@ export default function AssuranceAutoMotoPage() {
                 Ne payez que pour les garanties qui ont un sens par rapport à la valeur actuelle de votre véhicule.
               </p>
             </div>
-            <div className="am-formules-grid">
-              {FORMULES_AUTO.map(f => (
-                <div
-                  key={f.nom}
-                  className={`am-formule-card${f.featured ? ' am-formule-card--featured' : ''}`}
-                  style={f.featured ? { borderColor: f.couleur } : {}}
-                >
-                  {f.featured && (
-                    <div className="am-formule-badge" style={{ background: f.couleur }}>
-                      ⚖️ Le meilleur compromis
-                    </div>
-                  )}
-                  <div className="am-formule-header" style={{ color: f.couleur }}>
-                    <span>{f.icon}</span>
-                    <h3>{f.nom}</h3>
-                  </div>
-                  <div className="am-formule-prix" style={{ color: f.couleur }}>{f.prix}</div>
-                  <ul className="am-formule-garanties">
-                    {f.garanties.map(g => (
-                      <li key={g.label} className={g.inclus ? 'am-garantie--ok' : 'am-garantie--no'}>
-                        <span>{g.inclus ? '✅' : '❌'}</span>
-                        {g.label}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="am-formule-pour">💡 {f.pour}</div>
-                </div>
-              ))}
-            </div>
+            <AutoFormuleSelector />
           </div>
         </section>
 
         {/* ── MOTO ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-moto" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Spécial Motards ✌️</span>
@@ -483,47 +362,19 @@ export default function AssuranceAutoMotoPage() {
         </section>
 
         {/* ── PROFILS ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-profils" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Sur-mesure</span>
               <h2>À chaque profil,<br />sa stratégie pour faire baisser le prix</h2>
               <p>Je ne rentre personne dans des cases génériques. On cherche les leviers qui vous correspondent.</p>
             </div>
-            <div className="av-profils-grid">
-              {PROFILS_AUTO.map(p => (
-                <div key={p.title} className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}>
-                  {p.featured && <div className="av-profil-badge">✅ Profil le plus courant</div>}
-                  <div className="av-profil-icon">{p.icon}</div>
-                  <h3>{p.title}</h3>
-                  <p className="av-profil-desc">{p.desc}</p>
-                  <ul className="ah-profil-points" style={{ marginBottom: 12 }}>
-                    {p.points.map((pt, i) => <li key={i}>• {pt}</li>)}
-                  </ul>
-                  <div style={{
-                    background: 'rgba(58,111,108,0.06)',
-                    borderRadius: 8,
-                    padding: '10px 12px',
-                    fontSize: '0.78rem',
-                    color: p.color,
-                    fontWeight: 700,
-                    lineHeight: 1.4,
-                  }}>
-                    {p.astuce}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier mon profil avec Cindy →
-              </Link>
-            </div>
+            <AutoProfilSelector />
           </div>
         </section>
 
         {/* ── LOI HAMON / ACCOMPAGNEMENT (Avec nouvelle image) ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-hamon" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
@@ -536,7 +387,18 @@ export default function AssuranceAutoMotoPage() {
               </p>
             </div>
 
-            <div className="ae-accompagnement-layout">
+            {/* Points Loi Hamon */}
+            <div className="am-hamon-grid">
+              {LOI_HAMON_POINTS.map(p => (
+                <div key={p.title} className="am-hamon-card">
+                  <div className="am-hamon-icon">{p.icon}</div>
+                  <div className="am-hamon-title">{p.title}</div>
+                  <div className="am-hamon-desc">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="ae-accompagnement-layout" style={{ marginTop: 40 }}>
               <div className="ae-accompagnement-etapes">
                 {ETAPES.map(e => (
                   <div key={e.n} className="ae-etape-row">
@@ -549,10 +411,9 @@ export default function AssuranceAutoMotoPage() {
                 ))}
               </div>
 
-              {/* IMAGE 2 AJOUTÉE ICI */}
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage-auto.webp" // À adapter avec ton nom de fichier réel
+                  src="/images/dossier-courtage-auto.webp"
                   alt="Courtier préparant un dossier d'assurance auto/moto"
                   title="Un accompagnement de A à Z sans coupure"
                   width={863}
@@ -574,19 +435,26 @@ export default function AssuranceAutoMotoPage() {
               <span className="fin-badge">On en parle ?</span>
               <h2>Les excuses qu'on se donne pour ne pas changer<br />(et pourquoi il faut franchir le cap)</h2>
             </div>
-            <div className="av-objections-grid">
+            <div className="crowd-faq-list">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card" style={{ background: 'var(--orizia-white)' }}>
-                  <div className="av-objection-q">{o.q}</div>
-                  <div className="av-objection-r">{o.r}</div>
-                </div>
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
               ))}
             </div>
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <AutoChecklist />
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -595,7 +463,7 @@ export default function AssuranceAutoMotoPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
+                <details key={i} className="crowd-faq-item">
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -613,14 +481,14 @@ export default function AssuranceAutoMotoPage() {
         </section>
 
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vision globale</span>
               <h2>Puisqu'on y est, si on optimisait<br />le reste de vos contrats ?</h2>
               <p>Faire le tri dans l'auto, c'est bien. Regrouper ses assurances pour avoir un conseiller unique et faire des économies d'échelle, c'est mieux.</p>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/assurer/assurance-habitation',
@@ -635,6 +503,7 @@ export default function AssuranceAutoMotoPage() {
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
                   text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
+                  badge: '💰 Économisez jusqu\'à 15 000€',
                 },
                 {
                   href: '/investir/per',
@@ -644,7 +513,16 @@ export default function AssuranceAutoMotoPage() {
                   text: 'Vos économies d\'assurance réinvesties dans votre retraite, avec une déduction d\'impôt à la clé.',
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
+                <Link href={s.href} key={s.title} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                  {s.badge && (
+                    <span className="fin-card-pill" style={{
+                      background: 'rgba(201,169,110,0.12)',
+                      color: 'var(--orizia-gold)',
+                      border: '1px solid rgba(201,169,110,0.3)',
+                    }}>
+                      {s.badge}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -657,7 +535,7 @@ export default function AssuranceAutoMotoPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
@@ -665,18 +543,14 @@ export default function AssuranceAutoMotoPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer ma comparaison avec Cindy →
+                📅 Faire un bilan gratuit avec Cindy →
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ M'envoyer un message
+                ✉️ Poser une question
               </Link>
             </div>
-            <p style={{
-              marginTop: 24, fontSize: '0.75rem', opacity: 0.55,
-              maxWidth: 540, margin: '24px auto 0',
-            }}>
-              L'économie réalisée dépend de votre profil, de votre bonus-malus et de votre lieu de résidence. 
-              Orizia Courtage est immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée 
+            <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
+              Orizia Courtage est immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée
               par la compagnie d'assurance choisie, sans surcoût pour vous.
             </p>
           </div>

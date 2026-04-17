@@ -251,14 +251,11 @@ export default function ContactPage() {
                   <div className="contact-horaires-grid">
                     <div className="contact-horaire-item">
                       <span>Lundi — Vendredi</span>
-                      <strong>9h00 – 19h00</strong>
+                      <strong>9h00 – 18h00</strong>
                     </div>
-                    <div className="contact-horaire-item">
-                      <span>Samedi</span>
-                      <strong>9h00 – 13h00</strong>
-                    </div>
+                    
                     <div className="contact-horaire-item contact-horaire-item--off">
-                      <span>Dimanche</span>
+                      <span>Samedi - Dimanche</span>
                       <strong>Fermé</strong>
                     </div>
                   </div>
@@ -326,7 +323,7 @@ export default function ContactPage() {
               <div className="contact-cal-item">
                 <span>⏱️</span>
                 <div>
-                  <strong>Durée : 30 à 45 minutes</strong>
+                  <strong>Durée : 15 ou 30 minutes</strong>
                   <span>Pas de préparation nécessaire</span>
                 </div>
               </div>

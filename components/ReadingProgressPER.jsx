@@ -30,7 +30,7 @@ export default function ReadingProgressPER() {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
       setProgress(pct);
-      setVisible(scrollTop > 200);
+      setVisible(scrollTop > 200 && pct < 92);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
