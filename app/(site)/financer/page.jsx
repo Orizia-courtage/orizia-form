@@ -242,7 +242,7 @@ export default function FinancerPage() {
           </p>
           <div className="ae-hero-btns fin-hero-btns">
             <Link href="/simulation" className="fin-btn-primary">
-              💻 Lancer une simulation gratuite →
+              💻 Lancer une simulation gratuite
             </Link>
             <Link href="/rendez-vous" className="fin-btn-secondary">
               📅 Faire le point avec Cindy
@@ -320,7 +320,7 @@ export default function FinancerPage() {
                     <li key={a}>✓ {a}</li>
                   ))}
                 </ul>
-                <span className="fin-card-link">Découvrir l'approche →</span>
+                <span className="fin-card-link">Découvrir l'approche</span>
               </Link>
             ))}
           </div>
@@ -385,7 +385,7 @@ export default function FinancerPage() {
               <li>🤝 Transparence totale sur ma rémunération</li>
             </ul>
             <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 24 }}>
-              📅 Me confier votre recherche →
+              📅 Me confier votre recherche
             </Link>
           </div>
           <div className="fin-why-image">
@@ -434,7 +434,7 @@ export default function FinancerPage() {
           <p>Ne vous épuisez pas à faire le tour des banques. Confiez-moi votre dossier, je m'occupe d'aller chercher le meilleur accord de principe.</p>
           <div className="fin-hero-btns">
             <Link href="/simulation" className="fin-btn-primary">
-              💻 Estimer mon financement →
+              💻 Estimer mon financement
             </Link>
             <Link href="/rendez-vous" className="fin-btn-secondary">
               ✉️ Poser une question à Cindy

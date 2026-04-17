@@ -131,7 +131,7 @@ export default function AutoFormuleSelector() {
           </div>
 
           <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Obtenir mon devis personnalisé →
+            📅 Obtenir mon devis personnalisé
           </Link>
         </div>
       )}

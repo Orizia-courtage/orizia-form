@@ -92,7 +92,7 @@ export default function InvestisseurChecklist() {
                 <strong>Vous êtes prêt — parlons stratégie</strong>
                 <p>Tous les critères sont validés. Il ne reste plus qu'à définir le montant, la durée et les plateformes adaptées à votre profil.</p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Construire ma stratégie →
+                  📅 Construire ma stratégie
                 </Link>
               </div>
             </>
@@ -103,7 +103,7 @@ export default function InvestisseurChecklist() {
                 <strong>Quelques points à préparer d'abord</strong>
                 <p>Vous êtes sur la bonne voie. Avant d'investir, je vous aide à consolider les critères manquants — c'est l'objet du premier rendez-vous.</p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Préparer mon investissement →
+                  📅 Préparer mon investissement
                 </Link>
               </div>
             </>

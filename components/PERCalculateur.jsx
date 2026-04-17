@@ -105,7 +105,7 @@ export default function PERCalculateur() {
         </div>
 
         <Link href="/rendez-vous" className="fin-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-          📅 Calculer mes plafonds exacts →
+          📅 Calculer mes plafonds exacts
         </Link>
         <p className="aec-disclaimer">
           Simulation indicative. Vos plafonds réels figurent sur votre avis d'imposition.

@@ -1,18 +1,12 @@
-
 import Link from 'next/link';
+import Image from 'next/image';
 import ContactSujetsFilter from '@/components/ContactSujetsFilter';
+import DispoStatus from '@/components/DispoStatus';
 
 export const metadata = {
-  title: 'Contacter Orizia Courtage — Prenez Rendez-vous Gratuitement',
+  title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
   description:
-    'Contactez Orizia Courtage pour un conseil en crédit immobilier, assurance vie, PER ou investissement. Rendez-vous gratuit, réponse sous 24h. Par téléphone, WhatsApp, email ou visioconférence.',
-  keywords: [
-    'contacter courtier indépendant',
-    'rendez-vous courtier gratuit',
-    'conseil crédit immobilier',
-    'contact Orizia Courtage',
-    'courtier assurance vie',
-  ],
+    'Contactez Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Crédit immobilier, assurance, investissement — premier rendez-vous gratuit, réponse sous 24h.',
   alternates: { canonical: 'https://orizia-courtage.fr/contact' },
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
@@ -21,7 +15,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/photo-cindy.webp',
+        url: 'https://orizia-courtage.fr/images/og-contact.jpg',
         width: 1200,
         height: 630,
         alt: 'Contacter Cindy Urbansky - Orizia Courtage',
@@ -49,19 +43,12 @@ const contactSchema = {
       url: 'https://orizia-courtage.fr',
       telephone: '+33777259706',
       email: 'cindy.urbansky@orizia-courtage.fr',
-      sameAs: ['https://www.linkedin.com/in/cindy-urbansky'],
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           opens: '09:00',
-          closes: '19:00',
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Saturday'],
-          opens: '09:00',
-          closes: '13:00',
+          closes: '18:00',
         },
       ],
     },
@@ -74,18 +61,22 @@ const MOYENS = [
     title: 'Prendre rendez-vous',
     desc: 'Choisissez un créneau directement dans mon agenda. Visioconférence ou téléphone.',
     cta: 'Réserver un créneau',
-    href: '#calendrier',
-    style: 'primary',
+    href: '/rendez-vous',
+    primary: true,
     detail: 'Réponse sous 24h garantie',
+    color: 'var(--orizia-primary)',
+    bg: 'rgba(45,106,95,0.06)',
   },
   {
     icon: '📞',
     title: 'Appeler directement',
     desc: 'Pour une question rapide ou un premier contact sans formalité.',
-    cta: 'Appeler Cindy',
+    cta: '+33 7 77 25 97 06',
     href: 'tel:+33777259706',
-    style: 'secondary',
-    detail: '+33 7 77 25 97 06',
+    primary: false,
+    detail: 'Lun–Ven 9h–18h',
+    color: '#d97706',
+    bg: 'rgba(217,119,6,0.06)',
   },
   {
     icon: '💬',
@@ -93,33 +84,23 @@ const MOYENS = [
     desc: 'Envoyez un message à votre rythme. Je réponds dans la journée.',
     cta: 'Écrire sur WhatsApp',
     href: 'https://wa.me/33777259706',
-    style: 'secondary',
+    primary: false,
     detail: 'Réponse le jour même',
+    color: '#16a34a',
+    bg: 'rgba(22,163,74,0.06)',
     external: true,
   },
   {
     icon: '✉️',
     title: 'Par email',
     desc: 'Pour toute demande écrite, pièces jointes ou questions détaillées.',
-    cta: 'Envoyer un email',
-    href: 'mailto:cindy.urbansky@orizia-courtage.fr', // ← remplacer
-    style: 'secondary',
-    detail: 'cindy.urbansky@orizia-courtage.fr', // ← remplacer
+    cta: 'cindy.urbansky@orizia-courtage.fr',
+    href: 'mailto:cindy.urbansky@orizia-courtage.fr',
+    primary: false,
+    detail: 'Réponse sous 24h',
+    color: '#7c3aed',
+    bg: 'rgba(124,58,237,0.06)',
   },
-];
-
-const SUJETS = [
-  { icon: '🏡', label: 'Crédit immobilier',        href: '/financer/credit-immobilier' },
-  { icon: '🔄', label: 'Regroupement de crédits',  href: '/financer/regroupement-credits' },
-  { icon: '💶', label: 'Prêt personnel',            href: '/financer/pret-personnel' },
-  { icon: '⚖️', label: 'Rachat de soulte',          href: '/financer/rachat-soulte' },
-  { icon: '🛡️', label: 'Assurance vie',            href: '/investir/assurance-vie' },
-  { icon: '🏦', label: 'Plan Épargne Retraite',     href: '/investir/per' },
-  { icon: '🏢', label: 'SCPI',                      href: '/investir/scpi' },
-  { icon: '📈', label: 'Crowdfunding',              href: '/investir/crowdfunding' },
-  { icon: '📋', label: 'Assurance emprunteur',      href: '/assurer/assurance-emprunteur' },
-  { icon: '🏠', label: 'Assurance habitation',      href: '/assurer/assurance-habitation' },
-  { icon: '🚗', label: 'Assurance auto & moto',     href: '/assurer/auto-moto' },
 ];
 
 const FAQ_CONTACT = [
@@ -141,7 +122,7 @@ const FAQ_CONTACT = [
   },
   {
     q: 'Puis-je être accompagné sur plusieurs sujets à la fois ?',
-    r: 'Tout à fait. En tant que courtier indépendant généraliste, Orizia peut vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
+    r: 'Tout à fait. En tant que courtière indépendante généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
   },
 ];
 
@@ -156,30 +137,89 @@ export default function ContactPage() {
       <main>
 
         {/* ── HERO ── */}
-        <section className="fin-hero fin-hero--short">
-          <div className="fin-hero-bg" />
-          <div className="fin-hero-inner">
-            <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
-              <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
-              {' › '}
+        <section className="inv-hero">
+          <div className="inv-hero-bg-overlay" />
+          <div className="inv-hero-inner">
+            <nav aria-label="breadcrumb" className="inv-hero-breadcrumb">
+              <Link href="/">Accueil</Link>
+              <span className="inv-hero-breadcrumb-sep">›</span>
               <span>Contact</span>
             </nav>
-            <span className="fin-badge">⚡ Réponse sous 24h</span>
-            <h1>Parlons de votre projet</h1>
-            <p>
-              Crédit immobilier, assurance vie, PER, investissement —
-              Cindy analyse votre situation et vous propose une solution adaptée.
-              Premier rendez-vous <strong>gratuit et sans engagement</strong>,
-              100% en visioconférence.
-            </p>
+            <div className="inv-hero-layout">
+              <div className="inv-hero-text">
+                <span className="inv-hero-badge">⚡ Réponse sous 24h</span>
+                <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
+                  Parlons de<br />
+                  <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>votre projet</em>
+                </h1>
+                <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
+                  Crédit immobilier, assurance, investissement — Cindy analyse votre situation
+                  et vous propose une solution adaptée. Premier rendez-vous{' '}
+                  <strong style={{ color: 'var(--orizia-accent)' }}>gratuit et sans engagement</strong>,
+                  100% en visioconférence.
+                </p>
+                <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)', paddingTop: 20, marginTop: 8 }}>
+                  <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
+                    <span className="inv-hero-trust-dot" />
+                    100% gratuit & sans engagement
+                  </div>
+                  <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
+                    <span className="inv-hero-trust-dot" />
+                    Réponse sous 24h
+                  </div>
+                  <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
+                    <span className="inv-hero-trust-dot" />
+                    100% distanciel
+                  </div>
+                </div>
+              </div>
+
+              {/* Droite — Cindy card */}
+              <div className="contact-cindy-card">
+                <div className="contact-cindy-photo">
+                  <Image
+                    src="/images/photo-cindy.webp"
+                    alt="Cindy Urbansky, courtière indépendante – Orizia Courtage"
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
+                    sizes="200px"
+                    priority
+                  />
+                </div>
+                <div className="contact-cindy-info">
+                  <DispoStatus />
+                  <div className="contact-cindy-name">Cindy Urbansky</div>
+                  <div className="contact-cindy-role">Courtière indépendante · Orizia Courtage</div>
+                  <div className="contact-cindy-stats">
+                    <div className="contact-cindy-stat">
+                      <strong>15 ans</strong>
+                      <span>d'expérience</span>
+                    </div>
+                    <div className="contact-cindy-stat">
+                      <strong>+500</strong>
+                      <span>dossiers</span>
+                    </div>
+                    <div className="contact-cindy-stat">
+                      <strong>0€</strong>
+                      <span>de frais</span>
+                    </div>
+                  </div>
+                  <div className="contact-cindy-horaires">
+                    <span>🕐</span>
+                    <span>Lun–Ven · 9h–18h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ── MOYENS DE CONTACT ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <h2>Choisissez le canal<br />qui vous convient</h2>
+              <span className="fin-badge">Choisissez votre canal</span>
+              <h2>Comment souhaitez-vous<br />me contacter ?</h2>
               <p>Pas de standard, pas d'attente. Vous parlez directement avec Cindy.</p>
             </div>
             <div className="contact-moyens-grid">
@@ -187,83 +227,23 @@ export default function ContactPage() {
                 <a
                   key={m.title}
                   href={m.href}
-                  className={`contact-moyen-card${m.style === 'primary' ? ' contact-moyen-card--primary' : ''}`}
+                  className={`contact-moyen-card${m.primary ? ' contact-moyen-card--primary' : ''}`}
+                  style={m.primary ? {} : { borderTopColor: m.color }}
                   {...(m.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                 >
-                  <div className="contact-moyen-icon">{m.icon}</div>
+                  <div className="contact-moyen-icon" style={{ color: m.color, background: m.bg }}>
+                    {m.icon}
+                  </div>
                   <h3>{m.title}</h3>
                   <p>{m.desc}</p>
                   <div className="contact-moyen-footer">
-                    <span className="contact-moyen-cta">{m.cta} →</span>
+                    <span className="contact-moyen-cta" style={{ color: m.color }}>
+                      {m.cta} 
+                    </span>
                     <span className="contact-moyen-detail">{m.detail}</span>
                   </div>
                 </a>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── CINDY + DISPONIBILITÉS ── */}
-        <section className="crowd-section crowd-section--white">
-          <div className="fin-section-inner">
-            <div className="contact-profil-bloc">
-              <div className="contact-profil-photo">
-                <img
-                  src="/photo-cindy.jpg"
-                  alt="Cindy Urbansky — Orizia Courtage"
-                  width={160}
-                  height={160}
-                />
-                <div className="contact-profil-dispo">
-                  <span className="contact-dispo-dot" />
-                  Disponible
-                </div>
-              </div>
-              <div className="contact-profil-content">
-                <span className="fin-badge">Votre interlocutrice</span>
-                <h2>Cindy Urbansky<br /><span>Courtière indépendante — Orizia Courtage</span></h2>
-                <p>
-                  Courtière indépendante, je travaille sans mandat exclusif avec un réseau
-                  de partenaires soigneusement sélectionnés : banques, assureurs, investisseurs.
-                  Mon objectif est simple — trouver <strong>la meilleure solution pour vous</strong>,
-                  pas pour ma banque.
-                </p>
-                <div className="contact-profil-stats">
-                  <div className="contact-stat">
-                    <strong>100%</strong>
-                    <span>Indépendant</span>
-                  </div>
-                  <div className="contact-stat">
-                    <strong>&lt; 24h</strong>
-                    <span>Temps de réponse</span>
-                  </div>
-                  <div className="contact-stat">
-                    <strong>0€</strong>
-                    <span>Frais de conseil</span>
-                  </div>
-                  <div className="contact-stat">
-                    <strong>100%</strong>
-                    <span>Distanciel</span>
-                  </div>
-                </div>
-                <div className="contact-horaires">
-                  <div className="contact-horaires-title">🕐 Disponibilités</div>
-                  <div className="contact-horaires-grid">
-                    <div className="contact-horaire-item">
-                      <span>Lundi — Vendredi</span>
-                      <strong>9h00 – 18h00</strong>
-                    </div>
-                    
-                    <div className="contact-horaire-item contact-horaire-item--off">
-                      <span>Samedi - Dimanche</span>
-                      <strong>Fermé</strong>
-                    </div>
-                  </div>
-                  <p className="contact-horaires-note">
-                    💡 Hors horaires ? Laissez un message — je vous rappelle dès que possible.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -283,7 +263,7 @@ export default function ContactPage() {
             <p style={{ textAlign: 'center', fontSize: '0.85rem', opacity: 0.6, marginTop: 20 }}>
               Votre projet ne figure pas dans la liste ?{' '}
               <a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: 'var(--orizia-primary)', fontWeight: 700 }}>
-                Écrivez-moi directement →
+                Écrivez-moi directement
               </a>
             </p>
           </div>
@@ -300,18 +280,8 @@ export default function ContactPage() {
                 Vous recevrez une confirmation et un lien de visioconférence par email.
               </p>
             </div>
-            <div className="contact-cal-wrapper">
-              <iframe
-                src="https://cal.eu/cindy-urbansky?embed=true&theme=light"
-                style={{
-                  width: '100%',
-                  minHeight: 680,
-                  border: 'none',
-                  borderRadius: 16,
-                }}
-                title="Réserver un rendez-vous avec Cindy Urbansky — Orizia Courtage"
-              />
-            </div>
+
+            {/* Réassurance avant le calendrier */}
             <div className="contact-cal-reassurance">
               <div className="contact-cal-item">
                 <span>🎥</span>
@@ -342,6 +312,19 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+
+            <div className="contact-cal-wrapper">
+              <iframe
+                src="https://cal.eu/cindy-urbansky?embed=true&theme=light"
+                style={{
+                  width: '100%',
+                  minHeight: 680,
+                  border: 'none',
+                  borderRadius: 16,
+                }}
+                title="Réserver un rendez-vous avec Cindy Urbansky — Orizia Courtage"
+              />
+            </div>
           </div>
         </section>
 
@@ -364,7 +347,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ── MENTIONS LÉGALES CONTACT ── */}
+        {/* ── RGPD ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="contact-legal-bloc">
@@ -372,13 +355,11 @@ export default function ContactPage() {
               <div>
                 <strong>Vos données sont protégées</strong>
                 <p>
-                  Les informations transmises via ce formulaire ou par email sont utilisées
-                  exclusivement dans le cadre de votre demande. Elles ne sont jamais
-                  revendues ni partagées avec des tiers sans votre consentement explicite.
-                  Conformément au RGPD, vous disposez d'un droit d'accès, de rectification
-                  et de suppression de vos données.{' '}
+                  Les informations transmises sont utilisées exclusivement dans le cadre de votre demande.
+                  Elles ne sont jamais revendues ni partagées sans votre consentement.
+                  Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression.{' '}
                   <Link href="/mentions-legales" style={{ color: 'var(--orizia-primary)' }}>
-                    En savoir plus →
+                    En savoir plus
                   </Link>
                 </p>
               </div>

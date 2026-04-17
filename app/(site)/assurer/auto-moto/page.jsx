@@ -236,7 +236,7 @@ export default function AssuranceAutoMotoPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un bilan gratuit avec Cindy →
+                📅 Faire un bilan gratuit avec Cindy
               </Link>
               <Link href="#section-formules" className="fin-btn-secondary">
                 🔍 Voir les formules
@@ -527,7 +527,7 @@ export default function AssuranceAutoMotoPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir l'approche →</span>
+                  <span className="fin-card-link">Découvrir l'approche</span>
                 </Link>
               ))}
             </div>
@@ -543,7 +543,7 @@ export default function AssuranceAutoMotoPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un bilan gratuit avec Cindy →
+                📅 Faire un bilan gratuit avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une question

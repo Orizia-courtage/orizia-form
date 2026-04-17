@@ -247,7 +247,7 @@ export default function Header() {
                           <div className="mega-cta-title">{item.cta.label}</div>
                           <p>{item.cta.text}</p>
                           <Link href={item.cta.href} className="btn-mega">
-                            {item.cta.label} →
+                            {item.cta.label}
                           </Link>
                         </div>
                       </div>

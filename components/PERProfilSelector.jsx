@@ -127,7 +127,7 @@ export default function PERProfilSelector() {
           </div>
 
           <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Calculer mon gain pour ce profil →
+            📅 Calculer mon gain pour ce profil
           </Link>
         </div>
       )}

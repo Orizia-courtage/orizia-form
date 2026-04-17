@@ -20,7 +20,7 @@ export default function ServiceCard({ img, tag, title, desc, cta }) {
         <h3 style={{ color: 'var(--orizia-accent)', fontSize: '1.2rem', fontWeight: 800, marginTop: 0, marginBottom: 12 }}>{title}</h3>
         <p style={{ color: 'var(--orizia-dark)', fontSize: '0.93rem', lineHeight: 1.6, flex: 1, marginTop: 0 }}>{desc}</p>
         <Link href={cta.href} className="orizia-btn-main" style={{ marginTop: 20, textAlign: 'center', display: 'block' }}>
-          {cta.label} →
+          {cta.label}
         </Link>
       </div>
     </div>

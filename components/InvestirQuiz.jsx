@@ -95,7 +95,7 @@ export default function InvestirQuiz() {
             3 questions · 30 secondes · Recommandation personnalisée
           </p>
           <button className="fin-btn-primary" onClick={() => setStep(1)}>
-            Démarrer →
+            Démarrer
           </button>
         </div>
       )}
@@ -142,7 +142,7 @@ export default function InvestirQuiz() {
           <p className="iq-result-raison">{reco.raison}</p>
           <div className="iq-result-actions">
             <Link href={reco.href} className="fin-btn-primary">
-              Découvrir {reco.produit} →
+              Découvrir {reco.produit}
             </Link>
             <Link href="/rendez-vous" className="fin-btn-secondary">
               📅 Bilan personnalisé

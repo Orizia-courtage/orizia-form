@@ -169,7 +169,7 @@ export default function SCPIFiscaliteSelector() {
         💡 <strong>Mon approche :</strong> je commence toujours par analyser votre TMI avant de recommander une SCPI.
         La même SCPI peut être excellente pour un profil et contre-productive pour un autre.
         <Link href="/rendez-vous" style={{ color: 'var(--orizia-primary)', fontWeight: 700, marginLeft: 6 }}>
-          Calculer mon rendement net →
+          Calculer mon rendement net
         </Link>
       </div>
     </div>

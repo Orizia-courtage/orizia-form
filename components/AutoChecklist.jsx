@@ -124,7 +124,7 @@ export default function AutoChecklist() {
                   concrètement ce que vous pouvez économiser. Sans engagement.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Calculer mes économies →
+                  📅 Calculer mes économies
                 </Link>
               </div>
             </>
@@ -138,7 +138,7 @@ export default function AutoChecklist() {
                   des opportunités. Je vous dis honnêtement si vous pouvez faire mieux.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Vérifier mon tarif →
+                  📅 Vérifier mon tarif
                 </Link>
               </div>
             </>

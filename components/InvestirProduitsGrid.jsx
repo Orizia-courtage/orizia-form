@@ -145,7 +145,7 @@ export default function InvestirProduitsGrid() {
 
           {/* CTA */}
           <div className="ipg-card-cta" style={{ color: p.accentColor }}>
-            En savoir plus →
+            En savoir plus
           </div>
         </Link>
       ))}

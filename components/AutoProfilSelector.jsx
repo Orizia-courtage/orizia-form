@@ -136,7 +136,7 @@ export default function AutoProfilSelector() {
           </div>
 
           <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Étudier mon profil avec Cindy →
+            📅 Étudier mon profil avec Cindy
           </Link>
         </div>
       )}

@@ -81,7 +81,7 @@ export default function AssurerQuiz() {
             2 questions · 20 secondes · Recommandation personnalisée
           </p>
           <button className="fin-btn-primary" onClick={() => setStep(1)}>
-            Démarrer →
+            Démarrer
           </button>
         </div>
       )}
@@ -128,7 +128,7 @@ export default function AssurerQuiz() {
           <p className="iq-result-raison">{reco.raison}</p>
           <div className="iq-result-actions">
             <Link href={reco.href} className="fin-btn-primary">
-              Optimiser ce contrat →
+              Optimiser ce contrat
             </Link>
             <Link href="/rendez-vous" className="fin-btn-secondary">
               📅 Bilan complet

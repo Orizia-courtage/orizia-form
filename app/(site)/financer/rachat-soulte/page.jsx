@@ -213,7 +213,7 @@ export default function RachatSoultePage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier mon financement →
+                📅 Étudier mon financement
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
@@ -418,7 +418,7 @@ export default function RachatSoultePage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer →
+                📅 Démarrer
               </Link>
             </div>
           </div>
@@ -484,7 +484,7 @@ export default function RachatSoultePage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
+                  <span className="fin-card-link">Découvrir</span>
                 </Link>
               ))}
             </div>
@@ -498,7 +498,7 @@ export default function RachatSoultePage() {
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier mon rachat de soulte →
+                📅 Étudier mon rachat de soulte
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une question

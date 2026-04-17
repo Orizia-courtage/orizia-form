@@ -119,7 +119,7 @@ export default function PERChecklist() {
                   choisir le bon contrat et construire l'allocation adaptée à votre horizon.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Calculer mon gain fiscal →
+                  📅 Calculer mon gain fiscal
                 </Link>
               </div>
             </>
@@ -133,7 +133,7 @@ export default function PERChecklist() {
                   la meilleure option — je vous dis honnêtement si c'est votre cas.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser ma situation →
+                  📅 Analyser ma situation
                 </Link>
               </div>
             </>

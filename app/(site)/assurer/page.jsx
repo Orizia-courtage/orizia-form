@@ -187,7 +187,7 @@ export default function AssurerPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <Link href="/rendez-vous" className="fin-btn-primary inv-hero-cta-main">
-                    📅 Auditer mes contrats gratuitement →
+                    📅 Auditer mes contrats gratuitement
                   </Link>
                   <Link href="#produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Voir mes solutions ↓
@@ -271,7 +271,7 @@ export default function AssurerPage() {
                 Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier rendez-vous existe.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer tous mes contrats avec Cindy →
+                📅 Auditer tous mes contrats avec Cindy
               </Link>
             </div>
           </div>
@@ -318,7 +318,7 @@ export default function AssurerPage() {
                   ))}
                 </div>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}>
-                  📅 Me confier mes contrats →
+                  📅 Me confier mes contrats
                 </Link>
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function AssurerPage() {
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mes contrats avec Cindy →
+                📅 Auditer mes contrats avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Poser une question

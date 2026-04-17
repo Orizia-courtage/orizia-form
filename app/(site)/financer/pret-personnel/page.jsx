@@ -273,7 +273,7 @@ export default function PretPersonnelPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire une simulation avec Cindy →
+                📅 Faire une simulation avec Cindy
               </Link>
               <Link href="#projets" className="fin-btn-secondary">
                 🔍 Voir les types de prêts
@@ -369,7 +369,7 @@ export default function PretPersonnelPage() {
                 Confiez-moi la recherche de votre financement.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier ma capacité d'emprunt →
+                📅 Étudier ma capacité d'emprunt
               </Link>
             </div>
           </div>
@@ -429,7 +429,7 @@ export default function PretPersonnelPage() {
                   avec <strong>une seule mensualité</strong>, souvent réduite de 30 à 50% (en allongeant la durée de remboursement).
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }}>
-                  📅 Calculer mon nouveau reste à vivre →
+                  📅 Calculer mon nouveau reste à vivre
                 </Link>
               </div>
               <div className="crowd-schema">
@@ -505,7 +505,7 @@ export default function PretPersonnelPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer ma demande →
+                📅 Démarrer ma demande
               </Link>
             </div>
           </div>
@@ -591,7 +591,7 @@ export default function PretPersonnelPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
+                  <span className="fin-card-link">Découvrir</span>
                 </Link>
               ))}
             </div>
@@ -607,7 +607,7 @@ export default function PretPersonnelPage() {
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon étude avec Cindy →
+                📅 Lancer mon étude avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Lui envoyer un message

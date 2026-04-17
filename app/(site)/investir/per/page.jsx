@@ -361,7 +361,7 @@ export default function PERPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon gain fiscal →
+                📅 Calculer mon gain fiscal
               </Link>
               <Link href="#section-fiscalite" className="fin-btn-secondary">
                 🧮 Voir les exemples chiffrés
@@ -470,7 +470,7 @@ export default function PERPage() {
                 souvent plusieurs milliers d'euros de déduction oubliés.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mes plafonds gratuitement →
+                📅 Calculer mes plafonds gratuitement
               </Link>
             </div>
           </div>
@@ -614,7 +614,7 @@ export default function PERPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Calculer mon gain →
+                📅 Calculer mon gain
               </Link>
             </div>
           </div>
@@ -721,7 +721,7 @@ export default function PERPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer →
+                📅 Démarrer
               </Link>
             </div>
           </div>
@@ -752,7 +752,7 @@ export default function PERPage() {
               </p>
               <div className="ae-hero-btns" style={{ justifyContent: 'center' }}>
                 <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Prendre rendez-vous →
+                  📅 Prendre rendez-vous
                 </Link>
                 <Link href="/contact" className="fin-btn-secondary">
                   ✉️ Poser une question
@@ -849,7 +849,7 @@ export default function PERPage() {
                     <div className="fin-card-sub">{s.sub}</div>
                     <h3>{s.title}</h3>
                     <p>{s.text}</p>
-                    <span className="fin-card-link">En savoir plus →</span>
+                    <span className="fin-card-link">En savoir plus</span>
                   </Link>
               ))}
             </div>
@@ -867,7 +867,7 @@ export default function PERPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon gain fiscal avec Cindy →
+                📅 Calculer mon gain fiscal avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 Poser une question

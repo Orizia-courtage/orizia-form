@@ -196,7 +196,7 @@ export default function SimulateurCrowdfunding() {
 
         {/* CTA */}
         <Link href="/rendez-vous" className="fin-btn-primary simu-cta">
-          📅 Être accompagnée par Cindy pour investir →
+          📅 Être accompagnée par Cindy pour investir
         </Link>
 
         <p className="simu-disclaimer">

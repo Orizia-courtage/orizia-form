@@ -104,7 +104,7 @@ export default function CapaciteEmpruntCalc() {
         </div>
 
         <Link href="/rendez-vous" className="fin-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-          📅 Affiner avec Cindy →
+          📅 Affiner avec Cindy
         </Link>
         <p className="aec-disclaimer">
           Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié.

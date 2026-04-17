@@ -305,7 +305,7 @@ export default function AssuranceHabitationPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon comparatif gratuit →
+                📅 Lancer mon comparatif gratuit
               </Link>
               <Link href="#section-profils" className="fin-btn-secondary">
                 🔍 Voir selon mon profil
@@ -402,7 +402,7 @@ export default function AssuranceHabitationPage() {
             <div className="ae-probleme-cta">
               <p className="ae-probleme-cta-text">Envoyez-moi votre avis d'échéance, je vous dis tout de suite si vous payez trop cher.</p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire analyser mon contrat actuel →
+                📅 Faire analyser mon contrat actuel
               </Link>
             </div>
           </div>
@@ -483,7 +483,7 @@ export default function AssuranceHabitationPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 On fait le point ? →
+                📅 On fait le point ?
               </Link>
             </div>
           </div>
@@ -548,7 +548,7 @@ export default function AssuranceHabitationPage() {
 
             <div style={{ textAlign: 'center', marginTop: 32 }}>
               <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Me déléguer ma résiliation →
+                📅 Me déléguer ma résiliation
               </Link>
             </div>
           </div>
@@ -655,7 +655,7 @@ export default function AssuranceHabitationPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
+                  <span className="fin-card-link">Découvrir</span>
                 </Link>
               ))}
             </div>
@@ -673,7 +673,7 @@ export default function AssuranceHabitationPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon comparatif avec Cindy →
+                📅 Lancer mon comparatif avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ M'envoyer un message

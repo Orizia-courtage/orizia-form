@@ -89,7 +89,7 @@ export default function ProfilHabitationSelector() {
 
           <div className="profil-hab-cta">
             <Link href="/rendez-vous" className="fin-btn-primary">
-              📅 Obtenir mon devis {profil.label.toLowerCase()} →
+              📅 Obtenir mon devis {profil.label.toLowerCase()}
             </Link>
           </div>
         </div>

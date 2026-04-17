@@ -331,7 +331,7 @@ export default function AssuranceViePage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement →
+                📅 Auditer mon contrat gratuitement
               </Link>
               <Link href="#section-accompagnement" className="fin-btn-secondary">
                 🔍 Découvrir mon approche
@@ -435,7 +435,7 @@ export default function AssuranceViePage() {
                 ce que vous perdez chaque année.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement →
+                📅 Auditer mon contrat gratuitement
               </Link>
             </div>
           </div>
@@ -604,7 +604,7 @@ export default function AssuranceViePage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer →
+                📅 Démarrer
               </Link>
             </div>
           </div>
@@ -635,7 +635,7 @@ export default function AssuranceViePage() {
               </p>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
                 <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Prendre rendez-vous →
+                  📅 Prendre rendez-vous
                 </Link>
                 <Link href="/contact" className="fin-btn-secondary">
                   ✉️ Poser une question
@@ -747,7 +747,7 @@ export default function AssuranceViePage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
+                  <span className="fin-card-link">En savoir plus</span>
                 </Link>
               ))}
             </div>
@@ -765,7 +765,7 @@ export default function AssuranceViePage() {
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Prendre rendez-vous avec Cindy →
+                📅 Prendre rendez-vous avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 Poser une question

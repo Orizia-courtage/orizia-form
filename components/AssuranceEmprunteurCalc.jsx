@@ -144,7 +144,7 @@ export default function AssuranceEmprunteurCalc() {
 
         {/* CTA */}
         <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
-          📅 Calculer mon économie exacte →
+          📅 Calculer mon économie exacte
         </Link>
         <p className="aec-disclaimer">
           Simulation indicative. Votre économie réelle dépend de votre profil de santé et du contrat actuel.

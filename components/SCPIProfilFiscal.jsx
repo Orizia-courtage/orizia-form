@@ -132,7 +132,7 @@ export default function SCPIProfilFiscal() {
             <p>{strategie.conseil}</p>
           </div>
           <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Affiner ma stratégie SCPI →
+            📅 Affiner ma stratégie SCPI
           </Link>
         </div>
       )}

@@ -274,7 +274,7 @@ export default function CreditImmobilierPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer ma capacité d'emprunt →
+                📅 Calculer ma capacité d'emprunt
               </Link>
               <Link href="#projets" className="fin-btn-secondary">
                 🔍 Voir selon mon projet
@@ -421,7 +421,7 @@ export default function CreditImmobilierPage() {
                   Résultat ? <strong>Vous gagnez sur les deux tableaux</strong> et la baisse du coût total de votre achat est massive.
                 </p>
                 <Link href="/assurer/emprunteur" className="fin-btn-secondary" style={{ display: 'inline-block', marginTop: 16 }}>
-                  Comprendre la magie de l'assurance prêt →
+                  Comprendre la magie de l'assurance prêt
                 </Link>
               </div>
               <div className="crowd-schema">
@@ -560,21 +560,21 @@ export default function CreditImmobilierPage() {
                 <div className="fin-card-sub">L'économie cachée</div>
                 <h3>Assurance Emprunteur</h3>
                 <p>Obligatoire avec votre prêt immobilier. Découvrez comment je la négocie pour vous faire économiser des milliers d'euros.</p>
-                <span className="fin-card-link">Découvrir →</span>
+                <span className="fin-card-link">Découvrir</span>
               </Link>
               <Link href="/assurer/assurance-habitation" className="fin-card">
                 <div className="fin-card-icon">🏠</div>
                 <div className="fin-card-sub">Protéger votre nouvel achat</div>
                 <h3>Assurance Habitation</h3>
                 <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
-                <span className="fin-card-link">Découvrir →</span>
+                <span className="fin-card-link">Découvrir</span>
               </Link>
               <Link href="/financer/rachat-soulte" className="fin-card">
                 <div className="fin-card-icon">⚖️</div>
                 <div className="fin-card-sub">Divorce · Séparation · Succession</div>
                 <h3>Rachat de soulte</h3>
                 <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
-                <span className="fin-card-link">Découvrir →</span>
+                <span className="fin-card-link">Découvrir</span>
               </Link>
             </div>
           </div>
@@ -590,7 +590,7 @@ export default function CreditImmobilierPage() {
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un point avec Cindy →
+                📅 Faire un point avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Lui envoyer un message

@@ -226,7 +226,7 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon économie avec Cindy →
+                📅 Calculer mon économie avec Cindy
               </Link>
               <Link href="#section-calculateur" className="fin-btn-secondary">
                 💰 Voir les vrais chiffres
@@ -329,7 +329,7 @@ export default function AssuranceEmprunteurPage() {
             <div className="ae-probleme-cta">
               <p className="ae-probleme-cta-text">Arrêtez l'hémorragie financière dès aujourd'hui.</p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire chiffrer mes économies →
+                📅 Faire chiffrer mes économies
               </Link>
             </div>
           </div>
@@ -421,7 +421,7 @@ export default function AssuranceEmprunteurPage() {
                   <strong>La banque n'a plus le droit de vous retenir.</strong>
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Faire valoir mes droits →
+                  📅 Faire valoir mes droits
                 </Link>
               </div>
 
@@ -528,7 +528,7 @@ export default function AssuranceEmprunteurPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 On lance la machine ? →
+                📅 On lance la machine ?
               </Link>
             </div>
           </div>
@@ -609,7 +609,7 @@ export default function AssuranceEmprunteurPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
+                  <span className="fin-card-link">Découvrir</span>
                 </Link>
               ))}
             </div>
@@ -627,7 +627,7 @@ export default function AssuranceEmprunteurPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire mon audit avec Cindy →
+                📅 Faire mon audit avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 ✉️ Lui envoyer un message

@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import DispoStatus from './DispoStatus';
 
 export default function RdvReassurance() {
   return (
@@ -16,10 +19,7 @@ export default function RdvReassurance() {
         <div>
           <div className="rdv-reassurance-name">Cindy Urbansky</div>
           <div className="rdv-reassurance-role">Courtière indépendante · Orizia Courtage</div>
-          <div className="rdv-reassurance-dispo">
-            <span className="rdv-dispo-dot" />
-            Prochain créneau disponible : aujourd'hui
-          </div>
+          <DispoStatus />
         </div>
       </div>
 

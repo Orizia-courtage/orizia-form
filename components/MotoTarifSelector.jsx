@@ -143,7 +143,7 @@ export default function MotoTarifSelector() {
           <div className="moto-result-cta">
             <p>Je compare les offres du marché pour votre {current.label.toLowerCase()} et vous trouve le meilleur tarif.</p>
             <Link href="/rendez-vous" className="fin-btn-on-dark">
-              📅 Obtenir mon devis personnalisé →
+              📅 Obtenir mon devis personnalisé
             </Link>
           </div>
         </div>

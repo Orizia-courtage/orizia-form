@@ -183,7 +183,7 @@ export default function InvestirPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <Link href="/rendez-vous" className="fin-btn-primary inv-hero-cta-main">
-                    📅 Bilan patrimonial gratuit →
+                    📅 Bilan patrimonial gratuit
                   </Link>
                   <Link href="#produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Découvrir les placements ↓
@@ -272,7 +272,7 @@ export default function InvestirPage() {
                 pour ça que le premier rendez-vous existe.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Définir ma stratégie avec Cindy →
+                📅 Définir ma stratégie avec Cindy
               </Link>
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function InvestirPage() {
                   ))}
                 </div>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}>
-                  📅 Planifier mon bilan gratuit →
+                  📅 Planifier mon bilan gratuit
                 </Link>
               </div>
             </div>
@@ -402,7 +402,7 @@ export default function InvestirPage() {
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Planifier mon bilan gratuit →
+                📅 Planifier mon bilan gratuit
               </Link>
               <Link href="/contact" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
                 ✉️ Poser une question

@@ -106,7 +106,7 @@ export default function AssurerProduitsGrid() {
 
           {/* CTA */}
           <div className="apg-card-cta" style={{ color: p.accentColor }}>
-            Optimiser ce contrat →
+            Optimiser ce contrat
           </div>
         </Link>
       ))}

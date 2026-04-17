@@ -295,7 +295,7 @@ export default function SimulateurAssuranceVie() {
         </div>
         <div className="av-nav">
           <span />
-          <button className="fin-btn-primary" disabled={!goal} onClick={() => setStep(2)}>Continuer →</button>
+          <button className="fin-btn-primary" disabled={!goal} onClick={() => setStep(2)}>Continuer</button>
         </div>
       </div>
     </div>
@@ -334,7 +334,7 @@ export default function SimulateurAssuranceVie() {
           </div>
           <div className="av-nav">
             <button className="fin-btn-secondary" onClick={() => setStep(1)}>← Retour</button>
-            <button className="fin-btn-primary" disabled={!subgoal} onClick={() => setStep(3)}>Continuer →</button>
+            <button className="fin-btn-primary" disabled={!subgoal} onClick={() => setStep(3)}>Continuer</button>
           </div>
         </div>
       </div>
@@ -449,7 +449,7 @@ export default function SimulateurAssuranceVie() {
 
         <div className="av-nav">
           <button className="fin-btn-secondary" onClick={() => setStep(2)}>← Retour</button>
-          <button className="fin-btn-primary" onClick={() => setStep(4)}>Continuer →</button>
+          <button className="fin-btn-primary" onClick={() => setStep(4)}>Continuer</button>
         </div>
       </div>
     </div>
@@ -508,7 +508,7 @@ export default function SimulateurAssuranceVie() {
 
         <div className="av-nav">
           <button className="fin-btn-secondary" onClick={() => setStep(3)}>← Retour</button>
-          <button className="fin-btn-primary" onClick={() => setStep(5)}>Voir mes résultats →</button>
+          <button className="fin-btn-primary" onClick={() => setStep(5)}>Voir mes résultats</button>
         </div>
       </div>
     </div>
@@ -677,7 +677,7 @@ export default function SimulateurAssuranceVie() {
               </p>
             </div>
             <Link href="/rendez-vous" className="fin-btn-primary">
-              📅 Être accompagné gratuitement →
+              📅 Être accompagné gratuitement
             </Link>
           </div>
 

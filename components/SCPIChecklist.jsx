@@ -119,7 +119,7 @@ export default function SCPIChecklist() {
                   selon votre TMI et à optimiser la structure de détention.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Trouver mes SCPI idéales →
+                  📅 Trouver mes SCPI idéales
                 </Link>
               </div>
             </>
@@ -133,7 +133,7 @@ export default function SCPIChecklist() {
                   éléments méritent d'être consolidés avant d'investir.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Préparer mon investissement →
+                  📅 Préparer mon investissement
                 </Link>
               </div>
             </>

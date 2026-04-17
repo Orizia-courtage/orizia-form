@@ -740,7 +740,7 @@ select.orz-input { cursor:pointer;padding-right:40px;
 .rdv-hero h1 { font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px; }
 .rdv-hero p { font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.6; }
 
-.rdv-steps { background:#fff;padding:50px 20px;border-bottom:1px solid rgba(58,111,108,0.15); }
+.rdv-steps { background: var(--orizia-accent);padding:10px 20px; }
 .rdv-steps-inner { max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center; }
 .rdv-step { display:flex;flex-direction:column;align-items:center; }
 .rdv-step-num { width:44px;height:44px;background:var(--orizia-accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;margin-bottom:14px; }
@@ -8298,3 +8298,306 @@ select.orz-input { cursor:pointer;padding-right:40px;
 }
 
 @media (max-width: 900px) { .apg-grid { grid-template-columns: 1fr; } }
+
+/* =========================================
+   PAGE CONTACT
+========================================= */
+
+/* Cindy card dans le hero */
+.contact-cindy-card {
+  background: var(--orizia-white);
+  border-radius: 20px;
+  padding: 24px;
+  border: 1.5px solid rgba(26,61,53,0.1);
+  box-shadow: 0 8px 32px rgba(26,61,53,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.contact-cindy-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border: 3px solid var(--orizia-gold);
+}
+.contact-cindy-dispo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #16a34a;
+}
+.contact-dispo-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.contact-cindy-name {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--orizia-accent);
+}
+.contact-cindy-role {
+  font-size: 0.75rem;
+  color: var(--orizia-dark);
+  opacity: 0.55;
+}
+.contact-cindy-stats {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 14px 0;
+  border-top: 1px solid rgba(26,61,53,0.08);
+  border-bottom: 1px solid rgba(26,61,53,0.08);
+  width: 100%;
+}
+.contact-cindy-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.contact-cindy-stat strong {
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--orizia-primary);
+}
+.contact-cindy-stat span {
+  font-size: 0.65rem;
+  color: var(--orizia-dark);
+  opacity: 0.5;
+}
+.contact-cindy-horaires {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--orizia-dark);
+  opacity: 0.6;
+}
+
+/* Moyens de contact */
+.contact-moyens-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.contact-moyen-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 18px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(26,61,53,0.1);
+  border-top: 3px solid;
+  background: var(--orizia-light);
+  text-decoration: none;
+  color: var(--orizia-dark);
+  transition: all 0.2s ease;
+}
+.contact-moyen-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,61,53,0.1);
+}
+.contact-moyen-card--primary {
+  background: var(--orizia-light);
+  border-color: var(--orizia-primary);
+  color: var(--orizia-dark);
+}
+.contact-moyen-card--primary h3 { color: var(--orizia-accent); }
+.contact-moyen-card--primary p { color: var(--orizia-dark); opacity: 0.7; }
+.contact-moyen-card--primary .contact-moyen-detail { color: var(--orizia-dark); opacity: 0.45; }
+.contact-moyen-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.contact-moyen-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--orizia-accent); margin: 0; }
+.contact-moyen-card p { font-size: 0.8rem; opacity: 0.7; line-height: 1.5; flex: 1; margin: 0; }
+.contact-moyen-footer { display: flex; flex-direction: column; gap: 3px; margin-top: auto; }
+.contact-moyen-cta { font-size: 0.82rem; font-weight: 800; }
+.contact-moyen-detail { font-size: 0.7rem; opacity: 0.5; }
+
+/* Réassurance calendrier */
+.contact-cal-reassurance {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+  background: var(--orizia-light);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.contact-cal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+.contact-cal-item span:first-child { font-size: 1.2rem; flex-shrink: 0; }
+.contact-cal-item strong { display: block; font-weight: 800; color: var(--orizia-accent); margin-bottom: 2px; }
+.contact-cal-item span:last-child { color: var(--orizia-dark); opacity: 0.55; }
+
+/* Calendrier */
+.contact-cal-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(26,61,53,0.08);
+}
+
+/* RGPD */
+.contact-legal-bloc {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--orizia-light);
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+.contact-legal-icon { font-size: 1.6rem; flex-shrink: 0; }
+.contact-legal-bloc strong { font-size: 0.9rem; font-weight: 800; color: var(--orizia-accent); display: block; margin-bottom: 6px; }
+.contact-legal-bloc p { font-size: 0.8rem; color: var(--orizia-dark); opacity: 0.7; line-height: 1.6; margin: 0; }
+
+@media (max-width: 900px) {
+  .contact-moyens-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-cal-reassurance { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .contact-moyens-grid { grid-template-columns: 1fr; }
+  .contact-cal-reassurance { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   PAGE RENDEZ-VOUS
+========================================= */
+.rdv-hero {
+  background: var(--orizia-accent);
+  padding: 60px 20px 48px;
+}
+.rdv-hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.rdv-hero-breadcrumb {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+.rdv-hero-breadcrumb a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+}
+.rdv-badge {
+  background: rgba(201,169,110,0.15);
+  color: var(--orizia-gold);
+  border: 1px solid rgba(201,169,110,0.3);
+  margin-bottom: 20px;
+}
+.rdv-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--orizia-white);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.rdv-hero p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rdv-hero-trust {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  font-weight: 600;
+}
+
+/* Étapes */
+.rdv-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+.rdv-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  position: relative;
+}
+.rdv-step-num {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--orizia-accent);
+  color: var(--orizia-gold);
+  font-size: 1.2rem;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  border: 3px solid var(--orizia-gold);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.rdv-step-connector {
+  position: absolute;
+  top: 26px;
+  left: calc(50% + 26px);
+  right: calc(-50% + 26px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--orizia-gold) 0%, rgba(201,169,110,0.3) 100%);
+  z-index: 0;
+}
+.rdv-step h3 {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--orizia-accent);
+  margin-bottom: 8px;
+}
+.rdv-step p {
+  font-size: 0.8rem;
+  color: var(--orizia-dark);
+  opacity: 0.6;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 200px;
+}
+/* Variante fond sombre */
+.rdv-step--dark h3 { color: var(--orizia-white); }
+.rdv-step--dark p { color: rgba(255,255,255,0.55); opacity: 1; }
+
+/* Calendrier */
+.rdv-cal-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(26,61,53,0.08);
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .rdv-steps { grid-template-columns: 1fr; gap: 32px; }
+  .rdv-step-connector { display: none; }
+  .rdv-hero-trust { gap: 12px; }
+}

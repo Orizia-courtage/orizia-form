@@ -122,7 +122,7 @@ export default function HabitationChecklist() {
                   ce qui doit changer.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser mon contrat gratuitement →
+                  📅 Analyser mon contrat gratuitement
                 </Link>
               </div>
             </>
@@ -136,7 +136,7 @@ export default function HabitationChecklist() {
                   s'assurer que vous êtes bien couvert — et au bon prix.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Vérifier mon contrat →
+                  📅 Vérifier mon contrat
                 </Link>
               </div>
             </>

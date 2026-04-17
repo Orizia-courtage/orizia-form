@@ -254,7 +254,7 @@ export default function RegroupementCreditsPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer mon étude gratuite →
+                🔍 Démarrer mon étude gratuite
               </a>
               <a href="#comment" className="fin-btn-secondary">
                 Comment ça marche ?
@@ -517,7 +517,7 @@ export default function RegroupementCreditsPage() {
                     </p>
                   </div>
                   <a href="#formulaire" className="fin-btn-primary">
-                    🔍 Démarrer l'analyse →
+                    🔍 Démarrer l'analyse
                   </a>
                 </div>
               </div>
@@ -620,7 +620,7 @@ export default function RegroupementCreditsPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
+                  <span className="fin-card-link">En savoir plus</span>
                 </Link>
               ))}
             </div>
@@ -637,7 +637,7 @@ export default function RegroupementCreditsPage() {
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer mon étude gratuite →
+                🔍 Démarrer mon étude gratuite
               </a>
               <Link href="/contact" className="fin-btn-secondary">
                 Poser une question

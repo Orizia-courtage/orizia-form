@@ -215,7 +215,7 @@ export default function AVProfilSelector() {
           <SimulateurRendement profil={profil} />
 
           <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 20 }}>
-            📅 Construire mon allocation sur-mesure →
+            📅 Construire mon allocation sur-mesure
           </Link>
         </div>
       )}

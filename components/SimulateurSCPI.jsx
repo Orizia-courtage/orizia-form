@@ -260,7 +260,7 @@ export default function SimulateurSCPI() {
           )}
 
           <Link href="/rendez-vous" className="fin-btn-primary scpi-simu-cta">
-            📅 Affiner ma simulation avec Cindy →
+            📅 Affiner ma simulation avec Cindy
           </Link>
 
           <p className="simu-disclaimer">

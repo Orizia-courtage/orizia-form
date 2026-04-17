@@ -256,7 +256,7 @@ export default function CrowdfundingPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Échanger avec Cindy gratuitement →
+                📅 Échanger avec Cindy gratuitement
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 Poser une question
@@ -365,7 +365,7 @@ export default function CrowdfundingPage() {
                 et je vous dis clairement ce qui vaut le coup, et ce qui ne vaut pas.
               </p>
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Me faire accompagner gratuitement →
+                📅 Me faire accompagner gratuitement
               </Link>
             </div>
           </div>
@@ -504,7 +504,7 @@ export default function CrowdfundingPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Définir ma stratégie →
+                📅 Définir ma stratégie
               </Link>
             </div>
           </div>
@@ -534,7 +534,7 @@ export default function CrowdfundingPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Analyser mon profil →
+                📅 Analyser mon profil
               </Link>
             </div>
           </div>
@@ -672,7 +672,7 @@ export default function CrowdfundingPage() {
                 </div>
 
                 <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
-                  📅 Obtenir ma sélection personnalisée →
+                  📅 Obtenir ma sélection personnalisée
                 </Link>
                 <p className="crd-vault-note">
                   Gratuit · Sans engagement · Réponse sous 24h
@@ -732,7 +732,7 @@ export default function CrowdfundingPage() {
                 </p>
               </div>
               <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Démarrer gratuitement →
+                📅 Démarrer gratuitement
               </Link>
             </div>
           </div>
@@ -842,7 +842,7 @@ export default function CrowdfundingPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
+                  <span className="fin-card-link">En savoir plus</span>
                 </Link>
               ))}
             </div>
@@ -862,7 +862,7 @@ export default function CrowdfundingPage() {
             </p>
             <div className="ae-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Prendre rendez-vous avec Cindy →
+                📅 Prendre rendez-vous avec Cindy
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
                 Poser une question

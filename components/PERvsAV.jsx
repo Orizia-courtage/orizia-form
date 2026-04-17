@@ -106,7 +106,7 @@ export default function PERvsAV() {
             <p>{reco.conseil}</p>
           </div>
           <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Calculer ma stratégie optimale →
+            📅 Calculer ma stratégie optimale
           </Link>
         </div>
       )}

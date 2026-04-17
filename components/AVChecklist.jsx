@@ -119,7 +119,7 @@ export default function AVChecklist() {
                   construire l'allocation et rédiger votre clause bénéficiaire sur-mesure.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Ouvrir mon contrat avec Cindy →
+                  📅 Ouvrir mon contrat avec Cindy
                 </Link>
               </div>
             </>
@@ -133,7 +133,7 @@ export default function AVChecklist() {
                   quelques éléments méritent d'être analysés avant de souscrire.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser ma situation →
+                  📅 Analyser ma situation
                 </Link>
               </div>
             </>

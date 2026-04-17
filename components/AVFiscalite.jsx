@@ -182,7 +182,7 @@ export default function AVFiscalite() {
 
       <div style={{ textAlign: 'center', marginTop: 28 }}>
         <Link href="/rendez-vous" className="fin-btn-primary">
-          📅 Optimiser ma fiscalité avec Cindy →
+          📅 Optimiser ma fiscalité avec Cindy
         </Link>
       </div>
 

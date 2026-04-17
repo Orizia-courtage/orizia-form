@@ -123,7 +123,7 @@ export default function EmprunteurChecklist() {
                   à garanties identiques — ou meilleures.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Calculer mon économie →
+                  📅 Calculer mon économie
                 </Link>
               </div>
             </>
@@ -137,7 +137,7 @@ export default function EmprunteurChecklist() {
                   chiffrer précisément ce que vous pouvez récupérer.
                 </p>
                 <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Faire chiffrer mes économies →
+                  📅 Faire chiffrer mes économies
                 </Link>
               </div>
             </>
