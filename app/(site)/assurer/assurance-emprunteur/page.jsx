@@ -635,8 +635,8 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               *Les économies potentielles sont données à titre indicatif et dépendent de votre
-              capital restant dû, de la durée de votre prêt et de votre profil. Orizia Courtage est
-              une structure indépendante, enregistrée à l'ORIAS, qui défend vos intérêts face aux
+              capital restant dû, de la durée de votre prêt et de votre profil. Je suis
+              immatriculée à l'ORIAS, indépendante, et je défends vos intérêts face aux
               établissements bancaires.
             </p>
           </div>

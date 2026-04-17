@@ -409,8 +409,8 @@ export default function InvestirPage() {
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', maxWidth: 540, margin: '24px auto 0' }}>
-              L'investissement comporte des risques de perte en capital. Orizia Courtage,
-              cabinet indépendant immatriculé à l'ORIAS.
+              L'investissement comporte des risques de perte en capital. Je suis
+              immatriculée à l'ORIAS, indépendante.
             </p>
           </div>
         </section>

@@ -777,9 +777,8 @@ export default function AssuranceViePage() {
             }}>
               L'assurance vie comporte un risque de perte en capital sur les unités
               de compte. Les performances passées ne préjugent pas des performances
-              futures. Orizia Courtage, courtière en assurance régie par l'ACPR,
-              immatriculée ORIAS — rémunérée par les assureurs partenaires, jamais
-              par le client.
+              futures. Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              rémunérée par les assureurs partenaires, jamais par vous.
             </p>
           </div>
         </section>

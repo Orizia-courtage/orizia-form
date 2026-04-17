@@ -681,7 +681,7 @@ export default function AssuranceHabitationPage() {
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Les économies dépendent de votre localisation et de vos antécédents d'assurance.
-              Orizia Courtage est une structure indépendante, régie par l'ACPR et immatriculée à l'ORIAS.
+              Je suis immatriculée à l'ORIAS, régie par l'ACPR.
             </p>
           </div>
         </section>

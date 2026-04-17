@@ -80,7 +80,7 @@ const faqSchema = {
       name: 'Comment se déroule le rendez-vous ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Vous choisissez un créneau dans le calendrier. À l\'heure convenue, Cindy vous appelle directement sur votre téléphone ou vous rejoignez en visioconférence. En 30 minutes, on fait le point sur votre situation, vos objectifs et je vous indique clairement ce qui est possible et dans quel délai.',
+        text: 'Vous choisissez un créneau dans le calendrier. À l\'heure convenue, je vous appelle directement sur votre téléphone ou vous me rejoignez en visioconférence. En 30 minutes, on fait le point sur votre situation, vos objectifs et je vous indique clairement ce qui est possible et dans quel délai.',
       },
     },
     {
@@ -113,7 +113,7 @@ const faqSchema = {
 const ETAPES = [
   { n: '1', title: 'Choisissez un créneau', text: "Sélectionnez le jour et l'heure qui vous conviennent dans le calendrier." },
   { n: '2', title: 'Confirmez vos infos', text: 'Renseignez votre nom et e-mail pour recevoir la confirmation par mail.' },
-  { n: '3', title: "Cindy vous appelle", text: 'Elle vous contacte au créneau choisi pour un échange personnalisé.' },
+  { n: '3', title: "Je vous appelle", text: 'Je vous contacte au créneau choisi pour un échange personnalisé.' },
 ];
 
 export default function RendezVous() {

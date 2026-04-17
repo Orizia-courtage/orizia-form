@@ -550,7 +550,7 @@ export default function AssuranceAutoMotoPage() {
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Orizia Courtage est immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée
+              Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée
               par la compagnie d'assurance choisie, sans surcoût pour vous.
             </p>
           </div>

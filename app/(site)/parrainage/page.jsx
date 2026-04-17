@@ -5,18 +5,11 @@ import ParrainageForm from '@/components/ParrainageForm';
 export const metadata = {
   title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€ | Orizia Courtage',
   description:
-    'Recommandez Orizia Courtage à vos proches et recevez jusqu\'à 200€ en chèques cadeaux par dossier finalisé. Crédit immobilier, assurance emprunteur, placements. Parrainage simple et gratuit.',
-  keywords: [
-    'parrainage courtier immobilier',
-    'recommander courtier indépendant',
-    'programme parrainage crédit immobilier',
-    'chèque cadeau parrainage courtage',
-    'parrainage Orizia Courtage',
-  ],
+    'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux par dossier finalisé. Crédit immobilier, assurance emprunteur, placements. Parrainage simple et gratuit.',
   alternates: { canonical: 'https://orizia-courtage.fr/parrainage' },
   openGraph: {
     title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€',
-    description: 'Recommandez Orizia à vos proches et recevez jusqu\'à 200€ en chèques cadeaux. Crédit, assurance, placements — chaque dossier finalisé est récompensé.',
+    description: 'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux. Crédit, assurance, placements — chaque dossier finalisé est récompensé.',
     url: 'https://orizia-courtage.fr/parrainage',
     siteName: 'Orizia Courtage',
     images: [
@@ -53,7 +46,7 @@ const parrainageSchema = {
         image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description:
-        'Recommandez Orizia Courtage à vos proches et recevez jusqu\'à 200€ en chèques cadeaux pour chaque dossier finalisé (crédit immobilier, assurance emprunteur, placements).',
+        'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux pour chaque dossier finalisé (crédit immobilier, assurance emprunteur, placements).',
       offers: {
         '@type': 'Offer',
         price: '0',
@@ -61,55 +54,55 @@ const parrainageSchema = {
         description: 'Participation gratuite. Récompense versée sous forme de chèques cadeaux à la finalisation du dossier du filleul.',
       },
     },
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Comment fonctionne le programme de parrainage Orizia ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Vous recommandez Orizia Courtage à un proche en remplissant le formulaire de parrainage. Cindy prend contact avec votre filleul pour étudier son projet. Dès que son dossier est finalisé et signé, vous recevez tous les deux un chèque cadeau selon le type de dossier.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Combien puis-je gagner avec le parrainage ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Pour un crédit immobilier finalisé : 200€ pour le parrain. Pour une délégation d\'assurance emprunteur : 100€ pour le parrain et 50€ pour le filleul. Pour un placement (SCPI, PER, Assurance Vie, Crowdfunding) ou une assurance habitation/auto : 50€ pour le parrain et 20€ pour le filleul. Il n\'y a pas de limite au nombre de parrainages.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Quand est-ce que je reçois ma récompense ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'La récompense est versée sous forme de chèques cadeaux à la finalisation du dossier de votre filleul, c\'est-à-dire après la signature du contrat ou de l\'offre de prêt.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Mon filleul doit-il être au courant avant que je le recommande ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Oui, son accord préalable est obligatoire avant de transmettre ses coordonnées. Conformément au RGPD, vous devez vous assurer que votre filleul accepte d\'être contacté par Orizia Courtage avant de soumettre le formulaire.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Puis-je parrainer plusieurs personnes ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Absolument. Il n\'y a aucune limite au nombre de filleuls que vous pouvez recommander. Chaque dossier finalisé donne droit à une récompense indépendante.',
-          },
-        },
-      ],
-    },
   ],
 };
 
-const faqItems = parrainageSchema['@graph'][2].mainEntity;
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Comment fonctionne le programme de parrainage Orizia ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Vous me recommandez à un proche en remplissant le formulaire de parrainage. Je prends contact avec votre filleul pour étudier son projet. Dès que son dossier est finalisé et signé, vous recevez tous les deux un chèque cadeau selon le type de dossier.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Combien puis-je gagner avec le parrainage ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pour un crédit immobilier finalisé : 200€ pour le parrain. Pour une délégation d\'assurance emprunteur : 100€ pour le parrain et 50€ pour le filleul. Pour un placement (SCPI, PER, Assurance Vie, Crowdfunding) ou une assurance habitation/auto : 50€ pour le parrain et 20€ pour le filleul. Il n\'y a pas de limite au nombre de parrainages.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quand est-ce que je reçois ma récompense ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La récompense est versée sous forme de chèques cadeaux à la finalisation du dossier de votre filleul, c\'est-à-dire après la signature du contrat ou de l\'offre de prêt.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Mon filleul doit-il être au courant avant que je le recommande ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Oui, son accord préalable est obligatoire avant de transmettre ses coordonnées. Conformément au RGPD, vous devez vous assurer que votre filleul accepte d\'être contacté avant de soumettre le formulaire.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Puis-je parrainer plusieurs personnes ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Absolument. Il n\'y a aucune limite au nombre de filleuls que vous pouvez recommander. Chaque dossier finalisé donne droit à une récompense indépendante.',
+      },
+    },
+  ],
+};
 
 export default function ParrainagePage() {
   return (
@@ -117,6 +110,10 @@ export default function ParrainagePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(parrainageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main className="parrainage-page">
@@ -188,7 +185,7 @@ export default function ParrainagePage() {
             <div className="parrainage-header">
               <h2>Recommander un proche</h2>
               <p className="form-subtitle">
-                Son accord* est obligatoire, transmettez-nous les coordonnées d'une ou plusieurs personnes de votre entourage et nous nous chargeons du reste.
+                Son accord* est obligatoire, transmettez-moi les coordonnées d'une ou plusieurs personnes de votre entourage et je me charge du reste.
               </p>
             </div>
             <ParrainageForm />
@@ -204,7 +201,7 @@ export default function ParrainagePage() {
               <p>Tout ce que vous devez savoir avant de recommander Orizia à vos proches.</p>
             </div>
             <div className="crowd-faq-list">
-              {faqItems.map((f, i) => (
+              {faqSchema.mainEntity.map((f, i) => (
                 <details key={i} className="crowd-faq-item">
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>

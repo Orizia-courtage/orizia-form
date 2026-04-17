@@ -880,8 +880,8 @@ export default function PERPage() {
               Le PER comporte un risque de perte en capital sur les unités de compte.
               Les performances passées ne préjugent pas des performances futures.
               L'avantage fiscal dépend de votre situation personnelle et est susceptible d'évoluer.
-              Orizia Courtage, courtière en assurance régie par l'ACPR, immatriculée ORIAS —
-              rémunérée par les assureurs partenaires, jamais par le client.
+              Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              rémunérée par les assureurs partenaires, jamais par vous.
             </p>
           </div>
         </section>

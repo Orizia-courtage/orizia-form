@@ -716,8 +716,8 @@ export default function SCPIPage() {
             }}>
               Investir dans des SCPI comporte des risques de perte en capital et de liquidité.
               Les performances passées ne préjugent pas des performances futures.
-              Orizia Courtage, courtière indépendante régie par l'ACPR, immatriculée ORIAS —
-              rémunérée par les sociétés de gestion partenaires, jamais par le client.
+              Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              rémunérée par les sociétés de gestion partenaires, jamais par vous.
             </p>
           </div>
         </section>

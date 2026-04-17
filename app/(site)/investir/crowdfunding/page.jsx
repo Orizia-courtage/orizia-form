@@ -870,8 +870,8 @@ export default function CrowdfundingPage() {
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 520, margin: '24px auto 0' }}>
               Investir comporte des risques de perte en capital. Les performances passées ne
-              préjugent pas des performances futures. Orizia Courtage, courtière indépendante
-              immatriculée ORIAS — rémunérée par les plateformes partenaires, jamais par le client.
+              préjugent pas des performances futures. Je suis immatriculée à l'ORIAS —
+              rémunérée par les plateformes partenaires, jamais par vous.
             </p>
           </div>
         </section>

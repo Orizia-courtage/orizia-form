@@ -408,8 +408,8 @@ export default function AssurerPage() {
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
-              Orizia Courtage est un cabinet de courtage indépendant, immatriculé à l'ORIAS,
-              régi par l'ACPR. Rémunération par les compagnies partenaires, jamais par le client.
+              Je suis immatriculée à l'ORIAS, régie par l'ACPR.
+              Rémunérée par les compagnies partenaires, jamais par vous.
             </p>
           </div>
         </section>
