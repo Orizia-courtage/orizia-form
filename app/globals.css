@@ -7424,3 +7424,403 @@ select.orz-input { cursor:pointer;padding-right:40px;
   .scpifis-strategies { grid-template-columns: repeat(2, 1fr); }
   .scpifis-result-stats { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   PAGE INVESTIR — HERO
+========================================= */
+.inv-hero {
+  position: relative;
+  background: var(--orizia-light);
+  overflow: hidden;
+  padding: 0;
+}
+
+.inv-hero-bg { display: none; }
+.inv-hero-bg-overlay { display: none; }
+
+.inv-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 72px;
+}
+
+/* Breadcrumb */
+.inv-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--orizia-dark);
+  opacity: 0.45;
+  margin-bottom: 40px;
+}
+.inv-hero-breadcrumb a {
+  color: var(--orizia-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.inv-hero-breadcrumb a:hover { color: var(--orizia-primary); }
+.inv-hero-breadcrumb-sep { opacity: 0.4; }
+
+/* Layout 2 colonnes */
+.inv-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Colonne texte */
+.inv-hero-text { display: flex; flex-direction: column; gap: 0; }
+
+.inv-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orizia-primary);
+  background: rgba(45,106,95,0.08);
+  border: 1px solid rgba(45,106,95,0.2);
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.inv-hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  color: var(--orizia-accent);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.inv-hero-em {
+  font-style: normal;
+  color: var(--orizia-primary);
+  display: block;
+}
+
+.inv-hero-desc {
+  font-size: 1.05rem;
+  color: var(--orizia-dark);
+  opacity: 0.7;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 500px;
+}
+.inv-hero-desc strong { color: var(--orizia-accent); opacity: 1; }
+
+.inv-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.inv-hero-cta-main { flex-shrink: 0; }
+.inv-hero-cta-ghost {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--orizia-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+  border-bottom: 1px solid rgba(45,106,95,0.3);
+  padding-bottom: 2px;
+}
+.inv-hero-cta-ghost:hover { color: var(--orizia-accent); border-color: var(--orizia-accent); }
+
+.inv-hero-trust {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 28px;
+  border-top: 1px solid rgba(26,61,53,0.1);
+}
+.inv-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  color: var(--orizia-dark);
+  opacity: 0.5;
+  font-weight: 600;
+}
+.inv-hero-trust-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orizia-gold);
+  opacity: 1;
+  flex-shrink: 0;
+}
+
+/* Colonne quiz — fond blanc sur crème */
+.inv-hero-quiz-wrap {
+  display: flex;
+  flex-direction: column;
+  background: var(--orizia-white);
+  border-radius: 20px;
+  padding: 28px 26px;
+  border: 1.5px solid rgba(26,61,53,0.12);
+  box-shadow: 0 12px 40px rgba(26,61,53,0.1);
+}
+.inv-hero-quiz-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orizia-primary);
+  margin-bottom: 14px;
+  opacity: 0.7;
+}
+.inv-hero-quiz-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orizia-gold);
+  flex-shrink: 0;
+  opacity: 1;
+}
+
+/* Quiz — transparent dans sa card */
+.iq-wrap {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.iq-intro { text-align: center; }
+.iq-intro-icon { font-size: 2.2rem; margin-bottom: 10px; }
+.iq-intro-title { font-size: 1rem; font-weight: 900; color: var(--orizia-accent); margin-bottom: 6px; }
+.iq-intro-desc { font-size: 0.78rem; color: var(--orizia-dark); opacity: 0.6; margin-bottom: 18px; }
+.iq-progress { display: flex; gap: 6px; margin-bottom: 8px; }
+.iq-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.iq-progress-row .iq-progress { margin-bottom: 0; flex: 1; }
+.iq-progress-row .iq-step-label { margin-bottom: 0; white-space: nowrap; }
+.iq-back {
+  background: none;
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--orizia-primary);
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+.iq-back:hover { color: var(--orizia-accent); }
+.iq-progress-dot { width: 32px; height: 5px; border-radius: 100px; background: rgba(26,61,53,0.15); transition: background 0.3s ease; }
+.iq-progress-dot--done { background: var(--orizia-primary); }
+.iq-progress-dot--active { background: var(--orizia-gold); }
+.iq-step-label { font-size: 0.7rem; color: var(--orizia-dark); opacity: 0.45; margin-bottom: 12px; font-weight: 600; }
+.iq-q-title { font-size: 0.95rem; font-weight: 900; color: var(--orizia-accent); margin-bottom: 14px; line-height: 1.35; }
+.iq-options { display: flex; flex-direction: column; gap: 7px; }
+.iq-option {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: 10px;
+  border: 1.5px solid var(--orizia-accent);
+  background: var(--orizia-light);
+  cursor: pointer; text-align: left; transition: all 0.15s ease;
+}
+.iq-option:hover { border-color: var(--orizia-gold); background: rgba(201,169,110,0.12); transform: translateX(3px); }
+.iq-option-icon { font-size: 1.3rem; flex-shrink: 0; }
+.iq-option-label { font-size: 0.85rem; font-weight: 700; color: var(--orizia-accent); }
+.iq-option-desc { font-size: 0.7rem; color: var(--orizia-dark); opacity: 0.55; margin-top: 1px; }
+.iq-result { animation: fadeInUp 0.3s ease; }
+.iq-result-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(26,61,53,0.08); }
+.iq-result-icon { font-size: 1.8rem; }
+.iq-result-label { font-size: 0.65rem; font-weight: 700; color: var(--orizia-dark); opacity: 0.45; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+.iq-result-produit { font-size: 1rem; font-weight: 900; color: var(--orizia-accent); }
+.iq-result-raison { font-size: 0.8rem; color: var(--orizia-gold); line-height: 1.55; margin-bottom: 14px; }
+.iq-result-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.iq-reset { background: none; border: none; font-size: 0.75rem; color: var(--orizia-gold); opacity: 0.8; cursor: pointer; padding: 0; transition: opacity 0.2s; font-weight: 600; }
+.iq-reset:hover { opacity: 1; }
+
+@media (max-width: 1024px) {
+  .inv-hero-layout { grid-template-columns: 1fr 380px; gap: 40px; }
+}
+@media (max-width: 860px) {
+  .inv-hero-layout { grid-template-columns: 1fr; gap: 40px; }
+  .inv-hero-inner { padding: 48px 24px 60px; }
+  .inv-hero-title { font-size: clamp(1.9rem, 6vw, 2.6rem); }
+}
+@media (max-width: 480px) {
+  .inv-hero-actions { flex-direction: column; align-items: flex-start; }
+  .inv-hero-trust { gap: 14px; }
+}
+
+/* =========================================
+   INVESTIR PRODUITS GRID (InvestirProduitsGrid)
+========================================= */
+.ipg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.ipg-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--orizia-white);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: var(--orizia-dark);
+  border: 1.5px solid rgba(26,61,53,0.08);
+  border-top: 3px solid;
+  transition: all 0.25s ease;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+}
+.ipg-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(26,61,53,0.1);
+}
+.ipg-card--featured {
+  background: var(--orizia-light);
+  box-shadow: 0 4px 20px rgba(26,61,53,0.08);
+}
+.ipg-card-featured-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--orizia-gold);
+  color: var(--orizia-accent);
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.ipg-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.ipg-card-icon { font-size: 1.8rem; flex-shrink: 0; }
+.ipg-card-title { font-size: 1rem; font-weight: 900; color: var(--orizia-accent); margin-bottom: 2px; }
+.ipg-card-sub { font-size: 0.72rem; color: var(--orizia-dark); opacity: 0.55; }
+.ipg-card-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: auto;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.ipg-card-desc {
+  font-size: 0.8rem;
+  color: var(--orizia-dark);
+  opacity: 0.7;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.ipg-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.ipg-card-stat {
+  background: rgba(26,61,53,0.04);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.ipg-card-stat-label { font-size: 0.62rem; color: var(--orizia-dark); opacity: 0.5; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+.ipg-card-stat-val { font-size: 0.88rem; font-weight: 900; color: var(--orizia-accent); }
+.ipg-card-risque { margin-bottom: 14px; }
+.ipg-card-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ipg-card-points li { font-size: 0.78rem; color: var(--orizia-dark); opacity: 0.75; }
+.ipg-card-cta {
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .ipg-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .ipg-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   INVESTIR — POURQUOI ORIZIA
+========================================= */
+.inv-why-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.inv-why-image { position: relative; }
+.inv-why-image-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -20px;
+  background: var(--orizia-white);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(26,61,53,0.12);
+  border: 1px solid rgba(26,61,53,0.08);
+}
+.inv-why-image-badge-icon { font-size: 1.8rem; }
+.inv-why-image-badge-val { font-size: 1.3rem; font-weight: 900; color: var(--orizia-accent); line-height: 1; }
+.inv-why-image-badge-label { font-size: 0.72rem; color: var(--orizia-dark); opacity: 0.6; }
+.inv-why-content { display: flex; flex-direction: column; }
+.inv-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.inv-why-item {
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.inv-why-item-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.inv-why-item-title { font-size: 0.85rem; font-weight: 800; margin-bottom: 4px; }
+.inv-why-item-desc { font-size: 0.75rem; color: var(--orizia-dark); opacity: 0.65; line-height: 1.45; }
+
+@media (max-width: 900px) {
+  .inv-why-layout { grid-template-columns: 1fr; gap: 40px; }
+  .inv-why-image-badge { left: 16px; }
+  .inv-why-grid { grid-template-columns: 1fr; }
+}
