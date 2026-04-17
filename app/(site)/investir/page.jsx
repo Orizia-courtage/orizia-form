@@ -3,21 +3,13 @@ import Image from 'next/image';
 import AnimatedStats from '@/components/AnimatedStats';
 import InvestirQuiz from '@/components/InvestirQuiz';
 import InvestirProduitsGrid from '@/components/InvestirProduitsGrid';
+import ReadingProgressInvestir from '@/components/ReadingProgressInvestir';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
     'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky, courtière indépendante, crée votre stratégie patrimoniale sur-mesure. Bilan gratuit.',
-  keywords: [
-    'conseiller en gestion de patrimoine indépendant',
-    'investir son argent 2026',
-    'meilleur placement SCPI',
-    'optimiser assurance vie courtier',
-    'comparatif PER retraite',
-    'crowdfunding immobilier conseil',
-    'courtier indépendant Hauts-de-France',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
@@ -26,7 +18,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/investir.jpg',
+        url: 'https://orizia-courtage.fr/images/og-investir.jpg',
         width: 1200,
         height: 630,
         alt: 'Investir avec Orizia Courtage - Cindy Urbansky',
@@ -161,6 +153,8 @@ export default function InvestirPage() {
 
       <main>
 
+        <ReadingProgressInvestir />
+
         {/* ── HERO ── */}
         <section className="inv-hero">
           <div className="inv-hero-bg-overlay" />
@@ -285,7 +279,7 @@ export default function InvestirPage() {
         </section>
 
         {/* ── POURQUOI ORIZIA ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-pourquoi" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="inv-why-layout">
               <div className="inv-why-image">
@@ -333,7 +327,7 @@ export default function InvestirPage() {
         </section>
 
         {/* ── ÉTAPES ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-etapes" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -369,7 +363,7 @@ export default function InvestirPage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-faq" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>

@@ -11,14 +11,6 @@ export const metadata = {
   title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
   description:
     'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit par Cindy Urbansky.',
-  keywords: [
-    'crowdfunding immobilier 2026',
-    'crowdfunding immobilier risques avis',
-    'meilleure plateforme crowdfunding immobilier',
-    'investissement participatif immobilier conseil',
-    'rendement crowdfunding net flat tax',
-    'courtier crowdfunding indépendant Hauts-de-France',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/investir/crowdfunding' },
   openGraph: {
     title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
@@ -27,14 +19,14 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/crowdfunding-immobilier.jpg',
+        url: 'https://orizia-courtage.fr/images/og-crowdfunding.jpg',
         width: 1200,
         height: 630,
-        alt: "Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky",
+        alt: 'Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -692,7 +684,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT (Avec image contextuelle) ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>

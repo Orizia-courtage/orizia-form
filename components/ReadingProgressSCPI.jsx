@@ -6,14 +6,15 @@ const JALONS_DESKTOP = [
   { label: 'Définition', pct: 18, id: 'section-definition' },
   { label: 'Profil fiscal', pct: 32, id: 'section-profil' },
   { label: 'Risques', pct: 46, id: 'section-risques' },
-  { label: 'Fiscalité', pct: 60, id: 'section-fiscalite' },
-  { label: 'Auto-évaluation', pct: 78, id: 'section-autoevaluation' },
+  { label: 'Fiscalité', pct: 58, id: 'section-fiscalite' },
+  { label: 'Simulateur', pct: 70, id: 'section-simulateur' },
+  { label: 'Auto-évaluation', pct: 84, id: 'section-autoevaluation' },
 ];
 
 const JALONS_MOBILE = [
   { label: 'Profil fiscal', pct: 32, displayPct: 25, id: 'section-profil' },
-  { label: 'Risques', pct: 46, displayPct: 50, id: 'section-risques' },
-  { label: 'Auto-évaluation', pct: 78, displayPct: 75, id: 'section-autoevaluation' },
+  { label: 'Simulateur', pct: 70, displayPct: 50, id: 'section-simulateur' },
+  { label: 'Auto-évaluation', pct: 84, displayPct: 75, id: 'section-autoevaluation' },
 ];
 
 export default function ReadingProgressSCPI() {

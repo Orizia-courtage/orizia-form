@@ -13,16 +13,6 @@ export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
   description:
     'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés. Cindy Urbansky.',
-  keywords: [
-    'PER individuel 2026 Hauts-de-France',
-    'plan épargne retraite déduction fiscale',
-    'meilleur PER courtier indépendant Lille',
-    'PER TNS travailleur indépendant',
-    'PER vs assurance vie',
-    'ouvrir PER 0 frais versement',
-    'PER sortie capital rente',
-    'plafond déduction PER 2026',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
@@ -31,14 +21,14 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/investir.jpg',
+        url: 'https://orizia-courtage.fr/images/og-per.jpg',
         width: 1200,
         height: 630,
         alt: 'Plan Épargne Retraite avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 

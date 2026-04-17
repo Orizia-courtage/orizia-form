@@ -12,14 +12,6 @@ export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
   description:
     'Je sélectionne pour vous le meilleur contrat d\'assurance vie : 0% de frais, rendement optimisé, transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky – Orizia Courtage.',
-  keywords: [
-    'assurance vie courtier indépendant',
-    'meilleur contrat assurance vie 2026',
-    'assurance vie transmission patrimoine',
-    'assurance vie frais versement 0%',
-    'ouvrir assurance vie conseil gratuit',
-    'assurance vie rendement unités de compte',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
@@ -28,14 +20,14 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/investir.jpg',
+        url: 'https://orizia-courtage.fr/images/og-assurance-vie.jpg',
         width: 1200,
         height: 630,
         alt: 'Assurance Vie avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -341,7 +333,7 @@ export default function AssuranceViePage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Auditer mon contrat gratuitement →
               </Link>
-              <Link href="#notre-approche" className="fin-btn-secondary">
+              <Link href="#section-accompagnement" className="fin-btn-secondary">
                 🔍 Découvrir mon approche
               </Link>
             </div>

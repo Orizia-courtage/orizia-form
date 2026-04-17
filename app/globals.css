@@ -6014,7 +6014,7 @@ select.orz-input { cursor:pointer;padding-right:40px;
   align-items: center;
   gap: 8px;
   padding: 0 12px 0 0;
-  height: 40px;
+  height: 55px;
   background: var(--orizia-accent);
   box-shadow: 0 -2px 8px rgba(26,61,53,0.2);
 }
@@ -7824,3 +7824,5 @@ select.orz-input { cursor:pointer;padding-right:40px;
   .inv-why-image-badge { left: 16px; }
   .inv-why-grid { grid-template-columns: 1fr; }
 }
+
+/* fin du fichier */

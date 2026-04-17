@@ -2,23 +2,20 @@
 
 import { useEffect, useState } from 'react';
 
-// Jalons crowdfunding — structure réelle de la page
 const JALONS_DESKTOP = [
-  { label: 'Définition', pct: 20, id: 'section-definition' },
-  { label: 'Risques', pct: 36, id: 'section-risques' },
-  { label: 'Fiscalité', pct: 50, id: 'section-fiscalite' },
-  { label: 'Sélection', pct: 63, id: 'section-selection' },
-  { label: 'Accompagnement', pct: 76, id: 'section-accompagnement' },
-  { label: 'Auto-évaluation', pct: 87, id: 'section-autoevaluation' },
+  { label: 'Placements', pct: 28, id: 'produits' },
+  { label: 'Pourquoi Orizia', pct: 52, id: 'section-pourquoi' },
+  { label: 'Accompagnement', pct: 70, id: 'section-etapes' },
+  { label: 'FAQ', pct: 85, id: 'section-faq' },
 ];
 
 const JALONS_MOBILE = [
-  { label: 'Risques', pct: 36, displayPct: 25, id: 'section-risques' },
-  { label: 'Sélection', pct: 63, displayPct: 50, id: 'section-selection' },
-  { label: 'Auto-évaluation', pct: 87, displayPct: 75, id: 'section-autoevaluation' },
+  { label: 'Placements', pct: 28, displayPct: 25, id: 'produits' },
+  { label: 'Accompagnement', pct: 70, displayPct: 50, id: 'section-etapes' },
+  { label: 'FAQ', pct: 85, displayPct: 75, id: 'section-faq' },
 ];
 
-export default function ReadingProgress() {
+export default function ReadingProgressInvestir() {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);

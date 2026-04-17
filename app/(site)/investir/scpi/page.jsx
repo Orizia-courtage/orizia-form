@@ -13,16 +13,6 @@ export const metadata = {
   title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
   description:
     'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
-  keywords: [
-    'SCPI 2026 Hauts-de-France',
-    'investir SCPI courtier indépendant',
-    'meilleure SCPI rendement',
-    'SCPI pierre papier immobilier',
-    'SCPI fiscalité optimisée',
-    'SCPI européenne TMI élevé',
-    'SCPI assurance vie',
-    'SCPI risques conseils',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/investir/scpi' },
   openGraph: {
     title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
@@ -31,14 +21,14 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/investir.jpg',
+        url: 'https://orizia-courtage.fr/images/og-scpi.jpg',
         width: 1200,
         height: 630,
-        alt: "Investissement en SCPI avec Orizia Courtage - Cindy Urbansky",
+        alt: 'Investissement en SCPI avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
