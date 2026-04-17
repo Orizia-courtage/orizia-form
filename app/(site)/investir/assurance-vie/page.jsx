@@ -618,13 +618,6 @@ export default function AssuranceViePage() {
           </div>
         </section>
 
-        {/* ── AUTO-ÉVALUATION ── */}
-        <section id="section-autoevaluation" className="crowd-section crowd-section--light">
-          <div className="fin-section-inner">
-            <AVChecklist />
-          </div>
-        </section>
-
         {/* ── OBJECTIONS ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
@@ -660,8 +653,15 @@ export default function AssuranceViePage() {
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <AVChecklist />
+          </div>
+        </section>
+
         {/* ── AV VS LIVRET ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-comparatif" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Comparatif</span>
@@ -676,7 +676,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -685,7 +685,7 @@ export default function AssuranceViePage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item" style={{ border: '2px solid var(--orizia-gold)' }}>
+                <details key={i} className="crowd-faq-item">
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -702,10 +702,8 @@ export default function AssuranceViePage() {
           </div>
         </section>
 
-        
-
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
@@ -716,7 +714,7 @@ export default function AssuranceViePage() {
                 globale avec vous.
               </p>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/investir/scpi',
@@ -743,8 +741,16 @@ export default function AssuranceViePage() {
                   badge: '🔗 Complément fiscal recommandé',
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  {s.badge && <div className="fin-card-badge">{s.badge}</div>}
+                <Link key={s.title} href={s.href} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                  {s.badge && (
+                    <span className="fin-card-pill" style={{
+                      background: 'rgba(201,169,110,0.12)',
+                      color: 'var(--orizia-gold)',
+                      border: '1px solid rgba(201,169,110,0.3)',
+                    }}>
+                      {s.badge}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -757,7 +763,7 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <h2>Votre argent mérite mieux<br />qu'un contrat bancaire standard</h2>
             <p>

@@ -515,11 +515,33 @@ export default function PERPage() {
             </div>
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
-                <div key={a.title} className="crowd-avantage-card">
+                <div
+                  key={a.title}
+                  className="crowd-avantage-card"
+                  style={
+                    a.title === 'Réduction d\'impôt immédiate et garantie' || a.title === 'Plafonds exceptionnels pour les TNS'
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      : {}
+                  }
+                >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
                   </div>
+                  {(a.title === 'Réduction d\'impôt immédiate et garantie' || a.title === 'Plafonds exceptionnels pour les TNS') && (
+                    <div style={{
+                      display: 'inline-block',
+                      fontSize: '0.65rem', fontWeight: 800,
+                      background: 'rgba(201,169,110,0.15)',
+                      color: 'var(--orizia-gold)',
+                      border: '1px solid rgba(201,169,110,0.3)',
+                      borderRadius: 100,
+                      padding: '2px 8px',
+                      marginBottom: 8,
+                    }}>
+                      ⭐ Avantage différenciant
+                    </div>
+                  )}
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -528,7 +550,7 @@ export default function PERPage() {
         </section>
 
         {/* ── CALCULATEUR FISCAL PER ── */}
-        <section id="fiscalite" className="crowd-section crowd-section--light">
+        <section id="section-fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Calculateur fiscal 2026</span>
@@ -715,15 +737,8 @@ export default function PERPage() {
           </div>
         </section>
 
-{/* ── AUTO-ÉVALUATION ── */}
-        <section className="crowd-section crowd-section--white">
-          <div className="fin-section-inner">
-            <PERChecklist />
-          </div>
-        </section>
-
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vous hésitez encore ?</span>
@@ -757,7 +772,12 @@ export default function PERPage() {
           </div>
         </section>
 
-        
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <PERChecklist />
+          </div>
+        </section>
 
         {/* ── FAQ ── */}
         <section className="crowd-section crowd-section--white">
@@ -785,8 +805,6 @@ export default function PERPage() {
             </div>
           </div>
         </section>
-
-        
 
         {/* ── MAILLAGE INTERNE ── */}
         <section className="crowd-section crowd-section--light">
@@ -827,21 +845,29 @@ export default function PERPage() {
                   badge: null,
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  {s.badge && <div className="fin-card-badge">{s.badge}</div>}
-                  <div className="fin-card-icon">{s.icon}</div>
-                  <div className="fin-card-sub">{s.sub}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus →</span>
-                </Link>
+                <Link key={s.title} href={s.href} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                    {s.badge && (
+                      <span className="fin-card-pill" style={{
+                        background: `${s.pillBg || 'rgba(201,169,110,0.12)'}`,
+                        color: s.pillColor || 'var(--orizia-gold)',
+                        border: `1px solid ${s.pillBorder || 'rgba(201,169,110,0.3)'}`,
+                      }}>
+                        {s.badge}
+                      </span>
+                    )}
+                    <div className="fin-card-icon">{s.icon}</div>
+                    <div className="fin-card-sub">{s.sub}</div>
+                    <h3>{s.title}</h3>
+                    <p>{s.text}</p>
+                    <span className="fin-card-link">En savoir plus →</span>
+                  </Link>
               ))}
             </div>
           </div>
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white  )' }}>
           <div className="fin-cta-inner">
             <h2>Récupérez vos impôts<br />dès cette année</h2>
             <p>

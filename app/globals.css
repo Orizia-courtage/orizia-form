@@ -1210,6 +1210,10 @@ select.orz-input { cursor:pointer;padding-right:40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
+}
+.fin-cards--light .fin-card {
+  background: var(--orizia-light);
 }
 .fin-card {
   display: flex;
@@ -1221,11 +1225,42 @@ select.orz-input { cursor:pointer;padding-right:40px;
   border: 1px solid rgba(26,61,53,0.1);
   transition: all 0.25s ease;
   color: var(--orizia-dark);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  align-self: stretch;
 }
 .fin-card:hover {
   border-color: var(--orizia-gold);
   transform: translateY(-4px);
   box-shadow: 0 12px 36px rgba(26,61,53,0.1);
+}
+
+/* Ruban diagonal dans le coin supérieur droit */
+.fin-card-ribbon { display: none; }
+
+/* Carte mise en avant — accent bar gauche */
+.fin-card-wrap {
+  display: contents;
+}
+
+.fin-card--featured {
+  border-left: 3px solid var(--orizia-gold);
+}
+
+/* Pill discret en haut de la carte mise en avant */
+.fin-card-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  align-self: flex-start;
 }
 .fin-card-icon {
   font-size: 2.2rem;
@@ -6032,6 +6067,8 @@ select.orz-input { cursor:pointer;padding-right:40px;
   position: absolute;
   bottom: 10px;
   letter-spacing: 0.04em;
+  transform: translateX(-50%);
+  left: 50%;
 }
 .rp-jalon--passed .rp-jalon-label { color: var(--orizia-gold); }
 .rp-pct {
@@ -6042,8 +6079,16 @@ select.orz-input { cursor:pointer;padding-right:40px;
   min-width: 28px;
   text-align: right;
 }
-@media (max-width: 600px) {
-  .rp-jalon-label { display: block; font-size: 0.58rem; }
+@media (max-width: 640px) {
+  .rp-jalon-label {
+    font-size: 0.52rem;
+    letter-spacing: 0;
+    max-width: 54px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .rp-pct { font-size: 0.62rem; min-width: 22px; }
 }
 
 /* =========================================

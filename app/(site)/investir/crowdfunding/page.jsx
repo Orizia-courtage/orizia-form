@@ -380,7 +380,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── QU'EST-CE QUE C'EST ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-definition" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
 
             {/* Titre centré */}
@@ -456,11 +456,33 @@ export default function CrowdfundingPage() {
             </div>
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
-                <div key={a.title} className="crowd-avantage-card">
+                <div
+                  key={a.title}
+                  className="crowd-avantage-card"
+                  style={
+                    a.title === '8–12% brut/an' || a.title === 'Zéro gestion'
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      : {}
+                  }
+                >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
                   </div>
+                  {(a.title === '8–12% brut/an' || a.title === 'Zéro gestion') && (
+                    <div style={{
+                      display: 'inline-block',
+                      fontSize: '0.65rem', fontWeight: 800,
+                      background: 'rgba(201,169,110,0.15)',
+                      color: 'var(--orizia-gold)',
+                      border: '1px solid rgba(201,169,110,0.3)',
+                      borderRadius: 100,
+                      padding: '2px 8px',
+                      marginBottom: 8,
+                    }}>
+                      ⭐ Avantage différenciant
+                    </div>
+                  )}
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -725,7 +747,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── CHECKLIST ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Auto-évaluation</span>
@@ -775,7 +797,7 @@ export default function CrowdfundingPage() {
                 le bon dosage.
               </p>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/investir/scpi',
@@ -783,6 +805,11 @@ export default function CrowdfundingPage() {
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, risque mutualisé sur des centaines d\'actifs, zéro gestion. Le placement immobilier préféré des Français pour sécuriser le socle.',
+                  ribbon: '🏢 Socle patrimonial',
+                  ribbonColor: 'var(--orizia-accent)',
+                  pillBg: 'rgba(26,61,53,0.08)',
+                  pillColor: 'var(--orizia-accent)',
+                  pillBorder: 'rgba(26,61,53,0.15)',
                 },
                 {
                   href: '/investir/assurance-vie',
@@ -790,6 +817,11 @@ export default function CrowdfundingPage() {
                   title: 'Assurance Vie',
                   sub: 'Épargne & transmission',
                   text: 'L\'enveloppe fiscale la plus avantageuse après 8 ans. Idéale en complément du crowdfunding pour sécuriser une partie de votre épargne disponible.',
+                  ribbon: '✅ Fiscalité optimisée',
+                  ribbonColor: 'var(--orizia-primary)',
+                  pillBg: 'rgba(201,169,110,0.12)',
+                  pillColor: 'var(--orizia-gold)',
+                  pillBorder: 'rgba(201,169,110,0.3)',
                 },
                 {
                   href: '/investir/per',
@@ -797,9 +829,23 @@ export default function CrowdfundingPage() {
                   title: 'PER',
                   sub: 'Préparez votre retraite',
                   text: 'Réduisez vos impôts cette année et constituez un capital retraite. Un avantage fiscal immédiat qui se voit dès votre prochaine déclaration.',
+                  ribbon: '🔗 Avantage fiscal immédiat',
+                  ribbonColor: '#7c3aed',
+                  pillBg: 'rgba(124,58,237,0.08)',
+                  pillColor: '#7c3aed',
+                  pillBorder: 'rgba(124,58,237,0.2)',
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
+                <Link key={s.title} href={s.href} className="fin-card">
+                  {s.ribbon && (
+                    <span className="fin-card-pill" style={{
+                      background: `${s.pillBg}`,
+                      color: s.pillColor,
+                      border: `1px solid ${s.pillBorder}`,
+                    }}>
+                      {s.ribbon}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>

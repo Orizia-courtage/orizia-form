@@ -584,40 +584,6 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* ── AUTO-ÉVALUATION ── */}
-        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
-          <div className="fin-section-inner">
-            <SCPIChecklist />
-          </div>
-        </section>
-
-        {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
-          <div className="fin-section-inner">
-            <div className="fin-section-head">
-              <span className="fin-badge">FAQ</span>
-              <h2>Vos questions SCPI,<br />mes réponses directes</h2>
-              <p>Sans jargon financier. Les vraies réponses.</p>
-            </div>
-            <div className="crowd-faq-list">
-              {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
-                  <summary>{f.name}</summary>
-                  <p>{f.acceptedAnswer.text}</p>
-                </details>
-              ))}
-            </div>
-            <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
-              </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
-            </div>
-          </div>
-        </section>
-
         {/* ── OBJECTIONS ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
@@ -663,7 +629,39 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <SCPIChecklist />
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">FAQ</span>
+              <h2>Vos questions SCPI,<br />mes réponses directes</h2>
+              <p>Sans jargon financier. Les vraies réponses.</p>
+            </div>
+            <div className="crowd-faq-list">
+              {faqSchema.mainEntity.map((f, i) => (
+                <details key={i} className="crowd-faq-item">
+                  <summary>{f.name}</summary>
+                  <p>{f.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 36 }}>
+              <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+              </p>
+              <Link href="/contact" className="fin-btn-secondary">
+                ✉️ Poser une autre question à Cindy
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {/* ── MAILLAGE INTERNE ── */}
         <section className="crowd-section crowd-section--light">
@@ -678,16 +676,16 @@ export default function SCPIPage() {
               </p>
             </div>
             <div className="fin-cards">
-              <Link href="/investir/crowdfunding" className="fin-card" style={{ position: 'relative' }}>
-                <div className="fin-card-badge">⚡ Rendement court terme</div>
+              <Link href="/investir/crowdfunding" className="fin-card">
+                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.1)', color: '#d97706', border: '1px solid rgba(217,119,6,0.25)' }}>⚡ Rendement court terme</span>
                 <div className="fin-card-icon">📈</div>
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
                 <p>8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
                 <span className="fin-card-link">En savoir plus →</span>
               </Link>
-              <Link href="/investir/assurance-vie" className="fin-card" style={{ position: 'relative' }}>
-                <div className="fin-card-badge">✅ Fiscalité optimisée</div>
+              <Link href="/investir/assurance-vie" className="fin-card fin-card--featured">
+                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>✅ Fiscalité optimisée</span>
                 <div className="fin-card-icon">🛡️</div>
                 <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>
