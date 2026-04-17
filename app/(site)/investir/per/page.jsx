@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import PERCalculateur from '@/components/PERCalculateur';
+import PERDefinition from '@/components/PERDefinition';
+import PERvsAV from '@/components/PERvsAV';
+import PERRisqueJauge from '@/components/PERRisqueJauge';
+import PERProfilSelector from '@/components/PERProfilSelector';
+import PERChecklist from '@/components/PERChecklist';
+import ReadingProgressPER from '@/components/ReadingProgressPER';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -197,7 +203,7 @@ const AVANTAGES = [
     text: 'Capital en une fois ou progressivement, rente viagère, ou combinaison des deux. Vous choisissez à la retraite selon votre situation réelle — pas aujourd\'hui selon une hypothèse.',
   },
   {
-    icon: '🚫', // Icône générique "TNS/Indépendant" (⚙️ ou 🧾 mieux adaptés ?)
+    icon: '⚙️',
     title: 'Plafonds exceptionnels pour les TNS',
     text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
   },
@@ -330,6 +336,8 @@ export default function PERPage() {
       />
 
       <main>
+
+        <ReadingProgressPER />
 
         {/* ── HERO (Avec background) ── */}
         <section className="fin-hero ae-hero">
@@ -479,88 +487,17 @@ export default function PERPage() {
         </section>
 
         {/* ── DÉFINITION ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-definition" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div className="crowd-2col">
-              <div>
-                <span className="fin-badge">Définition</span>
-                <h2>Le PER en clair :<br />comment ça fonctionne vraiment</h2>
-                <p>
-                  Créé par la <strong>loi PACTE en 2019</strong>, le PER individuel remplace
-                  les anciens PERP, Madelin et PERCO. Chaque euro versé vient en déduction
-                  de votre revenu imposable — ce qui réduit directement votre impôt sur le
-                  revenu <strong>l'année suivante</strong>.
-                </p>
-                <p>
-                  L'épargne est en principe bloquée jusqu'à la retraite, sauf exceptions
-                  légales (résidence principale, invalidité, décès du conjoint, surendettement).
-                  À la retraite, vous choisissez de sortir en <strong>capital</strong>, en{' '}
-                  <strong>rente viagère</strong>, ou en combinant les deux.
-                </p>
-                <p>
-                  À l'intérieur du contrat, votre épargne est investie sur les mêmes supports
-                  qu'une assurance vie : <strong>fonds en euros</strong> (capital garanti) et{' '}
-                  <strong>unités de compte</strong> (ETF, SCPI, fonds actions…). La gestion
-                  pilotée sécurise automatiquement votre portefeuille à l'approche de la retraite.
-                </p>
-              </div>
-
-              {/* Schéma flux PER */}
-              <div className="crowd-schema">
-                <div style={{
-                  textAlign: 'center', marginBottom: 16, fontWeight: 800,
-                  fontSize: '0.85rem', textTransform: 'uppercase',
-                  letterSpacing: '0.06em', color: 'var(--orizia-primary)',
-                }}>
-                  Le cycle du PER
-                </div>
-                <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">💶</div>
-                  <strong>Vous versez</strong>
-                  <span>Chaque mois ou ponctuellement</span>
-                </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div className="crowd-schema-step" style={{ background: 'rgba(22,163,74,0.08)', border: '1.5px solid rgba(22,163,74,0.2)' }}>
-                  <div className="crowd-schema-icon">🧾</div>
-                  <strong>L'État vous rembourse</strong>
-                  <span>Déduction fiscale l'année suivante</span>
-                </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12 }}>
-                  <div className="crowd-schema-step" style={{ background: 'rgba(58,111,108,0.08)' }}>
-                    <div className="crowd-schema-icon">🏦</div>
-                    <strong>Fonds euros</strong>
-                    <span>Sécurisé</span>
-                  </div>
-                  <div className="crowd-schema-step" style={{ background: 'rgba(217,119,6,0.08)' }}>
-                    <div className="crowd-schema-icon">📈</div>
-                    <strong>UC / ETF</strong>
-                    <span>Performance</span>
-                  </div>
-                </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12 }}>
-                  <div className="crowd-schema-step" style={{ padding: '12px 14px' }}>
-                    <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>💸</div>
-                    <strong style={{ fontSize: '0.8rem' }}>Capital</strong>
-                    <span>Sortie flexible</span>
-                  </div>
-                  <div className="crowd-schema-step crowd-schema-step--result" style={{ padding: '12px 14px' }}>
-                    <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>🔁</div>
-                    <strong style={{ fontSize: '0.8rem' }}>Rente</strong>
-                    <span>Revenu à vie</span>
-                  </div>
-                </div>
-                <div style={{
-                  marginTop: 12, background: 'rgba(22,163,74,0.06)', borderRadius: 10,
-                  padding: '10px 14px', fontSize: '0.78rem', color: '#16a34a',
-                  fontWeight: 700, textAlign: 'center',
-                }}>
-                  🏠 Déblocage anticipé possible<br />
-                  <span style={{ fontWeight: 400, opacity: 0.8 }}>pour achat résidence principale</span>
-                </div>
-              </div>
+            <div className="fin-section-head">
+              <span className="fin-badge">Définition</span>
+              <h2>Le PER en clair :<br />comment ça fonctionne vraiment</h2>
+              <p>
+                Créé par la loi PACTE en 2019, le PER remplace les anciens PERP, Madelin et PERCO.
+                Chaque euro versé réduit directement votre impôt l'année suivante.
+              </p>
             </div>
+            <PERDefinition />
           </div>
         </section>
 
@@ -601,6 +538,25 @@ export default function PERPage() {
               </p>
             </div>
             <PERCalculateur />
+
+            {/* Exemples fiscaux de référence */}
+            <div className="per-fiscal-exemples">
+              <div className="per-fiscal-exemples-title">📊 Exemples de référence 2026</div>
+              <div className="per-fiscal-exemples-grid">
+                {FISCAL_EXEMPLES.map(ex => (
+                  <div key={ex.tmi} className="per-fiscal-ex">
+                    <div className="per-fiscal-ex-profil">{ex.profil}</div>
+                    <div className="per-fiscal-ex-tmi">TMI {ex.tmi}</div>
+                    <div className="per-fiscal-ex-versement">
+                      {ex.versement.toLocaleString('fr-FR')}€ versés
+                    </div>
+                    <div className="per-fiscal-ex-gain">
+                      -{ex.gain.toLocaleString('fr-FR')}€ d'impôt
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="per-plafonds-bloc">
               <div className="per-plafonds-header">
@@ -660,90 +616,31 @@ export default function PERPage() {
               <h2>Le PER s'adapte<br />à votre statut professionnel</h2>
               <p>
                 Salarié, indépendant ou dirigeant — les plafonds et la stratégie optimale
-                ne sont pas les mêmes. J'ajuste selon votre situation réelle, pas un
-                profil générique.
+                ne sont pas les mêmes. Sélectionnez votre profil pour voir ce que ça
+                représente concrètement.
               </p>
             </div>
-            <div className="av-profils-grid">
-              {PROFILS.map(p => (
-                <div
-                  key={p.title}
-                  className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}
-                  style={p.featured ? { borderColor: '#d97706' } : {}}
-                >
-                  {p.featured && (
-                    <div className="av-profil-badge" style={{ background: '#d97706' }}>
-                      ⭐ Avantage maximal
-                    </div>
-                  )}
-                  <div className="av-profil-icon">{p.icon}</div>
-                  <h3>{p.title}</h3>
-                  <div className="av-profil-repart">
-                    <span>TMI {p.tmi}</span>
-                  </div>
-                  <div className="av-profil-rendement" style={{ color: p.color, fontSize: '1.2rem' }}>
-                    {p.gain}
-                  </div>
-                  <p className="av-profil-desc" style={{ fontSize: '0.78rem', marginBottom: 8 }}>
-                    {p.base}
-                  </p>
-                  <p className="av-profil-for">💡 {p.conseil}</p>
-                </div>
-              ))}
-            </div>
+            <PERProfilSelector />
           </div>
         </section>
 
         {/* ── PER VS AV ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-comparaison" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Comparaison</span>
               <h2>PER ou assurance vie :<br />ce n'est pas l'un ou l'autre</h2>
               <p>
-                Les deux enveloppes sont complémentaires. Le bon dosage dépend de votre TMI,
-                de votre horizon et de vos besoins de liquidité — je construis les deux
-                en parallèle selon votre situation.
+                Les deux enveloppes sont complémentaires. Sélectionnez votre objectif principal
+                pour voir la recommandation adaptée à votre situation.
               </p>
             </div>
-            <div className="per-vs-grid">
-              <div className="per-vs-header" />
-              <div className="per-vs-header per-vs-col--per">
-                <span className="fin-badge" style={{ margin: '0 0 8px' }}>PER</span>
-                <p>Optimisation fiscale immédiate</p>
-              </div>
-              <div className="per-vs-header per-vs-col--av">
-                <span className="fin-badge" style={{ margin: '0 0 8px', background: 'rgba(217,119,6,0.1)', color: '#d97706' }}>
-                  Assurance Vie
-                </span>
-                <p>Liquidité & transmission</p>
-              </div>
-
-              {[
-                ['Déduction fiscale à l\'entrée', '✅ Oui — jusqu\'à 45% de TMI', '❌ Non'],
-                ['Disponibilité de l\'épargne', '⚠️ Bloqué (exceptions légales)', '✅ Disponible à tout moment'],
-                ['Fiscalité à la sortie', '📋 IR sur primes + PFU 30% sur gains', '✅ Abattement + PFNL 7,5% après 8 ans'],
-                ['Transmission au décès', '✅ Hors succession (même règles AV)', '✅ Hors succession jusqu\'à 152 500€/bénéf.'],
-                ['Idéal pour', '🎯 TMI élevé, horizon retraite long', '🎯 Liquidité, TMI faible, transmission'],
-                ['Plafond de versement', '📋 ~35 000€ à ~85 000€ selon statut', '♾️ Illimité'],
-              ].map(([critere, per, av]) => (
-                <div key={critere} className="per-vs-row">
-                  <div className="per-vs-critere">{critere}</div>
-                  <div className="per-vs-cell per-vs-col--per">{per}</div>
-                  <div className="per-vs-cell per-vs-col--av">{av}</div>
-                </div>
-              ))}
-            </div>
-            <div className="crowd-risques-note" style={{ marginTop: 24 }}>
-              💡 <strong>La stratégie optimale :</strong> PER pour réduire l'impôt sur vos revenus
-              d'activité + Assurance Vie pour l'épargne liquide et la transmission.
-              Je construis les deux en parallèle selon votre situation lors du premier rendez-vous.
-            </div>
+            <PERvsAV />
           </div>
         </section>
 
         {/* ── RISQUES ── */}
-        <section className="crowd-section" style={{ background: '#fafafa' }}>
+        <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
@@ -756,30 +653,7 @@ export default function PERPage() {
                 et comment je les adresse concrètement.
               </p>
             </div>
-            <div className="crowd-risques-grid">
-              {RISQUES.map(r => (
-                <div
-                  key={r.title}
-                  className="crowd-risque-card"
-                  style={{ background: r.bg, borderColor: r.border }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                    <span style={{ fontSize: '1.4rem' }}>{r.icon}</span>
-                    <div>
-                      <span style={{
-                        fontSize: '0.7rem', fontWeight: 700,
-                        textTransform: 'uppercase', color: r.color,
-                      }}>
-                        Risque {r.niveau}
-                      </span>
-                      <h3 style={{ margin: 0, color: r.color }}>{r.title}</h3>
-                    </div>
-                  </div>
-                  <p>{r.text}</p>
-                  <div className="crowd-risque-tip">🛡️ {r.mitigation}</div>
-                </div>
-              ))}
-            </div>
+            <PERRisqueJauge />
           </div>
         </section>
 
@@ -841,8 +715,15 @@ export default function PERPage() {
           </div>
         </section>
 
-        {/* ── OBJECTIONS ── */}
+{/* ── AUTO-ÉVALUATION ── */}
         <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <PERChecklist />
+          </div>
+        </section>
+
+        {/* ── OBJECTIONS ── */}
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vous hésitez encore ?</span>
@@ -852,12 +733,12 @@ export default function PERPage() {
                 rendez-vous — et ce que je leur réponds, sans formule commerciale.
               </p>
             </div>
-            <div className="av-objections-grid">
+            <div className="crowd-faq-list">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card">
-                  <div className="av-objection-q">{o.q}</div>
-                  <div className="av-objection-r">{o.r}</div>
-                </div>
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
@@ -876,8 +757,10 @@ export default function PERPage() {
           </div>
         </section>
 
+        
+
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -886,7 +769,7 @@ export default function PERPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -903,8 +786,10 @@ export default function PERPage() {
           </div>
         </section>
 
+        
+
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
@@ -923,6 +808,7 @@ export default function PERPage() {
                   title: 'Assurance Vie',
                   sub: 'Épargne disponible & transmission',
                   text: 'Le complément naturel du PER : épargne liquide à tout moment, fiscalité avantageuse après 8 ans et transmission hors succession jusqu\'à 152 500€ par bénéficiaire.',
+                  badge: '🔗 Stratégie combinée recommandée',
                 },
                 {
                   href: '/investir/scpi',
@@ -930,6 +816,7 @@ export default function PERPage() {
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, zéro gestion. Logeable dans votre PER ou votre AV pour combiner rendement immobilier et fiscalité optimisée dans une seule enveloppe.',
+                  badge: null,
                 },
                 {
                   href: '/investir/crowdfunding',
@@ -937,9 +824,11 @@ export default function PERPage() {
                   title: 'Crowdfunding immobilier',
                   sub: 'Financement participatif',
                   text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal pour les capitaux non immobilisés dans le PER — rendement élevé à court terme.',
+                  badge: null,
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
+                  {s.badge && <div className="fin-card-badge">{s.badge}</div>}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -952,7 +841,7 @@ export default function PERPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Récupérez vos impôts<br />dès cette année</h2>
             <p>

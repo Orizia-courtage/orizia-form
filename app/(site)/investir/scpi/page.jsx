@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import SimulateurSCPI from '@/components/SimulateurSCPI';
+import SCPIDefinition from '@/components/SCPIDefinition';
+import SCPIProfilFiscal from '@/components/SCPIProfilFiscal';
+import SCPIChecklist from '@/components/SCPIChecklist';
+import ReadingProgressSCPI from '@/components/ReadingProgressSCPI';
+import SCPIRisqueJauge from '@/components/SCPIRisqueJauge';
+import SCPIFiscaliteSelector from '@/components/SCPIFiscaliteSelector';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -206,14 +212,6 @@ const RISQUES = [
   },
 ];
 
-const TYPES_SCPI = [
-  { type: 'SCPI de rendement', description: 'Génèrent des revenus locatifs réguliers via bureaux, commerces, entrepôts', rendement: '4–7%', horizon: '8–15 ans', fiscal: '⚠️ Revenus fonciers' },
-  { type: 'SCPI européennes', description: 'Investies en zone euro, fiscalité souvent plus avantageuse pour TMI élevés', rendement: '4–6%', horizon: '8–12 ans', fiscal: '✅ Fiscal avantageux' },
-  { type: 'SCPI de plus-value', description: 'Axées sur la valorisation des parts plutôt que les revenus immédiats', rendement: '2–3%', horizon: '10–20 ans', fiscal: '✅ PV mobilières' },
-  { type: 'SCPI fiscales', description: 'Pinel, Déficit Foncier : réduction d\'impôt en contrepartie d\'un rendement moindre', rendement: '1–3%', horizon: '15+ ans', fiscal: '✅ Réduction IR' },
-  { type: 'SCPI en assurance vie', description: 'Accessibles dans une AV : fiscalité optimisée et liquidité améliorée', rendement: '3–5%', horizon: '8+ ans', fiscal: '✅ Flat tax 30%' },
-];
-
 const ETAPES = [
   {
     n: '01',
@@ -250,6 +248,8 @@ export default function SCPIPage() {
       />
 
       <main>
+
+        <ReadingProgressSCPI />
 
         {/* ── HERO (Avec background) ── */}
         <section className="fin-hero ae-hero">
@@ -399,92 +399,20 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* ── DÉFINITION (Avec classes de schéma corrigées) ── */}
-        <section className="crowd-section crowd-section--light">
+        {/* ── DÉFINITION ── */}
+        <section id="section-definition" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div className="crowd-2col">
-              <div>
-                <span className="fin-badge">Définition</span>
-                <h2>Qu'est-ce qu'une SCPI ?</h2>
-                <p>
-                  Une <strong>SCPI (Société Civile de Placement Immobilier)</strong> est un
-                  fonds d'investissement collectif qui achète et gère un portefeuille d'actifs
-                  immobiliers — bureaux, commerces, entrepôts, cliniques, résidences. Chaque
-                  investisseur détient des parts et perçoit sa quote-part des loyers collectés.
-                </p>
-                <p>
-                  Agréées par l'<strong>AMF</strong>, les SCPI sont gérées par des sociétés de
-                  gestion professionnelles qui s'occupent de tout : acquisition, gestion locative,
-                  travaux, comptabilité et distribution des revenus. Vous n'avez strictement
-                  rien à gérer.
-                </p>
-                <p>
-                  On parle de <strong>« pierre-papier »</strong> : vous investissez dans de
-                  l'immobilier réel, mais sous forme de parts. Résultat : vous profitez de
-                  tous les avantages de l'immobilier locatif, sans aucun de ses contraintes
-                  opérationnelles.
-                </p>
-              </div>
-
-              {/* Schéma avec classes corrigées pour alignement icône/texte */}
-              <div className="crowd-schema">
-                <div style={{
-                  textAlign: 'center', marginBottom: 16, fontWeight: 800,
-                  fontSize: '0.85rem', textTransform: 'uppercase',
-                  letterSpacing: '0.06em', color: 'var(--orizia-primary)',
-                }}>
-                  Comment ça fonctionne
-                </div>
-                
-                <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">🏢</div>
-                  <div className="crowd-schema-text">
-                    <strong>Cindy analyse & recommande</strong>
-                    <span>Sélection des meilleures SCPI pour votre profil fiscal</span>
-                  </div>
-                </div>
-                
-                <div className="crowd-schema-arrow">↓</div>
-                
-                <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">👤</div>
-                  <div className="crowd-schema-text">
-                    <strong>Vous achetez des parts</strong>
-                    <span>Dès 1 000€ comptant, à crédit ou mensuel</span>
-                  </div>
-                </div>
-                
-                <div className="crowd-schema-arrow">↓</div>
-                
-                <div className="crowd-schema-step crowd-schema-step--platform">
-                  <div className="crowd-schema-icon">🏦</div>
-                  <div className="crowd-schema-text">
-                    <strong>Société de gestion agréée AMF</strong>
-                    <span>Gère l'intégralité du portefeuille immobilier</span>
-                  </div>
-                </div>
-                
-                <div className="crowd-schema-arrow">↓</div>
-                
-                <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">🏗️</div>
-                  <div className="crowd-schema-text">
-                    <strong>Centaines d'actifs immobiliers</strong>
-                    <span>Bureaux, commerces, santé, logistique…</span>
-                  </div>
-                </div>
-                
-                <div className="crowd-schema-arrow">↓</div>
-                
-                <div className="crowd-schema-step crowd-schema-step--result">
-                  <div className="crowd-schema-icon">💰</div>
-                  <div className="crowd-schema-text">
-                    <strong>Vous percevez vos loyers</strong>
-                    <span>Trimestriellement, sans rien faire</span>
-                  </div>
-                </div>
-              </div>
+            <div className="fin-section-head">
+              <span className="fin-badge">Définition</span>
+              <h2>Qu'est-ce qu'une SCPI ?</h2>
+              <p>
+                Une <strong>SCPI (Société Civile de Placement Immobilier)</strong> est un
+                fonds d'investissement collectif qui achète et gère un portefeuille d'actifs
+                immobiliers. Vous détenez des parts et percevez votre quote-part des loyers —
+                sans aucune contrainte de gestion.
+              </p>
             </div>
+            <SCPIDefinition />
           </div>
         </section>
 
@@ -502,11 +430,33 @@ export default function SCPIPage() {
             </div>
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
-                <div key={a.title} className="crowd-avantage-card">
+                <div
+                  key={a.title}
+                  className="crowd-avantage-card"
+                  style={
+                    a.title === 'Zéro gestion, vraiment' || a.title === 'SCPI européennes : avantage fiscal majeur'
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      : {}
+                  }
+                >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
                   </div>
+                  {(a.title === 'Zéro gestion, vraiment' || a.title === 'SCPI européennes : avantage fiscal majeur') && (
+                    <div style={{
+                      display: 'inline-block',
+                      fontSize: '0.65rem', fontWeight: 800,
+                      background: 'rgba(201,169,110,0.15)',
+                      color: 'var(--orizia-gold)',
+                      border: '1px solid rgba(201,169,110,0.3)',
+                      borderRadius: 100,
+                      padding: '2px 8px',
+                      marginBottom: 8,
+                    }}>
+                      ⭐ Avantage vs immobilier direct
+                    </div>
+                  )}
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -514,63 +464,23 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* ── TYPES ── */}
-        <section className="crowd-section crowd-section--light">
+        {/* ── PROFIL FISCAL ── */}
+        <section id="section-profil" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Les différentes SCPI</span>
               <h2>Quelle SCPI pour quel profil fiscal ?</h2>
               <p>
-                Il n'existe pas une SCPI universelle. Le type optimal dépend de votre TMI,
-                votre horizon et vos objectifs patrimoniaux. C'est là que mon expertise
-                fait concrètement la différence.
+                Il n'existe pas une SCPI universelle. Sélectionnez votre TMI et votre
+                objectif pour voir la stratégie optimale adaptée à votre situation.
               </p>
             </div>
-            <div className="crowd-table-wrap">
-              <table className="crowd-table">
-                <thead>
-                  <tr>
-                    <th>Type de SCPI</th>
-                    <th>Objectif</th>
-                    <th>Rendement</th>
-                    <th>Horizon</th>
-                    <th>Fiscalité</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {TYPES_SCPI.map(t => (
-                    <tr key={t.type}>
-                      <td><strong>{t.type}</strong></td>
-                      <td>{t.description}</td>
-                      <td><strong style={{ color: 'var(--orizia-primary)' }}>{t.rendement}</strong></td>
-                      <td>{t.horizon}</td>
-                      <td>{t.fiscal}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="crowd-table-note">
-              ⚠️ Ce tableau est indicatif. La SCPI adaptée à votre profil dépend
-              de votre situation fiscale personnelle — pas d'une règle générale.
-            </p>
-            <div className="crowd-cta-band" style={{ marginTop: 36 }}>
-              <div>
-                <strong>Quelle SCPI correspond à votre TMI ?</strong>
-                <p>
-                  TMI 30%, 41%, 45% — chaque tranche a sa stratégie SCPI optimale.
-                  Je la calcule avec vous en rendez-vous, en 30 minutes.
-                </p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Trouver ma SCPI idéale →
-              </Link>
-            </div>
+            <SCPIProfilFiscal />
           </div>
         </section>
 
         {/* ── RISQUES ── */}
-        <section className="crowd-section" style={{ background: '#fafafa' }}>
+        <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
@@ -582,121 +492,27 @@ export default function SCPIPage() {
                 — et le rôle concret que je joue pour les réduire avant chaque investissement.
               </p>
             </div>
-            <div className="crowd-risques-grid">
-              {RISQUES.map(r => (
-                <div
-                  key={r.title}
-                  className="crowd-risque-card"
-                  style={{ background: r.bg, borderColor: r.border }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                    <span style={{ fontSize: '1.4rem' }}>{r.icon}</span>
-                    <div>
-                      <span style={{
-                        fontSize: '0.7rem', fontWeight: 700,
-                        textTransform: 'uppercase', color: r.color,
-                      }}>
-                        Risque {r.niveau}
-                      </span>
-                      <h3 style={{ margin: 0, color: r.color }}>{r.title}</h3>
-                    </div>
-                  </div>
-                  <p>{r.text}</p>
-                  <div className="crowd-risque-tip">🛡️ {r.mitigation}</div>
-                </div>
-              ))}
-            </div>
-            <div className="crowd-cta-band" style={{ marginTop: 40 }}>
-              <div>
-                <strong>Ces risques vous freinent ? C'est sain.</strong>
-                <p>
-                  Les SCPI les mieux sélectionnées ont traversé les crises de 2008 et 2022
-                  sans défaut de distribution. Mon rôle est de vous orienter exclusivement
-                  vers ces acteurs solides.
-                </p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Analyser mon profil →
-              </Link>
-            </div>
+            <SCPIRisqueJauge />
           </div>
         </section>
 
         {/* ── FISCALITÉ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Fiscalité SCPI 2026</span>
               <h2>Ce que vous touchez vraiment<br />après impôts</h2>
               <p>
-                La fiscalité des SCPI est plus complexe que celle du crowdfunding. Elle varie
-                selon votre TMI, la stratégie de détention et la nationalité de la SCPI.
-                C'est précisément là que mon accompagnement change le rendement net final.
+                La fiscalité des SCPI varie selon votre TMI et la stratégie de détention.
+                Sélectionnez votre situation pour voir le rendement net estimé.
               </p>
             </div>
-            <div className="scpi-fiscalite-grid">
-              <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-header">
-                  <h3>SCPI françaises en direct</h3>
-                  <span className="scpi-fiscalite-card-icon">🧾</span>
-                </div>
-                <p>
-                  Revenus fonciers soumis à votre{' '}
-                  <strong>TMI + 17,2%</strong> de prélèvements sociaux.
-                  Un investisseur à 45% de TMI est taxé à <strong>62,2%</strong> sur ses
-                  revenus SCPI en direct.
-                </p>
-                <div className="scpi-fiscalite-tag scpi-fiscalite-tag--warn">⚠️ Attention aux TMI élevés</div>
-              </div>
-              <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-header">
-                  <h3>SCPI européennes</h3>
-                  <span className="scpi-fiscalite-card-icon">🌍</span>
-                </div>
-                <p>
-                  Grâce aux{' '}
-                  <strong>conventions fiscales bilatérales</strong>, les revenus issus
-                  de SCPI investies en Allemagne, Pays-Bas, Irlande… échappent souvent
-                  aux prélèvements sociaux français.
-                </p>
-                <div className="scpi-fiscalite-tag scpi-fiscalite-tag--good">✅ Idéal pour TMI 30%+</div>
-              </div>
-              <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-header">
-                  <h3>SCPI en assurance vie</h3>
-                  <span className="scpi-fiscalite-card-icon">🛡️</span>
-                </div>
-                <p>
-                  Logée dans une assurance vie, la SCPI bénéficie de la{' '}
-                  <strong>flat tax à 30%</strong> — voire 7,5% + abattements après 8 ans.
-                  Liquidité améliorée en bonus.
-                </p>
-                <div className="scpi-fiscalite-tag scpi-fiscalite-tag--good">✅ Meilleur ratio net/brut</div>
-              </div>
-              <div className="scpi-fiscalite-card">
-                <div className="scpi-fiscalite-card-header">
-                  <h3>SCPI en nue-propriété</h3>
-                  <span className="scpi-fiscalite-card-icon">📊</span>
-                </div>
-                <p>
-                  Vous achetez des parts à prix décoté (15–30%) et{' '}
-                  <strong>aucun revenu n'est généré</strong> pendant la période de
-                  démembrement (5–15 ans). À l'issue, vous récupérez la pleine propriété.
-                  Zéro fiscalité pendant la période.
-                </p>
-                <div className="scpi-fiscalite-tag scpi-fiscalite-tag--good">✅ Stratégie patrimoniale avancée</div>
-              </div>
-            </div>
-            <div className="crowd-risques-note" style={{ marginTop: 28 }}>
-              💡 <strong>Mon approche :</strong> je commence toujours par analyser votre situation
-              fiscale avant de recommander une SCPI. La même SCPI peut être excellente pour un
-              profil et contre-productive pour un autre selon le TMI et les objectifs patrimoniaux.
-            </div>
+            <SCPIFiscaliteSelector />
           </div>
         </section>
 
         {/* ── SIMULATEUR ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-simulateur" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Simulation interactive</span>
@@ -768,8 +584,15 @@ export default function SCPIPage() {
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <SCPIChecklist />
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -778,7 +601,7 @@ export default function SCPIPage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
+                <details key={i} className="crowd-faq-item">
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -795,6 +618,53 @@ export default function SCPIPage() {
           </div>
         </section>
 
+        {/* ── OBJECTIONS ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Vous hésitez encore ?</span>
+              <h2>Les vraies objections —<br />avec des réponses honnêtes</h2>
+              <p>
+                Voici ce que mes clients me disent le plus souvent avant de prendre
+                rendez-vous — et ce que je leur réponds, sans formule commerciale.
+              </p>
+            </div>
+            <div className="crowd-faq-list">
+              {[
+                {
+                  q: '« C\'est illiquide — je ne peux pas récupérer mon argent quand je veux. »',
+                  r: 'C\'est vrai, et c\'est assumé. Les SCPI sont des placements de long terme (8–10 ans minimum). C\'est précisément pour ça qu\'elles offrent un rendement supérieur aux livrets. Mon rôle : ne jamais vous orienter vers une SCPI avec des capitaux dont vous pourriez avoir besoin. L\'épargne de précaution reste sur un livret.',
+                },
+                {
+                  q: '« J\'ai peur de la baisse de 2022–2024 sur les SCPI de bureaux. »',
+                  r: 'Cette crise a touché principalement les SCPI mono-secteur bureaux, mal diversifiées géographiquement. Les SCPI multi-secteurs et européennes ont très bien résisté. Mon travail, c\'est précisément de distinguer les SCPI solides de celles qui ont montré leurs faiblesses — et de ne recommander que les premières.',
+                },
+                {
+                  q: '« La fiscalité est trop complexe pour moi. »',
+                  r: 'C\'est exactement pour ça que je commence toujours par un audit fiscal. TMI, revenus fonciers existants, objectifs patrimoniaux — je calcule le rendement net réel dans votre situation spécifique. Vous n\'avez pas à comprendre la fiscalité SCPI : c\'est mon métier.',
+                },
+                {
+                  q: '« Je peux investir directement sans passer par un courtier. »',
+                  r: 'Oui, techniquement. Mais sans analyse des 200+ SCPI du marché, sans optimisation fiscale et sans suivi annuel, vous prenez des risques évitables. Et mon accompagnement est 100% gratuit pour vous — je suis rémunérée par les sociétés de gestion. Il n\'y a aucune raison de ne pas en bénéficier.',
+                },
+              ].map((o, i) => (
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
+              <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
+                <Link href="/rendez-vous" className="fin-btn-primary">📅 Prendre rendez-vous →</Link>
+                <Link href="/contact" className="fin-btn-secondary">✉️ Poser une question</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+
         {/* ── MAILLAGE INTERNE ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
@@ -808,7 +678,8 @@ export default function SCPIPage() {
               </p>
             </div>
             <div className="fin-cards">
-              <Link href="/investir/crowdfunding" className="fin-card">
+              <Link href="/investir/crowdfunding" className="fin-card" style={{ position: 'relative' }}>
+                <div className="fin-card-badge">⚡ Rendement court terme</div>
                 <div className="fin-card-icon">📈</div>
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
@@ -816,9 +687,7 @@ export default function SCPIPage() {
                 <span className="fin-card-link">En savoir plus →</span>
               </Link>
               <Link href="/investir/assurance-vie" className="fin-card" style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', top: 14, right: 14, background: 'var(--orizia-primary)', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap' }}>
-                  ✅ Fiscalité optimisée
-                </div>
+                <div className="fin-card-badge">✅ Fiscalité optimisée</div>
                 <div className="fin-card-icon">🛡️</div>
                 <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>

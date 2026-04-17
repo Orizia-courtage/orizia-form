@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import AVDefinition from '@/components/AVDefinition';
+import AVFiscalite from '@/components/AVFiscalite';
+import AVChecklist from '@/components/AVChecklist';
+import ReadingProgressAV from '@/components/ReadingProgressAV';
+import AVProfilSelector from '@/components/AVProfilSelector';
+import AVRisqueJauge from '@/components/AVRisqueJauge';
+import AVvsLivret from '@/components/AVvsLivret';
 
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
@@ -298,6 +305,8 @@ export default function AssuranceViePage() {
 
       <main>
 
+        <ReadingProgressAV />
+
         {/* ── HERO ── */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
@@ -441,71 +450,17 @@ export default function AssuranceViePage() {
         </section>
 
         {/* ── DÉFINITION ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-definition" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div className="crowd-2col">
-              <div>
-                <span className="fin-badge">Définition</span>
-                <h2>L'assurance vie :<br />bien plus qu'une simple épargne</h2>
-                <p>
-                  L'assurance vie est une <strong>enveloppe fiscale</strong> — pas un simple
-                  livret. À l'intérieur, vous choisissez les supports :{' '}
-                  <strong>fonds en euros</strong> (capital garanti, rendement stable) et{' '}
-                  <strong>unités de compte</strong> (actions, obligations, SCPI, ETF…).
-                </p>
-                <p>
-                  Contrairement à une idée très répandue, votre argent{' '}
-                  <strong>n'est pas bloqué</strong>. Vous pouvez effectuer des rachats
-                  partiels ou totaux à tout moment, en quelques jours ouvrés. La durée
-                  de 8 ans n'est qu'un seuil de maturité fiscale.
-                </p>
-                <p>
-                  C'est aussi l'<strong>outil de transmission le plus puissant</strong> du
-                  droit français : le capital est versé directement aux bénéficiaires
-                  désignés, hors succession, avec une fiscalité spécifique très avantageuse.
-                </p>
-              </div>
-              <div className="crowd-schema">
-                <div style={{
-                  textAlign: 'center', marginBottom: 16, fontWeight: 800,
-                  fontSize: '0.85rem', textTransform: 'uppercase',
-                  letterSpacing: '0.06em', color: 'var(--orizia-primary)',
-                }}>
-                  Structure d'un contrat
-                </div>
-                <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">🛡️</div>
-                  <strong>Votre contrat d'assurance vie</strong>
-                  <span>Sélectionné et optimisé par Cindy</span>
-                </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                  <div className="crowd-schema-step" style={{ background: 'rgba(58,111,108,0.08)' }}>
-                    <div className="crowd-schema-icon">🏦</div>
-                    <strong>Fonds en euros</strong>
-                    <span>Capital garanti · 2,5–3,5%/an</span>
-                  </div>
-                  <div className="crowd-schema-step" style={{ background: 'rgba(217,119,6,0.08)' }}>
-                    <div className="crowd-schema-icon">📈</div>
-                    <strong>Unités de Compte</strong>
-                    <span>Marchés financiers · 4–8%/an</span>
-                  </div>
-                </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                  <div className="crowd-schema-step" style={{ padding: '12px 14px' }}>
-                    <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>💸</div>
-                    <strong style={{ fontSize: '0.8rem' }}>Rachat partiel</strong>
-                    <span>À tout moment</span>
-                  </div>
-                  <div className="crowd-schema-step crowd-schema-step--result" style={{ padding: '12px 14px' }}>
-                    <div className="crowd-schema-icon" style={{ fontSize: '1.2rem' }}>🎁</div>
-                    <strong style={{ fontSize: '0.8rem' }}>Transmission</strong>
-                    <span>Hors succession</span>
-                  </div>
-                </div>
-              </div>
+            <div className="fin-section-head">
+              <span className="fin-badge">Définition</span>
+              <h2>L'assurance vie :<br />bien plus qu'une simple épargne</h2>
+              <p>
+                L'assurance vie est une <strong>enveloppe fiscale</strong> — pas un simple livret.
+                Sélectionnez un usage pour comprendre comment elle s'adapte à votre situation.
+              </p>
             </div>
+            <AVDefinition />
           </div>
         </section>
 
@@ -523,11 +478,33 @@ export default function AssuranceViePage() {
             </div>
             <div className="crowd-avantages-grid">
               {AVANTAGES.map(a => (
-                <div key={a.title} className="crowd-avantage-card">
+                <div
+                  key={a.title}
+                  className="crowd-avantage-card"
+                  style={
+                    a.title === 'Fiscalité ultra-avantageuse' || a.title === 'Transmission hors succession'
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      : {}
+                  }
+                >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
                   </div>
+                  {(a.title === 'Fiscalité ultra-avantageuse' || a.title === 'Transmission hors succession') && (
+                    <div style={{
+                      display: 'inline-block',
+                      fontSize: '0.65rem', fontWeight: 800,
+                      background: 'rgba(201,169,110,0.15)',
+                      color: 'var(--orizia-gold)',
+                      border: '1px solid rgba(201,169,110,0.3)',
+                      borderRadius: 100,
+                      padding: '2px 8px',
+                      marginBottom: 8,
+                    }}>
+                      ⭐ Avantage différenciant
+                    </div>
+                  )}
                   <p>{a.text}</p>
                 </div>
               ))}
@@ -542,46 +519,17 @@ export default function AssuranceViePage() {
               <span className="fin-badge">Votre profil de risque</span>
               <h2>Prudent, équilibré ou dynamique :<br />quelle allocation pour vous ?</h2>
               <p>
-                Il n'existe pas une assurance vie universelle. L'allocation idéale dépend
-                de votre âge, de votre horizon et de votre tolérance réelle aux fluctuations
-                — pas d'une case à cocher.
+                Il n'existe pas une assurance vie universelle. Sélectionnez votre profil
+                pour voir la répartition recommandée, le rendement estimé et simuler
+                votre capital à terme.
               </p>
             </div>
-            <div className="av-profils-grid">
-              {PROFILS.map(p => (
-                <div
-                  key={p.title}
-                  className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}
-                >
-                  {p.featured && <div className="av-profil-badge">⭐ Le plus choisi</div>}
-                  <div className="av-profil-icon">{p.icon}</div>
-                  <h3>{p.title}</h3>
-                  <p className="av-profil-desc">{p.desc}</p>
-                  <div className="av-profil-repart"><span>{p.repart}</span></div>
-                  <div className="av-profil-rendement" style={{ color: p.color }}>
-                    {p.rendement}
-                  </div>
-                  <p className="av-profil-for">🎯 {p.for}</p>
-                </div>
-              ))}
-            </div>
-            <div className="crowd-cta-band" style={{ marginTop: 36 }}>
-              <div>
-                <strong>Votre profil optimal se construit avec un expert — pas un algorithme.</strong>
-                <p>
-                  J'analyse votre situation complète : TMI, objectifs, horizon et
-                  patrimoine existant pour définir l'allocation la plus pertinente pour vous.
-                </p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Définir mon profil →
-              </Link>
-            </div>
+            <AVProfilSelector />
           </div>
         </section>
 
         {/* ── RISQUES ── */}
-        <section className="crowd-section" style={{ background: '#fafafa' }}>
+        <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
@@ -590,149 +538,32 @@ export default function AssuranceViePage() {
               <h2>Les risques réels,<br />sans langue de bois</h2>
               <p>
                 L'assurance vie est l'un des placements les moins risqués — à condition
-                d'être bien structurée. Voici mon analyse transparente de chaque risque,
-                et comment je les adresse concrètement.
+                d'être bien structurée. Voici mon analyse transparente, et comment
+                je réduis chaque risque concrètement.
               </p>
             </div>
-            <div className="crowd-risques-grid">
-              {RISQUES.map(r => (
-                <div
-                  key={r.title}
-                  className="crowd-risque-card"
-                  style={{ background: r.bg, borderColor: r.border }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                    <span style={{ fontSize: '1.4rem' }}>{r.icon}</span>
-                    <div>
-                      <span style={{
-                        fontSize: '0.7rem', fontWeight: 700,
-                        textTransform: 'uppercase', color: r.color,
-                      }}>
-                        Risque {r.niveau}
-                      </span>
-                      <h3 style={{ margin: 0, color: r.color }}>{r.title}</h3>
-                    </div>
-                  </div>
-                  <p>{r.text}</p>
-                  <div className="crowd-risque-tip">🛡️ {r.mitigation}</div>
-                </div>
-              ))}
-            </div>
+            <AVRisqueJauge />
           </div>
         </section>
 
         {/* ── FISCALITÉ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Fiscalité 2026</span>
               <h2>La fiscalité de l'assurance vie,<br />expliquée clairement</h2>
               <p>
                 La fiscalité de l'assurance vie est l'une des plus avantageuses du
-                patrimoine français — mais elle dépend de l'ancienneté du contrat
-                et du montant des versements. Voici comment ça fonctionne vraiment.
+                patrimoine français — mais elle dépend de l'ancienneté du contrat.
+                Sélectionnez votre situation pour comprendre ce qui s'applique.
               </p>
             </div>
-
-            <div className="av-fiscal-timeline">
-              <div className="av-fiscal-tl-item">
-                <div className="av-fiscal-tl-dot av-fiscal-tl-dot--warn">0–4 ans</div>
-                <div className="av-fiscal-tl-content">
-                  <h4>Avant 4 ans</h4>
-                  <p>
-                    PFNL 12,8% + 17,2% PS = <strong>30%</strong> sur les gains.
-                    Ou option barème IR l'année suivante si plus avantageux.
-                  </p>
-                  <div className="av-fiscal-tl-tag av-fiscal-tl-tag--warn">⚠️ Peu favorable</div>
-                </div>
-              </div>
-              <div className="av-fiscal-tl-connector" />
-              <div className="av-fiscal-tl-item">
-                <div className="av-fiscal-tl-dot av-fiscal-tl-dot--mid">4–8 ans</div>
-                <div className="av-fiscal-tl-content">
-                  <h4>De 4 à 8 ans</h4>
-                  <p>
-                    PFNL 12,8% + 17,2% PS. Option barème IR N+1 possible.
-                    Pas encore d'abattement annuel sur les retraits.
-                  </p>
-                  <div className="av-fiscal-tl-tag av-fiscal-tl-tag--mid">⏳ En attente</div>
-                </div>
-              </div>
-              <div className="av-fiscal-tl-connector" />
-              <div className="av-fiscal-tl-item">
-                <div className="av-fiscal-tl-dot av-fiscal-tl-dot--good">8 ans+</div>
-                <div className="av-fiscal-tl-content">
-                  <h4>Après 8 ans ✅</h4>
-                  <p>
-                    Abattement annuel{' '}
-                    <strong>4 600€ (seul)</strong> ou{' '}
-                    <strong>9 200€ (couple)</strong>.
-                    Puis PFNL 7,5% + 17,2% PS seulement sur le surplus.
-                  </p>
-                  <div className="av-fiscal-tl-tag av-fiscal-tl-tag--good">✅ Fiscalité optimale</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="av-transmission-bloc" style={{ background: 'var(--orizia-light)' }}>
-              <div className="av-transmission-header">
-                <span>🎁</span>
-                <h3>Transmission : l'atout que la banque ne met jamais en avant</h3>
-              </div>
-              <div className="av-transmission-grid">
-                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
-                  <strong>Versements avant 70 ans</strong>
-                  <span>
-                    Jusqu'à <strong>152 500€ par bénéficiaire</strong> transmis
-                    sans droits de succession
-                  </span>
-                </div>
-                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
-                  <strong>Versements après 70 ans</strong>
-                  <span>
-                    Abattement global de <strong>30 500€</strong> sur les primes versées.
-                    Les gains restent entièrement exonérés.
-                  </span>
-                </div>
-                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
-                  <strong>Conjoint / partenaire PACS</strong>
-                  <span>
-                    Exonération <strong>totale</strong> des droits de succession, sans plafond.
-                  </span>
-                </div>
-                <div className="av-transm-item" style={{ borderLeft: '3px solid var(--orizia-gold)' }}>
-                  <strong>Hors succession</strong>
-                  <span>
-                    Le capital ne rentre pas dans l'actif successoral : vous transmettez
-                    à qui vous voulez, dans les conditions que vous choisissez.
-                  </span>
-                </div>
-              </div>
-              <div className="crowd-risques-note" style={{ marginTop: 20 }}>
-                💡 <strong>Exemple concret :</strong> avec 2 enfants bénéficiaires, vous
-                pouvez transmettre jusqu'à{' '}
-                <strong>305 000€ totalement exonérés</strong> de droits de succession
-                via votre assurance vie. Aucun autre placement ne permet ça.
-              </div>
-            </div>
-
-            <div className="crowd-cta-band" style={{ marginTop: 36 }}>
-              <div>
-                <strong>Votre situation fiscale mérite une analyse personnalisée.</strong>
-                <p>
-                  TMI, situation familiale, patrimoine existant — j'optimise votre
-                  assurance vie selon votre situation réelle, pas une moyenne statistique.
-                </p>
-              </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Optimiser ma fiscalité →
-              </Link>
-            </div>
+            <AVFiscalite />
           </div>
         </section>
 
         {/* ── ACCOMPAGNEMENT ── */}
-        <section id="notre-approche" className="crowd-section crowd-section--white">
+        <section id="section-accompagnement" className="crowd-section crowd-section--white" style={{ scrollMarginTop: '80px' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -787,8 +618,15 @@ export default function AssuranceViePage() {
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <AVChecklist />
+          </div>
+        </section>
+
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vous hésitez encore ?</span>
@@ -798,12 +636,12 @@ export default function AssuranceViePage() {
                 rendez-vous — et ce que je leur réponds, sans formule commerciale.
               </p>
             </div>
-            <div className="av-objections-grid">
+            <div className="crowd-faq-list">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card" style={{ background: 'var(--orizia-white)', borderLeft: '4px solid var(--orizia-gold)' }}>
-                  <div className="av-objection-q">{o.q}</div>
-                  <div className="av-objection-r">{o.r}</div>
-                </div>
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
@@ -822,6 +660,21 @@ export default function AssuranceViePage() {
           </div>
         </section>
 
+        {/* ── AV VS LIVRET ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Comparatif</span>
+              <h2>Assurance vie vs Livret A vs PEL :<br />le comparatif objectif</h2>
+              <p>
+                Beaucoup d'épargnants hésitent entre ces trois enveloppes. Voici les
+                différences clés — sans langue de bois.
+              </p>
+            </div>
+            <AVvsLivret />
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
@@ -832,7 +685,7 @@ export default function AssuranceViePage() {
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
+                <details key={i} className="crowd-faq-item" style={{ border: '2px solid var(--orizia-gold)' }}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -848,6 +701,8 @@ export default function AssuranceViePage() {
             </div>
           </div>
         </section>
+
+        
 
         {/* ── MAILLAGE INTERNE ── */}
         <section className="crowd-section crowd-section--light">
@@ -869,6 +724,7 @@ export default function AssuranceViePage() {
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, zéro gestion. Logez des SCPI dans votre assurance vie pour combiner rendement immobilier et fiscalité AV dans une seule enveloppe.',
+                  badge: null,
                 },
                 {
                   href: '/investir/crowdfunding',
@@ -876,6 +732,7 @@ export default function AssuranceViePage() {
                   title: 'Crowdfunding immobilier',
                   sub: 'Financement participatif',
                   text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal pour booster le rendement global sans déséquilibrer votre patrimoine.',
+                  badge: null,
                 },
                 {
                   href: '/investir/per',
@@ -883,9 +740,11 @@ export default function AssuranceViePage() {
                   title: 'Plan Épargne Retraite',
                   sub: 'Préparez votre retraite',
                   text: 'Complémentaire à l\'AV : déduisez vos versements de votre revenu imposable dès cette année et construisez votre retraite avec un avantage fiscal immédiat.',
+                  badge: '🔗 Complément fiscal recommandé',
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
+                  {s.badge && <div className="fin-card-badge">{s.badge}</div>}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>

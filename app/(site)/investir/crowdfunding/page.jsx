@@ -2,6 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SimulateurCrowdfunding from '@/components/SimulateurCrowdfunding';
 import PlacementsComparatif from '@/components/PlacementsComparatif';
+import RisqueJauge from '@/components/RisqueJauge';
+import InvestisseurChecklist from '@/components/InvestisseurChecklist';
+import ReadingProgress from '@/components/ReadingProgress';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -221,6 +224,7 @@ const ETAPES = [
 export default function CrowdfundingPage() {
   return (
     <>
+      <ReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(investirCrowdfundingSchema) }}
@@ -493,7 +497,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── RISQUES ── */}
-        <section className="crowd-section" style={{ background: '#fafafa' }}>
+        <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
@@ -501,27 +505,11 @@ export default function CrowdfundingPage() {
               </span>
               <h2>Les risques réels,<br />expliqués honnêtement</h2>
               <p>
-                Je ne vous vends pas du rêve. Voici une analyse transparente des risques —
-                et comment mon accompagnement les réduit concrètement, projet par projet.
+                Comparez l'exposition aux risques avec et sans accompagnement.
+                Cliquez sur chaque risque pour voir comment je le réduis concrètement.
               </p>
             </div>
-            <div className="crowd-risques-grid">
-              {RISQUES.map(r => (
-                <div key={r.title} className="crowd-risque-card" style={{ background: r.bg, borderColor: r.border }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                    <span style={{ fontSize: '1.4rem' }}>{r.icon}</span>
-                    <div>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', color: r.color }}>
-                        Risque {r.niveau}
-                      </span>
-                      <h3 style={{ margin: 0, color: r.color }}>{r.title}</h3>
-                    </div>
-                  </div>
-                  <p>{r.text}</p>
-                  <div className="crowd-risque-tip">🛡️ {r.mitigation}</div>
-                </div>
-              ))}
-            </div>
+            <RisqueJauge />
             <div className="crowd-cta-band" style={{ marginTop: 40 }}>
               <div>
                 <strong>Ces risques vous inquiètent ? C'est une très bonne chose.</strong>
@@ -539,7 +527,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── FISCALITÉ + SIMULATEUR ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Fiscalité 2026</span>
@@ -606,7 +594,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── NOTRE SÉLECTION ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-selection" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
 
             <div className="crd-sel-wrap">
@@ -682,7 +670,7 @@ export default function CrowdfundingPage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT (Avec image contextuelle) ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -733,6 +721,18 @@ export default function CrowdfundingPage() {
                 📅 Démarrer gratuitement →
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* ── CHECKLIST ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Auto-évaluation</span>
+              <h2>Suis-je prêt à investir<br />dans le crowdfunding ?</h2>
+              <p>Cochez les critères qui correspondent à votre situation pour obtenir une recommandation personnalisée.</p>
+            </div>
+            <InvestisseurChecklist />
           </div>
         </section>
 
@@ -810,6 +810,8 @@ export default function CrowdfundingPage() {
             </div>
           </div>
         </section>
+
+        
 
         {/* ── CTA FINAL ── */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
