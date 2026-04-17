@@ -378,89 +378,64 @@ export default function CrowdfundingPage() {
         {/* ── QU'EST-CE QUE C'EST ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div className="crowd-2col">
-              <div>
-                <span className="fin-badge">Définition</span>
-                <h2>Qu'est-ce que le crowdfunding immobilier ?</h2>
-                <p>
-                  Le <strong>crowdfunding immobilier</strong> permet à des particuliers de{' '}
-                  <strong>prêter de l'argent à un promoteur ou un marchand de biens</strong>{' '}
-                  via une plateforme agréée par l'AMF. En échange, vous percevez des intérêts
-                  fixes sur toute la durée du projet, puis récupérez votre capital à terme.
-                </p>
-                <p>
-                  Encadré depuis 2022 par le statut européen <strong>PSFP</strong>, le secteur
-                  dispose d'un cadre légal solide. Mais un cadre légal ne protège pas d'un mauvais
-                  projet ni d'un promoteur financièrement fragile. C'est là qu'intervient
-                  mon analyse.
-                </p>
-                <p>
-                  Contrairement à l'achat immobilier direct, vous n'avez{' '}
-                  <strong>aucune gestion locative, aucune taxe foncière, aucun recours
-                  notarial</strong>. Un investissement passif et dématérialisé — à condition
-                  d'être sérieusement conseillé.
-                </p>
+
+            {/* Titre centré */}
+            <div className="fin-section-head" style={{ marginBottom: 40 }}>
+              <span className="fin-badge">Définition</span>
+              <h2>Qu'est-ce que le crowdfunding immobilier ?</h2>
+              <p>
+                Vous prêtez de l'argent à un promoteur via une plateforme agréée AMF.
+                Il construit ou rénove. Vous percevez des intérêts fixes, puis récupérez votre capital.
+              </p>
+            </div>
+
+            {/* 3 points clés */}
+            <div className="crd-points">
+              <div className="crd-point">
+                <div className="crd-point-icon">🏛️</div>
+                <div>
+                  <strong>Cadre légal solide</strong>
+                  <p>Encadré depuis 2022 par le statut européen <strong>PSFP</strong>. Mais un cadre légal ne protège pas d'un mauvais promoteur — c'est là qu'intervient mon analyse.</p>
+                </div>
               </div>
-
-              {/* Schéma */}
-              <div className="crowd-schema">
-                <div style={{
-                  textAlign: 'center', marginBottom: 16, fontWeight: 800,
-                  fontSize: '0.85rem', textTransform: 'uppercase',
-                  letterSpacing: '0.06em', color: 'var(--orizia-primary)',
-                }}>
-                  Comment ça fonctionne
+              <div className="crd-point">
+                <div className="crd-point-icon">🚫</div>
+                <div>
+                  <strong>Zéro gestion</strong>
+                  <p>Aucune gestion locative, aucune taxe foncière, aucun recours notarial. Un investissement 100% passif et dématérialisé.</p>
                 </div>
-
-                <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">👤</div>
-                  <div className="crowd-schema-text">
-                    <strong>Vous investissez</strong>
-                    <span>Dès 1 000€, en ligne</span>
-                  </div>
-                </div>
-
-                <div className="crowd-schema-arrow">↓</div>
-
-                <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">🏢</div>
-                  <div className="crowd-schema-text">
-                    <strong>Je sélectionne & audite</strong>
-                    <span>Audit promoteur + stratégie personnalisée</span>
-                  </div>
-                </div>
-
-                <div className="crowd-schema-arrow">↓</div>
-
-                <div className="crowd-schema-step crowd-schema-step--platform">
-                  <div className="crowd-schema-icon">🏦</div>
-                  <div className="crowd-schema-text">
-                    <strong>Plateforme agréée AMF</strong>
-                    <span>Collecte et gestion des fonds</span>
-                  </div>
-                </div>
-
-                <div className="crowd-schema-arrow">↓</div>
-
-                <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">🏗️</div>
-                  <div className="crowd-schema-text">
-                    <strong>Promoteur immobilier</strong>
-                    <span>Construit / rénove / revend</span>
-                  </div>
-                </div>
-
-                <div className="crowd-schema-arrow">↓</div>
-
-                <div className="crowd-schema-step crowd-schema-step--result">
-                  <div className="crowd-schema-icon">💰</div>
-                  <div className="crowd-schema-text">
-                    <strong>Vous êtes remboursé</strong>
-                    <span>Capital + 8–12%/an à l'échéance</span>
-                  </div>
+              </div>
+              <div className="crd-point">
+                <div className="crd-point-icon">📅</div>
+                <div>
+                  <strong>Durée courte et maîtrisée</strong>
+                  <p>12 à 36 mois. Vous connaissez la date de remboursement à l'avance — contrairement à la bourse ou aux SCPI.</p>
                 </div>
               </div>
             </div>
+
+            {/* Flux "Comment ça fonctionne" */}
+            <div className="crd-flow-title">Comment ça fonctionne</div>
+            <div className="crd-flow">
+              {[
+                { icon: '👤', label: 'Vous investissez', sub: 'Dès 1 000€, en ligne', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
+                { icon: '🏢', label: 'Orizia sélectionne', sub: 'Audit promoteur + stratégie', color: 'var(--orizia-accent)', textColor: '#fff', gold: true },
+                { icon: '🏦', label: 'Plateforme AMF', sub: 'Collecte et gestion', color: 'var(--orizia-light)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.1)' },
+                { icon: '🏗️', label: 'Promoteur', sub: 'Construit / rénove / revend', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
+                { icon: '💰', label: 'Vous êtes remboursé', sub: 'Capital + 8–12%/an', color: 'var(--orizia-gold-light)', textColor: 'var(--orizia-accent)', border: '2px solid var(--orizia-gold)' },
+              ].map((step, i, arr) => (
+                <div key={step.label} className="crd-flow-item">
+                  <div className="crd-flow-card" style={{ background: step.color, border: step.gold ? '2px solid var(--orizia-gold)' : step.border }}>
+                    <span className="crd-flow-icon">{step.icon}</span>
+                    <strong style={{ color: step.textColor }}>{step.label}</strong>
+                    <span style={{ color: step.textColor, opacity: step.gold ? 0.85 : 0.65 }}>{step.sub}</span>
+                    {step.gold && <span className="crd-flow-badge">Orizia</span>}
+                  </div>
+                  {i < arr.length - 1 && <div className="crd-flow-arrow">→</div>}
+                </div>
+              ))}
+            </div>
+
           </div>
         </section>
 
@@ -633,54 +608,75 @@ export default function CrowdfundingPage() {
         {/* ── NOTRE SÉLECTION ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
-            <div className="crowd-2col" style={{ alignItems: 'center' }}>
-              <div>
+
+            <div className="crd-sel-wrap">
+
+              {/* Colonne gauche — critères */}
+              <div className="crd-sel-left">
                 <span className="fin-badge">Ma sélection</span>
                 <h2>Quelles plateformes<br />je recommande — et pourquoi</h2>
-                <p>
+                <p style={{ fontSize: '0.95rem', color: 'var(--orizia-dark)', opacity: 0.75, lineHeight: 1.65, marginBottom: 28 }}>
                   J'ai audité plus de 15 plateformes actives sur le marché français.
-                  Ma sélection repose sur des critères stricts et non négociables —
-                  plusieurs plateformes bien connues n'en font pas partie.
+                  Ma sélection repose sur 5 critères non négociables — plusieurs plateformes
+                  bien connues n'en font pas partie.
                 </p>
-                <ul className="fin-why-list" style={{ marginBottom: 28 }}>
-                  <li>✅ Agrément AMF/PSFP en règle et à jour</li>
-                  <li>📊 Taux de défaut historique inférieur à 3%</li>
-                  <li>🔍 Transparence totale sur les bilans des promoteurs</li>
-                  <li>🏗️ Analyse systématique des permis et garanties d'achèvement</li>
-                  <li>💬 Service client réactif et suivi rigoureux en cas de retard</li>
-                </ul>
-                <div className="crowd-risques-note">
-                  🔒 <strong>Je ne publie pas ma liste en ligne.</strong> Ma sélection est partagée
-                  uniquement en rendez-vous, après analyse de votre profil. Pourquoi ? Parce qu'une
-                  plateforme adaptée à un profil dynamique ne l'est pas pour un profil prudent.
+
+                <div className="crd-criteres">
+                  {[
+                    { icon: '🏛️', label: 'Agrément AMF/PSFP', desc: 'En règle et à jour — je vérifie chaque année' },
+                    { icon: '📊', label: 'Taux de défaut < 3%', desc: 'Historique vérifié sur les 3 dernières années' },
+                    { icon: '🔍', label: 'Transparence totale', desc: 'Bilans des promoteurs accessibles et lisibles' },
+                    { icon: '🏗️', label: 'Permis & garanties', desc: 'Analyse systématique avant chaque recommandation' },
+                    { icon: '💬', label: 'Suivi en cas de retard', desc: 'Service client réactif, pas de silence radio' },
+                  ].map((c, i) => (
+                    <div key={c.label} className="crd-critere-row">
+                      <div className="crd-critere-num">{i + 1}</div>
+                      <div className="crd-critere-icon">{c.icon}</div>
+                      <div>
+                        <div className="crd-critere-label">{c.label}</div>
+                        <div className="crd-critere-desc">{c.desc}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div>
-                <div className="crowd-fiscalite-exemple" style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: 16 }}>🏆</div>
-                  <h3 style={{
-                    fontSize: '1.2rem', fontWeight: 900,
-                    color: 'var(--orizia-accent)', marginBottom: 12,
-                  }}>
-                    Accédez à ma sélection exclusive
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.75, marginBottom: 24, lineHeight: 1.6 }}>
-                    15+ plateformes auditées personnellement. Seulement les meilleures
-                    retenues. Découvrez lesquelles correspondent à votre profil lors
-                    d'un rendez-vous gratuit avec moi.
-                  </p>
-                  <Link
-                    href="/rendez-vous"
-                    className="fin-btn-primary"
-                    style={{ display: 'inline-flex', width: '100%', justifyContent: 'center' }}
-                  >
-                    📅 Obtenir ma sélection personnalisée →
-                  </Link>
-                  <p style={{ fontSize: '0.75rem', opacity: 0.5, marginTop: 12 }}>
-                    Gratuit · Sans engagement · Réponse sous 24h
-                  </p>
+
+              {/* Colonne droite — vault CTA */}
+              <div className="crd-sel-vault">
+                <div className="crd-vault-lock">🔒</div>
+                <div className="crd-vault-badge">Accès exclusif</div>
+                <h3 className="crd-vault-title">Ma liste de plateformes<br />sélectionnées</h3>
+                <p className="crd-vault-desc">
+                  15+ plateformes auditées. Seulement les meilleures retenues.
+                  Je ne la publie pas en ligne — une plateforme adaptée à un profil
+                  dynamique ne l'est pas pour un profil prudent.
+                </p>
+
+                <div className="crd-vault-stats">
+                  <div className="crd-vault-stat">
+                    <strong>15+</strong>
+                    <span>Plateformes auditées</span>
+                  </div>
+                  <div className="crd-vault-stat-sep" />
+                  <div className="crd-vault-stat">
+                    <strong>&lt; 3%</strong>
+                    <span>Taux de défaut max</span>
+                  </div>
+                  <div className="crd-vault-stat-sep" />
+                  <div className="crd-vault-stat">
+                    <strong>0€</strong>
+                    <span>Pour y accéder</span>
+                  </div>
                 </div>
+
+                <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
+                  📅 Obtenir ma sélection personnalisée →
+                </Link>
+                <p className="crd-vault-note">
+                  Gratuit · Sans engagement · Réponse sous 24h
+                </p>
               </div>
+
             </div>
           </div>
         </section>
