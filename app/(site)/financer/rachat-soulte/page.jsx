@@ -1,20 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ReadingProgressRachatSoulte from '@/components/ReadingProgressRachatSoulte';
+import SimulateurSoulte from '@/components/SimulateurSoulte';
+import RachatSoulteChecklist from '@/components/RachatSoulteChecklist';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
   description:
     'Séparation, divorce ou succession : je finance le rachat de soulte pour que vous conserviez votre bien immobilier. Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Étude gratuite.',
-  keywords: [
-    'rachat de soulte courtier',
-    'financer rachat de soulte divorce',
-    'rachat de soulte séparation immobilier',
-    'prêt rachat de soulte 2026',
-    'courtier rachat de soulte Hauts-de-France',
-    'rachat de soulte succession',
-    'financement rachat part indivision',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/financer/rachat-soulte' },
   openGraph: {
     title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
@@ -23,14 +17,14 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        url: 'https://orizia-courtage.fr/images/og-rachat-soulte.jpg',
         width: 1200,
         height: 630,
         alt: 'Rachat de soulte avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -49,11 +43,18 @@ const rachatSoulteSchema = {
     {
       '@type': 'Service',
       name: 'Courtage en Financement de Rachat de Soulte',
-      serviceType: 'Courtage en Opérations de Banque (COBSP)',
+      serviceType: 'Courtage en Rachat de Soulte',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        telephone: '+33XXXXXXXXX',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Marcq-en-Barœul',
+          addressRegion: 'Hauts-de-France',
+          addressCountry: 'FR',
+        },
       },
       description: 'Montage du financement pour racheter la part d\'un co-propriétaire lors d\'un divorce, d\'une séparation ou d\'une succession. Accès à plus de 40 banques partenaires.',
       areaServed: [
@@ -181,6 +182,7 @@ export default function RachatSoultePage() {
       />
 
       <main>
+        <ReadingProgressRachatSoulte />
 
         {/* ── HERO ── */}
         <section className="fin-hero ae-hero">
@@ -215,8 +217,8 @@ export default function RachatSoultePage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Étudier mon financement
               </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
+              <Link href="#section-simulateur" className="fin-btn-secondary">
+                🧮 Calculer ma soulte
               </Link>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
@@ -275,7 +277,7 @@ export default function RachatSoultePage() {
         </section>
 
         {/* ── DÉFINITION ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-definition" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
@@ -338,8 +340,23 @@ export default function RachatSoultePage() {
           </div>
         </section>
 
+        {/* ── SIMULATEUR ── */}
+        <section id="section-simulateur" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">🧮 Simulateur</span>
+              <h2>Calculez votre soulte<br />en temps réel</h2>
+              <p>
+                Renseignez les informations de votre bien pour obtenir une estimation immédiate
+                du montant à financer et des droits de partage.
+              </p>
+            </div>
+            <SimulateurSoulte />
+          </div>
+        </section>
+
         {/* ── DANGERS ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
@@ -375,7 +392,7 @@ export default function RachatSoultePage() {
         </section>
 
         {/* ── ÉTAPES ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
@@ -424,8 +441,15 @@ export default function RachatSoultePage() {
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <RachatSoulteChecklist />
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-faq" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -442,7 +466,7 @@ export default function RachatSoultePage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
+                ✉️ Poser une autre question
               </Link>
             </div>
           </div>
@@ -455,7 +479,7 @@ export default function RachatSoultePage() {
               <span className="fin-badge">Aller plus loin</span>
               <h2>Optimisez l'ensemble<br />de votre situation financière</h2>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/financer/credit-immobilier',
@@ -463,6 +487,7 @@ export default function RachatSoultePage() {
                   title: 'Crédit immobilier',
                   sub: 'Votre projet de vie',
                   text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
+                  badge: null,
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
@@ -470,6 +495,7 @@ export default function RachatSoultePage() {
                   title: 'Assurance emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'économiser des milliers d\'euros.',
+                  badge: '💡 Économisez sur votre nouveau prêt',
                 },
                 {
                   href: '/financer/regroupement-credits',
@@ -477,9 +503,11 @@ export default function RachatSoultePage() {
                   title: 'Regroupement de crédits',
                   sub: 'Alléger vos mensualités',
                   text: 'Si le rachat de soulte alourdit votre endettement, le regroupement de crédits peut réduire vos mensualités globales jusqu\'à 60%.',
+                  badge: null,
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
+                  {s.badge && <span className="fin-card-pill">{s.badge}</span>}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -498,15 +526,15 @@ export default function RachatSoultePage() {
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier mon rachat de soulte
+                📅 Étudier mon rachat de soulte →
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question
+                ✉️ M'envoyer un message
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
-              Orizia Courtage, immatriculée à l'ORIAS, intervient en qualité de courtier en opérations de banque et en services de paiement (COBSP).
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>
         </section>

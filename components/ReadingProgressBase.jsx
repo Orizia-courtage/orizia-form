@@ -44,9 +44,16 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
         ([entry]) => {
           if (entry.isIntersecting) {
             setPassed(prev => new Set([...prev, id]));
+          } else {
+            // Retirer le jalon quand la section sort du viewport
+            setPassed(prev => {
+              const newSet = new Set(prev);
+              newSet.delete(id);
+              return newSet;
+            });
           }
         },
-        { threshold: 0.1, rootMargin: '0px 0px -20% 0px' }
+        { threshold: 0, rootMargin: '-10% 0px -70% 0px' }
       );
       obs.observe(el);
       observers.push(obs);

@@ -1,35 +1,30 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ReadingProgressPretPersonnel from '@/components/ReadingProgressPretPersonnel';
+import PretProjetSelector from '@/components/PretProjetSelector';
+import PretPersonnelChecklist from '@/components/PretPersonnelChecklist';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
   description:
-    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtière indépendante, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite.',
-  keywords: [
-    'prêt personnel meilleur taux 2026',
-    'courtier crédit consommation indépendant',
-    'prêt travaux pas cher courtier',
-    'financement auto courtier Hauts-de-France',
-    'simulation prêt personnel gratuit',
-    'TAEG prêt conso négocié',
-  ],
+    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtière indépendante, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite dans les Hauts-de-France.',
   alternates: { canonical: 'https://orizia-courtage.fr/financer/pret-personnel' },
   openGraph: {
     title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
-    description: 'Auto, travaux ou trésorerie : obtenez les fonds nécessaires à vos projets sans vous ruiner. Je négocie votre crédit au meilleur TAEG.',
+    description: 'Auto, travaux ou trésorerie : obtenez les fonds nécessaires à vos projets sans vous ruiner. Je négocie votre crédit au meilleur TAEG dans les Hauts-de-France.',
     url: 'https://orizia-courtage.fr/financer/pret-personnel',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        url: 'https://orizia-courtage.fr/images/og-pret-personnel.jpg',
         width: 1200,
         height: 630,
         alt: 'Prêt personnel avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -48,7 +43,7 @@ const pretPersonnelSchema = {
     {
       '@type': 'Service',
       name: 'Courtage en Prêt Personnel et Crédit à la Consommation',
-      serviceType: 'Courtage en Opérations de Banque (COBSP)',
+      serviceType: 'Courtage en Prêt Personnel',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -125,50 +120,6 @@ const CHIFFRES = [
   { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: '⚡' },
 ];
 
-const TYPES_PRET = [
-  {
-    icon: '🚗',
-    title: 'Prêt Auto & Moto',
-    desc: 'Neuf ou occasion.',
-    points: [
-      'Taux souvent très avantageux',
-      'Fonds débloqués rapidement',
-      'Plus flexible qu\'une LOA/LLD',
-      'Le véhicule vous appartient à 100%',
-    ],
-    cta: 'Financer mon véhicule',
-    color: '#16a34a',
-    featured: false,
-  },
-  {
-    icon: '🔨',
-    title: 'Prêt Travaux',
-    desc: 'Rénovation, extension, énergie.',
-    points: [
-      'Nécessite souvent des devis',
-      'Taux préférentiels pour l\'éco-rénovation',
-      'Jusqu\'à 75 000€ de budget',
-      'Augmente la valeur de votre bien',
-    ],
-    cta: 'Financer mes travaux',
-    color: '#d97706',
-    featured: true,
-  },
-  {
-    icon: '💸',
-    title: 'Trésorerie & Projets',
-    desc: 'Mariage, voyage, imprévus.',
-    points: [
-      'Utilisation libre des fonds',
-      'Aucun justificatif d\'achat demandé',
-      'Mensualité fixe et connue à l\'avance',
-      'Alternative saine au crédit renouvelable',
-    ],
-    cta: 'Financer mon projet',
-    color: 'var(--orizia-primary)',
-    featured: false,
-  },
-];
 
 const DANGERS = [
   {
@@ -243,6 +194,8 @@ export default function PretPersonnelPage() {
       />
 
       <main>
+        <ReadingProgressPretPersonnel />
+        
         {/* ── HERO (Avec background) ── */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
@@ -275,7 +228,7 @@ export default function PretPersonnelPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Faire une simulation avec Cindy
               </Link>
-              <Link href="#projets" className="fin-btn-secondary">
+              <Link href="#section-projets" className="fin-btn-secondary">
                 🔍 Voir les types de prêts
               </Link>
             </div>
@@ -376,7 +329,7 @@ export default function PretPersonnelPage() {
         </section>
 
         {/* ── TYPES DE PRÊTS ── */}
-        <section id="projets" className="crowd-section crowd-section--light">
+        <section id="section-projets" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">À chaque projet sa solution</span>
@@ -385,29 +338,7 @@ export default function PretPersonnelPage() {
                 Selon la nature de votre besoin, je vous oriente vers un crédit "affecté" (taux souvent plus bas) ou "non affecté" (plus de liberté).
               </p>
             </div>
-            <div className="av-profils-grid">
-              {TYPES_PRET.map(p => (
-                <div
-                  key={p.title}
-                  className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}
-                  style={p.featured ? { borderColor: '#d97706' } : {}}
-                >
-                  {p.featured && (
-                    <div className="av-profil-badge" style={{ background: '#d97706' }}>
-                      ⭐ Le plus demandé
-                    </div>
-                  )}
-                  <div className="av-profil-icon">{p.icon}</div>
-                  <h3>{p.title}</h3>
-                  <p className="av-profil-desc" style={{ marginBottom: 14 }}>{p.desc}</p>
-                  <ul className="ah-profil-points">
-                    {p.points.map((pt, i) => (
-                      <li key={i}>✅ {pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <PretProjetSelector />
           </div>
         </section>
 
@@ -462,7 +393,7 @@ export default function PretPersonnelPage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Processus clair</span>
@@ -511,26 +442,33 @@ export default function PretPersonnelPage() {
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <PretPersonnelChecklist />
+          </div>
+        </section>
+
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Transparence</span>
               <h2>Les questions qu'on se pose<br />avant d'emprunter</h2>
             </div>
-            <div className="av-objections-grid">
+            <div className="crowd-faq-list">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card">
-                  <div className="av-objection-q">{o.q}</div>
-                  <div className="av-objection-r">{o.r}</div>
-                </div>
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
               ))}
             </div>
           </div>
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-faq" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -549,20 +487,20 @@ export default function PretPersonnelPage() {
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
+                ✉️ Poser une autre question
               </Link>
             </div>
           </div>
         </section>
 
         {/* ── MAILLAGE INTERNE ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vision Globale</span>
               <h2>Préparez l'avenir sereinement</h2>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--white">
               {[
                 {
                   href: '/financer/credit-immobilier',
@@ -570,6 +508,7 @@ export default function PretPersonnelPage() {
                   title: 'Crédit Immobilier',
                   sub: 'Votre projet de vie',
                   text: 'Vous souhaitez acheter un bien immobilier ? La démarche est très différente d\'un prêt personnel. Je vous accompagne de A à Z.',
+                  badge: '🏡 Votre prochain grand projet',
                 },
                 {
                   href: '/assurer/auto-moto',
@@ -577,6 +516,7 @@ export default function PretPersonnelPage() {
                   title: 'Assurance Auto',
                   sub: 'Protéger votre achat',
                   text: 'Vous venez de financer un véhicule ? Ne payez pas votre assurance plein pot. Je compare le marché pour vous.',
+                  badge: null,
                 },
                 {
                   href: '/investir/assurance-vie',
@@ -584,9 +524,11 @@ export default function PretPersonnelPage() {
                   title: 'Assurance Vie',
                   sub: 'L\'épargne de précaution',
                   text: 'Même en remboursant un crédit, il est vital de se constituer une épargne de sécurité. Découvrons l\'assurance vie.',
+                  badge: null,
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
+                  {s.badge && <span className="fin-card-pill">{s.badge}</span>}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -599,7 +541,7 @@ export default function PretPersonnelPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Prêt(e) à financer votre projet<br />au juste prix ?</h2>
             <p>
@@ -607,15 +549,15 @@ export default function PretPersonnelPage() {
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon étude avec Cindy
+                📅 Lancer mon étude →
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Lui envoyer un message
+                ✉️ M'envoyer un message
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. 
-              Orizia Courtage est immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>
         </section>

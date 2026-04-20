@@ -103,7 +103,7 @@ export default function CapaciteEmpruntCalc() {
           </div>
         </div>
 
-        <Link href="/rendez-vous" className="fin-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+        <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
           📅 Affiner avec Cindy
         </Link>
         <p className="aec-disclaimer">

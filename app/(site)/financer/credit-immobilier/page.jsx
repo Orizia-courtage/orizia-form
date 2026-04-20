@@ -1,20 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import CapaciteEmpruntCalc from '@/components/CapaciteEmpruntCalc';
+import CreditProjetSelector from '@/components/CreditProjetSelector';
+import CreditChecklist from '@/components/CreditChecklist';
+import ReadingProgressCredit from '@/components/ReadingProgressCredit';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
-  description: 'Achat, construction ou investissement locatif. Cindy Urbansky, courtière indépendante dans les Hauts-de-France, négocie votre taux et votre assurance emprunteur. Étude gratuite.',
-  keywords: [
-    'courtier crédit immobilier Hauts-de-France',
-    'meilleur taux immobilier 2026',
-    'simulation prêt immobilier gratuit',
-    'financement achat maison courtier',
-    'capacité emprunt courtier indépendant',
-    'délégation assurance emprunteur',
-    'primo-accédant PTZ 2026',
-  ],
+  description: 'Achat, construction ou investissement locatif. Je négocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Étude gratuite.',
   alternates: { canonical: 'https://orizia-courtage.fr/financer/credit-immobilier' },
   openGraph: {
     title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
@@ -23,14 +17,14 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        url: 'https://orizia-courtage.fr/images/og-credit-immobilier.jpg',
         width: 1200,
         height: 630,
         alt: 'Crédit immobilier avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -49,7 +43,7 @@ const creditImmobilierSchema = {
     {
       '@type': 'Service',
       name: 'Courtage en Crédit Immobilier',
-      serviceType: 'Courtage en Opérations de Banque (COBSP)',
+      serviceType: 'Courtage en Crédit Immobilier',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -244,6 +238,8 @@ export default function CreditImmobilierPage() {
       />
 
       <main>
+        <ReadingProgressCredit />
+
         {/* ── HERO (Avec background) ── */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
@@ -276,7 +272,7 @@ export default function CreditImmobilierPage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Calculer ma capacité d'emprunt
               </Link>
-              <Link href="#projets" className="fin-btn-secondary">
+              <Link href="#section-projets" className="fin-btn-secondary">
                 🔍 Voir selon mon projet
               </Link>
             </div>
@@ -369,36 +365,14 @@ export default function CreditImmobilierPage() {
         </section>
 
         {/* ── TYPES DE PROJETS ── */}
-        <section id="projets" className="crowd-section crowd-section--light">
+        <section id="section-projets" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre situation</span>
               <h2>Un montage financier sur-mesure<br />selon votre projet</h2>
               <p>On ne finance pas sa première résidence principale comme on finance un immeuble de rapport.</p>
             </div>
-            <div className="av-profils-grid">
-              {TYPES_PROJETS.map(p => (
-                <div
-                  key={p.title}
-                  className={`av-profil-card${p.featured ? ' av-profil-card--featured' : ''}`}
-                  style={p.featured ? { borderColor: p.color } : {}}
-                >
-                  {p.featured && (
-                    <div className="av-profil-badge" style={{ background: p.color }}>
-                      ⭐ Le plus courant
-                    </div>
-                  )}
-                  <div className="av-profil-icon">{p.icon}</div>
-                  <h3>{p.title}</h3>
-                  <p className="av-profil-desc" style={{ marginBottom: 14 }}>{p.desc}</p>
-                  <ul className="ah-profil-points">
-                    {p.points.map((pt, i) => (
-                      <li key={i}>✅ {pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <CreditProjetSelector />
           </div>
         </section>
 
@@ -420,7 +394,7 @@ export default function CreditImmobilierPage() {
                   immédiatement l'assurance très coûteuse de la banque par un contrat externe (délégation d'assurance). 
                   Résultat ? <strong>Vous gagnez sur les deux tableaux</strong> et la baisse du coût total de votre achat est massive.
                 </p>
-                <Link href="/assurer/emprunteur" className="fin-btn-secondary" style={{ display: 'inline-block', marginTop: 16 }}>
+                <Link href="/assurer/assurance-emprunteur" className="fin-btn-secondary" style={{ display: 'inline-block', marginTop: 16 }}>
                   Comprendre la magie de l'assurance prêt
                 </Link>
               </div>
@@ -451,7 +425,7 @@ export default function CreditImmobilierPage() {
         </section>
 
         {/* ── ACCOMPAGNEMENT (ÉTAPES) ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-etapes" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">De l'idée à la remise des clés</span>
@@ -487,7 +461,7 @@ export default function CreditImmobilierPage() {
         </section>
 
         {/* ── SIMULATEUR CAPACITÉ D'EMPRUNT ── */}
-        <section className="crowd-section crowd-section--white">
+        <section id="section-simulateur" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Estimation rapide</span>
@@ -499,25 +473,32 @@ export default function CreditImmobilierPage() {
         </section>
 
         {/* ── OBJECTIONS ── */}
-        <section className="crowd-section crowd-section--white">
+        <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Transparence totale</span>
               <h2>Les a priori sur les courtiers<br />(et ce qu'il en est vraiment)</h2>
             </div>
-            <div className="av-objections-grid">
+            <div className="crowd-faq-list">
               {OBJECTIONS.map((o, i) => (
-                <div key={i} className="av-objection-card">
-                  <div className="av-objection-q">{o.q}</div>
-                  <div className="av-objection-r">{o.r}</div>
-                </div>
+                <details key={i} className="crowd-faq-item">
+                  <summary>{o.q}</summary>
+                  <p>{o.r}</p>
+                </details>
               ))}
             </div>
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <CreditChecklist />
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--light">
+        <section id="section-faq" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
@@ -550,31 +531,30 @@ export default function CreditImmobilierPage() {
               <span className="fin-badge">Pendant qu'on y est</span>
               <h2>On sécurise le reste de votre projet ?</h2>
             </div>
-            <div className="fin-cards">
-              {/* Carte avec badge contextuel */}
-              <Link href="/assurer/assurance-emprunteur" className="fin-card" style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', top: 14, right: 14, background: '#16a34a', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap' }}>
+            <div className="fin-cards fin-cards--light">
+              <Link href="/assurer/assurance-emprunteur" className="fin-card fin-card--featured">
+                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>
                   💰 Économisez jusqu'à 15 000€
-                </div>
+                </span>
                 <div className="fin-card-icon">📋</div>
                 <div className="fin-card-sub">L'économie cachée</div>
                 <h3>Assurance Emprunteur</h3>
-                <p>Obligatoire avec votre prêt immobilier. Découvrez comment je la négocie pour vous faire économiser des milliers d'euros.</p>
-                <span className="fin-card-link">Découvrir</span>
+                <p>Obligatoire avec votre prêt immobilier. Je la négocie pour vous faire économiser des milliers d'euros.</p>
+                <span className="fin-card-link">Découvrir →</span>
               </Link>
               <Link href="/assurer/assurance-habitation" className="fin-card">
                 <div className="fin-card-icon">🏠</div>
                 <div className="fin-card-sub">Protéger votre nouvel achat</div>
                 <h3>Assurance Habitation</h3>
                 <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
-                <span className="fin-card-link">Découvrir</span>
+                <span className="fin-card-link">Découvrir →</span>
               </Link>
               <Link href="/financer/rachat-soulte" className="fin-card">
                 <div className="fin-card-icon">⚖️</div>
                 <div className="fin-card-sub">Divorce · Séparation · Succession</div>
                 <h3>Rachat de soulte</h3>
                 <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
-                <span className="fin-card-link">Découvrir</span>
+                <span className="fin-card-link">Découvrir →</span>
               </Link>
             </div>
           </div>
@@ -590,15 +570,15 @@ export default function CreditImmobilierPage() {
             </p>
             <div className="fin-hero-btns">
               <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un point avec Cindy
+                📅 Faire un point ensemble →
               </Link>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Lui envoyer un message
+                ✉️ M'envoyer un message
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
-              Orizia Courtage, immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP). 
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
               L'étude est gratuite et sans engagement.
             </p>
           </div>
