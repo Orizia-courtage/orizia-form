@@ -2,36 +2,31 @@ import Link from 'next/link';
 import Image from 'next/image';
 import OriziaForm from '@/components/OriziaForm';
 import FormStepper from '@/components/FormStepper';
+import ReadingProgressRegroupement from '@/components/ReadingProgressRegroupement';
+import SimulateurRegroupement from '@/components/SimulateurRegroupement';
+import RegroupementChecklist from '@/components/RegroupementChecklist';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Regroupement de Crédits 2026 : Réduisez vos Mensualités | Orizia Courtage',
   description:
     'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Étude gratuite, sans engagement, réponse sous 24h.',
-  keywords: [
-    'regroupement de crédits 2026',
-    'rachat de crédits courtier indépendant',
-    'réduire mensualités crédit',
-    'regroupement crédit immobilier consommation',
-    'courtier rachat de crédits Hauts-de-France',
-    'simulation regroupement crédits gratuit',
-  ],
   alternates: { canonical: 'https://orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',
-    description: 'Un seul crédit, une seule mensualité réduite. Orizia étudie votre dossier gratuitement et vous propose la solution adaptée à votre profil.',
+    description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier gratuitement et vous propose la solution adaptée à votre profil.',
     url: 'https://orizia-courtage.fr/financer/regroupement-credits',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        url: 'https://orizia-courtage.fr/images/og-regroupement-credits.jpg',
         width: 1200,
         height: 630,
         alt: 'Regroupement de crédits avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
-    type: 'article',
+    type: 'website',
   },
 };
 
@@ -55,12 +50,19 @@ const regroupementSchema = {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        telephone: '+33XXXXXXXXX',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Marcq-en-Baroeul',
+          addressRegion: 'Hauts-de-France',
+          addressCountry: 'FR',
+        },
       },
       description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. Réduction de mensualité jusqu\'à 60%.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'City', name: 'Marcq-en-Baroeul' },
         { '@type': 'Country', name: 'France' },
       ],
       offers: {
@@ -90,7 +92,7 @@ const faqSchema = {
       name: 'Quelle économie mensuelle peut-on espérer ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La baisse de mensualité dépend du dossier, mais elle peut aller de 30 à 60% selon la situation. Cette baisse s’obtient en contrepartie d’un allongement de la durée de remboursement.',
+        text: 'La baisse de mensualité dépend du dossier, mais elle peut aller de 30 à 60% selon la situation. Cette baisse s\'obtient en contrepartie d\'un allongement de la durée de remboursement.',
       },
     },
     {
@@ -106,7 +108,7 @@ const faqSchema = {
       name: 'Le regroupement de crédits coûte-t-il plus cher au total ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, le coût total augmente souvent à cause de la durée plus longue. En revanche, la mensualité baisse immédiatement et le reste à vivre s’améliore.',
+        text: 'Oui, le coût total augmente souvent à cause de la durée plus longue. En revanche, la mensualité baisse immédiatement et le reste à vivre s\'améliore.',
       },
     },
     {
@@ -122,17 +124,17 @@ const faqSchema = {
       name: 'L\'étude est-elle gratuite et sans engagement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, l’étude est gratuite et sans engagement. Aucun frais n’est demandé avant la mise en place effective du regroupement.',
+        text: 'Oui, l\'étude est gratuite et sans engagement. Aucun frais n\'est demandé avant la mise en place effective du regroupement.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '−60%', label: 'de réduction de mensualités possible', icon: '📉' },
+  { value: '-60%', label: 'de réduction de mensualités possible', icon: '📉' },
   { value: '24h', label: 'pour une première réponse de principe', icon: '⚡' },
   { value: '100%', label: 'gratuit & sans engagement', icon: '🤝' },
-  { value: '13 étapes', label: 'pour une analyse complète de votre profil', icon: '🔍' },
+  { value: '13 questions', label: 'pour une analyse complète de votre profil', icon: '🔍' },
 ];
 
 const CREDITS_REGROUPABLES = [
@@ -141,7 +143,7 @@ const CREDITS_REGROUPABLES = [
   { icon: '🚗', label: 'LOA / LLD', desc: 'Crédit-bail auto, rachat de contrat de location' },
   { icon: '💳', label: 'Dettes diverses', desc: 'Paiements en plusieurs fois, découverts chroniques' },
   { icon: '🏢', label: 'Crédits professionnels', desc: 'Sous conditions selon le profil et le montant' },
-  { icon: '💰', label: 'Trésorerie complémentaire', desc: 'Possibilité d’intégrer une enveloppe de liquidités' },
+  { icon: '💰', label: 'Trésorerie complémentaire', desc: 'Possibilité d\'intégrer une enveloppe de liquidités' },
 ];
 
 const PROFILS = [
@@ -156,7 +158,7 @@ const PROFILS = [
     icon: '👴',
     title: 'Retraité propriétaire',
     desc: 'Revenu fixe, patrimoine immobilier, besoin de reste à vivre.',
-    resultat: 'Rachat adossé à l’immobilier — durée adaptée à l’âge.',
+    resultat: 'Rachat adossé à l\'immobilier — durée adaptée à l\'âge.',
     color: 'var(--orizia-primary)',
   },
   {
@@ -185,8 +187,8 @@ const COMMENT_CA_MARCHE = [
   {
     n: '02',
     icon: '🔍',
-    title: 'Orizia analyse votre profil',
-    text: 'Sous 24h ouvrées, Cindy étudie votre dossier, calcule votre taux d’endettement et identifie le bon segment.',
+    title: 'J\'analyse votre profil',
+    text: 'Sous 24h ouvrées, j\'étudie votre dossier, calcule votre taux d\'endettement et identifie le bon segment.',
   },
   {
     n: '03',
@@ -198,16 +200,8 @@ const COMMENT_CA_MARCHE = [
     n: '04',
     icon: '✅',
     title: 'Montage et mise en place',
-    text: 'Si vous acceptez, Orizia transmet le dossier et suit la procédure jusqu’au déblocage des fonds.',
+    text: 'Si vous acceptez, je transmets le dossier et suis la procédure jusqu\'au déblocage des fonds.',
   },
-];
-
-const ALERTES = [
-  { icon: '✅', label: 'Idéal si votre taux d’endettement dépasse 35%' },
-  { icon: '✅', label: 'Idéal si vous avez 3 crédits ou plus en cours' },
-  { icon: '✅', label: 'Idéal si vous avez un projet à financer en même temps' },
-  { icon: '❌', label: 'Non adapté si vous êtes fiché FICP / FCC' },
-  { icon: '❌', label: 'Non adapté si vous avez moins d’1 an de crédits en cours' },
 ];
 
 export default function RegroupementCreditsPage() {
@@ -223,7 +217,9 @@ export default function RegroupementCreditsPage() {
       />
 
       <main>
-        {/* ── HERO (Avec background) ── */}
+        <ReadingProgressRegroupement />
+
+        {/* ── HERO ── */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
             <Image
@@ -256,7 +252,7 @@ export default function RegroupementCreditsPage() {
               <a href="#formulaire" className="fin-btn-primary">
                 🔍 Démarrer mon étude gratuite
               </a>
-              <a href="#comment" className="fin-btn-secondary">
+              <a href="#section-comprendre" className="fin-btn-secondary">
                 Comment ça marche ?
               </a>
             </div>
@@ -280,7 +276,7 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* ── CITATION CINDY (Avec photo) ── */}
+        {/* ── CITATION CINDY ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
@@ -310,7 +306,8 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        <section id="comment" className="crowd-section crowd-section--white">
+        {/* ── COMPRENDRE ── */}
+        <section id="section-comprendre" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
@@ -329,28 +326,9 @@ export default function RegroupementCreditsPage() {
                 </p>
                 <p style={{ fontSize: '0.85rem', opacity: 0.6, fontStyle: 'italic' }}>
                   ⚠️ Contrepartie : la durée totale de remboursement s'allonge,
-                  ce qui augmente le coût global du crédit. Orizia vous présente
+                  ce qui augmente le coût global du crédit. Je vous présente
                   une simulation complète pour décider en connaissance de cause.
                 </p>
-
-                <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  {ALERTES.map((a, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 10,
-                        fontSize: '0.88rem',
-                        fontWeight: 600,
-                        color: a.icon === '✅' ? '#16a34a' : '#dc2626',
-                      }}
-                    >
-                      <span>{a.icon}</span>
-                      {a.label}
-                    </div>
-                  ))}
-                </div>
               </div>
 
               <div>
@@ -403,12 +381,28 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        <section className="crowd-section crowd-section--light">
+        {/* ── SIMULATEUR ── */}
+        <section id="section-simulateur" className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">📊 Simulateur</span>
+              <h2>Calculez votre taux d'endettement<br />et votre mensualité cible</h2>
+              <p>
+                Renseignez vos mensualités actuelles et vos revenus pour voir immédiatement
+                si le regroupement peut vous aider — et de combien.
+              </p>
+            </div>
+            <SimulateurRegroupement />
+          </div>
+        </section>
+
+        {/* ── PROCESSUS ── */}
+        <section id="section-processus" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Le processus</span>
               <h2>De votre formulaire à votre<br />nouvelle mensualité en 4 étapes</h2>
-              <p>Tout commence par quelques minutes de formulaire. Orizia s’occupe du reste.</p>
+              <p>Tout commence par quelques minutes de formulaire. Je m'occupe du reste.</p>
             </div>
             <div className="ae-accompagnement-layout">
               <div className="ae-accompagnement-etapes">
@@ -438,7 +432,8 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        <section className="crowd-section crowd-section--white">
+        {/* ── PROFILS ── */}
+        <section id="section-profils" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre profil</span>
@@ -449,15 +444,7 @@ export default function RegroupementCreditsPage() {
               </p>
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 48,
-              alignItems: 'start',
-            }}
-              className="rc-profils-layout"
-            >
-              {/* Image à gauche */}
+            <div className="rc-profils-layout">
               <div>
                 <Image
                   src="/images/banque-pression.webp"
@@ -471,16 +458,13 @@ export default function RegroupementCreditsPage() {
                 />
               </div>
 
-              {/* Grille 2×2 à droite */}
               <div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 24 }}
-                  className="rc-profils-grid"
-                >
+                <div className="rc-profils-grid">
                   {PROFILS.map(p => (
                     <div
                       key={p.title}
                       style={{
-                        background: '#fff',
+                        background: 'var(--orizia-white)',
                         borderRadius: 16,
                         padding: '22px 20px',
                         border: `2px solid ${p.color}22`,
@@ -522,18 +506,17 @@ export default function RegroupementCreditsPage() {
                 </div>
               </div>
             </div>
-
-            <style>{`
-              @media (max-width: 900px) {
-                .rc-profils-layout { grid-template-columns: 1fr !important; }
-              }
-              @media (max-width: 500px) {
-                .rc-profils-grid { grid-template-columns: 1fr !important; }
-              }
-            `}</style>
           </div>
         </section>
 
+        {/* ── AUTO-ÉVALUATION ── */}
+        <section id="section-autoevaluation" className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <RegroupementChecklist />
+          </div>
+        </section>
+
+        {/* ── FORMULAIRE ── */}
         <section
           id="formulaire"
           className="crowd-section crowd-section--light"
@@ -550,22 +533,22 @@ export default function RegroupementCreditsPage() {
                 </span>
               </p>
             </div>
-
             <FormStepper />
             <OriziaForm />
           </div>
         </section>
 
-        <section className="crowd-section crowd-section--white">
+        {/* ── FAQ ── */}
+        <section id="section-faq" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur le regroupement<br />de crédits, nos réponses</h2>
+              <h2>Vos questions sur le regroupement<br />de crédits, mes réponses</h2>
               <p>Des réponses claires, sans jargon financier.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item" style={{ borderColor: 'var(--orizia-gold)' }}>
+                <details key={i} className="crowd-faq-item">
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -576,14 +559,13 @@ export default function RegroupementCreditsPage() {
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
+                ✉️ Poser une autre question
               </Link>
             </div>
           </div>
         </section>
 
-        
-
+        {/* ── MAILLAGE INTERNE ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -591,31 +573,35 @@ export default function RegroupementCreditsPage() {
               <h2>Optimisez l'ensemble<br />de votre situation financière</h2>
               <p>Le regroupement de crédits est souvent le point de départ d'une remise à plat complète.</p>
             </div>
-            <div className="fin-cards">
+            <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/financer/credit-immobilier',
                   icon: '🏡',
                   title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
-                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Orizia négocie votre crédit immobilier aux meilleures conditions.',
+                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
+                  badge: null,
                 },
                 {
-                  href: '/assurer/emprunteur',
+                  href: '/assurer/assurance-emprunteur',
                   icon: '📋',
                   title: 'Assurance Emprunteur',
                   sub: 'Réduire le coût de votre prêt',
-                  text: 'Si votre regroupement inclut un prêt immobilier, optimiser l’assurance emprunteur peut générer des économies supplémentaires.',
+                  text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer des économies supplémentaires.',
+                  badge: '💡 Économisez sur votre nouveau prêt',
                 },
                 {
                   href: '/investir/assurance-vie',
                   icon: '🛡️',
                   title: 'Assurance Vie',
                   sub: 'Épargner en parallèle',
-                  text: 'Une mensualité allégée libère de la capacité d’épargne. L’assurance vie est l’outil idéal pour faire fructifier ce surplus mensuel.',
+                  text: 'Une mensualité allégée libère de la capacité d\'épargne. L\'assurance vie est l\'outil idéal pour faire fructifier ce surplus mensuel.',
+                  badge: null,
                 },
               ].map(s => (
                 <Link href={s.href} key={s.title} className="fin-card">
+                  {s.badge && <span className="fin-card-pill">{s.badge}</span>}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -627,25 +613,27 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
+        {/* ── CTA FINAL ── */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Vos mensualités pèsent trop.<br />Faites-les baisser dès maintenant.</h2>
             <p>
               5 minutes de formulaire. 24h de délai. Une proposition concrète.
-              Orizia Courtage analyse votre profil, identifie la solution optimale
-              et vous accompagne jusqu'à la mise en place. Gratuitement.
+              J'analyse votre profil, j'identifie la solution optimale
+              et je vous accompagne jusqu'à la mise en place. Sans frais.
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer mon étude gratuite
+                🔍 Démarrer mon étude gratuite →
               </a>
               <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
+                ✉️ M'envoyer un message
               </Link>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
               Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
               Une simulation complète vous sera fournie avant toute décision.
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>
         </section>
