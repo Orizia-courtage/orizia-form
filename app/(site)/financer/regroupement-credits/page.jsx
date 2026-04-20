@@ -5,6 +5,7 @@ import FormStepper from '@/components/FormStepper';
 import ReadingProgressRegroupement from '@/components/ReadingProgressRegroupement';
 import SimulateurRegroupement from '@/components/SimulateurRegroupement';
 import RegroupementChecklist from '@/components/RegroupementChecklist';
+import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -134,7 +135,7 @@ const CHIFFRES = [
   { value: '-60%', label: 'de réduction de mensualités possible', icon: '📉' },
   { value: '24h', label: 'pour une première réponse de principe', icon: '⚡' },
   { value: '100%', label: 'gratuit & sans engagement', icon: '🤝' },
-  { value: '13 questions', label: 'pour une analyse complète de votre profil', icon: '🔍' },
+  { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: '🔍' },
 ];
 
 const CREDITS_REGROUPABLES = [
@@ -182,7 +183,7 @@ const COMMENT_CA_MARCHE = [
     n: '01',
     icon: '📋',
     title: 'Vous complétez le formulaire',
-    text: '13 questions sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
+    text: '10 questions sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
   },
   {
     n: '02',
@@ -527,13 +528,12 @@ export default function RegroupementCreditsPage() {
               <span className="fin-badge">Étude personnalisée</span>
               <h2>Complétez votre dossier en ligne</h2>
               <p>
-                13 questions · 5 à 8 minutes · Réponse sous 24h<br />
+                10 questions · 5 à 8 minutes · Réponse sous 24h<br />
                 <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>
                   Aucun document à envoyer à ce stade. Vos données sont sécurisées.
                 </span>
               </p>
             </div>
-            <FormStepper />
             <OriziaForm />
           </div>
         </section>
@@ -573,7 +573,7 @@ export default function RegroupementCreditsPage() {
               <h2>Optimisez l'ensemble<br />de votre situation financière</h2>
               <p>Le regroupement de crédits est souvent le point de départ d'une remise à plat complète.</p>
             </div>
-            <div className="fin-cards fin-cards--light">
+            <div className="fin-cards fin-cards--white">
               {[
                 {
                   href: '/financer/credit-immobilier',
@@ -624,11 +624,9 @@ export default function RegroupementCreditsPage() {
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer mon étude gratuite →
+                🔍 Démarrer mon étude gratuite
               </a>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ M'envoyer un message
-              </Link>
+              <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
               Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.

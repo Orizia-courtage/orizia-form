@@ -3,38 +3,48 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Composant ReadingProgress générique.
- * Les jalons s'allument quand la section entre dans le viewport (IntersectionObserver)
- * plutôt que sur des pourcentages fixes — synchronisation parfaite avec le scroll réel.
- *
- * @param {Array} jalonsDesktop - [{label, id, displayPct}] — displayPct = position visuelle sur la barre
- * @param {Array} jalonsMobile  - max 3 jalons pour mobile
+ * ReadingProgressBase — synchronisation par IntersectionObserver.
+ * Un seul jalon actif à la fois : le dernier entré dans la zone de lecture.
  */
 export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
-  const [progress, setProgress] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [passed, setPassed] = useState(new Set());
+  const [progress, setProgress]   = useState(0);
+  const [visible, setVisible]     = useState(false);
+  const [isMobile, setIsMobile]   = useState(false);
+  const [activeId, setActiveId]   = useState(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    // Scroll progress
+    // Scroll progress + visibilité
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
       setProgress(pct);
-      // Visible entre 200px du haut et 92% du scroll (avant le footer)
       setVisible(scrollTop > 200 && pct < 92);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // IntersectionObserver pour allumer les jalons
-    const allJalons = [...jalonsDesktop, ...jalonsMobile];
+    // Collecte tous les ids uniques dans l'ordre des jalons desktop
+    const allJalons = [...jalonsDesktop];
     const uniqueIds = [...new Set(allJalons.map(j => j.id))];
+
+    // Map id → position dans la page (ordre de déclaration)
+    // On utilise un Set ordonné : le dernier id dont la section
+    // est dans le viewport (zone haute) devient l'actif.
+    const visibleSections = new Set();
+
+    const updateActive = () => {
+      // Parcourt les ids dans l'ordre de la page
+      // Le dernier visible dans la zone haute = actif
+      let last = null;
+      for (const id of uniqueIds) {
+        if (visibleSections.has(id)) last = id;
+      }
+      setActiveId(last);
+    };
 
     const observers = [];
     uniqueIds.forEach(id => {
@@ -43,17 +53,14 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
       const obs = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setPassed(prev => new Set([...prev, id]));
+            visibleSections.add(id);
           } else {
-            // Retirer le jalon quand la section sort du viewport
-            setPassed(prev => {
-              const newSet = new Set(prev);
-              newSet.delete(id);
-              return newSet;
-            });
+            visibleSections.delete(id);
           }
+          updateActive();
         },
-        { threshold: 0, rootMargin: '-10% 0px -70% 0px' }
+        // Zone : la section doit avoir passé le tiers supérieur de l'écran
+        { threshold: 0, rootMargin: '-5% 0px -55% 0px' }
       );
       obs.observe(el);
       observers.push(obs);
@@ -83,7 +90,7 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
           <button
             key={j.label}
             onClick={() => scrollTo(j.id)}
-            className={`rp-jalon${passed.has(j.id) ? ' rp-jalon--passed' : ''}`}
+            className={`rp-jalon${activeId === j.id ? ' rp-jalon--passed' : ''}`}
             style={{ left: `${j.displayPct}%`, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             aria-label={`Aller à : ${j.label}`}
           >

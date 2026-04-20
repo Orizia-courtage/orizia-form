@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import ReadingProgressRachatSoulte from '@/components/ReadingProgressRachatSoulte';
 import SimulateurSoulte from '@/components/SimulateurSoulte';
 import RachatSoulteChecklist from '@/components/RachatSoulteChecklist';
@@ -528,9 +529,7 @@ export default function RachatSoultePage() {
               <Link href="/rendez-vous" className="fin-btn-primary">
                 📅 Étudier mon rachat de soulte →
               </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ M'envoyer un message
-              </Link>
+              <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

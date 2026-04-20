@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Fix CSS BOM on save",
+  "description": "Automatically removes UTF-8 BOM from globals.css whenever it's edited, preventing the PostCSS parsing error",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "app/globals.css"
+    ]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "powershell -Command \"$b=[System.IO.File]::ReadAllBytes('app/globals.css');if($b[0] -eq 239 -and $b[1] -eq 187 -and $b[2] -eq 191){$c=[System.Text.Encoding]::UTF8.GetString($b).Substring(1);$e=New-Object System.Text.UTF8Encoding $false;[System.IO.File]::WriteAllText('app/globals.css',$c,$e);Write-Host 'BOM removed from globals.css'}\""
+  }
+}
