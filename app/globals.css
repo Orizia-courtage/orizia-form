@@ -10516,10 +10516,11 @@ body.contact-popup-open .cw-trigger {
   transform: translateY(-50%) scale(1.08);
 }
 
-/* Sur mobile, les flèches rentrent dans le viewport */
+/* Sur mobile, padding réduit */
 @media (max-width: 640px) {
-  .tc3-arrow--prev { left: 4px; }
-  .tc3-arrow--next { right: 4px; }
+  .tc3-wrap { padding: 0 20px; }
+  .tc3-arrow--prev { left: 0; }
+  .tc3-arrow--next { right: 0; }
 }
 
 /* Fenêtre — masque ce qui déborde */
