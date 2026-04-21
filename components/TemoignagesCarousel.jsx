@@ -79,6 +79,13 @@ export default function TemoignagesCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* Flèche gauche — positionnée sur le côté du viewport */}
+      <button className="tc3-arrow tc3-arrow--prev" onClick={goBack} aria-label="Précédent">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M7.5 2L4 6l3.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+
       {/* Fenêtre avec overflow hidden */}
       <div className="tc3-viewport">
         {/* Piste qui se translate */}
@@ -107,29 +114,12 @@ export default function TemoignagesCarousel() {
         </div>
       </div>
 
-      {/* Contrôles */}
-      <div className="tc3-controls">
-        <button className="tc3-arrow" onClick={goBack} aria-label="Précédent">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <path d="M6.5 1.5L3 5l3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <div className="tc3-dots">
-          {Array.from({ length: total }).map((_, i) => (
-            <button
-              key={i}
-              className={`tc3-dot${i === idx ? ' tc3-dot--active' : ''}`}
-              onClick={() => { if (!sliding) setIdx(i); }}
-              aria-label={`Avis ${i + 1}`}
-            />
-          ))}
-        </div>
-        <button className="tc3-arrow" onClick={advance} aria-label="Suivant">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <path d="M3.5 1.5L7 5l-3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
+      {/* Flèche droite — positionnée sur le côté du viewport */}
+      <button className="tc3-arrow tc3-arrow--next" onClick={advance} aria-label="Suivant">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M4.5 2L8 6l-3.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
     </div>
   );
 }
