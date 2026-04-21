@@ -411,7 +411,7 @@ export default function PretPersonnelPage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier_pret_personnel.webp"
                   alt="Cindy Urbansky montant un dossier de prêt personnel"
                   title="Accompagnement de A à Z pour votre prêt personnel"
                   width={716}
@@ -540,7 +540,7 @@ export default function PretPersonnelPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

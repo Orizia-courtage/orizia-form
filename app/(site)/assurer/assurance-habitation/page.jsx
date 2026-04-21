@@ -658,7 +658,7 @@ export default function AssuranceHabitationPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

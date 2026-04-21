@@ -692,7 +692,7 @@ export default function PERPage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image 
-                  src="/images/dossier-courtage.webp" 
+                  src="/images/dossier_per.webp" 
                   alt="Cindy Urbansky gérant le dossier de courtage PER"
                   title="Accompagnement Orizia Courtage de A à Z"
                   width={716}
@@ -851,7 +851,7 @@ export default function PERPage() {
                     <div className="fin-card-sub">{s.sub}</div>
                     <h3>{s.title}</h3>
                     <p>{s.text}</p>
-                    <span className="fin-card-link">En savoir plus</span>
+                    <span className="fin-card-link">Découvrir →</span>
                   </Link>
               ))}
             </div>

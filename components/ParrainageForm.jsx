@@ -157,7 +157,7 @@ export default function ParrainageForm() {
 
           <div className="parr-actions">
             <button type="button" className="parr-btn-primary" onClick={goNext}>
-              Continuer →
+              Continuer
             </button>
           </div>
         </div>

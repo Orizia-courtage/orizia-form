@@ -412,7 +412,7 @@ export default function RachatSoultePage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier_rachat_soulte.webp"
                   alt="Cindy Urbansky montant un dossier de rachat de soulte"
                   title="Accompagnement rachat de soulte – Orizia Courtage"
                   width={716}
@@ -523,7 +523,7 @@ export default function RachatSoultePage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

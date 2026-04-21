@@ -114,7 +114,7 @@ export default function PretPersonnelChecklist() {
                   Les deux critères essentiels sont réunis. Je peux consulter mes partenaires
                   et vous obtenir un accord de principe sous 24 à 48h.
                 </p>
-                <ContactPopup label="📅 Lancer mon étude →" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Lancer mon étude" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -126,7 +126,7 @@ export default function PretPersonnelChecklist() {
                   Certains points peuvent être travaillés. Je vous dis honnêtement
                   ce qui est possible et quelles alternatives existent.
                 </p>
-                <ContactPopup label="📅 Analyser ma situation →" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

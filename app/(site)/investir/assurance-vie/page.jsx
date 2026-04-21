@@ -577,7 +577,7 @@ export default function AssuranceViePage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/courtier-assurance-independant.webp"
+                  src="/images/dossier_assurance_vie.webp"
                   alt="Cindy Urbansky accompagnant un client pour son assurance vie"
                   title="Accompagnement personnalisé en assurance vie – Orizia Courtage"
                   width={716}
@@ -748,7 +748,7 @@ export default function AssuranceViePage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

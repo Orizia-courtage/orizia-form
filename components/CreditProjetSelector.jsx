@@ -120,7 +120,7 @@ export default function CreditProjetSelector() {
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
 
-          <ContactPopup label="📅 Étudier mon projet →" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
+          <ContactPopup label="📅 Étudier mon projet" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
         </div>
       )}
     </div>

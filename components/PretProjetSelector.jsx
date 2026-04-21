@@ -118,7 +118,7 @@ export default function PretProjetSelector() {
             <span>💡</span>
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
-          <ContactPopup label="📅 Étudier mon financement →" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
+          <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

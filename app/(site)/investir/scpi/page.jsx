@@ -540,7 +540,7 @@ export default function SCPIPage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image 
-                  src="/images/dossier-courtage.webp" 
+                  src="/images/dossier_scpi.webp" 
                   alt="Préparation et gestion d'un portefeuille SCPI par un courtier"
                   title="Gestion complète de votre investissement SCPI"
                   width={716}
@@ -663,7 +663,7 @@ export default function SCPIPage() {
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
                 <p>8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
-                <span className="fin-card-link">En savoir plus</span>
+                <span className="fin-card-link">En savoir plus →</span>
               </Link>
               <Link href="/investir/assurance-vie" className="fin-card fin-card--featured">
                 <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>✅ Fiscalité optimisée après 8 ans</span>
@@ -671,12 +671,12 @@ export default function SCPIPage() {
                 <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>
                 <p>L'enveloppe pour loger vos SCPI et bénéficier d'une fiscalité optimisée. Idéal pour les profils TMI 30%+ qui veulent garder la liquidité.</p>
-                <span className="fin-card-link">En savoir plus</span>
+                <span className="fin-card-link">En savoir plus →</span>
               </Link>
               <Link href="/investir/per" className="fin-card">
                 <span className="fin-card-pill" style={{ background: 'rgba(124,58,237,0.08)', color: '#7c3aed', border: '1px solid rgba(124,58,237,0.2)' }}>💰 Déduction fiscale immédiate</span>
                 <div className="fin-card-icon">🏦</div>
-                <div className="fin-card-sub">Préparez votre retraite</div>
+                <div className="fin-card-sub">Préparez votre retraite →</div>
                 <h3>PER</h3>
                 <p>Réduisez vos impôts dès cette année et préparez votre retraite. Combiné aux SCPI dans une AV, un duo particulièrement puissant.</p>
                 <span className="fin-card-link">En savoir plus</span>

@@ -114,7 +114,7 @@ export default function CreditChecklist() {
                   Les deux critères essentiels sont réunis. Je peux calculer votre capacité
                   d'emprunt exacte et identifier les banques les plus adaptées à votre profil.
                 </p>
-                <ContactPopup label="📅 Calculer mon enveloppe →" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Calculer mon enveloppe" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -126,7 +126,7 @@ export default function CreditChecklist() {
                   Certains points peuvent être travaillés ensemble. Je vous dis honnêtement
                   ce qui est possible et dans quel délai.
                 </p>
-                <ContactPopup label="📅 Analyser ma situation →" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

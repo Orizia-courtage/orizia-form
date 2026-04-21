@@ -500,7 +500,7 @@ export default function AssuranceEmprunteurPage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier_assurance_emprunteur.webp"
                   alt="Courtière Orizia Courtage gérant un dossier de délégation d'assurance"
                   title="Un accompagnement de A à Z"
                   width={863}
@@ -600,7 +600,7 @@ export default function AssuranceEmprunteurPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

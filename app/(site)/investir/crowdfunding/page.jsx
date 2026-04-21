@@ -700,7 +700,7 @@ export default function CrowdfundingPage() {
               {/* IMAGE 2 AJOUTÉE ICI */}
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier_crowdfunding.webp"
                   alt="Dossier de courtage Orizia parfaitement organisé"
                   title="Un accompagnement transparent de A à Z"
                   width={863}
@@ -830,7 +830,7 @@ export default function CrowdfundingPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

@@ -445,7 +445,7 @@ export default function CreditImmobilierPage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier_credit_immobilier.webp"
                   alt="Cindy Urbansky montant un dossier de crédit immobilier"
                   title="Accompagnement de A à Z pour votre crédit immobilier"
                   width={716}

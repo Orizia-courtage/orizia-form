@@ -411,7 +411,7 @@ export default function RegroupementCreditsPage() {
                   <div key={e.n} className="ae-etape-row">
                     <div className="fin-etape-num" style={{ flexShrink: 0 }}>{e.n}</div>
                     <div>
-                      <h3>{e.icon} {e.title}</h3>
+                      <h3>{e.title}</h3>
                       <p>{e.text}</p>
                     </div>
                   </div>
@@ -419,7 +419,7 @@ export default function RegroupementCreditsPage() {
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier_regroupement_credit.webp"
                   alt="Cindy Urbansky analysant un dossier de regroupement de crédits"
                   title="Analyse et montage de dossier de regroupement de crédits"
                   width={716}
@@ -620,7 +620,7 @@ export default function RegroupementCreditsPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">En savoir plus</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

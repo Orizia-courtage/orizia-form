@@ -412,7 +412,7 @@ export default function AssuranceAutoMotoPage() {
 
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage-auto.webp"
+                  src="/images/dossier_assurance_auto_moto.webp"
                   alt="Courtier préparant un dossier d'assurance auto/moto"
                   title="Un accompagnement de A à Z sans coupure"
                   width={863}
@@ -538,7 +538,7 @@ export default function AssuranceAutoMotoPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir l'approche</span>
+                  <span className="fin-card-link">Découvrir →</span>
                 </Link>
               ))}
             </div>

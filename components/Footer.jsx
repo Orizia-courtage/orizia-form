@@ -66,27 +66,22 @@ export default function Footer() {
           </div>
         ))}
 
-        {/* ── COLONNE 5 : PARRAINAGE ── */}
+        {/* ── COLONNE 5 : AUTRES ── */}
         <div>
           <div style={{ fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16, color: 'var(--orizia-gold)' }}>
-            Parrainage
+            Autres
           </div>
-          <p style={{ fontSize: '0.85rem', opacity: 0.85, lineHeight: 1.6, margin: '0 0 14px 0' }}>
-            Vos proches ont un projet ? Recommandez Orizia et recevez une récompense pour chaque dossier financé.
-          </p>
-          <Link href="/parrainage" style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center',
-            color: 'var(--orizia-light)', 
-            textDecoration: 'none', 
-            fontSize: '0.85rem',
-            fontWeight: 800,
-            borderBottom: '1px solid rgba(255,255,255,0.4)',
-            paddingBottom: '2px',
-            transition: 'opacity 0.3s'
-          }}>
-            Découvrir le programme
-          </Link>
+          {[
+            ['Parrainage', '/parrainage'],
+            ['Mon blog', '/blog'],
+            ['Les actualités', '/actualites'],
+            ['Qui suis-je ?', '/qui-suis-je'],
+            ['Lexique', '/lexique'],
+          ].map(([label, href]) => (
+            <Link key={href} href={href} style={{ display: 'block', color: 'var(--orizia-light)', textDecoration: 'none', fontSize: '0.85rem', marginBottom: 8, opacity: 0.85 }}>
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* ── COLONNE 6 : CONTACT & HORAIRES ── */}

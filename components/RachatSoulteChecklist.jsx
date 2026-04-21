@@ -108,7 +108,7 @@ export default function RachatSoulteChecklist() {
                   Les conditions sont réunies pour monter un financement. Je vérifie la faisabilité
                   complète et je consulte mes partenaires bancaires gratuitement.
                 </p>
-                <ContactPopup label="📅 Lancer mon étude →" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Lancer mon étude" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -120,7 +120,7 @@ export default function RachatSoulteChecklist() {
                   Certains points restent à clarifier. Je vous aide à identifier les blocages
                   et les solutions alternatives possibles.
                 </p>
-                <ContactPopup label="📅 Analyser ma situation →" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}
