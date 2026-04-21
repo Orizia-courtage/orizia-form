@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
@@ -200,7 +200,7 @@ export default function SimulateurCrowdfunding() {
         <p className="simu-disclaimer">
           Simulation indicative. Les rendements passés ne préjugent pas des performances futures.
           Tout investissement comporte un risque de perte en capital.
-          Orizia Courtage, courtière indépendante immatriculée ORIAS.
+          Orizia Courtage, courtier indépendant immatriculée ORIAS.
         </p>
       </div>
     </div>

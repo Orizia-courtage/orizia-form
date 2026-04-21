@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Image from 'next/image';
 import DispoStatus from './DispoStatus';
@@ -18,7 +18,7 @@ export default function RdvReassurance() {
         </div>
         <div>
           <div className="rdv-reassurance-name">Cindy Urbansky</div>
-          <div className="rdv-reassurance-role">Courtière indépendante · Orizia Courtage</div>
+          <div className="rdv-reassurance-role">courtier indépendant · Orizia Courtage</div>
           <DispoStatus />
         </div>
       </div>

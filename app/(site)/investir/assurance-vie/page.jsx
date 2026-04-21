@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import AVDefinition from '@/components/AVDefinition';
@@ -111,7 +111,7 @@ const faqSchema = {
       name: 'Pourquoi passer par un courtier pour ouvrir une assurance vie ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les contrats distribués en banque affichent souvent 2 à 4% de frais sur versements, une gamme UC limitée et des fonds euros peu compétitifs. En tant que courtière indépendante, j\'accède à des contrats haut de gamme (Abeille, Cardif, SwissLife…) à 0% de frais sur versements, normalement réservés aux professionnels — et je construis avec vous l\'allocation adaptée à votre profil.',
+        text: 'Les contrats distribués en banque affichent souvent 2 à 4% de frais sur versements, une gamme UC limitée et des fonds euros peu compétitifs. En tant que courtier indépendant, j\'accède à des contrats haut de gamme (Abeille, Cardif, SwissLife…) à 0% de frais sur versements, normalement réservés aux professionnels — et je construis avec vous l\'allocation adaptée à votre profil.',
       },
     },
     {
@@ -361,7 +361,7 @@ export default function AssuranceViePage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en assurance vie"
+                  alt="Cindy Urbansky, courtier indépendant en assurance vie"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -381,8 +381,7 @@ export default function AssuranceViePage() {
                   rendez-vous. »
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

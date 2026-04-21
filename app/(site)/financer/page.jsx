@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import AnimatedStats from '@/components/AnimatedStats';
@@ -10,7 +10,7 @@ import ReadingProgressFinancer from '@/components/ReadingProgressFinancer';
 export const metadata = {
   title: 'Courtier en Crédit 2026 : Meilleur Taux Garanti | Orizia Courtage',
   description:
-    'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Cindy Urbansky, courtière indépendante dans les Hauts-de-France, négocie votre financement auprès de 40+ banques. Étude gratuite.',
+    'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Cindy Urbansky, courtier indépendant dans les Hauts-de-France, négocie votre financement auprès de 40+ banques. Étude gratuite.',
   alternates: { canonical: 'https://orizia-courtage.fr/financer' },
   openGraph: {
     title: 'Courtier en Crédit 2026 : Meilleur Taux Garanti | Orizia Courtage',
@@ -275,7 +275,7 @@ export default function FinancerPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en crédit immobilier"
+                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -293,8 +293,7 @@ export default function FinancerPage() {
                   et les pénalités de remboursement anticipé. Chaque ligne du contrat compte.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -305,7 +304,7 @@ export default function FinancerPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mes solutions</span>
-              <h2>4 financements, une courtière<br />qui défend vos intérêts</h2>
+              <h2>4 financements, un courtier<br />qui défend vos intérêts</h2>
               <p>
                 À chaque situation son montage bancaire optimal.
                 Je vous oriente vers la solution la plus économique pour votre profil.
@@ -328,7 +327,7 @@ export default function FinancerPage() {
               <div className="inv-why-image">
                 <Image
                   src="/images/financer.jpg"
-                  alt="Cindy Urbansky, courtière indépendante en crédit immobilier – Orizia Courtage"
+                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier – Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}

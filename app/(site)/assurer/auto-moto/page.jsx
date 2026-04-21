@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import MotoTarifSelector from '@/components/MotoTarifSelector';
@@ -11,7 +11,7 @@ import ReadingProgressAutoMoto from '@/components/ReadingProgressAutoMoto';
 export const metadata = {
   title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs à Lille & Hauts-de-France | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtière dans les Hauts-de-France, compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon. Gratuit.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtier dans les Hauts-de-France, compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon. Gratuit.',
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
@@ -88,7 +88,7 @@ const faqSchema = {
       name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En tant que courtière, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
+        text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En tant que courtier, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
       },
     },
     {
@@ -268,7 +268,7 @@ export default function AssuranceAutoMotoPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante"
+                  alt="Cindy Urbansky, courtier indépendant"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -284,8 +284,7 @@ export default function AssuranceAutoMotoPage() {
                   Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
                 </p>
                 <span className="ae-citation-author">
-                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

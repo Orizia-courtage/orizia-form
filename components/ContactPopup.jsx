@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -189,7 +189,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                 <div className="cp-avatar">C</div>
                 <div>
                   <strong>Cindy Urbansky</strong>
-                  <span>Orizia Courtage · Courtière indépendante</span>
+                  <span>Orizia Courtage · courtier indépendant</span>
                 </div>
               </div>
               <button className="cp-close" onClick={closeAll} aria-label="Fermer">

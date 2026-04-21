@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import OriziaForm from '@/components/OriziaForm';
 import FormStepper from '@/components/FormStepper';
@@ -11,7 +11,7 @@ import ContactPopup from '@/components/ContactPopup';
 export const metadata = {
   title: 'Regroupement de Crédits 2026 : Réduisez vos Mensualités | Orizia Courtage',
   description:
-    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Étude gratuite, sans engagement, réponse sous 24h.',
+    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Étude gratuite, sans engagement, réponse sous 24h.',
   alternates: { canonical: 'https://orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',
@@ -284,7 +284,7 @@ export default function RegroupementCreditsPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en regroupement de crédits"
+                  alt="Cindy Urbansky, courtier indépendant en regroupement de crédits"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -300,8 +300,7 @@ export default function RegroupementCreditsPage() {
                   Le regroupement de crédits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immédiatement. Mon rôle est d'analyser votre situation honnêtement, de vous présenter les chiffres réels — économies immédiates et coût total — et de vous laisser décider en toute connaissance de cause.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import AnimatedStats from '@/components/AnimatedStats';
@@ -219,7 +219,7 @@ export default function HomePage() {
             <div className="column-image">
               <Image
                 src="/images/hero-orizia.jpg"
-                alt="Cindy Urbansky, courtière indépendante – Orizia Courtage"
+                alt="Cindy Urbansky, courtier indépendant – Orizia Courtage"
                 fill
                 priority
               />
@@ -278,7 +278,7 @@ export default function HomePage() {
             }}>
               <Image
                 src="/images/photo-cindy.webp"
-                alt="Cindy Urbansky – Courtière indépendante, Orizia Courtage"
+                alt="Cindy Urbansky – courtier indépendant, Orizia Courtage"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
               />
@@ -295,7 +295,7 @@ export default function HomePage() {
                 marginBottom: 16,
                 display: 'block',
               }}>
-                Cindy Urbansky — Fondatrice & Courtière
+                Cindy Urbansky — Fondatrice & Courtier
               </span>
               <blockquote style={{ margin: 0, padding: 0 }}>
                 <p style={{
@@ -446,7 +446,7 @@ export default function HomePage() {
             >
               <Image
                 src="/images/hero-orizia.jpg"
-                alt="Cabinet Orizia Courtage — Cindy Urbansky, courtière indépendante"
+                alt="Cabinet Orizia Courtage — Cindy Urbansky, courtier indépendant"
                 fill
                 style={{ objectFit: 'cover' }}
               />

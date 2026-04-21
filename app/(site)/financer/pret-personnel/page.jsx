@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import ReadingProgressPretPersonnel from '@/components/ReadingProgressPretPersonnel';
@@ -9,7 +9,7 @@ import PretPersonnelChecklist from '@/components/PretPersonnelChecklist';
 export const metadata = {
   title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
   description:
-    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtière indépendante, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite dans les Hauts-de-France.',
+    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtier indépendant, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite dans les Hauts-de-France.',
   alternates: { canonical: 'https://orizia-courtage.fr/financer/pret-personnel' },
   openGraph: {
     title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
@@ -222,7 +222,7 @@ export default function PretPersonnelPage() {
             <h1 className="ae-hero-title">Financez vos projets,<br />pas les marges des banques</h1>
             <p className="ae-hero-intro">
               Souscrire un prêt personnel sur internet est devenu trop facile, et souvent <strong>trop cher</strong>.
-              En tant que courtière indépendante, je compare les taux (TAEG), j'élimine les assurances inutiles
+              En tant que courtier indépendant, je compare les taux (TAEG), j'élimine les assurances inutiles
               et je vous trouve la mensualité qui <strong>respecte votre budget</strong>.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
@@ -258,7 +258,7 @@ export default function PretPersonnelPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en prêt personnel"
+                  alt="Cindy Urbansky, courtier indépendant en prêt personnel"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -274,8 +274,7 @@ export default function PretPersonnelPage() {
                   Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

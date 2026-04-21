@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import AnimatedStats from '@/components/AnimatedStats';
@@ -10,7 +10,7 @@ import ReadingProgressAssurer from '@/components/ReadingProgressAssurer';
 export const metadata = {
   title: 'Assurances 2026 : Emprunteur, Habitation, Auto & Moto | Orizia Courtage',
   description:
-    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky, courtière indépendante dans les Hauts-de-France, compare, optimise et résilie pour vous. Gratuit.',
+    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky, courtier indépendant dans les Hauts-de-France, compare, optimise et résilie pour vous. Gratuit.',
   alternates: { canonical: 'https://orizia-courtage.fr/assurer' },
   openGraph: {
     title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',
@@ -74,10 +74,10 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Pourquoi passer par une courtière plutôt que mon assureur habituel ?',
+      name: 'Pourquoi passer par un courtier plutôt que mon assureur habituel ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtière indépendante, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous trouver le meilleur rapport qualité/prix, en toute objectivité.',
+        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtier indépendant, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous trouver le meilleur rapport qualité/prix, en toute objectivité.',
       },
     },
     {
@@ -230,7 +230,7 @@ export default function AssurerPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en assurance"
+                  alt="Cindy Urbansky, courtier indépendant en assurance"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -246,8 +246,7 @@ export default function AssurerPage() {
                   Mon rôle n'est pas de vous sur-assurer, mais de trouver le contrat qui vous couvre vraiment, au juste prix, et de gérer toute la paperasse de résiliation à votre place. Vous êtes protégé, je m'occupe du reste.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -281,7 +280,7 @@ export default function AssurerPage() {
               <div className="inv-why-image">
                 <Image
                   src="/images/courtier-assurance-independant.webp"
-                  alt="Cindy Urbansky, courtière indépendante en assurance – Orizia Courtage"
+                  alt="Cindy Urbansky, courtier indépendant en assurance – Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}

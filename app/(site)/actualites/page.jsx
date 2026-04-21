@@ -1,10 +1,10 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
 export const metadata = {
   title: 'Actualités Crédit & Assurance 2026 : Taux, Lois, Marchés | Orizia Courtage',
   description:
-    'Suivez les dernières actualités du crédit immobilier, de l\'assurance emprunteur et des placements financiers. Analyses et décryptages par Cindy Urbansky, courtière indépendante.',
+    'Suivez les dernières actualités du crédit immobilier, de l\'assurance emprunteur et des placements financiers. Analyses et décryptages par Cindy Urbansky, courtier indépendant.',
   alternates: { canonical: 'https://orizia-courtage.fr/actualites' },
   openGraph: {
     title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
@@ -25,7 +25,7 @@ const actualitesSchema = {
   author: {
     '@type': 'Person',
     name: 'Cindy Urbansky',
-    jobTitle: 'Courtière indépendante',
+    jobTitle: 'courtier indépendant',
   },
 };
 

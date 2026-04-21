@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import CapaciteEmpruntCalc from '@/components/CapaciteEmpruntCalc';
@@ -89,10 +89,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Pourquoi passer par une courtière plutôt que ma propre banque ?',
+      name: 'Pourquoi passer par un courtier plutôt que ma propre banque ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Votre conseiller bancaire ne vous proposera que le taux de SA banque (qui n\'est souvent pas le meilleur). En tant que courtière, j\'interroge tout le marché. Je négocie le taux, je supprime les frais inutiles, et surtout, je vous détache de l\'assurance bancaire hors de prix pour faire baisser le coût total de plusieurs milliers d\'euros.',
+        text: 'Votre conseiller bancaire ne vous proposera que le taux de SA banque (qui n\'est souvent pas le meilleur). En tant que courtier, j\'interroge tout le marché. Je négocie le taux, je supprime les frais inutiles, et surtout, je vous détache de l\'assurance bancaire hors de prix pour faire baisser le coût total de plusieurs milliers d\'euros.',
       },
     },
     {
@@ -302,7 +302,7 @@ export default function CreditImmobilierPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en crédit immobilier"
+                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -318,8 +318,7 @@ export default function CreditImmobilierPage() {
                   Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

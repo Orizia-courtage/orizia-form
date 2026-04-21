@@ -112,7 +112,7 @@ const faqSchema = {
       name: 'Combien faut-il pour investir en SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtière indépendante, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
+        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtier indépendant, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
       },
     },
   ],
@@ -222,7 +222,7 @@ const ETAPES = [
   {
     n: '04',
     title: 'Je vous accompagne dans la durée',
-    text: 'Bilan annuel, suivi des distributions, alertes en cas de changement significatif sur votre SCPI, arbitrages si votre situation personnelle évolue. Je reste votre courtière sur le long terme.',
+    text: 'Bilan annuel, suivi des distributions, alertes en cas de changement significatif sur votre SCPI, arbitrages si votre situation personnelle évolue. Je reste votre courtier sur le long terme.',
   },
 ];
 
@@ -303,7 +303,7 @@ export default function SCPIPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière experte en SCPI"
+                  alt="Cindy Urbansky, courtier expert en SCPI"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -323,8 +323,7 @@ export default function SCPIPage() {
                   amputée par la fiscalité. »
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

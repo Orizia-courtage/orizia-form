@@ -2,12 +2,12 @@ import Link from 'next/link';
 import RdvReassurance from '@/components/RdvReassurance';
 
 export const metadata = {
-  title: 'Prendre rendez-vous avec Cindy Urbansky — Courtière Indépendante | Orizia Courtage',
+  title: 'Prendre rendez-vous avec Cindy Urbansky — Courtier Indépendant | Orizia Courtage',
   description:
-    'Réservez un créneau gratuit de 30 minutes avec Cindy Urbansky, courtière indépendante à Marcq-en-Barœul. Crédit immobilier, assurance, placements : je fais le point sur votre situation sans engagement.',
+    'Réservez un créneau gratuit de 30 minutes avec Cindy Urbansky, Courtier indépendant à Marcq-en-Barœul. Crédit immobilier, assurance, placements : je fais le point sur votre situation sans engagement.',
   alternates: { canonical: 'https://orizia-courtage.fr/rendez-vous' },
   openGraph: {
-    title: 'Prendre rendez-vous avec Cindy Urbansky — Courtière Indépendante',
+    title: 'Prendre rendez-vous avec Cindy Urbansky — Courtier Indépendant',
     description: 'Bloquez un créneau de 30 minutes dans mon agenda. 100% gratuit, sans engagement. Je vous rappelle personnellement pour faire avancer vos projets.',
     url: 'https://orizia-courtage.fr/rendez-vous',
     siteName: 'Orizia Courtage',
@@ -36,7 +36,7 @@ const rdvSchema = {
     },
     {
       '@type': 'Service',
-      name: 'Consultation gratuite avec Cindy Urbansky — Courtière Indépendante',
+      name: 'Consultation gratuite avec Cindy Urbansky — Courtier Indépendant',
       serviceType: 'Bilan patrimonial et conseil en courtage',
       provider: {
         '@type': 'LocalBusiness',

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import PERCalculateur from '@/components/PERCalculateur';
 import PERDefinition from '@/components/PERDefinition';
@@ -141,7 +141,7 @@ const faqSchema = {
       name: 'Pourquoi ouvrir un PER via un courtier plutôt qu\'en banque ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les PER bancaires appliquent souvent 2 à 4% de frais sur versements et des frais de gestion élevés qui grignotent la performance sur 20 ans. En tant que courtière indépendante, j\'accède à des contrats haut de gamme avec 0% de frais sur versements, une large gamme d\'UC (ETF, SCPI, fonds actions) et un suivi personnalisé de l\'allocation selon votre horizon de retraite.',
+        text: 'Les PER bancaires appliquent souvent 2 à 4% de frais sur versements et des frais de gestion élevés qui grignotent la performance sur 20 ans. En tant que courtier indépendant, j\'accède à des contrats haut de gamme avec 0% de frais sur versements, une large gamme d\'UC (ETF, SCPI, fonds actions) et un suivi personnalisé de l\'allocation selon votre horizon de retraite.',
       },
     },
   ],
@@ -414,8 +414,7 @@ export default function PERPage() {
                   rendez-vous, c'est souvent une révélation. »
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

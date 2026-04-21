@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import ReadingProgressRachatSoulte from '@/components/ReadingProgressRachatSoulte';
@@ -9,7 +9,7 @@ import RachatSoulteChecklist from '@/components/RachatSoulteChecklist';
 export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
   description:
-    'Séparation, divorce ou succession : je finance le rachat de soulte pour que vous conserviez votre bien immobilier. Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Étude gratuite.',
+    'Séparation, divorce ou succession : je finance le rachat de soulte pour que vous conserviez votre bien immobilier. Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Étude gratuite.',
   alternates: { canonical: 'https://orizia-courtage.fr/financer/rachat-soulte' },
   openGraph: {
     title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
@@ -107,7 +107,7 @@ const faqSchema = {
       name: 'Ma banque actuelle est-elle obligée d\'accepter le rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtière indépendante, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier aux meilleures conditions — y compris si votre banque actuelle refuse.',
+        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier indépendant, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier aux meilleures conditions — y compris si votre banque actuelle refuse.',
       },
     },
     {
@@ -252,7 +252,7 @@ export default function RachatSoultePage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en rachat de soulte"
+                  alt="Cindy Urbansky, courtier indépendant en rachat de soulte"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -268,8 +268,7 @@ export default function RachatSoultePage() {
                   Mon rôle est de prendre en charge toute la partie financière pour que vous puissiez vous concentrer sur l'essentiel. Je monte le dossier, je négocie avec les banques, et je coordonne avec votre notaire pour que tout soit prêt à temps. Sans surprise, sans retard.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ import ContactPopup from '@/components/ContactPopup';
 export const metadata = {
   title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
-    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky, courtière indépendante, crée votre stratégie patrimoniale sur-mesure. Bilan gratuit.',
+    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky, courtier indépendant, crée votre stratégie patrimoniale sur-mesure. Bilan gratuit.',
   alternates: { canonical: 'https://orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
@@ -50,7 +50,7 @@ const investirHubSchema = {
         name: 'Orizia Courtage',
         image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtière certifiée ORIAS.',
+      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtier certifié ORIAS.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -86,14 +86,14 @@ const ETAPES = [
   {
     n: '04',
     title: 'Je suis votre patrimoine dans la durée',
-    text: 'Bilan annuel gratuit, alertes en cas de changement, arbitrages si votre situation évolue. Je reste votre courtière sur le long terme.',
+    text: 'Bilan annuel gratuit, alertes en cas de changement, arbitrages si votre situation évolue. Je reste votre courtier sur le long terme.',
   },
 ];
 
 const FAQ_INVESTIR = [
   {
     q: 'Pourquoi passer par un courtier indépendant pour investir ?',
-    r: 'Un conseiller bancaire ne peut vous proposer que les produits de son établissement. En tant que courtière indépendante, je n\'appartiens à aucun groupe bancaire et j\'accède à l\'ensemble du marché : SCPI, assurances vie haut de gamme, PER compétitifs, plateformes de crowdfunding agréées. Mon seul objectif est de trouver ce qui correspond à votre situation réelle.',
+    r: 'Un conseiller bancaire ne peut vous proposer que les produits de son établissement. En tant que courtier indépendant, je n\'appartiens à aucun groupe bancaire et j\'accède à l\'ensemble du marché : SCPI, assurances vie haut de gamme, PER compétitifs, plateformes de crowdfunding agréées. Mon seul objectif est de trouver ce qui correspond à votre situation réelle.',
   },
   {
     q: 'Combien coûte un bilan patrimonial avec Orizia Courtage ?',
@@ -226,7 +226,7 @@ export default function InvestirPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante en gestion de patrimoine"
+                  alt="Cindy Urbansky, courtier indépendant en gestion de patrimoine"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -245,8 +245,7 @@ export default function InvestirPage() {
                   En toute indépendance, sans jargon financier.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -282,7 +281,7 @@ export default function InvestirPage() {
               <div className="inv-why-image">
                 <Image
                   src="/images/investir.jpg"
-                  alt="Cindy Urbansky, courtière en gestion de patrimoine – Orizia Courtage"
+                  alt="Cindy Urbansky, courtier en gestion de patrimoine – Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}

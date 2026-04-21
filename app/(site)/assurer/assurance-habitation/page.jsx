@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import GarantiesCarousel from '@/components/GarantiesCarousel';
@@ -10,7 +10,7 @@ import ReadingProgressHabitation from '@/components/ReadingProgressHabitation';
 export const metadata = {
   title: 'Assurance Habitation 2026 : Baissez la facture à Lille & Hauts-de-France | Orizia Courtage',
   description:
-    'Hausse des tarifs habitation en 2026. Cindy Urbansky, courtière dans les Hauts-de-France, compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon. Gratuit.',
+    'Hausse des tarifs habitation en 2026. Cindy Urbansky, courtier dans les Hauts-de-France, compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon. Gratuit.',
   alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
     title: 'Assurance Habitation 2026 : Baissez la facture | Orizia Courtage',
@@ -107,7 +107,7 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: "Pourquoi passer par une courtière indépendante ?",
+      name: "Pourquoi passer par une courtier indépendant ?",
       acceptedAnswer: {
         '@type': 'Answer',
         text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, gratuitement pour vous.",
@@ -337,7 +337,7 @@ export default function AssuranceHabitationPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière indépendante"
+                  alt="Cindy Urbansky, courtier indépendant"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -352,8 +352,7 @@ export default function AssuranceHabitationPage() {
                   Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
                 </p>
                 <span className="ae-citation-author">
-                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -603,7 +602,7 @@ export default function AssuranceHabitationPage() {
             <div className="fin-section-head">
               <span className="fin-badge">Vision Globale</span>
               <h2>On fait le grand ménage<br />dans vos contrats ?</h2>
-              <p>Avoir une courtière dédiée, c'est l'occasion de centraliser et d'optimiser l'ensemble de votre budget.</p>
+              <p>Avoir un courtier dédiée, c'est l'occasion de centraliser et d'optimiser l'ensemble de votre budget.</p>
             </div>
             <div className="fin-cards fin-cards--light">
               {[

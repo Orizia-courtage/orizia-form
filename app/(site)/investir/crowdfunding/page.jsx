@@ -95,7 +95,7 @@ const investirCrowdfundingSchema = {
           name: 'Pourquoi passer par un courtier pour investir dans le crowdfunding ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les plateformes sont rémunérées par les promoteurs, pas par vous. Leurs intérêts ne sont pas toujours alignés avec les vôtres. En tant que courtière indépendante chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil — le tout gratuitement.',
+            text: 'Les plateformes sont rémunérées par les promoteurs, pas par vous. Leurs intérêts ne sont pas toujours alignés avec les vôtres. En tant que courtier indépendant chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil — le tout gratuitement.',
           },
         },
         {
@@ -286,7 +286,7 @@ export default function CrowdfundingPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière experte en crowdfunding immobilier"
+                  alt="Cindy Urbansky, courtier experte en crowdfunding immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -306,8 +306,7 @@ export default function CrowdfundingPage() {
                   votre épargne.
                 </p>
                 <span className="ae-citation-author">
-                  — Cindy Urbansky, courtière indépendante · Orizia Courtage
-                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>

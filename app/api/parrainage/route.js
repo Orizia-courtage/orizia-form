@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+﻿import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -17,7 +17,7 @@ const getSignatureHTML = () => `
         </td>
         <td style="vertical-align: top; border-left: 2px solid #3a6f6c; padding-left: 20px;">
           <p style="margin:0 0 4px 0; font-weight:bold; color:#3a6f6c; font-size: 16px;">Cindy Urbansky</p>
-          <p style="margin:0 0 12px 0; color:#666; font-size:14px;">Fondatrice & Courtière | Orizia Courtage</p>
+          <p style="margin:0 0 12px 0; color:#666; font-size:14px;">Fondatrice & Courtier | Orizia Courtage</p>
           <p style="margin:4px 0; font-size:14px;">
             📞 <a href="tel:+33777259706" style="color:#333; text-decoration:none;">07 77 25 97 06</a><br/>
             ✉️ <a href="mailto:cindy.urbansky@orizia-courtage.fr" style="color:#3a6f6c; text-decoration:none;">cindy.urbansky@orizia-courtage.fr</a><br/>

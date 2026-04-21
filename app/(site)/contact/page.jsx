@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactSujetsFilter from '@/components/ContactSujetsFilter';
 import DispoStatus from '@/components/DispoStatus';
@@ -6,7 +6,7 @@ import DispoStatus from '@/components/DispoStatus';
 export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
   description:
-    'Contactez Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Crédit immobilier, assurance, investissement — premier rendez-vous gratuit, réponse sous 24h.',
+    'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit immobilier, assurance, investissement — premier rendez-vous gratuit, réponse sous 24h.',
   alternates: { canonical: 'https://orizia-courtage.fr/contact' },
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
@@ -122,7 +122,7 @@ const FAQ_CONTACT = [
   },
   {
     q: 'Puis-je être accompagné sur plusieurs sujets à la fois ?',
-    r: 'Tout à fait. En tant que courtière indépendante généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
+    r: 'Tout à fait. En tant que courtier indépendant généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
   },
 ];
 
@@ -179,7 +179,7 @@ export default function ContactPage() {
                 <div className="contact-cindy-photo">
                   <Image
                     src="/images/photo-cindy.webp"
-                    alt="Cindy Urbansky, courtière indépendante – Orizia Courtage"
+                    alt="Cindy Urbansky, courtier indépendant – Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
                     sizes="200px"
@@ -189,7 +189,7 @@ export default function ContactPage() {
                 <div className="contact-cindy-info">
                   <DispoStatus />
                   <div className="contact-cindy-name">Cindy Urbansky</div>
-                  <div className="contact-cindy-role">Courtière indépendante · Orizia Courtage</div>
+                  <div className="contact-cindy-role">courtier indépendant · Orizia Courtage</div>
                   <div className="contact-cindy-stats">
                     <div className="contact-cindy-stat">
                       <strong>15 ans</strong>
