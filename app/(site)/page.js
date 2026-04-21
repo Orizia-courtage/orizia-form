@@ -249,7 +249,7 @@ export default function HomePage() {
           <div className="image-column">
             <div className="column-image">
               <Image
-                src="/images/hero-orizia.jpg"
+                src="/images/hero-orizia.webp"
                 alt="Cindy Urbansky, courtier indépendant – Orizia Courtage, Marcq-en-Barœul"
                 fill
                 priority
