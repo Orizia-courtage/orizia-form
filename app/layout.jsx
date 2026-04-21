@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
       </head>
       <body className={dmSans.className}>
         {children}
-        {/* Ajout des composants Vercel ici pour qu'ils s'activent */}
         <Analytics />
         <SpeedInsights />
       </body>

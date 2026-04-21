@@ -458,7 +458,7 @@ export default function HomePage() {
               <ContactPopup label="📅 Réserver mon créneau gratuit" className="fin-btn-primary" />
               <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }} />
             </div>
-            <p style={{ marginTop: 16, fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)' }}>
+            <p style={{ marginTop: 16, fontSize: '0.82rem', color: 'rgba(255,255,255,0.85)' }}>
               Réponse sous 24h · Disponible en visio ou en présentiel · Marcq-en-Barœul
             </p>
           </div>
