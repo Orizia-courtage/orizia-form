@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import AnimatedStats from '@/components/AnimatedStats';
 import AssurerQuiz from '@/components/AssurerQuiz';
 import AssurerProduitsGrid from '@/components/AssurerProduitsGrid';
@@ -186,9 +187,7 @@ export default function AssurerPage() {
                   <strong style={{ color: 'var(--orizia-accent)' }}>résilie vos anciens contrats à votre place.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <Link href="/rendez-vous" className="fin-btn-primary inv-hero-cta-main">
-                    📅 Auditer mes contrats gratuitement
-                  </Link>
+                  <ContactPopup label="📅 Auditer mes contrats gratuitement" className="fin-btn-primary inv-hero-cta-main" />
                   <Link href="#produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Voir mes solutions ↓
                   </Link>
@@ -270,9 +269,7 @@ export default function AssurerPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier rendez-vous existe.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer tous mes contrats avec Cindy
-              </Link>
+              <ContactPopup label="📅 Auditer tous mes contrats avec Cindy" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -317,9 +314,7 @@ export default function AssurerPage() {
                     </div>
                   ))}
                 </div>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}>
-                  📅 Me confier mes contrats
-                </Link>
+                <ContactPopup label="📅 Me confier mes contrats" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
               </div>
             </div>
           </div>
@@ -381,9 +376,7 @@ export default function AssurerPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -400,12 +393,8 @@ export default function AssurerPage() {
               <strong>100% gratuit.</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mes contrats avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question
-              </Link>
+              <ContactPopup label="📅 Auditer mes contrats avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS, régie par l'ACPR.

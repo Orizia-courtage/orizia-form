@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
   const [progress, setProgress]   = useState(0);
   const [visible, setVisible]     = useState(false);
+  const [fading, setFading]       = useState(false);
   const [isMobile, setIsMobile]   = useState(false);
   const [activeId, setActiveId]   = useState(null);
 
@@ -23,7 +24,10 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
       setProgress(pct);
-      setVisible(scrollTop > 200 && pct < 92);
+      const shouldShow = scrollTop > 200 && pct < 95;
+      const shouldFade = scrollTop > 200 && pct >= 85 && pct < 95;
+      setVisible(shouldShow);
+      setFading(shouldFade);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -31,14 +35,9 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
     const allJalons = [...jalonsDesktop];
     const uniqueIds = [...new Set(allJalons.map(j => j.id))];
 
-    // Map id → position dans la page (ordre de déclaration)
-    // On utilise un Set ordonné : le dernier id dont la section
-    // est dans le viewport (zone haute) devient l'actif.
     const visibleSections = new Set();
 
     const updateActive = () => {
-      // Parcourt les ids dans l'ordre de la page
-      // Le dernier visible dans la zone haute = actif
       let last = null;
       for (const id of uniqueIds) {
         if (visibleSections.has(id)) last = id;
@@ -59,7 +58,6 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
           }
           updateActive();
         },
-        // Zone : la section doit avoir passé le tiers supérieur de l'écran
         { threshold: 0, rootMargin: '-5% 0px -55% 0px' }
       );
       obs.observe(el);
@@ -83,7 +81,7 @@ export default function ReadingProgressBase({ jalonsDesktop, jalonsMobile }) {
   };
 
   return (
-    <div className="rp-bar">
+    <div className={`rp-bar${fading ? ' rp-bar--fading' : ''}`}>
       <div className="rp-track">
         <div className="rp-fill" style={{ width: `${progress}%` }} />
         {jalons.map(j => (

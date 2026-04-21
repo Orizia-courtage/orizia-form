@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import AVDefinition from '@/components/AVDefinition';
 import AVFiscalite from '@/components/AVFiscalite';
 import AVChecklist from '@/components/AVChecklist';
@@ -330,9 +331,7 @@ export default function AssuranceViePage() {
               <strong>Gratuitement.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement
-              </Link>
+              <ContactPopup label="📅 Auditer mon contrat gratuitement" className="fin-btn-primary" />
               <Link href="#section-accompagnement" className="fin-btn-secondary">
                 🔍 Découvrir mon approche
               </Link>
@@ -434,9 +433,7 @@ export default function AssuranceViePage() {
                 Un audit gratuit de votre contrat actuel vous montre concrètement
                 ce que vous perdez chaque année.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Auditer mon contrat gratuitement
-              </Link>
+              <ContactPopup label="📅 Auditer mon contrat gratuitement" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -603,9 +600,7 @@ export default function AssuranceViePage() {
                   en banque classique.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer
-              </Link>
+              <ContactPopup label="📅 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -634,12 +629,8 @@ export default function AssuranceViePage() {
                 Une autre question ? Je vous réponds personnellement sous 24h.
               </p>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Prendre rendez-vous
-                </Link>
-                <Link href="/contact" className="fin-btn-secondary">
-                  ✉️ Poser une question
-                </Link>
+                <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary" />
+                <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" />
               </div>
             </div>
           </div>
@@ -687,9 +678,7 @@ export default function AssuranceViePage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -709,12 +698,28 @@ export default function AssuranceViePage() {
             <div className="fin-cards fin-cards--light">
               {[
                 {
+                  href: '/investir/per',
+                  icon: '🏦',
+                  title: 'Plan Épargne Retraite',
+                  sub: 'Préparez votre retraite',
+                  text: 'Complémentaire à l\'AV : déduisez vos versements de votre revenu imposable dès cette année et construisez votre retraite avec un avantage fiscal immédiat.',
+                  badge: '💰 Déduction fiscale immédiate',
+                  pillBg: 'rgba(201,169,110,0.12)',
+                  pillColor: 'var(--orizia-gold)',
+                  pillBorder: 'rgba(201,169,110,0.3)',
+                  featured: true,
+                },
+                {
                   href: '/investir/scpi',
                   icon: '🏢',
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, zéro gestion. Logez des SCPI dans votre assurance vie pour combiner rendement immobilier et fiscalité AV dans une seule enveloppe.',
-                  badge: null,
+                  badge: '🏢 4–6%/an sans gestion',
+                  pillBg: 'rgba(45,106,95,0.1)',
+                  pillColor: 'var(--orizia-primary)',
+                  pillBorder: 'rgba(45,106,95,0.25)',
+                  featured: false,
                 },
                 {
                   href: '/investir/crowdfunding',
@@ -722,23 +727,19 @@ export default function AssuranceViePage() {
                   title: 'Crowdfunding immobilier',
                   sub: 'Financement participatif',
                   text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal pour booster le rendement global sans déséquilibrer votre patrimoine.',
-                  badge: null,
-                },
-                {
-                  href: '/investir/per',
-                  icon: '🏦',
-                  title: 'Plan Épargne Retraite',
-                  sub: 'Préparez votre retraite',
-                  text: 'Complémentaire à l\'AV : déduisez vos versements de votre revenu imposable dès cette année et construisez votre retraite avec un avantage fiscal immédiat.',
-                  badge: '🔗 Complément fiscal recommandé',
+                  badge: '📈 8–12%/an sur 12–36 mois',
+                  pillBg: 'rgba(3,105,161,0.08)',
+                  pillColor: '#0369a1',
+                  pillBorder: 'rgba(3,105,161,0.2)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link key={s.title} href={s.href} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                <Link key={s.title} href={s.href} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
                     <span className="fin-card-pill" style={{
-                      background: 'rgba(201,169,110,0.12)',
-                      color: 'var(--orizia-gold)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      background: s.pillBg,
+                      color: s.pillColor,
+                      border: `1px solid ${s.pillBorder}`,
                     }}>
                       {s.badge}
                     </span>
@@ -764,12 +765,8 @@ export default function AssuranceViePage() {
               0% de frais sur versements. Entièrement gratuit pour vous.
             </p>
             <div className="fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Prendre rendez-vous avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
-              </Link>
+              <ContactPopup label="📅 Prendre rendez-vous avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

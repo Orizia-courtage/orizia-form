@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const QP_PRESETS = ['25', '33', '50', '67', '75'];
 
@@ -183,9 +183,7 @@ export default function SimulateurSoulte() {
               <span className="ss-result-disclaimer-icon">ℹ️</span>
               <p>Estimation indicative. Je vérifie la faisabilité complète de votre financement gratuitement et sans engagement.</p>
             </div>
-            <Link href="/rendez-vous" className="fin-btn-primary ss-result-cta">
-              📅 Étudier mon financement →
-            </Link>
+            <ContactPopup label="📅 Étudier mon financement →" className="fin-btn-primary ss-result-cta" />
           </div>
         </div>
       )}

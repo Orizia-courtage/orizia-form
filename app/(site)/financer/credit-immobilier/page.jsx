@@ -270,9 +270,7 @@ export default function CreditImmobilierPage() {
               à votre place. Concentrez-vous sur les cartons, je m'occupe des millions.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer ma capacité d'emprunt
-              </Link>
+              <ContactPopup label="📅 Calculer ma capacité d'emprunt" className="fin-btn-primary" />
               <Link href="#section-projets" className="fin-btn-secondary">
                 🔍 Voir selon mon projet
               </Link>
@@ -518,9 +516,7 @@ export default function CreditImmobilierPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -544,6 +540,9 @@ export default function CreditImmobilierPage() {
                 <span className="fin-card-link">Découvrir →</span>
               </Link>
               <Link href="/assurer/assurance-habitation" className="fin-card">
+                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>
+                  🏠 Obligatoire avant la remise des clés
+                </span>
                 <div className="fin-card-icon">🏠</div>
                 <div className="fin-card-sub">Protéger votre nouvel achat</div>
                 <h3>Assurance Habitation</h3>
@@ -551,6 +550,9 @@ export default function CreditImmobilierPage() {
                 <span className="fin-card-link">Découvrir →</span>
               </Link>
               <Link href="/financer/rachat-soulte" className="fin-card">
+                <span className="fin-card-pill" style={{ background: 'rgba(22,163,74,0.08)', color: '#16a34a', border: '1px solid rgba(22,163,74,0.2)' }}>
+                  ⚖️ Coordination notaire incluse
+                </span>
                 <div className="fin-card-icon">⚖️</div>
                 <div className="fin-card-sub">Divorce · Séparation · Succession</div>
                 <h3>Rachat de soulte</h3>
@@ -570,9 +572,7 @@ export default function CreditImmobilierPage() {
               et je vous donne une estimation claire et précise pour démarrer vos visites sereinement.
             </p>
             <div className="fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un point ensemble →
-              </Link>
+              <ContactPopup label="📅 Faire un point ensemble →" className="fin-btn-primary" />
               <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>

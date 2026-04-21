@@ -1,6 +1,6 @@
 'use client';
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 // ── Constantes SG (tarification Sogecap) ──
 const FRAIS_VERSEMENTS = 0.02;   // 2% sur chaque versement
@@ -676,9 +676,7 @@ export default function SimulateurAssuranceVie() {
                 sélectionne le contrat le plus adapté et vous accompagne jusqu'à la souscription.
               </p>
             </div>
-            <Link href="/rendez-vous" className="fin-btn-primary">
-              📅 Être accompagné gratuitement
-            </Link>
+            <ContactPopup label="📅 Être accompagné gratuitement" className="fin-btn-primary" />
           </div>
 
           <div className="av-nav" style={{ marginTop: 12 }}>

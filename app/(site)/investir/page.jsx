@@ -4,6 +4,7 @@ import AnimatedStats from '@/components/AnimatedStats';
 import InvestirQuiz from '@/components/InvestirQuiz';
 import InvestirProduitsGrid from '@/components/InvestirProduitsGrid';
 import ReadingProgressInvestir from '@/components/ReadingProgressInvestir';
+import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -182,9 +183,7 @@ export default function InvestirPage() {
                   <strong style={{ color: 'var(--orizia-accent)' }}>Gratuitement.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <Link href="/rendez-vous" className="fin-btn-primary inv-hero-cta-main">
-                    📅 Bilan patrimonial gratuit
-                  </Link>
+                  <ContactPopup label="📅 Bilan patrimonial gratuit" className="fin-btn-primary inv-hero-cta-main"/>
                   <Link href="#produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Découvrir les placements ↓
                   </Link>
@@ -271,9 +270,7 @@ export default function InvestirPage() {
                 Vous ne savez pas par quoi commencer ? C'est normal — c'est précisément
                 pour ça que le premier rendez-vous existe.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Définir ma stratégie avec Cindy
-              </Link>
+              <ContactPopup label="📅 Définir ma stratégie avec Cindy" className="fin-btn-primary"/>
             </div>
           </div>
         </section>
@@ -318,9 +315,7 @@ export default function InvestirPage() {
                     </div>
                   ))}
                 </div>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}>
-                  📅 Planifier mon bilan gratuit
-                </Link>
+                <ContactPopup label="📅 Planifier mon bilan gratuit" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
               </div>
             </div>
           </div>
@@ -382,33 +377,27 @@ export default function InvestirPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une question à Cindy" className="fin-btn-secondary"/>
             </div>
           </div>
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-accent)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
-            <h2 style={{ color: 'var(--orizia-white)' }}>
+            <h2>
               Prêt à réveiller votre épargne ?
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p>
               Faisons connaissance. Nous analyserons votre patrimoine actuel et définirons
               ensemble une stratégie pour atteindre vos objectifs financiers.
-              <strong style={{ color: '#fff' }}> 100% gratuit.</strong>
+              <strong> 100% gratuit.</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Planifier mon bilan gratuit
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
-                ✉️ Poser une question
-              </Link>
+              <ContactPopup label="📅 Planifier mon bilan gratuit" className="fin-btn-primary"/>
+              <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}/>
             </div>
-            <p style={{ marginTop: 24, fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', maxWidth: 540, margin: '24px auto 0' }}>
+            <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               L'investissement comporte des risques de perte en capital. Je suis
               immatriculée à l'ORIAS, indépendante.
             </p>

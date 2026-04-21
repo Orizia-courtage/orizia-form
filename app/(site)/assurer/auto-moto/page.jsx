@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import MotoTarifSelector from '@/components/MotoTarifSelector';
 import AutoFormuleSelector from '@/components/AutoFormuleSelector';
 import AutoProfilSelector from '@/components/AutoProfilSelector';
@@ -235,9 +236,7 @@ export default function AssuranceAutoMotoPage() {
               à votre place. Un accompagnement <strong>100% dédié à vos intérêts</strong>.
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un bilan gratuit avec Cindy
-              </Link>
+              <ContactPopup label="📅 Faire un bilan gratuit avec Cindy" className="fin-btn-primary" />
               <Link href="#section-formules" className="fin-btn-secondary">
                 🔍 Voir les formules
               </Link>
@@ -473,9 +472,7 @@ export default function AssuranceAutoMotoPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>          
           </div>
         </section>
@@ -496,6 +493,11 @@ export default function AssuranceAutoMotoPage() {
                   title: 'Assurance Habitation',
                   sub: 'Protéger votre cocon',
                   text: 'Comme pour l\'auto, les tarifs augmentent. Faisons le point pour protéger vos biens au prix juste.',
+                  badge: '🏠 Audit gratuit de votre contrat',
+                  pillBg: 'rgba(217,119,6,0.08)',
+                  pillColor: '#d97706',
+                  pillBorder: 'rgba(217,119,6,0.2)',
+                  featured: false,
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
@@ -504,6 +506,10 @@ export default function AssuranceAutoMotoPage() {
                   sub: 'L\'économie massive',
                   text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
                   badge: '💰 Économisez jusqu\'à 15 000€',
+                  pillBg: 'rgba(201,169,110,0.12)',
+                  pillColor: 'var(--orizia-gold)',
+                  pillBorder: 'rgba(201,169,110,0.3)',
+                  featured: true,
                 },
                 {
                   href: '/investir/per',
@@ -511,14 +517,19 @@ export default function AssuranceAutoMotoPage() {
                   title: 'Plan Épargne Retraite',
                   sub: 'Défiscaliser utile',
                   text: 'Vos économies d\'assurance réinvesties dans votre retraite, avec une déduction d\'impôt à la clé.',
+                  badge: '🏦 Déduction fiscale immédiate',
+                  pillBg: 'rgba(45,106,95,0.1)',
+                  pillColor: 'var(--orizia-primary)',
+                  pillBorder: 'rgba(45,106,95,0.25)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
                     <span className="fin-card-pill" style={{
-                      background: 'rgba(201,169,110,0.12)',
-                      color: 'var(--orizia-gold)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      background: s.pillBg,
+                      color: s.pillColor,
+                      border: `1px solid ${s.pillBorder}`,
                     }}>
                       {s.badge}
                     </span>
@@ -542,12 +553,8 @@ export default function AssuranceAutoMotoPage() {
               Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire un bilan gratuit avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une question
-              </Link>
+              <ContactPopup label="📅 Faire un bilan gratuit avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée

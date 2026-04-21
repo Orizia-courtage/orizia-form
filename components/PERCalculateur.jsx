@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const TRANCHES = [
   { label: '11%', tmi: 0.11, plafond: 4000 },
@@ -104,9 +104,7 @@ export default function PERCalculateur() {
           En clair : vous épargnez {fmt(versementCapped)} mais l'État vous rembourse {fmt(result.economie)} d'impôt. Votre effort réel n'est que de {fmt(result.coutReel)}.
         </div>
 
-        <Link href="/rendez-vous" className="fin-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-          📅 Calculer mes plafonds exacts
-        </Link>
+        <ContactPopup label="📅 Calculer mes plafonds exacts" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Vos plafonds réels figurent sur votre avis d'imposition.
         </p>

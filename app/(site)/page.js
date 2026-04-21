@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import AnimatedStats from '@/components/AnimatedStats';
+import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -248,9 +249,7 @@ export default function HomePage() {
               <Link href="/simulation" className="orizia-btn-main">
                 Faire une simulation gratuite
               </Link>
-              <Link href="/rendez-vous" className="orizia-btn-sec">
-                Échanger avec Cindy
-              </Link>
+              <ContactPopup label="Échanger avec Cindy" className="orizia-btn-sec"/>
             </div>
           </div>
         </section>
@@ -321,9 +320,7 @@ export default function HomePage() {
                   je compare ce qui mérite d'être comparé, et je vous explique chaque choix
                   dans un langage humain. Pas de jargon. Pas de pression. »
                 </p>
-                <Link href="/rendez-vous" className="orizia-btn-main" style={{ display: 'inline-block' }}>
-                  Parler à Cindy gratuitement →
-                </Link>
+                <ContactPopup label="Parler à Cindy gratuitement" className="orizia-btn-main" style={{ display: 'inline-block' }}/>
               </blockquote>
             </div>
           </div>
@@ -429,9 +426,7 @@ export default function HomePage() {
                 </div>
               ))}
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginTop: 28 }}>
-                <Link href="/rendez-vous" className="orizia-btn-main">
-                  Prendre rendez-vous gratuitement
-                </Link>
+                <ContactPopup label="Prendre rendez-vous gratuitement" className="orizia-btn-main"/>
                 <Link href="/simulation" className="orizia-btn-sec">
                   Faire une simulation
                 </Link>
@@ -496,9 +491,7 @@ export default function HomePage() {
               Je vous dis franchement ce qui est possible, dans quel délai et pourquoi.
               C'est gratuit. Et ça n'engage à rien.
             </p>
-            <Link href="/rendez-vous" className="orizia-btn-main" style={{ fontSize: '1.1rem', padding: '20px 40px' }}>
-              Réserver mon créneau gratuit →
-            </Link>
+            <ContactPopup label="Réserver mon créneau gratuit" className="orizia-btn-main" style={{ fontSize: '1.1rem', padding: '20px 40px' }}/>
             <p style={{
               marginTop: 16,
               fontSize: '0.82rem',

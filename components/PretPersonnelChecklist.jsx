@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -114,9 +114,7 @@ export default function PretPersonnelChecklist() {
                   Les deux critères essentiels sont réunis. Je peux consulter mes partenaires
                   et vous obtenir un accord de principe sous 24 à 48h.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Lancer mon étude →
-                </Link>
+                <ContactPopup label="📅 Lancer mon étude →" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -128,9 +126,7 @@ export default function PretPersonnelChecklist() {
                   Certains points peuvent être travaillés. Je vous dis honnêtement
                   ce qui est possible et quelles alternatives existent.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser ma situation →
-                </Link>
+                <ContactPopup label="📅 Analyser ma situation →" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

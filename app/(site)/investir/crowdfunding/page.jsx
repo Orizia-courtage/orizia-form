@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import SimulateurCrowdfunding from '@/components/SimulateurCrowdfunding';
 import PlacementsComparatif from '@/components/PlacementsComparatif';
 import RisqueJauge from '@/components/RisqueJauge';
@@ -255,12 +256,8 @@ export default function CrowdfundingPage() {
               <strong>Gratuitement.</strong>
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Échanger avec Cindy gratuitement
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
-              </Link>
+              <ContactPopup label="📅 Échanger avec Cindy gratuitement" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust">
               <span>✅ Conseil 100% indépendant</span>
@@ -364,9 +361,7 @@ export default function CrowdfundingPage() {
                 J'analyse à votre place ce que vous n'avez ni le temps ni les outils de faire —
                 et je vous dis clairement ce qui vaut le coup, et ce qui ne vaut pas.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Me faire accompagner gratuitement
-              </Link>
+              <ContactPopup label="📅 Me faire accompagner gratuitement" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -503,9 +498,7 @@ export default function CrowdfundingPage() {
                   répartition optimale selon vos objectifs et votre tolérance au risque.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Définir ma stratégie
-              </Link>
+              <ContactPopup label="📅 Définir ma stratégie" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
@@ -533,9 +526,7 @@ export default function CrowdfundingPage() {
                   vous convaincre.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Analyser mon profil
-              </Link>
+              <ContactPopup label="📅 Analyser mon profil" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
@@ -671,9 +662,7 @@ export default function CrowdfundingPage() {
                   </div>
                 </div>
 
-                <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
-                  📅 Obtenir ma sélection personnalisée
-                </Link>
+                <ContactPopup label="📅 Obtenir ma sélection personnalisée" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
                 <p className="crd-vault-note">
                   Gratuit · Sans engagement · Réponse sous 24h
                 </p>
@@ -731,9 +720,7 @@ export default function CrowdfundingPage() {
                   Cette indépendance est ma garantie de travailler uniquement dans votre intérêt.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Démarrer gratuitement
-              </Link>
+              <ContactPopup label="📅 Démarrer gratuitement" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
@@ -770,9 +757,7 @@ export default function CrowdfundingPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -797,11 +782,12 @@ export default function CrowdfundingPage() {
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, risque mutualisé sur des centaines d\'actifs, zéro gestion. Le placement immobilier préféré des Français pour sécuriser le socle.',
-                  ribbon: '🏢 Socle patrimonial',
-                  ribbonColor: 'var(--orizia-accent)',
-                  pillBg: 'rgba(26,61,53,0.08)',
-                  pillColor: 'var(--orizia-accent)',
-                  pillBorder: 'rgba(26,61,53,0.15)',
+                  ribbon: '🏢 4–6%/an sans gestion',
+                  ribbonColor: 'var(--orizia-primary)',
+                  pillBg: 'rgba(45,106,95,0.1)',
+                  pillColor: 'var(--orizia-primary)',
+                  pillBorder: 'rgba(45,106,95,0.25)',
+                  featured: false,
                 },
                 {
                   href: '/investir/assurance-vie',
@@ -809,11 +795,12 @@ export default function CrowdfundingPage() {
                   title: 'Assurance Vie',
                   sub: 'Épargne & transmission',
                   text: 'L\'enveloppe fiscale la plus avantageuse après 8 ans. Idéale en complément du crowdfunding pour sécuriser une partie de votre épargne disponible.',
-                  ribbon: '✅ Fiscalité optimisée',
+                  ribbon: '✅ Fiscalité optimisée après 8 ans',
                   ribbonColor: 'var(--orizia-primary)',
                   pillBg: 'rgba(201,169,110,0.12)',
                   pillColor: 'var(--orizia-gold)',
                   pillBorder: 'rgba(201,169,110,0.3)',
+                  featured: true,
                 },
                 {
                   href: '/investir/per',
@@ -821,14 +808,15 @@ export default function CrowdfundingPage() {
                   title: 'PER',
                   sub: 'Préparez votre retraite',
                   text: 'Réduisez vos impôts cette année et constituez un capital retraite. Un avantage fiscal immédiat qui se voit dès votre prochaine déclaration.',
-                  ribbon: '🔗 Avantage fiscal immédiat',
+                  ribbon: '💰 Réduisez vos impôts dès cette année',
                   ribbonColor: '#7c3aed',
                   pillBg: 'rgba(124,58,237,0.08)',
                   pillColor: '#7c3aed',
                   pillBorder: 'rgba(124,58,237,0.2)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link key={s.title} href={s.href} className="fin-card">
+                <Link key={s.title} href={s.href} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.ribbon && (
                     <span className="fin-card-pill" style={{
                       background: `${s.pillBg}`,
@@ -861,12 +849,8 @@ export default function CrowdfundingPage() {
               Pas de discours commercial — juste une analyse honnête.
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Prendre rendez-vous avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
-              </Link>
+              <ContactPopup label="📅 Prendre rendez-vous avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 520, margin: '24px auto 0' }}>
               Investir comporte des risques de perte en capital. Les performances passées ne

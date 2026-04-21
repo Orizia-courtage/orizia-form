@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -118,9 +118,7 @@ export default function SCPIChecklist() {
                   Les critères essentiels sont validés. Il reste à choisir les bonnes SCPI
                   selon votre TMI et à optimiser la structure de détention.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Trouver mes SCPI idéales
-                </Link>
+                <ContactPopup label="📅 Trouver mes SCPI idéales" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -132,9 +130,7 @@ export default function SCPIChecklist() {
                   Les SCPI peuvent quand même être pertinentes pour vous — mais certains
                   éléments méritent d'être consolidés avant d'investir.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Préparer mon investissement
-                </Link>
+                <ContactPopup label="📅 Préparer mon investissement" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

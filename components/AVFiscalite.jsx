@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const TRANCHES = [
   {
@@ -181,9 +181,7 @@ export default function AVFiscalite() {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: 28 }}>
-        <Link href="/rendez-vous" className="fin-btn-primary">
-          📅 Optimiser ma fiscalité avec Cindy
-        </Link>
+      <ContactPopup label="📅 Optimiser ma fiscalité avec Cindy" className="fin-btn-primary" />
       </div>
 
     </div>

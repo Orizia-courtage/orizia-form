@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -121,9 +121,7 @@ export default function HabitationChecklist() {
                   En 20 minutes, je passe votre contrat en revue et vous dis exactement
                   ce qui doit changer.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser mon contrat gratuitement
-                </Link>
+                <ContactPopup label="📅 Analyser mon contrat gratuitement" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -135,9 +133,7 @@ export default function HabitationChecklist() {
                   Quelques zones de risque identifiées. Un audit rapide permet de
                   s'assurer que vous êtes bien couvert — et au bon prix.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Vérifier mon contrat
-                </Link>
+                <ContactPopup label="📅 Vérifier mon contrat" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

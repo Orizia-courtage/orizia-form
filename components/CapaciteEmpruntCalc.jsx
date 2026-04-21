@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
@@ -103,9 +103,7 @@ export default function CapaciteEmpruntCalc() {
           </div>
         </div>
 
-        <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
-          📅 Affiner avec Cindy
-        </Link>
+        <ContactPopup label="📅 Affiner avec Cindy" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié.
         </p>

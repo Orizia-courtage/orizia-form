@@ -273,16 +273,7 @@ export default function OriziaForm() {
 
   return (
     <div className="f-wrap" ref={topRef}>
-      {/* ── HEADER ── */}
-      <div className="f-header">
-        <div className="f-badge"><i className="fa-solid fa-shield-halved"></i> ORIZIA COURTAGE</div>
-        <h1 className="f-title">Votre simulation de<br/>regroupement de crédits</h1>
-        <div className="f-trust">
-          <span><i className="fa-solid fa-lock"></i> Données sécurisées</span>
-          <span><i className="fa-solid fa-check-circle"></i> Courtier ORIAS</span>
-          <span><i className="fa-solid fa-star"></i> 100% gratuit</span>
-        </div>
-      </div>
+      
 
       {/* ── PROGRESS ── */}
       <div className="f-prog-wrap">

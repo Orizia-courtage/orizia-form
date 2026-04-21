@@ -226,9 +226,7 @@ export default function PretPersonnelPage() {
               et je vous trouve la mensualité qui <strong>respecte votre budget</strong>.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire une simulation avec Cindy
-              </Link>
+              <ContactPopup label="📅 Faire une simulation avec Cindy" className="fin-btn-primary" />
               <Link href="#section-projets" className="fin-btn-secondary">
                 🔍 Voir les types de prêts
               </Link>
@@ -322,9 +320,7 @@ export default function PretPersonnelPage() {
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
                 Confiez-moi la recherche de votre financement.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier ma capacité d'emprunt
-              </Link>
+              <ContactPopup label="📅 Étudier ma capacité d'emprunt" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -360,9 +356,7 @@ export default function PretPersonnelPage() {
                   Je m'occupe de fusionner toutes vos dettes actuelles en <strong>un seul prêt</strong>, 
                   avec <strong>une seule mensualité</strong>, souvent réduite de 30 à 50% (en allongeant la durée de remboursement).
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }}>
-                  📅 Calculer mon nouveau reste à vivre
-                </Link>
+                <ContactPopup label="📅 Calculer mon nouveau reste à vivre" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }} />
               </div>
               <div className="crowd-schema">
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
@@ -436,9 +430,7 @@ export default function PretPersonnelPage() {
                   Pour les crédits à la consommation, je suis rémunérée directement par l'organisme prêteur sous forme de commission d'apporteur d'affaires. Mon travail de recherche et de négociation ne vous coûte absolument rien.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer ma demande
-              </Link>
+              <ContactPopup label="📅 Démarrer ma demande" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -487,9 +479,7 @@ export default function PretPersonnelPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -510,6 +500,10 @@ export default function PretPersonnelPage() {
                   sub: 'Votre projet de vie',
                   text: 'Vous souhaitez acheter un bien immobilier ? La démarche est très différente d\'un prêt personnel. Je vous accompagne de A à Z.',
                   badge: '🏡 Votre prochain grand projet',
+                  badgeBg: 'rgba(45,106,95,0.1)',
+                  badgeColor: 'var(--orizia-primary)',
+                  badgeBorder: '1px solid rgba(45,106,95,0.25)',
+                  featured: true,
                 },
                 {
                   href: '/assurer/auto-moto',
@@ -517,7 +511,11 @@ export default function PretPersonnelPage() {
                   title: 'Assurance Auto',
                   sub: 'Protéger votre achat',
                   text: 'Vous venez de financer un véhicule ? Ne payez pas votre assurance plein pot. Je compare le marché pour vous.',
-                  badge: null,
+                  badge: '⚡ Résiliation gérée pour vous',
+                  badgeBg: 'rgba(99,102,241,0.08)',
+                  badgeColor: '#6366f1',
+                  badgeBorder: '1px solid rgba(99,102,241,0.2)',
+                  featured: false,
                 },
                 {
                   href: '/investir/assurance-vie',
@@ -525,11 +523,19 @@ export default function PretPersonnelPage() {
                   title: 'Assurance Vie',
                   sub: 'L\'épargne de précaution',
                   text: 'Même en remboursant un crédit, il est vital de se constituer une épargne de sécurité. Découvrons l\'assurance vie.',
-                  badge: null,
+                  badge: '✅ Fiscalité optimisée après 8 ans',
+                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badgeColor: 'var(--orizia-gold)',
+                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  {s.badge && <span className="fin-card-pill">{s.badge}</span>}
+                <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
+                  {s.badge && (
+                    <span className="fin-card-pill" style={{ background: s.badgeBg, color: s.badgeColor, border: s.badgeBorder }}>
+                      {s.badge}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -549,9 +555,7 @@ export default function PretPersonnelPage() {
               On fait le point sur votre budget, je définis l'enveloppe possible et je m'occupe d'aller chercher le meilleur TAEG du marché. Sans engagement.
             </p>
             <div className="fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon étude →
-              </Link>
+              <ContactPopup label="📅 Lancer mon étude →" className="fin-btn-primary" />
               <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>

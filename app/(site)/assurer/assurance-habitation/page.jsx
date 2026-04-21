@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import GarantiesCarousel from '@/components/GarantiesCarousel';
 import ProfilHabitationSelector from '@/components/ProfilHabitationSelector';
 import HabitationChecklist from '@/components/HabitationChecklist';
@@ -304,9 +305,7 @@ export default function AssuranceHabitationPage() {
               avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon comparatif gratuit
-              </Link>
+              <ContactPopup label="📅 Lancer mon comparatif gratuit" className="fin-btn-primary" />
               <Link href="#section-profils" className="fin-btn-secondary">
                 🔍 Voir selon mon profil
               </Link>
@@ -401,9 +400,7 @@ export default function AssuranceHabitationPage() {
 
             <div className="ae-probleme-cta">
               <p className="ae-probleme-cta-text">Envoyez-moi votre avis d'échéance, je vous dis tout de suite si vous payez trop cher.</p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire analyser mon contrat actuel
-              </Link>
+              <ContactPopup label="📅 Faire analyser mon contrat actuel" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -482,9 +479,7 @@ export default function AssuranceHabitationPage() {
                   mais vous gagnez une alliée qui lit les petites lignes à votre place.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 On fait le point ?
-              </Link>
+              <ContactPopup label="📅 On fait le point ?" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -547,9 +542,7 @@ export default function AssuranceHabitationPage() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: 32 }}>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Me déléguer ma résiliation
-              </Link>
+              <ContactPopup label="📅 Me déléguer ma résiliation" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
@@ -599,9 +592,7 @@ export default function AssuranceHabitationPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -622,7 +613,11 @@ export default function AssuranceHabitationPage() {
                   title: 'Assurance Auto & Moto',
                   sub: 'Couper dans les frais',
                   text: 'Comme pour la maison, l\'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.',
-                  badge: null,
+                  badge: '⚡ Résiliation gérée pour vous',
+                  pillBg: 'rgba(124,58,237,0.08)',
+                  pillColor: '#7c3aed',
+                  pillBorder: 'rgba(124,58,237,0.2)',
+                  featured: false,
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
@@ -631,6 +626,10 @@ export default function AssuranceHabitationPage() {
                   sub: 'L\'économie massive',
                   text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
                   badge: '💰 Économisez jusqu\'à 15 000€',
+                  pillBg: 'rgba(201,169,110,0.12)',
+                  pillColor: 'var(--orizia-gold)',
+                  pillBorder: 'rgba(201,169,110,0.3)',
+                  featured: true,
                 },
                 {
                   href: '/investir/per',
@@ -638,15 +637,19 @@ export default function AssuranceHabitationPage() {
                   title: 'Plan Épargne Retraite',
                   sub: 'Défiscaliser utile',
                   text: 'Prenez l\'argent économisé sur vos assurances et placez-le pour réduire vos impôts et préparer l\'avenir.',
-                  badge: null,
+                  badge: '🏦 Déduction fiscale immédiate',
+                  pillBg: 'rgba(45,106,95,0.1)',
+                  pillColor: 'var(--orizia-primary)',
+                  pillBorder: 'rgba(45,106,95,0.25)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
                     <span className="fin-card-pill" style={{
-                      background: 'rgba(201,169,110,0.12)',
-                      color: 'var(--orizia-gold)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      background: s.pillBg,
+                      color: s.pillColor,
+                      border: `1px solid ${s.pillBorder}`,
                     }}>
                       {s.badge}
                     </span>
@@ -672,12 +675,8 @@ export default function AssuranceHabitationPage() {
               à part quelques dizaines d'euros d'économies chaque mois.
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Lancer mon comparatif avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ M'envoyer un message
-              </Link>
+              <ContactPopup label="📅 Lancer mon comparatif avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Les économies dépendent de votre localisation et de vos antécédents d'assurance.

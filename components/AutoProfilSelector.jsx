@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PROFILS = [
   {
@@ -135,9 +135,7 @@ export default function AutoProfilSelector() {
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
 
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Étudier mon profil avec Cindy
-          </Link>
+          <ContactPopup label="📅 Étudier mon profil avec Cindy" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

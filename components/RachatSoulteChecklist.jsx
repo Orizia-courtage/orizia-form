@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -108,9 +108,7 @@ export default function RachatSoulteChecklist() {
                   Les conditions sont réunies pour monter un financement. Je vérifie la faisabilité
                   complète et je consulte mes partenaires bancaires gratuitement.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Lancer mon étude →
-                </Link>
+                <ContactPopup label="📅 Lancer mon étude →" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -122,9 +120,7 @@ export default function RachatSoulteChecklist() {
                   Certains points restent à clarifier. Je vous aide à identifier les blocages
                   et les solutions alternatives possibles.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser ma situation →
-                </Link>
+                <ContactPopup label="📅 Analyser ma situation →" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

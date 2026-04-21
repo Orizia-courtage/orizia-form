@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PROFILS = [
   {
@@ -214,9 +214,7 @@ export default function AVProfilSelector() {
           {/* Simulateur */}
           <SimulateurRendement profil={profil} />
 
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 20 }}>
-            📅 Construire mon allocation sur-mesure
-          </Link>
+          <ContactPopup label="📅 Construire mon allocation sur-mesure" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 20 }} />
         </div>
       )}
     </div>

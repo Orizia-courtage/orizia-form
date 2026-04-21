@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -122,9 +122,7 @@ export default function EmprunteurChecklist() {
                   votre économie exacte et je vous montre le contrat qui remplace le vôtre
                   à garanties identiques — ou meilleures.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Calculer mon économie
-                </Link>
+                <ContactPopup label="📅 Calculer mon économie" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -136,9 +134,7 @@ export default function EmprunteurChecklist() {
                   Votre profil présente des opportunités. Un audit rapide permet de
                   chiffrer précisément ce que vous pouvez récupérer.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Faire chiffrer mes économies
-                </Link>
+                <ContactPopup label="📅 Faire chiffrer mes économies" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

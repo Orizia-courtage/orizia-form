@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -118,9 +118,7 @@ export default function PERChecklist() {
                   Les critères essentiels sont validés. Il reste à calculer vos plafonds exacts,
                   choisir le bon contrat et construire l'allocation adaptée à votre horizon.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Calculer mon gain fiscal
-                </Link>
+                <ContactPopup label="📅 Calculer mon gain fiscal" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -132,9 +130,7 @@ export default function PERChecklist() {
                   Votre situation mérite une analyse personnalisée. Le PER n'est pas toujours
                   la meilleure option — je vous dis honnêtement si c'est votre cas.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser ma situation
-                </Link>
+                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

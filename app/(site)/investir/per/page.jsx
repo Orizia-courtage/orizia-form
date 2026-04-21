@@ -7,6 +7,7 @@ import PERRisqueJauge from '@/components/PERRisqueJauge';
 import PERProfilSelector from '@/components/PERProfilSelector';
 import PERChecklist from '@/components/PERChecklist';
 import ReadingProgressPER from '@/components/ReadingProgressPER';
+import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -360,9 +361,7 @@ export default function PERPage() {
               votre allocation. <strong>Gratuitement.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon gain fiscal
-              </Link>
+              <ContactPopup label="📅 Calculer mon gain fiscal" className="fin-btn-primary"/>
               <Link href="#section-fiscalite" className="fin-btn-secondary">
                 🧮 Voir les exemples chiffrés
               </Link>
@@ -469,9 +468,7 @@ export default function PERPage() {
                 Je récupère aussi vos plafonds non utilisés des 3 dernières années —
                 souvent plusieurs milliers d'euros de déduction oubliés.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mes plafonds gratuitement
-              </Link>
+              <ContactPopup label="📅 Calculer mes plafonds gratuitement" className="fin-btn-primary"/>
             </div>
           </div>
         </section>
@@ -613,9 +610,8 @@ export default function PERPage() {
                   vis-à-vis de votre TMI.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-on-dark">
-                📅 Calculer mon gain
-              </Link>
+              <ContactPopup label="📅 Calculer mon gain" className="fin-btn-on-dark"/>
+              
             </div>
           </div>
         </section>
@@ -720,9 +716,7 @@ export default function PERPage() {
                   d'un conseil expert et d'un accès à des contrats haut de gamme.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer
-              </Link>
+              <ContactPopup label="📅 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }}/>
             </div>
           </div>
         </section>
@@ -751,12 +745,9 @@ export default function PERPage() {
                 Une situation particulière ? Je vous réponds personnellement sous 24h.
               </p>
               <div className="ae-hero-btns" style={{ justifyContent: 'center' }}>
-                <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Prendre rendez-vous
-                </Link>
-                <Link href="/contact" className="fin-btn-secondary">
-                  ✉️ Poser une question
-                </Link>
+                <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary"/>
+                  
+                <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary"/>
               </div>
             </div>
           </div>
@@ -789,9 +780,8 @@ export default function PERPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary"/>
+                
             </div>
           </div>
         </section>
@@ -816,7 +806,11 @@ export default function PERPage() {
                   title: 'Assurance Vie',
                   sub: 'Épargne disponible & transmission',
                   text: 'Le complément naturel du PER : épargne liquide à tout moment, fiscalité avantageuse après 8 ans et transmission hors succession jusqu\'à 152 500€ par bénéficiaire.',
-                  badge: '🔗 Stratégie combinée recommandée',
+                  badge: '✅ Fiscalité optimisée après 8 ans',
+                  pillBg: 'rgba(201,169,110,0.12)',
+                  pillColor: 'var(--orizia-gold)',
+                  pillBorder: 'rgba(201,169,110,0.3)',
+                  featured: true,
                 },
                 {
                   href: '/investir/scpi',
@@ -824,7 +818,11 @@ export default function PERPage() {
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, zéro gestion. Logeable dans votre PER ou votre AV pour combiner rendement immobilier et fiscalité optimisée dans une seule enveloppe.',
-                  badge: null,
+                  badge: '🏢 4–6%/an sans gestion',
+                  pillBg: 'rgba(45,106,95,0.1)',
+                  pillColor: 'var(--orizia-primary)',
+                  pillBorder: 'rgba(45,106,95,0.25)',
+                  featured: false,
                 },
                 {
                   href: '/investir/crowdfunding',
@@ -832,15 +830,19 @@ export default function PERPage() {
                   title: 'Crowdfunding immobilier',
                   sub: 'Financement participatif',
                   text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal pour les capitaux non immobilisés dans le PER — rendement élevé à court terme.',
-                  badge: null,
+                  badge: '📈 8–12%/an sur 12–36 mois',
+                  pillBg: 'rgba(3,105,161,0.08)',
+                  pillColor: '#0369a1',
+                  pillBorder: 'rgba(3,105,161,0.2)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link key={s.title} href={s.href} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                <Link key={s.title} href={s.href} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                     {s.badge && (
                       <span className="fin-card-pill" style={{
-                        background: `${s.pillBg || 'rgba(201,169,110,0.12)'}`,
-                        color: s.pillColor || 'var(--orizia-gold)',
-                        border: `1px solid ${s.pillBorder || 'rgba(201,169,110,0.3)'}`,
+                        background: s.pillBg,
+                        color: s.pillColor,
+                        border: `1px solid ${s.pillBorder}`,
                       }}>
                         {s.badge}
                       </span>
@@ -866,12 +868,8 @@ export default function PERPage() {
               0% de frais sur versements. 100% gratuit pour vous.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon gain fiscal avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
-              </Link>
+              <ContactPopup label="📅 Calculer mon gain fiscal avec Cindy" className="fin-btn-primary"/>
+              <ContactPopup label="Poser une question" className="fin-btn-secondary"/>
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

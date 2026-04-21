@@ -295,10 +295,10 @@ export default function ContactWidget() {
         </div>
       )}
 
-      {/* Bouton flottant — caché sur mobile quand ouvert */}
-      {(!open || !isMobile) && (
-        <button className={`cw-trigger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
-          {open ? '✕' : '💬'}
+      {/* Bouton flottant — masqué quand le widget est ouvert */}
+      {!open && (
+        <button className="cw-trigger" onClick={() => setOpen(true)}>
+          💬
         </button>
       )}
     </>

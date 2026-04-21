@@ -1,67 +1,112 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+
+const EMPTY = {
+  parrainNom: '', parrainPrenom: '', parrainTel: '', parrainEmail: '',
+  filleulNom: '', filleulPrenom: '', filleulTel: '', filleulEmail: '', projetFilleul: '',
+};
+
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRe = /^[0-9\s+.\-]{10,20}$/;
+
+function validateStep1(d) {
+  const e = {};
+  if (!d.parrainNom.trim())    e.parrainNom    = 'Ce champ est obligatoire';
+  if (!d.parrainPrenom.trim()) e.parrainPrenom = 'Ce champ est obligatoire';
+  if (!d.parrainTel.trim())    e.parrainTel    = 'Ce champ est obligatoire';
+  else if (!phoneRe.test(d.parrainTel)) e.parrainTel = 'Numéro invalide';
+  if (!d.parrainEmail.trim())  e.parrainEmail  = 'Ce champ est obligatoire';
+  else if (!emailRe.test(d.parrainEmail)) e.parrainEmail = 'Adresse e-mail invalide';
+  return e;
+}
+
+function validateStep2(d) {
+  const e = {};
+  if (!d.filleulNom.trim())    e.filleulNom    = 'Ce champ est obligatoire';
+  if (!d.filleulPrenom.trim()) e.filleulPrenom = 'Ce champ est obligatoire';
+  if (!d.filleulTel.trim())    e.filleulTel    = 'Ce champ est obligatoire';
+  else if (!phoneRe.test(d.filleulTel)) e.filleulTel = 'Numéro invalide';
+  if (!d.filleulEmail.trim())  e.filleulEmail  = 'Ce champ est obligatoire';
+  else if (!emailRe.test(d.filleulEmail)) e.filleulEmail = 'Adresse e-mail invalide';
+  return e;
+}
+
+function Field({ label, name, type = 'text', data, errors, onChange, inputMode }) {
+  return (
+    <div className="parr-field">
+      <label className="parr-label">{label}</label>
+      <input
+        type={type}
+        name={name}
+        value={data[name]}
+        onChange={e => onChange(name, e.target.value)}
+        inputMode={inputMode}
+        className={`parr-input${errors[name] ? ' parr-input--error' : ''}`}
+        autoComplete="off"
+      />
+      {errors[name] && <span className="parr-error">{errors[name]}</span>}
+    </div>
+  );
+}
 
 export default function ParrainageForm() {
+  const [step, setStep]           = useState(1);
+  const [data, setData]           = useState(EMPTY);
+  const [errors, setErrors]       = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [errors, setErrors] = useState({});
-  const [step, setStep] = useState(1); // 1 = parrain, 2 = filleul
+  const [serverError, setServerError] = useState('');
+
+  const change = (name, value) => {
+    setData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => { const e = { ...prev }; delete e[name]; return e; });
+  };
+
+  const goNext = () => {
+    const errs = validateStep1(data);
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    setErrors({});
+    setStep(2);
+  };
+
+  const goBack = () => { setErrors({}); setStep(1); };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[0-9\s+.-]{10,20}$/;
-
-    if (!data.parrainNom) newErrors.parrainNom = 'Ce champ est obligatoire';
-    if (!data.parrainPrenom) newErrors.parrainPrenom = 'Ce champ est obligatoire';
-    if (!data.parrainTel) newErrors.parrainTel = 'Ce champ est obligatoire';
-    else if (!phoneRegex.test(data.parrainTel)) newErrors.parrainTel = 'Numéro invalide (chiffres uniquement)';
-    if (!data.parrainEmail) newErrors.parrainEmail = 'Ce champ est obligatoire';
-    else if (!emailRegex.test(data.parrainEmail)) newErrors.parrainEmail = 'Adresse e-mail invalide';
-    if (!data.filleulNom) newErrors.filleulNom = 'Ce champ est obligatoire';
-    if (!data.filleulPrenom) newErrors.filleulPrenom = 'Ce champ est obligatoire';
-    if (!data.filleulTel) newErrors.filleulTel = 'Ce champ est obligatoire';
-    else if (!phoneRegex.test(data.filleulTel)) newErrors.filleulTel = 'Numéro invalide (chiffres uniquement)';
-    if (!data.filleulEmail) newErrors.filleulEmail = 'Ce champ est obligatoire';
-    else if (!emailRegex.test(data.filleulEmail)) newErrors.filleulEmail = 'Adresse e-mail invalide';
-
-    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
-
+    const errs = validateStep2(data);
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
     setIsSubmitting(true);
+    setServerError('');
     try {
-      const response = await fetch('/api/parrainage', {
+      const res = await fetch('/api/parrainage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (response.ok) {
+      if (res.ok) {
         setIsSuccess(true);
-      } else if (response.status === 429) {
-        alert("Vous avez envoyé trop de recommandations à la suite. Veuillez patienter quelques minutes.");
+      } else if (res.status === 429) {
+        setServerError("Trop de tentatives. Veuillez patienter quelques minutes.");
       } else {
-        alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer plus tard.");
+        setServerError("Une erreur s'est produite. Veuillez réessayer.");
       }
-    } catch (error) {
-      console.error(error);
-      alert("Erreur de connexion au serveur.");
+    } catch {
+      setServerError("Erreur de connexion au serveur.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  /* ── Succès ── */
   if (isSuccess) {
     return (
-      <div className="parrainage-success">
-        <span className="success-icon">🎉</span>
+      <div className="parr-success">
+        <div className="parr-success-icon">🎉</div>
         <h3>Merci pour votre recommandation !</h3>
         <p>Votre demande a bien été envoyée. Je prendrai contact avec votre filleul très prochainement.</p>
-        <button onClick={() => setIsSuccess(false)} className="btn-success">
+        <button onClick={() => { setIsSuccess(false); setData(EMPTY); setStep(1); }} className="parr-btn-primary">
           Faire un nouveau parrainage
         </button>
       </div>
@@ -69,94 +114,111 @@ export default function ParrainageForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="parrainage-form" noValidate>
+    <div className="parr-wrap">
 
       {/* ── Stepper ── */}
       <div className="parr-stepper">
-        <div className="parr-stepper-header">
-          <span className="parr-stepper-step">Étape {step} / 2</span>
-          <span className="parr-stepper-label">{step === 1 ? 'Vos informations' : 'Informations de votre filleul'}</span>
+        <div className="parr-step-item">
+          <div className={`parr-step-dot${step >= 1 ? ' parr-step-dot--active' : ''}`}>
+            {step > 1 ? '✓' : '1'}
+          </div>
+          <span className={`parr-step-label${step === 1 ? ' parr-step-label--active' : ''}`}>
+            Informations du parrain
+          </span>
         </div>
-        <div className="parr-stepper-bar">
-          <div className="parr-stepper-fill" style={{ width: step === 1 ? '50%' : '100%' }} />
+        <div className="parr-step-line" />
+        <div className="parr-step-item">
+          <div className={`parr-step-dot${step >= 2 ? ' parr-step-dot--active' : ''}`}>2</div>
+          <span className={`parr-step-label${step === 2 ? ' parr-step-label--active' : ''}`}>
+            Informations du filleul
+          </span>
         </div>
       </div>
 
-      <div className="form-grid">
-        <div className="form-block">
-          <h3 className="form-block-title parrain-title">INFORMATIONS DU PARRAIN</h3>
-          <div className="form-fields">
-            <div className="input-group">
-              <label>Votre nom*</label>
-              <input type="text" name="parrainNom" className={errors.parrainNom ? 'input-error' : ''} />
-              {errors.parrainNom && <span className="error-text">{errors.parrainNom}</span>}
-            </div>
-            <div className="input-group">
-              <label>Votre prénom*</label>
-              <input type="text" name="parrainPrenom" className={errors.parrainPrenom ? 'input-error' : ''} />
-              {errors.parrainPrenom && <span className="error-text">{errors.parrainPrenom}</span>}
-            </div>
-            <div className="input-group">
-              <label>Votre téléphone*</label>
-              <input type="tel" name="parrainTel" inputMode="numeric" className={errors.parrainTel ? 'input-error' : ''} />
-              {errors.parrainTel && <span className="error-text">{errors.parrainTel}</span>}
-            </div>
-            <div className="input-group">
-              <label>Votre e-mail*</label>
-              <input type="email" name="parrainEmail" className={errors.parrainEmail ? 'input-error' : ''} />
-              {errors.parrainEmail && <span className="error-text">{errors.parrainEmail}</span>}
+      {/* ── Étape 1 : Parrain ── */}
+      {step === 1 && (
+        <div className="parr-step-content">
+          <div className="parr-step-header">
+            <div className="parr-step-icon">👤</div>
+            <div>
+              <h3 className="parr-step-title">Informations du parrain</h3>
+              <p className="parr-step-sub">Vos coordonnées pour que je puisse vous contacter</p>
             </div>
           </div>
-        </div>
 
-        <div className="form-block">
-          <h3 className="form-block-title filleul-title">INFORMATIONS DU FILLEUL</h3>
-          <div className="form-fields">
-            <div className="input-group">
-              <label>Son nom*</label>
-              <input type="text" name="filleulNom" className={errors.filleulNom ? 'input-error' : ''} />
-              {errors.filleulNom && <span className="error-text">{errors.filleulNom}</span>}
+          <div className="parr-fields">
+            <div className="parr-fields-row">
+              <Field label="Votre nom *"    name="parrainNom"    data={data} errors={errors} onChange={change} />
+              <Field label="Votre prénom *" name="parrainPrenom" data={data} errors={errors} onChange={change} />
             </div>
-            <div className="input-group">
-              <label>Son prénom*</label>
-              <input type="text" name="filleulPrenom" className={errors.filleulPrenom ? 'input-error' : ''} />
-              {errors.filleulPrenom && <span className="error-text">{errors.filleulPrenom}</span>}
-            </div>
-            <div className="input-group">
-              <label>Son téléphone*</label>
-              <input type="tel" name="filleulTel" inputMode="numeric" className={errors.filleulTel ? 'input-error' : ''} />
-              {errors.filleulTel && <span className="error-text">{errors.filleulTel}</span>}
-            </div>
-            <div className="input-group">
-              <label>Son e-mail*</label>
-              <input type="email" name="filleulEmail" className={errors.filleulEmail ? 'input-error' : ''} />
-              {errors.filleulEmail && <span className="error-text">{errors.filleulEmail}</span>}
-            </div>
-            <div className="input-group">
-              <label>Son projet (Facultatif)</label>
-              <select name="projetFilleul">
-                <option value="">Sélectionnez un projet...</option>
-                <option value="Investir (SCPI, PER, Assurance Vie...)">Investir (SCPI, PER, Assurance Vie...)</option>
-                <option value="Financer (Crédit, Regroupement...)">Financer (Crédit, Regroupement...)</option>
-                <option value="Assurer (Emprunteur, Auto, Habitation...)">Assurer (Emprunteur, Auto, Habitation...)</option>
-              </select>
-            </div>
+            <Field label="Votre téléphone *" name="parrainTel"   type="tel"   data={data} errors={errors} onChange={change} inputMode="numeric" />
+            <Field label="Votre e-mail *"    name="parrainEmail" type="email" data={data} errors={errors} onChange={change} />
+          </div>
+
+          <div className="parr-actions">
+            <button type="button" className="parr-btn-primary" onClick={goNext}>
+              Continuer →
+            </button>
           </div>
         </div>
-      </div>
+      )}
 
-      <div className="form-submit-wrapper">
-        <button type="submit" disabled={isSubmitting} className="btn-submit">
-          {isSubmitting ? 'Envoi en cours...' : 'Envoyer la recommandation'}
-        </button>
-      </div>
+      {/* ── Étape 2 : Filleul ── */}
+      {step === 2 && (
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="parr-step-content">
+            <div className="parr-step-header">
+              <div className="parr-step-icon">🤝</div>
+              <div>
+                <h3 className="parr-step-title">Informations du filleul</h3>
+                <p className="parr-step-sub">Les coordonnées de la personne que vous recommandez</p>
+              </div>
+            </div>
 
-      <div className="legal-asterisk">
-        <p>
-          * Veillez à recueillir l'accord préalable de votre filleul avant transmission de ses coordonnées notamment dans le cadre d'un appel téléphonique. Notre politique de protection des données à caractère personnel lui sera présentée lors de l'entrée en relation.{' '}
-          <Link href="/contact">Pour en savoir plus, contactez-nous</Link>.
-        </p>
-      </div>
-    </form>
+            <div className="parr-fields">
+              <div className="parr-fields-row">
+                <Field label="Son nom *"    name="filleulNom"    data={data} errors={errors} onChange={change} />
+                <Field label="Son prénom *" name="filleulPrenom" data={data} errors={errors} onChange={change} />
+              </div>
+              <Field label="Son téléphone *" name="filleulTel"   type="tel"   data={data} errors={errors} onChange={change} inputMode="numeric" />
+              <Field label="Son e-mail *"    name="filleulEmail" type="email" data={data} errors={errors} onChange={change} />
+
+              <div className="parr-field">
+                <label className="parr-label">Son projet (facultatif)</label>
+                <select
+                  name="projetFilleul"
+                  value={data.projetFilleul}
+                  onChange={e => change('projetFilleul', e.target.value)}
+                  className="parr-input"
+                >
+                  <option value="">Sélectionnez un projet...</option>
+                  <option value="Investir (SCPI, PER, Assurance Vie...)">Investir (SCPI, PER, Assurance Vie...)</option>
+                  <option value="Financer (Crédit, Regroupement...)">Financer (Crédit, Regroupement...)</option>
+                  <option value="Assurer (Emprunteur, Auto, Habitation...)">Assurer (Emprunteur, Auto, Habitation...)</option>
+                </select>
+              </div>
+            </div>
+
+            {serverError && (
+              <div className="parr-server-error">🚫 {serverError}</div>
+            )}
+
+            <div className="parr-actions parr-actions--two">
+              <button type="button" className="parr-btn-secondary" onClick={goBack}>
+                ← Retour
+              </button>
+              <button type="submit" className="parr-btn-primary" disabled={isSubmitting}>
+                {isSubmitting ? 'Envoi en cours…' : 'Envoyer la recommandation'}
+              </button>
+            </div>
+
+            <p className="parr-legal">
+              * Veillez à recueillir l'accord préalable de votre filleul avant transmission de ses coordonnées.
+              Notre politique de protection des données lui sera présentée lors de l'entrée en relation.
+            </p>
+          </div>
+        </form>
+      )}
+    </div>
   );
 }

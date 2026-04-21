@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PROFILS = [
   {
@@ -88,9 +88,7 @@ export default function ProfilHabitationSelector() {
           </div>
 
           <div className="profil-hab-cta">
-            <Link href="/rendez-vous" className="fin-btn-primary">
-              📅 Obtenir mon devis {profil.label.toLowerCase()}
-            </Link>
+            <ContactPopup label={`📅 Obtenir mon devis ${profil.label.toLowerCase()}`} className="fin-btn-primary" />
           </div>
         </div>
       ) : (

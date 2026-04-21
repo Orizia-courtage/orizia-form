@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -118,9 +118,7 @@ export default function AVChecklist() {
                   Les critères essentiels sont validés. Il reste à choisir le bon contrat,
                   construire l'allocation et rédiger votre clause bénéficiaire sur-mesure.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Ouvrir mon contrat avec Cindy
-                </Link>
+                <ContactPopup label="📅 Ouvrir mon contrat avec Cindy" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -132,9 +130,7 @@ export default function AVChecklist() {
                   L'assurance vie peut quand même être pertinente pour vous — mais
                   quelques éléments méritent d'être analysés avant de souscrire.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Analyser ma situation
-                </Link>
+                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

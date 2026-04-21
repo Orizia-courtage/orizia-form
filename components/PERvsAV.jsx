@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PROFILS = [
   { id: 'tmi_eleve', label: 'TMI 30%+', icon: '💼', desc: 'Cadre, TNS, dirigeant' },
@@ -105,9 +105,7 @@ export default function PERvsAV() {
             <span>💬</span>
             <p>{reco.conseil}</p>
           </div>
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Calculer ma stratégie optimale
-          </Link>
+          <ContactPopup label="📅 Calculer ma stratégie optimale" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
 

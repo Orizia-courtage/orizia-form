@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const STRATEGIES = [
   {
@@ -168,9 +168,7 @@ export default function SCPIFiscaliteSelector() {
       <div className="crowd-risques-note" style={{ marginTop: 20 }}>
         💡 <strong>Mon approche :</strong> je commence toujours par analyser votre TMI avant de recommander une SCPI.
         La même SCPI peut être excellente pour un profil et contre-productive pour un autre.
-        <Link href="/rendez-vous" style={{ color: 'var(--orizia-primary)', fontWeight: 700, marginLeft: 6 }}>
-          Calculer mon rendement net
-        </Link>
+        <ContactPopup label="Calculer mon rendement net" className="" style={{ color: 'var(--orizia-primary)', fontWeight: 700, marginLeft: 6 }} />
       </div>
     </div>
   );

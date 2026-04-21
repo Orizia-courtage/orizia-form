@@ -359,6 +359,13 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
         <div className="cp-modal-overlay" onClick={() => setShowCal(false)}>
           <div className="cp-modal" onClick={e => e.stopPropagation()}>
             <div className="cp-modal-header">
+              <button
+                className="cp-back"
+                onClick={() => { setShowCal(false); setOpen(true); }}
+                aria-label="Retour"
+              >
+                <i className="fa-solid fa-arrow-left"></i>
+              </button>
               <div className="cp-modal-title">
                 <span>📅</span>
                 <div>

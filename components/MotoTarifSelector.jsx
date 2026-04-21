@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const TARIFS = [
   {
@@ -142,9 +142,7 @@ export default function MotoTarifSelector() {
           {/* CTA */}
           <div className="moto-result-cta">
             <p>Je compare les offres du marché pour votre {current.label.toLowerCase()} et vous trouve le meilleur tarif.</p>
-            <Link href="/rendez-vous" className="fin-btn-on-dark">
-              📅 Obtenir mon devis personnalisé
-            </Link>
+            <ContactPopup label="📅 Obtenir mon devis personnalisé" className="fin-btn-on-dark" />
           </div>
         </div>
       ) : (

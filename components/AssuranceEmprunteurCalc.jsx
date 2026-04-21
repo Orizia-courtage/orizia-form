@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 // Taux moyens banque et Orizia par tranche d'âge
 const TAUX_PAR_AGE = [
@@ -143,9 +143,7 @@ export default function AssuranceEmprunteurCalc() {
         </div>
 
         {/* CTA */}
-        <Link href="/rendez-vous" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }}>
-          📅 Calculer mon économie exacte
-        </Link>
+        <ContactPopup label="📅 Calculer mon économie exacte" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Votre économie réelle dépend de votre profil de santé et du contrat actuel.
         </p>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const TMI_OPTIONS = [
   { id: 'tmi11', label: '11%', desc: 'Revenus modérés' },
@@ -131,9 +131,7 @@ export default function SCPIProfilFiscal() {
             <span>💬</span>
             <p>{strategie.conseil}</p>
           </div>
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Affiner ma stratégie SCPI
-          </Link>
+          <ContactPopup label="📅 Affiner ma stratégie SCPI" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

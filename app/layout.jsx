@@ -1,4 +1,4 @@
-import { Urbanist } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 
 import './globals.css';
 
@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
-const urbanist = Urbanist({ subsets: ['latin'], weight: ['400','500','600','800','900'] });
+const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400','500','600','700','800','900'] });
 
 
 
@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className={urbanist.className}>
+      <body className={dmSans.className}>
         {children}
         {/* Ajout des composants Vercel ici pour qu'ils s'activent */}
         <Analytics />

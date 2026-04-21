@@ -1,5 +1,8 @@
 import '../globals.css';
+import { DM_Sans } from 'next/font/google';
 import ContactWidget from '@/components/ContactWidget';
+
+const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400','500','600','700','800','900'] });
 
 export const metadata = {
   title: 'Regroupement de crédits — Orizia Courtage',
@@ -10,14 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       </head>
-      <body>
+      <body className={dmSans.className}>
         {children}
-        <ContactWidget />  {/* ← ajouté */}
+        <ContactWidget />
       </body>
     </html>
   );

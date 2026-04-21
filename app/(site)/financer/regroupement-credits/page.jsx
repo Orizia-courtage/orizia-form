@@ -501,7 +501,7 @@ export default function RegroupementCreditsPage() {
                       vous donne une réponse de principe sous 24h — sans engagement.
                     </p>
                   </div>
-                  <a href="#formulaire" className="fin-btn-primary">
+                  <a href="#formulaire" className="fin-btn-on-dark">
                     🔍 Démarrer l'analyse
                   </a>
                 </div>
@@ -558,9 +558,7 @@ export default function RegroupementCreditsPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -581,7 +579,11 @@ export default function RegroupementCreditsPage() {
                   title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
                   text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
-                  badge: null,
+                  badge: '🏦 +40 banques comparées',
+                  badgeBg: 'rgba(45,106,95,0.1)',
+                  badgeColor: 'var(--orizia-primary)',
+                  badgeBorder: '1px solid rgba(45,106,95,0.25)',
+                  featured: false,
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
@@ -589,7 +591,11 @@ export default function RegroupementCreditsPage() {
                   title: 'Assurance Emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer des économies supplémentaires.',
-                  badge: '💡 Économisez sur votre nouveau prêt',
+                  badge: '� Économisez jusqu\'à 15 000€',
+                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badgeColor: 'var(--orizia-gold)',
+                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  featured: true,
                 },
                 {
                   href: '/investir/assurance-vie',
@@ -597,11 +603,19 @@ export default function RegroupementCreditsPage() {
                   title: 'Assurance Vie',
                   sub: 'Épargner en parallèle',
                   text: 'Une mensualité allégée libère de la capacité d\'épargne. L\'assurance vie est l\'outil idéal pour faire fructifier ce surplus mensuel.',
-                  badge: null,
+                  badge: '✅ Fiscalité optimisée après 8 ans',
+                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badgeColor: 'var(--orizia-gold)',
+                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  {s.badge && <span className="fin-card-pill">{s.badge}</span>}
+                <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
+                  {s.badge && (
+                    <span className="fin-card-pill" style={{ background: s.badgeBg, color: s.badgeColor, border: s.badgeBorder }}>
+                      {s.badge}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>

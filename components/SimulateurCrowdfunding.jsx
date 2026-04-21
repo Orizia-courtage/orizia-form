@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PRESETS = [
   { label: '🟢 Prudent',   montant: 5000,  taux: 8,  duree: 12 },
@@ -195,9 +195,7 @@ export default function SimulateurCrowdfunding() {
         </div>
 
         {/* CTA */}
-        <Link href="/rendez-vous" className="fin-btn-primary simu-cta">
-          📅 Être accompagnée par Cindy pour investir
-        </Link>
+        <ContactPopup label="📅 Être accompagnée par Cindy pour investir" className="fin-btn-primary simu-cta" />
 
         <p className="simu-disclaimer">
           Simulation indicative. Les rendements passés ne préjugent pas des performances futures.

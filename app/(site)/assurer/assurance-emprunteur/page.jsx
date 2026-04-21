@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import AssuranceEmprunteurCalc from '@/components/AssuranceEmprunteurCalc';
 import LemoineQuiz from '@/components/LemoineQuiz';
 import EmprunteurChecklist from '@/components/EmprunteurChecklist';
@@ -225,9 +226,7 @@ export default function AssuranceEmprunteurPage() {
             </p>
 
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Calculer mon économie avec Cindy
-              </Link>
+              <ContactPopup label="📅 Calculer mon économie avec Cindy" className="fin-btn-primary" />
               <Link href="#section-calculateur" className="fin-btn-secondary">
                 💰 Voir les vrais chiffres
               </Link>
@@ -328,9 +327,7 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-probleme-cta">
               <p className="ae-probleme-cta-text">Arrêtez l'hémorragie financière dès aujourd'hui.</p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire chiffrer mes économies
-              </Link>
+              <ContactPopup label="📅 Faire chiffrer mes économies" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -420,9 +417,7 @@ export default function AssuranceEmprunteurPage() {
                   Peu importe quand vous avez signé votre crédit immobilier, la loi s'applique.{' '}
                   <strong>La banque n'a plus le droit de vous retenir.</strong>
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary">
-                  📅 Faire valoir mes droits
-                </Link>
+                <ContactPopup label="📅 Faire valoir mes droits" className="fin-btn-primary" />
               </div>
 
               <div className="ae-lemoine-card">
@@ -527,9 +522,7 @@ export default function AssuranceEmprunteurPage() {
                   débourser un centime d'honoraires de courtage.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 On lance la machine ?
-              </Link>
+              <ContactPopup label="📅 On lance la machine ?" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -579,9 +572,7 @@ export default function AssuranceEmprunteurPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -595,13 +586,13 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div className="fin-cards fin-cards--white">
               {[
-                { href: '/financer/credit-immobilier', icon: '🏡', title: 'Crédit Immobilier', sub: 'Votre futur achat', text: "Vous achetez un nouveau bien ? Ne signez pas les yeux fermés. Je négocie à la fois votre taux de prêt ET votre assurance dès le départ.", badge: '🏡 Négociez aussi votre taux' },
-                { href: '/investir/per', icon: '💰', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: '🔗 Réinvestissez vos économies' },
-                { href: '/assurer/assurance-habitation', icon: '🏠', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: null },
+                { href: '/assurer/assurance-habitation', icon: '🏠', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: '🏠 Obligatoire avant la remise des clés', pillBg: 'rgba(217,119,6,0.08)', pillColor: '#d97706', pillBorder: 'rgba(217,119,6,0.2)', featured: false },
+                { href: '/assurer/auto-moto', icon: '🚗', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.", badge: '⚡ Résiliation gérée pour vous', pillBg: 'rgba(124,58,237,0.08)', pillColor: '#7c3aed', pillBorder: 'rgba(124,58,237,0.2)', featured: false },
+                { href: '/investir/per', icon: '💰', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: '💰 Réduisez vos impôts dès cette année', pillBg: 'rgba(201,169,110,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(201,169,110,0.3)', featured: true },
               ].map(s => (
-                <Link href={s.href} key={s.title} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
+                <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
-                    <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>
+                    <span className="fin-card-pill" style={{ background: s.pillBg, color: s.pillColor, border: `1px solid ${s.pillBorder}` }}>
                       {s.badge}
                     </span>
                   )}
@@ -626,12 +617,8 @@ export default function AssuranceEmprunteurPage() {
               partie administrative.
             </p>
             <div className="ae-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Faire mon audit avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Lui envoyer un message
-              </Link>
+              <ContactPopup label="📅 Faire mon audit avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="✉️ Lui envoyer un message" className="fin-btn-secondary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               *Les économies potentielles sont données à titre indicatif et dépendent de votre

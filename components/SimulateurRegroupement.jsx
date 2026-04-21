@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 export default function SimulateurRegroupement() {
   const [mensualite, setMensualite] = useState('');
@@ -224,9 +224,7 @@ export default function SimulateurRegroupement() {
                   {result.creditMsg.cta}
                 </a>
               ) : (
-                <Link href={result.creditMsg.href} className="fin-btn-primary sr-credit-msg-cta">
-                  {result.creditMsg.cta}
-                </Link>
+                <ContactPopup label={result.creditMsg.cta} className="fin-btn-primary sr-credit-msg-cta" />
               )}
             </div>
           )}

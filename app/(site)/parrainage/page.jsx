@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ParrainageForm from '@/components/ParrainageForm';
+import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -212,9 +213,7 @@ export default function ParrainagePage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary"/>
             </div>
           </div>
         </section>

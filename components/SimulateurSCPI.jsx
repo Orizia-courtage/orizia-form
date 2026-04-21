@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const fmt    = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const fmtDec = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
@@ -259,9 +259,7 @@ export default function SimulateurSCPI() {
             </>
           )}
 
-          <Link href="/rendez-vous" className="fin-btn-primary scpi-simu-cta">
-            📅 Affiner ma simulation avec Cindy
-          </Link>
+          <ContactPopup label="📅 Affiner ma simulation avec Cindy" className="fin-btn-primary scpi-simu-cta" />
 
           <p className="simu-disclaimer">
             Simulation indicative basée sur un taux de distribution moyen. Les performances

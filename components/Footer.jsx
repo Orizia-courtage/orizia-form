@@ -85,7 +85,7 @@ export default function Footer() {
             paddingBottom: '2px',
             transition: 'opacity 0.3s'
           }}>
-            Découvrir le programme ↗
+            Découvrir le programme
           </Link>
         </div>
 

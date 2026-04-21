@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PROJETS = [
   {
@@ -118,9 +118,7 @@ export default function PretProjetSelector() {
             <span>💡</span>
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Étudier mon financement →
-          </Link>
+          <ContactPopup label="📅 Étudier mon financement →" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

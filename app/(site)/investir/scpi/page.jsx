@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactPopup from '@/components/ContactPopup';
 import SimulateurSCPI from '@/components/SimulateurSCPI';
 import SCPIDefinition from '@/components/SCPIDefinition';
 import SCPIProfilFiscal from '@/components/SCPIProfilFiscal';
@@ -271,12 +272,8 @@ export default function SCPIPage() {
               <strong>Gratuitement.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Trouver mes SCPI idéales
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
-              </Link>
+              <ContactPopup label="📅 Trouver mes SCPI idéales" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust fin-hero-trust">
               <span>✅ Conseil 100% indépendant</span>
@@ -382,9 +379,7 @@ export default function SCPIPage() {
               <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
                 Gratuit, indépendant, personnalisé selon votre situation fiscale et patrimoniale réelle.
               </p>
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Me faire accompagner gratuitement
-              </Link>
+              <ContactPopup label="📅 Me faire accompagner gratuitement" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -567,9 +562,7 @@ export default function SCPIPage() {
                   dans votre intérêt.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer gratuitement
-              </Link>
+              <ContactPopup label="📅 Démarrer gratuitement" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -612,8 +605,8 @@ export default function SCPIPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 32 }}>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <Link href="/rendez-vous" className="fin-btn-primary">📅 Prendre rendez-vous</Link>
-                <Link href="/contact" className="fin-btn-secondary">✉️ Poser une question</Link>
+                <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary" />
+                <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" />
               </div>
             </div>
           </div>
@@ -646,9 +639,7 @@ export default function SCPIPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question à Cindy
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -667,7 +658,7 @@ export default function SCPIPage() {
             </div>
             <div className="fin-cards">
               <Link href="/investir/crowdfunding" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.1)', color: '#d97706', border: '1px solid rgba(217,119,6,0.25)' }}>⚡ Rendement court terme</span>
+                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>📈 8–12%/an sur 12–36 mois</span>
                 <div className="fin-card-icon">📈</div>
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
@@ -675,7 +666,7 @@ export default function SCPIPage() {
                 <span className="fin-card-link">En savoir plus</span>
               </Link>
               <Link href="/investir/assurance-vie" className="fin-card fin-card--featured">
-                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>✅ Fiscalité optimisée</span>
+                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>✅ Fiscalité optimisée après 8 ans</span>
                 <div className="fin-card-icon">🛡️</div>
                 <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>
@@ -683,6 +674,7 @@ export default function SCPIPage() {
                 <span className="fin-card-link">En savoir plus</span>
               </Link>
               <Link href="/investir/per" className="fin-card">
+                <span className="fin-card-pill" style={{ background: 'rgba(124,58,237,0.08)', color: '#7c3aed', border: '1px solid rgba(124,58,237,0.2)' }}>💰 Déduction fiscale immédiate</span>
                 <div className="fin-card-icon">🏦</div>
                 <div className="fin-card-sub">Préparez votre retraite</div>
                 <h3>PER</h3>
@@ -703,12 +695,8 @@ export default function SCPIPage() {
               souscription — et au-delà.
             </p>
             <div className="fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Prendre rendez-vous avec Cindy
-              </Link>
-              <Link href="/contact" className="fin-btn-secondary">
-                Poser une question
-              </Link>
+              <ContactPopup label="📅 Prendre rendez-vous avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

@@ -215,9 +215,7 @@ export default function RachatSoultePage() {
               <strong>Étude gratuite.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier mon financement
-              </Link>
+              <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary" />
               <Link href="#section-simulateur" className="fin-btn-secondary">
                 🧮 Calculer ma soulte
               </Link>
@@ -435,9 +433,7 @@ export default function RachatSoultePage() {
                   ne vous coûtent rien.
                 </p>
               </div>
-              <Link href="/rendez-vous" className="fin-btn-primary" style={{ flexShrink: 0 }}>
-                📅 Démarrer
-              </Link>
+              <ContactPopup label="📅 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -466,9 +462,7 @@ export default function RachatSoultePage() {
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <Link href="/contact" className="fin-btn-secondary">
-                ✉️ Poser une autre question
-              </Link>
+              <ContactPopup label="✉️ Poser une autre question" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -488,7 +482,11 @@ export default function RachatSoultePage() {
                   title: 'Crédit immobilier',
                   sub: 'Votre projet de vie',
                   text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
-                  badge: null,
+                  badge: '🏦 +40 banques comparées',
+                  badgeBg: 'rgba(45,106,95,0.1)',
+                  badgeColor: 'var(--orizia-primary)',
+                  badgeBorder: '1px solid rgba(45,106,95,0.25)',
+                  featured: false,
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
@@ -496,7 +494,11 @@ export default function RachatSoultePage() {
                   title: 'Assurance emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'économiser des milliers d\'euros.',
-                  badge: '💡 Économisez sur votre nouveau prêt',
+                  badge: '💰 Économisez jusqu\'à 15 000€',
+                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badgeColor: 'var(--orizia-gold)',
+                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  featured: true,
                 },
                 {
                   href: '/financer/regroupement-credits',
@@ -504,11 +506,19 @@ export default function RachatSoultePage() {
                   title: 'Regroupement de crédits',
                   sub: 'Alléger vos mensualités',
                   text: 'Si le rachat de soulte alourdit votre endettement, le regroupement de crédits peut réduire vos mensualités globales jusqu\'à 60%.',
-                  badge: null,
+                  badge: '📉 Jusqu\'à −60% de mensualités',
+                  badgeBg: 'rgba(124,58,237,0.08)',
+                  badgeColor: '#7c3aed',
+                  badgeBorder: '1px solid rgba(124,58,237,0.2)',
+                  featured: false,
                 },
               ].map(s => (
-                <Link href={s.href} key={s.title} className="fin-card">
-                  {s.badge && <span className="fin-card-pill">{s.badge}</span>}
+                <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
+                  {s.badge && (
+                    <span className="fin-card-pill" style={{ background: s.badgeBg, color: s.badgeColor, border: s.badgeBorder }}>
+                      {s.badge}
+                    </span>
+                  )}
                   <div className="fin-card-icon">{s.icon}</div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
@@ -526,9 +536,7 @@ export default function RachatSoultePage() {
             <h2>Prêt(e) à conserver votre bien ?</h2>
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
-              <Link href="/rendez-vous" className="fin-btn-primary">
-                📅 Étudier mon rachat de soulte →
-              </Link>
+              <ContactPopup label="📅 Étudier mon rachat de soulte →" className="fin-btn-primary" />
               <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>

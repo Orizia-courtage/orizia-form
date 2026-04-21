@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const VEHICULES = [
   {
@@ -130,9 +130,7 @@ export default function AutoFormuleSelector() {
             <p>{reco.conseil}</p>
           </div>
 
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Obtenir mon devis personnalisé
-          </Link>
+          <ContactPopup label="📅 Obtenir mon devis personnalisé" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

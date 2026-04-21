@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -123,9 +123,7 @@ export default function AutoChecklist() {
                   Les signaux sont clairs. En 30 minutes, je compare le marché et vous montre
                   concrètement ce que vous pouvez économiser. Sans engagement.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Calculer mes économies
-                </Link>
+                <ContactPopup label="📅 Calculer mes économies" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -137,9 +135,7 @@ export default function AutoChecklist() {
                   Même sans tous les critères, une comparaison rapide révèle souvent
                   des opportunités. Je vous dis honnêtement si vous pouvez faire mieux.
                 </p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Vérifier mon tarif
-                </Link>
+                <ContactPopup label="📅 Vérifier mon tarif" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const QUESTIONS = [
   {
@@ -130,9 +131,7 @@ export default function AssurerQuiz() {
             <Link href={reco.href} className="fin-btn-primary">
               Optimiser ce contrat
             </Link>
-            <Link href="/rendez-vous" className="fin-btn-secondary">
-              📅 Bilan complet
-            </Link>
+            <ContactPopup label="📅 Bilan complet" className="fin-btn-secondary" />
           </div>
           <button onClick={reset} className="iq-reset">↩ Recommencer</button>
         </div>

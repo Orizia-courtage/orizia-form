@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const PROFILS = [
   {
@@ -126,9 +126,7 @@ export default function PERProfilSelector() {
             <p>{detail.conseil}</p>
           </div>
 
-          <Link href="/rendez-vous" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-            📅 Calculer mon gain pour ce profil
-          </Link>
+          <ContactPopup label="📅 Calculer mon gain pour ce profil" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import ContactPopup from '@/components/ContactPopup';
 
 const CRITERES = [
   {
@@ -91,9 +91,7 @@ export default function InvestisseurChecklist() {
               <div>
                 <strong>Vous êtes prêt — parlons stratégie</strong>
                 <p>Tous les critères sont validés. Il ne reste plus qu'à définir le montant, la durée et les plateformes adaptées à votre profil.</p>
-                <Link href="/rendez-vous" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Construire ma stratégie
-                </Link>
+                <ContactPopup label="📅 Construire ma stratégie" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
@@ -102,9 +100,7 @@ export default function InvestisseurChecklist() {
               <div>
                 <strong>Quelques points à préparer d'abord</strong>
                 <p>Vous êtes sur la bonne voie. Avant d'investir, je vous aide à consolider les critères manquants — c'est l'objet du premier rendez-vous.</p>
-                <Link href="/rendez-vous" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  📅 Préparer mon investissement
-                </Link>
+                <ContactPopup label="📅 Préparer mon investissement" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}
