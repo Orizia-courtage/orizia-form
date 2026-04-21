@@ -535,8 +535,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <h2>Prêt(e) à conserver votre bien ?</h2>
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
-              <ContactPopup label="📅 Étudier mon rachat de soulte →" className="fin-btn-primary" />
-              <ContactPopup />
+              <ContactPopup label="📅 Étudier mon rachat de soulte" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

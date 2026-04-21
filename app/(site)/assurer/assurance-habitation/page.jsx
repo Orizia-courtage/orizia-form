@@ -674,8 +674,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               à part quelques dizaines d'euros d'économies chaque mois.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Lancer mon comparatif avec Cindy" className="fin-btn-primary" />
-              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary" />
+              <ContactPopup label="✉️ Contactez-moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Les économies dépendent de votre localisation et de vos antécédents d'assurance.

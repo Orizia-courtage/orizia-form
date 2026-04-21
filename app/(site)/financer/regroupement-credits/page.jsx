@@ -533,7 +533,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 </span>
               </p>
             </div>
-            <OriziaForm />
+            <div className="f-wrap-embedded">
+              <OriziaForm />
+            </div>
           </div>
         </section>
 

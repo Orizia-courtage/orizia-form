@@ -23,7 +23,7 @@ const NAV = [
       { href: '/financer/pret-personnel',       title: 'Prêt personnel',          sub: 'Financez vos projets' },
       { href: '/financer/rachat-soulte',        title: 'Rachat de soulte',        sub: 'Divorce · Séparation · Succession' },
     ],
-    cta: { href: '/simulation', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation gratuite en quelques minutes.' },
+    cta: { href: '/financer', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation gratuite en quelques minutes.' },
   },
   {
     label: 'Assurer',
@@ -67,7 +67,7 @@ const SCROLL_HEADER_CONFIG = {
   },
 };
 
-const HIDE_SCROLL_HEADER  = ['/contact', '/rendez-vous', '/simulation'];
+const HIDE_SCROLL_HEADER  = ['/contact', '/rendez-vous'];
 const STICKY_MOBILE_PAGES = ['/rendez-vous'];
 
 const CAL_LINK   = 'cindy-urbansky/rendez-vous';

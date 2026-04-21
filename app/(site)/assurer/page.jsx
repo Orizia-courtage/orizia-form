@@ -392,8 +392,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <strong>100% gratuit.</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="📅 Auditer mes contrats avec Cindy" className="fin-btn-primary" />
-              <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" />
+              <ContactPopup label="✉️ Contactez moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS, régie par l'ACPR.

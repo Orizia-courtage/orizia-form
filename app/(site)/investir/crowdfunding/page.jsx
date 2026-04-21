@@ -848,8 +848,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Pas de discours commercial — juste une analyse honnête.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Prendre rendez-vous avec Cindy" className="fin-btn-primary" />
-              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
+              <ContactPopup label="📅 Poser une question" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 520, margin: '24px auto 0' }}>
               Investir comporte des risques de perte en capital. Les performances passées ne

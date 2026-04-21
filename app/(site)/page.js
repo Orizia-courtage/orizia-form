@@ -3,181 +3,227 @@ import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import AnimatedStats from '@/components/AnimatedStats';
 import ContactPopup from '@/components/ContactPopup';
+import HomeSituations from '@/components/HomeSituations';
+import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 
-// ── 1. MÉTADONNÉES SEO (Optimisées) ──
+// ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Orizia Courtage, courtier indépendant crédit et assurance',
+  title: 'Orizia Courtage — Courtier Indépendant Crédit, Assurance & Patrimoine | Hauts-de-France',
   description:
-    'Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Je négocie vos crédits immobiliers, optimise vos assurances et dynamise vos placements. Étude de faisabilité gratuite.',
+    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER, regroupement de crédits. +40 banques comparées. Étude gratuite.',
+  keywords: [
+    'courtier indépendant Hauts-de-France',
+    'courtier crédit immobilier Lille',
+    'assurance emprunteur loi Lemoine',
+    'SCPI investissement',
+    'PER plan épargne retraite',
+    'regroupement de crédits',
+    'Orizia Courtage',
+    'Cindy Urbansky courtier',
+  ],
   alternates: { canonical: 'https://orizia-courtage.fr' },
   openGraph: {
-    title: 'Orizia Courtage | Courtier Indépendant Crédit & Assurance',
+    title: 'Orizia Courtage — Courtier Indépendant | Crédit · Assurance · Patrimoine',
     description:
-      'Ne laissez plus les banques décider pour vous. Je défends vos intérêts pour vos crédits, assurances et investissements. Bilan patrimonial gratuit.',
+      'Je défends vos intérêts face aux banques et assureurs. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude gratuite à Marcq-en-Barœul.',
     url: 'https://orizia-courtage.fr',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/hero-orizia.jpg', // C'est fameux og:image !
+        url: 'https://orizia-courtage.fr/images/hero-orizia.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cindy Urbansky - Orizia Courtage',
+        alt: 'Cindy Urbansky, courtier indépendant — Orizia Courtage, Marcq-en-Barœul',
       },
     ],
     locale: 'fr_FR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Orizia Courtage — Courtier Indépendant',
+    description: 'Crédit, assurance, patrimoine. Je travaille pour vous, pas pour les banques.',
+    images: ['https://orizia-courtage.fr/images/hero-orizia.jpg'],
+  },
 };
 
-// ── 2. DONNÉES STRUCTURÉES (JSON-LD Optimisées E-E-A-T) ──
+// ── 2. DONNÉES STRUCTURÉES JSON-LD (E-E-A-T complet) ──
 const oriziaSchema = {
   '@context': 'https://schema.org',
   '@type': ['FinancialService', 'LocalBusiness', 'InsuranceAgency'],
+  '@id': 'https://orizia-courtage.fr/#organization',
   name: 'Orizia Courtage',
-  // legalName: 'Orizia Courtage SARL', // ⏳ À DÉCOMMENTER : Quand tu auras ta forme juridique exacte
-  alternateName: ['Orizia','Cindy Urbansky'],
+  alternateName: ['Orizia', 'Cindy Urbansky Courtier'],
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
   url: 'https://orizia-courtage.fr',
-  logo: 'https://orizia-courtage.fr/images/Orizia_logo.webp', 
-  image: 'https://orizia-courtage.fr/images/hero-orizia.jpg',
-  description: 'Cabinet de courtage indépendant géré par Cindy Urbansky. Expertise en crédit immobilier, assurances, regroupement de crédits et stratégie patrimoniale (SCPI, PER, Assurance-Vie).',
-  
-  // ── AUTORITÉ & LÉGAL (En attente d'immatriculation) ──
-  // taxID: 'TON_SIRET_ICI', // ⏳ À DÉCOMMENTER : Quand tu auras ton SIRET
-  // award: 'Immatriculée à l\'ORIAS sous le numéro TON_ORIAS_ICI', // ⏳ À DÉCOMMENTER : Quand tu auras ton ORIAS
-  
-  // ── AVIS CLIENS (En attente de récolte d'avis) ──
-  /* ⏳ À DÉCOMMENTER : Quand tu auras une fiche Google My Business avec des avis
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    bestRating: '5',
-    ratingCount: '1' 
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+    width: 160,
+    height: 75,
   },
-  */
-
-  // ── INFOS DE CONTACT ──
+  image: 'https://orizia-courtage.fr/images/hero-orizia.jpg',
+  description:
+    'Cabinet de courtage indépendant fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
   telephone: '+33777259706',
   email: 'cindy.urbansky@orizia-courtage.fr',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+33777259706',
-    contactType: 'customer service',
-    availableLanguage: ['French']
-  },
-  
-  // ── RÉSEAUX SOCIAUX ──
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+33777259706',
+      contactType: 'customer service',
+      availableLanguage: ['French'],
+      contactOption: 'TollFree',
+    },
+  ],
   sameAs: [
-    'https://www.linkedin.com/company/orizia-courtage', 
+    'https://www.linkedin.com/company/orizia-courtage',
     'https://www.facebook.com/orizia.courtage/',
     'https://www.instagram.com/orizia.courtage/',
+    'https://www.linkedin.com/in/cindy-urbansky-034323162/',
   ],
-
-  // ── L'EXPERTE (Cindy Urbansky) ──
   founder: {
     '@type': 'Person',
+    '@id': 'https://orizia-courtage.fr/qui-suis-je#cindy',
     name: 'Cindy Urbansky',
-    jobTitle: 'Courtier Indépendant en financement et assurance',
-    description: 'Experte en financement immobilier et gestion de patrimoine avec plus de 15 ans d\'expérience terrain.',
+    jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
+    description:
+      'Courtier indépendant certifié ORIAS avec plus de 15 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
     image: 'https://orizia-courtage.fr/images/photo-cindy.webp',
+    url: 'https://orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
     knowsAbout: [
-      'Courtage en Crédit Immobilier', 
-      'Assurance Emprunteur', 
-      'Loi Lemoine', 
-      'Regroupement de crédits', 
-      'SCPI de rendement', 
+      'Courtage en Crédit Immobilier',
+      'Assurance Emprunteur',
+      'Loi Lemoine',
+      'Regroupement de crédits',
+      'Rachat de soulte',
+      'SCPI de rendement',
       'Plan Épargne Retraite (PER)',
-      'Assurance Vie'
-    ]
+      'Assurance Vie',
+      'Crowdfunding immobilier',
+    ],
   },
-
-  // ── ADRESSE ET GÉOLOCALISATION ──
   address: {
     '@type': 'PostalAddress',
     streetAddress: '23 boulevard Clemenceau',
     addressLocality: 'Marcq-en-Barœul',
     postalCode: '59700',
     addressRegion: 'Hauts-de-France',
-    addressCountry: 'FR'
+    addressCountry: 'FR',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '50.66575178239067', 
-    longitude: '3.0792706233086244'
+    latitude: '50.66575178239067',
+    longitude: '3.0792706233086244',
   },
-  // hasMap: 'https://goo.gl/maps/ton-lien-google-maps', // ⏳ À DÉCOMMENTER : Dès que tu as ta fiche Google My Business
   areaServed: [
     { '@type': 'City', name: 'Marcq-en-Barœul' },
     { '@type': 'City', name: 'Lille' },
+    { '@type': 'City', name: 'Villeneuve-d\'Ascq' },
+    { '@type': 'City', name: 'Roubaix' },
+    { '@type': 'City', name: 'Tourcoing' },
     { '@type': 'State', name: 'Hauts-de-France' },
-    { '@type': 'Country', name: 'France' }
+    { '@type': 'Country', name: 'France' },
   ],
-
-  // ── HORAIRES ET PAIEMENT ──
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '09:00',
-      closes: '19:00'
+      closes: '19:00',
     },
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: 'Saturday',
       opens: '09:00',
-      closes: '13:00'
-    }
+      closes: '13:00',
+    },
   ],
-  paymentAccepted: 'Virement bancaire, Prélèvement',
+  priceRange: '€ (étude gratuite)',
   currenciesAccepted: 'EUR',
-  priceRange: '0€ pour l\'étude de faisabilité', 
-
-  // ── CATALOGUE DÉTAILLÉ DE SERVICES ──
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Piliers d\'expertise Orizia : Investir, Financer, Assurer',
+    name: 'Services Orizia Courtage',
     itemListElement: [
       {
         '@type': 'OfferCatalog',
-        name: 'Investir (Stratégie Patrimoniale)',
+        name: 'Financer',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Crowdfunding et Financement participatif' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Plan Épargne Retraite (PER / PERP)' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance Vie (Épargne & transmission)' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'SCPI (Immobilier de rendement)' } }
-        ]
+          { '@type': 'Offer', itemOffered: { '@type': 'LoanOrCredit', name: 'Crédit immobilier', loanType: 'Mortgage' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'LoanOrCredit', name: 'Regroupement de crédits', loanType: 'DebtConsolidation' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'LoanOrCredit', name: 'Prêt personnel', loanType: 'PersonalLoan' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'LoanOrCredit', name: 'Rachat de soulte', loanType: 'Mortgage' } },
+        ],
       },
       {
         '@type': 'OfferCatalog',
-        name: 'Financer (Crédits)',
+        name: 'Assurer',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Crédit immobilier' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Regroupement de crédits' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Prêt personnel' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Rachat de soulte' } }
-        ]
+          { '@type': 'Offer', itemOffered: { '@type': 'InsuranceProduct', name: 'Assurance emprunteur' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'InsuranceProduct', name: 'Assurance habitation MRH' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'InsuranceProduct', name: 'Assurance auto et moto' } },
+        ],
       },
       {
         '@type': 'OfferCatalog',
-        name: 'Assurer (Protection)',
+        name: 'Investir',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance emprunteur' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance habitation' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance auto/moto' } }
-        ]
-      }
-    ]
-  }
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'SCPI (Pierre-papier)' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Plan Épargne Retraite (PER)' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Assurance Vie' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'FinancialProduct', name: 'Crowdfunding immobilier' } },
+        ],
+      },
+    ],
+  },
 };
 
-// ... la suite de ton code (const SERVICES etc.)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Combien coûte le service d\'Orizia Courtage ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'L\'étude de faisabilité et l\'accompagnement sont 100% gratuits pour vous. Je suis rémunérée par la banque ou l\'assureur partenaire à la signature — jamais par vous.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Orizia Courtage est-il immatriculé à l\'ORIAS ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Oui, Orizia Courtage est immatriculé à l\'ORIAS et régi par l\'ACPR. Cindy Urbansky est également Présidente du conseil de surveillance de l\'AFIB (Association Française des Intermédiaires en Bancassurance).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Dans quelles zones géographiques intervenez-vous ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Basée à Marcq-en-Barœul, j\'interviens dans toute la métropole lilloise et les Hauts-de-France. Je travaille également à distance en visioconférence pour les clients partout en France.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtier indépendant, je compare 40+ banques et assureurs pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
+      },
+    },
+  ],
+};
+
 const SERVICES = [
   {
     img: '/images/investir.jpg',
     tag: 'Stratégie Patrimoniale',
     title: 'Faire fructifier votre capital, intelligemment',
-    desc: 'SCPI, assurance-vie, PER, crowdfunding… Je sélectionne pour vous les placements qui correspondent vraiment à vos objectifs — pas à ceux de ma banque.',
+    desc: 'SCPI, assurance vie, PER, crowdfunding… Je sélectionne pour vous les placements qui correspondent vraiment à vos objectifs — pas à ceux de ma banque.',
     cta: { href: '/investir', label: 'Voir les solutions' },
   },
   {
@@ -185,41 +231,32 @@ const SERVICES = [
     tag: 'Financement',
     title: 'Votre meilleur taux, négocié pour vous',
     desc: 'Crédit immobilier, regroupement de crédits, prêt personnel… Je compare plus de 40 partenaires et je défends votre dossier jusqu\'à l\'accord.',
-    cta: { href: '/financer', label: 'Simuler gratuitement' }, // Modifié pour rediriger vers le hub financer ou simulation
+    cta: { href: '/financer', label: 'Étudier mon financement' },
   },
   {
     img: '/images/assurer.jpg',
     tag: 'Protection',
     title: 'Protéger ce qui compte, au juste prix',
     desc: 'Assurance emprunteur, habitation, auto/moto… Je vous évite de payer pour des garanties inutiles et je veille à ce que vous soyez vraiment couvert.',
-    cta: { href: '/assurer', label: 'Obtenir un devis' },
+    cta: { href: '/assurer', label: 'Auditer mes contrats' },
   },
-];
-
-const STATS = [
-  { value: '500+', label: 'Dossiers accompagnés' },
-  { value: '15 ans', label: "D'expérience terrain" },
-  { value: '98%', label: 'Clients satisfaits' },
-  { value: 'ORIAS', label: 'Immatriculée & certifiée' },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* ── INJECTION DES DONNÉES STRUCTURÉES ── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(oriziaSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(oriziaSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <main>
-        {/* ── HERO ── */}
+
+        {/* ── HERO (inchangé) ── */}
         <section className="orizia-hero">
           <div className="image-column">
             <div className="column-image">
               <Image
                 src="/images/hero-orizia.jpg"
-                alt="Cindy Urbansky, courtier indépendant – Orizia Courtage"
+                alt="Cindy Urbansky, courtier indépendant – Orizia Courtage, Marcq-en-Barœul"
                 fill
                 priority
               />
@@ -233,7 +270,7 @@ export default function HomePage() {
               letterSpacing: '0.1em',
               marginBottom: 12,
             }}>
-              Courtier indépendant · Certifiée ORIAS · Hauts-de-France
+              Courtier indépendant · Certifié ORIAS · Hauts-de-France
             </p>
             <h1>
               Votre courtier indépendant,<br />
@@ -243,39 +280,22 @@ export default function HomePage() {
             <p>
               Je gère personnellement chaque dossier, du début à la fin.
               Pas de commercial intermédiaire, pas d'objectif bancaire à atteindre —
-              juste une professionnelle engagée pour défendre vos intérêts.
+              juste un professionnel engagé pour défendre vos intérêts.
             </p>
             <div className="buttons">
-              <Link href="/simulation" className="orizia-btn-main">
-                Faire une simulation gratuite
-              </Link>
-              <ContactPopup label="Échanger avec Cindy" className="orizia-btn-sec"/>
+              <ContactPopup label="📅 Prendre rendez-vous gratuitement" className="orizia-btn-main" />
+              <ContactPopup label="✉️ Échanger avec Cindy" className="orizia-btn-sec" />
             </div>
           </div>
         </section>
 
+        {/* ── STATS ANIMÉES ── */}
+        <AnimatedStats />
+
         {/* ── CITATION CINDY ── */}
-        <section style={{ padding: '80px 20px', backgroundColor: 'var(--orizia-light)' }}>
-          <div style={{
-            maxWidth: 900,
-            margin: '0 auto',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 60,
-            flexWrap: 'wrap',
-          }}>
-            {/* Photo */}
-            <div style={{
-              width: 290,
-              height: 290,
-              flexShrink: 0,
-              margin: '0 auto',
-              position: 'relative',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              border: '4px solid var(--orizia-primary)',
-              boxShadow: '0 12px 40px rgba(31,63,63,0.18)',
-            }}>
+        <section className="home-citation-section">
+          <div className="home-citation-inner">
+            <div className="home-citation-photo">
               <Image
                 src="/images/photo-cindy.webp"
                 alt="Cindy Urbansky – courtier indépendant, Orizia Courtage"
@@ -283,91 +303,58 @@ export default function HomePage() {
                 style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
               />
             </div>
-
-            {/* Citation */}
-            <div style={{ flex: 1, minWidth: 260 }}>
-              <span style={{
-                color: 'var(--orizia-primary)',
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                fontSize: '0.8rem',
-                marginBottom: 16,
-                display: 'block',
-              }}>
-                Cindy Urbansky — Fondatrice & Courtier
+            <div className="home-citation-content">
+              <span className="home-citation-role">
+                Cindy Urbansky — Fondatrice · Courtier indépendant · Présidente AFIB
               </span>
-              <blockquote style={{ margin: 0, padding: 0 }}>
-                <p style={{
-                  color: 'var(--orizia-accent)',
-                  fontSize: '1.35rem',
-                  fontWeight: 800,
-                  lineHeight: 1.5,
-                  marginTop: 0,
-                  marginBottom: 16,
-                }}>
-                  « Je ne travaille pas pour les banques. Je travaille pour vous.
-                </p>
-                <p style={{
-                  color: 'var(--orizia-dark)',
-                  fontSize: '1.05rem',
-                  fontWeight: 500,
-                  lineHeight: 1.7,
-                  margin: '0 0 24px',
-                }}>
-                  Quand vous me confiez un dossier, je cherche la solution la plus juste
-                  pour votre situation — pas la plus rapide. Je pose les vraies questions,
-                  je compare ce qui mérite d'être comparé, et je vous explique chaque choix
-                  dans un langage humain. Pas de jargon. Pas de pression. »
-                </p>
-                <ContactPopup label="Parler à Cindy gratuitement" className="orizia-btn-main" style={{ display: 'inline-block' }}/>
+              <blockquote className="home-citation-quote">
+                « Je ne travaille pas pour les banques. Je travaille pour vous. »
               </blockquote>
+              <p className="home-citation-text">
+                Quand vous me confiez un dossier, je cherche la solution la plus juste
+                pour votre situation — pas la plus rapide. Je pose les vraies questions,
+                je compare ce qui mérite d'être comparé, et je vous explique chaque choix
+                dans un langage humain. Pas de jargon. Pas de pression.
+              </p>
+              <div className="home-citation-badges">
+                {['15+ ans d\'expérience', '+40 banques comparées', 'ORIAS certifié', '100% gratuit'].map(b => (
+                  <span key={b} className="home-citation-badge">{b}</span>
+                ))}
+              </div>
+              <ContactPopup label="📅 Parler à Cindy gratuitement" className="fin-btn-primary" />
             </div>
           </div>
         </section>
 
-        {/* ── STATS ── */}
-        <AnimatedStats />
+        {/* ── VOTRE SITUATION ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Votre situation</span>
+              <h2>Quelle est votre priorité<br />du moment ?</h2>
+              <p>
+                Sélectionnez votre situation pour voir comment je peux vous aider concrètement.
+              </p>
+            </div>
+            <HomeSituations />
+          </div>
+        </section>
 
-        {/* ── SERVICES ── */}
-        <section style={{ padding: '80px 20px', backgroundColor: 'var(--orizia-light)' }}>
-          <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-            <p style={{
-              color: 'var(--orizia-primary)',
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              textAlign: 'center',
-              marginBottom: 8,
-            }}>
-              Ce que je fais concrètement pour vous
-            </p>
-            <h2 style={{
-              textAlign: 'center',
-              color: 'var(--orizia-accent)',
-              fontSize: '2.2rem',
-              fontWeight: 900,
-              marginBottom: 12,
-              marginTop: 0,
-            }}>
-              Un seul interlocuteur.<br />
-              Trois expertises à votre service.
-            </h2>
-            <p style={{
-              textAlign: 'center',
-              color: 'var(--orizia-dark)',
-              opacity: 0.7,
-              maxWidth: 600,
-              margin: '0 auto 50px',
-              lineHeight: 1.6,
-            }}>
-              Je traite personnellement chaque dossier — sans déléguer, sans intermédiaire.
-              Vous avez un numéro. Pas un service client.
-            </p>
+        {/* ── LES 3 EXPERTISES ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Mes expertises</span>
+              <h2>Un seul interlocuteur.<br />Trois expertises à votre service.</h2>
+              <p>
+                Je traite personnellement chaque dossier — sans déléguer, sans intermédiaire.
+                Vous avez un numéro direct. Pas un service client.
+              </p>
+            </div>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: 30,
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: 28,
             }}>
               {SERVICES.map(s => (
                 <ServiceCard key={s.title} {...s} />
@@ -377,131 +364,108 @@ export default function HomePage() {
         </section>
 
         {/* ── POURQUOI ORIZIA ── */}
-        <section style={{ padding: '80px 20px', backgroundColor: '#fff' }}>
-          <div className="home-why-grid" style={{
-            maxWidth: 1200, margin: '0 auto', display: 'flex', gap: 60, flexWrap: 'wrap'
-          }}>
-            <div style={{ flex: '1 1 400px' }}>
-              <p style={{
-                color: 'var(--orizia-primary)',
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: 8,
-              }}>
-                Pourquoi Orizia ?
-              </p>
-              <h2 style={{
-                color: 'var(--orizia-accent)',
-                fontSize: '2rem',
-                fontWeight: 900,
-                marginTop: 0,
-                marginBottom: 16,
-              }}>
-                Le seul courtier à qui vous<br />parlez directement
-              </h2>
-              <p style={{ color: 'var(--orizia-dark)', lineHeight: 1.7, marginBottom: 24 }}>
-                Je travaille seule. Et c'est précisément ce qui fait la différence.
-                Pas de standardiste, pas de transfert de dossier — c'est moi qui vous
-                réponds, moi qui négocie, moi qui suis votre dossier de la première
-                question à la remise des clés. Je n'ai aucun accord exclusif avec aucune
-                banque : je compare objectivement, et je ne recommande que ce qui
-                est bon pour vous.
-              </p>
-              {[
-                'Étude personnalisée et 100% gratuite',
-                'Accès à plus de 40 partenaires bancaires',
-                'Vous parlez toujours à la même personne',
-                'Indépendante : aucun lien exclusif avec les banques',
-                'Immatriculée ORIAS — réglementée et engagée',
-              ].map(item => (
-                <div key={item} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  marginBottom: 10,
-                }}>
-                  <span style={{ color: 'var(--orizia-primary)', fontSize: '1.2rem', flexShrink: 0 }}>✓</span>
-                  <span style={{ fontWeight: 600 }}>{item}</span>
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="home-why-grid">
+              <div className="home-why-text">
+                <span className="fin-badge">Pourquoi Orizia ?</span>
+                <h2 style={{ color: 'var(--orizia-accent)', fontSize: '2rem', fontWeight: 900, marginTop: 12, marginBottom: 16 }}>
+                  Le seul courtier à qui vous<br />parlez directement
+                </h2>
+                <p style={{ color: 'var(--orizia-dark)', lineHeight: 1.7, marginBottom: 24, opacity: 0.8 }}>
+                  Je travaille seule. Et c'est précisément ce qui fait la différence.
+                  Pas de standardiste, pas de transfert de dossier — c'est moi qui vous
+                  réponds, moi qui négocie, moi qui suis votre dossier de la première
+                  question à la remise des clés.
+                </p>
+                <div className="home-why-points">
+                  {[
+                    { icon: '🎯', text: 'Étude personnalisée et 100% gratuite' },
+                    { icon: '🏦', text: 'Accès à plus de 40 partenaires bancaires' },
+                    { icon: '📞', text: 'Vous parlez toujours à la même personne' },
+                    { icon: '⚖️', text: 'Aucun lien exclusif avec les banques' },
+                    { icon: '🛡️', text: 'Immatriculée ORIAS — réglementée et engagée' },
+                    { icon: '🏆', text: 'Présidente du conseil de surveillance de l\'AFIB' },
+                  ].map(item => (
+                    <div key={item.text} className="home-why-point">
+                      <span className="home-why-point-icon">{item.icon}</span>
+                      <span>{item.text}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginTop: 28 }}>
-                <ContactPopup label="Prendre rendez-vous gratuitement" className="orizia-btn-main"/>
-                <Link href="/simulation" className="orizia-btn-sec">
-                  Faire une simulation
-                </Link>
+                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 28 }}>
+                  <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary" />
+                  <Link href="/qui-suis-je" className="fin-btn-secondary">
+                    En savoir plus sur Cindy →
+                  </Link>
+                </div>
               </div>
-            </div>
 
-            <div
-              className="home-why-image"
-              style={{
-                flex: '1 1 400px',
-                position: 'relative',
-                height: 420,
-                borderRadius: 16,
-                overflow: 'hidden',
-                boxShadow: '0 12px 40px rgba(29,30,24,0.12)',
-              }}
-            >
-              <Image
-                src="/images/hero-orizia.jpg"
-                alt="Cabinet Orizia Courtage — Cindy Urbansky, courtier indépendant"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
+              <div className="home-why-image-wrap">
+                <Image
+                  src="/images/hero-orizia.jpg"
+                  alt="Cindy Urbansky, courtier indépendant — Orizia Courtage"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── RASSURANCE FINALE ── */}
-        <section style={{
-          padding: '60px 20px',
-          backgroundColor: 'var(--orizia-light)',
-          textAlign: 'center',
-        }}>
-          <div style={{ maxWidth: 700, margin: '0 auto' }}>
-            <p style={{
-              color: 'var(--orizia-primary)',
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              fontSize: '0.8rem',
-              marginBottom: 16,
-            }}>
-              Première étape
-            </p>
-            <h2 style={{
-              color: 'var(--orizia-accent)',
-              fontSize: '1.8rem',
-              fontWeight: 900,
-              marginBottom: 16,
-              lineHeight: 1.3,
-            }}>
-              Un échange de 30 minutes.<br />
-              Sans engagement. Sans jargon.
+        {/* ── TÉMOIGNAGES ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">Ils en parlent</span>
+              <h2>Ce que disent mes partenaires</h2>
+              <p>Des professionnels du secteur qui témoignent de leur expérience avec moi.</p>
+            </div>
+            <TemoignagesCarousel />
+            
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="crowd-section crowd-section--white">
+          <div className="fin-section-inner">
+            <div className="fin-section-head">
+              <span className="fin-badge">FAQ</span>
+              <h2>Les questions qu'on me pose<br />le plus souvent</h2>
+            </div>
+            <div className="crowd-faq-list" style={{ maxWidth: 760, margin: '0 auto' }}>
+              {faqSchema.mainEntity.map((f, i) => (
+                <details key={i} className="crowd-faq-item">
+                  <summary>{f.name}</summary>
+                  <p>{f.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA FINAL ── */}
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-accent)' }}>
+          <div className="fin-cta-inner">
+            <h2 style={{ color: '#fff' }}>
+              Un échange de 30 minutes.<br />Sans engagement. Sans jargon.
             </h2>
-            <p style={{
-              color: 'var(--orizia-dark)',
-              opacity: 0.7,
-              lineHeight: 1.7,
-              marginBottom: 32,
-            }}>
+            <p style={{ color: 'rgba(255,255,255,0.8)' }}>
               On commence par une conversation simple sur votre situation et vos objectifs.
               Je vous dis franchement ce qui est possible, dans quel délai et pourquoi.
               C'est gratuit. Et ça n'engage à rien.
             </p>
-            <ContactPopup label="Réserver mon créneau gratuit" className="orizia-btn-main" style={{ fontSize: '1.1rem', padding: '20px 40px' }}/>
-            <p style={{
-              marginTop: 16,
-              fontSize: '0.82rem',
-              color: 'var(--orizia-dark)',
-              opacity: 0.5,
-            }}>
-              Réponse sous 24h · Disponible en visio ou en présentiel
+            <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
+              <ContactPopup label="📅 Réserver mon créneau gratuit" className="fin-btn-primary" />
+              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }} />
+            </div>
+            <p style={{ marginTop: 16, fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)' }}>
+              Réponse sous 24h · Disponible en visio ou en présentiel · Marcq-en-Barœul
             </p>
           </div>
         </section>
+
       </main>
     </>
   );

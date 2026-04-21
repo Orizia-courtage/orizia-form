@@ -571,8 +571,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               et je vous donne une estimation claire et précise pour démarrer vos visites sereinement.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="📅 Faire un point ensemble →" className="fin-btn-primary" />
-              <ContactPopup />
+              <ContactPopup label="📅 Faire un point ensemble" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

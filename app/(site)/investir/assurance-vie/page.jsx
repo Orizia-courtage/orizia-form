@@ -764,8 +764,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               0% de frais sur versements. Entièrement gratuit pour vous.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="📅 Prendre rendez-vous avec Cindy" className="fin-btn-primary" />
-              <ContactPopup label="Poser une question" className="fin-btn-secondary" />
+              <ContactPopup label="📅 Poser une question" className="fin-btn-primary" />
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

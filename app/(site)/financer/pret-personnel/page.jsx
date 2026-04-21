@@ -554,8 +554,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               On fait le point sur votre budget, je définis l'enveloppe possible et je m'occupe d'aller chercher le meilleur TAEG du marché. Sans engagement.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="📅 Lancer mon étude →" className="fin-btn-primary" />
-              <ContactPopup />
+              <ContactPopup label="📅 Lancer mon étude" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. 

@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import PERCalculateur from '@/components/PERCalculateur';
 import PERDefinition from '@/components/PERDefinition';
@@ -858,7 +858,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white  )' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>Récupérez vos impôts<br />dès cette année</h2>
             <p>
@@ -868,7 +868,6 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Calculer mon gain fiscal avec Cindy" className="fin-btn-primary"/>
-              <ContactPopup label="Poser une question" className="fin-btn-secondary"/>
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

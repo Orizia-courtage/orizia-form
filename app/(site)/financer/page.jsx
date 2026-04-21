@@ -491,8 +491,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <strong>100% gratuit.</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="📅 Lancer mon étude gratuite" className="fin-btn-primary" />
-              <ContactPopup label="✉️ Poser une question" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }} />
+              <ContactPopup label="✉️ Poser une question" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

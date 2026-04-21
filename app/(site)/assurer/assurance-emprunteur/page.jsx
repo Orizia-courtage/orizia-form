@@ -617,8 +617,7 @@ export default function AssuranceEmprunteurPage() {
               partie administrative.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Faire mon audit avec Cindy" className="fin-btn-primary" />
-              <ContactPopup label="✉️ Lui envoyer un message" className="fin-btn-secondary" />
+              <ContactPopup label="✉️ Contactez-moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               *Les économies potentielles sont données à titre indicatif et dépendent de votre
