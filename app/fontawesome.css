@@ -1,0 +1,25 @@
+/* Font Awesome — importé uniquement dans les layouts qui en ont besoin */
+@import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
+
+/* Surcharge font-display pour éviter le blocage du rendu */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2') format('woff2');
+}

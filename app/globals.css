@@ -1,4 +1,4 @@
-/* Font Awesome chargé via layout.jsx en non-bloquant */
+/* Font Awesome chargé uniquement dans app/(form)/layout.js — pas sur le site principal */
 
 /* font-display: swap sur Font Awesome — évite le blocage FCP */
 @font-face {
@@ -10574,7 +10574,7 @@ body.contact-popup-open .cw-trigger {
 }
 .tc3-auteur-date {
   font-size: 0.68rem;
-  color: #6b7a6f;
+  color: #5a6a5e;
   margin-top: 1px;
 }
 
@@ -10612,37 +10612,40 @@ body.contact-popup-open .cw-trigger {
 .tc3-dots {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 300px;
 }
+/* Dots — bouton 24×24px pour zone tactile suffisante (WCAG 2.5.5) */
 .tc3-dot {
-  /* Zone visuelle */
-  width: 8px;
-  height: 8px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: rgba(26,61,53,0.25);
+  background: transparent;
   border: none;
   cursor: pointer;
   transition: all .2s ease;
   flex-shrink: 0;
-  /* Zone tactile agrandie à 24×24px minimum (recommandation WCAG) */
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
-.tc3-dot::before {
+/* Point visuel via ::after */
+.tc3-dot::after {
   content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
+  display: block;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
+  background: rgba(26,61,53,0.25);
+  transition: all .2s ease;
 }
-.tc3-dot--active {
+.tc3-dot--active::after {
   background: var(--orizia-primary);
-  transform: scale(1.4);
+  width: 9px;
+  height: 9px;
 }
 
 /* =========================================

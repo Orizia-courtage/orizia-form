@@ -24,8 +24,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <head>
-        {/* Préconnexion cal.eu — économise ~330ms sur mobile */}
-        <link rel="preconnect" href="https://www.cal.eu" />
+        {/* Préconnexion cal.eu — économise ~320ms sur mobile */}
+        <link rel="preconnect" href="https://www.cal.eu" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.cal.eu" />
       </head>
       <body className={dmSans.className}>
