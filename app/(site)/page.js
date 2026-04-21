@@ -30,7 +30,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/hero-orizia.jpg',
+        url: 'https://orizia-courtage.fr/images/hero-orizia.webp',
         width: 1200,
         height: 630,
         alt: 'Cindy Urbansky, courtier indépendant — Orizia Courtage, Marcq-en-Barœul',
@@ -43,7 +43,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Orizia Courtage — Courtier Indépendant',
     description: 'Crédit, assurance, patrimoine. Je travaille pour vous, pas pour les banques.',
-    images: ['https://orizia-courtage.fr/images/hero-orizia.jpg'],
+    images: ['https://orizia-courtage.fr/images/hero-orizia.webp'],
   },
 };
 
@@ -62,7 +62,7 @@ const oriziaSchema = {
     width: 160,
     height: 75,
   },
-  image: 'https://orizia-courtage.fr/images/hero-orizia.jpg',
+  image: 'https://orizia-courtage.fr/images/hero-orizia.webp',
   description:
     'Cabinet de courtage indépendant fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
   telephone: '+33777259706',
@@ -401,7 +401,7 @@ export default function HomePage() {
 
               <div className="home-why-image-wrap">
                 <Image
-                  src="/images/hero-orizia.jpg"
+                  src="/images/hero-orizia.webp"
                   alt="Cindy Urbansky, courtier indépendant — Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -444,21 +444,20 @@ export default function HomePage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-accent)' }}>
+        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
-            <h2 style={{ color: '#fff' }}>
+            <h2>
               Un échange de 30 minutes.<br />Sans engagement. Sans jargon.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p>
               On commence par une conversation simple sur votre situation et vos objectifs.
               Je vous dis franchement ce qui est possible, dans quel délai et pourquoi.
               C'est gratuit. Et ça n'engage à rien.
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="📅 Réserver mon créneau gratuit" className="fin-btn-primary" />
-              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }} />
+              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary"  />
             </div>
-            <p style={{ marginTop: 16, fontSize: '0.82rem', color: 'rgba(255,255,255,0.85)' }}>
+            <p style={{ marginTop: 16, fontSize: '0.82rem' }}>
               Réponse sous 24h · Disponible en visio ou en présentiel · Marcq-en-Barœul
             </p>
           </div>
