@@ -214,6 +214,7 @@ export default function Header() {
               height={75}
               style={{ objectFit: 'contain' }}
               priority
+              sizes="(max-width: 1024px) 120px, 160px"
             />
           </Link>
 
@@ -295,7 +296,9 @@ export default function Header() {
                   priority
                 />
               </Link>
+              <label htmlFor="mobile-nav-home" className="sr-only">Quel est votre projet ?</label>
               <select
+                id="mobile-nav-home"
                 key={pathname}
                 className="mobile-scroll-select"
                 defaultValue=""
@@ -322,7 +325,9 @@ export default function Header() {
                   priority
                 />
               </Link>
+              <label htmlFor="mobile-nav-category" className="sr-only">{scrollConfig.placeholder}</label>
               <select
+                id="mobile-nav-category"
                 key={pathname}
                 className="mobile-scroll-select"
                 defaultValue=""

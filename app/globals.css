@@ -1,5 +1,28 @@
 @import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
 
+/* Force font-display: swap sur Font Awesome pour éviter le blocage FCP */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2') format('woff2');
+}
+
 /* =========================================
    1. VARIABLES & RESET
 ========================================= */
@@ -25,6 +48,19 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Classe utilitaire pour les labels accessibles visuellement cachés */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 
 
@@ -10531,13 +10567,14 @@ body.contact-popup-open .cw-trigger {
 }
 .tc3-auteur-poste {
   font-size: 0.72rem;
-  color: rgba(26,61,53,0.45);
+  color: rgba(26,61,53,0.65);
+  font-weight: 600;
   margin-top: 2px;
   line-height: 1.3;
 }
 .tc3-auteur-date {
   font-size: 0.68rem;
-  color: rgba(26,61,53,0.3);
+  color: rgba(26,61,53,0.55);
   margin-top: 1px;
 }
 
@@ -10581,19 +10618,24 @@ body.contact-popup-open .cw-trigger {
   max-width: 300px;
 }
 .tc3-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: rgba(26,61,53,0.18);
+  background: rgba(26,61,53,0.25);
   border: none;
   cursor: pointer;
-  padding: 0;
+  /* Zone tactile agrandie via padding — recommandation Google 24×24px min */
+  padding: 8px;
+  margin: -8px;
   transition: all .2s ease;
   flex-shrink: 0;
+  /* Compenser le padding pour l'affichage visuel */
+  background-clip: content-box;
 }
 .tc3-dot--active {
   background: var(--orizia-primary);
-  transform: scale(1.5);
+  background-clip: content-box;
+  transform: scale(1.4);
 }
 
 /* =========================================

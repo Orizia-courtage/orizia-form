@@ -23,6 +23,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+      <head>
+        {/* Préconnexion cal.eu — économise ~330ms sur mobile */}
+        <link rel="preconnect" href="https://www.cal.eu" />
+        <link rel="dns-prefetch" href="https://www.cal.eu" />
+      </head>
       <body className={dmSans.className}>
         {children}
         {/* Ajout des composants Vercel ici pour qu'ils s'activent */}

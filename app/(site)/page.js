@@ -253,6 +253,9 @@ export default function HomePage() {
                 alt="Cindy Urbansky, courtier indépendant – Orizia Courtage, Marcq-en-Barœul"
                 fill
                 priority
+                fetchPriority="high"
+                sizes="100vw"
+                quality={85}
               />
             </div>
           </div>
@@ -295,6 +298,7 @@ export default function HomePage() {
                 alt="Cindy Urbansky – courtier indépendant, Orizia Courtage"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+                sizes="(max-width: 768px) 120px, 200px"
               />
             </div>
             <div className="home-citation-content">
@@ -454,7 +458,7 @@ export default function HomePage() {
               <ContactPopup label="📅 Réserver mon créneau gratuit" className="fin-btn-primary" />
               <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }} />
             </div>
-            <p style={{ marginTop: 16, fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)' }}>
+            <p style={{ marginTop: 16, fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)' }}>
               Réponse sous 24h · Disponible en visio ou en présentiel · Marcq-en-Barœul
             </p>
           </div>
