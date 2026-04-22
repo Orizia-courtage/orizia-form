@@ -196,6 +196,7 @@ export default function AssuranceEmprunteurPage() {
               fill
               priority
               quality={80}
+              sizes="100vw"
               className="hero-image"
               sizes="100vw"
             />
@@ -401,7 +402,7 @@ export default function AssuranceEmprunteurPage() {
                 width={2814}
                 height={1247}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw, 60vw"
                 loading="lazy"
               />
             </div>

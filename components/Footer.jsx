@@ -19,7 +19,8 @@ export default function Footer() {
             src="/images/Orizia_logo.webp" 
             alt="Orizia Courtage" 
             width={130} 
-            height={60} 
+            height={60}
+            sizes="130px"
             style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)', marginBottom: 16 }} 
           />
           <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: 1.6, marginBottom: 20 }}>

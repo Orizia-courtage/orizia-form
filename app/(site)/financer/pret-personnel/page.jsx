@@ -207,6 +207,7 @@ export default function PretPersonnelPage() {
               fill
               priority
               quality={75}
+              sizes="100vw"
               className="hero-image"
               sizes="100vw"
             />
