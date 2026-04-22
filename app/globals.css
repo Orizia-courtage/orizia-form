@@ -3260,6 +3260,10 @@ body.contact-popup-open .cw-trigger {
   text-decoration: none;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
   cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .contact-moyen-card:hover {
   border-color: var(--orizia-primary);
@@ -9976,6 +9980,10 @@ body.contact-popup-open .cw-trigger {
   text-decoration: none;
   color: var(--orizia-dark);
   transition: all 0.2s ease;
+  font-family: inherit;
+  text-align: left;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .contact-moyen-card:hover {
   transform: translateY(-4px);

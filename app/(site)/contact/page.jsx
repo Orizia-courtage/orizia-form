@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import ContactSujetsFilter from '@/components/ContactSujetsFilter';
 import DispoStatus from '@/components/DispoStatus';
+import ScrollButton from '@/components/ScrollButton';
 
 export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
@@ -61,7 +62,7 @@ const MOYENS = [
     title: 'Prendre rendez-vous',
     desc: 'Choisissez un créneau directement dans mon agenda. Visioconférence ou téléphone.',
     cta: 'Réserver un créneau',
-    href: '/rendez-vous',
+    href: '#calendrier',
     primary: true,
     detail: 'Réponse sous 24h garantie',
     color: 'var(--orizia-primary)',
@@ -223,27 +224,36 @@ export default function ContactPage() {
               <p>Pas de standard, pas d'attente. Vous parlez directement avec Cindy.</p>
             </div>
             <div className="contact-moyens-grid">
-              {MOYENS.map(m => (
-                <a
-                  key={m.title}
-                  href={m.href}
-                  className={`contact-moyen-card${m.primary ? ' contact-moyen-card--primary' : ''}`}
-                  style={m.primary ? {} : { borderTopColor: m.color }}
-                  {...(m.external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                >
-                  <div className="contact-moyen-icon" style={{ color: m.color, background: m.bg }}>
-                    {m.icon}
-                  </div>
-                  <h3>{m.title}</h3>
-                  <p>{m.desc}</p>
-                  <div className="contact-moyen-footer">
-                    <span className="contact-moyen-cta" style={{ color: m.color }}>
-                      {m.cta} 
-                    </span>
-                    <span className="contact-moyen-detail">{m.detail}</span>
-                  </div>
-                </a>
-              ))}
+              {MOYENS.map(m => {
+                const cardClass = `contact-moyen-card${m.primary ? ' contact-moyen-card--primary' : ''}`;
+                const cardStyle = m.primary ? {} : { borderTopColor: m.color };
+                const inner = (
+                  <>
+                    <div className="contact-moyen-icon" style={{ color: m.color, background: m.bg }}>
+                      {m.icon}
+                    </div>
+                    <h3>{m.title}</h3>
+                    <p>{m.desc}</p>
+                    <div className="contact-moyen-footer">
+                      <span className="contact-moyen-cta" style={{ color: m.color }}>{m.cta}</span>
+                      <span className="contact-moyen-detail">{m.detail}</span>
+                    </div>
+                  </>
+                );
+                if (m.href.startsWith('#')) {
+                  return (
+                    <ScrollButton key={m.title} targetId={m.href.slice(1)} className={cardClass} style={cardStyle}>
+                      {inner}
+                    </ScrollButton>
+                  );
+                }
+                return (
+                  <a key={m.title} href={m.href} className={cardClass} style={cardStyle}
+                    {...(m.external ? { target: '_blank', rel: 'noreferrer' } : {})}>
+                    {inner}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>
