@@ -254,8 +254,8 @@ export default function HomePage() {
                 fill
                 priority
                 fetchPriority="high"
-                sizes="100vw"
-                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
               />
             </div>
           </div>

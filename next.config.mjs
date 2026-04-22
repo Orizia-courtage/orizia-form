@@ -8,6 +8,11 @@ const nextConfig = {
       },
     },
   },
+  images: {
+    qualities: [75],
+    minimumCacheTTL: 31536000,
+  },
+  compress: true,
 };
 
 export default nextConfig;

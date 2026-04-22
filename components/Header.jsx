@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
@@ -88,62 +88,65 @@ export default function Header() {
   const [scrolled, setScrolled]           = useState(false);
   const [headerHidden, setHeaderHidden]   = useState(false);
   const [calReady, setCalReady]           = useState(false);
+  const calLoadingRef = useRef(false);
   const router   = useRouter();
   const pathname = usePathname();
 
-  // ── Chargement + initialisation Cal.eu ──────────────────────────────────
-  useEffect(() => {
-    const initCal = () => {
-      if (!window.Cal) return;
-      // Initialisation officielle Cal.eu
-      window.Cal('init', { origin: CAL_ORIGIN });
-      window.Cal('ui', {
-        theme: 'light',
-        styles: { branding: { brandColor: '#3a6f6c' } },
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      });
-      setCalReady(true);
-    };
-
-    // Script déjà présent (navigation client-side)
-    if (window.Cal) {
-      initCal();
-      return;
-    }
-
-    // Injection du snippet Cal.eu (méthode officielle pour SPA)
-    (function (C, A, L) {
-      const p = (a, ar) => { a.q.push(ar); };
-      const d = C.document;
-      C.Cal = C.Cal || function (...args) {
-        const cal = C.Cal;
-        if (!cal.loaded) {
-          cal.ns  = {};
-          cal.q   = cal.q || [];
-          const s = d.createElement('script');
-          s.src   = A;
-          s.async = true;
-          s.onload = initCal;
-          d.head.appendChild(s);
-          cal.loaded = true;
-        }
-        if (args[0] === L) {
-          const api = function (...a) { p(api, a); };
-          api.q = [];
-          const ns = args[1];
-          if (typeof ns === 'string') {
-            cal.ns[ns] = api;
-            p(api, args);
-            p(cal, [L, api]);
-          } else {
-            p(cal, args);
-          }
-          return;
-        }
-        p(cal, args);
+  // ── Chargement Cal.eu à la demande (lazy) ───────────────────────────────
+  const loadCal = useCallback(() => {
+    return new Promise((resolve) => {
+      if (window.Cal) { resolve(); return; }
+      if (calLoadingRef.current) {
+        // Déjà en cours de chargement — attendre
+        const wait = setInterval(() => {
+          if (window.Cal) { clearInterval(wait); resolve(); }
+        }, 50);
+        return;
+      }
+      calLoadingRef.current = true;
+      const initCal = () => {
+        window.Cal('init', { origin: CAL_ORIGIN });
+        window.Cal('ui', {
+          theme: 'light',
+          styles: { branding: { brandColor: '#3a6f6c' } },
+          hideEventTypeDetails: false,
+          layout: 'month_view',
+        });
+        setCalReady(true);
+        resolve();
       };
-    })(window, `${CAL_ORIGIN}/embed.js`, 'init');
+      (function (C, A, L) {
+        const p = (a, ar) => { a.q.push(ar); };
+        const d = C.document;
+        C.Cal = C.Cal || function (...args) {
+          const cal = C.Cal;
+          if (!cal.loaded) {
+            cal.ns  = {};
+            cal.q   = cal.q || [];
+            const s = d.createElement('script');
+            s.src   = A;
+            s.async = true;
+            s.onload = initCal;
+            d.head.appendChild(s);
+            cal.loaded = true;
+          }
+          if (args[0] === L) {
+            const api = function (...a) { p(api, a); };
+            api.q = [];
+            const ns = args[1];
+            if (typeof ns === 'string') {
+              cal.ns[ns] = api;
+              p(api, args);
+              p(cal, [L, api]);
+            } else {
+              p(cal, args);
+            }
+            return;
+          }
+          p(cal, args);
+        };
+      })(window, `${CAL_ORIGIN}/embed.js`, 'init');
+    });
   }, []);
 
   // ── Ré-init Cal à chaque changement de route (navigation client-side) ──
@@ -155,14 +158,13 @@ export default function Header() {
   }, [pathname]);
 
   // ── Ouvre la modale Cal programmatiquement ──────────────────────────────
-  const openCalModal = useCallback(() => {
-    if (window.Cal) {
-      window.Cal('modal', {
-        calLink: CAL_LINK,
-        config: { layout: 'month_view' },
-      });
-    }
-  }, []);
+  const openCalModal = useCallback(async () => {
+    await loadCal();
+    window.Cal('modal', {
+      calLink: CAL_LINK,
+      config: { layout: 'month_view' },
+    });
+  }, [loadCal]);
 
   // ── Scroll listener ─────────────────────────────────────────────────────
   useEffect(() => {
@@ -346,7 +348,6 @@ export default function Header() {
             <button
               onClick={openCalModal}
               className="mobile-sticky-btn mobile-sticky-btn--full"
-              disabled={!calReady}
             >
               📅 Prendre rendez-vous — Gratuit &amp; sans engagement
             </button>
