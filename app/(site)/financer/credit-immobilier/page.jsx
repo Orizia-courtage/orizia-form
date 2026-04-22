@@ -5,6 +5,7 @@ import CapaciteEmpruntCalc from '@/components/CapaciteEmpruntCalc';
 import CreditProjetSelector from '@/components/CreditProjetSelector';
 import CreditChecklist from '@/components/CreditChecklist';
 import ReadingProgressCredit from '@/components/ReadingProgressCredit';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -271,9 +272,9 @@ export default function CreditImmobilierPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Calculer ma capacité d'emprunt" className="fin-btn-primary" />
-              <Link href="#section-projets" className="fin-btn-secondary">
+              <ScrollButton targetId="section-projets" className="fin-btn-secondary">
                 🔍 Voir selon mon projet
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
               <span>✅ +40 banques interrogées</span>

@@ -4,6 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import ReadingProgressRachatSoulte from '@/components/ReadingProgressRachatSoulte';
 import SimulateurSoulte from '@/components/SimulateurSoulte';
 import RachatSoulteChecklist from '@/components/RachatSoulteChecklist';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -216,9 +217,9 @@ export default function RachatSoultePage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary" />
-              <Link href="#section-simulateur" className="fin-btn-secondary">
+              <ScrollButton targetId="section-simulateur" className="fin-btn-secondary">
                 🧮 Calculer ma soulte
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
               <span>✅ +40 banques comparées</span>

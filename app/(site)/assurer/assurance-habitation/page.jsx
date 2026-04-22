@@ -5,6 +5,7 @@ import GarantiesCarousel from '@/components/GarantiesCarousel';
 import ProfilHabitationSelector from '@/components/ProfilHabitationSelector';
 import HabitationChecklist from '@/components/HabitationChecklist';
 import ReadingProgressHabitation from '@/components/ReadingProgressHabitation';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -306,9 +307,9 @@ export default function AssuranceHabitationPage() {
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="📅 Lancer mon comparatif gratuit" className="fin-btn-primary" />
-              <Link href="#section-profils" className="fin-btn-secondary">
+              <ScrollButton targetId="section-profils" className="fin-btn-secondary">
                 🔍 Voir selon mon profil
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust">
               <span>✅ Loi Hamon : je résilie à votre place</span>

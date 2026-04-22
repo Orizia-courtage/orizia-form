@@ -8,6 +8,7 @@ import PERProfilSelector from '@/components/PERProfilSelector';
 import PERChecklist from '@/components/PERChecklist';
 import ReadingProgressPER from '@/components/ReadingProgressPER';
 import ContactPopup from '@/components/ContactPopup';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
@@ -362,9 +363,9 @@ export default function PERPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Calculer mon gain fiscal" className="fin-btn-primary"/>
-              <Link href="#section-fiscalite" className="fin-btn-secondary">
+              <ScrollButton targetId="section-fiscalite" className="fin-btn-secondary">
                 🧮 Voir les exemples chiffrés
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
               <span>✅ 0% de frais sur versements</span>

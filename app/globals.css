@@ -1192,6 +1192,11 @@ body.contact-popup-open .cw-trigger {
   text-decoration: none;
   border: 2px solid var(--orizia-gold);
   transition: all 0.25s ease;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: normal;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .fin-btn-secondary:hover {
   background: var(--orizia-accent);
@@ -9089,8 +9094,17 @@ body.contact-popup-open .cw-trigger {
   transition: color 0.2s;
   border-bottom: 1px solid rgba(45,106,95,0.3);
   padding-bottom: 2px;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: normal;
+  -webkit-appearance: none;
+  appearance: none;
 }
-.inv-hero-cta-ghost:hover { color: var(--orizia-accent); border-color: var(--orizia-accent); }
+.inv-hero-cta-ghost:hover { color: var(--orizia-accent); border-bottom-color: var(--orizia-accent); }
 
 .inv-hero-trust {
   display: flex;

@@ -5,6 +5,7 @@ import AssuranceEmprunteurCalc from '@/components/AssuranceEmprunteurCalc';
 import LemoineQuiz from '@/components/LemoineQuiz';
 import EmprunteurChecklist from '@/components/EmprunteurChecklist';
 import ReadingProgressEmprunteur from '@/components/ReadingProgressEmprunteur';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -227,9 +228,9 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-hero-btns">
               <ContactPopup label="📅 Calculer mon économie avec Cindy" className="fin-btn-primary" />
-              <Link href="#section-calculateur" className="fin-btn-secondary">
+              <ScrollButton targetId="section-calculateur" className="fin-btn-secondary">
                 💰 Voir les vrais chiffres
-              </Link>
+              </ScrollButton>
             </div>
 
             <div className="ae-hero-trust">

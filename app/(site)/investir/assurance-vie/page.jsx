@@ -8,6 +8,7 @@ import ReadingProgressAV from '@/components/ReadingProgressAV';
 import AVProfilSelector from '@/components/AVProfilSelector';
 import AVRisqueJauge from '@/components/AVRisqueJauge';
 import AVvsLivret from '@/components/AVvsLivret';
+import ScrollButton from '@/components/ScrollButton';
 
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
@@ -332,9 +333,9 @@ export default function AssuranceViePage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Auditer mon contrat gratuitement" className="fin-btn-primary" />
-              <Link href="#section-accompagnement" className="fin-btn-secondary">
+              <ScrollButton targetId="section-accompagnement" className="fin-btn-secondary">
                 🔍 Découvrir mon approche
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
               <span>✅ 0% de frais sur versements</span>

@@ -6,6 +6,7 @@ import AutoFormuleSelector from '@/components/AutoFormuleSelector';
 import AutoProfilSelector from '@/components/AutoProfilSelector';
 import AutoChecklist from '@/components/AutoChecklist';
 import ReadingProgressAutoMoto from '@/components/ReadingProgressAutoMoto';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -237,9 +238,9 @@ export default function AssuranceAutoMotoPage() {
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="📅 Faire un bilan gratuit avec Cindy" className="fin-btn-primary" />
-              <Link href="#section-formules" className="fin-btn-secondary">
+              <ScrollButton targetId="section-formules" className="fin-btn-secondary">
                 🔍 Voir les formules
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust">
               <span>✅ Loi Hamon : je m'occupe de résilier</span>

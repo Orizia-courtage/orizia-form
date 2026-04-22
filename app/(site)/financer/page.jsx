@@ -5,6 +5,7 @@ import AnimatedStats from '@/components/AnimatedStats';
 import FinancerQuiz from '@/components/FinancerQuiz';
 import FinancerProduitsGrid from '@/components/FinancerProduitsGrid';
 import ReadingProgressFinancer from '@/components/ReadingProgressFinancer';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -233,9 +234,9 @@ export default function FinancerPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <ContactPopup label="📅 Étude gratuite avec Cindy" className="fin-btn-primary inv-hero-cta-main" />
-                  <Link href="#produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
+                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Voir mes solutions ↓
-                  </Link>
+                  </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>

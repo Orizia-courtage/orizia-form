@@ -4,6 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import ReadingProgressPretPersonnel from '@/components/ReadingProgressPretPersonnel';
 import PretProjetSelector from '@/components/PretProjetSelector';
 import PretPersonnelChecklist from '@/components/PretPersonnelChecklist';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -227,9 +228,9 @@ export default function PretPersonnelPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Faire une simulation avec Cindy" className="fin-btn-primary" />
-              <Link href="#section-projets" className="fin-btn-secondary">
+              <ScrollButton targetId="section-projets" className="fin-btn-secondary">
                 🔍 Voir les types de prêts
-              </Link>
+              </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
               <span>✅ Accompagnement 100% gratuit</span>

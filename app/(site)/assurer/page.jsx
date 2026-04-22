@@ -5,6 +5,7 @@ import AnimatedStats from '@/components/AnimatedStats';
 import AssurerQuiz from '@/components/AssurerQuiz';
 import AssurerProduitsGrid from '@/components/AssurerProduitsGrid';
 import ReadingProgressAssurer from '@/components/ReadingProgressAssurer';
+import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -188,9 +189,9 @@ export default function AssurerPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <ContactPopup label="📅 Auditer mes contrats gratuitement" className="fin-btn-primary inv-hero-cta-main" />
-                  <Link href="#produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
+                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Voir mes solutions ↓
-                  </Link>
+                  </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
