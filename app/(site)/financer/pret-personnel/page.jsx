@@ -8,12 +8,12 @@ import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
+  title: 'Prêt Personnel 2026 : Comparez les taux | Orizia Courtage',
   description:
-    'Ne financez plus les marges des banques. Cindy Urbansky compare et négocie votre prêt personnel au meilleur TAEG dans les Hauts-de-France. Étude gratuite.',
+    'Ne financez plus les marges des banques. Cindy Urbansky compare et négocie votre prêt personnel au meilleur TAEG dans les Hauts-de-France. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/pret-personnel' },
   openGraph: {
-    title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
+    title: 'Prêt Personnel 2026 : Comparez les taux | Orizia Courtage',
     description: 'Auto, travaux ou trésorerie : obtenez les fonds nécessaires à vos projets sans vous ruiner. Je négocie votre crédit au meilleur TAEG dans les Hauts-de-France.',
     url: 'https://www.orizia-courtage.fr/financer/pret-personnel',
     siteName: 'Orizia Courtage',
@@ -62,7 +62,7 @@ const pretPersonnelSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude et accompagnement 100% gratuits (rémunération par l\'organisme prêteur partenaire).',
+        description: 'Étude et accompagnement sans frais de dossiers (rémunération par l\'organisme prêteur partenaire).',
       },
     },
   ],
@@ -171,7 +171,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Est-ce que vos services vont me coûter cher ? »',
-    r: 'Zéro. Pour les prêts personnels, je suis rémunérée directement par l\'établissement bancaire partenaire chez qui nous signons le prêt. Mon accompagnement est 100% gratuit pour vous.',
+    r: 'Zéro. Pour les prêts personnels, je suis rémunérée directement par l\'établissement bancaire partenaire chez qui nous signons le prêt. Mon accompagnement est sans frais de dossier pour vous.',
   },
   {
     q: '« J\'ai déjà plusieurs petits crédits en cours... »',
@@ -234,7 +234,7 @@ export default function PretPersonnelPage() {
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Accompagnement 100% gratuit</span>
+              <span>✅ Accompagnement sans frais de dossier</span>
               <span>🛡️ Zéro crédit toxique (renouvelable)</span>
               <span>⚡ Réponse de principe sous 48h</span>
             </div>
@@ -423,10 +423,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 />
               </div>
             </div>
-            <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+            <div className="av-sans frais de dossier-bloc">
+              <div className="av-sans frais de dossier-icon">🤝</div>
               <div>
-                <strong>Un accompagnement expert, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement expert, sans frais de dossier</strong>
                 <p>
                   Pour les crédits à la consommation, je suis rémunérée directement par l'organisme prêteur sous forme de commission d'apporteur d'affaires. Mon travail de recherche et de négociation ne vous coûte absolument rien.
                 </p>
@@ -560,6 +560,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. 
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>

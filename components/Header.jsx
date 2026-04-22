@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,7 +23,7 @@ const NAV = [
       { href: '/financer/pret-personnel',       title: 'Prêt personnel',          sub: 'Financez vos projets' },
       { href: '/financer/rachat-soulte',        title: 'Rachat de soulte',        sub: 'Divorce · Séparation · Succession' },
     ],
-    cta: { href: '/financer', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation gratuite en quelques minutes.' },
+    cta: { href: '/financer', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation sans engagement en quelques minutes.' },
   },
   {
     label: 'Assurer',
@@ -349,7 +349,7 @@ export default function Header() {
               onClick={openCalModal}
               className="mobile-sticky-btn mobile-sticky-btn--full"
             >
-              📅 Prendre rendez-vous — Gratuit &amp; sans engagement
+              📅 Prendre rendez-vous — Sans frais de dossier
             </button>
           )}
 
@@ -409,7 +409,7 @@ export default function Header() {
               onClick={() => { setDrawerOpen(false); openCalModal(); }}
               className="mobile-btn-rdv"
             >
-              Prendre rendez-vous — Gratuit &amp; sans engagement
+              Prendre rendez-vous — Sans frais de dossier
             </button>
           </div>
         </div>

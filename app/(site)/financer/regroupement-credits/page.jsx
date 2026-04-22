@@ -11,11 +11,11 @@ import ContactPopup from '@/components/ContactPopup';
 export const metadata = {
   title: 'Regroupement de Crédits 2026 : −60% mensualités | Orizia',
   description:
-    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant. Étude gratuite, réponse sous 24h.',
+    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant. Étude de faisabilité, réponse sous 24h.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',
-    description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier gratuitement et vous propose la solution adaptée à votre profil.',
+    description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier sans frais de dossier et vous propose la solution adaptée à votre profil.',
     url: 'https://www.orizia-courtage.fr/financer/regroupement-credits',
     siteName: 'Orizia Courtage',
     images: [
@@ -70,7 +70,7 @@ const regroupementSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de dossier gratuite et sans engagement.',
+        description: 'Étude de dossier sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -122,10 +122,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'L\'étude est-elle gratuite et sans engagement ?',
+      name: 'L\'étude est-elle sans frais de dossier et sans engagement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, l\'étude est gratuite et sans engagement. Aucun frais n\'est demandé avant la mise en place effective du regroupement.',
+        text: 'Oui, l\'étude est sans frais de dossier et sans engagement. Aucun frais n\'est demandé avant la mise en place effective du regroupement.',
       },
     },
   ],
@@ -134,7 +134,7 @@ const faqSchema = {
 const CHIFFRES = [
   { value: '-60%', label: 'de réduction de mensualités possible', icon: '📉' },
   { value: '24h', label: 'pour une première réponse de principe', icon: '⚡' },
-  { value: '100%', label: 'gratuit & sans engagement', icon: '🤝' },
+  { value: '100%', label: 'sans frais · sans engagement', icon: '🤝' },
   { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: '🔍' },
 ];
 
@@ -242,24 +242,24 @@ export default function RegroupementCreditsPage() {
               {' › '}
               <span>Regroupement de crédits</span>
             </nav>
-            <span className="fin-badge">💡 Étude gratuite · Réponse sous 24h</span>
+            <span className="fin-badge">💡 Étude de faisabilité · Réponse sous 24h</span>
             <h1 className="ae-hero-title">Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à −60%</h1>
             <p className="ae-hero-intro">
               Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
               Le regroupement de crédits réunit tous vos emprunts en <strong>un seul</strong>,
               avec une mensualité unique et allégée. J'étudie votre
-              dossier <strong>gratuitement</strong> et sans engagement.
+              dossier <strong>sans frais de dossier</strong> et sans engagement.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer mon étude gratuite
+                🔍 Démarrer mon étude
               </a>
               <a href="#section-comprendre" className="fin-btn-secondary">
                 Comment ça marche ?
               </a>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ 100% gratuit & sans engagement</span>
+              <span>✅ Sans frais de dossier · Sans engagement</span>
               <span>⚡ Réponse sous 24h</span>
               <span>🔒 Données sécurisées</span>
             </div>
@@ -640,11 +640,13 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🔍 Démarrer mon étude gratuite
+                🔍 Démarrer mon étude
               </a>
               <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
+              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
               Une simulation complète vous sera fournie avant toute décision.
               Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).

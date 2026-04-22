@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -37,7 +37,7 @@ const RISQUES = [
     sans: 75,
     avec: 5,
     desc_sans: 'Un PER bancaire avec 3% de frais sur versements sur 25 ans peut vous coûter 30 000€ de performance nette. La déduction fiscale attire l\'œil — les frais la rongent discrètement.',
-    desc_avec: 'Mes contrats partenaires appliquent 0% de frais sur versements. Sur 25 ans, la différence est considérable — et c\'est gratuit pour vous.',
+    desc_avec: 'Mes contrats partenaires appliquent 0% de frais sur versements. Sur 25 ans, la différence est considérable — et c\'est sans frais de dossier pour vous.',
   },
 ];
 

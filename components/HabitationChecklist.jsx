@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
@@ -121,7 +121,7 @@ export default function HabitationChecklist() {
                   En 20 minutes, je passe votre contrat en revue et vous dis exactement
                   ce qui doit changer.
                 </p>
-                <ContactPopup label="📅 Analyser mon contrat gratuitement" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="📅 Analyser mon contrat" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (

@@ -9,11 +9,11 @@ import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
-  description: 'Achat, construction ou investissement locatif. Je négocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Étude gratuite.',
+  title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
+  description: 'Achat, construction ou investissement locatif. Je négocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
   openGraph: {
-    title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
+    title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
     description: 'Ne vous épuisez pas à faire le tour des banques. Je négocie votre crédit immobilier et votre assurance de prêt pour faire baisser le coût total de votre achat.',
     url: 'https://www.orizia-courtage.fr/financer/credit-immobilier',
     siteName: 'Orizia Courtage',
@@ -62,7 +62,7 @@ const creditImmobilierSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de faisabilité gratuite et sans engagement.',
+        description: 'Étude de faisabilité sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -109,7 +109,7 @@ const faqSchema = {
       name: 'Combien coûte votre accompagnement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Ils sont largement amortis par les économies réalisées sur le taux et l\'assurance. Un premier bilan de faisabilité est 100% gratuit et sans engagement.',
+        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Ils sont largement amortis par les économies réalisées sur le taux et l\'assurance. Un premier bilan de faisabilité est sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -577,8 +577,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
-              L'étude est gratuite et sans engagement.
+              L'étude est sans frais de dossier et sans engagement.
             </p>
           </div>
         </section>

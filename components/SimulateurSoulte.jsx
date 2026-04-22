@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
@@ -181,7 +181,7 @@ export default function SimulateurSoulte() {
           <div className="ss-result-footer">
             <div className="ss-result-disclaimer">
               <span className="ss-result-disclaimer-icon">ℹ️</span>
-              <p>Estimation indicative. Je vérifie la faisabilité complète de votre financement gratuitement et sans engagement.</p>
+              <p>Estimation indicative. Je vérifie la faisabilité complète de votre financement sans frais de dossier et sans engagement.</p>
             </div>
             <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary ss-result-cta" />
           </div>

@@ -66,7 +66,7 @@ export default function ConfidentialitePage() {
         </h2>
         <p>Je ne vous demande jamais d'informations inutiles. Vos données servent exclusivement à :</p>
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
-          <li style={{ marginBottom: '8px' }}>Réaliser des simulations gratuites (capacité d'emprunt, économies d'assurance).</li>
+          <li style={{ marginBottom: '8px' }}>Réaliser des simulations (capacité d'emprunt, économies d'assurance).</li>
           <li style={{ marginBottom: '8px' }}>Interroger mes partenaires bancaires et assureurs pour vous obtenir les meilleurs taux.</li>
           <li style={{ marginBottom: '8px' }}>Monter votre dossier de financement ou de souscription.</li>
           <li style={{ marginBottom: '8px' }}>Répondre à mes obligations légales et réglementaires (lutte contre le blanchiment, devoir de conseil ACPR).</li>

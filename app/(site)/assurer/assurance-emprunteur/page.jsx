@@ -64,7 +64,7 @@ const assuranceEmprunteurSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Étude de faisabilité et gestion administrative de la résiliation 100% gratuites pour l'emprunteur.",
+          "Étude de faisabilité et gestion administrative de la résiliation sans frais de dossieres pour l'emprunteur.",
       },
     },
   ],
@@ -119,7 +119,7 @@ const faqSchema = {
       name: "Pourquoi faire appel à vous plutôt que de chercher moi-même ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d'achat sans la charge mentale. Mon service est gratuit pour vous, je suis rémunérée par l'assureur.",
+        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d'achat sans la charge mentale. Mon service est sans frais de dossier pour vous, je suis rémunérée par l'assureur.",
       },
     },
   ],
@@ -236,7 +236,7 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-hero-trust">
               <span>✅ Loi Lemoine : je résilie quand je veux</span>
-              <span>🤝 Service 100% délégué et gratuit</span>
+              <span>🤝 Service 100% délégué, sans frais de dossier</span>
               <span>⚡ Mêmes garanties, prix divisé par 2</span>
             </div>
           </div>
@@ -514,10 +514,10 @@ export default function AssuranceEmprunteurPage() {
               </div>
             </div>
 
-            <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
-              <div className="av-gratuit-icon">🤝</div>
+            <div className="av-sans frais de dossier-bloc" style={{ marginTop: '40px' }}>
+              <div className="av-sans frais de dossier-icon">🤝</div>
               <div>
-                <strong>Et le plus beau : c'est 100% gratuit pour vous.</strong>
+                <strong>Et le plus beau : c'est sans frais de dossier pour vous.</strong>
                 <p>
                   Je suis rémunérée par la compagnie d'assurance partenaire, de manière totalement
                   transparente. Vous profitez d'une experte dédiée pour affronter votre banque, sans
@@ -614,7 +614,7 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-cta-inner">
             <h2>Ne laissez plus la banque<br />décider pour vous</h2>
             <p>
-              Je calcule gratuitement votre économie potentielle, je trouve le contrat qui matche
+              Je calcule votre économie potentielle, je trouve le contrat qui matche
               parfaitement avec les exigences de votre banque, et je prends le relais sur toute la
               partie administrative.
             </p>

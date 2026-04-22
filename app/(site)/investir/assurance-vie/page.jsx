@@ -17,7 +17,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
-    description: 'Je sélectionne pour vous le meilleur contrat d\'assurance vie. 0% de frais sur versements, contrats haut de gamme, accompagnement personnalisé. Gratuit et indépendant.',
+    description: 'Je sélectionne pour vous le meilleur contrat d\'assurance vie. 0% de frais sur versements, contrats haut de gamme, accompagnement personnalisé. Indépendant et sans frais de dossier.',
     url: 'https://www.orizia-courtage.fr/investir/assurance-vie',
     siteName: 'Orizia Courtage',
     images: [
@@ -65,7 +65,7 @@ const assuranceVieSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Audit, conseil et accompagnement 100% gratuits pour le client (rémunération par les assureurs partenaires).',
+        description: 'Audit, conseil et accompagnement sans frais de dossier pour le client (rémunération par les assureurs partenaires).',
       },
     },
   ],
@@ -128,7 +128,7 @@ const faqSchema = {
       name: 'Combien de temps dure un rendez-vous avec Cindy Urbansky ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le premier rendez-vous dure environ 45 minutes, en visioconférence ou par téléphone. J\'analyse votre situation patrimoniale, vos objectifs et votre profil de risque. Sous 48h, vous recevez une recommandation personnalisée avec les contrats sélectionnés et l\'allocation conseillée. L\'accompagnement est 100% gratuit.',
+        text: 'Le premier rendez-vous dure environ 45 minutes, en visioconférence ou par téléphone. J\'analyse votre situation patrimoniale, vos objectifs et votre profil de risque. Sous 48h, vous recevez une recommandation personnalisée avec les contrats sélectionnés et l\'allocation conseillée. L\'accompagnement est sans frais de dossier.',
       },
     },
   ],
@@ -226,7 +226,7 @@ const ETAPES = [
   {
     n: '03',
     title: 'Je construis votre allocation',
-    text: 'Fonds euros, UC obligataires, actions, SCPI, ETF — je construis une allocation personnalisée à votre profil de risque, révisée chaque année lors d\'un bilan annuel gratuit.',
+    text: 'Fonds euros, UC obligataires, actions, SCPI, ETF — je construis une allocation personnalisée à votre profil de risque, révisée chaque année lors d\'un bilan annuel inclus.',
   },
   {
     n: '04',
@@ -280,7 +280,7 @@ const OBJECTIONS = [
     r: 'Je calibre l\'allocation à votre profil réel, pas à un profil théorique. Un profil prudent peut rester à 80–100% sur le fonds en euros, capital garanti. Vous ne prenez jamais plus de risque que ce que vous avez explicitement validé.',
   },
   {
-    q: '« Est-ce vraiment gratuit ? »',
+    q: '« Y a-t-il des frais de dossier ? »',
     r: 'Totalement. Je suis rémunérée par l\'assureur partenaire sous forme de commission de distribution, incluse dans le contrat. Ce mécanisme est encadré par la réglementation DDA et vous est communiqué de manière transparente dès notre premier échange.',
   },
 ];
@@ -330,10 +330,10 @@ export default function AssuranceViePage() {
               trop de frais pour des performances insuffisantes. Je sélectionne pour vous
               les meilleurs contrats du marché, construis l'allocation adaptée à votre profil
               et rédige votre clause bénéficiaire sur-mesure.{' '}
-              <strong>Gratuitement.</strong>
+              <strong>Sans frais de dossier.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="📅 Auditer mon contrat gratuitement" className="fin-btn-primary" />
+              <ContactPopup label="📅 Auditer mon contrat" className="fin-btn-primary" />
               <ScrollButton targetId="section-accompagnement" className="fin-btn-secondary">
                 🔍 Découvrir mon approche
               </ScrollButton>
@@ -431,10 +431,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 J'accède aux meilleurs contrats du marché avec 0% de frais sur versements.
               </p>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
-                Un audit gratuit de votre contrat actuel vous montre concrètement
+                Un audit de votre contrat actuel vous montre concrètement
                 ce que vous perdez chaque année.
               </p>
-              <ContactPopup label="📅 Auditer mon contrat gratuitement" className="fin-btn-primary" />
+              <ContactPopup label="📅 Auditer mon contrat" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -589,10 +589,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 />
               </div>
             </div>
-            <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+            <div className="av-sans frais de dossier-bloc">
+              <div className="av-sans frais de dossier-icon">🤝</div>
               <div>
-                <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p>
                   Je suis rémunérée par l'assureur partenaire sous forme de commission
                   de distribution, incluse dans le contrat et encadrée par la réglementation
@@ -763,7 +763,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               J'audite votre contrat actuel, sélectionne le meilleur contrat du marché
               selon votre profil et vous accompagne de la souscription au suivi annuel.
-              0% de frais sur versements. Entièrement gratuit pour vous.
+              0% de frais sur versements. Rémunération par les partenaires.
             </p>
             <div className="fin-hero-btns">
               <ContactPopup label="📅 Poser une question" className="fin-btn-primary" />

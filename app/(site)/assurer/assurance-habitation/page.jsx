@@ -11,11 +11,11 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
   description:
-    'Hausse des tarifs habitation en 2026. Cindy Urbansky compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon. Gratuit.',
+    'Hausse des tarifs habitation en 2026. Cindy Urbansky compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon. Sans frais de dossier.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
     title: 'Assurance Habitation 2026 : Baissez la facture | Orizia Courtage',
-    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat via la loi Hamon, sans coupure. Gratuit et indépendant.',
+    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat via la loi Hamon, sans coupure. Indépendant, sans frais de dossier.',
     url: 'https://www.orizia-courtage.fr/assurer/assurance-habitation',
     siteName: 'Orizia Courtage',
     images: [
@@ -64,7 +64,7 @@ const assuranceHabitationSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l\'assuré.',
+        description: 'Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation sans frais de dossieres pour l\'assuré.',
       },
     },
   ],
@@ -111,7 +111,7 @@ const faqSchema = {
       name: "Pourquoi passer par une courtier indépendant ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, gratuitement pour vous.",
+        text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, sans frais de dossier pour vous.",
       },
     },
   ],
@@ -307,7 +307,7 @@ export default function AssuranceHabitationPage() {
               avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Lancer mon comparatif gratuit" className="fin-btn-primary" />
+              <ContactPopup label="📅 Lancer mon comparatif" className="fin-btn-primary" />
               <ScrollButton targetId="section-profils" className="fin-btn-secondary">
                 🔍 Voir selon mon profil
               </ScrollButton>
@@ -470,10 +470,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
             </div>
 
-            <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
-              <div className="av-gratuit-icon">🤝</div>
+            <div className="av-sans frais de dossier-bloc" style={{ marginTop: '40px' }}>
+              <div className="av-sans frais de dossier-icon">🤝</div>
               <div>
-                <strong>Un accompagnement expert, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement expert, sans frais de dossier</strong>
                 <p>
                   Je suis rémunérée directement par l'assureur que nous choisissons ensemble. 
                   Vous ne payez pas de frais de dossier, vous ne payez pas plus cher votre cotisation, 

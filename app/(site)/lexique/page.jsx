@@ -69,7 +69,7 @@ const CATEGORIES = [
       { terme: 'Crédit renouvelable (revolving)', def: "Réserve d'argent disponible en permanence avec des taux pouvant frôler l'usure (jusqu'à 21 %). À éviter absolument : je vous oriente toujours vers un prêt amortissable classique avec une date de fin précise." },
       { terme: 'FICP', def: "Fichier des Incidents de remboursement des Crédits aux Particuliers. Un fichage FICP bloque la quasi-totalité des demandes de crédit. Il est géré par la Banque de France et dure 5 à 7 ans selon le type d'incident." },
       { terme: 'FCC', def: "Fichier Central des Chèques. Recense les incidents de paiement par chèque. Comme le FICP, il peut bloquer l'accès au crédit et dure 5 ans." },
-      { terme: 'Courtier en crédit (COBSP)', def: "Intermédiaire en Opérations de Banque et Services de Paiement. Il compare les offres de plusieurs banques pour obtenir les meilleures conditions pour son client. Sa rémunération est prise en charge par la banque partenaire — gratuit pour vous." },
+      { terme: 'Courtier en crédit (COBSP)', def: "Intermédiaire en Opérations de Banque et Services de Paiement. Il compare les offres de plusieurs banques pour obtenir les meilleures conditions pour son client. Sa rémunération est prise en charge par la banque partenaire — sans frais de dossier pour vous." },
       { terme: 'Attestation de faisabilité', def: "Document délivré par le courtier attestant que votre dossier est finançable. Il rassure les vendeurs lors d'une offre d'achat et vous permet de visiter sereinement avec une enveloppe précise." },
     ],
   },
@@ -233,7 +233,7 @@ export default function LexiquePage() {
           <div className="fin-cta-inner">
             <h2 style={{ color: '#fff' }}>Un terme vous échappe encore ?</h2>
             <p style={{ color: 'rgba(255,255,255,0.8)' }}>
-              Je vous explique tout sans jargon, lors d'un premier échange gratuit.
+              Je vous explique tout sans jargon, lors d'un premier échange sans engagement.
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <ContactPopup label="📅 Poser une question à Cindy" className="fin-btn-primary" />

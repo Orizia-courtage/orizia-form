@@ -5,12 +5,12 @@ import DispoStatus from '@/components/DispoStatus';
 import ScrollButton from '@/components/ScrollButton';
 
 export const metadata = {
-  title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
+  title: 'Contacter Orizia Courtage — Conseil sans frais de dossier & personnalisé',
   description:
-    'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit, assurance, investissement — rendez-vous gratuit, réponse sous 24h.',
+    'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit, assurance, investissement — rendez-vous sans frais de dossier, réponse sous 24h.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/contact' },
   openGraph: {
-    title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
+    title: 'Contacter Orizia Courtage — Conseil sans frais de dossier & personnalisé',
     description: 'Prenez rendez-vous en quelques clics. Cindy vous répond sous 24h par le canal de votre choix.',
     url: 'https://www.orizia-courtage.fr/contact',
     siteName: 'Orizia Courtage',
@@ -106,7 +106,7 @@ const MOYENS = [
 
 const FAQ_CONTACT = [
   {
-    q: 'Le premier rendez-vous est-il vraiment gratuit ?',
+    q: 'Y a-t-il des frais pour le premier rendez-vous ?',
     r: 'Oui, sans exception. Le premier rendez-vous est un échange de découverte, sans engagement. Orizia Courtage est rémunéré par les établissements partenaires uniquement si un dossier aboutit à une souscription. Vous ne payez jamais de frais de conseil.',
   },
   {
@@ -156,13 +156,13 @@ export default function ContactPage() {
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, assurance, investissement — Cindy analyse votre situation
                   et vous propose une solution adaptée. Premier rendez-vous{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>gratuit et sans engagement</strong>,
+                  <strong style={{ color: 'var(--orizia-accent)' }}>sans frais de dossier, sans engagement</strong>,
                   100% en visioconférence.
                 </p>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)', paddingTop: 20, marginTop: 8 }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    100% gratuit & sans engagement
+                    Sans frais de dossier · Sans engagement
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
@@ -317,7 +317,7 @@ export default function ContactPage() {
               <div className="contact-cal-item">
                 <span>🎁</span>
                 <div>
-                  <strong>100% gratuit</strong>
+                  <strong>sans frais de dossier</strong>
                   <span>Aucune obligation de suite</span>
                 </div>
               </div>

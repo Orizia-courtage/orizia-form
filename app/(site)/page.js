@@ -10,7 +10,7 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 export const metadata = {
   title: 'Orizia Courtage — Courtier Indépendant | Hauts-de-France',
   description:
-    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude gratuite.',
+    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude de faisabilité.',
   keywords: [
     'courtier indépendant Hauts-de-France',
     'courtier crédit immobilier Lille',
@@ -25,7 +25,7 @@ export const metadata = {
   openGraph: {
     title: 'Orizia Courtage — Courtier Indépendant | Crédit · Assurance · Patrimoine',
     description:
-      'Je défends vos intérêts face aux banques et assureurs. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude gratuite à Marcq-en-Barœul.',
+      'Je défends vos intérêts face aux banques et assureurs. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude de faisabilité à Marcq-en-Barœul.',
     url: 'https://www.orizia-courtage.fr',
     siteName: 'Orizia Courtage',
     images: [
@@ -134,7 +134,7 @@ const oriziaSchema = {
       closes: '18:00',
     },
   ],
-  priceRange: '€ (étude gratuite)',
+  priceRange: '€ (sans frais de dossier)',
   currenciesAccepted: 'EUR',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -182,7 +182,7 @@ const faqSchema = {
       name: 'Combien coûte le service d\'Orizia Courtage ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'L\'étude de faisabilité et l\'accompagnement sont 100% gratuits pour vous. Je suis rémunérée par la banque ou l\'assureur partenaire à la signature — jamais par vous.',
+        text: 'L\'étude de faisabilité et l\'accompagnement sont sans frais de dossier pour vous. Je suis rémunérée par la banque ou l\'assureur partenaire à la signature — jamais par vous.',
       },
     },
     {
@@ -280,7 +280,7 @@ export default function HomePage() {
               juste un professionnel engagé pour défendre vos intérêts.
             </p>
             <div className="buttons">
-              <ContactPopup label="📅 Prendre rendez-vous gratuitement" className="orizia-btn-main" />
+              <ContactPopup label="📅 Prendre rendez-vous" className="orizia-btn-main" />
               <ContactPopup label="✉️ Échanger avec Cindy" className="orizia-btn-sec" />
             </div>
           </div>
@@ -315,11 +315,11 @@ export default function HomePage() {
                 dans un langage humain. Pas de jargon. Pas de pression.
               </p>
               <div className="home-citation-badges">
-                {['15+ ans d\'expérience', '+40 banques comparées', 'ORIAS certifié', '100% gratuit'].map(b => (
+                {['15+ ans d\'expérience', '+40 banques comparées', 'ORIAS certifié', 'Sans frais de dossier'].map(b => (
                   <span key={b} className="home-citation-badge">{b}</span>
                 ))}
               </div>
-              <ContactPopup label="📅 Parler à Cindy gratuitement" className="fin-btn-primary" />
+              <ContactPopup label="📅 Parler à Cindy" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -378,7 +378,7 @@ export default function HomePage() {
                 </p>
                 <div className="home-why-points">
                   {[
-                    { icon: '🎯', text: 'Étude personnalisée et 100% gratuite' },
+                    { icon: '🎯', text: 'Étude personnalisée, sans frais de dossier' },
                     { icon: '🏦', text: 'Accès à plus de 40 partenaires bancaires' },
                     { icon: '📞', text: 'Vous parlez toujours à la même personne' },
                     { icon: '⚖️', text: 'Aucun lien exclusif avec les banques' },
@@ -452,7 +452,7 @@ export default function HomePage() {
             <p>
               On commence par une conversation simple sur votre situation et vos objectifs.
               Je vous dis franchement ce qui est possible, dans quel délai et pourquoi.
-              C'est gratuit. Et ça n'engage à rien.
+              C'est sans frais de dossier. Et ça n'engage à rien.
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary"  />

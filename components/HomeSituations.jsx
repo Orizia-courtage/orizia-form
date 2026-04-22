@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ const SITUATIONS = [
       { label: 'Assurance Vie', href: '/investir/assurance-vie' },
       { label: 'Crowdfunding', href: '/investir/crowdfunding' },
     ],
-    cta: '📅 Bilan patrimonial gratuit',
+    cta: '📅 Bilan patrimonial sans frais',
   },
 ];
 

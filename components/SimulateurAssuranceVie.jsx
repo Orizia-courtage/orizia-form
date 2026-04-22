@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
@@ -676,7 +676,7 @@ export default function SimulateurAssuranceVie() {
                 sélectionne le contrat le plus adapté et vous accompagne jusqu'à la souscription.
               </p>
             </div>
-            <ContactPopup label="📅 Être accompagné gratuitement" className="fin-btn-primary" />
+            <ContactPopup label="📅 Être accompagné" className="fin-btn-primary" />
           </div>
 
           <div className="av-nav" style={{ marginTop: 12 }}>

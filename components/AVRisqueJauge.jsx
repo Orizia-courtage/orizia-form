@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -19,7 +19,7 @@ const RISQUES = [
     sans: 80,
     avec: 5,
     desc_sans: 'Un contrat bancaire avec 3% de frais sur versements sur 20 ans peut vous coûter 30 000€ de performance nette. La plupart des épargnants ne le réalisent jamais.',
-    desc_avec: 'Mes contrats partenaires appliquent 0% de frais sur versements. Sur 20 ans, la différence est considérable — et c\'est gratuit pour vous.',
+    desc_avec: 'Mes contrats partenaires appliquent 0% de frais sur versements. Sur 20 ans, la différence est considérable — et c\'est sans frais de dossier pour vous.',
   },
   {
     id: 'clause',

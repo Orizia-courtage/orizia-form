@@ -114,7 +114,7 @@ export default function MentionsLegalesPage() {
         </h2>
         <p>
           En cas de litige ou de réclamation, vous pouvez adresser votre demande par écrit à l'adresse du siège social ou par e-mail.<br />
-          Si aucune solution amiable n'est trouvée, vous avez la possibilité de saisir gratuitement le médiateur de la consommation compétent :<br />
+          Si aucune solution amiable n'est trouvée, vous avez la possibilité de saisir sans frais de dossier le médiateur de la consommation compétent :<br />
           <strong>[Nom du médiateur auquel tu es affiliée obligatoirement, ex: CNPM Médiation Consommation ou Devigny Médiation]</strong><br />
           Adresse web du médiateur : [Lien du médiateur]
         </p>

@@ -10,11 +10,11 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
   description:
-    'Séparation, divorce ou succession : je finance le rachat de soulte pour conserver votre bien. Cindy Urbansky, courtier indépendant. Étude gratuite.',
+    'Séparation, divorce ou succession : je finance le rachat de soulte pour conserver votre bien. Cindy Urbansky, courtier indépendant. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
   openGraph: {
     title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
-    description: 'Divorce, séparation ou succession : je monte le financement pour que vous puissiez racheter la part de votre co-propriétaire et conserver votre bien. Étude gratuite.',
+    description: 'Divorce, séparation ou succession : je monte le financement pour que vous puissiez racheter la part de votre co-propriétaire et conserver votre bien. Étude de faisabilité.',
     url: 'https://www.orizia-courtage.fr/financer/rachat-soulte',
     siteName: 'Orizia Courtage',
     images: [
@@ -69,7 +69,7 @@ const rachatSoulteSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de faisabilité gratuite et sans engagement.',
+        description: 'Étude de faisabilité sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -124,7 +124,7 @@ const faqSchema = {
       name: 'Combien coûte votre accompagnement pour un rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Mon accompagnement est 100% gratuit pour vous. Je suis rémunérée par la banque partenaire chez qui nous signons le financement. L\'étude de faisabilité et le montage du dossier ne vous coûtent rien.',
+        text: 'Mon accompagnement est sans frais de dossier pour vous. Je suis rémunérée par la banque partenaire chez qui nous signons le financement. L\'étude de faisabilité et le montage du dossier ne vous coûtent rien.',
       },
     },
   ],
@@ -214,7 +214,7 @@ export default function RachatSoultePage() {
               Vous souhaitez racheter la part de votre ex-conjoint ou d'un co-héritier pour rester
               seul propriétaire ? Je monte le financement adapté à votre situation, je négocie
               les meilleures conditions et je coordonne avec votre notaire.{' '}
-              <strong>Étude gratuite.</strong>
+              <strong>Étude de faisabilité.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary" />
@@ -236,7 +236,7 @@ export default function RachatSoultePage() {
             {[
               { val: '2,5%', label: 'Droits de partage dus au notaire', icon: '📋' },
               { val: '+40', label: 'Banques partenaires comparées', icon: '🏦' },
-              { val: '100%', label: 'Gratuit pour vous', icon: '✨' },
+              { val: '100%', label: 'sans frais de dossier pour vous', icon: '✨' },
               { val: '24h', label: 'Pour une première estimation', icon: '⚡' },
             ].map(c => (
               <div key={c.label} className="fin-chiffre">
@@ -424,10 +424,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 />
               </div>
             </div>
-            <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+            <div className="av-sans frais de dossier-bloc">
+              <div className="av-sans frais de dossier-icon">🤝</div>
               <div>
-                <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p>
                   Je suis rémunérée par la banque partenaire chez qui nous signons le financement.
                   L'étude de faisabilité, le montage du dossier et la coordination avec votre notaire
@@ -541,6 +541,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>

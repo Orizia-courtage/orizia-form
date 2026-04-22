@@ -79,7 +79,7 @@ const investirPerSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'L\'audit initial et le conseil en sélection de PER sont gratuits pour le client (rémunération par l\'assureur partenaire).'
+        description: 'L\'audit initial et le conseil en sélection de PER sont sans frais de dossier pour le client (rémunération par l\'assureur partenaire).'
       }
     }
   ]
@@ -296,7 +296,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Mon employeur me propose déjà un PERCO. »',
-    r: 'Le PERCO de votre entreprise et un PER individuel sont cumulables. Profitez de l\'abondement employeur sur le PERCO (c\'est de l\'argent gratuit) ET ouvrez un PER individuel pour les versements volontaires qui bénéficieront de votre plafond personnel.',
+    r: 'Le PERCO de votre entreprise et un PER individuel sont cumulables. Profitez de l\'abondement employeur sur le PERCO (c\'est un avantage employeur) ET ouvrez un PER individuel pour les versements volontaires qui bénéficieront de votre plafond personnel.',
   },
   {
     q: '« J\'ai peur que mon argent soit bloqué. »',
@@ -360,7 +360,7 @@ export default function PERPage() {
               <strong>déduire vos versements de votre revenu imposable</strong> — jusqu'à{' '}
               <strong>4 100€ récupérés sur l'impôt</strong> pour 10 000€ versés à 41% de TMI.
               Je calcule vos plafonds exacts, sélectionne le meilleur contrat et construis
-              votre allocation. <strong>Gratuitement.</strong>
+              votre allocation. <strong>Sans frais de dossier.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Calculer mon gain fiscal" className="fin-btn-primary"/>
@@ -469,7 +469,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 Je récupère aussi vos plafonds non utilisés des 3 dernières années —
                 souvent plusieurs milliers d'euros de déduction oubliés.
               </p>
-              <ContactPopup label="📅 Calculer mes plafonds gratuitement" className="fin-btn-primary"/>
+              <ContactPopup label="📅 Calculer mes plafonds" className="fin-btn-primary"/>
             </div>
           </div>
         </section>
@@ -705,10 +705,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
             </div>
 
-            <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
-              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
+            <div className="av-sans frais de dossier-bloc" style={{ marginTop: 48 }}>
+              <div className="av-sans frais de dossier-icon" style={{ fontSize: '2rem' }}>🤝</div>
               <div>
-                <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
                   Je suis rémunérée par l'assureur partenaire sous forme de commission
                   de distribution, encadrée par la réglementation DDA et communiquée
@@ -866,7 +866,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               Je calcule vos plafonds de déduction exacts, sélectionne le meilleur
               contrat PER du marché et vous accompagne de la souscription au suivi annuel.
-              0% de frais sur versements. 100% gratuit pour vous.
+              0% de frais sur versements. Rémunération par les partenaires.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Calculer mon gain fiscal avec Cindy" className="fin-btn-primary"/>

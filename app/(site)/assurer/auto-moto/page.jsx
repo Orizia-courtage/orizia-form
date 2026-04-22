@@ -12,11 +12,11 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtier indépendant, compare les offres, trouve le meilleur tarif et gère la résiliation. Gratuit.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtier indépendant, compare les offres, trouve le meilleur tarif et gère la résiliation. Sans frais de dossier.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
-    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon. Gratuit et indépendant.',
+    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon. Indépendant, sans frais de dossier.',
     url: 'https://www.orizia-courtage.fr/assurer/auto-moto',
     siteName: 'Orizia Courtage',
     images: [
@@ -66,7 +66,7 @@ const assuranceAutoMotoSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation 100% gratuites pour l'assuré.",
+          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation sans frais de dossieres pour l'assuré.",
       },
     },
   ]
@@ -238,7 +238,7 @@ export default function AssuranceAutoMotoPage() {
               à votre place. Un accompagnement <strong>100% dédié à vos intérêts</strong>.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Faire un bilan gratuit avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="📅 Faire un bilan avec Cindy" className="fin-btn-primary" />
               <ScrollButton targetId="section-formules" className="fin-btn-secondary">
                 🔍 Voir les formules
               </ScrollButton>
@@ -494,7 +494,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   title: 'Assurance Habitation',
                   sub: 'Protéger votre cocon',
                   text: 'Comme pour l\'auto, les tarifs augmentent. Faisons le point pour protéger vos biens au prix juste.',
-                  badge: '🏠 Audit gratuit de votre contrat',
+                  badge: '🏠 Audit de votre contrat',
                   pillBg: 'rgba(217,119,6,0.08)',
                   pillColor: '#d97706',
                   pillBorder: 'rgba(217,119,6,0.2)',

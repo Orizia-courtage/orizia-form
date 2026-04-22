@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { fr } from 'date-fns/locale/fr';
@@ -576,7 +576,7 @@ function S6({form,set,clr,errors,next,isBack}){
       <div className="f-field">
         <label className="f-label">Situation de logement</label>
         <div className="f-opts">
-          {[{v:'Propriétaire',e:'🏠',s:'Vous êtes propriétaire'},{v:'Locataire',e:'🔑',s:'Vous payez un loyer'},{v:'Hébergé à titre gratuit',e:'🤝',s:'Logé gratuitement'}].map(o=>(
+          {[{v:'Propriétaire',e:'🏠',s:'Vous êtes propriétaire'},{v:'Locataire',e:'🔑',s:'Vous payez un loyer'},{v:'Hébergé à titre gratuit',e:'🤝',s:'Logé sans frais de dossier'}].map(o=>(
             <Card key={o.v} emoji={o.e} label={o.v} sub={o.s} selected={form.statut_logement===o.v} onClick={()=>{set('statut_logement',o.v);clr('statut_logement');}}/>
           ))}
         </div>
@@ -824,7 +824,7 @@ function SuccessScreen({segment,segType,rappelSent,onRappel,prenom}){
       </div>
       {segType==='rdv'&&(
         <div className="f-success-body">
-          <p className="f-success-cta">Votre profil nous permet de vous proposer une solution adaptée.<br/><strong>Découvrez vos nouvelles mensualités — Étude 100% gratuite & sans engagement</strong></p>
+          <p className="f-success-cta">Votre profil nous permet de vous proposer une solution adaptée.<br/><strong>Découvrez vos nouvelles mensualités — Étude sans frais de dossiere & sans engagement</strong></p>
           <a href="https://zcal.co/cindyurbansky/regroupement-credit" target="_blank" rel="noopener noreferrer" className="f-cta-primary"><i className="fa-regular fa-calendar-check"></i> Choisir mon créneau de rendez-vous</a>
           {rappelSent!=='ok'
             ?<button className="f-cta-secondary" onClick={onRappel} disabled={rappelSent==='pending'}>{rappelSent==='pending'?<><i className="fa-solid fa-spinner fa-spin"></i> Envoi…</>:<><i className="fa-solid fa-phone-volume"></i> Je préfère être rappelé(e)</>}</button>

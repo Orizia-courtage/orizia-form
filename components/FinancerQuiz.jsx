@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -116,7 +116,7 @@ export default function FinancerQuiz() {
           <p className="iq-result-raison">{reco.raison}</p>
           <div className="iq-result-actions">
             <Link href={reco.href} className="fin-btn-primary">Découvrir {reco.produit}</Link>
-            <ContactPopup label="📅 Étude gratuite avec Cindy" className="fin-btn-secondary" />
+            <ContactPopup label="📅 Étude de faisabilité avec Cindy" className="fin-btn-secondary" />
           </div>
           <button onClick={reset} className="iq-reset">↩ Recommencer</button>
         </div>

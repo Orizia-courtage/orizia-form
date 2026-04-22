@@ -6,7 +6,7 @@ import ContactPopup from '@/components/ContactPopup';
 export const metadata = {
   title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€ | Orizia Courtage',
   description:
-    'Recommandez-moi à vos proches et recevez jusqu\'à 200€ par dossier finalisé. Crédit immobilier, assurance emprunteur, placements. Parrainage gratuit.',
+    'Recommandez-moi à vos proches et recevez jusqu\'à 200€ par dossier finalisé. Crédit immobilier, assurance emprunteur, placements. Parrainage sans frais.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/parrainage' },
   openGraph: {
     title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€',
@@ -52,7 +52,7 @@ const parrainageSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Participation gratuite. Récompense versée sous forme de chèques cadeaux à la finalisation du dossier du filleul.',
+        description: 'Participation sans frais de dossier. Récompense versée sous forme de chèques cadeaux à la finalisation du dossier du filleul.',
       },
     },
   ],

@@ -17,7 +17,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/scpi' },
   openGraph: {
     title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
-    description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant, gratuit, personnalisé.',
+    description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant, sans frais de dossier, personnalisé.',
     url: 'https://www.orizia-courtage.fr/investir/scpi',
     siteName: 'Orizia Courtage',
     images: [
@@ -65,7 +65,7 @@ const investirSCPISchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Bilan patrimonial, sélection des SCPI et montage du dossier 100% gratuits pour le client (rémunération par les sociétés de gestion partenaires).'
+        description: 'Bilan patrimonial, sélection des SCPI et montage du dossier sans frais de dossiers pour le client (rémunération par les sociétés de gestion partenaires).'
       }
     }
   ]
@@ -270,7 +270,7 @@ export default function SCPIPage() {
               Investissez dans l'immobilier professionnel dès 1 000€ et percevez des revenus
               locatifs trimestriels sans aucune contrainte de gestion. Je sélectionne pour vous
               les meilleures SCPI parmi 200+ analysées et j'optimise votre stratégie fiscale.{' '}
-              <strong>Gratuitement.</strong>
+              <strong>Sans frais de dossier.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📅 Trouver mes SCPI idéales" className="fin-btn-primary" />
@@ -377,9 +377,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 J'analyse les SCPI à votre place — vous investissez sereinement.
               </p>
               <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
-                Gratuit, indépendant, personnalisé selon votre situation fiscale et patrimoniale réelle.
+                Indépendant, sans frais de dossier, personnalisé selon votre situation fiscale et patrimoniale réelle.
               </p>
-              <ContactPopup label="📅 Me faire accompagner gratuitement" className="fin-btn-primary" />
+              <ContactPopup label="📅 Me faire accompagner" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -552,17 +552,17 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
             </div>
 
-            <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
-              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
+            <div className="av-sans frais de dossier-bloc" style={{ marginTop: 48 }}>
+              <div className="av-sans frais de dossier-icon" style={{ fontSize: '2rem' }}>🤝</div>
               <div>
-                <strong>Un accompagnement complet, 100% gratuit pour vous</strong>
+                <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
                   Je suis rémunérée par les sociétés de gestion partenaires — jamais
                   par vous. Mon indépendance garantit que je travaille exclusivement
                   dans votre intérêt.
                 </p>
               </div>
-              <ContactPopup label="📅 Démarrer gratuitement" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="📅 Démarrer mon accompagnement" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -594,7 +594,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   q: '« Je peux investir directement sans passer par un courtier. »',
-                  r: 'Oui, techniquement. Mais sans analyse des 200+ SCPI du marché, sans optimisation fiscale et sans suivi annuel, vous prenez des risques évitables. Et mon accompagnement est 100% gratuit pour vous — je suis rémunérée par les sociétés de gestion. Il n\'y a aucune raison de ne pas en bénéficier.',
+                  r: 'Oui, techniquement. Mais sans analyse des 200+ SCPI du marché, sans optimisation fiscale et sans suivi annuel, vous prenez des risques évitables. Et mon accompagnement est sans frais de dossier pour vous — je suis rémunérée par les sociétés de gestion. Il n\'y a aucune raison de ne pas en bénéficier.',
                 },
               ].map((o, i) => (
                 <details key={i} className="crowd-faq-item">

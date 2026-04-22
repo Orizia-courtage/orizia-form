@@ -11,11 +11,11 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
-    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale. Bilan gratuit.',
+    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale. Bilan sans frais.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
-    description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine. Bilan gratuit.',
+    description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine. Bilan sans frais.',
     url: 'https://www.orizia-courtage.fr/investir',
     siteName: 'Orizia Courtage',
     images: [
@@ -62,7 +62,7 @@ const investirHubSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Bilan patrimonial et conseil 100% gratuits pour le client.',
+        description: 'Bilan patrimonial et conseil sans frais de dossier pour le client.',
       },
     },
   ],
@@ -87,7 +87,7 @@ const ETAPES = [
   {
     n: '04',
     title: 'Je suis votre patrimoine dans la durée',
-    text: 'Bilan annuel gratuit, alertes en cas de changement, arbitrages si votre situation évolue. Je reste votre courtier sur le long terme.',
+    text: 'Bilan annuel inclus, alertes en cas de changement, arbitrages si votre situation évolue. Je reste votre courtier sur le long terme.',
   },
 ];
 
@@ -98,7 +98,7 @@ const FAQ_INVESTIR = [
   },
   {
     q: 'Combien coûte un bilan patrimonial avec Orizia Courtage ?',
-    r: 'Le bilan patrimonial et l\'accompagnement sont 100% gratuits pour vous. Je suis rémunérée par les sociétés de gestion ou assureurs partenaires sous forme de commission, encadrée par la réglementation DDA et communiquée de manière transparente dès notre premier échange.',
+    r: 'Le bilan patrimonial et l\'accompagnement sont sans frais de dossier pour vous. Je suis rémunérée par les sociétés de gestion ou assureurs partenaires sous forme de commission, encadrée par la réglementation DDA et communiquée de manière transparente dès notre premier échange.',
   },
   {
     q: 'Par quel placement commencer quand on débute ?',
@@ -138,8 +138,8 @@ const DIFFERENCIANTS = [
   },
   {
     icon: '💶',
-    title: '100% gratuit pour vous',
-    desc: 'Mon accompagnement est gratuit. Je suis rémunérée par les sociétés de gestion partenaires — sans surcoût pour vous, jamais.',
+    title: 'Sans frais de dossier',
+    desc: 'Mon accompagnement est sans frais de dossier. Je suis rémunérée par les sociétés de gestion partenaires — sans surcoût pour vous, jamais.',
     color: '#16a34a',
     bg: 'rgba(22,163,74,0.06)',
   },
@@ -181,10 +181,10 @@ export default function InvestirPage() {
                   SCPI, Assurance Vie, PER, Crowdfunding — j'accède aux meilleurs
                   placements du marché, inaccessibles en banque classique.
                   Je construis votre stratégie patrimoniale sur-mesure.{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>Gratuitement.</strong>
+                  <strong style={{ color: 'var(--orizia-accent)' }}>Sans frais de dossier.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="📅 Bilan patrimonial gratuit" className="fin-btn-primary inv-hero-cta-main"/>
+                  <ContactPopup label="📅 Bilan patrimonial sans frais" className="fin-btn-primary inv-hero-cta-main"/>
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Découvrir les placements ↓
                   </ScrollButton>
@@ -315,7 +315,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     </div>
                   ))}
                 </div>
-                <ContactPopup label="📅 Planifier mon bilan gratuit" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
+                <ContactPopup label="📅 Planifier mon bilan" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
               </div>
             </div>
           </div>
@@ -391,14 +391,15 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               Faisons connaissance. Nous analyserons votre patrimoine actuel et définirons
               ensemble une stratégie pour atteindre vos objectifs financiers.
-              <strong> 100% gratuit.</strong>
+              <strong> Sans frais de courtage pour vous.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="📅 Planifier mon bilan gratuit" className="fin-btn-primary"/>
+              <ContactPopup label="📅 Planifier mon bilan" className="fin-btn-primary"/>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               L'investissement comporte des risques de perte en capital. Je suis
               immatriculée à l'ORIAS, indépendante.
+              * Je suis rémunérée par les sociétés de gestion ou assureurs partenaires — sans frais supplémentaires pour vous.
             </p>
           </div>
         </section>
