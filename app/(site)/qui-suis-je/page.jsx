@@ -44,14 +44,7 @@ const personSchema = {
 };
 
 const PARCOURS = [
-  {
-    periode: '2025 – Présent',
-    poste: 'Directrice',
-    entreprise: 'Simply Miob',
-    type: 'CDI',
-    icon: '🏢',
-    color: 'var(--orizia-primary)',
-  },
+  
   {
     periode: '2021 – Présent',
     poste: 'Présidente du conseil de surveillance',
@@ -60,6 +53,14 @@ const PARCOURS = [
     icon: '⚖️',
     color: '#7c3aed',
     highlight: true,
+  },
+  {
+    periode: '2025 – 2026',
+    poste: 'Directrice',
+    entreprise: 'Simply Miob',
+    type: 'CDI',
+    icon: '🏢',
+    color: 'var(--orizia-primary)',
   },
   {
     periode: '2023 – 2025',
@@ -172,10 +173,10 @@ export default function QuiSuisJePage() {
                   Cindy Urbansky
                 </h1>
                 <p className="qsj-hero-subtitle">
-                  Fondatrice d'Orizia Courtage · Présidente de l'AFIB
+                  Fondatrice d'Orizia Courtage · Présidente du conseil de surveillance de l'AFIB
                 </p>
                 <p className="qsj-hero-desc">
-                  Née dans le Nord, installée à <strong>Marcq-en-Barœul depuis plus de 10 ans</strong>,
+                  Née en région parisienne, installée à <strong>Marcq-en-Barœul depuis plus de 10 ans</strong>,
                   j'ai construit ma carrière dans l'intermédiation bancaire depuis 2005 — d'abord
                   comme conseillère en banque, puis analyste crédit, courtier indépendant,
                   directrice commerciale, et aujourd'hui fondatrice d'Orizia Courtage.

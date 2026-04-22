@@ -297,7 +297,7 @@ export default function CrowdfundingPage() {
 
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Je ne vous recommande jamais un projet que je n'investirais pas moi-même. »
+                  « Je ne vous recommanderais jamais un projet que je n'investirais pas moi-même. »
                 </p>
                 <p className="ae-citation-text">
                   Avant chaque recommandation, j'analyse le bilan du promoteur, l'historique
