@@ -12,7 +12,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtier indépendant, compare les offres, trouve le meilleur tarif et gère la résiliation. Sans frais de dossier.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',

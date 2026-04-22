@@ -9,9 +9,9 @@ import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
+  title: 'Investir en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
-    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale. Bilan sans frais.',
+    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',

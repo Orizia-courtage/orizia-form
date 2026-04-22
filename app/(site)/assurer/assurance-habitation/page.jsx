@@ -11,7 +11,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
   description:
-    'Hausse des tarifs habitation en 2026. Cindy Urbansky compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon. Sans frais de dossier.',
+    'Hausse des tarifs habitation en 2026. Cindy Urbansky compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
     title: 'Assurance Habitation 2026 : Baissez la facture | Orizia Courtage',

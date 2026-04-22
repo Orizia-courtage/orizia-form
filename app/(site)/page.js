@@ -10,7 +10,7 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 export const metadata = {
   title: 'Orizia Courtage — Courtier Indépendant | Hauts-de-France',
   description:
-    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude de faisabilité.',
+    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées.',
   keywords: [
     'courtier indépendant Hauts-de-France',
     'courtier crédit immobilier Lille',

@@ -14,7 +14,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
   description:
-    'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés. Cindy Urbansky.',
+    'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
