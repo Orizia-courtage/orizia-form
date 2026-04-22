@@ -7,7 +7,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil personnalisé',
   description:
-    'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit, assurance, investissement — premier rendez-vous sans engagement, réponse sous 24h.',
+    'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit, assurance, investissement — rendez-vous sans engagement, réponse sous 24h.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/contact' },
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil personnalisé',
