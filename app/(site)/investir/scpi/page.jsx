@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import SimulateurSCPI from '@/components/SimulateurSCPI';
@@ -14,15 +14,15 @@ export const metadata = {
   title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
   description:
     'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
-  alternates: { canonical: 'https://orizia-courtage.fr/investir/scpi' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/investir/scpi' },
   openGraph: {
     title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
     description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant, gratuit, personnalisé.',
-    url: 'https://orizia-courtage.fr/investir/scpi',
+    url: 'https://www.orizia-courtage.fr/investir/scpi',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-scpi.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-scpi.jpg',
         width: 1200,
         height: 630,
         alt: 'Investissement en SCPI avec Orizia Courtage - Cindy Urbansky',
@@ -40,9 +40,9 @@ const investirSCPISchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
-        { '@type': 'ListItem', position: 3, name: 'SCPI', item: 'https://orizia-courtage.fr/investir/scpi' }
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://www.orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'SCPI', item: 'https://www.orizia-courtage.fr/investir/scpi' }
       ]
     },
     {
@@ -52,7 +52,7 @@ const investirSCPISchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description: 'Analyse du marché, sélection indépendante de SCPI (rendement, européennes, assurance vie) et optimisation fiscale de la détention.',
       areaServed: [

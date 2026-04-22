@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
@@ -7,13 +7,13 @@ export const metadata = {
   title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
   description:
     'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul (Hauts-de-France). 15+ ans d\'expérience en crédit, assurance et gestion de patrimoine. Présidente de l\'AFIB. Découvrez mon parcours.',
-  alternates: { canonical: 'https://orizia-courtage.fr/qui-suis-je' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
   openGraph: {
     title: 'Cindy Urbansky — Courtier Indépendant | Orizia Courtage',
     description: '15+ ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
-    url: 'https://orizia-courtage.fr/qui-suis-je',
+    url: 'https://www.orizia-courtage.fr/qui-suis-je',
     siteName: 'Orizia Courtage',
-    images: [{ url: 'https://orizia-courtage.fr/images/photo-cindy.webp', width: 800, height: 800, alt: 'Cindy Urbansky - Orizia Courtage' }],
+    images: [{ url: 'https://www.orizia-courtage.fr/images/photo-cindy.webp', width: 800, height: 800, alt: 'Cindy Urbansky - Orizia Courtage' }],
     locale: 'fr_FR',
     type: 'profile',
   },
@@ -25,8 +25,8 @@ const personSchema = {
   name: 'Cindy Urbansky',
   jobTitle: 'Courtier indépendant en crédit, assurance et gestion de patrimoine',
   description: 'Courtier indépendant certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. Plus de 15 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
-  image: 'https://orizia-courtage.fr/images/photo-cindy.webp',
-  url: 'https://orizia-courtage.fr/qui-suis-je',
+  image: 'https://www.orizia-courtage.fr/images/photo-cindy.webp',
+  url: 'https://www.orizia-courtage.fr/qui-suis-je',
   sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/'],
   address: {
     '@type': 'PostalAddress',
@@ -37,7 +37,7 @@ const personSchema = {
   worksFor: {
     '@type': 'LocalBusiness',
     name: 'Orizia Courtage',
-    url: 'https://orizia-courtage.fr',
+    url: 'https://www.orizia-courtage.fr',
   },
   alumniOf: { '@type': 'EducationalOrganization', name: 'ISCI — BTS Commerce & Management' },
   knowsAbout: ['Crédit immobilier', 'Assurance emprunteur', 'Regroupement de crédits', 'SCPI', 'PER', 'Assurance vie', 'Gestion de patrimoine', 'Intermédiation bancaire'],

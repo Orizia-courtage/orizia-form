@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import SimulateurCrowdfunding from '@/components/SimulateurCrowdfunding';
@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
   description:
     'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit par Cindy Urbansky.',
-  alternates: { canonical: 'https://orizia-courtage.fr/investir/crowdfunding' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/investir/crowdfunding' },
   openGraph: {
     title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
     description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit.',
-    url: 'https://orizia-courtage.fr/investir/crowdfunding',
+    url: 'https://www.orizia-courtage.fr/investir/crowdfunding',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-crowdfunding.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-crowdfunding.jpg',
         width: 1200,
         height: 630,
         alt: 'Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky',
@@ -39,9 +39,9 @@ const investirCrowdfundingSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
-        { '@type': 'ListItem', position: 3, name: 'Crowdfunding Immobilier', item: 'https://orizia-courtage.fr/investir/crowdfunding' }
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://www.orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'Crowdfunding Immobilier', item: 'https://www.orizia-courtage.fr/investir/crowdfunding' }
       ]
     },
     // 2. Le Service proposé
@@ -54,7 +54,7 @@ const investirCrowdfundingSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },

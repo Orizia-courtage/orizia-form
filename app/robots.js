@@ -1,9 +1,9 @@
-export default function robots() {
+﻿export default function robots() {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://orizia-courtage.fr/sitemap.xml',
+    sitemap: 'https://www.orizia-courtage.fr/sitemap.xml',
   };
 }

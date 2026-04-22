@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Assurances 2026 : Emprunteur, Habitation, Auto & Moto | Orizia Courtage',
   description:
     'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky, courtier indépendant dans les Hauts-de-France, compare, optimise et résilie pour vous. Gratuit.',
-  alternates: { canonical: 'https://orizia-courtage.fr/assurer' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/assurer' },
   openGraph: {
     title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',
     description: 'Ne laissez plus vos contrats s\'envoler chaque année. Je mets le marché en concurrence, gère vos résiliations via la loi Hamon et Lemoine. Gratuit et indépendant.',
-    url: 'https://orizia-courtage.fr/assurer',
+    url: 'https://www.orizia-courtage.fr/assurer',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-assurer.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-assurer.jpg',
         width: 1200,
         height: 630,
         alt: 'Courtage en assurance avec Orizia Courtage - Cindy Urbansky',
@@ -38,15 +38,15 @@ const assurerHubSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' }
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://www.orizia-courtage.fr/assurer' }
       ]
     },
     {
       '@type': 'InsuranceAgency',
-      '@id': 'https://orizia-courtage.fr/#organization',
+      '@id': 'https://www.orizia-courtage.fr/#organization',
       name: 'Orizia Courtage',
-      image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       description: 'Cabinet de courtage en assurances géré par Cindy Urbansky. Spécialiste en délégation d\'assurance emprunteur, habitation et auto/moto.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -57,7 +57,7 @@ const assurerHubSchema = {
     {
       '@type': 'Service',
       name: 'Courtage et Optimisation d\'Assurances',
-      provider: { '@id': 'https://orizia-courtage.fr/#organization' },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
       description: 'Analyse, mise en concurrence et gestion de la résiliation pour vos contrats d\'assurance (Emprunteur, Habitation, Auto/Moto).',
       offers: {
         '@type': 'Offer',

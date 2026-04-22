@@ -4,19 +4,19 @@ export const metadata = {
   title: 'Politique de Confidentialité & Protection des Données | Orizia Courtage',
   description: 'Découvrez comment Orizia Courtage collecte, utilise et protège vos données personnelles. Conformité RGPD, droits d\'accès et de suppression, gestion des cookies.',
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://orizia-courtage.fr/confidentialite' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/confidentialite' },
 };
 
 const confidentialiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Politique de Confidentialité — Orizia Courtage',
-  url: 'https://orizia-courtage.fr/confidentialite',
+  url: 'https://www.orizia-courtage.fr/confidentialite',
   description: 'Politique de protection des données personnelles du cabinet de courtage Orizia Courtage, conformément au RGPD.',
   publisher: {
     '@type': 'LocalBusiness',
     name: 'Orizia Courtage',
-    url: 'https://orizia-courtage.fr',
+    url: 'https://www.orizia-courtage.fr',
   },
 };
 

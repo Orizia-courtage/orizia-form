@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import PERCalculateur from '@/components/PERCalculateur';
 import PERDefinition from '@/components/PERDefinition';
@@ -15,15 +15,15 @@ export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
   description:
     'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés. Cindy Urbansky.',
-  alternates: { canonical: 'https://orizia-courtage.fr/investir/per' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
     description: 'Réduisez votre impôt dès cette année. Je calcule vos plafonds exacts, sélectionne le meilleur PER du marché et construis l\'allocation adaptée à votre horizon.',
-    url: 'https://orizia-courtage.fr/investir/per',
+    url: 'https://www.orizia-courtage.fr/investir/per',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-per.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-per.jpg',
         width: 1200,
         height: 630,
         alt: 'Plan Épargne Retraite avec Orizia Courtage - Cindy Urbansky',
@@ -42,17 +42,17 @@ const investirPerSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
-        { '@type': 'ListItem', position: 3, name: 'Plan Épargne Retraite (PER)', item: 'https://orizia-courtage.fr/investir/per' }
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://www.orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'Plan Épargne Retraite (PER)', item: 'https://www.orizia-courtage.fr/investir/per' }
       ]
     },
     // 2. L'Organisation (Agence) pour l'E-E-A-T
     {
       '@type': 'InsuranceAgency',
-      '@id': 'https://orizia-courtage.fr/#organization',
+      '@id': 'https://www.orizia-courtage.fr/#organization',
       name: 'Orizia Courtage',
-      image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+      image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       description: 'Cabinet de courtage indépendant spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
       address: {
         '@type': 'PostalAddress',
@@ -68,7 +68,7 @@ const investirPerSchema = {
       '@type': 'Service',
       name: 'Conseil et Courtage en Plan Épargne Retraite (PER)',
       serviceType: 'Conseil en Investissement Financier',
-      provider: { '@id': 'https://orizia-courtage.fr/#organization' },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
       description: 'Audit fiscal, calcul des plafonds de déduction, sélection du meilleur PER du marché (0% de frais) et construction de l\'allocation d\'actifs.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },

@@ -11,15 +11,15 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
   description: 'Achat, construction ou investissement locatif. Je négocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Étude gratuite.',
-  alternates: { canonical: 'https://orizia-courtage.fr/financer/credit-immobilier' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
   openGraph: {
     title: 'Crédit Immobilier 2026 : Obtenez le meilleur taux | Orizia Courtage',
     description: 'Ne vous épuisez pas à faire le tour des banques. Je négocie votre crédit immobilier et votre assurance de prêt pour faire baisser le coût total de votre achat.',
-    url: 'https://orizia-courtage.fr/financer/credit-immobilier',
+    url: 'https://www.orizia-courtage.fr/financer/credit-immobilier',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-credit-immobilier.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-credit-immobilier.jpg',
         width: 1200,
         height: 630,
         alt: 'Crédit immobilier avec Orizia Courtage - Cindy Urbansky',
@@ -37,9 +37,9 @@ const creditImmobilierSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
-        { '@type': 'ListItem', position: 3, name: 'Crédit Immobilier', item: 'https://orizia-courtage.fr/financer/credit-immobilier' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Crédit Immobilier', item: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
       ],
     },
     {
@@ -49,7 +49,7 @@ const creditImmobilierSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description: 'Négociation du taux, délégation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'à la signature chez le notaire. Accès à plus de 40 banques partenaires.',
       areaServed: [

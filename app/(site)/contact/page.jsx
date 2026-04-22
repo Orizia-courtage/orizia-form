@@ -8,15 +8,15 @@ export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
   description:
     'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit immobilier, assurance, investissement — premier rendez-vous gratuit, réponse sous 24h.',
-  alternates: { canonical: 'https://orizia-courtage.fr/contact' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/contact' },
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil gratuit & personnalisé',
     description: 'Prenez rendez-vous en quelques clics. Cindy vous répond sous 24h par le canal de votre choix.',
-    url: 'https://orizia-courtage.fr/contact',
+    url: 'https://www.orizia-courtage.fr/contact',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-contact.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-contact.jpg',
         width: 1200,
         height: 630,
         alt: 'Contacter Cindy Urbansky - Orizia Courtage',
@@ -33,15 +33,15 @@ const contactSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://orizia-courtage.fr/contact' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.orizia-courtage.fr/contact' },
       ],
     },
     {
       '@type': 'FinancialService',
       name: 'Orizia Courtage',
       description: 'Courtier indépendant en crédit immobilier, assurance vie et investissement.',
-      url: 'https://orizia-courtage.fr',
+      url: 'https://www.orizia-courtage.fr',
       telephone: '+33777259706',
       email: 'cindy.urbansky@orizia-courtage.fr',
       openingHoursSpecification: [

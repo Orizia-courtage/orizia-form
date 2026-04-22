@@ -14,15 +14,15 @@ export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
   description:
     'Je sélectionne pour vous le meilleur contrat d\'assurance vie : 0% de frais, rendement optimisé, transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky – Orizia Courtage.',
-  alternates: { canonical: 'https://orizia-courtage.fr/investir/assurance-vie' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
     description: 'Je sélectionne pour vous le meilleur contrat d\'assurance vie. 0% de frais sur versements, contrats haut de gamme, accompagnement personnalisé. Gratuit et indépendant.',
-    url: 'https://orizia-courtage.fr/investir/assurance-vie',
+    url: 'https://www.orizia-courtage.fr/investir/assurance-vie',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-assurance-vie.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-assurance-vie.jpg',
         width: 1200,
         height: 630,
         alt: 'Assurance Vie avec Orizia Courtage - Cindy Urbansky',
@@ -39,9 +39,9 @@ const assuranceVieSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
-        { '@type': 'ListItem', position: 3, name: 'Assurance Vie', item: 'https://orizia-courtage.fr/investir/assurance-vie' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://www.orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Vie', item: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
       ],
     },
     {
@@ -51,7 +51,7 @@ const assuranceVieSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description:
         'Audit de contrat existant, sélection de contrats haut de gamme (Abeille, Cardif, SwissLife), construction d\'allocation sur-mesure et rédaction de clause bénéficiaire. 0% de frais sur versements.',

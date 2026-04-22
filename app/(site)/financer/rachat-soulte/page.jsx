@@ -11,15 +11,15 @@ export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
   description:
     'Séparation, divorce ou succession : je finance le rachat de soulte pour que vous conserviez votre bien immobilier. Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Étude gratuite.',
-  alternates: { canonical: 'https://orizia-courtage.fr/financer/rachat-soulte' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
   openGraph: {
     title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
     description: 'Divorce, séparation ou succession : je monte le financement pour que vous puissiez racheter la part de votre co-propriétaire et conserver votre bien. Étude gratuite.',
-    url: 'https://orizia-courtage.fr/financer/rachat-soulte',
+    url: 'https://www.orizia-courtage.fr/financer/rachat-soulte',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-rachat-soulte.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-rachat-soulte.jpg',
         width: 1200,
         height: 630,
         alt: 'Rachat de soulte avec Orizia Courtage - Cindy Urbansky',
@@ -37,9 +37,9 @@ const rachatSoulteSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
-        { '@type': 'ListItem', position: 3, name: 'Rachat de Soulte', item: 'https://orizia-courtage.fr/financer/rachat-soulte' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Rachat de Soulte', item: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
       ],
     },
     {
@@ -49,7 +49,7 @@ const rachatSoulteSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
         telephone: '+33XXXXXXXXX',
         address: {
           '@type': 'PostalAddress',

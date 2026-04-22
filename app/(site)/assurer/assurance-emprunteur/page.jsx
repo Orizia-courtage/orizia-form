@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
   description:
     "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat à tout moment et vous fais économiser jusqu'à 15 000€. Cindy Urbansky, courtier dans les Hauts-de-France.",
-  alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
     title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
     description: "Ne laissez plus votre banque monopoliser votre assurance de prêt. Économisez jusqu'à 15 000€ grâce à la loi Lemoine. Je compare, je résilie, je gère tout.",
-    url: 'https://orizia-courtage.fr/assurer/assurance-emprunteur',
+    url: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-assurance-emprunteur.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-assurance-emprunteur.jpg',
         width: 1200,
         height: 630,
         alt: "Délégation d'assurance emprunteur avec Orizia Courtage",
@@ -38,9 +38,9 @@ const assuranceEmprunteurSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' },
-        { '@type': 'ListItem', position: 3, name: 'Assurance Emprunteur', item: 'https://orizia-courtage.fr/assurer/assurance-emprunteur' }
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://www.orizia-courtage.fr/assurer' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Emprunteur', item: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' }
       ]
     },
     {
@@ -51,7 +51,7 @@ const assuranceEmprunteurSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },

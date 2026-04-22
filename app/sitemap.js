@@ -1,4 +1,4 @@
-const BASE_URL = 'https://orizia-courtage.fr';
+﻿const BASE_URL = 'https://www.orizia-courtage.fr';
 
 export default function sitemap() {
   return [

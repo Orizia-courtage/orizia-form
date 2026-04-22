@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import ParrainageForm from '@/components/ParrainageForm';
 import ContactPopup from '@/components/ContactPopup';
 
@@ -7,15 +7,15 @@ export const metadata = {
   title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€ | Orizia Courtage',
   description:
     'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux par dossier finalisé. Crédit immobilier, assurance emprunteur, placements. Parrainage simple et gratuit.',
-  alternates: { canonical: 'https://orizia-courtage.fr/parrainage' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/parrainage' },
   openGraph: {
     title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€',
     description: 'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux. Crédit, assurance, placements — chaque dossier finalisé est récompensé.',
-    url: 'https://orizia-courtage.fr/parrainage',
+    url: 'https://www.orizia-courtage.fr/parrainage',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        url: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
         width: 1200,
         height: 630,
         alt: 'Programme de parrainage Orizia Courtage',
@@ -33,8 +33,8 @@ const parrainageSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Parrainage', item: 'https://orizia-courtage.fr/parrainage' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Parrainage', item: 'https://www.orizia-courtage.fr/parrainage' },
       ],
     },
     {
@@ -44,7 +44,7 @@ const parrainageSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description:
         'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux pour chaque dossier finalisé (crédit immobilier, assurance emprunteur, placements).',

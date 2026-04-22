@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Regroupement de Crédits 2026 : Réduisez vos Mensualités | Orizia Courtage',
   description:
     'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Étude gratuite, sans engagement, réponse sous 24h.',
-  alternates: { canonical: 'https://orizia-courtage.fr/financer/regroupement-credits' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',
     description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier gratuitement et vous propose la solution adaptée à votre profil.',
-    url: 'https://orizia-courtage.fr/financer/regroupement-credits',
+    url: 'https://www.orizia-courtage.fr/financer/regroupement-credits',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-regroupement-credits.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-regroupement-credits.jpg',
         width: 1200,
         height: 630,
         alt: 'Regroupement de crédits avec Orizia Courtage - Cindy Urbansky',
@@ -38,9 +38,9 @@ const regroupementSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
-        { '@type': 'ListItem', position: 3, name: 'Regroupement de crédits', item: 'https://orizia-courtage.fr/financer/regroupement-credits' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Regroupement de crédits', item: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
       ],
     },
     {
@@ -50,7 +50,7 @@ const regroupementSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
         telephone: '+33XXXXXXXXX',
         address: {
           '@type': 'PostalAddress',

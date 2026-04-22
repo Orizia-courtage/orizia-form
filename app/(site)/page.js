@@ -21,16 +21,16 @@ export const metadata = {
     'Orizia Courtage',
     'Cindy Urbansky courtier',
   ],
-  alternates: { canonical: 'https://orizia-courtage.fr' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr' },
   openGraph: {
     title: 'Orizia Courtage — Courtier Indépendant | Crédit · Assurance · Patrimoine',
     description:
       'Je défends vos intérêts face aux banques et assureurs. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude gratuite à Marcq-en-Barœul.',
-    url: 'https://orizia-courtage.fr',
+    url: 'https://www.orizia-courtage.fr',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/hero-orizia.webp',
+        url: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
         width: 1200,
         height: 630,
         alt: 'Cindy Urbansky, courtier indépendant — Orizia Courtage, Marcq-en-Barœul',
@@ -43,7 +43,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Orizia Courtage — Courtier Indépendant',
     description: 'Crédit, assurance, patrimoine. Je travaille pour vous, pas pour les banques.',
-    images: ['https://orizia-courtage.fr/images/hero-orizia.webp'],
+    images: ['https://www.orizia-courtage.fr/images/hero-orizia.webp'],
   },
 };
 
@@ -51,18 +51,18 @@ export const metadata = {
 const oriziaSchema = {
   '@context': 'https://schema.org',
   '@type': ['FinancialService', 'LocalBusiness', 'InsuranceAgency'],
-  '@id': 'https://orizia-courtage.fr/#organization',
+  '@id': 'https://www.orizia-courtage.fr/#organization',
   name: 'Orizia Courtage',
   alternateName: ['Orizia', 'Cindy Urbansky Courtier'],
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
-  url: 'https://orizia-courtage.fr',
+  url: 'https://www.orizia-courtage.fr',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+    url: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
     width: 160,
     height: 75,
   },
-  image: 'https://orizia-courtage.fr/images/hero-orizia.webp',
+  image: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
   description:
     'Cabinet de courtage indépendant fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
   telephone: '+33777259706',
@@ -84,13 +84,13 @@ const oriziaSchema = {
   ],
   founder: {
     '@type': 'Person',
-    '@id': 'https://orizia-courtage.fr/qui-suis-je#cindy',
+    '@id': 'https://www.orizia-courtage.fr/qui-suis-je#cindy',
     name: 'Cindy Urbansky',
     jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
     description:
       'Courtier indépendant certifié ORIAS avec plus de 15 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
-    image: 'https://orizia-courtage.fr/images/photo-cindy.webp',
-    url: 'https://orizia-courtage.fr/qui-suis-je',
+    image: 'https://www.orizia-courtage.fr/images/photo-cindy.webp',
+    url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
     knowsAbout: [
       'Courtage en Crédit Immobilier',

@@ -11,15 +11,15 @@ export const metadata = {
   title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
   description:
     'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtier indépendant, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite dans les Hauts-de-France.',
-  alternates: { canonical: 'https://orizia-courtage.fr/financer/pret-personnel' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/financer/pret-personnel' },
   openGraph: {
     title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
     description: 'Auto, travaux ou trésorerie : obtenez les fonds nécessaires à vos projets sans vous ruiner. Je négocie votre crédit au meilleur TAEG dans les Hauts-de-France.',
-    url: 'https://orizia-courtage.fr/financer/pret-personnel',
+    url: 'https://www.orizia-courtage.fr/financer/pret-personnel',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-pret-personnel.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-pret-personnel.jpg',
         width: 1200,
         height: 630,
         alt: 'Prêt personnel avec Orizia Courtage - Cindy Urbansky',
@@ -37,9 +37,9 @@ const pretPersonnelSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
-        { '@type': 'ListItem', position: 3, name: 'Prêt Personnel', item: 'https://orizia-courtage.fr/financer/pret-personnel' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 3, name: 'Prêt Personnel', item: 'https://www.orizia-courtage.fr/financer/pret-personnel' },
       ],
     },
     {
@@ -49,7 +49,7 @@ const pretPersonnelSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description: 'Comparaison et négociation du meilleur TAEG pour vos projets auto, travaux ou trésorerie. Élimination des assurances facultatives imposées. Accès à un réseau de partenaires bancaires.',
       areaServed: [

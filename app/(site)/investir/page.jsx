@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedStats from '@/components/AnimatedStats';
 import InvestirQuiz from '@/components/InvestirQuiz';
@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
     'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky, courtier indépendant, crée votre stratégie patrimoniale sur-mesure. Bilan gratuit.',
-  alternates: { canonical: 'https://orizia-courtage.fr/investir' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
     description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine. Bilan gratuit.',
-    url: 'https://orizia-courtage.fr/investir',
+    url: 'https://www.orizia-courtage.fr/investir',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-investir.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-investir.jpg',
         width: 1200,
         height: 630,
         alt: 'Investir avec Orizia Courtage - Cindy Urbansky',
@@ -38,8 +38,8 @@ const investirHubSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://orizia-courtage.fr/investir' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Investir', item: 'https://www.orizia-courtage.fr/investir' },
       ],
     },
     {
@@ -49,7 +49,7 @@ const investirHubSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtier certifié ORIAS.',
       areaServed: [

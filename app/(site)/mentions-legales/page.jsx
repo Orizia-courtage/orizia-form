@@ -1,22 +1,22 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 export const metadata = {
   title: 'Mentions Légales — Informations Réglementaires ORIAS & ACPR | Orizia Courtage',
   description: 'Mentions légales du cabinet Orizia Courtage : éditeur, hébergeur, immatriculation ORIAS, contrôle ACPR, médiation et traitement des données personnelles.',
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://orizia-courtage.fr/mentions-legales' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/mentions-legales' },
 };
 
 const mentionsSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Mentions Légales — Orizia Courtage',
-  url: 'https://orizia-courtage.fr/mentions-legales',
+  url: 'https://www.orizia-courtage.fr/mentions-legales',
   description: 'Mentions légales et informations réglementaires du cabinet de courtage Orizia Courtage, immatriculé à l\'ORIAS et contrôlé par l\'ACPR.',
   publisher: {
     '@type': 'LocalBusiness',
     name: 'Orizia Courtage',
-    url: 'https://orizia-courtage.fr',
+    url: 'https://www.orizia-courtage.fr',
   },
 };
 

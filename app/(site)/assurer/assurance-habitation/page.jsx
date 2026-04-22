@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Assurance Habitation 2026 : Baissez la facture à Lille & Hauts-de-France | Orizia Courtage',
   description:
     'Hausse des tarifs habitation en 2026. Cindy Urbansky, courtier dans les Hauts-de-France, compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon. Gratuit.',
-  alternates: { canonical: 'https://orizia-courtage.fr/assurer/assurance-habitation' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
     title: 'Assurance Habitation 2026 : Baissez la facture | Orizia Courtage',
     description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat via la loi Hamon, sans coupure. Gratuit et indépendant.',
-    url: 'https://orizia-courtage.fr/assurer/assurance-habitation',
+    url: 'https://www.orizia-courtage.fr/assurer/assurance-habitation',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/og-assurance-habitation.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-assurance-habitation.jpg',
         width: 1200,
         height: 630,
         alt: 'Comparaison et courtage en assurance habitation avec Orizia',
@@ -38,9 +38,9 @@ const assuranceHabitationSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://orizia-courtage.fr/assurer' },
-        { '@type': 'ListItem', position: 3, name: 'Assurance Habitation', item: 'https://orizia-courtage.fr/assurer/assurance-habitation' }
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Assurer', item: 'https://www.orizia-courtage.fr/assurer' },
+        { '@type': 'ListItem', position: 3, name: 'Assurance Habitation', item: 'https://www.orizia-courtage.fr/assurer/assurance-habitation' }
       ]
     },
     {
@@ -52,7 +52,7 @@ const assuranceHabitationSchema = {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },

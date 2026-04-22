@@ -5,11 +5,11 @@ export const metadata = {
   title: 'Blog Orizia Courtage : Conseils Crédit, Assurance & Patrimoine | Cindy Urbansky',
   description:
     'Conseils pratiques en crédit immobilier, assurance emprunteur, SCPI, PER et gestion de patrimoine. Articles rédigés par Cindy Urbansky, courtier indépendant dans les Hauts-de-France.',
-  alternates: { canonical: 'https://orizia-courtage.fr/blog' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/blog' },
   openGraph: {
     title: 'Blog Orizia Courtage : Conseils Crédit, Assurance & Patrimoine',
     description: 'Conseils pratiques en crédit immobilier, assurance et investissement par Cindy Urbansky, courtier indépendant.',
-    url: 'https://orizia-courtage.fr/blog',
+    url: 'https://www.orizia-courtage.fr/blog',
     siteName: 'Orizia Courtage',
     locale: 'fr_FR',
     type: 'website',
@@ -21,12 +21,12 @@ const blogSchema = {
   '@type': 'Blog',
   name: 'Blog Orizia Courtage',
   description: 'Conseils en crédit immobilier, assurance emprunteur, SCPI, PER et gestion de patrimoine.',
-  url: 'https://orizia-courtage.fr/blog',
+  url: 'https://www.orizia-courtage.fr/blog',
   author: {
     '@type': 'Person',
     name: 'Cindy Urbansky',
     jobTitle: 'courtier indépendant',
-    url: 'https://orizia-courtage.fr/qui-suis-je',
+    url: 'https://www.orizia-courtage.fr/qui-suis-je',
   },
 };
 

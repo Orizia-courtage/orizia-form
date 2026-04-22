@@ -12,15 +12,15 @@ export const metadata = {
   title: 'Courtier en Crédit 2026 : Meilleur Taux Garanti | Orizia Courtage',
   description:
     'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Cindy Urbansky, courtier indépendant dans les Hauts-de-France, négocie votre financement auprès de 40+ banques. Étude gratuite.',
-  alternates: { canonical: 'https://orizia-courtage.fr/financer' },
+  alternates: { canonical: 'https://www.orizia-courtage.fr/financer' },
   openGraph: {
     title: 'Courtier en Crédit 2026 : Meilleur Taux Garanti | Orizia Courtage',
     description: 'Ne faites plus le tour des banques. Je compare 40+ établissements, négocie votre taux et votre assurance emprunteur. Étude gratuite et sans engagement.',
-    url: 'https://orizia-courtage.fr/financer',
+    url: 'https://www.orizia-courtage.fr/financer',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://orizia-courtage.fr/images/financer.jpg',
+        url: 'https://www.orizia-courtage.fr/images/financer.jpg',
         width: 1200,
         height: 630,
         alt: 'Courtier en crédit immobilier Orizia Courtage - Cindy Urbansky',
@@ -38,20 +38,20 @@ const financerHubSchema = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://orizia-courtage.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://orizia-courtage.fr/financer' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
+        { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
       ],
     },
     {
       '@type': 'FinancialService',
-      '@id': 'https://orizia-courtage.fr/#financer',
+      '@id': 'https://www.orizia-courtage.fr/#financer',
       name: 'Courtage en Crédit et Financement — Orizia Courtage',
       serviceType: 'Courtage en Opérations de Banque et Services de Paiement (COBSP)',
       provider: {
         '@type': 'LocalBusiness',
-        '@id': 'https://orizia-courtage.fr/#organization',
+        '@id': 'https://www.orizia-courtage.fr/#organization',
         name: 'Orizia Courtage',
-        image: 'https://orizia-courtage.fr/images/Orizia_logo.webp',
+        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Marcq-en-Barœul',
