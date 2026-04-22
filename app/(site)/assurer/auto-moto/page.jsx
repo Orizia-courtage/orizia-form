@@ -10,9 +10,9 @@ import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs à Lille & Hauts-de-France | Orizia Courtage',
+  title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtier dans les Hauts-de-France, compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon. Gratuit.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky, courtier indépendant, compare les offres, trouve le meilleur tarif et gère la résiliation. Gratuit.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',

@@ -9,9 +9,9 @@ import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
+  title: 'Assurance Emprunteur 2026 : Loi Lemoine | Orizia Courtage',
   description:
-    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie votre contrat à tout moment et vous fais économiser jusqu'à 15 000€. Cindy Urbansky, courtier dans les Hauts-de-France.",
+    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
     title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',

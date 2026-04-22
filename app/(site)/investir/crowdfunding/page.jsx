@@ -9,7 +9,7 @@ import ReadingProgress from '@/components/ReadingProgress';
 
 // ── 1. MÉTADONNÉES SEO (Optimisées) ──
 export const metadata = {
-  title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
+  title: 'Crowdfunding Immobilier 2026 : 8–12%/an | Orizia Courtage',
   description:
     'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant et gratuit par Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/crowdfunding' },

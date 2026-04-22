@@ -3,17 +3,31 @@ import ContactPopup from '@/components/ContactPopup';
 import LexiqueGrid from '@/components/LexiqueGrid';
 
 export const metadata = {
-  title: "Lexique du Crédit & de l'Assurance : 50+ Termes Expliqués | Orizia Courtage",
+  title: "Lexique Crédit & Assurance : 50+ Termes | Orizia Courtage",
   description:
-    "TAEG, taux d'endettement, délégation d'assurance, SCPI, PER, soulte, loi Lemoine… Tous les termes du crédit immobilier, de l'assurance et des placements expliqués simplement par Cindy Urbansky, courtier indépendant.",
+    "TAEG, taux d'endettement, délégation d'assurance, SCPI, PER, loi Lemoine… 50+ termes du crédit et de l'assurance expliqués par Cindy Urbansky.",
   alternates: { canonical: 'https://www.orizia-courtage.fr/lexique' },
   openGraph: {
     title: "Lexique du Crédit & de l'Assurance | Orizia Courtage",
     description: "50+ termes financiers expliqués simplement : TAEG, soulte, délégation d'assurance, SCPI, PER, loi Lemoine et bien plus.",
     url: 'https://www.orizia-courtage.fr/lexique',
     siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Orizia Courtage - Cindy Urbansky, courtier indépendant',
+      },
+    ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Lexique Crédit & Assurance : 50+ Termes | Orizia Courtage",
+    description: "TAEG, taux d'endettement, délégation d'assurance, SCPI, PER, loi Lemoine… 50+ termes du crédit et de l'assurance expliqués par Cindy Urbansky.",
+    images: ['https://www.orizia-courtage.fr/images/hero-orizia.webp'],
   },
 };
 

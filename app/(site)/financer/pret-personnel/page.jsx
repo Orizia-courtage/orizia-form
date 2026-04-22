@@ -10,7 +10,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',
   description:
-    'Auto, travaux ou trésorerie : ne financez plus les marges des banques. Cindy Urbansky, courtier indépendant, compare et négocie votre prêt personnel au meilleur TAEG. Étude gratuite dans les Hauts-de-France.',
+    'Ne financez plus les marges des banques. Cindy Urbansky compare et négocie votre prêt personnel au meilleur TAEG dans les Hauts-de-France. Étude gratuite.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/pret-personnel' },
   openGraph: {
     title: 'Prêt Personnel 2026 : Obtenez le meilleur taux | Orizia Courtage',

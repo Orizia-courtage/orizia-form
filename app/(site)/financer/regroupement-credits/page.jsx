@@ -9,9 +9,9 @@ import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Regroupement de Crédits 2026 : Réduisez vos Mensualités | Orizia Courtage',
+  title: 'Regroupement de Crédits 2026 : −60% mensualités | Orizia',
   description:
-    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Étude gratuite, sans engagement, réponse sous 24h.',
+    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant. Étude gratuite, réponse sous 24h.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : −60% sur vos mensualités | Orizia Courtage',

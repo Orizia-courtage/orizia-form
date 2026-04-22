@@ -11,9 +11,9 @@ import AVvsLivret from '@/components/AVvsLivret';
 import ScrollButton from '@/components/ScrollButton';
 
 export const metadata = {
-  title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
+  title: 'Assurance Vie 2026 : Conseil Indépendant | Orizia Courtage',
   description:
-    'Je sélectionne pour vous le meilleur contrat d\'assurance vie : 0% de frais, rendement optimisé, transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky – Orizia Courtage.',
+    'Je sélectionne le meilleur contrat d\'assurance vie : 0% de frais, rendement optimisé, transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',

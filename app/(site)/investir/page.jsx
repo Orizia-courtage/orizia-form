@@ -11,7 +11,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
-    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky, courtier indépendant, crée votre stratégie patrimoniale sur-mesure. Bilan gratuit.',
+    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale. Bilan gratuit.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',

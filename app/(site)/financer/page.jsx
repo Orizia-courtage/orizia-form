@@ -11,7 +11,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Courtier en Crédit 2026 : Meilleur Taux Garanti | Orizia Courtage',
   description:
-    'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Cindy Urbansky, courtier indépendant dans les Hauts-de-France, négocie votre financement auprès de 40+ banques. Étude gratuite.',
+    'Crédit immobilier, regroupement, prêt personnel, rachat de soulte. Cindy Urbansky négocie votre financement auprès de 40+ banques. Étude gratuite.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer' },
   openGraph: {
     title: 'Courtier en Crédit 2026 : Meilleur Taux Garanti | Orizia Courtage',

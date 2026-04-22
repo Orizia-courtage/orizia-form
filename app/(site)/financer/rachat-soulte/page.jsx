@@ -10,7 +10,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
   description:
-    'Séparation, divorce ou succession : je finance le rachat de soulte pour que vous conserviez votre bien immobilier. Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Étude gratuite.',
+    'Séparation, divorce ou succession : je finance le rachat de soulte pour conserver votre bien. Cindy Urbansky, courtier indépendant. Étude gratuite.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
   openGraph: {
     title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',

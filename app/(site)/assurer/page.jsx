@@ -9,9 +9,9 @@ import ScrollButton from '@/components/ScrollButton';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Assurances 2026 : Emprunteur, Habitation, Auto & Moto | Orizia Courtage',
+  title: 'Assurances 2026 : Emprunteur, Habitation, Auto | Orizia',
   description:
-    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky, courtier indépendant dans les Hauts-de-France, compare, optimise et résilie pour vous. Gratuit.',
+    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky compare, optimise et résilie vos contrats. Gratuit.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer' },
   openGraph: {
     title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',

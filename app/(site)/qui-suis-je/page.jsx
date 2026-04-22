@@ -6,7 +6,7 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 export const metadata = {
   title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
   description:
-    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul (Hauts-de-France). 15+ ans d\'expérience en crédit, assurance et gestion de patrimoine. Présidente de l\'AFIB. Découvrez mon parcours.',
+    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 15+ ans d\'expérience en crédit, assurance et patrimoine. Présidente de l\'AFIB.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
   openGraph: {
     title: 'Cindy Urbansky — Courtier Indépendant | Orizia Courtage',

@@ -1,7 +1,7 @@
 ﻿import Link from 'next/link';
 
 export const metadata = {
-  title: 'Politique de Confidentialité & Protection des Données | Orizia Courtage',
+  title: 'Politique de Confidentialité & Données | Orizia Courtage',
   description: 'Découvrez comment Orizia Courtage collecte, utilise et protège vos données personnelles. Conformité RGPD, droits d\'accès et de suppression, gestion des cookies.',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.orizia-courtage.fr/confidentialite' },

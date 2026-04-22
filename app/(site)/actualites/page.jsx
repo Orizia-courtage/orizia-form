@@ -2,17 +2,31 @@
 import ContactPopup from '@/components/ContactPopup';
 
 export const metadata = {
-  title: 'Actualités Crédit & Assurance 2026 : Taux, Lois, Marchés | Orizia Courtage',
+  title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
   description:
-    'Suivez les dernières actualités du crédit immobilier, de l\'assurance emprunteur et des placements financiers. Analyses et décryptages par Cindy Urbansky, courtier indépendant.',
+    'Actualités crédit immobilier, assurance emprunteur et placements. Analyses et décryptages par Cindy Urbansky, courtier indépendant.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/actualites' },
   openGraph: {
     title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
     description: 'Taux immobiliers, loi Lemoine, SCPI, PER : les actualités du secteur décryptées par Cindy Urbansky.',
     url: 'https://www.orizia-courtage.fr/actualites',
     siteName: 'Orizia Courtage',
+    images: [
+      {
+        url: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Orizia Courtage - Cindy Urbansky, courtier indépendant',
+      },
+    ],
     locale: 'fr_FR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
+    description: 'Actualités crédit immobilier, assurance emprunteur et placements. Analyses et décryptages par Cindy Urbansky, courtier indépendant.',
+    images: ['https://www.orizia-courtage.fr/images/hero-orizia.webp'],
   },
 };
 
