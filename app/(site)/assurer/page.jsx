@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import AnimatedStats from '@/components/AnimatedStats';
@@ -7,20 +7,20 @@ import AssurerProduitsGrid from '@/components/AssurerProduitsGrid';
 import ReadingProgressAssurer from '@/components/ReadingProgressAssurer';
 import ScrollButton from '@/components/ScrollButton';
 
-// â”€â”€ 1. MÃ‰TADONNÃ‰ES SEO â”€â”€
+// -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Assurances 2026 : Emprunteur, Habitation, Auto | Orizia',
   description:
-    'Emprunteur, habitation, auto/moto : arrÃªtez de subir la hausse des tarifs. Cindy Urbansky compare, optimise et rÃ©silie vos contrats. Sans frais de dossier.',
+    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky compare, optimise et résilie vos contrats. Sans frais de dossier.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer' },
   openGraph: {
     title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',
-    description: 'Ne laissez plus vos contrats s\'envoler chaque annÃ©e. Je mets le marchÃ© en concurrence, gÃ¨re vos rÃ©siliations via la loi Hamon et Lemoine. IndÃ©pendant, sans frais de dossier.',
+    description: 'Ne laissez plus vos contrats s\'envoler chaque année. Je mets le marché en concurrence, gère vos résiliations via la loi Hamon et Lemoine. Indépendant, sans frais de dossier.',
     url: 'https://www.orizia-courtage.fr/assurer',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-assurer.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-assurer.webp',
         width: 1200,
         height: 630,
         alt: 'Courtage en assurance avec Orizia Courtage - Cindy Urbansky',
@@ -31,7 +31,7 @@ export const metadata = {
   },
 };
 
-// â”€â”€ 2. DONNÃ‰ES STRUCTURÃ‰ES â”€â”€
+// -- 2. DONNÉES STRUCTURÉES --
 const assurerHubSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -47,23 +47,23 @@ const assurerHubSchema = {
       '@id': 'https://www.orizia-courtage.fr/#organization',
       name: 'Orizia Courtage',
       image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      description: 'Cabinet de courtage en assurances gÃ©rÃ© par Cindy Urbansky. SpÃ©cialiste en dÃ©lÃ©gation d\'assurance emprunteur, habitation et auto/moto.',
+      description: 'Cabinet de courtage en assurances géré par Cindy Urbansky. Spécialiste en délégation d\'assurance emprunteur, habitation et auto/moto.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' }
+        { '@type': 'City', name: 'Marcq-en-Barœul' }
       ]
     },
     {
       '@type': 'Service',
       name: 'Courtage et Optimisation d\'Assurances',
       provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
-      description: 'Analyse, mise en concurrence et gestion de la rÃ©siliation pour vos contrats d\'assurance (Emprunteur, Habitation, Auto/Moto).',
+      description: 'Analyse, mise en concurrence et gestion de la résiliation pour vos contrats d\'assurance (Emprunteur, Habitation, Auto/Moto).',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Audit, comparaison et rÃ©siliation sans frais de dossiers pour le client.',
+        description: 'Audit, comparaison et résiliation sans frais de dossiers pour le client.',
       },
     },
   ],
@@ -75,26 +75,26 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Pourquoi passer par un courtier plutÃ´t que mon assureur habituel ?',
+      name: 'Pourquoi passer par un courtier plutôt que mon assureur habituel ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un agent gÃ©nÃ©ral ne peut vous proposer que les contrats de sa propre marque. En tant que courtier indÃ©pendant, je ne suis rattachÃ©e Ã  aucun rÃ©seau. Je compare les offres de dizaines de compagnies pour vous trouver le meilleur rapport qualitÃ©/prix, en toute objectivitÃ©.',
+        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtier indépendant, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous trouver le meilleur rapport qualité/prix, en toute objectivité.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Est-ce que votre service de courtage me coÃ»te plus cher ?',
+      name: 'Est-ce que votre service de courtage me coûte plus cher ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pas du tout, c\'est sans frais de dossier pour vous. En assurance, ma rÃ©munÃ©ration est prise en charge par la compagnie d\'assurance chez qui nous dÃ©cidons de placer votre contrat. Vous ne payez aucun honoraire, et la prime n\'est pas majorÃ©e.',
+        text: 'Pas du tout, c\'est sans frais de dossier pour vous. En assurance, ma rémunération est prise en charge par la compagnie d\'assurance chez qui nous décidons de placer votre contrat. Vous ne payez aucun honoraire, et la prime n\'est pas majorée.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Puis-je vraiment changer d\'assurance Ã  tout moment ?',
+      name: 'Puis-je vraiment changer d\'assurance à tout moment ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui ! Pour l\'assurance auto et habitation, la loi Hamon vous permet de rÃ©silier n\'importe quand aprÃ¨s un an d\'engagement. Pour l\'assurance emprunteur, la loi Lemoine va encore plus loin : vous pouvez changer dÃ¨s le lendemain de la signature de votre prÃªt.',
+        text: 'Oui ! Pour l\'assurance auto et habitation, la loi Hamon vous permet de résilier n\'importe quand après un an d\'engagement. Pour l\'assurance emprunteur, la loi Lemoine va encore plus loin : vous pouvez changer dès le lendemain de la signature de votre prêt.',
       },
     },
     {
@@ -102,7 +102,7 @@ const faqSchema = {
       name: 'Que se passe-t-il en cas de sinistre ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Vos contrats sont souscrits auprÃ¨s de compagnies solides et reconnues (SwissLife, Cardif, etc.). En cas de sinistre, vous bÃ©nÃ©ficiez de toute leur infrastructure d\'assistance. Et je reste votre interlocutrice de confiance pour vous guider si la situation se complique.',
+        text: 'Vos contrats sont souscrits auprès de compagnies solides et reconnues (SwissLife, Cardif, etc.). En cas de sinistre, vous bénéficiez de toute leur infrastructure d\'assistance. Et je reste votre interlocutrice de confiance pour vous guider si la situation se complique.',
       },
     },
   ],
@@ -110,37 +110,37 @@ const faqSchema = {
 
 const ETAPES = [
   { n: '01', title: 'Audit de vos contrats', text: 'On fait le point sur ce que vous payez aujourd\'hui. Souvent, de mauvaises surprises s\'y cachent.' },
-  { n: '02', title: 'Mise en concurrence', text: 'J\'interroge mes partenaires (SwissLife, Cardif, Abeilleâ€¦) pour dÃ©nicher le tarif parfait selon votre profil.' },
-  { n: '03', title: 'ZÃ©ro paperasse pour vous', text: 'Loi Hamon, Loi Lemoine â€” j\'utilise tous vos droits lÃ©gaux pour rÃ©silier vos anciens contrats Ã  votre place.' },
-  { n: '04', title: 'Suivi sur le long terme', text: 'L\'annÃ©e prochaine, si votre assureur augmente trop ses tarifs, je serai lÃ  pour vous le dire et re-comparer.' },
+  { n: '02', title: 'Mise en concurrence', text: 'J\'interroge mes partenaires (SwissLife, Cardif, Abeille…) pour dénicher le tarif parfait selon votre profil.' },
+  { n: '03', title: 'Zéro paperasse pour vous', text: 'Loi Hamon, Loi Lemoine — j\'utilise tous vos droits légaux pour résilier vos anciens contrats à votre place.' },
+  { n: '04', title: 'Suivi sur le long terme', text: 'L\'année prochaine, si votre assureur augmente trop ses tarifs, je serai là pour vous le dire et re-comparer.' },
 ];
 
 const DIFFERENCIANTS = [
   {
-    icon: 'ğŸ¯',
-    title: 'IndÃ©pendance totale',
-    desc: 'Je ne suis rattachÃ©e Ã  aucun assureur. Mon seul intÃ©rÃªt, c\'est de trouver le contrat qui sert VOS intÃ©rÃªts.',
+    icon: '??',
+    title: 'Indépendance totale',
+    desc: 'Je ne suis rattachée à aucun assureur. Mon seul intérêt, c\'est de trouver le contrat qui sert VOS intérêts.',
     color: 'var(--orizia-primary)',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
-    icon: 'âš–ï¸',
+    icon: '??',
     title: 'Loi Hamon & Lemoine',
-    desc: 'Je maÃ®trise vos droits lÃ©gaux et je les utilise pour vous libÃ©rer de vos anciens contrats sans coupure.',
+    desc: 'Je maîtrise vos droits légaux et je les utilise pour vous libérer de vos anciens contrats sans coupure.',
     color: '#16a34a',
     bg: 'rgba(22,163,74,0.06)',
   },
   {
-    icon: 'ğŸ“',
+    icon: '??',
     title: 'Interlocutrice unique',
-    desc: 'Pas de centre d\'appels. Je gÃ¨re votre dossier de l\'audit Ã  la rÃ©siliation. Vous parlez toujours Ã  Cindy.',
+    desc: 'Pas de centre d\'appels. Je gère votre dossier de l\'audit à la résiliation. Vous parlez toujours à Cindy.',
     color: '#d97706',
     bg: 'rgba(217,119,6,0.06)',
   },
   {
-    icon: 'ğŸ’¶',
+    icon: '??',
     title: 'sans frais de dossier pour vous',
-    desc: 'Mon accompagnement est sans frais de dossier. Je suis rÃ©munÃ©rÃ©e par les compagnies partenaires â€” sans surcoÃ»t pour vous.',
+    desc: 'Mon accompagnement est sans frais de dossier. Je suis rémunérée par les compagnies partenaires — sans surcoût pour vous.',
     color: '#7c3aed',
     bg: 'rgba(124,58,237,0.06)',
   },
@@ -164,43 +164,43 @@ export default function AssurerPage() {
 
         <ReadingProgressAssurer />
 
-        {/* â”€â”€ HERO SPLIT â”€â”€ */}
+        {/* -- HERO SPLIT -- */}
         <section className="inv-hero">
           <div className="inv-hero-bg-overlay" />
           <div className="inv-hero-inner">
             <nav aria-label="breadcrumb" className="inv-hero-breadcrumb">
               <Link href="/">Accueil</Link>
-              <span className="inv-hero-breadcrumb-sep">â€º</span>
+              <span className="inv-hero-breadcrumb-sep">›</span>
               <span>Assurer</span>
             </nav>
 
             <div className="inv-hero-layout">
-              {/* Gauche â€” texte */}
+              {/* Gauche — texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge">ğŸ›¡ï¸ Courtage en assurance indÃ©pendant</span>
+                <span className="inv-hero-badge">??? Courtage en assurance indépendant</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
-                  ProtÃ©gez ce qui compte<br />
+                  Protégez ce qui compte<br />
                   <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>sans payer trop cher</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
-                  Emprunteur, habitation, auto/moto â€” vos assureurs augmentent vos tarifs
-                  chaque annÃ©e. Je compare le marchÃ©, trouve le juste prix et{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>rÃ©silie vos anciens contrats Ã  votre place.</strong>
+                  Emprunteur, habitation, auto/moto — vos assureurs augmentent vos tarifs
+                  chaque année. Je compare le marché, trouve le juste prix et{' '}
+                  <strong style={{ color: 'var(--orizia-accent)' }}>résilie vos anciens contrats à votre place.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="ğŸ“… Auditer mes contrats sans frais de dossier" className="fin-btn-primary inv-hero-cta-main" />
+                  <ContactPopup label="?? Auditer mes contrats sans frais de dossier" className="fin-btn-primary inv-hero-cta-main" />
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Voir mes solutions â†“
+                    Voir mes solutions ?
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    Loi Hamon & Lemoine maÃ®trisÃ©es
+                    Loi Hamon & Lemoine maîtrisées
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    ZÃ©ro coupure de garantie
+                    Zéro coupure de garantie
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
@@ -209,7 +209,7 @@ export default function AssurerPage() {
                 </div>
               </div>
 
-              {/* Droite â€” quiz */}
+              {/* Droite — quiz */}
               <div className="inv-hero-quiz-wrap">
                 <div className="inv-hero-quiz-eyebrow">
                   <span className="inv-hero-quiz-dot" />
@@ -221,17 +221,17 @@ export default function AssurerPage() {
           </div>
         </section>
 
-        {/* â”€â”€ STATS ANIMÃ‰ES â”€â”€ */}
+        {/* -- STATS ANIMÉES -- */}
         <AnimatedStats />
 
-        {/* â”€â”€ CITATION CINDY â”€â”€ */}
+        {/* -- CITATION CINDY -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtier indÃ©pendant en assurance"
+                  alt="Cindy Urbansky, courtier indépendant en assurance"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -241,47 +241,47 @@ export default function AssurerPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  Â« Payer une assurance, c'est acheter de la tranquillitÃ© d'esprit. Mais quand je vois les tarifs augmenter silencieusement chaque annÃ©e, je vois surtout de l'argent jetÃ© par les fenÃªtres. Â»
+                  « Payer une assurance, c'est acheter de la tranquillité d'esprit. Mais quand je vois les tarifs augmenter silencieusement chaque année, je vois surtout de l'argent jeté par les fenêtres. »
                 </p>
                 <p className="ae-citation-text">
-                  Mon rÃ´le n'est pas de vous sur-assurer, mais de trouver le contrat qui vous couvre vraiment, au juste prix, et de gÃ©rer toute la paperasse de rÃ©siliation Ã  votre place. Vous Ãªtes protÃ©gÃ©, je m'occupe du reste.
+                  Mon rôle n'est pas de vous sur-assurer, mais de trouver le contrat qui vous couvre vraiment, au juste prix, et de gérer toute la paperasse de résiliation à votre place. Vous êtes protégé, je m'occupe du reste.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ PRODUITS â”€â”€ */}
+        {/* -- PRODUITS -- */}
         <section id="produits" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mes solutions</span>
-              <h2>3 contrats, une stratÃ©gie<br />pour arrÃªter de payer trop cher</h2>
+              <h2>3 contrats, une stratégie<br />pour arrêter de payer trop cher</h2>
               <p>
-                Chaque contrat a son levier d'Ã©conomie. Je les optimise ensemble
+                Chaque contrat a son levier d'économie. Je les optimise ensemble
                 pour maximiser vos gains et simplifier votre gestion.
               </p>
             </div>
             <AssurerProduitsGrid />
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous ne savez pas par oÃ¹ commencer ? C'est prÃ©cisÃ©ment pour Ã§a que le premier rendez-vous existe.
+                Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier rendez-vous existe.
               </p>
-              <ContactPopup label="ğŸ“… Auditer tous mes contrats avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="?? Auditer tous mes contrats avec Cindy" className="fin-btn-primary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ POURQUOI ORIZIA â”€â”€ */}
+        {/* -- POURQUOI ORIZIA -- */}
         <section id="section-pourquoi" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="inv-why-layout">
               <div className="inv-why-image">
                 <Image
                   src="/images/courtier-assurance-independant.webp"
-                  alt="Cindy Urbansky, courtier indÃ©pendant en assurance â€“ Orizia Courtage"
+                  alt="Cindy Urbansky, courtier indépendant en assurance – Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}
@@ -289,19 +289,19 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   loading="lazy"
                 />
                 <div className="inv-why-image-badge">
-                  <span className="inv-why-image-badge-icon">ğŸ†</span>
+                  <span className="inv-why-image-badge-icon">??</span>
                   <div>
                     <div className="inv-why-image-badge-val">15 ans</div>
-                    <div className="inv-why-image-badge-label">d'expÃ©rience</div>
+                    <div className="inv-why-image-badge-label">d'expérience</div>
                   </div>
                 </div>
               </div>
               <div className="inv-why-content">
                 <span className="fin-badge">Pourquoi Orizia ?</span>
-                <h2>Ce qui me diffÃ©rencie<br />d'un agent d'assurance</h2>
+                <h2>Ce qui me différencie<br />d'un agent d'assurance</h2>
                 <p>
-                  Un agent gÃ©nÃ©ral vous vend les produits de son employeur.
-                  Moi, je travaille pour vous â€” et uniquement pour vous.
+                  Un agent général vous vend les produits de son employeur.
+                  Moi, je travaille pour vous — et uniquement pour vous.
                 </p>
                 <div className="inv-why-grid">
                   {DIFFERENCIANTS.map(d => (
@@ -314,19 +314,19 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                     </div>
                   ))}
                 </div>
-                <ContactPopup label="ğŸ“… Me confier mes contrats" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
+                <ContactPopup label="?? Me confier mes contrats" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ Ã‰TAPES â”€â”€ */}
+        {/* -- ÉTAPES -- */}
         <section id="section-etapes" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Mon engagement : le "zÃ©ro friction"</span>
+              <span className="fin-badge">Mon engagement : le "zéro friction"</span>
               <h2>Vous choisissez,<br />je m'occupe du reste</h2>
-              <p>Changer d'assurance est censÃ© Ãªtre compliquÃ©. C'est pour Ã§a que j'en ai fait mon mÃ©tier.</p>
+              <p>Changer d'assurance est censé être compliqué. C'est pour ça que j'en ai fait mon métier.</p>
             </div>
             <div className="ae-accompagnement-layout">
               <div className="ae-accompagnement-etapes">
@@ -343,8 +343,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier-courtage.webp"
-                  alt="Cindy Urbansky prÃ©parant un dossier d'assurance pour ses clients"
-                  title="Accompagnement de A Ã  Z â€“ Orizia Courtage"
+                  alt="Cindy Urbansky préparant un dossier d'assurance pour ses clients"
+                  title="Accompagnement de A à Z – Orizia Courtage"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -356,13 +356,13 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€ */}
+        {/* -- FAQ -- */}
         <section id="section-faq" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur mon approche,<br />mes rÃ©ponses directes</h2>
-              <p>La transparence est au cÅ“ur de mon mÃ©tier. Voici les questions qu'on me pose le plus souvent.</p>
+              <h2>Vos questions sur mon approche,<br />mes réponses directes</h2>
+              <p>La transparence est au cœur de mon métier. Voici les questions qu'on me pose le plus souvent.</p>
             </div>
             <div className="crowd-faq-list">
               {FAQ_ASSURER.map((f, i) => (
@@ -374,31 +374,31 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spÃ©cifique ? Je vous rÃ©ponds sous 24h.
+                Vous avez une question spécifique ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="âœ‰ï¸ Poser une question Ã  Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="?? Poser une question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CTA FINAL â”€â”€ */}
+        {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>
-              PrÃªt(e) Ã  arrÃªter de payer trop cher ?
+              Prêt(e) à arrêter de payer trop cher ?
             </h2>
             <p>
-              Faites-moi passer vos avis d'Ã©chÃ©ance. Je vous dirai honnÃªtement si vous Ãªtes
-              bien assurÃ©(e) ou si on peut faire beaucoup mieux ailleurs.{' '}
+              Faites-moi passer vos avis d'échéance. Je vous dirai honnêtement si vous êtes
+              bien assuré(e) ou si on peut faire beaucoup mieux ailleurs.{' '}
               <strong>Sans frais de courtage pour vous.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="âœ‰ï¸ Contactez moi" className="fin-btn-primary" />
+              <ContactPopup label="?? Contactez moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
-              Je suis immatriculÃ©e Ã  l'ORIAS, rÃ©gie par l'ACPR.
-              RÃ©munÃ©rÃ©e par les compagnies partenaires, jamais par vous.
-              * Je ne suis soumise Ã  aucune obligation contractuelle de travailler exclusivement avec une ou plusieurs entreprises d'assurance.
+              Je suis immatriculée à l'ORIAS, régie par l'ACPR.
+              Rémunérée par les compagnies partenaires, jamais par vous.
+              * Je ne suis soumise à aucune obligation contractuelle de travailler exclusivement avec une ou plusieurs entreprises d'assurance.
             </p>
           </div>
         </section>

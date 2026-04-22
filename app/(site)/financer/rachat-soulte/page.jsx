@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import ReadingProgressRachatSoulte from '@/components/ReadingProgressRachatSoulte';
@@ -6,20 +6,20 @@ import SimulateurSoulte from '@/components/SimulateurSoulte';
 import RachatSoulteChecklist from '@/components/RachatSoulteChecklist';
 import ScrollButton from '@/components/ScrollButton';
 
-// â”€â”€ 1. MÃ‰TADONNÃ‰ES SEO â”€â”€
+// -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
   description:
-    'SÃ©paration, divorce ou succession : je finance le rachat de soulte pour conserver votre bien. Cindy Urbansky, courtier indÃ©pendant. Ã‰tude de faisabilitÃ©.',
+    'Séparation, divorce ou succession : je finance le rachat de soulte pour conserver votre bien. Cindy Urbansky, courtier indépendant. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
   openGraph: {
     title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
-    description: 'Divorce, sÃ©paration ou succession : je monte le financement pour que vous puissiez racheter la part de votre co-propriÃ©taire et conserver votre bien. Ã‰tude de faisabilitÃ©.',
+    description: 'Divorce, séparation ou succession : je monte le financement pour que vous puissiez racheter la part de votre co-propriétaire et conserver votre bien. Étude de faisabilité.',
     url: 'https://www.orizia-courtage.fr/financer/rachat-soulte',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-rachat-soulte.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-rachat-soulte.webp',
         width: 1200,
         height: 630,
         alt: 'Rachat de soulte avec Orizia Courtage - Cindy Urbansky',
@@ -30,7 +30,7 @@ export const metadata = {
   },
 };
 
-// â”€â”€ 2. DONNÃ‰ES STRUCTURÃ‰ES â”€â”€
+// -- 2. DONNÉES STRUCTURÉES --
 const rachatSoulteSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -53,23 +53,23 @@ const rachatSoulteSchema = {
         telephone: '+33XXXXXXXXX',
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Marcq-en-BarÅ“ul',
+          addressLocality: 'Marcq-en-Barœul',
           addressRegion: 'Hauts-de-France',
           addressCountry: 'FR',
         },
       },
-      description: 'Montage du financement pour racheter la part d\'un co-propriÃ©taire lors d\'un divorce, d\'une sÃ©paration ou d\'une succession. AccÃ¨s Ã  plus de 40 banques partenaires.',
+      description: 'Montage du financement pour racheter la part d\'un co-propriétaire lors d\'un divorce, d\'une séparation ou d\'une succession. Accès à plus de 40 banques partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Ã‰tude de faisabilitÃ© sans frais de dossier et sans engagement.',
+        description: 'Étude de faisabilité sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -84,47 +84,47 @@ const faqSchema = {
       name: 'Qu\'est-ce que le rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le rachat de soulte est l\'opÃ©ration par laquelle l\'un des co-propriÃ©taires d\'un bien immobilier rachÃ¨te la part de l\'autre pour devenir seul propriÃ©taire. Il intervient le plus souvent lors d\'un divorce, d\'une sÃ©paration de concubins ou d\'une succession. La soulte correspond Ã  la somme versÃ©e au co-propriÃ©taire sortant en contrepartie de sa part.',
+        text: 'Le rachat de soulte est l\'opération par laquelle l\'un des co-propriétaires d\'un bien immobilier rachète la part de l\'autre pour devenir seul propriétaire. Il intervient le plus souvent lors d\'un divorce, d\'une séparation de concubins ou d\'une succession. La soulte correspond à la somme versée au co-propriétaire sortant en contrepartie de sa part.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Comment est calculÃ©e la soulte ?',
+      name: 'Comment est calculée la soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La soulte est calculÃ©e sur la valeur vÃ©nale du bien au moment de la sÃ©paration, dÃ©duction faite du capital restant dÃ» sur le crÃ©dit immobilier en cours. Par exemple : bien estimÃ© Ã  300 000â‚¬, capital restant dÃ» de 100 000â‚¬ â†’ valeur nette de 200 000â‚¬. Pour une dÃ©tention Ã  50/50, la soulte est de 100 000â‚¬. Un notaire officialise le calcul et la transaction.',
+        text: 'La soulte est calculée sur la valeur vénale du bien au moment de la séparation, déduction faite du capital restant dû sur le crédit immobilier en cours. Par exemple : bien estimé à 300 000€, capital restant dû de 100 000€ ? valeur nette de 200 000€. Pour une détention à 50/50, la soulte est de 100 000€. Un notaire officialise le calcul et la transaction.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Puis-je financer le rachat de soulte avec un crÃ©dit ?',
+      name: 'Puis-je financer le rachat de soulte avec un crédit ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui. Le financement du rachat de soulte se fait gÃ©nÃ©ralement via un nouveau crÃ©dit immobilier qui intÃ¨gre Ã  la fois le montant de la soulte et le capital restant dÃ» sur le prÃªt existant. C\'est prÃ©cisÃ©ment ce montage que je nÃ©gocie pour vous auprÃ¨s de mes partenaires bancaires.',
+        text: 'Oui. Le financement du rachat de soulte se fait généralement via un nouveau crédit immobilier qui intègre à la fois le montant de la soulte et le capital restant dû sur le prêt existant. C\'est précisément ce montage que je négocie pour vous auprès de mes partenaires bancaires.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Ma banque actuelle est-elle obligÃ©e d\'accepter le rachat de soulte ?',
+      name: 'Ma banque actuelle est-elle obligée d\'accepter le rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier indÃ©pendant, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'Ã©tablissement qui accepte votre dossier aux meilleures conditions â€” y compris si votre banque actuelle refuse.',
+        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier indépendant, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier aux meilleures conditions — y compris si votre banque actuelle refuse.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quel est le rÃ´le du notaire dans un rachat de soulte ?',
+      name: 'Quel est le rôle du notaire dans un rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le notaire est indispensable : il rÃ©dige l\'acte de partage ou de licitation, calcule les droits de partage (2,5% de la valeur nette du bien), et officialise le transfert de propriÃ©tÃ©. Mon rÃ´le est de monter le financement bancaire en parallÃ¨le pour que tout soit prÃªt le jour de la signature chez le notaire.',
+        text: 'Le notaire est indispensable : il rédige l\'acte de partage ou de licitation, calcule les droits de partage (2,5% de la valeur nette du bien), et officialise le transfert de propriété. Mon rôle est de monter le financement bancaire en parallèle pour que tout soit prêt le jour de la signature chez le notaire.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Combien coÃ»te votre accompagnement pour un rachat de soulte ?',
+      name: 'Combien coûte votre accompagnement pour un rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Mon accompagnement est sans frais de dossier pour vous. Je suis rÃ©munÃ©rÃ©e par la banque partenaire chez qui nous signons le financement. L\'Ã©tude de faisabilitÃ© et le montage du dossier ne vous coÃ»tent rien.',
+        text: 'Mon accompagnement est sans frais de dossier pour vous. Je suis rémunérée par la banque partenaire chez qui nous signons le financement. L\'étude de faisabilité et le montage du dossier ne vous coûtent rien.',
       },
     },
   ],
@@ -134,40 +134,40 @@ const ETAPES = [
   {
     n: '01',
     title: 'Estimation du bien et calcul de la soulte',
-    text: 'On commence par estimer la valeur du bien (via une agence ou un notaire) et calculer le montant exact de la soulte. Je vous aide Ã  comprendre chaque chiffre avant d\'aller plus loin.',
+    text: 'On commence par estimer la valeur du bien (via une agence ou un notaire) et calculer le montant exact de la soulte. Je vous aide à comprendre chaque chiffre avant d\'aller plus loin.',
   },
   {
     n: '02',
-    title: 'Analyse de votre capacitÃ© de financement',
-    text: 'Je vÃ©rifie que votre situation financiÃ¨re (revenus, charges, taux d\'endettement) permet de porter seul le nouveau crÃ©dit. Si nÃ©cessaire, j\'identifie les leviers pour optimiser votre dossier.',
+    title: 'Analyse de votre capacité de financement',
+    text: 'Je vérifie que votre situation financière (revenus, charges, taux d\'endettement) permet de porter seul le nouveau crédit. Si nécessaire, j\'identifie les leviers pour optimiser votre dossier.',
   },
   {
     n: '03',
     title: 'Montage du dossier et mise en concurrence',
-    text: 'Je prÃ©sente votre dossier Ã  mes 40+ partenaires bancaires. Je nÃ©gocie le taux, les frais de dossier et l\'assurance emprunteur pour minimiser le coÃ»t total de l\'opÃ©ration.',
+    text: 'Je présente votre dossier à mes 40+ partenaires bancaires. Je négocie le taux, les frais de dossier et l\'assurance emprunteur pour minimiser le coût total de l\'opération.',
   },
   {
     n: '04',
     title: 'Coordination avec le notaire',
-    text: 'Je travaille en parallÃ¨le avec votre notaire pour que le financement soit prÃªt le jour de la signature de l\'acte de partage. Vous n\'avez pas Ã  gÃ©rer les deux fronts en mÃªme temps.',
+    text: 'Je travaille en parallèle avec votre notaire pour que le financement soit prêt le jour de la signature de l\'acte de partage. Vous n\'avez pas à gérer les deux fronts en même temps.',
   },
 ];
 
 const DANGERS = [
   {
-    icon: 'ğŸ¦',
-    title: 'Votre banque actuelle n\'est pas votre alliÃ©e',
-    text: 'La banque qui dÃ©tient votre crÃ©dit actuel a tout intÃ©rÃªt Ã  vous proposer un rachat de soulte Ã  ses propres conditions â€” souvent peu compÃ©titives. Elle peut aussi refuser si votre profil a Ã©voluÃ©. Je mets le marchÃ© en concurrence pour vous.',
+    icon: '??',
+    title: 'Votre banque actuelle n\'est pas votre alliée',
+    text: 'La banque qui détient votre crédit actuel a tout intérêt à vous proposer un rachat de soulte à ses propres conditions — souvent peu compétitives. Elle peut aussi refuser si votre profil a évolué. Je mets le marché en concurrence pour vous.',
   },
   {
-    icon: 'ğŸ“Š',
+    icon: '??',
     title: 'Le taux d\'endettement change tout',
-    text: 'Passer de deux revenus Ã  un seul modifie radicalement votre capacitÃ© d\'emprunt. Certains dossiers nÃ©cessitent une restructuration prÃ©alable (regroupement de crÃ©dits, optimisation des charges) avant de pouvoir financer la soulte. Je l\'anticipe avec vous.',
+    text: 'Passer de deux revenus à un seul modifie radicalement votre capacité d\'emprunt. Certains dossiers nécessitent une restructuration préalable (regroupement de crédits, optimisation des charges) avant de pouvoir financer la soulte. Je l\'anticipe avec vous.',
   },
   {
-    icon: 'â³',
+    icon: '?',
     title: 'Le timing avec le notaire est critique',
-    text: 'L\'acte de partage et le financement doivent Ãªtre synchronisÃ©s. Un retard bancaire peut bloquer la procÃ©dure et gÃ©nÃ©rer des frais supplÃ©mentaires. Je coordonne les deux pour Ã©viter tout dÃ©calage.',
+    text: 'L\'acte de partage et le financement doivent être synchronisés. Un retard bancaire peut bloquer la procédure et générer des frais supplémentaires. Je coordonne les deux pour éviter tout décalage.',
   },
 ];
 
@@ -186,7 +186,7 @@ export default function RachatSoultePage() {
       <main>
         <ReadingProgressRachatSoulte />
 
-        {/* â”€â”€ HERO â”€â”€ */}
+        {/* -- HERO -- */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
             <Image
@@ -203,41 +203,41 @@ export default function RachatSoultePage() {
           <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
-              {' â€º '}
+              {' › '}
               <Link href="/financer" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Financer</Link>
-              {' â€º '}
+              {' › '}
               <span>Rachat de Soulte</span>
             </nav>
-            <span className="fin-badge">âš–ï¸ Divorce Â· SÃ©paration Â· Succession</span>
+            <span className="fin-badge">?? Divorce · Séparation · Succession</span>
             <h1 className="ae-hero-title">Rachat de soulte :<br />conservez votre bien, je monte le financement</h1>
             <p className="ae-hero-intro">
-              Vous souhaitez racheter la part de votre ex-conjoint ou d'un co-hÃ©ritier pour rester
-              seul propriÃ©taire ? Je monte le financement adaptÃ© Ã  votre situation, je nÃ©gocie
+              Vous souhaitez racheter la part de votre ex-conjoint ou d'un co-héritier pour rester
+              seul propriétaire ? Je monte le financement adapté à votre situation, je négocie
               les meilleures conditions et je coordonne avec votre notaire.{' '}
-              <strong>Ã‰tude de faisabilitÃ©.</strong>
+              <strong>Étude de faisabilité.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="ğŸ“… Ã‰tudier mon financement" className="fin-btn-primary" />
+              <ContactPopup label="?? Étudier mon financement" className="fin-btn-primary" />
               <ScrollButton targetId="section-simulateur" className="fin-btn-secondary">
-                ğŸ§® Calculer ma soulte
+                ?? Calculer ma soulte
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>âœ… +40 banques comparÃ©es</span>
-              <span>ğŸ¤ Coordination avec votre notaire</span>
-              <span>âš¡ RÃ©ponse sous 24h</span>
+              <span>? +40 banques comparées</span>
+              <span>?? Coordination avec votre notaire</span>
+              <span>? Réponse sous 24h</span>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CHIFFRES CLÃ‰S â”€â”€ */}
+        {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {[
-              { val: '2,5%', label: 'Droits de partage dus au notaire', icon: 'ğŸ“‹' },
-              { val: '+40', label: 'Banques partenaires comparÃ©es', icon: 'ğŸ¦' },
-              { val: '100%', label: 'sans frais de dossier pour vous', icon: 'âœ¨' },
-              { val: '24h', label: 'Pour une premiÃ¨re estimation', icon: 'âš¡' },
+              { val: '2,5%', label: 'Droits de partage dus au notaire', icon: '??' },
+              { val: '+40', label: 'Banques partenaires comparées', icon: '??' },
+              { val: '100%', label: 'sans frais de dossier pour vous', icon: '?' },
+              { val: '24h', label: 'Pour une première estimation', icon: '?' },
             ].map(c => (
               <div key={c.label} className="fin-chiffre">
                 <strong>{c.icon} {c.val}</strong>
@@ -247,14 +247,14 @@ export default function RachatSoultePage() {
           </div>
         </section>
 
-        {/* â”€â”€ CITATION CINDY â”€â”€ */}
+        {/* -- CITATION CINDY -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtier indÃ©pendant en rachat de soulte"
+                  alt="Cindy Urbansky, courtier indépendant en rachat de soulte"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -264,45 +264,45 @@ export default function RachatSoultePage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  Â« Un rachat de soulte, c'est souvent l'une des opÃ©rations les plus stressantes de la vie â€” parce qu'elle se passe dans un contexte Ã©motionnel difficile. Â»
+                  « Un rachat de soulte, c'est souvent l'une des opérations les plus stressantes de la vie — parce qu'elle se passe dans un contexte émotionnel difficile. »
                 </p>
                 <p className="ae-citation-text">
-                  Mon rÃ´le est de prendre en charge toute la partie financiÃ¨re pour que vous puissiez vous concentrer sur l'essentiel. Je monte le dossier, je nÃ©gocie avec les banques, et je coordonne avec votre notaire pour que tout soit prÃªt Ã  temps. Sans surprise, sans retard.
+                  Mon rôle est de prendre en charge toute la partie financière pour que vous puissiez vous concentrer sur l'essentiel. Je monte le dossier, je négocie avec les banques, et je coordonne avec votre notaire pour que tout soit prêt à temps. Sans surprise, sans retard.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ DÃ‰FINITION â”€â”€ */}
+        {/* -- DÉFINITION -- */}
         <section id="section-definition" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
-                <span className="fin-badge">DÃ©finition</span>
+                <span className="fin-badge">Définition</span>
                 <h2>Qu'est-ce que le rachat de soulte ?</h2>
                 <p>
-                  La <strong>soulte</strong> est la somme d'argent qu'un co-propriÃ©taire verse
-                  Ã  l'autre pour racheter sa part d'un bien immobilier dÃ©tenu en commun.
+                  La <strong>soulte</strong> est la somme d'argent qu'un co-propriétaire verse
+                  à l'autre pour racheter sa part d'un bien immobilier détenu en commun.
                   Elle intervient dans trois situations principales :
                 </p>
                 <ul style={{ margin: '16px 0 16px 20px', display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <li style={{ fontSize: '0.95rem', color: 'var(--orizia-dark)', lineHeight: 1.6 }}>
-                    <strong>Divorce ou sÃ©paration</strong> â€” l'un des conjoints souhaite conserver le logement familial
+                    <strong>Divorce ou séparation</strong> — l'un des conjoints souhaite conserver le logement familial
                   </li>
                   <li style={{ fontSize: '0.95rem', color: 'var(--orizia-dark)', lineHeight: 1.6 }}>
-                    <strong>Succession</strong> â€” un hÃ©ritier rachÃ¨te les parts des autres pour devenir seul propriÃ©taire
+                    <strong>Succession</strong> — un héritier rachète les parts des autres pour devenir seul propriétaire
                   </li>
                   <li style={{ fontSize: '0.95rem', color: 'var(--orizia-dark)', lineHeight: 1.6 }}>
-                    <strong>Fin d'indivision</strong> â€” dissolution d'une SCI ou d'un achat entre amis
+                    <strong>Fin d'indivision</strong> — dissolution d'une SCI ou d'un achat entre amis
                   </li>
                 </ul>
                 <p>
-                  Le montant de la soulte est calculÃ© sur la <strong>valeur vÃ©nale actuelle du bien</strong>,
-                  dÃ©duction faite du capital restant dÃ» sur le crÃ©dit immobilier en cours.
-                  Un notaire est obligatoire pour officialiser l'opÃ©ration.
+                  Le montant de la soulte est calculé sur la <strong>valeur vénale actuelle du bien</strong>,
+                  déduction faite du capital restant dû sur le crédit immobilier en cours.
+                  Un notaire est obligatoire pour officialiser l'opération.
                 </p>
               </div>
               <div className="crowd-schema">
@@ -310,60 +310,60 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   Calcul de la soulte
                 </div>
                 <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">ğŸ </div>
+                  <div className="crowd-schema-icon">??</div>
                   <div className="crowd-schema-text">
                     <strong>Valeur du bien</strong>
-                    <span>EstimÃ©e par un agent ou un notaire</span>
+                    <span>Estimée par un agent ou un notaire</span>
                   </div>
                 </div>
-                <div className="crowd-schema-arrow">âˆ’</div>
+                <div className="crowd-schema-arrow">-</div>
                 <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">ğŸ¦</div>
+                  <div className="crowd-schema-icon">??</div>
                   <div className="crowd-schema-text">
-                    <strong>Capital restant dÃ»</strong>
-                    <span>Sur le crÃ©dit immobilier en cours</span>
+                    <strong>Capital restant dû</strong>
+                    <span>Sur le crédit immobilier en cours</span>
                   </div>
                 </div>
-                <div className="crowd-schema-arrow">Ã· 2</div>
+                <div className="crowd-schema-arrow">÷ 2</div>
                 <div className="crowd-schema-step crowd-schema-step--result">
-                  <div className="crowd-schema-icon">ğŸ’°</div>
+                  <div className="crowd-schema-icon">??</div>
                   <div className="crowd-schema-text">
                     <strong>Montant de la soulte</strong>
-                    <span>Ã€ financer par le co-propriÃ©taire rachetant</span>
+                    <span>À financer par le co-propriétaire rachetant</span>
                   </div>
                 </div>
                 <div style={{ marginTop: 12, background: 'var(--orizia-light)', borderRadius: 10, padding: '12px 14px', fontSize: '0.78rem', color: 'var(--orizia-dark)', opacity: 0.7 }}>
-                  ğŸ’¡ <strong>Exemple :</strong> Bien Ã  300 000â‚¬ Â· CRD 100 000â‚¬ â†’ Valeur nette 200 000â‚¬ â†’ Soulte = <strong>100 000â‚¬</strong>
+                  ?? <strong>Exemple :</strong> Bien à 300 000€ · CRD 100 000€ ? Valeur nette 200 000€ ? Soulte = <strong>100 000€</strong>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ SIMULATEUR â”€â”€ */}
+        {/* -- SIMULATEUR -- */}
         <section id="section-simulateur" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">ğŸ§® Simulateur</span>
-              <h2>Calculez votre soulte<br />en temps rÃ©el</h2>
+              <span className="fin-badge">?? Simulateur</span>
+              <h2>Calculez votre soulte<br />en temps réel</h2>
               <p>
-                Renseignez les informations de votre bien pour obtenir une estimation immÃ©diate
-                du montant Ã  financer et des droits de partage.
+                Renseignez les informations de votre bien pour obtenir une estimation immédiate
+                du montant à financer et des droits de partage.
               </p>
             </div>
             <SimulateurSoulte />
           </div>
         </section>
 
-        {/* â”€â”€ DANGERS â”€â”€ */}
+        {/* -- DANGERS -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                âš ï¸ Les piÃ¨ges Ã  Ã©viter
+                ?? Les pièges à éviter
               </span>
-              <h2>Pourquoi ne pas gÃ©rer<br />le financement seul</h2>
-              <p>Le rachat de soulte cumule complexitÃ© bancaire et pression Ã©motionnelle. Voici les 3 erreurs les plus frÃ©quentes.</p>
+              <h2>Pourquoi ne pas gérer<br />le financement seul</h2>
+              <p>Le rachat de soulte cumule complexité bancaire et pression émotionnelle. Voici les 3 erreurs les plus fréquentes.</p>
             </div>
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
@@ -379,7 +379,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 <Image
                   src="/images/banque-pression.webp"
                   alt="Pression bancaire lors d'un rachat de soulte"
-                  title="Les piÃ¨ges du rachat de soulte sans courtier"
+                  title="Les pièges du rachat de soulte sans courtier"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -391,13 +391,13 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ Ã‰TAPES â”€â”€ */}
+        {/* -- ÉTAPES -- */}
         <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
-              <h2>Ce que je fais concrÃ¨tement<br />pour vous, de A Ã  Z</h2>
-              <p>Du calcul de la soulte Ã  la signature chez le notaire â€” je gÃ¨re tout le volet financier.</p>
+              <h2>Ce que je fais concrètement<br />pour vous, de A à Z</h2>
+              <p>Du calcul de la soulte à la signature chez le notaire — je gère tout le volet financier.</p>
             </div>
             <div className="ae-accompagnement-layout">
               <div className="ae-accompagnement-etapes">
@@ -415,7 +415,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 <Image
                   src="/images/dossier_rachat_soulte.webp"
                   alt="Cindy Urbansky montant un dossier de rachat de soulte"
-                  title="Accompagnement rachat de soulte â€“ Orizia Courtage"
+                  title="Accompagnement rachat de soulte – Orizia Courtage"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -425,33 +425,33 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               </div>
             </div>
             <div className="av-sans frais de dossier-bloc">
-              <div className="av-sans frais de dossier-icon">ğŸ¤</div>
+              <div className="av-sans frais de dossier-icon">??</div>
               <div>
                 <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p>
-                  Je suis rÃ©munÃ©rÃ©e par la banque partenaire chez qui nous signons le financement.
-                  L'Ã©tude de faisabilitÃ©, le montage du dossier et la coordination avec votre notaire
-                  ne vous coÃ»tent rien.
+                  Je suis rémunérée par la banque partenaire chez qui nous signons le financement.
+                  L'étude de faisabilité, le montage du dossier et la coordination avec votre notaire
+                  ne vous coûtent rien.
                 </p>
               </div>
-              <ContactPopup label="ğŸ“… DÃ©marrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="?? Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ AUTO-Ã‰VALUATION â”€â”€ */}
+        {/* -- AUTO-ÉVALUATION -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <RachatSoulteChecklist />
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€ */}
+        {/* -- FAQ -- */}
         <section id="section-faq" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur le rachat de soulte,<br />mes rÃ©ponses directes</h2>
+              <h2>Vos questions sur le rachat de soulte,<br />mes réponses directes</h2>
               <p>Sans jargon. Sans langue de bois.</p>
             </div>
             <div className="crowd-faq-list">
@@ -463,27 +463,27 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <ContactPopup label="âœ‰ï¸ Poser une autre question" className="fin-btn-secondary" />
+              <ContactPopup label="?? Poser une autre question" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ MAILLAGE INTERNE â”€â”€ */}
+        {/* -- MAILLAGE INTERNE -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
-              <h2>Optimisez l'ensemble<br />de votre situation financiÃ¨re</h2>
+              <h2>Optimisez l'ensemble<br />de votre situation financière</h2>
             </div>
             <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/financer/credit-immobilier',
-                  icon: 'ğŸ ',
-                  title: 'CrÃ©dit immobilier',
+                  icon: '??',
+                  title: 'Crédit immobilier',
                   sub: 'Votre projet de vie',
-                  text: 'AprÃ¨s le rachat de soulte, vous souhaitez renÃ©gocier votre crÃ©dit ou financer un nouveau projet ? Je m\'occupe de tout.',
-                  badge: 'ğŸ¦ +40 banques comparÃ©es',
+                  text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
+                  badge: '?? +40 banques comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',
@@ -491,11 +491,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: 'ğŸ“‹',
+                  icon: '??',
                   title: 'Assurance emprunteur',
-                  sub: 'RÃ©duire le coÃ»t de votre prÃªt',
-                  text: 'Le nouveau crÃ©dit liÃ© au rachat de soulte est l\'occasion idÃ©ale d\'optimiser votre assurance emprunteur et d\'Ã©conomiser des milliers d\'euros.',
-                  badge: 'ğŸ’° Ã‰conomisez jusqu\'Ã  15 000â‚¬',
+                  sub: 'Réduire le coût de votre prêt',
+                  text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'économiser des milliers d\'euros.',
+                  badge: '?? Économisez jusqu\'à 15 000€',
                   badgeBg: 'rgba(201,169,110,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(201,169,110,0.3)',
@@ -503,11 +503,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/financer/regroupement-credits',
-                  icon: 'ğŸ”„',
-                  title: 'Regroupement de crÃ©dits',
-                  sub: 'AllÃ©ger vos mensualitÃ©s',
-                  text: 'Si le rachat de soulte alourdit votre endettement, le regroupement de crÃ©dits peut rÃ©duire vos mensualitÃ©s globales jusqu\'Ã  60%.',
-                  badge: 'ğŸ“‰ Jusqu\'Ã  âˆ’60% de mensualitÃ©s',
+                  icon: '??',
+                  title: 'Regroupement de crédits',
+                  sub: 'Alléger vos mensualités',
+                  text: 'Si le rachat de soulte alourdit votre endettement, le regroupement de crédits peut réduire vos mensualités globales jusqu\'à 60%.',
+                  badge: '?? Jusqu\'à -60% de mensualités',
                   badgeBg: 'rgba(124,58,237,0.08)',
                   badgeColor: '#7c3aed',
                   badgeBorder: '1px solid rgba(124,58,237,0.2)',
@@ -524,25 +524,25 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">DÃ©couvrir â†’</span>
+                  <span className="fin-card-link">Découvrir ?</span>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CTA FINAL â”€â”€ */}
+        {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
-            <h2>PrÃªt(e) Ã  conserver votre bien ?</h2>
-            <p>Confiez-moi votre dossier. Je calcule la faisabilitÃ©, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
+            <h2>Prêt(e) à conserver votre bien ?</h2>
+            <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
-              <ContactPopup label="ğŸ“… Ã‰tudier mon rachat de soulte" className="fin-btn-primary" />
+              <ContactPopup label="?? Étudier mon rachat de soulte" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Un crÃ©dit vous engage et doit Ãªtre remboursÃ©. VÃ©rifiez vos capacitÃ©s de remboursement avant de vous engager.
-              Aucun versement de quelque nature que ce soit ne peut Ãªtre exigÃ© d'un particulier, avant l'obtention d'un ou plusieurs prÃªts d'argent.
-              Je suis immatriculÃ©e Ã  l'ORIAS en tant que Mandataire Non Exclusif en OpÃ©rations de Banque et Services de Paiement (MOBSP).
+              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>
         </section>

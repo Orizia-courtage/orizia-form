@@ -15,10 +15,10 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-parrainage.webp',
         width: 1200,
         height: 630,
-        alt: 'Programme de parrainage Orizia Courtage',
+        alt: 'Programme de parrainage Orizia Courtage — Gagnez jusqu\'à 200€',
       },
     ],
     locale: 'fr_FR',

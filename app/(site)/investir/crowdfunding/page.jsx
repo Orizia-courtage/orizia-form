@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import SimulateurCrowdfunding from '@/components/SimulateurCrowdfunding';
@@ -7,20 +7,20 @@ import RisqueJauge from '@/components/RisqueJauge';
 import InvestisseurChecklist from '@/components/InvestisseurChecklist';
 import ReadingProgress from '@/components/ReadingProgress';
 
-// â”€â”€ 1. MÃ‰TADONNÃ‰ES SEO (OptimisÃ©es) â”€â”€
+// -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
-  title: 'Crowdfunding Immobilier 2026 : 8â€“12%/an | Orizia Courtage',
+  title: 'Crowdfunding Immobilier 2026 : 8–12%/an | Orizia Courtage',
   description:
-    'Je sÃ©lectionne et audite les projets de crowdfunding immobilier pour vous. 8â€“12%/an, dÃ¨s 1 000â‚¬. Conseil indÃ©pendant par Cindy Urbansky.',
+    'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant par Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/crowdfunding' },
   openGraph: {
-    title: 'Crowdfunding Immobilier 2026 : 8â€“12%/an avec un Expert | Orizia Courtage',
-    description: 'Je sÃ©lectionne et audite les projets de crowdfunding immobilier pour vous. 8â€“12%/an, dÃ¨s 1 000â‚¬. Conseil indÃ©pendant.',
+    title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
+    description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant.',
     url: 'https://www.orizia-courtage.fr/investir/crowdfunding',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-crowdfunding.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-crowdfunding.webp',
         width: 1200,
         height: 630,
         alt: 'Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky',
@@ -31,7 +31,7 @@ export const metadata = {
   },
 };
 
-// â”€â”€ 2. DONNÃ‰ES STRUCTURÃ‰ES (OptimisÃ©es E-E-A-T & GEO) â”€â”€
+// -- 2. DONNÉES STRUCTURÉES (Optimisées E-E-A-T & GEO) --
 const investirCrowdfundingSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -44,13 +44,13 @@ const investirCrowdfundingSchema = {
         { '@type': 'ListItem', position: 3, name: 'Crowdfunding Immobilier', item: 'https://www.orizia-courtage.fr/investir/crowdfunding' }
       ]
     },
-    // 2. Le Service proposÃ©
+    // 2. Le Service proposé
     {
       '@type': 'Service',
       name: "Courtage et Conseil en Crowdfunding Immobilier",
       serviceType: 'Investissement Participatif Immobilier',
       description:
-        "SÃ©lection, audit et conseil indÃ©pendant pour investir dans des projets de crowdfunding immobilier. Objectif de rendement 8-12%/an.",
+        "Sélection, audit et conseil indépendant pour investir dans des projets de crowdfunding immobilier. Objectif de rendement 8-12%/an.",
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -59,7 +59,7 @@ const investirCrowdfundingSchema = {
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' }
       ],
       offers: {
@@ -67,7 +67,7 @@ const investirCrowdfundingSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Audit des promoteurs, sÃ©lection des projets et dÃ©finition de la stratÃ©gie de diversification sans frais de dossieres pour l'investisseur (rÃ©munÃ©ration par les plateformes partenaires).",
+          "Audit des promoteurs, sélection des projets et définition de la stratégie de diversification sans frais de dossieres pour l'investisseur (rémunération par les plateformes partenaires).",
       },
     },
     // 3. La FAQ existante
@@ -79,7 +79,7 @@ const investirCrowdfundingSchema = {
           name: 'Quel est le rendement moyen du crowdfunding immobilier en 2026 ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an â€” bien au-dessus du livret A (3%) ou de l\'assurance vie en fonds euros (2â€“3%). Mais un rendement Ã©levÃ© s\'accompagne toujours d\'un risque plus Ã©levÃ©. L\'analyse sÃ©rieuse du projet et du promoteur n\'est pas facultative.',
+            text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an — bien au-dessus du livret A (3%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
           },
         },
         {
@@ -87,7 +87,7 @@ const investirCrowdfundingSchema = {
           name: 'Quels sont les risques du crowdfunding immobilier ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Le risque principal est la perte partielle ou totale du capital si le promoteur fait dÃ©faut. S\'y ajoutent le risque de retard, le capital bloquÃ© 12 Ã  36 mois, et la qualitÃ© inÃ©gale des plateformes. Une diversification rigoureuse et un accompagnement expert limitent significativement l\'exposition Ã  ces risques.',
+            text: 'Le risque principal est la perte partielle ou totale du capital si le promoteur fait défaut. S\'y ajoutent le risque de retard, le capital bloqué 12 à 36 mois, et la qualité inégale des plateformes. Une diversification rigoureuse et un accompagnement expert limitent significativement l\'exposition à ces risques.',
           },
         },
         {
@@ -95,23 +95,23 @@ const investirCrowdfundingSchema = {
           name: 'Pourquoi passer par un courtier pour investir dans le crowdfunding ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les plateformes sont rÃ©munÃ©rÃ©es par les promoteurs, pas par vous. Leurs intÃ©rÃªts ne sont pas toujours alignÃ©s avec les vÃ´tres. En tant que courtier indÃ©pendant chez Orizia Courtage, j\'analyse les bilans des promoteurs, sÃ©lectionne les plateformes les plus solides et construis une stratÃ©gie adaptÃ©e Ã  votre profil â€” le tout sans frais de dossier.',
+            text: 'Les plateformes sont rémunérées par les promoteurs, pas par vous. Leurs intérêts ne sont pas toujours alignés avec les vôtres. En tant que courtier indépendant chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil — le tout sans frais de dossier.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Quelle fiscalitÃ© s\'applique au crowdfunding immobilier ?',
+          name: 'Quelle fiscalité s\'applique au crowdfunding immobilier ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les intÃ©rÃªts sont soumis au PrÃ©lÃ¨vement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impÃ´t sur le revue + 17,2% de prÃ©lÃ¨vements sociaux. Si votre TMI est infÃ©rieur Ã  12,8%, l\'option pour le barÃ¨me progressif peut Ãªtre plus avantageuse.',
+            text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impôt sur le revue + 17,2% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Combien de temps mon capital est-il bloquÃ© ?',
+          name: 'Combien de temps mon capital est-il bloqué ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'La durÃ©e d\'immobilisation est gÃ©nÃ©ralement de 12 Ã  36 mois. Il n\'existe pas de marchÃ© secondaire : vous ne pouvez pas rÃ©cupÃ©rer votre capital avant l\'Ã©chÃ©ance. N\'investissez donc que de l\'Ã©pargne dont vous n\'aurez pas besoin sur cette pÃ©riode.',
+            text: 'La durée d\'immobilisation est généralement de 12 à 36 mois. Il n\'existe pas de marché secondaire : vous ne pouvez pas récupérer votre capital avant l\'échéance. N\'investissez donc que de l\'épargne dont vous n\'aurez pas besoin sur cette période.',
           },
         },
       ],
@@ -122,95 +122,95 @@ const investirCrowdfundingSchema = {
 const faqSchema = investirCrowdfundingSchema['@graph'][2];
 
 const CHIFFRES = [
-  { value: '8â€“12%', label: 'Rendement annuel brut moyen', icon: 'ğŸ“ˆ ' },
-  { value: "DÃ¨s 1 000â‚¬", label: "Ticket d'entrÃ©e accessible", icon: 'ğŸ’¶ ' },
-  { value: '12â€“36 mois', label: "DurÃ©e d'investissement typique", icon: 'â³ ' },
-  // âš ï¸ Le fix est ici ğŸ‘‡
-  { value: 'âš–ï¸\u00A0Flat\u00A0tax\u00A030%', label: 'FiscalitÃ© applicable aux intÃ©rÃªts', icon: '' },
+  { value: '8–12%', label: 'Rendement annuel brut moyen', icon: '?? ' },
+  { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: '?? ' },
+  { value: '12–36 mois', label: "Durée d'investissement typique", icon: '? ' },
+  // ?? Le fix est ici ??
+  { value: '??\u00A0Flat\u00A0tax\u00A030%', label: 'Fiscalité applicable aux intérêts', icon: '' },
 ];
 
 const DANGERS = [
   {
-    icon: 'ğŸ•µï¸',
-    title: 'Les plateformes travaillent pour le promoteur â€” pas pour vous',
-    text: 'C\'est le promoteur qui rÃ©munÃ¨re la plateforme. Leur modÃ¨le Ã©conomique repose sur le remplissage des projets, pas sur la protection de votre capital. Leurs analyses de risque sont rarement indÃ©pendantes â€” et rarement lisibles pour un non-spÃ©cialiste.',
+    icon: '???',
+    title: 'Les plateformes travaillent pour le promoteur — pas pour vous',
+    text: 'C\'est le promoteur qui rémunère la plateforme. Leur modèle économique repose sur le remplissage des projets, pas sur la protection de votre capital. Leurs analyses de risque sont rarement indépendantes — et rarement lisibles pour un non-spécialiste.',
   },
   {
-    icon: 'ğŸ“‘',
-    title: 'Lire un bilan de promoteur, Ã§a s\'apprend',
-    text: 'Ratio d\'endettement, fonds propres, historique de livraisons, garanties d\'achÃ¨vement : ces donnÃ©es sont publiques mais opaques sans formation financiÃ¨re. Un promoteur fragile, c\'est un risque de dÃ©faut que seul un regard expert dÃ©tecte avant qu\'il soit trop tard.',
+    icon: '??',
+    title: 'Lire un bilan de promoteur, ça s\'apprend',
+    text: 'Ratio d\'endettement, fonds propres, historique de livraisons, garanties d\'achèvement : ces données sont publiques mais opaques sans formation financière. Un promoteur fragile, c\'est un risque de défaut que seul un regard expert détecte avant qu\'il soit trop tard.',
   },
   {
-    icon: 'ğŸ¯',
+    icon: '??',
     title: 'La diversification ne s\'improvise pas',
-    text: 'Mettre 10 000â‚¬ sur un seul projet, c\'est un risque inutile. Une vraie stratÃ©gie rÃ©partit le capital sur plusieurs projets, typologies d\'actifs et zones gÃ©ographiques â€” avec mÃ©thode, pas au hasard.',
+    text: 'Mettre 10 000€ sur un seul projet, c\'est un risque inutile. Une vraie stratégie répartit le capital sur plusieurs projets, typologies d\'actifs et zones géographiques — avec méthode, pas au hasard.',
   },
 ];
 
 const AVANTAGES = [
-  { icon: 'ğŸ“ˆ', title: '8â€“12% brut/an', text: 'Parmi les meilleurs rendements accessibles aux particuliers, bien au-dessus de l\'inflation et de tous les livrets bancaires.' },
-  { icon: 'ğŸ’¶', title: 'DÃ¨s 1 000â‚¬', text: 'L\'immobilier de rendement Ã  portÃ©e de tous, sans mobiliser un apport important ni passer par un notaire.' },
-  { icon: 'â±ï¸', title: '12â€“36 mois', text: 'DurÃ©e maÃ®trisÃ©e avec une date de remboursement connue Ã  l\'avance â€” idÃ©al pour une Ã©pargne de moyen terme avec un objectif prÃ©cis.' },
-  { icon: 'ğŸ—ï¸', title: 'Actif tangible', text: 'Votre argent finance un projet immobilier rÃ©el : construction, rÃ©novation ou marchand de biens. Un sous-jacent concret, pas de la spÃ©culation.' },
-  { icon: 'ğŸ”„', title: 'Diversification efficace', text: 'ComplÃ©ment naturel d\'une assurance vie, d\'un PER ou d\'une SCPI pour dynamiser votre portefeuille sans le dÃ©sÃ©quilibrer.' },
-  { icon: 'ğŸš«', title: 'ZÃ©ro gestion', text: 'Pas de locataire Ã  gÃ©rer, pas de travaux imprÃ©vus, pas de taxe fonciÃ¨re. Un placement 100% passif et dÃ©matÃ©rialisÃ©.' },
+  { icon: '??', title: '8–12% brut/an', text: 'Parmi les meilleurs rendements accessibles aux particuliers, bien au-dessus de l\'inflation et de tous les livrets bancaires.' },
+  { icon: '??', title: 'Dès 1 000€', text: 'L\'immobilier de rendement à portée de tous, sans mobiliser un apport important ni passer par un notaire.' },
+  { icon: '??', title: '12–36 mois', text: 'Durée maîtrisée avec une date de remboursement connue à l\'avance — idéal pour une épargne de moyen terme avec un objectif précis.' },
+  { icon: '???', title: 'Actif tangible', text: 'Votre argent finance un projet immobilier réel : construction, rénovation ou marchand de biens. Un sous-jacent concret, pas de la spéculation.' },
+  { icon: '??', title: 'Diversification efficace', text: 'Complément naturel d\'une assurance vie, d\'un PER ou d\'une SCPI pour dynamiser votre portefeuille sans le déséquilibrer.' },
+  { icon: '??', title: 'Zéro gestion', text: 'Pas de locataire à gérer, pas de travaux imprévus, pas de taxe foncière. Un placement 100% passif et dématérialisé.' },
 ];
 
 const RISQUES = [
   {
-    niveau: 'Ã‰levÃ©', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: 'ğŸ”´',
+    niveau: 'Élevé', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: '??',
     title: 'Perte en capital',
-    text: 'En cas de dÃ©faillance du promoteur, vous pouvez perdre tout ou partie de votre capital. Ce risque est rÃ©el : certaines plateformes ont enregistrÃ© des taux de dÃ©faut supÃ©rieurs Ã  10% en 2023â€“2024.',
-    mitigation: 'Mon rÃ´le : auditer le promoteur avant de vous recommander le projet.',
+    text: 'En cas de défaillance du promoteur, vous pouvez perdre tout ou partie de votre capital. Ce risque est réel : certaines plateformes ont enregistré des taux de défaut supérieurs à 10% en 2023–2024.',
+    mitigation: 'Mon rôle : auditer le promoteur avant de vous recommander le projet.',
   },
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: 'ğŸŸ ',
+    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '??',
     title: 'Retard de remboursement',
-    text: 'Un chantier peut accuser des retards : permis de construire, problÃ¨mes techniques, ralentissement du marchÃ©. Le remboursement peut Ãªtre dÃ©calÃ© de plusieurs mois.',
-    mitigation: 'Mon rÃ´le : sÃ©lectionner des promoteurs avec un track record solide et vÃ©rifiÃ©.',
+    text: 'Un chantier peut accuser des retards : permis de construire, problèmes techniques, ralentissement du marché. Le remboursement peut être décalé de plusieurs mois.',
+    mitigation: 'Mon rôle : sélectionner des promoteurs avec un track record solide et vérifié.',
   },
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: 'ğŸŸ ',
+    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '??',
     title: 'Capital illiquide',
-    text: 'Aucun marchÃ© secondaire ne permet de revendre vos parts avant l\'Ã©chÃ©ance. Si vous avez besoin de liquiditÃ©s, vous ne pouvez pas rÃ©cupÃ©rer votre argent avant terme.',
-    mitigation: 'Mon rÃ´le : calibrer l\'allocation au crowdfunding selon votre besoin rÃ©el de liquiditÃ©.',
+    text: 'Aucun marché secondaire ne permet de revendre vos parts avant l\'échéance. Si vous avez besoin de liquidités, vous ne pouvez pas récupérer votre argent avant terme.',
+    mitigation: 'Mon rôle : calibrer l\'allocation au crowdfunding selon votre besoin réel de liquidité.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: 'ğŸŸ¢',
+    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '??',
     title: 'Risque de plateforme',
-    text: 'La faillite d\'une plateforme non agrÃ©Ã©e peut compliquer le suivi de vos investissements. Une plateforme agrÃ©Ã©e AMF/PSFP offre un cadre lÃ©gal et une protection renforcÃ©e.',
-    mitigation: 'Mon rÃ´le : ne travailler qu\'avec des plateformes agrÃ©Ã©es, auditÃ©es par mes soins.',
+    text: 'La faillite d\'une plateforme non agréée peut compliquer le suivi de vos investissements. Une plateforme agréée AMF/PSFP offre un cadre légal et une protection renforcée.',
+    mitigation: 'Mon rôle : ne travailler qu\'avec des plateformes agréées, auditées par mes soins.',
   },
 ];
 
 const COMPARATIF = [
-  { produit: 'Livret A', rendement: '3%', duree: 'Libre', risque: 'â­ TrÃ¨s faible', liquidite: 'âœ… ImmÃ©diate', highlight: false },
-  { produit: 'Assurance Vie', rendement: '2â€“4%', duree: '8 ans+', risque: 'â­ TrÃ¨s faible', liquidite: 'âœ… Bonne', highlight: false },
-  { produit: 'SCPI', rendement: '4â€“6%', duree: '8â€“10 ans', risque: 'â­â­ Faible', liquidite: 'âš ï¸ LimitÃ©e', highlight: false },
-  { produit: 'ğŸ“ˆ Crowdfunding immo', rendement: '8â€“12%', duree: '1â€“3 ans', risque: 'â­â­â­ Moyen', liquidite: 'âŒ BloquÃ©', highlight: true },
-  { produit: 'Actions bourse', rendement: 'Variable', duree: 'Variable', risque: 'â­â­â­â­ Ã‰levÃ©', liquidite: 'âœ… ImmÃ©diate', highlight: false },
+  { produit: 'Livret A', rendement: '3%', duree: 'Libre', risque: '? Très faible', liquidite: '? Immédiate', highlight: false },
+  { produit: 'Assurance Vie', rendement: '2–4%', duree: '8 ans+', risque: '? Très faible', liquidite: '? Bonne', highlight: false },
+  { produit: 'SCPI', rendement: '4–6%', duree: '8–10 ans', risque: '?? Faible', liquidite: '?? Limitée', highlight: false },
+  { produit: '?? Crowdfunding immo', rendement: '8–12%', duree: '1–3 ans', risque: '??? Moyen', liquidite: '? Bloqué', highlight: true },
+  { produit: 'Actions bourse', rendement: 'Variable', duree: 'Variable', risque: '???? Élevé', liquidite: '? Immédiate', highlight: false },
 ];
 
 const ETAPES = [
   {
     n: '01',
     title: 'Bilan de votre situation',
-    text: 'Je commence par comprendre vos objectifs, votre horizon d\'investissement et votre tolÃ©rance au risque. Pas de formulaire gÃ©nÃ©rique â€” une vraie conversation.',
+    text: 'Je commence par comprendre vos objectifs, votre horizon d\'investissement et votre tolérance au risque. Pas de formulaire générique — une vraie conversation.',
   },
   {
     n: '02',
     title: 'Audit des plateformes',
-    text: 'Je ne recommande que les plateformes agrÃ©Ã©es AMF dont j\'ai vÃ©rifiÃ© le taux de dÃ©faut historique, la transparence et la soliditÃ© financiÃ¨re. Plusieurs ne passent pas mes critÃ¨res.',
+    text: 'Je ne recommande que les plateformes agréées AMF dont j\'ai vérifié le taux de défaut historique, la transparence et la solidité financière. Plusieurs ne passent pas mes critères.',
   },
   {
     n: '03',
-    title: 'SÃ©lection des projets',
-    text: 'Pour chaque projet, j\'analyse le bilan du promoteur, les garanties prises et le rÃ©alisme du plan de financement. Si quelque chose cloche, je ne vous le recommande pas.',
+    title: 'Sélection des projets',
+    text: 'Pour chaque projet, j\'analyse le bilan du promoteur, les garanties prises et le réalisme du plan de financement. Si quelque chose cloche, je ne vous le recommande pas.',
   },
   {
     n: '04',
-    title: 'StratÃ©gie de diversification',
-    text: 'Je construis avec vous un portefeuille rÃ©parti sur plusieurs projets, typologies et zones gÃ©ographiques pour optimiser le couple rendement/risque â€” adaptÃ© Ã  vous, pas copiÃ©-collÃ©.',
+    title: 'Stratégie de diversification',
+    text: 'Je construis avec vous un portefeuille réparti sur plusieurs projets, typologies et zones géographiques pour optimiser le couple rendement/risque — adapté à vous, pas copié-collé.',
   },
 ];
 
@@ -225,7 +225,7 @@ export default function CrowdfundingPage() {
 
       <main>
 
-        {/* â”€â”€ HERO (Avec background) â”€â”€ */}
+        {/* -- HERO (Avec background) -- */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
             <Image
@@ -243,32 +243,32 @@ export default function CrowdfundingPage() {
           <div className="ae-hero-inner">
             <nav aria-label="breadcrumb" className="ae-breadcrumb">
               <Link href="/">Accueil</Link>
-              {' â€º '}
+              {' › '}
               <Link href="/investir">Investir</Link>
-              {' â€º '}
+              {' › '}
               <span>Crowdfunding immobilier</span>
             </nav>
-            <span className="fin-badge">ğŸ“ˆ Financement participatif immobilier 2026</span>
-            <h1 className="ae-hero-title">Crowdfunding immobilier :<br />8 Ã  12% par an, sans naviguer Ã  l'aveugle</h1>
+            <span className="fin-badge">?? Financement participatif immobilier 2026</span>
+            <h1 className="ae-hero-title">Crowdfunding immobilier :<br />8 à 12% par an, sans naviguer à l'aveugle</h1>
             <p className="ae-hero-intro">
               Investir seul dans le crowdfunding, c'est analyser des bilans de promoteurs
-              sans formation, comparer des plateformes sans critÃ¨res objectifs, et diversifier
-              sans stratÃ©gie. Je m'occupe de tout Ã§a Ã  votre place.{' '}
+              sans formation, comparer des plateformes sans critères objectifs, et diversifier
+              sans stratégie. Je m'occupe de tout ça à votre place.{' '}
               <strong>Sans frais de dossier.</strong>
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="ğŸ“… Ã‰changer avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="?? Échanger avec Cindy" className="fin-btn-primary" />
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust">
-              <span>âœ… Conseil 100% indÃ©pendant</span>
-              <span>ğŸ¦ Plateformes agrÃ©Ã©es AMF uniquement</span>
-              <span>âš¡ RÃ©ponse sous 24h</span>
+              <span>? Conseil 100% indépendant</span>
+              <span>?? Plateformes agréées AMF uniquement</span>
+              <span>? Réponse sous 24h</span>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CHIFFRES CLÃ‰S â”€â”€ */}
+        {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
@@ -280,7 +280,7 @@ export default function CrowdfundingPage() {
           </div>
         </section>
 
-        {/* â”€â”€ CITATION CINDY (Avec photo insÃ©rÃ©e) â”€â”€ */}
+        {/* -- CITATION CINDY (Avec photo insérée) -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
@@ -298,32 +298,32 @@ export default function CrowdfundingPage() {
 
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  Â« Je ne vous recommanderais jamais un projet que je n'investirais pas moi-mÃªme. Â»
+                  « Je ne vous recommanderais jamais un projet que je n'investirais pas moi-même. »
                 </p>
                 <p className="ae-citation-text">
                   Avant chaque recommandation, j'analyse le bilan du promoteur, l'historique
-                  de la plateforme et la cohÃ©rence du plan de financement. Ce travail prend
-                  du temps â€” mais c'est prÃ©cisÃ©ment ce que vous mÃ©ritez avant d'engager
-                  votre Ã©pargne.
+                  de la plateforme et la cohérence du plan de financement. Ce travail prend
+                  du temps — mais c'est précisément ce que vous méritez avant d'engager
+                  votre épargne.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ DANGER â€” INVESTIR SEUL (Avec image contextuelle) â”€â”€ */}
+        {/* -- DANGER — INVESTIR SEUL (Avec image contextuelle) -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                âš ï¸ Ce que personne ne vous dit
+                ?? Ce que personne ne vous dit
               </span>
-              <h2>Pourquoi investir seul<br />dans le crowdfunding est risquÃ©</h2>
+              <h2>Pourquoi investir seul<br />dans le crowdfunding est risqué</h2>
               <p>
-                Des centaines de particuliers ouvrent un compte sur une plateforme sans analyse prÃ©alable.
-                Voici les 3 erreurs qui coÃ»tent cher â€” et comment je les Ã©vite pour vous.
+                Des centaines de particuliers ouvrent un compte sur une plateforme sans analyse préalable.
+                Voici les 3 erreurs qui coûtent cher — et comment je les évite pour vous.
               </p>
             </div>
 
@@ -338,11 +338,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 ))}
               </div>
 
-              {/* IMAGE 1 AJOUTÃ‰E ICI */}
+              {/* IMAGE 1 AJOUTÉE ICI */}
               <div className="ae-probleme-image">
                 <Image
                   src="/images/banque-pression.webp"
-                  alt="Particulier inquiet face Ã  la complexitÃ© de l'analyse financiÃ¨re"
+                  alt="Particulier inquiet face à la complexité de l'analyse financière"
                   title="Les risques d'investir seul sans analyse expert"
                   width={716}
                   height={1024}
@@ -355,65 +355,65 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
 
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                C'est exactement pour Ã§a que j'existe.
+                C'est exactement pour ça que j'existe.
               </p>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
-                J'analyse Ã  votre place ce que vous n'avez ni le temps ni les outils de faire â€”
+                J'analyse à votre place ce que vous n'avez ni le temps ni les outils de faire —
                 et je vous dis clairement ce qui vaut le coup, et ce qui ne vaut pas.
               </p>
-              <ContactPopup label="ğŸ“… Me faire accompagner" className="fin-btn-primary" />
+              <ContactPopup label="?? Me faire accompagner" className="fin-btn-primary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ QU'EST-CE QUE C'EST â”€â”€ */}
+        {/* -- QU'EST-CE QUE C'EST -- */}
         <section id="section-definition" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
 
-            {/* Titre centrÃ© */}
+            {/* Titre centré */}
             <div className="fin-section-head" style={{ marginBottom: 40 }}>
-              <span className="fin-badge">DÃ©finition</span>
+              <span className="fin-badge">Définition</span>
               <h2>Qu'est-ce que le crowdfunding immobilier ?</h2>
               <p>
-                Vous prÃªtez de l'argent Ã  un promoteur via une plateforme agrÃ©Ã©e AMF.
-                Il construit ou rÃ©nove. Vous percevez des intÃ©rÃªts fixes, puis rÃ©cupÃ©rez votre capital.
+                Vous prêtez de l'argent à un promoteur via une plateforme agréée AMF.
+                Il construit ou rénove. Vous percevez des intérêts fixes, puis récupérez votre capital.
               </p>
             </div>
 
-            {/* 3 points clÃ©s */}
+            {/* 3 points clés */}
             <div className="crd-points">
               <div className="crd-point">
-                <div className="crd-point-icon">ğŸ›ï¸</div>
+                <div className="crd-point-icon">???</div>
                 <div>
-                  <strong>Cadre lÃ©gal solide</strong>
-                  <p>EncadrÃ© depuis 2022 par le statut europÃ©en <strong>PSFP</strong>. Mais un cadre lÃ©gal ne protÃ¨ge pas d'un mauvais promoteur â€” c'est lÃ  qu'intervient mon analyse.</p>
+                  <strong>Cadre légal solide</strong>
+                  <p>Encadré depuis 2022 par le statut européen <strong>PSFP</strong>. Mais un cadre légal ne protège pas d'un mauvais promoteur — c'est là qu'intervient mon analyse.</p>
                 </div>
               </div>
               <div className="crd-point">
-                <div className="crd-point-icon">ğŸš«</div>
+                <div className="crd-point-icon">??</div>
                 <div>
-                  <strong>ZÃ©ro gestion</strong>
-                  <p>Aucune gestion locative, aucune taxe fonciÃ¨re, aucun recours notarial. Un investissement 100% passif et dÃ©matÃ©rialisÃ©.</p>
+                  <strong>Zéro gestion</strong>
+                  <p>Aucune gestion locative, aucune taxe foncière, aucun recours notarial. Un investissement 100% passif et dématérialisé.</p>
                 </div>
               </div>
               <div className="crd-point">
-                <div className="crd-point-icon">ğŸ“…</div>
+                <div className="crd-point-icon">??</div>
                 <div>
-                  <strong>DurÃ©e courte et maÃ®trisÃ©e</strong>
-                  <p>12 Ã  36 mois. Vous connaissez la date de remboursement Ã  l'avance â€” contrairement Ã  la bourse ou aux SCPI.</p>
+                  <strong>Durée courte et maîtrisée</strong>
+                  <p>12 à 36 mois. Vous connaissez la date de remboursement à l'avance — contrairement à la bourse ou aux SCPI.</p>
                 </div>
               </div>
             </div>
 
-            {/* Flux "Comment Ã§a fonctionne" */}
-            <div className="crd-flow-title">Comment Ã§a fonctionne</div>
+            {/* Flux "Comment ça fonctionne" */}
+            <div className="crd-flow-title">Comment ça fonctionne</div>
             <div className="crd-flow">
               {[
-                { icon: 'ğŸ‘¤', label: 'Vous investissez', sub: 'DÃ¨s 1 000â‚¬, en ligne', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
-                { icon: 'ğŸ¢', label: 'Orizia sÃ©lectionne', sub: 'Audit promoteur + stratÃ©gie', color: 'var(--orizia-accent)', textColor: '#fff', gold: true },
-                { icon: 'ğŸ¦', label: 'Plateforme AMF', sub: 'Collecte et gestion', color: 'var(--orizia-light)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.1)' },
-                { icon: 'ğŸ—ï¸', label: 'Promoteur', sub: 'Construit / rÃ©nove / revend', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
-                { icon: 'ğŸ’°', label: 'Vous Ãªtes remboursÃ©', sub: 'Capital + 8â€“12%/an', color: 'var(--orizia-gold-light)', textColor: 'var(--orizia-accent)', border: '2px solid var(--orizia-gold)' },
+                { icon: '??', label: 'Vous investissez', sub: 'Dès 1 000€, en ligne', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
+                { icon: '??', label: 'Orizia sélectionne', sub: 'Audit promoteur + stratégie', color: 'var(--orizia-accent)', textColor: '#fff', gold: true },
+                { icon: '??', label: 'Plateforme AMF', sub: 'Collecte et gestion', color: 'var(--orizia-light)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.1)' },
+                { icon: '???', label: 'Promoteur', sub: 'Construit / rénove / revend', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
+                { icon: '??', label: 'Vous êtes remboursé', sub: 'Capital + 8–12%/an', color: 'var(--orizia-gold-light)', textColor: 'var(--orizia-accent)', border: '2px solid var(--orizia-gold)' },
               ].map((step, i, arr) => (
                 <div key={step.label} className="crd-flow-item">
                   <div className="crd-flow-card" style={{ background: step.color, border: step.gold ? '2px solid var(--orizia-gold)' : step.border }}>
@@ -422,7 +422,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                     <span style={{ color: step.textColor, opacity: step.gold ? 0.85 : 0.65 }}>{step.sub}</span>
                     {step.gold && <span className="crd-flow-badge">Orizia</span>}
                   </div>
-                  {i < arr.length - 1 && <div className="crd-flow-arrow">â†’</div>}
+                  {i < arr.length - 1 && <div className="crd-flow-arrow">?</div>}
                 </div>
               ))}
             </div>
@@ -430,15 +430,15 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ AVANTAGES â”€â”€ */}
+        {/* -- AVANTAGES -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Les atouts</span>
-              <h2>Pourquoi le crowdfunding immobilier<br />mÃ©rite une place dans votre patrimoine</h2>
+              <h2>Pourquoi le crowdfunding immobilier<br />mérite une place dans votre patrimoine</h2>
               <p>
-                Haut rendement, durÃ©e courte, zÃ©ro gestion â€” Ã  condition d'Ãªtre bien accompagnÃ©
-                et de n'y allouer qu'une fraction adaptÃ©e Ã  votre profil.
+                Haut rendement, durée courte, zéro gestion — à condition d'être bien accompagné
+                et de n'y allouer qu'une fraction adaptée à votre profil.
               </p>
             </div>
             <div className="crowd-avantages-grid">
@@ -447,7 +447,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   key={a.title}
                   className="crowd-avantage-card"
                   style={
-                    a.title === '8â€“12% brut/an' || a.title === 'ZÃ©ro gestion'
+                    a.title === '8–12% brut/an' || a.title === 'Zéro gestion'
                       ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
                       : {}
                   }
@@ -456,7 +456,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
                   </div>
-                  {(a.title === '8â€“12% brut/an' || a.title === 'ZÃ©ro gestion') && (
+                  {(a.title === '8–12% brut/an' || a.title === 'Zéro gestion') && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
@@ -467,7 +467,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                       padding: '2px 8px',
                       marginBottom: 8,
                     }}>
-                      â­ Avantage diffÃ©renciant
+                      ? Avantage différenciant
                     </div>
                   )}
                   <p>{a.text}</p>
@@ -477,15 +477,15 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ COMPARATIF â”€â”€ */}
+        {/* -- COMPARATIF -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Comparatif objectif</span>
               <h2>Le crowdfunding face aux autres placements</h2>
               <p>
-                Le crowdfunding n'est pas fait pour 100% de votre Ã©pargne â€” mais il a
-                une place prÃ©cise dans une stratÃ©gie patrimoniale bien construite.
+                Le crowdfunding n'est pas fait pour 100% de votre épargne — mais il a
+                une place précise dans une stratégie patrimoniale bien construite.
                 Cliquez sur chaque placement pour comparer.
               </p>
             </div>
@@ -495,65 +495,65 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 <strong>Quelle allocation pour votre profil ?</strong>
                 <p>
                   Crowdfunding, SCPI, assurance vie, PER : je construis avec vous la
-                  rÃ©partition optimale selon vos objectifs et votre tolÃ©rance au risque.
+                  répartition optimale selon vos objectifs et votre tolérance au risque.
                 </p>
               </div>
-              <ContactPopup label="ğŸ“… DÃ©finir ma stratÃ©gie" className="fin-btn-on-dark" />
+              <ContactPopup label="?? Définir ma stratégie" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ RISQUES â”€â”€ */}
+        {/* -- RISQUES -- */}
         <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                âš ï¸ Analyse des risques
+                ?? Analyse des risques
               </span>
-              <h2>Les risques rÃ©els,<br />expliquÃ©s honnÃªtement</h2>
+              <h2>Les risques réels,<br />expliqués honnêtement</h2>
               <p>
                 Comparez l'exposition aux risques avec et sans accompagnement.
-                Cliquez sur chaque risque pour voir comment je le rÃ©duis concrÃ¨tement.
+                Cliquez sur chaque risque pour voir comment je le réduis concrètement.
               </p>
             </div>
             <RisqueJauge />
             <div className="crowd-cta-band" style={{ marginTop: 40 }}>
               <div>
-                <strong>Ces risques vous inquiÃ¨tent ? C'est une trÃ¨s bonne chose.</strong>
+                <strong>Ces risques vous inquiètent ? C'est une très bonne chose.</strong>
                 <p>
-                  Les investisseurs qui rÃ©ussissent comprennent les risques avant d'investir.
-                  Mon rÃ´le est de vous aider Ã  les maÃ®triser â€” pas Ã  les minimiser pour
+                  Les investisseurs qui réussissent comprennent les risques avant d'investir.
+                  Mon rôle est de vous aider à les maîtriser — pas à les minimiser pour
                   vous convaincre.
                 </p>
               </div>
-              <ContactPopup label="ğŸ“… Analyser mon profil" className="fin-btn-on-dark" />
+              <ContactPopup label="?? Analyser mon profil" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ FISCALITÃ‰ + SIMULATEUR â”€â”€ */}
+        {/* -- FISCALITÉ + SIMULATEUR -- */}
         <section id="section-fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">FiscalitÃ© 2026</span>
-              <h2>Ce que vous touchez<br />vraiment aprÃ¨s impÃ´ts</h2>
+              <span className="fin-badge">Fiscalité 2026</span>
+              <h2>Ce que vous touchez<br />vraiment après impôts</h2>
               <p>
-                Les intÃ©rÃªts perÃ§us sont des <strong>revenus de capitaux mobiliers</strong>{' '}
-                soumis au <strong>PrÃ©lÃ¨vement Forfaitaire Unique (PFU) de 30%</strong>.
-                Voici comment Ã§a se dÃ©compose â€” et ce que Ã§a change concrÃ¨tement sur votre gain.
+                Les intérêts perçus sont des <strong>revenus de capitaux mobiliers</strong>{' '}
+                soumis au <strong>Prélèvement Forfaitaire Unique (PFU) de 30%</strong>.
+                Voici comment ça se décompose — et ce que ça change concrètement sur votre gain.
               </p>
             </div>
 
-            {/* DÃ©composition flat tax */}
+            {/* Décomposition flat tax */}
             <div className="crowd-fiscalite-grid">
               <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
                 <strong>12,8%</strong>
-                <span>ImpÃ´t sur le revenu</span>
+                <span>Impôt sur le revenu</span>
               </div>
               <div className="crowd-fiscalite-plus">+</div>
               <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
                 <strong>17,2%</strong>
-                <span>PrÃ©lÃ¨vements sociaux</span>
+                <span>Prélèvements sociaux</span>
               </div>
               <div className="crowd-fiscalite-plus">=</div>
               <div className="crowd-fiscalite-item crowd-fiscalite-total" style={{ border: '2px solid var(--orizia-gold)' }}>
@@ -565,20 +565,20 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             {/* Notes fiscales */}
             <div className="crowd-fiscalite-notes">
               <div className="crowd-fiscalite-note" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.3)' }}>
-                <span className="crowd-fiscalite-note-icon">ğŸ’¡</span>
+                <span className="crowd-fiscalite-note-icon">??</span>
                 <p>
-                  <strong>Bon Ã  savoir :</strong> si votre taux marginal d'imposition est
-                  infÃ©rieur Ã  12,8%, vous pouvez opter pour le{' '}
-                  <strong>barÃ¨me progressif</strong> et rÃ©duire votre charge fiscale.
+                  <strong>Bon à savoir :</strong> si votre taux marginal d'imposition est
+                  inférieur à 12,8%, vous pouvez opter pour le{' '}
+                  <strong>barème progressif</strong> et réduire votre charge fiscale.
                   Je peux vous guider sur ce choix lors de notre rendez-vous.
                 </p>
               </div>
               <div className="crowd-fiscalite-note" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.3)' }}>
-                <span className="crowd-fiscalite-note-icon">âš ï¸</span>
+                <span className="crowd-fiscalite-note-icon">??</span>
                 <p>
-                  Il n'existe <strong>pas d'enveloppe fiscale dÃ©diÃ©e</strong> pour le
-                  crowdfunding (contrairement Ã  l'assurance vie ou au PER). C'est pourquoi
-                  sa place dans votre patrimoine global mÃ©rite rÃ©flexion avec un expert.
+                  Il n'existe <strong>pas d'enveloppe fiscale dédiée</strong> pour le
+                  crowdfunding (contrairement à l'assurance vie ou au PER). C'est pourquoi
+                  sa place dans votre patrimoine global mérite réflexion avec un expert.
                 </p>
               </div>
             </div>
@@ -587,40 +587,40 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             <div className="fin-section-head" style={{ marginTop: 56 }}>
               <span className="fin-badge">Simulation interactive</span>
               <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.9rem)', fontWeight: 900, color: 'var(--orizia-accent)' }}>
-                Calculez votre gain net<br />en temps rÃ©el
+                Calculez votre gain net<br />en temps réel
               </h3>
               <p>
-                Ajustez le montant, le taux et la durÃ©e pour voir exactement ce que
-                vous percevez aprÃ¨s flat tax â€” et comparer avec un livret A.
+                Ajustez le montant, le taux et la durée pour voir exactement ce que
+                vous percevez après flat tax — et comparer avec un livret A.
               </p>
             </div>
             <SimulateurCrowdfunding />
           </div>
         </section>
 
-        {/* â”€â”€ NOTRE SÃ‰LECTION â”€â”€ */}
+        {/* -- NOTRE SÉLECTION -- */}
         <section id="section-selection" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
 
             <div className="crd-sel-wrap">
 
-              {/* Colonne gauche â€” critÃ¨res */}
+              {/* Colonne gauche — critères */}
               <div className="crd-sel-left">
-                <span className="fin-badge">Ma sÃ©lection</span>
-                <h2>Quelles plateformes<br />je recommande â€” et pourquoi</h2>
+                <span className="fin-badge">Ma sélection</span>
+                <h2>Quelles plateformes<br />je recommande — et pourquoi</h2>
                 <p style={{ fontSize: '0.95rem', color: 'var(--orizia-dark)', opacity: 0.75, lineHeight: 1.65, marginBottom: 28 }}>
-                  J'ai auditÃ© plus de 15 plateformes actives sur le marchÃ© franÃ§ais.
-                  Ma sÃ©lection repose sur 5 critÃ¨res non nÃ©gociables â€” plusieurs plateformes
+                  J'ai audité plus de 15 plateformes actives sur le marché français.
+                  Ma sélection repose sur 5 critères non négociables — plusieurs plateformes
                   bien connues n'en font pas partie.
                 </p>
 
                 <div className="crd-criteres">
                   {[
-                    { icon: 'ğŸ›ï¸', label: 'AgrÃ©ment AMF/PSFP', desc: 'En rÃ¨gle et Ã  jour â€” je vÃ©rifie chaque annÃ©e' },
-                    { icon: 'ğŸ“Š', label: 'Taux de dÃ©faut < 3%', desc: 'Historique vÃ©rifiÃ© sur les 3 derniÃ¨res annÃ©es' },
-                    { icon: 'ğŸ”', label: 'Transparence totale', desc: 'Bilans des promoteurs accessibles et lisibles' },
-                    { icon: 'ğŸ—ï¸', label: 'Permis & garanties', desc: 'Analyse systÃ©matique avant chaque recommandation' },
-                    { icon: 'ğŸ’¬', label: 'Suivi en cas de retard', desc: 'Service client rÃ©actif, pas de silence radio' },
+                    { icon: '???', label: 'Agrément AMF/PSFP', desc: 'En règle et à jour — je vérifie chaque année' },
+                    { icon: '??', label: 'Taux de défaut < 3%', desc: 'Historique vérifié sur les 3 dernières années' },
+                    { icon: '??', label: 'Transparence totale', desc: 'Bilans des promoteurs accessibles et lisibles' },
+                    { icon: '???', label: 'Permis & garanties', desc: 'Analyse systématique avant chaque recommandation' },
+                    { icon: '??', label: 'Suivi en cas de retard', desc: 'Service client réactif, pas de silence radio' },
                   ].map((c, i) => (
                     <div key={c.label} className="crd-critere-row">
                       <div className="crd-critere-num">{i + 1}</div>
@@ -634,37 +634,37 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 </div>
               </div>
 
-              {/* Colonne droite â€” vault CTA */}
+              {/* Colonne droite — vault CTA */}
               <div className="crd-sel-vault">
-                <div className="crd-vault-lock">ğŸ”’</div>
-                <div className="crd-vault-badge">AccÃ¨s exclusif</div>
-                <h3 className="crd-vault-title">Ma liste de plateformes<br />sÃ©lectionnÃ©es</h3>
+                <div className="crd-vault-lock">??</div>
+                <div className="crd-vault-badge">Accès exclusif</div>
+                <h3 className="crd-vault-title">Ma liste de plateformes<br />sélectionnées</h3>
                 <p className="crd-vault-desc">
-                  15+ plateformes auditÃ©es. Seulement les meilleures retenues.
-                  Je ne la publie pas en ligne â€” une plateforme adaptÃ©e Ã  un profil
+                  15+ plateformes auditées. Seulement les meilleures retenues.
+                  Je ne la publie pas en ligne — une plateforme adaptée à un profil
                   dynamique ne l'est pas pour un profil prudent.
                 </p>
 
                 <div className="crd-vault-stats">
                   <div className="crd-vault-stat">
                     <strong>15+</strong>
-                    <span>Plateformes auditÃ©es</span>
+                    <span>Plateformes auditées</span>
                   </div>
                   <div className="crd-vault-stat-sep" />
                   <div className="crd-vault-stat">
                     <strong>&lt; 3%</strong>
-                    <span>Taux de dÃ©faut max</span>
+                    <span>Taux de défaut max</span>
                   </div>
                   <div className="crd-vault-stat-sep" />
                   <div className="crd-vault-stat">
-                    <strong>0â‚¬</strong>
-                    <span>Pour y accÃ©der</span>
+                    <strong>0€</strong>
+                    <span>Pour y accéder</span>
                   </div>
                 </div>
 
-                <ContactPopup label="ğŸ“… Obtenir ma sÃ©lection personnalisÃ©e" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
+                <ContactPopup label="?? Obtenir ma sélection personnalisée" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
                 <p className="crd-vault-note">
-                  Sans frais de dossier Â· Sans engagement Â· RÃ©ponse sous 24h
+                  Sans frais de dossier · Sans engagement · Réponse sous 24h
                 </p>
               </div>
 
@@ -672,15 +672,15 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ ACCOMPAGNEMENT (Avec image contextuelle) â”€â”€ */}
+        {/* -- ACCOMPAGNEMENT (Avec image contextuelle) -- */}
         <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
-              <h2>Ce que je fais concrÃ¨tement<br />pour vous, de A Ã  Z</h2>
+              <h2>Ce que je fais concrètement<br />pour vous, de A à Z</h2>
               <p>
-                De votre premier Ã©change Ã  la confirmation de votre investissement â€”
-                voici comment je travaille, pas Ã  pas.
+                De votre premier échange à la confirmation de votre investissement —
+                voici comment je travaille, pas à pas.
               </p>
             </div>
 
@@ -697,12 +697,12 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 ))}
               </div>
 
-              {/* IMAGE 2 AJOUTÃ‰E ICI */}
+              {/* IMAGE 2 AJOUTÉE ICI */}
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier_crowdfunding.webp"
-                  alt="Dossier de courtage Orizia parfaitement organisÃ©"
-                  title="Un accompagnement transparent de A Ã  Z"
+                  alt="Dossier de courtage Orizia parfaitement organisé"
+                  title="Un accompagnement transparent de A à Z"
                   width={863}
                   height={1080}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -716,34 +716,34 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div>
                 <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p>
-                  Je suis rÃ©munÃ©rÃ©e par les plateformes partenaires â€” jamais par vous.
-                  Cette indÃ©pendance est ma garantie de travailler uniquement dans votre intÃ©rÃªt.
+                  Je suis rémunérée par les plateformes partenaires — jamais par vous.
+                  Cette indépendance est ma garantie de travailler uniquement dans votre intérêt.
                 </p>
               </div>
-              <ContactPopup label="ğŸ“… DÃ©marrer mon accompagnement" className="fin-btn-on-dark" />
+              <ContactPopup label="?? Démarrer mon accompagnement" className="fin-btn-on-dark" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CHECKLIST â”€â”€ */}
+        {/* -- CHECKLIST -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Auto-Ã©valuation</span>
-              <h2>Suis-je prÃªt Ã  investir<br />dans le crowdfunding ?</h2>
-              <p>Cochez les critÃ¨res qui correspondent Ã  votre situation pour obtenir une recommandation personnalisÃ©e.</p>
+              <span className="fin-badge">Auto-évaluation</span>
+              <h2>Suis-je prêt à investir<br />dans le crowdfunding ?</h2>
+              <p>Cochez les critères qui correspondent à votre situation pour obtenir une recommandation personnalisée.</p>
             </div>
             <InvestisseurChecklist />
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€ */}
+        {/* -- FAQ -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur le crowdfunding,<br />mes rÃ©ponses directes</h2>
-              <p>Sans jargon. Sans langue de bois. Les vraies rÃ©ponses.</p>
+              <h2>Vos questions sur le crowdfunding,<br />mes réponses directes</h2>
+              <p>Sans jargon. Sans langue de bois. Les vraies réponses.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -755,22 +755,22 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="âœ‰ï¸ Poser une autre question Ã  Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="?? Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ MAILLAGE INTERNE â”€â”€ */}
+        {/* -- MAILLAGE INTERNE -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
-              <h2>ComplÃ©tez votre stratÃ©gie patrimoniale</h2>
+              <h2>Complétez votre stratégie patrimoniale</h2>
               <p>
-                Le crowdfunding est un outil parmi d'autres. Une stratÃ©gie Ã©quilibrÃ©e
-                combine plusieurs placements complÃ©mentaires â€” je vous aide Ã  trouver
+                Le crowdfunding est un outil parmi d'autres. Une stratégie équilibrée
+                combine plusieurs placements complémentaires — je vous aide à trouver
                 le bon dosage.
               </p>
             </div>
@@ -778,11 +778,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/investir/scpi',
-                  icon: 'ğŸ¢',
+                  icon: '??',
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
-                  text: '4â€“6%/an, risque mutualisÃ© sur des centaines d\'actifs, zÃ©ro gestion. Le placement immobilier prÃ©fÃ©rÃ© des FranÃ§ais pour sÃ©curiser le socle.',
-                  ribbon: 'ğŸ¢ 4â€“6%/an sans gestion',
+                  text: '4–6%/an, risque mutualisé sur des centaines d\'actifs, zéro gestion. Le placement immobilier préféré des Français pour sécuriser le socle.',
+                  ribbon: '?? 4–6%/an sans gestion',
                   ribbonColor: 'var(--orizia-primary)',
                   pillBg: 'rgba(45,106,95,0.1)',
                   pillColor: 'var(--orizia-primary)',
@@ -791,11 +791,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/investir/assurance-vie',
-                  icon: 'ğŸ›¡ï¸',
+                  icon: '???',
                   title: 'Assurance Vie',
-                  sub: 'Ã‰pargne & transmission',
-                  text: 'L\'enveloppe fiscale la plus avantageuse aprÃ¨s 8 ans. IdÃ©ale en complÃ©ment du crowdfunding pour sÃ©curiser une partie de votre Ã©pargne disponible.',
-                  ribbon: 'âœ… FiscalitÃ© optimisÃ©e aprÃ¨s 8 ans',
+                  sub: 'Épargne & transmission',
+                  text: 'L\'enveloppe fiscale la plus avantageuse après 8 ans. Idéale en complément du crowdfunding pour sécuriser une partie de votre épargne disponible.',
+                  ribbon: '? Fiscalité optimisée après 8 ans',
                   ribbonColor: 'var(--orizia-primary)',
                   pillBg: 'rgba(201,169,110,0.12)',
                   pillColor: 'var(--orizia-gold)',
@@ -804,11 +804,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/investir/per',
-                  icon: 'ğŸ¦',
+                  icon: '??',
                   title: 'PER',
-                  sub: 'PrÃ©parez votre retraite',
-                  text: 'RÃ©duisez vos impÃ´ts cette annÃ©e et constituez un capital retraite. Un avantage fiscal immÃ©diat qui se voit dÃ¨s votre prochaine dÃ©claration.',
-                  ribbon: 'ğŸ’° RÃ©duisez vos impÃ´ts dÃ¨s cette annÃ©e',
+                  sub: 'Préparez votre retraite',
+                  text: 'Réduisez vos impôts cette année et constituez un capital retraite. Un avantage fiscal immédiat qui se voit dès votre prochaine déclaration.',
+                  ribbon: '?? Réduisez vos impôts dès cette année',
                   ribbonColor: '#7c3aed',
                   pillBg: 'rgba(124,58,237,0.08)',
                   pillColor: '#7c3aed',
@@ -830,7 +830,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">DÃ©couvrir â†’</span>
+                  <span className="fin-card-link">Découvrir ?</span>
                 </Link>
               ))}
             </div>
@@ -839,22 +839,22 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
 
         
 
-        {/* â”€â”€ CTA FINAL â”€â”€ */}
+        {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
-            <h2>PrÃªt Ã  investir<br />intelligemment ?</h2>
+            <h2>Prêt à investir<br />intelligemment ?</h2>
             <p>
-              30 minutes avec moi suffisent pour dÃ©finir votre stratÃ©gie, identifier
-              les projets adaptÃ©s Ã  votre profil et Ã©viter les piÃ¨ges les plus courants.
-              Pas de discours commercial â€” juste une analyse honnÃªte.
+              30 minutes avec moi suffisent pour définir votre stratégie, identifier
+              les projets adaptés à votre profil et éviter les pièges les plus courants.
+              Pas de discours commercial — juste une analyse honnête.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="ğŸ“… Poser une question" className="fin-btn-primary" />
+              <ContactPopup label="?? Poser une question" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 520, margin: '24px auto 0' }}>
-              Investir comporte des risques de perte en capital. Les performances passÃ©es ne
-              prÃ©jugent pas des performances futures. Je suis immatriculÃ©e Ã  l'ORIAS â€”
-              rÃ©munÃ©rÃ©e par les plateformes partenaires, jamais par vous.
+              Investir comporte des risques de perte en capital. Les performances passées ne
+              préjugent pas des performances futures. Je suis immatriculée à l'ORIAS —
+              rémunérée par les plateformes partenaires, jamais par vous.
             </p>
           </div>
         </section>

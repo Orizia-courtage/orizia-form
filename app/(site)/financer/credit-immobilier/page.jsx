@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import CapaciteEmpruntCalc from '@/components/CapaciteEmpruntCalc';
@@ -7,22 +7,22 @@ import CreditChecklist from '@/components/CreditChecklist';
 import ReadingProgressCredit from '@/components/ReadingProgressCredit';
 import ScrollButton from '@/components/ScrollButton';
 
-// â”€â”€ 1. MÃ‰TADONNÃ‰ES SEO â”€â”€
+// -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'CrÃ©dit Immobilier 2026 : NÃ©gociez votre taux | Orizia Courtage',
-  description: 'Achat, construction ou investissement locatif. Je nÃ©gocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Ã‰tude de faisabilitÃ©.',
+  title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
+  description: 'Achat, construction ou investissement locatif. Je négocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
   openGraph: {
-    title: 'CrÃ©dit Immobilier 2026 : NÃ©gociez votre taux | Orizia Courtage',
-    description: 'Ne vous Ã©puisez pas Ã  faire le tour des banques. Je nÃ©gocie votre crÃ©dit immobilier et votre assurance de prÃªt pour faire baisser le coÃ»t total de votre achat.',
+    title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
+    description: 'Ne vous épuisez pas à faire le tour des banques. Je négocie votre crédit immobilier et votre assurance de prêt pour faire baisser le coût total de votre achat.',
     url: 'https://www.orizia-courtage.fr/financer/credit-immobilier',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-credit-immobilier.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-credit-immobilier.webp',
         width: 1200,
         height: 630,
-        alt: 'CrÃ©dit immobilier avec Orizia Courtage - Cindy Urbansky',
+        alt: 'Crédit immobilier avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
@@ -30,7 +30,7 @@ export const metadata = {
   },
 };
 
-// â”€â”€ 2. DONNÃ‰ES STRUCTURÃ‰ES â”€â”€
+// -- 2. DONNÉES STRUCTURÉES --
 const creditImmobilierSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -39,30 +39,30 @@ const creditImmobilierSchema = {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
         { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
-        { '@type': 'ListItem', position: 3, name: 'CrÃ©dit Immobilier', item: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
+        { '@type': 'ListItem', position: 3, name: 'Crédit Immobilier', item: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
       ],
     },
     {
       '@type': 'Service',
-      name: 'Courtage en CrÃ©dit Immobilier',
-      serviceType: 'Courtage en CrÃ©dit Immobilier',
+      name: 'Courtage en Crédit Immobilier',
+      serviceType: 'Courtage en Crédit Immobilier',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'NÃ©gociation du taux, dÃ©lÃ©gation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'Ã  la signature chez le notaire. AccÃ¨s Ã  plus de 40 banques partenaires.',
+      description: 'Négociation du taux, délégation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'à la signature chez le notaire. Accès à plus de 40 banques partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Ã‰tude de faisabilitÃ© sans frais de dossier et sans engagement.',
+        description: 'Étude de faisabilité sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -77,7 +77,7 @@ const faqSchema = {
       name: 'Quel est l\'apport personnel minimum pour acheter en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'En rÃ¨gle gÃ©nÃ©rale, les banques demandent 10% d\'apport. Cela sert Ã  couvrir les "frais de notaire" et les frais de garantie. Emprunter sans apport (Ã  110%) est devenu trÃ¨s rare, mais reste possible pour certains profils (primo-accÃ©dants Ã  fort potentiel, investissement locatif spÃ©cifique).',
+        text: 'En règle générale, les banques demandent 10% d\'apport. Cela sert à couvrir les "frais de notaire" et les frais de garantie. Emprunter sans apport (à 110%) est devenu très rare, mais reste possible pour certains profils (primo-accédants à fort potentiel, investissement locatif spécifique).',
       },
     },
     {
@@ -85,52 +85,52 @@ const faqSchema = {
       name: 'Puis-je emprunter si je ne suis pas en CDI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, c\'est plus complexe mais tout Ã  fait possible. Si vous Ãªtes indÃ©pendant, chef d\'entreprise, en CDD ou intÃ©rimaire rÃ©gulier, la banque demandera gÃ©nÃ©ralement 3 ans d\'anciennetÃ© ou 3 bilans comptables pour calculer une moyenne de vos revenus sÃ©curisÃ©s.',
+        text: 'Oui, c\'est plus complexe mais tout à fait possible. Si vous êtes indépendant, chef d\'entreprise, en CDD ou intérimaire régulier, la banque demandera généralement 3 ans d\'ancienneté ou 3 bilans comptables pour calculer une moyenne de vos revenus sécurisés.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Pourquoi passer par un courtier plutÃ´t que ma propre banque ?',
+      name: 'Pourquoi passer par un courtier plutôt que ma propre banque ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Votre conseiller bancaire ne vous proposera que le taux de SA banque (qui n\'est souvent pas le meilleur). En tant que courtier, j\'interroge tout le marchÃ©. Je nÃ©gocie le taux, je supprime les frais inutiles, et surtout, je vous dÃ©tache de l\'assurance bancaire hors de prix pour faire baisser le coÃ»t total de plusieurs milliers d\'euros.',
+        text: 'Votre conseiller bancaire ne vous proposera que le taux de SA banque (qui n\'est souvent pas le meilleur). En tant que courtier, j\'interroge tout le marché. Je négocie le taux, je supprime les frais inutiles, et surtout, je vous détache de l\'assurance bancaire hors de prix pour faire baisser le coût total de plusieurs milliers d\'euros.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Ã€ quel moment dois-je vous contacter ?',
+      name: 'À quel moment dois-je vous contacter ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le plus tÃ´t possible ! L\'idÃ©al est de me contacter avant mÃªme de commencer vos visites. Nous calculerons ensemble votre enveloppe exacte (capacitÃ© d\'emprunt). Ainsi, quand vous aurez le coup de cÅ“ur, vous pourrez faire une offre sereinement, avec une attestation de faisabilitÃ© qui rassurera le vendeur.',
+        text: 'Le plus tôt possible ! L\'idéal est de me contacter avant même de commencer vos visites. Nous calculerons ensemble votre enveloppe exacte (capacité d\'emprunt). Ainsi, quand vous aurez le coup de cœur, vous pourrez faire une offre sereinement, avec une attestation de faisabilité qui rassurera le vendeur.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Combien coÃ»te votre accompagnement ?',
+      name: 'Combien coûte votre accompagnement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour la majoritÃ© des dossiers de crÃ©dit immobilier, mes honoraires de courtage sont transparents et intÃ©grÃ©s au plan de financement. Ils sont largement amortis par les Ã©conomies rÃ©alisÃ©es sur le taux et l\'assurance. Un premier bilan de faisabilitÃ© est sans frais de dossier et sans engagement.',
+        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Ils sont largement amortis par les économies réalisées sur le taux et l\'assurance. Un premier bilan de faisabilité est sans frais de dossier et sans engagement.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '+40', label: 'Banques partenaires comparÃ©es', icon: 'ğŸ¦' },
-  { value: '33%', label: 'Taux d\'endettement maximal lÃ©gal', icon: 'âš–ï¸' },
-  { value: '24h', label: 'Pour calculer votre enveloppe', icon: 'âš¡' },
-  { value: '1', label: 'Interlocutrice unique (moi)', icon: 'ğŸ¤' },
+  { value: '+40', label: 'Banques partenaires comparées', icon: '??' },
+  { value: '33%', label: 'Taux d\'endettement maximal légal', icon: '??' },
+  { value: '24h', label: 'Pour calculer votre enveloppe', icon: '?' },
+  { value: '1', label: 'Interlocutrice unique (moi)', icon: '??' },
 ];
 
 const TYPES_PROJETS = [
   {
-    icon: 'ğŸ”‘',
-    title: 'Primo-accÃ©dant',
+    icon: '??',
+    title: 'Primo-accédant',
     desc: 'Votre premier achat immobilier.',
     points: [
-      'Calcul du PrÃªt Ã  Taux ZÃ©ro (PTZ)',
-      'Accompagnement de A Ã  Z (promesse, notaire)',
-      'PÃ©dagogie et vulgarisation bancaire',
+      'Calcul du Prêt à Taux Zéro (PTZ)',
+      'Accompagnement de A à Z (promesse, notaire)',
+      'Pédagogie et vulgarisation bancaire',
       'Optimisation de l\'apport personnel',
     ],
     cta: 'Calculer mon enveloppe',
@@ -138,30 +138,30 @@ const TYPES_PROJETS = [
     featured: true,
   },
   {
-    icon: 'ğŸ¢',
+    icon: '??',
     title: 'Investissement locatif',
     desc: 'Construire son patrimoine.',
     points: [
       'Optimisation de l\'effet de levier',
-      'StratÃ©gie de dÃ©ficit foncier ou LMNP',
-      'Minimisation de l\'apport demandÃ©',
-      'Maintien de votre capacitÃ© d\'endettement',
+      'Stratégie de déficit foncier ou LMNP',
+      'Minimisation de l\'apport demandé',
+      'Maintien de votre capacité d\'endettement',
     ],
     cta: 'Financer mon investissement',
     color: '#d97706',
     featured: false,
   },
   {
-    icon: 'ğŸ¡',
+    icon: '??',
     title: 'Achat Revente (Secundo)',
     desc: 'Acheter avant d\'avoir vendu.',
     points: [
-      'Mise en place d\'un prÃªt relais',
-      'Gestion de la transition de trÃ©sorerie',
-      'NÃ©gociation des indemnitÃ©s de remboursement anticipÃ© (IRA)',
-      'Financement de la nouvelle rÃ©sidence',
+      'Mise en place d\'un prêt relais',
+      'Gestion de la transition de trésorerie',
+      'Négociation des indemnités de remboursement anticipé (IRA)',
+      'Financement de la nouvelle résidence',
     ],
-    cta: 'SÃ©curiser ma transition',
+    cta: 'Sécuriser ma transition',
     color: '#7c3aed',
     featured: false,
   },
@@ -169,19 +169,19 @@ const TYPES_PROJETS = [
 
 const DANGERS = [
   {
-    icon: 'ğŸ’”',
-    title: 'La loyautÃ© bancaire ne paie pas',
-    text: 'C\'est dur Ã  entendre, mais votre banque depuis 15 ans ne vous fera pas le meilleur taux par "gentillesse". Les banques rÃ©servent souvent leurs meilleures conditions pour attirer de nouveaux clients. Il faut faire jouer la concurrence.',
+    icon: '??',
+    title: 'La loyauté bancaire ne paie pas',
+    text: 'C\'est dur à entendre, mais votre banque depuis 15 ans ne vous fera pas le meilleur taux par "gentillesse". Les banques réservent souvent leurs meilleures conditions pour attirer de nouveaux clients. Il faut faire jouer la concurrence.',
   },
   {
-    icon: 'ğŸ’¸',
-    title: 'Le piÃ¨ge de l\'assurance groupe',
-    text: 'La banque va accepter de baisser son taux Ã  condition que vous preniez son assurance emprunteur. Ce qu\'elle ne dit pas, c\'est que cette assurance est 2 Ã  3 fois plus chÃ¨re que le marchÃ©. Mon rÃ´le est de contourner ce piÃ¨ge.',
+    icon: '??',
+    title: 'Le piège de l\'assurance groupe',
+    text: 'La banque va accepter de baisser son taux à condition que vous preniez son assurance emprunteur. Ce qu\'elle ne dit pas, c\'est que cette assurance est 2 à 3 fois plus chère que le marché. Mon rôle est de contourner ce piège.',
   },
   {
-    icon: 'â³',
-    title: 'La perte de temps et d\'Ã©nergie',
-    text: 'Monter un dossier, prendre RDV avec 4 banques diffÃ©rentes, relancer les conseillers qui ne rÃ©pondent pas... Faire son crÃ©dit seul est un travail Ã  temps plein. Laissez-moi cette charge mentale.',
+    icon: '?',
+    title: 'La perte de temps et d\'énergie',
+    text: 'Monter un dossier, prendre RDV avec 4 banques différentes, relancer les conseillers qui ne répondent pas... Faire son crédit seul est un travail à temps plein. Laissez-moi cette charge mentale.',
   },
 ];
 
@@ -189,41 +189,41 @@ const ETAPES = [
   {
     n: '01',
     title: 'Le Passeport Emprunteur',
-    text: 'On se parle. Je dÃ©finis votre capacitÃ© d\'emprunt au centime prÃ¨s. Vous repartez avec une enveloppe claire pour cibler vos visites sans perdre de temps.',
+    text: 'On se parle. Je définis votre capacité d\'emprunt au centime près. Vous repartez avec une enveloppe claire pour cibler vos visites sans perdre de temps.',
   },
   {
     n: '02',
     title: 'Vous signez le compromis',
-    text: 'DÃ¨s que vous avez trouvÃ© votre pÃ©pite et signÃ© le compromis de vente, je prends le relais. Vous me fournissez vos piÃ¨ces, je monte un dossier bancaire en bÃ©ton.',
+    text: 'Dès que vous avez trouvé votre pépite et signé le compromis de vente, je prends le relais. Vous me fournissez vos pièces, je monte un dossier bancaire en béton.',
   },
   {
     n: '03',
     title: 'Je mets les banques au combat',
-    text: 'Je prÃ©sente votre dossier Ã  mes partenaires bancaires. Je nÃ©gocie le taux (TAEG), les frais de dossier, les pÃ©nalitÃ©s de remboursement anticipÃ© et l\'assurance de prÃªt.',
+    text: 'Je présente votre dossier à mes partenaires bancaires. Je négocie le taux (TAEG), les frais de dossier, les pénalités de remboursement anticipé et l\'assurance de prêt.',
   },
   {
     n: '04',
     title: 'L\'accord et le champagne',
-    text: 'Je vous prÃ©sente les meilleures offres. On choisit la banque ensemble. Je vous accompagne jusqu\'au rendez-vous en agence, puis jusqu\'Ã  la signature chez le notaire.',
+    text: 'Je vous présente les meilleures offres. On choisit la banque ensemble. Je vous accompagne jusqu\'au rendez-vous en agence, puis jusqu\'à la signature chez le notaire.',
   },
 ];
 
 const OBJECTIONS = [
   {
-    q: 'Â« Ma banque me connaÃ®t, Ã§a ira plus vite avec eux. Â»',
-    r: 'Plus vite, peut-Ãªtre. Moins cher, c\'est rare. Je dÃ©pose d\'ailleurs systÃ©matiquement le dossier dans votre propre banque pour qu\'elle doive s\'aligner sur les offres de ses concurrentes. Je l\'oblige Ã  faire un effort.',
+    q: '« Ma banque me connaît, ça ira plus vite avec eux. »',
+    r: 'Plus vite, peut-être. Moins cher, c\'est rare. Je dépose d\'ailleurs systématiquement le dossier dans votre propre banque pour qu\'elle doive s\'aligner sur les offres de ses concurrentes. Je l\'oblige à faire un effort.',
   },
   {
-    q: 'Â« Un courtier, Ã§a coÃ»te cher. Â»',
-    r: 'C\'est l\'inverse. Les honoraires de courtage sont intÃ©grÃ©s dans votre plan de financement. Mais surtout, la baisse du taux et la dÃ©lÃ©gation d\'assurance que je vous obtiens vous font Ã©conomiser des dizaines de milliers d\'euros sur la durÃ©e du prÃªt.',
+    q: '« Un courtier, ça coûte cher. »',
+    r: 'C\'est l\'inverse. Les honoraires de courtage sont intégrés dans votre plan de financement. Mais surtout, la baisse du taux et la délégation d\'assurance que je vous obtiens vous font économiser des dizaines de milliers d\'euros sur la durée du prêt.',
   },
   {
-    q: 'Â« On m\'a dit que j\'Ã©tais limite au niveau de l\'endettement. Â»',
-    r: 'C\'est prÃ©cisÃ©ment lÃ  que mon expertise intervient. Le calcul du taux d\'endettement (33 ou 35%) peut varier d\'une banque Ã  l\'autre selon la faÃ§on dont on prÃ©sente vos revenus ou si l\'on restructure vos petits crÃ©dits en cours.',
+    q: '« On m\'a dit que j\'étais limite au niveau de l\'endettement. »',
+    r: 'C\'est précisément là que mon expertise intervient. Le calcul du taux d\'endettement (33 ou 35%) peut varier d\'une banque à l\'autre selon la façon dont on présente vos revenus ou si l\'on restructure vos petits crédits en cours.',
   },
   {
-    q: 'Â« J\'ai eu un problÃ¨me de santÃ©, je n\'aurai pas mon prÃªt. Â»',
-    r: 'GrÃ¢ce Ã  la loi Lemoine, le questionnaire de santÃ© est supprimÃ© pour les prÃªts < 200 000â‚¬ par personne remboursÃ©s avant 60 ans. Et si vous n\'entrez pas dans ce cadre, j\'ai des partenaires assureurs spÃ©cialisÃ©s dans les risques aggravÃ©s.',
+    q: '« J\'ai eu un problème de santé, je n\'aurai pas mon prêt. »',
+    r: 'Grâce à la loi Lemoine, le questionnaire de santé est supprimé pour les prêts < 200 000€ par personne remboursés avant 60 ans. Et si vous n\'entrez pas dans ce cadre, j\'ai des partenaires assureurs spécialisés dans les risques aggravés.',
   },
 ];
 
@@ -242,7 +242,7 @@ export default function CreditImmobilierPage() {
       <main>
         <ReadingProgressCredit />
 
-        {/* â”€â”€ HERO (Avec background) â”€â”€ */}
+        {/* -- HERO (Avec background) -- */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
             <Image
@@ -259,33 +259,33 @@ export default function CreditImmobilierPage() {
           <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
-              {' â€º '}
+              {' › '}
               <Link href="/financer" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Financer</Link>
-              {' â€º '}
-              <span>CrÃ©dit Immobilier</span>
+              {' › '}
+              <span>Crédit Immobilier</span>
             </nav>
-            <span className="fin-badge">ğŸ¡ Votre projet de vie</span>
-            <h1 className="ae-hero-title">Le bon crÃ©dit n'est pas qu'un taux.<br />C'est une stratÃ©gie.</h1>
+            <span className="fin-badge">?? Votre projet de vie</span>
+            <h1 className="ae-hero-title">Le bon crédit n'est pas qu'un taux.<br />C'est une stratégie.</h1>
             <p className="ae-hero-intro">
-              Ne vous Ã©puisez pas Ã  faire le tour des banques. Je calcule votre enveloppe,
-              <strong> je mets les banques en concurrence </strong> et je nÃ©gocie les moindres frais
-              Ã  votre place. Concentrez-vous sur les cartons, je m'occupe des millions.
+              Ne vous épuisez pas à faire le tour des banques. Je calcule votre enveloppe,
+              <strong> je mets les banques en concurrence </strong> et je négocie les moindres frais
+              à votre place. Concentrez-vous sur les cartons, je m'occupe des millions.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="ğŸ“… Calculer ma capacitÃ© d'emprunt" className="fin-btn-primary" />
+              <ContactPopup label="?? Calculer ma capacité d'emprunt" className="fin-btn-primary" />
               <ScrollButton targetId="section-projets" className="fin-btn-secondary">
-                ğŸ” Voir selon mon projet
+                ?? Voir selon mon projet
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>âœ… +40 banques interrogÃ©es</span>
-              <span>ğŸ›¡ï¸ Accompagnement jusqu'au notaire</span>
-              <span>âš¡ Ã‰tude de faisabilitÃ© en 24h</span>
+              <span>? +40 banques interrogées</span>
+              <span>??? Accompagnement jusqu'au notaire</span>
+              <span>? Étude de faisabilité en 24h</span>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CHIFFRES CLÃ‰S â”€â”€ */}
+        {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
@@ -297,14 +297,14 @@ export default function CreditImmobilierPage() {
           </div>
         </section>
 
-        {/* â”€â”€ CITATION CINDY (Avec photo) â”€â”€ */}
+        {/* -- CITATION CINDY (Avec photo) -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtier indÃ©pendant en crÃ©dit immobilier"
+                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -314,28 +314,28 @@ export default function CreditImmobilierPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  Â« Trouver la maison de ses rÃªves est dÃ©jÃ  un parcours du combattant. Chercher le financement ne devrait pas l'Ãªtre. Â»
+                  « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
                 </p>
                 <p className="ae-citation-text">
-                  Mon mÃ©tier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compÃ©tition pour vous obtenir le crÃ©dit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
+                  Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ DANGERS DE FAIRE SEUL â”€â”€ */}
+        {/* -- DANGERS DE FAIRE SEUL -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                âš ï¸ Ce que la banque ne vous dit pas
+                ?? Ce que la banque ne vous dit pas
               </span>
-              <h2>NÃ©gocier seul son prÃªt,<br />c'est partir avec un handicap</h2>
+              <h2>Négocier seul son prêt,<br />c'est partir avec un handicap</h2>
               <p>
-                Le banquier dÃ©fend les intÃ©rÃªts de sa banque. Mon travail est de dÃ©fendre exclusivement les vÃ´tres.
+                Le banquier défend les intérêts de sa banque. Mon travail est de défendre exclusivement les vôtres.
               </p>
             </div>
             <div className="ae-probleme-layout">
@@ -351,8 +351,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div className="ae-probleme-image">
                 <Image
                   src="/images/banque-pression.webp"
-                  alt="Pression bancaire lors d'une nÃ©gociation de crÃ©dit immobilier"
-                  title="Pourquoi nÃ©gocier seul son crÃ©dit est risquÃ©"
+                  alt="Pression bancaire lors d'une négociation de crédit immobilier"
+                  title="Pourquoi négocier seul son crédit est risqué"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -364,73 +364,73 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ TYPES DE PROJETS â”€â”€ */}
+        {/* -- TYPES DE PROJETS -- */}
         <section id="section-projets" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre situation</span>
               <h2>Un montage financier sur-mesure<br />selon votre projet</h2>
-              <p>On ne finance pas sa premiÃ¨re rÃ©sidence principale comme on finance un immeuble de rapport.</p>
+              <p>On ne finance pas sa première résidence principale comme on finance un immeuble de rapport.</p>
             </div>
             <CreditProjetSelector />
           </div>
         </section>
 
-        {/* â”€â”€ FOCUS LE SECRET D'ORIZIA (TAUX + ASSURANCE) â”€â”€ */}
+        {/* -- FOCUS LE SECRET D'ORIZIA (TAUX + ASSURANCE) -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                  ğŸ’¡ Le vrai secret d'un bon crÃ©dit
+                  ?? Le vrai secret d'un bon crédit
                 </span>
-                <h2>Le taux, c'est l'arbre.<br />L'assurance, c'est la forÃªt.</h2>
+                <h2>Le taux, c'est l'arbre.<br />L'assurance, c'est la forêt.</h2>
                 <p>
-                  Tout le monde se bat pour gagner 0,10% sur le taux d'intÃ©rÃªt de la banque. C'est bien. 
-                  Mais le vrai levier d'Ã©conomie se cache dans <strong>l'assurance emprunteur</strong>.
+                  Tout le monde se bat pour gagner 0,10% sur le taux d'intérêt de la banque. C'est bien. 
+                  Mais le vrai levier d'économie se cache dans <strong>l'assurance emprunteur</strong>.
                 </p>
                 <p>
-                  Mon approche est globale : je vous nÃ©gocie un excellent taux bancaire, ET je remplace 
-                  immÃ©diatement l'assurance trÃ¨s coÃ»teuse de la banque par un contrat externe (dÃ©lÃ©gation d'assurance). 
-                  RÃ©sultat ? <strong>Vous gagnez sur les deux tableaux</strong> et la baisse du coÃ»t total de votre achat est massive.
+                  Mon approche est globale : je vous négocie un excellent taux bancaire, ET je remplace 
+                  immédiatement l'assurance très coûteuse de la banque par un contrat externe (délégation d'assurance). 
+                  Résultat ? <strong>Vous gagnez sur les deux tableaux</strong> et la baisse du coût total de votre achat est massive.
                 </p>
                 <Link href="/assurer/assurance-emprunteur" className="fin-btn-secondary" style={{ display: 'inline-block', marginTop: 16 }}>
-                  Comprendre la magie de l'assurance prÃªt
+                  Comprendre la magie de l'assurance prêt
                 </Link>
               </div>
               <div className="crowd-schema">
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
-                  La mÃ©thode Orizia
+                  La méthode Orizia
                 </div>
                 <div className="crowd-schema-step" style={{ background: 'rgba(220,38,38,0.08)', border: '1.5px solid rgba(220,38,38,0.2)' }}>
-                  <div className="crowd-schema-icon">ğŸ¦</div>
+                  <div className="crowd-schema-icon">??</div>
                   <strong>Proposition classique (Banque seule)</strong>
-                  <span>Bon taux + Assurance hors de prix = CoÃ»t Ã©levÃ©</span>
+                  <span>Bon taux + Assurance hors de prix = Coût élevé</span>
                 </div>
-                <div className="crowd-schema-arrow">â†“</div>
+                <div className="crowd-schema-arrow">?</div>
                 <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">âš”ï¸</div>
+                  <div className="crowd-schema-icon">??</div>
                   <strong>Mon intervention</strong>
-                  <span>Mise en concurrence + SÃ©paration de l'assurance</span>
+                  <span>Mise en concurrence + Séparation de l'assurance</span>
                 </div>
-                <div className="crowd-schema-arrow">â†“</div>
+                <div className="crowd-schema-arrow">?</div>
                 <div className="crowd-schema-step" style={{ background: 'rgba(22,163,74,0.08)', border: '1.5px solid rgba(22,163,74,0.2)' }}>
-                  <div className="crowd-schema-icon">âœ…</div>
+                  <div className="crowd-schema-icon">?</div>
                   <strong>Accord final</strong>
-                  <span>Taux au plancher + Assurance divisÃ©e par 2</span>
+                  <span>Taux au plancher + Assurance divisée par 2</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ ACCOMPAGNEMENT (Ã‰TAPES) â”€â”€ */}
+        {/* -- ACCOMPAGNEMENT (ÉTAPES) -- */}
         <section id="section-etapes" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">De l'idÃ©e Ã  la remise des clÃ©s</span>
-              <h2>On y va Ã©tape par Ã©tape,<br />je suis Ã  vos cÃ´tÃ©s</h2>
-              <p>Pas de plateforme impersonnelle, pas de changement d'interlocuteur. Je gÃ¨re votre dossier du dÃ©but Ã  la fin.</p>
+              <span className="fin-badge">De l'idée à la remise des clés</span>
+              <h2>On y va étape par étape,<br />je suis à vos côtés</h2>
+              <p>Pas de plateforme impersonnelle, pas de changement d'interlocuteur. Je gère votre dossier du début à la fin.</p>
             </div>
             <div className="ae-accompagnement-layout">
               <div className="ae-accompagnement-etapes">
@@ -447,8 +447,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier_credit_immobilier.webp"
-                  alt="Cindy Urbansky montant un dossier de crÃ©dit immobilier"
-                  title="Accompagnement de A Ã  Z pour votre crÃ©dit immobilier"
+                  alt="Cindy Urbansky montant un dossier de crédit immobilier"
+                  title="Accompagnement de A à Z pour votre crédit immobilier"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -460,19 +460,19 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ SIMULATEUR CAPACITÃ‰ D'EMPRUNT â”€â”€ */}
+        {/* -- SIMULATEUR CAPACITÉ D'EMPRUNT -- */}
         <section id="section-simulateur" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Estimation rapide</span>
               <h2>Combien pouvez-vous<br />emprunter ?</h2>
-              <p>Ajustez vos revenus et la durÃ©e pour obtenir une premiÃ¨re estimation. Je calcule votre capacitÃ© exacte en rendez-vous.</p>
+              <p>Ajustez vos revenus et la durée pour obtenir une première estimation. Je calcule votre capacité exacte en rendez-vous.</p>
             </div>
             <CapaciteEmpruntCalc />
           </div>
         </section>
 
-        {/* â”€â”€ OBJECTIONS â”€â”€ */}
+        {/* -- OBJECTIONS -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
@@ -490,20 +490,20 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ AUTO-Ã‰VALUATION â”€â”€ */}
+        {/* -- AUTO-ÉVALUATION -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <CreditChecklist />
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€ */}
+        {/* -- FAQ -- */}
         <section id="section-faq" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions, mes rÃ©ponses d'experte</h2>
-              <p>L'immobilier est complexe, je m'occupe de le rendre comprÃ©hensible.</p>
+              <h2>Vos questions, mes réponses d'experte</h2>
+              <p>L'immobilier est complexe, je m'occupe de le rendre compréhensible.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -515,71 +515,71 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="âœ‰ï¸ Poser une autre question Ã  Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="?? Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ MAILLAGE INTERNE â”€â”€ */}
+        {/* -- MAILLAGE INTERNE -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Pendant qu'on y est</span>
-              <h2>On sÃ©curise le reste de votre projet ?</h2>
+              <h2>On sécurise le reste de votre projet ?</h2>
             </div>
             <div className="fin-cards fin-cards--light">
               <Link href="/assurer/assurance-emprunteur" className="fin-card fin-card--featured">
                 <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>
-                  ğŸ’° Ã‰conomisez jusqu'Ã  15 000â‚¬
+                  ?? Économisez jusqu'à 15 000€
                 </span>
-                <div className="fin-card-icon">ğŸ“‹</div>
-                <div className="fin-card-sub">L'Ã©conomie cachÃ©e</div>
+                <div className="fin-card-icon">??</div>
+                <div className="fin-card-sub">L'économie cachée</div>
                 <h3>Assurance Emprunteur</h3>
-                <p>Obligatoire avec votre prÃªt immobilier. Je la nÃ©gocie pour vous faire Ã©conomiser des milliers d'euros.</p>
-                <span className="fin-card-link">DÃ©couvrir â†’</span>
+                <p>Obligatoire avec votre prêt immobilier. Je la négocie pour vous faire économiser des milliers d'euros.</p>
+                <span className="fin-card-link">Découvrir ?</span>
               </Link>
               <Link href="/assurer/assurance-habitation" className="fin-card">
                 <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>
-                  ğŸ  Obligatoire avant la remise des clÃ©s
+                  ?? Obligatoire avant la remise des clés
                 </span>
-                <div className="fin-card-icon">ğŸ </div>
-                <div className="fin-card-sub">ProtÃ©ger votre nouvel achat</div>
+                <div className="fin-card-icon">??</div>
+                <div className="fin-card-sub">Protéger votre nouvel achat</div>
                 <h3>Assurance Habitation</h3>
-                <p>Avant la remise des clÃ©s chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
-                <span className="fin-card-link">DÃ©couvrir â†’</span>
+                <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
+                <span className="fin-card-link">Découvrir ?</span>
               </Link>
               <Link href="/financer/rachat-soulte" className="fin-card">
                 <span className="fin-card-pill" style={{ background: 'rgba(22,163,74,0.08)', color: '#16a34a', border: '1px solid rgba(22,163,74,0.2)' }}>
-                  âš–ï¸ Coordination notaire incluse
+                  ?? Coordination notaire incluse
                 </span>
-                <div className="fin-card-icon">âš–ï¸</div>
-                <div className="fin-card-sub">Divorce Â· SÃ©paration Â· Succession</div>
+                <div className="fin-card-icon">??</div>
+                <div className="fin-card-sub">Divorce · Séparation · Succession</div>
                 <h3>Rachat de soulte</h3>
-                <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriÃ©taire ? Je monte le financement et coordonne avec votre notaire.</p>
-                <span className="fin-card-link">DÃ©couvrir â†’</span>
+                <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
+                <span className="fin-card-link">Découvrir ?</span>
               </Link>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CTA FINAL â”€â”€ */}
+        {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
-            <h2>PrÃªt(e) Ã  savoir combien<br />vous pouvez emprunter ?</h2>
+            <h2>Prêt(e) à savoir combien<br />vous pouvez emprunter ?</h2>
             <p>
               Prenez rendez-vous avec moi. On fait le point sur vos revenus, votre apport, 
-              et je vous donne une estimation claire et prÃ©cise pour dÃ©marrer vos visites sereinement.
+              et je vous donne une estimation claire et précise pour démarrer vos visites sereinement.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="ğŸ“… Faire un point ensemble" className="fin-btn-primary" />
+              <ContactPopup label="?? Faire un point ensemble" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Un crÃ©dit vous engage et doit Ãªtre remboursÃ©. VÃ©rifiez vos capacitÃ©s de remboursement avant de vous engager.
-              Aucun versement de quelque nature que ce soit ne peut Ãªtre exigÃ© d'un particulier, avant l'obtention d'un ou plusieurs prÃªts d'argent.
-              Je suis immatriculÃ©e Ã  l'ORIAS en tant que Mandataire Non Exclusif en OpÃ©rations de Banque et Services de Paiement (MOBSP).
-              L'Ã©tude est sans frais de dossier et sans engagement.
+              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              L'étude est sans frais de dossier et sans engagement.
             </p>
           </div>
         </section>

@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import SimulateurSCPI from '@/components/SimulateurSCPI';
@@ -9,20 +9,20 @@ import ReadingProgressSCPI from '@/components/ReadingProgressSCPI';
 import SCPIRisqueJauge from '@/components/SCPIRisqueJauge';
 import SCPIFiscaliteSelector from '@/components/SCPIFiscaliteSelector';
 
-// â”€â”€ 1. MÃ‰TADONNÃ‰ES SEO (OptimisÃ©es) â”€â”€
+// -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
-  title: 'SCPI 2026 : Percevez des Loyers sans GÃ©rer un Bien | Orizia Courtage',
+  title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
   description:
-    'Je sÃ©lectionne les meilleures SCPI parmi 200+ analysÃ©es et j\'optimise votre stratÃ©gie fiscale. 4â€“6%/an, zÃ©ro gestion, accessible dÃ¨s 1 000â‚¬. Cindy Urbansky.',
+    'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/scpi' },
   openGraph: {
-    title: 'SCPI 2026 : Percevez des Loyers sans GÃ©rer un Bien | Orizia Courtage',
-    description: '4â€“6%/an, mutualisation du risque, zÃ©ro gestion. Je sÃ©lectionne les meilleures SCPI et j\'optimise votre fiscalitÃ©. Conseil indÃ©pendant, sans frais de dossier, personnalisÃ©.',
+    title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
+    description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant, sans frais de dossier, personnalisé.',
     url: 'https://www.orizia-courtage.fr/investir/scpi',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-scpi.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-scpi.webp',
         width: 1200,
         height: 630,
         alt: 'Investissement en SCPI avec Orizia Courtage - Cindy Urbansky',
@@ -33,7 +33,7 @@ export const metadata = {
   },
 };
 
-// â”€â”€ 2. DONNÃ‰ES STRUCTURÃ‰ES (E-E-A-T & Service) â”€â”€
+// -- 2. DONNÉES STRUCTURÉES (E-E-A-T & Service) --
 const investirSCPISchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -47,25 +47,25 @@ const investirSCPISchema = {
     },
     {
       '@type': 'Service',
-      name: 'Conseil et Courtage en SCPI (SociÃ©tÃ© Civile de Placement Immobilier)',
+      name: 'Conseil et Courtage en SCPI (Société Civile de Placement Immobilier)',
       serviceType: 'Investissement Immobilier / Pierre-Papier',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Analyse du marchÃ©, sÃ©lection indÃ©pendante de SCPI (rendement, europÃ©ennes, assurance vie) et optimisation fiscale de la dÃ©tention.',
+      description: 'Analyse du marché, sélection indépendante de SCPI (rendement, européennes, assurance vie) et optimisation fiscale de la détention.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
+        { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' }
       ],
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Bilan patrimonial, sÃ©lection des SCPI et montage du dossier sans frais de dossiers pour le client (rÃ©munÃ©ration par les sociÃ©tÃ©s de gestion partenaires).'
+        description: 'Bilan patrimonial, sélection des SCPI et montage du dossier sans frais de dossiers pour le client (rémunération par les sociétés de gestion partenaires).'
       }
     }
   ]
@@ -80,7 +80,7 @@ const faqSchema = {
       name: 'Qu\'est-ce qu\'une SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Une SCPI (SociÃ©tÃ© Civile de Placement Immobilier) est un fonds d\'investissement collectif qui achÃ¨te et gÃ¨re un portefeuille d\'actifs immobiliers diversifiÃ©s (bureaux, commerces, logements, santÃ©) agrÃ©Ã© par l\'AMF. Chaque investisseur dÃ©tient des parts et perÃ§oit sa quote-part des loyers collectÃ©s, redistribuÃ©s trimestriellement. On parle de "pierre-papier" : vous profitez de l\'immobilier rÃ©el sans aucune contrainte de gestion.',
+        text: 'Une SCPI (Société Civile de Placement Immobilier) est un fonds d\'investissement collectif qui achète et gère un portefeuille d\'actifs immobiliers diversifiés (bureaux, commerces, logements, santé) agréé par l\'AMF. Chaque investisseur détient des parts et perçoit sa quote-part des loyers collectés, redistribués trimestriellement. On parle de "pierre-papier" : vous profitez de l\'immobilier réel sans aucune contrainte de gestion.',
       },
     },
     {
@@ -88,7 +88,7 @@ const faqSchema = {
       name: 'Quel est le rendement moyen des SCPI en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'En 2026, le taux de distribution moyen des SCPI se situe entre 4% et 6% brut par an. Certaines SCPI spÃ©cialisÃ©es (santÃ©, logistique, europÃ©ennes) affichent des taux supÃ©rieurs Ã  6%. Ces rendements sont bien au-dessus des livrets bancaires et de l\'assurance vie en fonds euros, avec un sous-jacent immobilier tangible.',
+        text: 'En 2026, le taux de distribution moyen des SCPI se situe entre 4% et 6% brut par an. Certaines SCPI spécialisées (santé, logistique, européennes) affichent des taux supérieurs à 6%. Ces rendements sont bien au-dessus des livrets bancaires et de l\'assurance vie en fonds euros, avec un sous-jacent immobilier tangible.',
       },
     },
     {
@@ -96,15 +96,15 @@ const faqSchema = {
       name: 'Quels sont les risques d\'investir en SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les principaux risques sont : la perte en capital (valeur des parts pouvant baisser), le risque de liquiditÃ© (revente non garantie), le risque locatif (vacance) et le risque de change pour les SCPI europÃ©ennes hors zone euro. La diversification sur plusieurs SCPI et une durÃ©e de dÃ©tention de 8 Ã  10 ans minimum permettent de limiter significativement ces risques.',
+        text: 'Les principaux risques sont : la perte en capital (valeur des parts pouvant baisser), le risque de liquidité (revente non garantie), le risque locatif (vacance) et le risque de change pour les SCPI européennes hors zone euro. La diversification sur plusieurs SCPI et une durée de détention de 8 à 10 ans minimum permettent de limiter significativement ces risques.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quelle est la fiscalitÃ© des SCPI ?',
+      name: 'Quelle est la fiscalité des SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les revenus de SCPI franÃ§aises sont intÃ©grÃ©s Ã  votre revenu imposable (TMI + 17,2% PS). Un investisseur Ã  45% de TMI est taxÃ© Ã  62,2% sur ses revenus SCPI en direct. Les SCPI europÃ©ennes bÃ©nÃ©ficient souvent de conventions fiscales plus avantageuses. Loger des SCPI dans une assurance vie permet de bÃ©nÃ©ficier de la flat tax Ã  30% â€” voire 7,5% aprÃ¨s 8 ans. La bonne stratÃ©gie dÃ©pend entiÃ¨rement de votre profil fiscal.',
+        text: 'Les revenus de SCPI françaises sont intégrés à votre revenu imposable (TMI + 17,2% PS). Un investisseur à 45% de TMI est taxé à 62,2% sur ses revenus SCPI en direct. Les SCPI européennes bénéficient souvent de conventions fiscales plus avantageuses. Loger des SCPI dans une assurance vie permet de bénéficier de la flat tax à 30% — voire 7,5% après 8 ans. La bonne stratégie dépend entièrement de votre profil fiscal.',
       },
     },
     {
@@ -112,94 +112,94 @@ const faqSchema = {
       name: 'Combien faut-il pour investir en SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le ticket d\'entrÃ©e varie : certaines SCPI sont accessibles dÃ¨s 1 000â‚¬, d\'autres nÃ©cessitent 5 000 Ã  10 000â‚¬ minimum. Il est aussi possible d\'investir par versements programmÃ©s mensuels dÃ¨s 50â‚¬/mois, ou Ã  crÃ©dit pour bÃ©nÃ©ficier de l\'effet de levier. En tant que courtier indÃ©pendant, j\'oriente chaque client vers les SCPI les plus accessibles et adaptÃ©es Ã  sa situation.',
+        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtier indépendant, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: 'ğŸ“ˆ\u00A04â€“6%', label: 'Rendement annuel brut moyen', icon: '' },
-  { value: "ğŸ’¶\u00A0DÃ¨s 1\u00A0000â‚¬", label: "Ticket d'entrÃ©e accessible", icon: '' },
-  { value: 'ğŸ”\u00A0200+', label: 'SCPI analysÃ©es par mes soins', icon: '' },
-  { value: 'â³\u00A08â€“10 ans', label: 'DurÃ©e de dÃ©tention recommandÃ©e', icon: '' },
+  { value: '??\u00A04–6%', label: 'Rendement annuel brut moyen', icon: '' },
+  { value: "??\u00A0Dès 1\u00A0000€", label: "Ticket d'entrée accessible", icon: '' },
+  { value: '??\u00A0200+', label: 'SCPI analysées par mes soins', icon: '' },
+  { value: '?\u00A08–10 ans', label: 'Durée de détention recommandée', icon: '' },
 ];
 
 const DANGERS = [
   {
-    icon: 'ğŸ¢',
-    title: 'Toutes les SCPI ne se valent pas â€” et certaines sont Ã  Ã©viter',
-    text: 'Sur les 200+ SCPI du marchÃ©, certaines affichent des taux de vacance locative inquiÃ©tants, des frais de souscription excessifs ou une stratÃ©gie patrimoniale inadaptÃ©e Ã  2026. Sans analyse experte, vous investissez Ã  l\'aveugle dans un marchÃ© de plus en plus complexe.',
+    icon: '??',
+    title: 'Toutes les SCPI ne se valent pas — et certaines sont à éviter',
+    text: 'Sur les 200+ SCPI du marché, certaines affichent des taux de vacance locative inquiétants, des frais de souscription excessifs ou une stratégie patrimoniale inadaptée à 2026. Sans analyse experte, vous investissez à l\'aveugle dans un marché de plus en plus complexe.',
   },
   {
-    icon: 'ğŸ“‰',
-    title: 'La valeur des parts peut baisser â€” comme Ã§a s\'est vu',
-    text: 'La crise de l\'immobilier de bureaux a impactÃ© plusieurs SCPI entre 2022 et 2024. Certaines ont vu leur valeur de part chuter de 15 Ã  20%. Savoir lesquelles ont rÃ©sistÃ© â€” et comprendre pourquoi â€” demande une expertise que peu de particuliers peuvent dÃ©velopper seuls.',
+    icon: '??',
+    title: 'La valeur des parts peut baisser — comme ça s\'est vu',
+    text: 'La crise de l\'immobilier de bureaux a impacté plusieurs SCPI entre 2022 et 2024. Certaines ont vu leur valeur de part chuter de 15 à 20%. Savoir lesquelles ont résisté — et comprendre pourquoi — demande une expertise que peu de particuliers peuvent développer seuls.',
   },
   {
-    icon: 'ğŸ’¶',
-    title: 'La fiscalitÃ© peut annuler jusqu\'Ã  62% de votre rendement',
-    text: 'Sans optimisation (assurance vie, dÃ©membrement, SCPI europÃ©ennes), les revenus SCPI peuvent Ãªtre taxÃ©s jusqu\'Ã  62% pour les plus hauts revenus. Le rendement brut affichÃ© et le rendement net dans votre poche sont deux rÃ©alitÃ©s trÃ¨s diffÃ©rentes.',
+    icon: '??',
+    title: 'La fiscalité peut annuler jusqu\'à 62% de votre rendement',
+    text: 'Sans optimisation (assurance vie, démembrement, SCPI européennes), les revenus SCPI peuvent être taxés jusqu\'à 62% pour les plus hauts revenus. Le rendement brut affiché et le rendement net dans votre poche sont deux réalités très différentes.',
   },
 ];
 
 const AVANTAGES = [
   {
-    icon: 'ğŸ¢',
-    title: '4â€“6% brut/an, versÃ©s chaque trimestre',
-    text: 'Des rendements stables et rÃ©guliers, bien supÃ©rieurs aux livrets bancaires et Ã  l\'assurance vie en fonds euros â€” avec un sous-jacent immobilier tangible et diversifiÃ©.',
+    icon: '??',
+    title: '4–6% brut/an, versés chaque trimestre',
+    text: 'Des rendements stables et réguliers, bien supérieurs aux livrets bancaires et à l\'assurance vie en fonds euros — avec un sous-jacent immobilier tangible et diversifié.',
   },
   {
-    icon: 'ğŸ”„',
-    title: 'Diversification dÃ¨s le premier euro',
-    text: 'Une seule SCPI peut regrouper des centaines d\'actifs sur plusieurs secteurs et pays. Votre risque est mutualisÃ© dÃ¨s la premiÃ¨re part â€” impossible avec un investissement immobilier direct.',
+    icon: '??',
+    title: 'Diversification dès le premier euro',
+    text: 'Une seule SCPI peut regrouper des centaines d\'actifs sur plusieurs secteurs et pays. Votre risque est mutualisé dès la première part — impossible avec un investissement immobilier direct.',
   },
   {
-    icon: 'ğŸš«',
-    title: 'ZÃ©ro gestion, vraiment',
-    text: 'Pas de locataire, pas de travaux, pas de taxe fonciÃ¨re Ã  gÃ©rer. La sociÃ©tÃ© de gestion agrÃ©Ã©e AMF s\'occupe de tout. Vous percevez vos loyers sans rien faire.',
+    icon: '??',
+    title: 'Zéro gestion, vraiment',
+    text: 'Pas de locataire, pas de travaux, pas de taxe foncière à gérer. La société de gestion agréée AMF s\'occupe de tout. Vous percevez vos loyers sans rien faire.',
   },
   {
-    icon: 'ğŸ’¶',
-    title: 'Accessible dÃ¨s 1 000â‚¬ ou 50â‚¬/mois',
-    text: 'Certaines SCPI sont accessibles dÃ¨s 1 000â‚¬ en capital, ou via des versements mensuels programmÃ©s Ã  partir de 50â‚¬/mois. L\'immobilier professionnel n\'est plus rÃ©servÃ© aux gros patrimoines.',
+    icon: '??',
+    title: 'Accessible dès 1 000€ ou 50€/mois',
+    text: 'Certaines SCPI sont accessibles dès 1 000€ en capital, ou via des versements mensuels programmés à partir de 50€/mois. L\'immobilier professionnel n\'est plus réservé aux gros patrimoines.',
   },
   {
-    icon: 'ğŸ“ˆ',
+    icon: '??',
     title: 'Double performance : loyers + revalorisation',
-    text: 'En plus des revenus trimestriels, la valeur des parts peut s\'apprÃ©cier avec le temps. Deux sources de performance dans un seul investissement.',
+    text: 'En plus des revenus trimestriels, la valeur des parts peut s\'apprécier avec le temps. Deux sources de performance dans un seul investissement.',
   },
   {
-    icon: 'ğŸŒ',
-    title: 'SCPI europÃ©ennes : avantage fiscal majeur',
-    text: 'Les SCPI investies en Allemagne, Pays-Bas, Irlandeâ€¦ Ã©chappent souvent aux prÃ©lÃ¨vements sociaux franÃ§ais grÃ¢ce aux conventions fiscales bilatÃ©rales. Un avantage dÃ©cisif pour les TMI Ã©levÃ©s.',
+    icon: '??',
+    title: 'SCPI européennes : avantage fiscal majeur',
+    text: 'Les SCPI investies en Allemagne, Pays-Bas, Irlande… échappent souvent aux prélèvements sociaux français grâce aux conventions fiscales bilatérales. Un avantage décisif pour les TMI élevés.',
   },
 ];
 
 const RISQUES = [
   {
-    niveau: 'Ã‰levÃ©', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: 'ğŸ”´',
+    niveau: 'Élevé', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: '??',
     title: 'Perte en capital',
-    text: 'La valeur des parts peut baisser si le marchÃ© immobilier se retourne ou si la qualitÃ© du portefeuille se dÃ©grade. La pÃ©riode 2022â€“2024 sur les SCPI de bureaux l\'a dÃ©montrÃ© concrÃ¨tement.',
-    mitigation: 'Mon rÃ´le : sÃ©lectionner des SCPI avec des portefeuilles diversifiÃ©s, des bilans solides et un historique de rÃ©sistance aux crises.',
+    text: 'La valeur des parts peut baisser si le marché immobilier se retourne ou si la qualité du portefeuille se dégrade. La période 2022–2024 sur les SCPI de bureaux l\'a démontré concrètement.',
+    mitigation: 'Mon rôle : sélectionner des SCPI avec des portefeuilles diversifiés, des bilans solides et un historique de résistance aux crises.',
   },
   {
-    niveau: 'Ã‰levÃ©', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: 'ğŸ”´',
-    title: 'Risque de liquiditÃ©',
-    text: 'Les SCPI ne sont pas des placements liquides. La revente de vos parts peut prendre plusieurs semaines, voire Ãªtre impossible en marchÃ© dÃ©gradÃ©. Ce n\'est pas un placement de trÃ©sorerie.',
-    mitigation: 'Mon rÃ´le : n\'orienter vers les SCPI Ã  capital variable qu\'avec un horizon de 8 Ã  10 ans minimum, jamais sur des capitaux dont vous pourriez avoir besoin.',
+    niveau: 'Élevé', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: '??',
+    title: 'Risque de liquidité',
+    text: 'Les SCPI ne sont pas des placements liquides. La revente de vos parts peut prendre plusieurs semaines, voire être impossible en marché dégradé. Ce n\'est pas un placement de trésorerie.',
+    mitigation: 'Mon rôle : n\'orienter vers les SCPI à capital variable qu\'avec un horizon de 8 à 10 ans minimum, jamais sur des capitaux dont vous pourriez avoir besoin.',
   },
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: 'ğŸŸ ',
+    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '??',
     title: 'Risque locatif',
-    text: 'Des locataires dÃ©faillants, des vacances prolongÃ©es ou un secteur en difficultÃ© (bureaux, commerce) peuvent rÃ©duire les revenus distribuÃ©s sur une ou plusieurs annÃ©es.',
-    mitigation: 'Mon rÃ´le : privilÃ©gier des SCPI multi-secteurs avec un taux d\'occupation financier supÃ©rieur Ã  90% et des locataires institutionnels solides.',
+    text: 'Des locataires défaillants, des vacances prolongées ou un secteur en difficulté (bureaux, commerce) peuvent réduire les revenus distribués sur une ou plusieurs années.',
+    mitigation: 'Mon rôle : privilégier des SCPI multi-secteurs avec un taux d\'occupation financier supérieur à 90% et des locataires institutionnels solides.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: 'ğŸŸ¢',
+    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '??',
     title: 'Risque de change',
-    text: 'Les SCPI europÃ©ennes exposÃ©es hors zone euro (Royaume-Uni, pays nordiquesâ€¦) comportent un risque de change mineur mais rÃ©el Ã  connaÃ®tre avant d\'investir.',
-    mitigation: 'Mon rÃ´le : arbitrer entre SCPI zone euro et hors zone selon votre profil et votre tolÃ©rance Ã  ce risque spÃ©cifique.',
+    text: 'Les SCPI européennes exposées hors zone euro (Royaume-Uni, pays nordiques…) comportent un risque de change mineur mais réel à connaître avant d\'investir.',
+    mitigation: 'Mon rôle : arbitrer entre SCPI zone euro et hors zone selon votre profil et votre tolérance à ce risque spécifique.',
   },
 ];
 
@@ -207,22 +207,22 @@ const ETAPES = [
   {
     n: '01',
     title: 'J\'analyse votre profil fiscal',
-    text: 'Votre TMI dÃ©termine quelle stratÃ©gie SCPI adopter. SCPI en direct, en assurance vie, en nue-propriÃ©tÃ© ou europÃ©enne â€” chaque profil fiscal a sa solution optimale. Je commence toujours par lÃ .',
+    text: 'Votre TMI détermine quelle stratégie SCPI adopter. SCPI en direct, en assurance vie, en nue-propriété ou européenne — chaque profil fiscal a sa solution optimale. Je commence toujours par là.',
   },
   {
     n: '02',
-    title: 'Je sÃ©lectionne les meilleures SCPI',
-    text: 'J\'analyse plus de 200 SCPI : taux d\'occupation, qualitÃ© du patrimoine, soliditÃ© de la sociÃ©tÃ© de gestion, frais rÃ©els et historique de distribution â€” notamment pendant les crises de 2022â€“2024.',
+    title: 'Je sélectionne les meilleures SCPI',
+    text: 'J\'analyse plus de 200 SCPI : taux d\'occupation, qualité du patrimoine, solidité de la société de gestion, frais réels et historique de distribution — notamment pendant les crises de 2022–2024.',
   },
   {
     n: '03',
     title: 'J\'optimise le financement',
-    text: 'Investissement comptant, Ã  crÃ©dit (effet de levier), par versements mensuels ou en dÃ©membrement â€” j\'optimise la structure de financement selon votre situation patrimoniale et fiscale.',
+    text: 'Investissement comptant, à crédit (effet de levier), par versements mensuels ou en démembrement — j\'optimise la structure de financement selon votre situation patrimoniale et fiscale.',
   },
   {
     n: '04',
-    title: 'Je vous accompagne dans la durÃ©e',
-    text: 'Bilan annuel, suivi des distributions, alertes en cas de changement significatif sur votre SCPI, arbitrages si votre situation personnelle Ã©volue. Je reste votre courtier sur le long terme.',
+    title: 'Je vous accompagne dans la durée',
+    text: 'Bilan annuel, suivi des distributions, alertes en cas de changement significatif sur votre SCPI, arbitrages si votre situation personnelle évolue. Je reste votre courtier sur le long terme.',
   },
 ];
 
@@ -242,7 +242,7 @@ export default function SCPIPage() {
 
         <ReadingProgressSCPI />
 
-        {/* â”€â”€ HERO (Avec background) â”€â”€ */}
+        {/* -- HERO (Avec background) -- */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
             <Image
@@ -259,32 +259,32 @@ export default function SCPIPage() {
           <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
-              {' â€º '}
+              {' › '}
               <Link href="/investir" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Investir</Link>
-              {' â€º '}
+              {' › '}
               <span>SCPI</span>
             </nav>
-            <span className="fin-badge">ğŸ¢ Pierre-papier & immobilier de rendement</span>
-            <h1 className="ae-hero-title">SCPI : percevez des loyers<br />sans gÃ©rer un seul bien</h1>
+            <span className="fin-badge">?? Pierre-papier & immobilier de rendement</span>
+            <h1 className="ae-hero-title">SCPI : percevez des loyers<br />sans gérer un seul bien</h1>
             <p className="ae-hero-intro">
-              Investissez dans l'immobilier professionnel dÃ¨s 1 000â‚¬ et percevez des revenus
-              locatifs trimestriels sans aucune contrainte de gestion. Je sÃ©lectionne pour vous
-              les meilleures SCPI parmi 200+ analysÃ©es et j'optimise votre stratÃ©gie fiscale.{' '}
+              Investissez dans l'immobilier professionnel dès 1 000€ et percevez des revenus
+              locatifs trimestriels sans aucune contrainte de gestion. Je sélectionne pour vous
+              les meilleures SCPI parmi 200+ analysées et j'optimise votre stratégie fiscale.{' '}
               <strong>Sans frais de dossier.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="ğŸ“… Trouver mes SCPI idÃ©ales" className="fin-btn-primary" />
+              <ContactPopup label="?? Trouver mes SCPI idéales" className="fin-btn-primary" />
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>âœ… Conseil 100% indÃ©pendant</span>
-              <span>ğŸ¦ 200+ SCPI analysÃ©es</span>
-              <span>âš¡ RÃ©ponse sous 24h</span>
+              <span>? Conseil 100% indépendant</span>
+              <span>?? 200+ SCPI analysées</span>
+              <span>? Réponse sous 24h</span>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CHIFFRES CLÃ‰S (Avec icÃ´nes) â”€â”€ */}
+        {/* -- CHIFFRES CLÉS (Avec icônes) -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
@@ -297,7 +297,7 @@ export default function SCPIPage() {
           </div>
         </section>
 
-        {/* â”€â”€ CITATION CINDY (Avec photo) â”€â”€ */}
+        {/* -- CITATION CINDY (Avec photo) -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
@@ -314,34 +314,34 @@ export default function SCPIPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  Â« La SCPI, c'est l'immobilier locatif dans sa meilleure version :
-                  les loyers arrivent, les problÃ¨mes restent chez la sociÃ©tÃ© de gestion.
+                  « La SCPI, c'est l'immobilier locatif dans sa meilleure version :
+                  les loyers arrivent, les problèmes restent chez la société de gestion.
                 </p>
                 <p className="ae-citation-text">
                   Ce que je fais, c'est aller plus loin : choisir les SCPI qui ont
-                  rÃ©sistÃ© aux crises de 2022â€“2024, et structurer la dÃ©tention pour
-                  que vous touchiez vraiment ce qui est affichÃ© â€” pas une version
-                  amputÃ©e par la fiscalitÃ©. Â»
+                  résisté aux crises de 2022–2024, et structurer la détention pour
+                  que vous touchiez vraiment ce qui est affiché — pas une version
+                  amputée par la fiscalité. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ DANGERS (Avec image contextuelle) â”€â”€ */}
+        {/* -- DANGERS (Avec image contextuelle) -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                âš ï¸ Ce que personne ne vous dit
+                ?? Ce que personne ne vous dit
               </span>
-              <h2>Pourquoi choisir sa SCPI seul<br />est une erreur frÃ©quente</h2>
+              <h2>Pourquoi choisir sa SCPI seul<br />est une erreur fréquente</h2>
               <p>
-                Le marchÃ© des SCPI s'est considÃ©rablement complexifiÃ© depuis 2022. Mauvaise
-                sÃ©lection, fiscalitÃ© ignorÃ©e, frais cachÃ©s : voici les 3 piÃ¨ges que j'aide
-                mes clients Ã  Ã©viter â€” avant d'investir.
+                Le marché des SCPI s'est considérablement complexifié depuis 2022. Mauvaise
+                sélection, fiscalité ignorée, frais cachés : voici les 3 pièges que j'aide
+                mes clients à éviter — avant d'investir.
               </p>
             </div>
 
@@ -361,8 +361,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div className="ae-probleme-image">
                 <Image 
                   src="/images/banque-pression.webp"
-                  alt="Analyse de la complexitÃ© du marchÃ© immobilier des SCPI"
-                  title="Ã‰viter les piÃ¨ges du marchÃ© de la pierre-papier"
+                  alt="Analyse de la complexité du marché immobilier des SCPI"
+                  title="Éviter les pièges du marché de la pierre-papier"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -374,26 +374,26 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
 
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                J'analyse les SCPI Ã  votre place â€” vous investissez sereinement.
+                J'analyse les SCPI à votre place — vous investissez sereinement.
               </p>
               <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
-                IndÃ©pendant, sans frais de dossier, personnalisÃ© selon votre situation fiscale et patrimoniale rÃ©elle.
+                Indépendant, sans frais de dossier, personnalisé selon votre situation fiscale et patrimoniale réelle.
               </p>
-              <ContactPopup label="ğŸ“… Me faire accompagner" className="fin-btn-primary" />
+              <ContactPopup label="?? Me faire accompagner" className="fin-btn-primary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ DÃ‰FINITION â”€â”€ */}
+        {/* -- DÉFINITION -- */}
         <section id="section-definition" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">DÃ©finition</span>
+              <span className="fin-badge">Définition</span>
               <h2>Qu'est-ce qu'une SCPI ?</h2>
               <p>
-                Une <strong>SCPI (SociÃ©tÃ© Civile de Placement Immobilier)</strong> est un
-                fonds d'investissement collectif qui achÃ¨te et gÃ¨re un portefeuille d'actifs
-                immobiliers. Vous dÃ©tenez des parts et percevez votre quote-part des loyers â€”
+                Une <strong>SCPI (Société Civile de Placement Immobilier)</strong> est un
+                fonds d'investissement collectif qui achète et gère un portefeuille d'actifs
+                immobiliers. Vous détenez des parts et percevez votre quote-part des loyers —
                 sans aucune contrainte de gestion.
               </p>
             </div>
@@ -401,16 +401,16 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ AVANTAGES â”€â”€ */}
+        {/* -- AVANTAGES -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Les atouts</span>
-              <h2>6 raisons d'investir en SCPI<br />plutÃ´t qu'en immobilier direct</h2>
+              <h2>6 raisons d'investir en SCPI<br />plutôt qu'en immobilier direct</h2>
               <p>
                 La SCPI offre tous les avantages de l'immobilier sans aucun de ses
-                inconvÃ©nients opÃ©rationnels â€” Ã  condition de bien la choisir et
-                de structurer correctement la dÃ©tention.
+                inconvénients opérationnels — à condition de bien la choisir et
+                de structurer correctement la détention.
               </p>
             </div>
             <div className="crowd-avantages-grid">
@@ -419,7 +419,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   key={a.title}
                   className="crowd-avantage-card"
                   style={
-                    a.title === 'ZÃ©ro gestion, vraiment' || a.title === 'SCPI europÃ©ennes : avantage fiscal majeur'
+                    a.title === 'Zéro gestion, vraiment' || a.title === 'SCPI européennes : avantage fiscal majeur'
                       ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
                       : {}
                   }
@@ -428,7 +428,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
                   </div>
-                  {(a.title === 'ZÃ©ro gestion, vraiment' || a.title === 'SCPI europÃ©ennes : avantage fiscal majeur') && (
+                  {(a.title === 'Zéro gestion, vraiment' || a.title === 'SCPI européennes : avantage fiscal majeur') && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
@@ -439,7 +439,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                       padding: '2px 8px',
                       marginBottom: 8,
                     }}>
-                      â­ Avantage vs immobilier direct
+                      ? Avantage vs immobilier direct
                     </div>
                   )}
                   <p>{a.text}</p>
@@ -449,63 +449,63 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ PROFIL FISCAL â”€â”€ */}
+        {/* -- PROFIL FISCAL -- */}
         <section id="section-profil" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Les diffÃ©rentes SCPI</span>
+              <span className="fin-badge">Les différentes SCPI</span>
               <h2>Quelle SCPI pour quel profil fiscal ?</h2>
               <p>
-                Il n'existe pas une SCPI universelle. SÃ©lectionnez votre TMI et votre
-                objectif pour voir la stratÃ©gie optimale adaptÃ©e Ã  votre situation.
+                Il n'existe pas une SCPI universelle. Sélectionnez votre TMI et votre
+                objectif pour voir la stratégie optimale adaptée à votre situation.
               </p>
             </div>
             <SCPIProfilFiscal />
           </div>
         </section>
 
-        {/* â”€â”€ RISQUES â”€â”€ */}
+        {/* -- RISQUES -- */}
         <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                âš ï¸ Analyse des risques
+                ?? Analyse des risques
               </span>
-              <h2>Les risques rÃ©els,<br />expliquÃ©s honnÃªtement</h2>
+              <h2>Les risques réels,<br />expliqués honnêtement</h2>
               <p>
-                Je ne vends pas du rÃªve. Voici une analyse transparente des risques SCPI
-                â€” et le rÃ´le concret que je joue pour les rÃ©duire avant chaque investissement.
+                Je ne vends pas du rêve. Voici une analyse transparente des risques SCPI
+                — et le rôle concret que je joue pour les réduire avant chaque investissement.
               </p>
             </div>
             <SCPIRisqueJauge />
           </div>
         </section>
 
-        {/* â”€â”€ FISCALITÃ‰ â”€â”€ */}
+        {/* -- FISCALITÉ -- */}
         <section id="section-fiscalite" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">FiscalitÃ© SCPI 2026</span>
-              <h2>Ce que vous touchez vraiment<br />aprÃ¨s impÃ´ts</h2>
+              <span className="fin-badge">Fiscalité SCPI 2026</span>
+              <h2>Ce que vous touchez vraiment<br />après impôts</h2>
               <p>
-                La fiscalitÃ© des SCPI varie selon votre TMI et la stratÃ©gie de dÃ©tention.
-                SÃ©lectionnez votre situation pour voir le rendement net estimÃ©.
+                La fiscalité des SCPI varie selon votre TMI et la stratégie de détention.
+                Sélectionnez votre situation pour voir le rendement net estimé.
               </p>
             </div>
             <SCPIFiscaliteSelector />
           </div>
         </section>
 
-        {/* â”€â”€ SIMULATEUR â”€â”€ */}
+        {/* -- SIMULATEUR -- */}
         <section id="section-simulateur" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Simulation interactive</span>
-              <h2>Calculez vos revenus SCPI<br />en temps rÃ©el</h2>
+              <h2>Calculez vos revenus SCPI<br />en temps réel</h2>
               <p>
-                Capital disponible ou Ã©pargne mensuelle â€” estimez vos revenus locatifs
+                Capital disponible ou épargne mensuelle — estimez vos revenus locatifs
                 potentiels selon votre situation. La simulation est indicative ; j'affine
-                les chiffres en rendez-vous selon les SCPI sÃ©lectionnÃ©es pour vous.
+                les chiffres en rendez-vous selon les SCPI sélectionnées pour vous.
               </p>
             </div>
             <div style={{ borderRadius: 20, overflow: 'hidden' }}>
@@ -514,15 +514,15 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ ACCOMPAGNEMENT (Avec image) â”€â”€ */}
+        {/* -- ACCOMPAGNEMENT (Avec image) -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
-              <h2>Ce que je fais concrÃ¨tement<br />pour vous, de A Ã  Z</h2>
+              <h2>Ce que je fais concrètement<br />pour vous, de A à Z</h2>
               <p>
-                De l'analyse fiscale Ã  la souscription, en passant par la sÃ©lection des SCPI
-                et le suivi annuel â€” sans dÃ©lÃ©gation, sans intermÃ©diaire supplÃ©mentaire.
+                De l'analyse fiscale à la souscription, en passant par la sélection des SCPI
+                et le suivi annuel — sans délégation, sans intermédiaire supplémentaire.
               </p>
             </div>
             
@@ -541,8 +541,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div className="ae-accompagnement-image">
                 <Image 
                   src="/images/dossier_scpi.webp" 
-                  alt="PrÃ©paration et gestion d'un portefeuille SCPI par un courtier"
-                  title="Gestion complÃ¨te de votre investissement SCPI"
+                  alt="Préparation et gestion d'un portefeuille SCPI par un courtier"
+                  title="Gestion complète de votre investissement SCPI"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -553,48 +553,48 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
 
             <div className="av-sans frais de dossier-bloc" style={{ marginTop: 48 }}>
-              <div className="av-sans frais de dossier-icon" style={{ fontSize: '2rem' }}>ğŸ¤</div>
+              <div className="av-sans frais de dossier-icon" style={{ fontSize: '2rem' }}>??</div>
               <div>
                 <strong>Un accompagnement complet, sans frais de dossier</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
-                  Je suis rÃ©munÃ©rÃ©e par les sociÃ©tÃ©s de gestion partenaires â€” jamais
-                  par vous. Mon indÃ©pendance garantit que je travaille exclusivement
-                  dans votre intÃ©rÃªt.
+                  Je suis rémunérée par les sociétés de gestion partenaires — jamais
+                  par vous. Mon indépendance garantit que je travaille exclusivement
+                  dans votre intérêt.
                 </p>
               </div>
-              <ContactPopup label="ğŸ“… DÃ©marrer mon accompagnement" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="?? Démarrer mon accompagnement" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ OBJECTIONS â”€â”€ */}
+        {/* -- OBJECTIONS -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Vous hÃ©sitez encore ?</span>
-              <h2>Les vraies objections â€”<br />avec des rÃ©ponses honnÃªtes</h2>
+              <span className="fin-badge">Vous hésitez encore ?</span>
+              <h2>Les vraies objections —<br />avec des réponses honnêtes</h2>
               <p>
                 Voici ce que mes clients me disent le plus souvent avant de prendre
-                rendez-vous â€” et ce que je leur rÃ©ponds, sans formule commerciale.
+                rendez-vous — et ce que je leur réponds, sans formule commerciale.
               </p>
             </div>
             <div className="crowd-faq-list">
               {[
                 {
-                  q: 'Â« C\'est illiquide â€” je ne peux pas rÃ©cupÃ©rer mon argent quand je veux. Â»',
-                  r: 'C\'est vrai, et c\'est assumÃ©. Les SCPI sont des placements de long terme (8â€“10 ans minimum). C\'est prÃ©cisÃ©ment pour Ã§a qu\'elles offrent un rendement supÃ©rieur aux livrets. Mon rÃ´le : ne jamais vous orienter vers une SCPI avec des capitaux dont vous pourriez avoir besoin. L\'Ã©pargne de prÃ©caution reste sur un livret.',
+                  q: '« C\'est illiquide — je ne peux pas récupérer mon argent quand je veux. »',
+                  r: 'C\'est vrai, et c\'est assumé. Les SCPI sont des placements de long terme (8–10 ans minimum). C\'est précisément pour ça qu\'elles offrent un rendement supérieur aux livrets. Mon rôle : ne jamais vous orienter vers une SCPI avec des capitaux dont vous pourriez avoir besoin. L\'épargne de précaution reste sur un livret.',
                 },
                 {
-                  q: 'Â« J\'ai peur de la baisse de 2022â€“2024 sur les SCPI de bureaux. Â»',
-                  r: 'Cette crise a touchÃ© principalement les SCPI mono-secteur bureaux, mal diversifiÃ©es gÃ©ographiquement. Les SCPI multi-secteurs et europÃ©ennes ont trÃ¨s bien rÃ©sistÃ©. Mon travail, c\'est prÃ©cisÃ©ment de distinguer les SCPI solides de celles qui ont montrÃ© leurs faiblesses â€” et de ne recommander que les premiÃ¨res.',
+                  q: '« J\'ai peur de la baisse de 2022–2024 sur les SCPI de bureaux. »',
+                  r: 'Cette crise a touché principalement les SCPI mono-secteur bureaux, mal diversifiées géographiquement. Les SCPI multi-secteurs et européennes ont très bien résisté. Mon travail, c\'est précisément de distinguer les SCPI solides de celles qui ont montré leurs faiblesses — et de ne recommander que les premières.',
                 },
                 {
-                  q: 'Â« La fiscalitÃ© est trop complexe pour moi. Â»',
-                  r: 'C\'est exactement pour Ã§a que je commence toujours par un audit fiscal. TMI, revenus fonciers existants, objectifs patrimoniaux â€” je calcule le rendement net rÃ©el dans votre situation spÃ©cifique. Vous n\'avez pas Ã  comprendre la fiscalitÃ© SCPI : c\'est mon mÃ©tier.',
+                  q: '« La fiscalité est trop complexe pour moi. »',
+                  r: 'C\'est exactement pour ça que je commence toujours par un audit fiscal. TMI, revenus fonciers existants, objectifs patrimoniaux — je calcule le rendement net réel dans votre situation spécifique. Vous n\'avez pas à comprendre la fiscalité SCPI : c\'est mon métier.',
                 },
                 {
-                  q: 'Â« Je peux investir directement sans passer par un courtier. Â»',
-                  r: 'Oui, techniquement. Mais sans analyse des 200+ SCPI du marchÃ©, sans optimisation fiscale et sans suivi annuel, vous prenez des risques Ã©vitables. Et mon accompagnement est sans frais de dossier pour vous â€” je suis rÃ©munÃ©rÃ©e par les sociÃ©tÃ©s de gestion. Il n\'y a aucune raison de ne pas en bÃ©nÃ©ficier.',
+                  q: '« Je peux investir directement sans passer par un courtier. »',
+                  r: 'Oui, techniquement. Mais sans analyse des 200+ SCPI du marché, sans optimisation fiscale et sans suivi annuel, vous prenez des risques évitables. Et mon accompagnement est sans frais de dossier pour vous — je suis rémunérée par les sociétés de gestion. Il n\'y a aucune raison de ne pas en bénéficier.',
                 },
               ].map((o, i) => (
                 <details key={i} className="crowd-faq-item">
@@ -605,27 +605,27 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 32 }}>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <ContactPopup label="ğŸ“… Prendre rendez-vous" className="fin-btn-primary" />
-                <ContactPopup label="âœ‰ï¸ Poser une question" className="fin-btn-secondary" />
+                <ContactPopup label="?? Prendre rendez-vous" className="fin-btn-primary" />
+                <ContactPopup label="?? Poser une question" className="fin-btn-secondary" />
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ AUTO-Ã‰VALUATION â”€â”€ */}
+        {/* -- AUTO-ÉVALUATION -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <SCPIChecklist />
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€ */}
+        {/* -- FAQ -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions SCPI,<br />mes rÃ©ponses directes</h2>
-              <p>Sans jargon financier. Les vraies rÃ©ponses.</p>
+              <h2>Vos questions SCPI,<br />mes réponses directes</h2>
+              <p>Sans jargon financier. Les vraies réponses.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -637,74 +637,74 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="âœ‰ï¸ Poser une autre question Ã  Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="?? Poser une autre question à Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ MAILLAGE INTERNE â”€â”€ */}
+        {/* -- MAILLAGE INTERNE -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
-              <h2>ComplÃ©tez votre stratÃ©gie<br />patrimoniale</h2>
+              <h2>Complétez votre stratégie<br />patrimoniale</h2>
               <p>
-                La SCPI est la colonne vertÃ©brale immobiliÃ¨re de votre patrimoine.
-                Je construis avec vous une stratÃ©gie globale qui combine les meilleures
+                La SCPI est la colonne vertébrale immobilière de votre patrimoine.
+                Je construis avec vous une stratégie globale qui combine les meilleures
                 enveloppes selon vos objectifs.
               </p>
             </div>
             <div className="fin-cards">
               <Link href="/investir/crowdfunding" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>ğŸ“ˆ 8â€“12%/an sur 12â€“36 mois</span>
-                <div className="fin-card-icon">ğŸ“ˆ</div>
+                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>?? 8–12%/an sur 12–36 mois</span>
+                <div className="fin-card-icon">??</div>
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
-                <p>8â€“12%/an sur 12â€“36 mois. Le complÃ©ment dynamique idÃ©al aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
-                <span className="fin-card-link">En savoir plus â†’</span>
+                <p>8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
+                <span className="fin-card-link">En savoir plus ?</span>
               </Link>
               <Link href="/investir/assurance-vie" className="fin-card fin-card--featured">
-                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>âœ… FiscalitÃ© optimisÃ©e aprÃ¨s 8 ans</span>
-                <div className="fin-card-icon">ğŸ›¡ï¸</div>
-                <div className="fin-card-sub">Ã‰pargne & transmission</div>
+                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>? Fiscalité optimisée après 8 ans</span>
+                <div className="fin-card-icon">???</div>
+                <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>
-                <p>L'enveloppe pour loger vos SCPI et bÃ©nÃ©ficier d'une fiscalitÃ© optimisÃ©e. IdÃ©al pour les profils TMI 30%+ qui veulent garder la liquiditÃ©.</p>
-                <span className="fin-card-link">En savoir plus â†’</span>
+                <p>L'enveloppe pour loger vos SCPI et bénéficier d'une fiscalité optimisée. Idéal pour les profils TMI 30%+ qui veulent garder la liquidité.</p>
+                <span className="fin-card-link">En savoir plus ?</span>
               </Link>
               <Link href="/investir/per" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(124,58,237,0.08)', color: '#7c3aed', border: '1px solid rgba(124,58,237,0.2)' }}>ğŸ’° DÃ©duction fiscale immÃ©diate</span>
-                <div className="fin-card-icon">ğŸ¦</div>
-                <div className="fin-card-sub">PrÃ©parez votre retraite â†’</div>
+                <span className="fin-card-pill" style={{ background: 'rgba(124,58,237,0.08)', color: '#7c3aed', border: '1px solid rgba(124,58,237,0.2)' }}>?? Déduction fiscale immédiate</span>
+                <div className="fin-card-icon">??</div>
+                <div className="fin-card-sub">Préparez votre retraite ?</div>
                 <h3>PER</h3>
-                <p>RÃ©duisez vos impÃ´ts dÃ¨s cette annÃ©e et prÃ©parez votre retraite. CombinÃ© aux SCPI dans une AV, un duo particuliÃ¨rement puissant.</p>
+                <p>Réduisez vos impôts dès cette année et préparez votre retraite. Combiné aux SCPI dans une AV, un duo particulièrement puissant.</p>
                 <span className="fin-card-link">En savoir plus</span>
               </Link>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CTA FINAL â”€â”€ */}
+        {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
-            <h2>PrÃªte Ã  percevoir vos premiers<br />loyers sans gÃ©rer un bien ?</h2>
+            <h2>Prête à percevoir vos premiers<br />loyers sans gérer un bien ?</h2>
             <p>
-              J'analyse votre situation fiscale et patrimoniale, sÃ©lectionne les SCPI
-              les plus adaptÃ©es parmi 200+ analysÃ©es et vous accompagne jusqu'Ã  la
-              souscription â€” et au-delÃ .
+              J'analyse votre situation fiscale et patrimoniale, sélectionne les SCPI
+              les plus adaptées parmi 200+ analysées et vous accompagne jusqu'à la
+              souscription — et au-delà.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="ğŸ“… Poser une question" className="fin-btn-primary" />
+              <ContactPopup label="?? Poser une question" className="fin-btn-primary" />
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,
               maxWidth: 520, margin: '24px auto 0',
             }}>
-              Investir dans des SCPI comporte des risques de perte en capital et de liquiditÃ©.
-              Les performances passÃ©es ne prÃ©jugent pas des performances futures.
-              Je suis immatriculÃ©e Ã  l'ORIAS, rÃ©gie par l'ACPR â€”
-              rÃ©munÃ©rÃ©e par les sociÃ©tÃ©s de gestion partenaires, jamais par vous.
+              Investir dans des SCPI comporte des risques de perte en capital et de liquidité.
+              Les performances passées ne préjugent pas des performances futures.
+              Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              rémunérée par les sociétés de gestion partenaires, jamais par vous.
             </p>
           </div>
         </section>

@@ -30,7 +30,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
+        url: 'https://www.orizia-courtage.fr/images/img-orizia.webp',
         width: 1200,
         height: 630,
         alt: 'Cindy Urbansky, courtier indépendant — Orizia Courtage, Marcq-en-Barœul',
@@ -43,7 +43,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Orizia Courtage — Courtier Indépendant',
     description: 'Crédit, assurance, patrimoine. Je travaille pour vous, pas pour les banques.',
-    images: ['https://www.orizia-courtage.fr/images/hero-orizia.webp'],
+    images: ['https://www.orizia-courtage.fr/images/img-orizia.webp'],
   },
 };
 
@@ -62,7 +62,7 @@ const oriziaSchema = {
     width: 160,
     height: 75,
   },
-  image: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
+  image: 'https://www.orizia-courtage.fr/images/img-orizia.webp',
   description:
     'Cabinet de courtage indépendant fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
   telephone: '+33777259706',

@@ -13,10 +13,10 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/hero-orizia.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-actualites.webp',
         width: 1200,
         height: 630,
-        alt: 'Orizia Courtage - Cindy Urbansky, courtier indépendant',
+        alt: 'Actualités crédit, assurance et patrimoine — Orizia Courtage',
       },
     ],
     locale: 'fr_FR',
@@ -26,7 +26,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
     description: 'Actualités crédit immobilier, assurance emprunteur et placements. Analyses et décryptages par Cindy Urbansky, courtier indépendant.',
-    images: ['https://www.orizia-courtage.fr/images/hero-orizia.webp'],
+    images: ['https://www.orizia-courtage.fr/images/og-actualites.webp'],
   },
 };
 

@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import OriziaForm from '@/components/OriziaForm';
 import FormStepper from '@/components/FormStepper';
@@ -7,23 +7,23 @@ import SimulateurRegroupement from '@/components/SimulateurRegroupement';
 import RegroupementChecklist from '@/components/RegroupementChecklist';
 import ContactPopup from '@/components/ContactPopup';
 
-// â”€â”€ 1. MÃ‰TADONNÃ‰ES SEO â”€â”€
+// -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Regroupement de CrÃ©dits 2026 : âˆ’60% mensualitÃ©s | Orizia',
+  title: 'Regroupement de Crédits 2026 : -60% mensualités | Orizia',
   description:
-    'RÃ©unissez vos crÃ©dits en un seul et rÃ©duisez vos mensualitÃ©s jusqu\'Ã  60%. Cindy Urbansky, courtier indÃ©pendant. Ã‰tude de faisabilitÃ©, rÃ©ponse sous 24h.',
+    'Réunissez vos crédits en un seul et réduisez vos mensualités jusqu\'à 60%. Cindy Urbansky, courtier indépendant. Étude de faisabilité, réponse sous 24h.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
-    title: 'Regroupement de CrÃ©dits : âˆ’60% sur vos mensualitÃ©s | Orizia Courtage',
-    description: 'Un seul crÃ©dit, une seule mensualitÃ© rÃ©duite. J\'Ã©tudie votre dossier sans frais de dossier et vous propose la solution adaptÃ©e Ã  votre profil.',
+    title: 'Regroupement de Crédits : -60% sur vos mensualités | Orizia Courtage',
+    description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier sans frais de dossier et vous propose la solution adaptée à votre profil.',
     url: 'https://www.orizia-courtage.fr/financer/regroupement-credits',
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-regroupement-credits.jpg',
+        url: 'https://www.orizia-courtage.fr/images/og-regroupement-credits.webp',
         width: 1200,
         height: 630,
-        alt: 'Regroupement de crÃ©dits avec Orizia Courtage - Cindy Urbansky',
+        alt: 'Regroupement de crédits avec Orizia Courtage - Cindy Urbansky',
       },
     ],
     locale: 'fr_FR',
@@ -31,7 +31,7 @@ export const metadata = {
   },
 };
 
-// â”€â”€ 2. DONNÃ‰ES STRUCTURÃ‰ES â”€â”€
+// -- 2. DONNÉES STRUCTURÉES --
 const regroupementSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -40,13 +40,13 @@ const regroupementSchema = {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.orizia-courtage.fr' },
         { '@type': 'ListItem', position: 2, name: 'Financer', item: 'https://www.orizia-courtage.fr/financer' },
-        { '@type': 'ListItem', position: 3, name: 'Regroupement de crÃ©dits', item: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
+        { '@type': 'ListItem', position: 3, name: 'Regroupement de crédits', item: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
       ],
     },
     {
       '@type': 'Service',
-      name: 'Courtage en Regroupement de CrÃ©dits',
-      serviceType: 'Rachat et Consolidation de CrÃ©dits',
+      name: 'Courtage en Regroupement de Crédits',
+      serviceType: 'Rachat et Consolidation de Crédits',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -59,7 +59,7 @@ const regroupementSchema = {
           addressCountry: 'FR',
         },
       },
-      description: 'Analyse du profil d\'endettement, mise en concurrence des Ã©tablissements spÃ©cialisÃ©s et montage du dossier de regroupement de crÃ©dits. RÃ©duction de mensualitÃ© jusqu\'Ã  60%.',
+      description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. Réduction de mensualité jusqu\'à 60%.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -70,7 +70,7 @@ const regroupementSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Ã‰tude de dossier sans frais de dossier et sans engagement.',
+        description: 'Étude de dossier sans frais de dossier et sans engagement.',
       },
     },
   ],
@@ -82,98 +82,98 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Qu\'est-ce que le regroupement de crÃ©dits ?',
+      name: 'Qu\'est-ce que le regroupement de crédits ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le regroupement de crÃ©dits consiste Ã  rÃ©unir plusieurs emprunts en cours â€” crÃ©dit immobilier, crÃ©dits Ã  la consommation, LOA, dettes â€” en un seul crÃ©dit avec une mensualitÃ© rÃ©duite et une durÃ©e renÃ©gociÃ©e.',
+        text: 'Le regroupement de crédits consiste à réunir plusieurs emprunts en cours — crédit immobilier, crédits à la consommation, LOA, dettes — en un seul crédit avec une mensualité réduite et une durée renégociée.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Quelle Ã©conomie mensuelle peut-on espÃ©rer ?',
+      name: 'Quelle économie mensuelle peut-on espérer ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La baisse de mensualitÃ© dÃ©pend du dossier, mais elle peut aller de 30 Ã  60% selon la situation. Cette baisse s\'obtient en contrepartie d\'un allongement de la durÃ©e de remboursement.',
+        text: 'La baisse de mensualité dépend du dossier, mais elle peut aller de 30 à 60% selon la situation. Cette baisse s\'obtient en contrepartie d\'un allongement de la durée de remboursement.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Qui peut bÃ©nÃ©ficier d\'un regroupement de crÃ©dits ?',
+      name: 'Qui peut bénéficier d\'un regroupement de crédits ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les profils avec au moins deux crÃ©dits en cours peuvent Ãªtre Ã©tudiÃ©s : salariÃ©s, fonctionnaires, retraitÃ©s et certains indÃ©pendants. Les dossiers fichÃ©s FICP ou FCC nÃ©cessitent une analyse spÃ©cifique.',
+        text: 'Les profils avec au moins deux crédits en cours peuvent être étudiés : salariés, fonctionnaires, retraités et certains indépendants. Les dossiers fichés FICP ou FCC nécessitent une analyse spécifique.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Le regroupement de crÃ©dits coÃ»te-t-il plus cher au total ?',
+      name: 'Le regroupement de crédits coûte-t-il plus cher au total ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, le coÃ»t total augmente souvent Ã  cause de la durÃ©e plus longue. En revanche, la mensualitÃ© baisse immÃ©diatement et le reste Ã  vivre s\'amÃ©liore.',
+        text: 'Oui, le coût total augmente souvent à cause de la durée plus longue. En revanche, la mensualité baisse immédiatement et le reste à vivre s\'améliore.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Combien de temps dure une Ã©tude de dossier ?',
+      name: 'Combien de temps dure une étude de dossier ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La premiÃ¨re rÃ©ponse peut intervenir sous 24h ouvrÃ©es. La mise en place complÃ¨te prend gÃ©nÃ©ralement de 4 Ã  8 semaines selon le dossier.',
+        text: 'La première réponse peut intervenir sous 24h ouvrées. La mise en place complète prend généralement de 4 à 8 semaines selon le dossier.',
       },
     },
     {
       '@type': 'Question',
-      name: 'L\'Ã©tude est-elle sans frais de dossier et sans engagement ?',
+      name: 'L\'étude est-elle sans frais de dossier et sans engagement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, l\'Ã©tude est sans frais de dossier et sans engagement. Aucun frais n\'est demandÃ© avant la mise en place effective du regroupement.',
+        text: 'Oui, l\'étude est sans frais de dossier et sans engagement. Aucun frais n\'est demandé avant la mise en place effective du regroupement.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '-60%', label: 'de rÃ©duction de mensualitÃ©s possible', icon: 'ğŸ“‰' },
-  { value: '24h', label: 'pour une premiÃ¨re rÃ©ponse de principe', icon: 'âš¡' },
-  { value: '100%', label: 'sans frais Â· sans engagement', icon: 'ğŸ¤' },
-  { value: '10\u00A0questions', label: 'pour une analyse complÃ¨te de votre profil', icon: 'ğŸ”' },
+  { value: '-60%', label: 'de réduction de mensualités possible', icon: '??' },
+  { value: '24h', label: 'pour une première réponse de principe', icon: '?' },
+  { value: '100%', label: 'sans frais · sans engagement', icon: '??' },
+  { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: '??' },
 ];
 
 const CREDITS_REGROUPABLES = [
-  { icon: 'ğŸ¡', label: 'CrÃ©dit immobilier', desc: 'RÃ©sidence principale, secondaire ou investissement locatif' },
-  { icon: 'ğŸ›’', label: 'CrÃ©dits Ã  la consommation', desc: 'PrÃªts personnels, crÃ©dits renouvelables, travaux' },
-  { icon: 'ğŸš—', label: 'LOA / LLD', desc: 'CrÃ©dit-bail auto, rachat de contrat de location' },
-  { icon: 'ğŸ’³', label: 'Dettes diverses', desc: 'Paiements en plusieurs fois, dÃ©couverts chroniques' },
-  { icon: 'ğŸ¢', label: 'CrÃ©dits professionnels', desc: 'Sous conditions selon le profil et le montant' },
-  { icon: 'ğŸ’°', label: 'TrÃ©sorerie complÃ©mentaire', desc: 'PossibilitÃ© d\'intÃ©grer une enveloppe de liquiditÃ©s' },
+  { icon: '??', label: 'Crédit immobilier', desc: 'Résidence principale, secondaire ou investissement locatif' },
+  { icon: '??', label: 'Crédits à la consommation', desc: 'Prêts personnels, crédits renouvelables, travaux' },
+  { icon: '??', label: 'LOA / LLD', desc: 'Crédit-bail auto, rachat de contrat de location' },
+  { icon: '??', label: 'Dettes diverses', desc: 'Paiements en plusieurs fois, découverts chroniques' },
+  { icon: '??', label: 'Crédits professionnels', desc: 'Sous conditions selon le profil et le montant' },
+  { icon: '??', label: 'Trésorerie complémentaire', desc: 'Possibilité d\'intégrer une enveloppe de liquidités' },
 ];
 
 const PROFILS = [
   {
-    icon: 'ğŸ‘¨â€ğŸ‘©â€ğŸ‘§',
+    icon: '????????',
     title: 'Famille en CDI',
-    desc: 'Revenus stables, crÃ©dits accumulÃ©s aprÃ¨s plusieurs achats.',
-    resultat: 'Profil le plus favorable â€” rÃ©duction de 40 Ã  60% de la mensualitÃ©.',
+    desc: 'Revenus stables, crédits accumulés après plusieurs achats.',
+    resultat: 'Profil le plus favorable — réduction de 40 à 60% de la mensualité.',
     color: '#16a34a',
   },
   {
-    icon: 'ğŸ‘´',
-    title: 'RetraitÃ© propriÃ©taire',
-    desc: 'Revenu fixe, patrimoine immobilier, besoin de reste Ã  vivre.',
-    resultat: 'Rachat adossÃ© Ã  l\'immobilier â€” durÃ©e adaptÃ©e Ã  l\'Ã¢ge.',
+    icon: '??',
+    title: 'Retraité propriétaire',
+    desc: 'Revenu fixe, patrimoine immobilier, besoin de reste à vivre.',
+    resultat: 'Rachat adossé à l\'immobilier — durée adaptée à l\'âge.',
     color: 'var(--orizia-primary)',
   },
   {
-    icon: 'ğŸ’¼',
+    icon: '??',
     title: 'Fonctionnaire',
-    desc: 'Emploi stable, solvabilitÃ© reconnue, dossier prioritaire.',
+    desc: 'Emploi stable, solvabilité reconnue, dossier prioritaire.',
     resultat: 'Conditions souvent plus avantageuses.',
     color: '#d97706',
   },
   {
-    icon: 'ğŸ”§',
-    title: 'TNS / IndÃ©pendant',
-    desc: 'Revenus variables, bilans Ã  analyser, Ã©tude spÃ©cifique requise.',
-    resultat: 'Ã‰tude au cas par cas â€” solutions partielles parfois possibles.',
+    icon: '??',
+    title: 'TNS / Indépendant',
+    desc: 'Revenus variables, bilans à analyser, étude spécifique requise.',
+    resultat: 'Étude au cas par cas — solutions partielles parfois possibles.',
     color: '#7c3aed',
   },
 ];
@@ -181,27 +181,27 @@ const PROFILS = [
 const COMMENT_CA_MARCHE = [
   {
     n: '01',
-    icon: 'ğŸ“‹',
-    title: 'Vous complÃ©tez le formulaire',
-    text: '10 questions sur votre situation financiÃ¨re. Aucun document Ã  envoyer Ã  ce stade. Comptez 5 Ã  8 minutes.',
+    icon: '??',
+    title: 'Vous complétez le formulaire',
+    text: '10 questions sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
   },
   {
     n: '02',
-    icon: 'ğŸ”',
+    icon: '??',
     title: 'J\'analyse votre profil',
-    text: 'Sous 24h ouvrÃ©es, j\'Ã©tudie votre dossier, calcule votre taux d\'endettement et identifie le bon segment.',
+    text: 'Sous 24h ouvrées, j\'étudie votre dossier, calcule votre taux d\'endettement et identifie le bon segment.',
   },
   {
     n: '03',
-    icon: 'ğŸ“',
+    icon: '??',
     title: 'Vous recevez une proposition',
-    text: 'Simulation avant/aprÃ¨s, durÃ©e, taux, coÃ»t total. Vous dÃ©cidez en toute transparence.',
+    text: 'Simulation avant/après, durée, taux, coût total. Vous décidez en toute transparence.',
   },
   {
     n: '04',
-    icon: 'âœ…',
+    icon: '?',
     title: 'Montage et mise en place',
-    text: 'Si vous acceptez, je transmets le dossier et suis la procÃ©dure jusqu\'au dÃ©blocage des fonds.',
+    text: 'Si vous acceptez, je transmets le dossier et suis la procédure jusqu\'au déblocage des fonds.',
   },
 ];
 
@@ -220,7 +220,7 @@ export default function RegroupementCreditsPage() {
       <main>
         <ReadingProgressRegroupement />
 
-        {/* â”€â”€ HERO â”€â”€ */}
+        {/* -- HERO -- */}
         <section className="fin-hero ae-hero">
           <div className="ae-hero-bg">
             <Image
@@ -237,36 +237,36 @@ export default function RegroupementCreditsPage() {
           <div className="ae-hero-inner fin-hero-inner">
             <nav aria-label="breadcrumb" style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: 16 }}>
               <Link href="/" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Accueil</Link>
-              {' â€º '}
+              {' › '}
               <Link href="/financer" style={{ color: 'var(--orizia-accent)', textDecoration: 'none' }}>Financer</Link>
-              {' â€º '}
-              <span>Regroupement de crÃ©dits</span>
+              {' › '}
+              <span>Regroupement de crédits</span>
             </nav>
-            <span className="fin-badge">ğŸ’¡ Ã‰tude de faisabilitÃ© Â· RÃ©ponse sous 24h</span>
-            <h1 className="ae-hero-title">Regroupement de crÃ©dits :<br />une seule mensualitÃ©, rÃ©duite jusqu'Ã  âˆ’60%</h1>
+            <span className="fin-badge">?? Étude de faisabilité · Réponse sous 24h</span>
+            <h1 className="ae-hero-title">Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à -60%</h1>
             <p className="ae-hero-intro">
-              Vous cumulez plusieurs crÃ©dits et vos mensualitÃ©s pÃ¨sent sur votre budget ?
-              Le regroupement de crÃ©dits rÃ©unit tous vos emprunts en <strong>un seul</strong>,
-              avec une mensualitÃ© unique et allÃ©gÃ©e. J'Ã©tudie votre
+              Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
+              Le regroupement de crédits réunit tous vos emprunts en <strong>un seul</strong>,
+              avec une mensualité unique et allégée. J'étudie votre
               dossier <strong>sans frais de dossier</strong> et sans engagement.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                ğŸ” DÃ©marrer mon Ã©tude
+                ?? Démarrer mon étude
               </a>
               <a href="#section-comprendre" className="fin-btn-secondary">
-                Comment Ã§a marche ?
+                Comment ça marche ?
               </a>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>âœ… Sans frais de dossier Â· Sans engagement</span>
-              <span>âš¡ RÃ©ponse sous 24h</span>
-              <span>ğŸ”’ DonnÃ©es sÃ©curisÃ©es</span>
+              <span>? Sans frais de dossier · Sans engagement</span>
+              <span>? Réponse sous 24h</span>
+              <span>?? Données sécurisées</span>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CHIFFRES CLÃ‰S â”€â”€ */}
+        {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
@@ -278,14 +278,14 @@ export default function RegroupementCreditsPage() {
           </div>
         </section>
 
-        {/* â”€â”€ CITATION CINDY â”€â”€ */}
+        {/* -- CITATION CINDY -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtier indÃ©pendant en regroupement de crÃ©dits"
+                  alt="Cindy Urbansky, courtier indépendant en regroupement de crédits"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -295,40 +295,40 @@ export default function RegroupementCreditsPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  Â« Quand les mensualitÃ©s dÃ©passent 35% de vos revenus, ce n'est plus un problÃ¨me de budget â€” c'est un problÃ¨me de structure. Â»
+                  « Quand les mensualités dépassent 35% de vos revenus, ce n'est plus un problème de budget — c'est un problème de structure. »
                 </p>
                 <p className="ae-citation-text">
-                  Le regroupement de crÃ©dits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immÃ©diatement. Mon rÃ´le est d'analyser votre situation honnÃªtement, de vous prÃ©senter les chiffres rÃ©els â€” Ã©conomies immÃ©diates et coÃ»t total â€” et de vous laisser dÃ©cider en toute connaissance de cause.
+                  Le regroupement de crédits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immédiatement. Mon rôle est d'analyser votre situation honnêtement, de vous présenter les chiffres réels — économies immédiates et coût total — et de vous laisser décider en toute connaissance de cause.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ COMPRENDRE â”€â”€ */}
+        {/* -- COMPRENDRE -- */}
         <section id="section-comprendre" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge">C'est quoi exactement ?</span>
-                <h2>Transformez plusieurs dettes<br />en un seul crÃ©dit allÃ©gÃ©</h2>
+                <h2>Transformez plusieurs dettes<br />en un seul crédit allégé</h2>
                 <p>
-                  Le regroupement de crÃ©dits fonctionne comme une opÃ©ration de consolidation :
-                  un Ã©tablissement de crÃ©dit rachÃ¨te l'ensemble de vos emprunts en cours
-                  et vous propose un <strong>nouveau crÃ©dit unique</strong> Ã  un taux et
-                  une durÃ©e nÃ©gociÃ©s.
+                  Le regroupement de crédits fonctionne comme une opération de consolidation :
+                  un établissement de crédit rachète l'ensemble de vos emprunts en cours
+                  et vous propose un <strong>nouveau crédit unique</strong> à un taux et
+                  une durée négociés.
                 </p>
                 <p>
-                  RÃ©sultat immÃ©diat : votre mensualitÃ© globale baisse, parfois de moitiÃ©.
-                  Votre taux d'endettement se normalise. Vous retrouvez du <strong>reste Ã  vivre</strong>
+                  Résultat immédiat : votre mensualité globale baisse, parfois de moitié.
+                  Votre taux d'endettement se normalise. Vous retrouvez du <strong>reste à vivre</strong>
                   chaque mois.
                 </p>
                 <p style={{ fontSize: '0.85rem', opacity: 0.6, fontStyle: 'italic' }}>
-                  âš ï¸ Contrepartie : la durÃ©e totale de remboursement s'allonge,
-                  ce qui augmente le coÃ»t global du crÃ©dit. Je vous prÃ©sente
-                  une simulation complÃ¨te pour dÃ©cider en connaissance de cause.
+                  ?? Contrepartie : la durée totale de remboursement s'allonge,
+                  ce qui augmente le coût global du crédit. Je vous présente
+                  une simulation complète pour décider en connaissance de cause.
                 </p>
               </div>
 
@@ -348,7 +348,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                     marginBottom: 18,
                     textAlign: 'center',
                   }}>
-                    Quels crÃ©dits peut-on regrouper ?
+                    Quels crédits peut-on regrouper ?
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                     {CREDITS_REGROUPABLES.map(c => (
@@ -382,27 +382,27 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ SIMULATEUR â”€â”€ */}
+        {/* -- SIMULATEUR -- */}
         <section id="section-simulateur" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">ğŸ“Š Simulateur</span>
-              <h2>Calculez votre taux d'endettement<br />et votre mensualitÃ© cible</h2>
+              <span className="fin-badge">?? Simulateur</span>
+              <h2>Calculez votre taux d'endettement<br />et votre mensualité cible</h2>
               <p>
-                Renseignez vos mensualitÃ©s actuelles et vos revenus pour voir immÃ©diatement
-                si le regroupement peut vous aider â€” et de combien.
+                Renseignez vos mensualités actuelles et vos revenus pour voir immédiatement
+                si le regroupement peut vous aider — et de combien.
               </p>
             </div>
             <SimulateurRegroupement />
           </div>
         </section>
 
-        {/* â”€â”€ PROCESSUS â”€â”€ */}
+        {/* -- PROCESSUS -- */}
         <section id="section-processus" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Le processus</span>
-              <h2>De votre formulaire Ã  votre<br />nouvelle mensualitÃ© en 4 Ã©tapes</h2>
+              <h2>De votre formulaire à votre<br />nouvelle mensualité en 4 étapes</h2>
               <p>Tout commence par quelques minutes de formulaire. Je m'occupe du reste.</p>
             </div>
             <div className="ae-accompagnement-layout">
@@ -420,8 +420,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier_regroupement_credit.webp"
-                  alt="Cindy Urbansky analysant un dossier de regroupement de crÃ©dits"
-                  title="Analyse et montage de dossier de regroupement de crÃ©dits"
+                  alt="Cindy Urbansky analysant un dossier de regroupement de crédits"
+                  title="Analyse et montage de dossier de regroupement de crédits"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -433,14 +433,14 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ PROFILS â”€â”€ */}
+        {/* -- PROFILS -- */}
         <section id="section-profils" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre profil</span>
               <h2>Le regroupement est-il<br />fait pour votre situation ?</h2>
               <p>
-                Les conditions varient selon votre statut. Voici les profils les plus frÃ©quents
+                Les conditions varient selon votre statut. Voici les profils les plus fréquents
                 et leur potentiel de solution.
               </p>
             </div>
@@ -449,8 +449,8 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
               <div>
                 <Image
                   src="/images/banque-pression.webp"
-                  alt="Pression financiÃ¨re liÃ©e Ã  l'accumulation de crÃ©dits"
-                  title="Le regroupement de crÃ©dits pour retrouver de l'air dans son budget"
+                  alt="Pression financière liée à l'accumulation de crédits"
+                  title="Le regroupement de crédits pour retrouver de l'air dans son budget"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 16 }}
@@ -487,7 +487,7 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                         borderRadius: 8,
                         lineHeight: 1.4,
                       }}>
-                        ğŸ¯ {p.resultat}
+                        ?? {p.resultat}
                       </div>
                     </div>
                   ))}
@@ -495,14 +495,14 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
 
                 <div className="crowd-cta-band" style={{ margin: 0 }}>
                   <div>
-                    <strong>Vous ne savez pas si votre profil est Ã©ligible ?</strong>
+                    <strong>Vous ne savez pas si votre profil est éligible ?</strong>
                     <p>
-                      Le formulaire ci-dessous analyse votre situation en dÃ©tail et
-                      vous donne une rÃ©ponse de principe sous 24h â€” sans engagement.
+                      Le formulaire ci-dessous analyse votre situation en détail et
+                      vous donne une réponse de principe sous 24h — sans engagement.
                     </p>
                   </div>
                   <a href="#formulaire" className="fin-btn-on-dark">
-                    ğŸ” DÃ©marrer l'analyse
+                    ?? Démarrer l'analyse
                   </a>
                 </div>
               </div>
@@ -510,14 +510,14 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ AUTO-Ã‰VALUATION â”€â”€ */}
+        {/* -- AUTO-ÉVALUATION -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <RegroupementChecklist />
           </div>
         </section>
 
-        {/* â”€â”€ FORMULAIRE â”€â”€ */}
+        {/* -- FORMULAIRE -- */}
         <section
           id="formulaire"
           className="crowd-section crowd-section--light"
@@ -525,12 +525,12 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
         >
           <div className="fin-section-inner" style={{ maxWidth: 800 }}>
             <div className="fin-section-head">
-              <span className="fin-badge">Ã‰tude personnalisÃ©e</span>
-              <h2>ComplÃ©tez votre dossier en ligne</h2>
+              <span className="fin-badge">Étude personnalisée</span>
+              <h2>Complétez votre dossier en ligne</h2>
               <p>
-                10 questions Â· 5 Ã  8 minutes Â· RÃ©ponse sous 24h<br />
+                10 questions · 5 à 8 minutes · Réponse sous 24h<br />
                 <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>
-                  Aucun document Ã  envoyer Ã  ce stade. Vos donnÃ©es sont sÃ©curisÃ©es.
+                  Aucun document à envoyer à ce stade. Vos données sont sécurisées.
                 </span>
               </p>
             </div>
@@ -540,13 +540,13 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€ */}
+        {/* -- FAQ -- */}
         <section id="section-faq" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur le regroupement<br />de crÃ©dits, mes rÃ©ponses</h2>
-              <p>Des rÃ©ponses claires, sans jargon financier.</p>
+              <h2>Vos questions sur le regroupement<br />de crédits, mes réponses</h2>
+              <p>Des réponses claires, sans jargon financier.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -558,30 +558,30 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="âœ‰ï¸ Poser une autre question" className="fin-btn-secondary" />
+              <ContactPopup label="?? Poser une autre question" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ MAILLAGE INTERNE â”€â”€ */}
+        {/* -- MAILLAGE INTERNE -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Aller plus loin</span>
-              <h2>Optimisez l'ensemble<br />de votre situation financiÃ¨re</h2>
-              <p>Le regroupement de crÃ©dits est souvent le point de dÃ©part d'une remise Ã  plat complÃ¨te.</p>
+              <h2>Optimisez l'ensemble<br />de votre situation financière</h2>
+              <p>Le regroupement de crédits est souvent le point de départ d'une remise à plat complète.</p>
             </div>
             <div className="fin-cards fin-cards--white">
               {[
                 {
                   href: '/financer/credit-immobilier',
-                  icon: 'ğŸ¡',
-                  title: 'CrÃ©dit Immobilier',
+                  icon: '??',
+                  title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
-                  text: 'AprÃ¨s assainissement de votre budget, vous souhaitez acquÃ©rir un bien ? Je nÃ©gocie votre crÃ©dit immobilier aux meilleures conditions.',
-                  badge: 'ğŸ¦ +40 banques comparÃ©es',
+                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
+                  badge: '?? +40 banques comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',
@@ -589,11 +589,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: 'ğŸ“‹',
+                  icon: '??',
                   title: 'Assurance Emprunteur',
-                  sub: 'RÃ©duire le coÃ»t de votre prÃªt',
-                  text: 'Si votre regroupement inclut un prÃªt immobilier, optimiser l\'assurance emprunteur peut gÃ©nÃ©rer des Ã©conomies supplÃ©mentaires.',
-                  badge: 'ï¿½ Ã‰conomisez jusqu\'Ã  15 000â‚¬',
+                  sub: 'Réduire le coût de votre prêt',
+                  text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer des économies supplémentaires.',
+                  badge: '? Économisez jusqu\'à 15 000€',
                   badgeBg: 'rgba(201,169,110,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(201,169,110,0.3)',
@@ -601,11 +601,11 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/investir/assurance-vie',
-                  icon: 'ğŸ›¡ï¸',
+                  icon: '???',
                   title: 'Assurance Vie',
-                  sub: 'Ã‰pargner en parallÃ¨le',
-                  text: 'Une mensualitÃ© allÃ©gÃ©e libÃ¨re de la capacitÃ© d\'Ã©pargne. L\'assurance vie est l\'outil idÃ©al pour faire fructifier ce surplus mensuel.',
-                  badge: 'âœ… FiscalitÃ© optimisÃ©e aprÃ¨s 8 ans',
+                  sub: 'Épargner en parallèle',
+                  text: 'Une mensualité allégée libère de la capacité d\'épargne. L\'assurance vie est l\'outil idéal pour faire fructifier ce surplus mensuel.',
+                  badge: '? Fiscalité optimisée après 8 ans',
                   badgeBg: 'rgba(201,169,110,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(201,169,110,0.3)',
@@ -622,34 +622,34 @@ Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage          
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">DÃ©couvrir â†’</span>
+                  <span className="fin-card-link">Découvrir ?</span>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ CTA FINAL â”€â”€ */}
+        {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
-            <h2>Vos mensualitÃ©s pÃ¨sent trop.<br />Faites-les baisser dÃ¨s maintenant.</h2>
+            <h2>Vos mensualités pèsent trop.<br />Faites-les baisser dès maintenant.</h2>
             <p>
-              5 minutes de formulaire. 24h de dÃ©lai. Une proposition concrÃ¨te.
+              5 minutes de formulaire. 24h de délai. Une proposition concrète.
               J'analyse votre profil, j'identifie la solution optimale
-              et je vous accompagne jusqu'Ã  la mise en place. Sans frais.
+              et je vous accompagne jusqu'à la mise en place. Sans frais.
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                ğŸ” DÃ©marrer mon Ã©tude
+                ?? Démarrer mon étude
               </a>
               <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
-              Un crÃ©dit vous engage et doit Ãªtre remboursÃ©. VÃ©rifiez vos capacitÃ©s de remboursement avant de vous engager.
-              Aucun versement de quelque nature que ce soit ne peut Ãªtre exigÃ© d'un particulier, avant l'obtention d'un ou plusieurs prÃªts d'argent.
-              Le regroupement de crÃ©dits peut allonger la durÃ©e de remboursement et augmenter le coÃ»t total du crÃ©dit.
-              Une simulation complÃ¨te vous sera fournie avant toute dÃ©cision.
-              Je suis immatriculÃ©e Ã  l'ORIAS en tant que Mandataire Non Exclusif en OpÃ©rations de Banque et Services de Paiement (MOBSP).
+              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
+              Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
+              Une simulation complète vous sera fournie avant toute décision.
+              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>
         </section>
