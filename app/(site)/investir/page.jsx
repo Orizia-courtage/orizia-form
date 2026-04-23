@@ -7,15 +7,15 @@ import ReadingProgressInvestir from '@/components/ReadingProgressInvestir';
 import ContactPopup from '@/components/ContactPopup';
 import ScrollButton from '@/components/ScrollButton';
 
-// -- 1. MÉTADONNÉES SEO --
+// -- 1. MÃ‰TADONNÃ‰ES SEO --
 export const metadata = {
   title: 'Investir en 2026 : Placements & Patrimoine | Orizia Courtage',
   description:
-    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale.',
+    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crÃ©e votre stratÃ©gie patrimoniale.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
-    description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine. Bilan sans frais.',
+    description: 'Ne laissez plus votre argent dormir. Je sÃ©lectionne les meilleures SCPI, Assurances Vie et PER du marchÃ© pour construire votre patrimoine. Bilan sans frais.',
     url: 'https://www.orizia-courtage.fr/investir',
     siteName: 'Orizia Courtage',
     images: [
@@ -31,7 +31,7 @@ export const metadata = {
   },
 };
 
-// -- 2. DONNÉES STRUCTURÉES --
+// -- 2. DONNÃ‰ES STRUCTURÃ‰ES --
 const investirHubSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -44,18 +44,18 @@ const investirHubSchema = {
     },
     {
       '@type': 'Service',
-      name: 'Conseil en Stratégie Patrimoniale & Investissement',
-      serviceType: 'Gestion de Patrimoine Indépendante',
+      name: 'Conseil en StratÃ©gie Patrimoniale & Investissement',
+      serviceType: 'Gestion de Patrimoine IndÃ©pendante',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtier certifié ORIAS.',
+      description: 'Bilan patrimonial, sÃ©lection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indÃ©pendant par Cindy Urbansky, courtier certifiÃ© ORIAS.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
         { '@type': 'Country', name: 'France' },
       ],
       offers: {
@@ -71,75 +71,75 @@ const investirHubSchema = {
 const ETAPES = [
   {
     n: '01',
-    title: 'Je comprends votre situation réelle',
-    text: 'Objectifs, horizon, TMI, patrimoine existant — je ne recommande rien avant de comprendre où vous en êtes. Pas de formulaire générique : une vraie conversation.',
+    title: 'Je comprends votre situation rÃ©elle',
+    text: 'Objectifs, horizon, TMI, patrimoine existant â€” je ne recommande rien avant de comprendre oÃ¹ vous en Ãªtes. Pas de formulaire gÃ©nÃ©rique : une vraie conversation.',
   },
   {
     n: '02',
-    title: 'Je construis votre stratégie',
-    text: 'SCPI, assurance vie, PER, crowdfunding — je sélectionne les produits adaptés à votre profil et je vous explique clairement pourquoi, sans jargon.',
+    title: 'Je construis votre stratÃ©gie',
+    text: 'SCPI, assurance vie, PER, crowdfunding â€” je sÃ©lectionne les produits adaptÃ©s Ã  votre profil et je vous explique clairement pourquoi, sans jargon.',
   },
   {
     n: '03',
-    title: 'Je gère la souscription',
-    text: 'Dossiers, contrats, clauses bénéficiaires — je m\'occupe de toute la partie administrative pour que vous n\'ayez qu\'à valider.',
+    title: 'Je gÃ¨re la souscription',
+    text: 'Dossiers, contrats, clauses bÃ©nÃ©ficiaires â€” je m\'occupe de toute la partie administrative pour que vous n\'ayez qu\'Ã  valider.',
   },
   {
     n: '04',
-    title: 'Je suis votre patrimoine dans la durée',
-    text: 'Bilan annuel inclus, alertes en cas de changement, arbitrages si votre situation évolue. Je reste votre courtier sur le long terme.',
+    title: 'Je suis votre patrimoine dans la durÃ©e',
+    text: 'Bilan annuel inclus, alertes en cas de changement, arbitrages si votre situation Ã©volue. Je reste votre courtier sur le long terme.',
   },
 ];
 
 const FAQ_INVESTIR = [
   {
-    q: 'Pourquoi passer par un courtier indépendant pour investir ?',
-    r: 'Un conseiller bancaire ne peut vous proposer que les produits de son établissement. En tant que courtier indépendant, je n\'appartiens à aucun groupe bancaire et j\'accède à l\'ensemble du marché : SCPI, assurances vie haut de gamme, PER compétitifs, plateformes de crowdfunding agréées. Mon seul objectif est de trouver ce qui correspond à votre situation réelle.',
+    q: 'Pourquoi passer par un courtier indÃ©pendant pour investir ?',
+    r: 'Un conseiller bancaire ne peut vous proposer que les produits de son Ã©tablissement. En tant que courtier indÃ©pendant, je n\'appartiens Ã  aucun groupe bancaire et j\'accÃ¨de Ã  l\'ensemble du marchÃ© : SCPI, assurances vie haut de gamme, PER compÃ©titifs, plateformes de crowdfunding agrÃ©Ã©es. Mon seul objectif est de trouver ce qui correspond Ã  votre situation rÃ©elle.',
   },
   {
-    q: 'Combien coûte un bilan patrimonial avec Orizia Courtage ?',
-    r: 'Le bilan patrimonial et l\'accompagnement sont sans frais de dossier pour vous. Je suis rémunérée par les sociétés de gestion ou assureurs partenaires sous forme de commission, encadrée par la réglementation DDA et communiquée de manière transparente dès notre premier échange.',
+    q: 'Combien coÃ»te un bilan patrimonial avec Orizia Courtage ?',
+    r: 'Le bilan patrimonial et l\'accompagnement sont sans frais de dossier pour vous. Je suis rÃ©munÃ©rÃ©e par les sociÃ©tÃ©s de gestion ou assureurs partenaires sous forme de commission, encadrÃ©e par la rÃ©glementation DDA et communiquÃ©e de maniÃ¨re transparente dÃ¨s notre premier Ã©change.',
   },
   {
-    q: 'Par quel placement commencer quand on débute ?',
-    r: 'Cela dépend entièrement de votre situation : horizon, TMI, objectifs et patrimoine existant. En général, l\'assurance vie est un excellent point de départ pour sa flexibilité et sa fiscalité. Le PER est prioritaire si vous êtes fortement imposé. Les SCPI et le crowdfunding viennent en complément. C\'est précisément ce que nous définissons ensemble lors du premier rendez-vous.',
+    q: 'Par quel placement commencer quand on dÃ©bute ?',
+    r: 'Cela dÃ©pend entiÃ¨rement de votre situation : horizon, TMI, objectifs et patrimoine existant. En gÃ©nÃ©ral, l\'assurance vie est un excellent point de dÃ©part pour sa flexibilitÃ© et sa fiscalitÃ©. Le PER est prioritaire si vous Ãªtes fortement imposÃ©. Les SCPI et le crowdfunding viennent en complÃ©ment. C\'est prÃ©cisÃ©ment ce que nous dÃ©finissons ensemble lors du premier rendez-vous.',
   },
   {
-    q: 'Puis-je investir dans plusieurs produits en même temps ?',
-    r: 'Absolument, et c\'est même recommandé. Une stratégie patrimoniale solide combine plusieurs placements complémentaires : assurance vie pour la liquidité et la transmission, PER pour l\'avantage fiscal immédiat, SCPI pour les revenus réguliers, crowdfunding pour dynamiser le rendement global. Je construis cette vision globale avec vous.',
+    q: 'Puis-je investir dans plusieurs produits en mÃªme temps ?',
+    r: 'Absolument, et c\'est mÃªme recommandÃ©. Une stratÃ©gie patrimoniale solide combine plusieurs placements complÃ©mentaires : assurance vie pour la liquiditÃ© et la transmission, PER pour l\'avantage fiscal immÃ©diat, SCPI pour les revenus rÃ©guliers, crowdfunding pour dynamiser le rendement global. Je construis cette vision globale avec vous.',
   },
   {
-    q: 'Mon argent est-il en sécurité ?',
-    r: 'Je ne travaille qu\'avec des assureurs et sociétés de gestion agréés par l\'ACPR et l\'AMF. Les fonds en euros des assurances vie sont à capital garanti. Les SCPI sont agréées AMF. Le crowdfunding passe uniquement par des plateformes agréées PSFP. Chaque placement comporte ses propres risques que j\'explique clairement avant toute souscription.',
+    q: 'Mon argent est-il en sÃ©curitÃ© ?',
+    r: 'Je ne travaille qu\'avec des assureurs et sociÃ©tÃ©s de gestion agrÃ©Ã©s par l\'ACPR et l\'AMF. Les fonds en euros des assurances vie sont Ã  capital garanti. Les SCPI sont agrÃ©Ã©es AMF. Le crowdfunding passe uniquement par des plateformes agrÃ©Ã©es PSFP. Chaque placement comporte ses propres risques que j\'explique clairement avant toute souscription.',
   },
 ];
 
 const DIFFERENCIANTS = [
   {
-    icon: '??',
-    title: 'Indépendance totale',
-    desc: 'Je n\'appartiens à aucun groupe bancaire. Mon seul intérêt, c\'est de trouver le produit qui sert VOS objectifs — pas ceux de mon employeur.',
+    icon: 'ğŸ›¡ï¸',
+    title: 'IndÃ©pendance totale',
+    desc: 'Je n\'appartiens Ã  aucun groupe bancaire. Mon seul intÃ©rÃªt, c\'est de trouver le produit qui sert VOS objectifs â€” pas ceux de mon employeur.',
     color: 'var(--orizia-primary)',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
-    icon: '??',
-    title: 'Certifiée & réglementée',
-    desc: 'Immatriculée ORIAS, contrôlée par l\'ACPR. Mon métier est strictement encadré pour protéger votre capital et vos intérêts.',
+    icon: 'ğŸ“œ',
+    title: 'CertifiÃ©e & rÃ©glementÃ©e',
+    desc: 'ImmatriculÃ©e ORIAS, contrÃ´lÃ©e par l\'ACPR. Mon mÃ©tier est strictement encadrÃ© pour protÃ©ger votre capital et vos intÃ©rÃªts.',
     color: '#7c3aed',
     bg: 'rgba(124,58,237,0.06)',
   },
   {
-    icon: '??',
+    icon: 'ğŸ‘¤',
     title: 'Interlocutrice unique',
-    desc: 'Pas de plateforme, pas de turnover. Je gère votre dossier de la première stratégie jusqu\'aux bilans annuels. Vous parlez toujours à Cindy.',
+    desc: 'Pas de plateforme, pas de turnover. Je gÃ¨re votre dossier de la premiÃ¨re stratÃ©gie jusqu\'aux bilans annuels. Vous parlez toujours Ã  Cindy.',
     color: '#d97706',
     bg: 'rgba(217,119,6,0.06)',
   },
   {
-    icon: '??',
+    icon: 'ğŸ¯',
     title: 'Sans frais de dossier',
-    desc: 'Mon accompagnement est sans frais de dossier. Je suis rémunérée par les sociétés de gestion partenaires — sans surcoût pour vous, jamais.',
+    desc: 'Mon accompagnement est sans frais de dossier. Je suis rÃ©munÃ©rÃ©e par les sociÃ©tÃ©s de gestion partenaires â€” sans surcoÃ»t pour vous, jamais.',
     color: '#16a34a',
     bg: 'rgba(22,163,74,0.06)',
   },
@@ -164,48 +164,48 @@ export default function InvestirPage() {
             {/* Breadcrumb */}
             <nav aria-label="breadcrumb" className="inv-hero-breadcrumb">
               <Link href="/">Accueil</Link>
-              <span className="inv-hero-breadcrumb-sep">›</span>
+              <span className="inv-hero-breadcrumb-sep">â€º</span>
               <span>Investir</span>
             </nav>
 
-            {/* Contenu principal — 2 colonnes */}
+            {/* Contenu principal â€” 2 colonnes */}
             <div className="inv-hero-layout">
-              {/* Gauche — texte */}
+              {/* Gauche â€” texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge">?? Stratégie patrimoniale indépendante</span>
+                <span className="inv-hero-badge">ğŸ’¼ StratÃ©gie patrimoniale indÃ©pendante</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
-                  Votre argent mérite<br />
+                  Votre argent mÃ©rite<br />
                   <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>mieux qu'une banque</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
-                  SCPI, Assurance Vie, PER, Crowdfunding — j'accède aux meilleurs
-                  placements du marché, inaccessibles en banque classique.
-                  Je construis votre stratégie patrimoniale sur-mesure.{' '}
+                  SCPI, Assurance Vie, PER, Crowdfunding â€” j'accÃ¨de aux meilleurs
+                  placements du marchÃ©, inaccessibles en banque classique.
+                  Je construis votre stratÃ©gie patrimoniale sur-mesure.{' '}
                   <strong style={{ color: 'var(--orizia-accent)' }}>Sans frais de dossier.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="?? Bilan patrimonial sans frais" className="fin-btn-primary inv-hero-cta-main"/>
+                  <ContactPopup label="ğŸ“… Bilan patrimonial sans frais" className="fin-btn-primary inv-hero-cta-main"/>
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Découvrir les placements ?
+                    DÃ©couvrir les placements ?
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    Conseil 100% indépendant
+                    Conseil 100% indÃ©pendant
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    Accès à tout le marché
+                    AccÃ¨s Ã  tout le marchÃ©
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    Réponse sous 24h
+                    RÃ©ponse sous 24h
                   </div>
                 </div>
               </div>
 
-              {/* Droite — quiz */}
+              {/* Droite â€” quiz */}
               <div className="inv-hero-quiz-wrap">
                 <div className="inv-hero-quiz-eyebrow">
                   <span className="inv-hero-quiz-dot" />
@@ -217,7 +217,7 @@ export default function InvestirPage() {
           </div>
         </section>
 
-        {/* -- STATS ANIMÉES -- */}
+        {/* -- STATS ANIMÃ‰ES -- */}
         <AnimatedStats />
 
         {/* -- CITATION CINDY -- */}
@@ -227,7 +227,7 @@ export default function InvestirPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtier indépendant en gestion de patrimoine"
+                  alt="Cindy Urbansky, courtier indÃ©pendant en gestion de patrimoine"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -237,16 +237,16 @@ export default function InvestirPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « L'erreur la plus courante n'est pas de faire de mauvais placements —
-                  c'est de laisser son argent se faire grignoter par l'inflation par peur de mal faire. »
+                  Â« L'erreur la plus courante n'est pas de faire de mauvais placements â€”
+                  c'est de laisser son argent se faire grignoter par l'inflation par peur de mal faire. Â»
                 </p>
                 <p className="ae-citation-text">
-                  Mon rôle est de démystifier l'investissement. Je filtre les produits toxiques
-                  ou trop chargés en frais, et je construis une stratégie qui vous ressemble.
-                  En toute indépendance, sans jargon financier.
+                  Mon rÃ´le est de dÃ©mystifier l'investissement. Je filtre les produits toxiques
+                  ou trop chargÃ©s en frais, et je construis une stratÃ©gie qui vous ressemble.
+                  En toute indÃ©pendance, sans jargon financier.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -257,20 +257,20 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mes solutions</span>
-              <h2>4 placements, une stratégie<br />construite pour vous</h2>
+              <h2>4 placements, une stratÃ©gie<br />construite pour vous</h2>
               <p>
-                Chaque placement a sa place dans un patrimoine bien structuré.
-                Je sélectionne les meilleurs contrats du marché et construis
-                l'allocation adaptée à votre profil.
+                Chaque placement a sa place dans un patrimoine bien structurÃ©.
+                Je sÃ©lectionne les meilleurs contrats du marchÃ© et construis
+                l'allocation adaptÃ©e Ã  votre profil.
               </p>
             </div>
             <InvestirProduitsGrid />
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous ne savez pas par quoi commencer ? C'est normal — c'est précisément
-                pour ça que le premier rendez-vous existe.
+                Vous ne savez pas par quoi commencer ? C'est normal â€” c'est prÃ©cisÃ©ment
+                pour Ã§a que le premier rendez-vous existe.
               </p>
-              <ContactPopup label="?? Définir ma stratégie avec Cindy" className="fin-btn-primary"/>
+              <ContactPopup label="ğŸ“… DÃ©finir ma stratÃ©gie avec Cindy" className="fin-btn-primary"/>
             </div>
           </div>
         </section>
@@ -282,7 +282,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
               <div className="inv-why-image">
                 <Image
                   src="/images/investir.jpg"
-                  alt="Cindy Urbansky, courtier en gestion de patrimoine – Orizia Courtage"
+                  alt="Cindy Urbansky, courtier en gestion de patrimoine â€“ Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}
@@ -290,19 +290,19 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
                   loading="lazy"
                 />
                 <div className="inv-why-image-badge">
-                  <span className="inv-why-image-badge-icon">??</span>
+                  <span className="inv-why-image-badge-icon">ğŸ†</span>
                   <div>
                     <div className="inv-why-image-badge-val">15 ans</div>
-                    <div className="inv-why-image-badge-label">d'expérience</div>
+                    <div className="inv-why-image-badge-label">d'expÃ©rience</div>
                   </div>
                 </div>
               </div>
               <div className="inv-why-content">
                 <span className="fin-badge">Pourquoi Orizia ?</span>
-                <h2>Ce qui me différencie<br />d'un conseiller bancaire</h2>
+                <h2>Ce qui me diffÃ©rencie<br />d'un conseiller bancaire</h2>
                 <p>
                   Votre banquier vous vend les produits de son employeur.
-                  Moi, je travaille pour vous — et uniquement pour vous.
+                  Moi, je travaille pour vous â€” et uniquement pour vous.
                 </p>
                 <div className="inv-why-grid">
                   {DIFFERENCIANTS.map(d => (
@@ -315,19 +315,19 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
                     </div>
                   ))}
                 </div>
-                <ContactPopup label="?? Planifier mon bilan" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
+                <ContactPopup label="ğŸ“… Planifier mon bilan" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
               </div>
             </div>
           </div>
         </section>
 
-        {/* -- ÉTAPES -- */}
+        {/* -- Ã‰TAPES -- */}
         <section id="section-etapes" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mon accompagnement</span>
-              <h2>Ce que je fais concrètement<br />pour vous, de A à Z</h2>
-              <p>Du premier échange au bilan annuel — sans délégation, sans intermédiaire.</p>
+              <h2>Ce que je fais concrÃ¨tement<br />pour vous, de A Ã  Z</h2>
+              <p>Du premier Ã©change au bilan annuel â€” sans dÃ©lÃ©gation, sans intermÃ©diaire.</p>
             </div>
             <div className="ae-accompagnement-layout">
               <div className="ae-accompagnement-etapes">
@@ -344,8 +344,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier-courtage.webp"
-                  alt="Cindy Urbansky préparant une stratégie patrimoniale pour ses clients"
-                  title="Accompagnement patrimonial de A à Z – Orizia Courtage"
+                  alt="Cindy Urbansky prÃ©parant une stratÃ©gie patrimoniale pour ses clients"
+                  title="Accompagnement patrimonial de A Ã  Z â€“ Orizia Courtage"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -362,8 +362,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur l'investissement,<br />mes réponses directes</h2>
-              <p>Sans jargon. Sans langue de bois. Les vraies réponses.</p>
+              <h2>Vos questions sur l'investissement,<br />mes rÃ©ponses directes</h2>
+              <p>Sans jargon. Sans langue de bois. Les vraies rÃ©ponses.</p>
             </div>
             <div className="crowd-faq-list">
               {FAQ_INVESTIR.map((f, i) => (
@@ -375,9 +375,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
               </p>
-              <ContactPopup label="?? Poser une question à Cindy" className="fin-btn-secondary"/>
+              <ContactPopup label="ğŸ“ Poser une question Ã  Cindy" className="fin-btn-secondary"/>
             </div>
           </div>
         </section>
@@ -386,20 +386,20 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <h2>
-              Prêt à réveiller votre épargne ?
+              PrÃªt Ã  rÃ©veiller votre Ã©pargne ?
             </h2>
             <p>
-              Faisons connaissance. Nous analyserons votre patrimoine actuel et définirons
-              ensemble une stratégie pour atteindre vos objectifs financiers.
+              Faisons connaissance. Nous analyserons votre patrimoine actuel et dÃ©finirons
+              ensemble une stratÃ©gie pour atteindre vos objectifs financiers.
               <strong> Sans frais de courtage pour vous.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="?? Planifier mon bilan" className="fin-btn-primary"/>
+              <ContactPopup label="ğŸ“… Planifier mon bilan" className="fin-btn-primary"/>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               L'investissement comporte des risques de perte en capital. Je suis
-              immatriculée à l'ORIAS, indépendante.
-              * Je suis rémunérée par les sociétés de gestion ou assureurs partenaires — sans frais supplémentaires pour vous.
+              immatriculÃ©e Ã  l'ORIAS, indÃ©pendante.
+              * Je suis rÃ©munÃ©rÃ©e par les sociÃ©tÃ©s de gestion ou assureurs partenaires â€” sans frais supplÃ©mentaires pour vous.
             </p>
           </div>
         </section>

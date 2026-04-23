@@ -8,15 +8,15 @@ import AutoChecklist from '@/components/AutoChecklist';
 import ReadingProgressAutoMoto from '@/components/ReadingProgressAutoMoto';
 import ScrollButton from '@/components/ScrollButton';
 
-// -- 1. MÉTADONNÉES SEO --
+// -- 1. MÃ‰TADONNÃ‰ES SEO --
 export const metadata = {
-  title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
+  title: 'Assurance Auto & Moto 2026 : Ã‰conomisez | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky compare les offres, trouve le meilleur tarif et gÃ¨re la rÃ©siliation via la loi Hamon.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
-    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon. Indépendant, sans frais de dossier.',
+    description: 'Ne subissez plus les hausses de tarifs. Je compare le marchÃ©, optimise vos garanties et rÃ©silie votre ancien contrat via la loi Hamon. IndÃ©pendant, sans frais de dossier.',
     url: 'https://www.orizia-courtage.fr/assurer/auto-moto',
     siteName: 'Orizia Courtage',
     images: [
@@ -32,7 +32,7 @@ export const metadata = {
   },
 };
 
-// -- 2. DONNÉES STRUCTURÉES --
+// -- 2. DONNÃ‰ES STRUCTURÃ‰ES --
 const assuranceAutoMotoSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -47,9 +47,9 @@ const assuranceAutoMotoSchema = {
     {
       '@type': 'Service',
       name: "Courtage et Comparaison d'Assurance Auto et Moto",
-      serviceType: 'Assurance Véhicule (Auto, Moto, Scooter)',
+      serviceType: 'Assurance VÃ©hicule (Auto, Moto, Scooter)',
       description:
-        "Service d'optimisation, de comparaison et de souscription d'assurance auto et moto. Prise en charge de la résiliation via la loi Hamon.",
+        "Service d'optimisation, de comparaison et de souscription d'assurance auto et moto. Prise en charge de la rÃ©siliation via la loi Hamon.",
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -58,7 +58,7 @@ const assuranceAutoMotoSchema = {
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
         { '@type': 'Country', name: 'France' }
       ],
       offers: {
@@ -66,7 +66,7 @@ const assuranceAutoMotoSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation sans frais de dossieres pour l'assuré.",
+          "Analyse des besoins, comparaison des devis et gestion administrative de la rÃ©siliation sans frais de dossieres pour l'assurÃ©.",
       },
     },
   ]
@@ -81,15 +81,15 @@ const faqSchema = {
       name: 'Quelle assurance auto est obligatoire en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La garantie responsabilité civile (le "tiers") est la seule assurance légalement obligatoire pour tout véhicule terrestre à moteur. Elle indemnise les victimes en cas d\'accident causé par votre véhicule. Rouler sans assurance est un délit lourdement sanctionné.',
+        text: 'La garantie responsabilitÃ© civile (le "tiers") est la seule assurance lÃ©galement obligatoire pour tout vÃ©hicule terrestre Ã  moteur. Elle indemnise les victimes en cas d\'accident causÃ© par votre vÃ©hicule. Rouler sans assurance est un dÃ©lit lourdement sanctionnÃ©.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Tiers, intermédiaire ou tous risques : comment choisir ?',
+      name: 'Tiers, intermÃ©diaire ou tous risques : comment choisir ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le Tiers couvre les dégâts causés aux autres. L\'Intermédiaire vous protège contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dégâts sur votre propre véhicule même si vous êtes responsable. En tant que courtier, je vous oriente vers la formule la plus logique selon la cote Argus de votre véhicule.',
+        text: 'Le Tiers couvre les dÃ©gÃ¢ts causÃ©s aux autres. L\'IntermÃ©diaire vous protÃ¨ge contre le vol, l\'incendie et le bris de glace. Le Tous Risques couvre tout, y compris les dÃ©gÃ¢ts sur votre propre vÃ©hicule mÃªme si vous Ãªtes responsable. En tant que courtier, je vous oriente vers la formule la plus logique selon la cote Argus de votre vÃ©hicule.',
       },
     },
     {
@@ -97,7 +97,7 @@ const faqSchema = {
       name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
+        text: 'Absolument pas ! DÃ¨s que votre contrat a plus d\'un an, la loi Hamon vous autorise Ã  rÃ©silier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-mÃªme des dÃ©marches de rÃ©siliation pour qu\'il n\'y ait aucune coupure de garantie.',
       },
     },
     {
@@ -105,92 +105,92 @@ const faqSchema = {
       name: 'Pourquoi les tarifs des assurances augmentent-ils encore ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'L\'inflation des pièces détachées, la technologie embarquée de plus en plus coûteuse à réparer, et la hausse des événements climatiques (grêle, tempêtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque année.',
+        text: 'L\'inflation des piÃ¨ces dÃ©tachÃ©es, la technologie embarquÃ©e de plus en plus coÃ»teuse Ã  rÃ©parer, et la hausse des Ã©vÃ©nements climatiques (grÃªle, tempÃªtes) font flamber la facture. C\'est pourquoi il est vital de comparer chaque annÃ©e.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Pourquoi confier mon assurance à un courtier indépendant comme Orizia ?',
+      name: 'Pourquoi confier mon assurance Ã  un courtier indÃ©pendant comme Orizia ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
+        text: 'Contrairement Ã  un agent gÃ©nÃ©ral qui ne vend que sa marque, je travaille pour vous. Je scanne le marchÃ©, je nÃ©gocie les prix, je vous explique les lignes en petits caractÃ¨res et je gÃ¨re la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: '??' },
-  { value: '1 an', label: 'Délai avant résiliation libre (Hamon)', icon: '??' },
-  { value: '0€', label: 'Frais de gestion Orizia', icon: '??' },
-  { value: '400€', label: 'Économies moyennes constatées/an', icon: '??' },
+  { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: 'ğŸ“ˆ' },
+  { value: '1 an', label: 'DÃ©lai avant rÃ©siliation libre (Hamon)', icon: 'ğŸ“…' },
+  { value: '0â‚¬', label: 'Frais de gestion Orizia', icon: 'ğŸ¯' },
+  { value: '400â‚¬', label: 'Ã‰conomies moyennes constatÃ©es/an', icon: 'ğŸ’°' },
 ];
 
 const DANGERS = [
   {
-    icon: '??',
-    title: 'La taxe invisible de la fidélité',
-    text: 'En assurance, être fidèle coûte cher. Votre assureur augmente discrètement votre tarif de 4 à 6% chaque année au moment du renouvellement automatique.',
+    icon: 'ğŸ”’',
+    title: 'La taxe invisible de la fidÃ©litÃ©',
+    text: 'En assurance, Ãªtre fidÃ¨le coÃ»te cher. Votre assureur augmente discrÃ¨tement votre tarif de 4 Ã  6% chaque annÃ©e au moment du renouvellement automatique.',
   },
   {
-    icon: '??',
-    title: 'Le piège des garanties inutiles',
-    text: 'Payer un "Tous risques" sur une Clio de 2010 qui ne cote plus grand-chose ? C\'est de l\'argent jeté par les fenêtres. Les formules doivent évoluer avec votre voiture.',
+    icon: 'âš ï¸',
+    title: 'Le piÃ¨ge des garanties inutiles',
+    text: 'Payer un "Tous risques" sur une Clio de 2010 qui ne cote plus grand-chose ? C\'est de l\'argent jetÃ© par les fenÃªtres. Les formules doivent Ã©voluer avec votre voiture.',
   },
   {
-    icon: '??',
+    icon: 'â±ï¸',
     title: 'Le parcours du combattant',
-    text: 'Chercher, comparer 15 devis, lire les petites lignes des franchises, faire la lettre recommandée de résiliation... C\'est long. C\'est pour ça que je le fais pour vous.',
+    text: 'Chercher, comparer 15 devis, lire les petites lignes des franchises, faire la lettre recommandÃ©e de rÃ©siliation... C\'est long. C\'est pour Ã§a que je le fais pour vous.',
   },
 ];
 
 const ETAPES = [
   {
     n: '01',
-    title: 'J\'écoute vos besoins',
-    text: 'Pas de questionnaire robotique. On fait le point ensemble sur votre véhicule, votre usage (pro/perso) et votre historique (bonus/malus).',
+    title: 'J\'Ã©coute vos besoins',
+    text: 'Pas de questionnaire robotique. On fait le point ensemble sur votre vÃ©hicule, votre usage (pro/perso) et votre historique (bonus/malus).',
   },
   {
     n: '02',
     title: 'Je chasse le meilleur contrat',
-    text: 'Je compare les offres de mes partenaires assureurs en épluchant ce qui compte vraiment : le tarif, mais surtout les franchises et les exclusions.',
+    text: 'Je compare les offres de mes partenaires assureurs en Ã©pluchant ce qui compte vraiment : le tarif, mais surtout les franchises et les exclusions.',
   },
   {
     n: '03',
     title: 'Je m\'occupe de la paperasse',
-    text: 'Votre contrat a plus d\'un an ? Parfait. Grâce à la loi Hamon, je résilie votre ancienne assurance en votre nom. Zéro coupure, zéro stress.',
+    text: 'Votre contrat a plus d\'un an ? Parfait. GrÃ¢ce Ã  la loi Hamon, je rÃ©silie votre ancienne assurance en votre nom. ZÃ©ro coupure, zÃ©ro stress.',
   },
   {
     n: '04',
-    title: 'Je veille sur vous chaque année',
-    text: 'Je ne disparais pas après la signature. À chaque date anniversaire, on vérifie si votre contrat est toujours le plus compétitif du marché.',
+    title: 'Je veille sur vous chaque annÃ©e',
+    text: 'Je ne disparais pas aprÃ¨s la signature. Ã€ chaque date anniversaire, on vÃ©rifie si votre contrat est toujours le plus compÃ©titif du marchÃ©.',
   },
 ];
 
 const OBJECTIONS = [
   {
-    q: '« Je suis dans la même agence depuis 10 ans, ils me connaissent. »',
-    r: 'Humainement, c\'est agréable. Financièrement, c\'est souvent une erreur. Les algorithmes des assureurs ne récompensent plus la fidélité. Laissez-moi comparer, juste pour voir.',
+    q: 'Â« Je suis dans la mÃªme agence depuis 10 ans, ils me connaissent. Â»',
+    r: 'Humainement, c\'est agrÃ©able. FinanciÃ¨rement, c\'est souvent une erreur. Les algorithmes des assureurs ne rÃ©compensent plus la fidÃ©litÃ©. Laissez-moi comparer, juste pour voir.',
   },
   {
-    q: '« J\'ai eu un accrochage récent, personne ne voudra de moi. »',
-    r: 'Faux. Même avec un petit malus, certaines compagnies spécialisées proposent des tarifs agressifs. C\'est mon métier de savoir à quelle porte frapper.',
+    q: 'Â« J\'ai eu un accrochage rÃ©cent, personne ne voudra de moi. Â»',
+    r: 'Faux. MÃªme avec un petit malus, certaines compagnies spÃ©cialisÃ©es proposent des tarifs agressifs. C\'est mon mÃ©tier de savoir Ã  quelle porte frapper.',
   },
   {
-    q: '« Je roule très peu, je télétravaille. »',
-    r: 'Excellente nouvelle pour votre portefeuille ! Les formules "Pay as you drive" ou forfait kilométrique peuvent réduire votre facture de 30%.',
+    q: 'Â« Je roule trÃ¨s peu, je tÃ©lÃ©travaille. Â»',
+    r: 'Excellente nouvelle pour votre portefeuille ! Les formules "Pay as you drive" ou forfait kilomÃ©trique peuvent rÃ©duire votre facture de 30%.',
   },
   {
-    q: '« Les démarches de changement m\'épuisent d\'avance. »',
-    r: 'C\'est la raison d\'être de mon accompagnement : je rédige et j\'envoie la résiliation (Loi Hamon). Vous n\'avez strictement rien à faire.',
+    q: 'Â« Les dÃ©marches de changement m\'Ã©puisent d\'avance. Â»',
+    r: 'C\'est la raison d\'Ãªtre de mon accompagnement : je rÃ©dige et j\'envoie la rÃ©siliation (Loi Hamon). Vous n\'avez strictement rien Ã  faire.',
   },
 ];
 
 const LOI_HAMON_POINTS = [
-  { icon: '??', title: 'Liberté totale', desc: 'Après 1 an, vous êtes libre de partir quand vous voulez.' },
-  { icon: '??', title: 'Préavis express', desc: '1 mois seulement pour basculer sur le nouveau contrat.' },
-  { icon: '??', title: 'Je gère la transition', desc: 'Je m\'occupe de toute la liaison avec votre ancien assureur.' },
-  { icon: '???', title: 'Zéro interruption', desc: 'La nouvelle assurance prend le relais à la minute près.' },
+  { icon: 'âœ…', title: 'LibertÃ© totale', desc: 'AprÃ¨s 1 an, vous Ãªtes libre de partir quand vous voulez.' },
+  { icon: 'ğŸ“…', title: 'PrÃ©avis express', desc: '1 mois seulement pour basculer sur le nouveau contrat.' },
+  { icon: 'ğŸ¤', title: 'Je gÃ¨re la transition', desc: 'Je m\'occupe de toute la liaison avec votre ancien assureur.' },
+  { icon: 'ğŸ›¡ï¸', title: 'ZÃ©ro interruption', desc: 'La nouvelle assurance prend le relais Ã  la minute prÃ¨s.' },
 ];
 
 export default function AssuranceAutoMotoPage() {
@@ -225,28 +225,28 @@ export default function AssuranceAutoMotoPage() {
           <div className="ae-hero-inner">
             <nav aria-label="breadcrumb" className="ae-breadcrumb">
               <Link href="/">Accueil</Link>
-              {' › '}
+              {' â€º '}
               <Link href="/assurer">Assurer</Link>
-              {' › '}
+              {' â€º '}
               <span>Assurance Auto & Moto</span>
             </nav>
-            <span className="fin-badge ae-hero-badge">?? +5% d'augmentation en 2026</span>
-            <h1 className="ae-hero-title">Votre assurance auto flambe ?<br />Je remets les compteurs à zéro.</h1>
+            <span className="fin-badge ae-hero-badge">ğŸ”¥ +5% d'augmentation en 2026</span>
+            <h1 className="ae-hero-title">Votre assurance auto flambe ?<br />Je remets les compteurs Ã  zÃ©ro.</h1>
             <p className="ae-hero-intro">
-              Arrêtez de payer la taxe de la fidélité. Je compare les offres du marché, 
-              <strong> je déniche le tarif le plus juste </strong> et je gère toute la résiliation 
-              à votre place. Un accompagnement <strong>100% dédié à vos intérêts</strong>.
+              ArrÃªtez de payer la taxe de la fidÃ©litÃ©. Je compare les offres du marchÃ©, 
+              <strong> je dÃ©niche le tarif le plus juste </strong> et je gÃ¨re toute la rÃ©siliation 
+              Ã  votre place. Un accompagnement <strong>100% dÃ©diÃ© Ã  vos intÃ©rÃªts</strong>.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="?? Faire un bilan avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="ğŸ“… Faire un bilan avec Cindy" className="fin-btn-primary" />
               <ScrollButton targetId="section-formules" className="fin-btn-secondary">
-                ?? Voir les formules
+                ğŸ” Voir les formules
               </ScrollButton>
             </div>
             <div className="ae-hero-trust">
-              <span>? Loi Hamon : je m'occupe de résilier</span>
-              <span>?? Courtage 100% indépendant</span>
-              <span>? Étude personnalisée sous 24h</span>
+              <span>âœ… Loi Hamon : je m'occupe de rÃ©silier</span>
+              <span>ğŸ›¡ï¸ Courtage 100% indÃ©pendant</span>
+              <span>âš¡ Ã‰tude personnalisÃ©e sous 24h</span>
             </div>
           </div>
         </section>
@@ -263,14 +263,14 @@ export default function AssuranceAutoMotoPage() {
           </div>
         </section>
 
-        {/* -- CITATION CINDY (Avec photo intégrée) -- */}
+        {/* -- CITATION CINDY (Avec photo intÃ©grÃ©e) -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtier indépendant"
+                  alt="Cindy Urbansky, courtier indÃ©pendant"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -280,13 +280,13 @@ export default function AssuranceAutoMotoPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Chaque année, votre fidélité est paradoxalement sanctionnée par une hausse de vos cotisations. »
+                  Â« Chaque annÃ©e, votre fidÃ©litÃ© est paradoxalement sanctionnÃ©e par une hausse de vos cotisations. Â»
                 </p>
                 <p className="ae-citation-text">
-                  Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
+                  Mon rÃ´le est de dire stop Ã  ces augmentations silencieuses. Je mets les assureurs en concurrence, je dÃ©niche les garanties qui vous protÃ¨gent vraiment, et surtout : je m'occupe de toute la paperasse pour rÃ©silier votre ancien contrat. Vous roulez l'esprit lÃ©ger, je gÃ¨re le reste.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -297,7 +297,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ?? Ce qui grignote votre budget
+                âš ï¸ Ce qui grignote votre budget
               </span>
               <h2>Pourquoi vous payez certainement<br />votre assurance trop cher</h2>
               <p>
@@ -316,12 +316,12 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
                 ))}
               </div>
 
-              {/* IMAGE 1 AJOUTÉE ICI */}
+              {/* IMAGE 1 AJOUTÃ‰E ICI */}
               <div className="ae-probleme-image">
                 <Image
-                  src="/images/hausse-assurance-auto.webp" // À adapter avec ton nom de fichier réel
+                  src="/images/hausse-assurance-auto.webp" // Ã€ adapter avec ton nom de fichier rÃ©el
                   alt="Hausse des tarifs d'assurance auto et moto"
-                  title="La fidélité coûte cher en assurance"
+                  title="La fidÃ©litÃ© coÃ»te cher en assurance"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -338,9 +338,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Cibler vos besoins</span>
-              <h2>Tiers, intermédiaire ou tous risques :<br />on adapte la formule à votre voiture</h2>
+              <h2>Tiers, intermÃ©diaire ou tous risques :<br />on adapte la formule Ã  votre voiture</h2>
               <p>
-                Ne payez que pour les garanties qui ont un sens par rapport à la valeur actuelle de votre véhicule.
+                Ne payez que pour les garanties qui ont un sens par rapport Ã  la valeur actuelle de votre vÃ©hicule.
               </p>
             </div>
             <AutoFormuleSelector />
@@ -351,10 +351,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
         <section id="section-moto" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Spécial Motards ??</span>
-              <h2>Assurance moto : on ajuste<br />selon la cylindrée et l'usage</h2>
+              <span className="fin-badge">SpÃ©cial Motards ğŸï¸</span>
+              <h2>Assurance moto : on ajuste<br />selon la cylindrÃ©e et l'usage</h2>
               <p>
-                Parce qu'on n'assure pas un scooter 125cc comme une routière de 1000cc.
+                Parce qu'on n'assure pas un scooter 125cc comme une routiÃ¨re de 1000cc.
               </p>
             </div>
             <MotoTarifSelector />
@@ -366,8 +366,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Sur-mesure</span>
-              <h2>À chaque profil,<br />sa stratégie pour faire baisser le prix</h2>
-              <p>Je ne rentre personne dans des cases génériques. On cherche les leviers qui vous correspondent.</p>
+              <h2>Ã€ chaque profil,<br />sa stratÃ©gie pour faire baisser le prix</h2>
+              <p>Je ne rentre personne dans des cases gÃ©nÃ©riques. On cherche les leviers qui vous correspondent.</p>
             </div>
             <AutoProfilSelector />
           </div>
@@ -378,11 +378,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                ? Loi Hamon — Je m'occupe de tout
+                âœ… Loi Hamon â€” Je m'occupe de tout
               </span>
-              <h2>Changer d'assureur<br />n'a jamais été aussi simple</h2>
+              <h2>Changer d'assureur<br />n'a jamais Ã©tÃ© aussi simple</h2>
               <p>
-                Dès que votre contrat actuel a soufflé sa première bougie, vous avez le droit de partir à tout moment. 
+                DÃ¨s que votre contrat actuel a soufflÃ© sa premiÃ¨re bougie, vous avez le droit de partir Ã  tout moment. 
                 Et c'est moi qui m'occupe de la transition !
               </p>
             </div>
@@ -414,8 +414,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier_assurance_auto_moto.webp"
-                  alt="Courtier préparant un dossier d'assurance auto/moto"
-                  title="Un accompagnement de A à Z sans coupure"
+                  alt="Courtier prÃ©parant un dossier d'assurance auto/moto"
+                  title="Un accompagnement de A Ã  Z sans coupure"
                   width={863}
                   height={1080}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -446,7 +446,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           </div>
         </section>
 
-        {/* -- AUTO-ÉVALUATION -- */}
+        {/* -- AUTO-Ã‰VALUATION -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <AutoChecklist />
@@ -458,8 +458,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions, mes réponses d'experte</h2>
-              <p>La transparence avant tout. Si vous avez une question plus spécifique, n'hésitez pas à me contacter.</p>
+              <h2>Vos questions, mes rÃ©ponses d'experte</h2>
+              <p>La transparence avant tout. Si vous avez une question plus spÃ©cifique, n'hÃ©sitez pas Ã  me contacter.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -471,9 +471,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
               </p>
-              <ContactPopup label="?? Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="ğŸ“ Poser une autre question Ã  Cindy" className="fin-btn-secondary" />
             </div>          
           </div>
         </section>
@@ -484,17 +484,17 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
             <div className="fin-section-head">
               <span className="fin-badge">Vision globale</span>
               <h2>Puisqu'on y est, si on optimisait<br />le reste de vos contrats ?</h2>
-              <p>Faire le tri dans l'auto, c'est bien. Regrouper ses assurances pour avoir un conseiller unique et faire des économies d'échelle, c'est mieux.</p>
+              <p>Faire le tri dans l'auto, c'est bien. Regrouper ses assurances pour avoir un conseiller unique et faire des Ã©conomies d'Ã©chelle, c'est mieux.</p>
             </div>
             <div className="fin-cards fin-cards--light">
               {[
                 {
                   href: '/assurer/assurance-habitation',
-                  icon: '??',
+                  icon: 'ğŸ ',
                   title: 'Assurance Habitation',
-                  sub: 'Protéger votre cocon',
-                  text: 'Comme pour l\'auto, les tarifs augmentent. Faisons le point pour protéger vos biens au prix juste.',
-                  badge: '?? Audit de votre contrat',
+                  sub: 'ProtÃ©ger votre cocon',
+                  text: 'Comme pour l\'auto, les tarifs augmentent. Faisons le point pour protÃ©ger vos biens au prix juste.',
+                  badge: 'ğŸ” Audit de votre contrat',
                   pillBg: 'rgba(217,119,6,0.08)',
                   pillColor: '#d97706',
                   pillBorder: 'rgba(217,119,6,0.2)',
@@ -502,11 +502,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: '??',
+                  icon: 'ğŸ›¡ï¸',
                   title: 'Assurance Emprunteur',
-                  sub: 'L\'économie massive',
-                  text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
-                  badge: '?? Économisez jusqu\'à 15 000€',
+                  sub: 'L\'Ã©conomie massive',
+                  text: 'C\'est souvent lÃ  que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crÃ©dit immobilier).',
+                  badge: 'ğŸ’° Ã‰conomisez jusqu\'Ã  15 000â‚¬',
                   pillBg: 'rgba(201,169,110,0.12)',
                   pillColor: 'var(--orizia-gold)',
                   pillBorder: 'rgba(201,169,110,0.3)',
@@ -514,11 +514,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
                 },
                 {
                   href: '/investir/per',
-                  icon: '??',
-                  title: 'Plan Épargne Retraite',
-                  sub: 'Défiscaliser utile',
-                  text: 'Vos économies d\'assurance réinvesties dans votre retraite, avec une déduction d\'impôt à la clé.',
-                  badge: '?? Déduction fiscale immédiate',
+                  icon: 'ğŸ–ï¸',
+                  title: 'Plan Ã‰pargne Retraite',
+                  sub: 'DÃ©fiscaliser utile',
+                  text: 'Vos Ã©conomies d\'assurance rÃ©investies dans votre retraite, avec une dÃ©duction d\'impÃ´t Ã  la clÃ©.',
+                  badge: 'ğŸ’¡ DÃ©duction fiscale immÃ©diate',
                   pillBg: 'rgba(45,106,95,0.1)',
                   pillColor: 'var(--orizia-primary)',
                   pillBorder: 'rgba(45,106,95,0.25)',
@@ -539,7 +539,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir ?</span>
+                  <span className="fin-card-link">DÃ©couvrir ?</span>
                 </Link>
               ))}
             </div>
@@ -549,16 +549,16 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage           
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
-            <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
+            <h2>PrÃªt(e) Ã  arrÃªter de payer<br />votre assurance trop cher ?</h2>
             <p>
-              Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
+              Je compare les meilleures offres du marchÃ©, je vous conseille en totale indÃ©pendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'Ã©conomies.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="?? Contactez moi" className="fin-btn-primary" />
+              <ContactPopup label="ğŸ“ Contactez moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée
-              par la compagnie d'assurance choisie, sans surcoût pour vous.
+              Je suis immatriculÃ©e Ã  l'ORIAS. Je travaille dans vos intÃ©rÃªts et suis rÃ©munÃ©rÃ©e
+              par la compagnie d'assurance choisie, sans surcoÃ»t pour vous.
             </p>
           </div>
         </section>

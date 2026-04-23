@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
+import MobileDrawer from '@/components/MobileDrawer';
 
 const NAV = [
   {
@@ -13,7 +14,7 @@ const NAV = [
       { href: '/investir/assurance-vie', title: 'Assurance Vie',  sub: 'Épargne & transmission' },
       { href: '/investir/scpi',          title: 'SCPI',           sub: 'Immobilier de rendement' },
     ],
-    cta: { href: '/contact', label: 'Contact', img: '/images/investir.jpg', text: 'Construisez votre stratégie patrimoniale avec nos experts.' },
+    cta: { href: '/contact', label: 'Contact', img: '/images/investir.webp', text: 'Construisez votre stratégie patrimoniale avec nos experts.' },
   },
   {
     label: 'Financer',
@@ -23,7 +24,7 @@ const NAV = [
       { href: '/financer/pret-personnel',       title: 'Prêt personnel',          sub: 'Financez vos projets' },
       { href: '/financer/rachat-soulte',        title: 'Rachat de soulte',        sub: 'Divorce · Séparation · Succession' },
     ],
-    cta: { href: '/financer', label: 'Faire une simulation', img: '/images/financer.jpg', text: 'Obtenez votre simulation sans engagement en quelques minutes.' },
+    cta: { href: '/financer', label: 'Faire une simulation', img: '/images/financer.webp', text: 'Obtenez votre simulation sans engagement en quelques minutes.' },
   },
   {
     label: 'Assurer',
@@ -32,7 +33,7 @@ const NAV = [
       { href: '/assurer/assurance-habitation', title: 'Assurance habitation', sub: 'Votre logement sécurisé' },
       { href: '/assurer/auto-moto',  title: 'Assurance auto/moto',  sub: 'Roulez en toute sérénité' },
     ],
-    cta: { href: '/contact', label: 'Obtenir un devis', img: '/images/assurer.jpg', text: 'Comparez les meilleures offres du marché.' },
+    cta: { href: '/contact', label: 'Obtenir un devis', img: '/images/assurer.webp', text: 'Comparez les meilleures offres du marché.' },
   },
 ];
 
@@ -84,7 +85,6 @@ function getMobileScrollType(pathname) {
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen]       = useState(false);
-  const [openAccordion, setOpenAccordion] = useState(null);
   const [scrolled, setScrolled]           = useState(false);
   const [headerHidden, setHeaderHidden]   = useState(false);
   const [calReady, setCalReady]           = useState(false);
@@ -363,57 +363,11 @@ export default function Header() {
       />
 
       {/* ── Tiroir mobile ── */}
-      <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
-        <div className="mobile-drawer-header">
-          <Image
-            src="/images/Orizia_logo.webp"
-            alt="Orizia"
-            width={120}
-            height={50}
-            style={{ objectFit: 'contain' }}
-          />
-          <button className="close-mobile" onClick={() => setDrawerOpen(false)}>✕</button>
-        </div>
-        <div className="mobile-drawer-content">
-          <ul className="mobile-menu">
-            {NAV.map((item, i) => (
-              <li key={item.label}>
-                <div
-                  className="mobile-accordion-title"
-                  onClick={() => setOpenAccordion(openAccordion === i ? null : i)}
-                >
-                  {item.label} <span>{openAccordion === i ? '−' : '+'}</span>
-                </div>
-                <div
-                  className="mobile-accordion-body"
-                  style={{ display: openAccordion === i ? 'flex' : 'none', flexDirection: 'column' }}
-                >
-                  {item.links.map(l => (
-                    <Link key={l.href} href={l.href} onClick={() => setDrawerOpen(false)}>
-                      {l.title}
-                    </Link>
-                  ))}
-                  <Link
-                    href={item.cta.href}
-                    className="mobile-accordion-cta"
-                    onClick={() => setDrawerOpen(false)}
-                  >
-                    {item.cta.label}
-                  </Link>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mobile-action-buttons">
-            <button
-              onClick={() => { setDrawerOpen(false); openCalModal(); }}
-              className="mobile-btn-rdv"
-            >
-              Prendre rendez-vous — Sans frais de dossier
-            </button>
-          </div>
-        </div>
-      </div>
+      <MobileDrawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        onRdv={openCalModal}
+      />
     </>
   );
 }

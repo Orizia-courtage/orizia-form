@@ -7,15 +7,15 @@ import EmprunteurChecklist from '@/components/EmprunteurChecklist';
 import ReadingProgressEmprunteur from '@/components/ReadingProgressEmprunteur';
 import ScrollButton from '@/components/ScrollButton';
 
-// -- 1. MÉTADONNÉES SEO --
+// -- 1. MÃ‰TADONNÃ‰ES SEO --
 export const metadata = {
   title: 'Assurance Emprunteur 2026 : Loi Lemoine | Orizia Courtage',
   description:
-    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
+    "Votre banque vous surfacture votre assurance de prÃªt ? GrÃ¢ce Ã  la loi Lemoine, je rÃ©silie et vous fais Ã©conomiser jusqu'Ã  15 000â‚¬. Courtier indÃ©pendant.",
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
-    title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
-    description: "Ne laissez plus votre banque monopoliser votre assurance de prêt. Économisez jusqu'à 15 000€ grâce à la loi Lemoine. Je compare, je résilie, je gère tout.",
+    title: 'Assurance Emprunteur 2026 : Ã‰conomisez avec la Loi Lemoine | Orizia Courtage',
+    description: "Ne laissez plus votre banque monopoliser votre assurance de prÃªt. Ã‰conomisez jusqu'Ã  15 000â‚¬ grÃ¢ce Ã  la loi Lemoine. Je compare, je rÃ©silie, je gÃ¨re tout.",
     url: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur',
     siteName: 'Orizia Courtage',
     images: [
@@ -23,7 +23,7 @@ export const metadata = {
         url: 'https://www.orizia-courtage.fr/images/og-assurance-emprunteur.webp',
         width: 1200,
         height: 630,
-        alt: "Délégation d'assurance emprunteur avec Orizia Courtage",
+        alt: "DÃ©lÃ©gation d'assurance emprunteur avec Orizia Courtage",
       },
     ],
     locale: 'fr_FR',
@@ -31,7 +31,7 @@ export const metadata = {
   },
 };
 
-// -- 2. DONNÉES STRUCTURÉES --
+// -- 2. DONNÃ‰ES STRUCTURÃ‰ES --
 const assuranceEmprunteurSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -45,9 +45,9 @@ const assuranceEmprunteurSchema = {
     },
     {
       '@type': 'Service',
-      name: "Courtage et Délégation d'Assurance Emprunteur",
+      name: "Courtage et DÃ©lÃ©gation d'Assurance Emprunteur",
       description:
-        "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Économies moyennes de 15 000€ constatées.",
+        "Service d'optimisation et de substitution d'assurance de prÃªt immobilier via la loi Lemoine. Ã‰conomies moyennes de 15 000â‚¬ constatÃ©es.",
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -56,7 +56,7 @@ const assuranceEmprunteurSchema = {
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-Barœul' },
+        { '@type': 'City', name: 'Marcq-en-BarÅ“ul' },
         { '@type': 'Country', name: 'France' }
       ],
       offers: {
@@ -64,7 +64,7 @@ const assuranceEmprunteurSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Étude de faisabilité et gestion administrative de la résiliation sans frais de dossieres pour l'emprunteur.",
+          "Ã‰tude de faisabilitÃ© et gestion administrative de la rÃ©siliation sans frais de dossieres pour l'emprunteur.",
       },
     },
   ],
@@ -79,7 +79,7 @@ const faqSchema = {
       name: "Qu'est-ce que l'assurance emprunteur exactement ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est le contrat qui rembourse votre crédit immobilier à votre place si vous avez un accident de la vie (décès, invalidité, arrêt de travail). C'est imposé par la banque, mais ce que l'on oublie souvent de vous dire, c'est qu'elle représente jusqu'à 40% du coût total de votre crédit.",
+        text: "C'est le contrat qui rembourse votre crÃ©dit immobilier Ã  votre place si vous avez un accident de la vie (dÃ©cÃ¨s, invaliditÃ©, arrÃªt de travail). C'est imposÃ© par la banque, mais ce que l'on oublie souvent de vous dire, c'est qu'elle reprÃ©sente jusqu'Ã  40% du coÃ»t total de votre crÃ©dit.",
       },
     },
     {
@@ -87,15 +87,15 @@ const faqSchema = {
       name: "Puis-je vraiment changer d'assurance quand je veux ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l'assurance de votre banque à n'importe quel moment. Plus besoin d'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.",
+        text: "Absolument ! Depuis la loi Lemoine (2022), vous Ãªtes totalement libre de quitter l'assurance de votre banque Ã  n'importe quel moment. Plus besoin d'attendre la date anniversaire. Vous pouvez changer dÃ¨s le lendemain de la signature de votre prÃªt, ou 5 ans aprÃ¨s.",
       },
     },
     {
       '@type': 'Question',
-      name: "Combien d'argent puis-je espérer récupérer ?",
+      name: "Combien d'argent puis-je espÃ©rer rÃ©cupÃ©rer ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est l'un des postes où l'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
+        text: "C'est l'un des postes oÃ¹ l'optimisation est la plus spectaculaire. Mes clients Ã©conomisent en moyenne entre 6 500â‚¬ et 15 000â‚¬ sur la durÃ©e restante de leur prÃªt. Les contrats indÃ©pendants sont souvent 50% moins chers que ceux des banques, Ã  garanties strictement Ã©gales.",
       },
     },
     {
@@ -103,73 +103,73 @@ const faqSchema = {
       name: "Ma banque a-t-elle le droit de refuser mon nouveau contrat ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Non. La loi l'interdit. Si le nouveau contrat que je vous propose couvre exactement les mêmes choses que celui de la banque (ce qu'on appelle l'équivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la résistance, je monte au créneau pour vous.",
+        text: "Non. La loi l'interdit. Si le nouveau contrat que je vous propose couvre exactement les mÃªmes choses que celui de la banque (ce qu'on appelle l'Ã©quivalence des garanties), la banque a 10 jours pour accepter. Si elle fait de la rÃ©sistance, je monte au crÃ©neau pour vous.",
       },
     },
     {
       '@type': 'Question',
-      name: "Vais-je devoir passer des examens médicaux ?",
+      name: "Vais-je devoir passer des examens mÃ©dicaux ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.",
+        text: "C'est la magie de la loi Lemoine : le questionnaire de santÃ© a disparu ! Si vous empruntez moins de 200 000â‚¬ par personne (400 000â‚¬ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santÃ©.",
       },
     },
     {
       '@type': 'Question',
-      name: "Pourquoi faire appel à vous plutôt que de chercher moi-même ?",
+      name: "Pourquoi faire appel Ã  vous plutÃ´t que de chercher moi-mÃªme ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d'achat sans la charge mentale. Mon service est sans frais de dossier pour vous, je suis rémunérée par l'assureur.",
+        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indÃ©pendante : je compare les meilleurs contrats, je m'assure de l'Ã©quivalence des garanties, et je gÃ¨re 100% des courriers avec votre banque. Vous rÃ©cupÃ©rez votre pouvoir d'achat sans la charge mentale. Mon service est sans frais de dossier pour vous, je suis rÃ©munÃ©rÃ©e par l'assureur.",
       },
     },
   ],
 };
 
 const CHIFFRES = [
-  { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: '??' },
-  { value: '15\u00A0000€', label: 'Économies moyennes constatées', icon: '??' },
-  { value: '-50%', label: "Sur votre taux d'assurance", icon: '??' },
-  { value: '0\u00A0effort', label: 'Je gère toute la paperasse', icon: '?' },
+  { value: "Jusqu'Ã \u00A040%", label: 'Du coÃ»t total de votre crÃ©dit', icon: 'ğŸ’°' },
+  { value: '15\u00A0000â‚¬', label: 'Ã‰conomies moyennes constatÃ©es', icon: 'ğŸ’¶' },
+  { value: '-50%', label: "Sur votre taux d'assurance", icon: 'ğŸ“ˆ' },
+  { value: '0\u00A0effort', label: 'Je gÃ¨re toute la paperasse', icon: 'âœ…' },
 ];
 
 const ECONOMIES_EXEMPLES = [
-  { profil: 'Couple, 32 ans',      pret: '250 000€ restants sur 25 ans', tauxBanque: '0,32%', tauxCourt: '0,13%', economie: '11 875€', couleur: '#16a34a' },
-  { profil: 'Salarié, 38 ans',     pret: '180 000€ restants sur 20 ans', tauxBanque: '0,34%', tauxCourt: '0,15%', economie: '6 840€',  couleur: '#d97706' },
-  { profil: 'Indépendant, 44 ans', pret: '300 000€ restants sur 20 ans', tauxBanque: '0,42%', tauxCourt: '0,24%', economie: '10 800€', couleur: 'var(--orizia-primary)' },
+  { profil: 'Couple, 32 ans',      pret: '250 000â‚¬ restants sur 25 ans', tauxBanque: '0,32%', tauxCourt: '0,13%', economie: '11 875â‚¬', couleur: '#16a34a' },
+  { profil: 'SalariÃ©, 38 ans',     pret: '180 000â‚¬ restants sur 20 ans', tauxBanque: '0,34%', tauxCourt: '0,15%', economie: '6 840â‚¬',  couleur: '#d97706' },
+  { profil: 'IndÃ©pendant, 44 ans', pret: '300 000â‚¬ restants sur 20 ans', tauxBanque: '0,42%', tauxCourt: '0,24%', economie: '10 800â‚¬', couleur: 'var(--orizia-primary)' },
 ];
 
 const GARANTIES = [
-  { code: 'DC / PTIA', label: "Décès & Perte d'Autonomie",      obligatoire: true,  desc: 'Le socle exigé par toutes les banques. Rembourse le capital restant dû en cas de drame.',                                                                   icon: '???' },
-  { code: 'IPT / IPP', label: 'Invalidité (Totale ou Partielle)', obligatoire: false, desc: "Vous protège si une maladie ou un accident réduit votre capacité à travailler de façon permanente.",                                                          icon: '??' },
-  { code: 'ITT',       label: 'Arrêt de travail temporaire',      obligatoire: false, desc: "L'assureur paie vos mensualités de crédit pendant votre arrêt maladie prolongé.",                                                                             icon: '??' },
-  { code: 'PE',        label: "Perte d'Emploi",                   obligatoire: false, desc: "Souvent chère avec beaucoup d'exclusions. Je vous aide à évaluer si elle vaut vraiment le coût dans votre situation.",                                        icon: '??' },
+  { code: 'DC / PTIA', label: "DÃ©cÃ¨s & Perte d'Autonomie",      obligatoire: true,  desc: 'Le socle exigÃ© par toutes les banques. Rembourse le capital restant dÃ» en cas de drame.',                                                                   icon: 'ğŸ›¡ï¸' },
+  { code: 'IPT / IPP', label: 'InvaliditÃ© (Totale ou Partielle)', obligatoire: false, desc: "Vous protÃ¨ge si une maladie ou un accident rÃ©duit votre capacitÃ© Ã  travailler de faÃ§on permanente.",                                                          icon: 'ğŸ¥' },
+  { code: 'ITT',       label: 'ArrÃªt de travail temporaire',      obligatoire: false, desc: "L'assureur paie vos mensualitÃ©s de crÃ©dit pendant votre arrÃªt maladie prolongÃ©.",                                                                             icon: 'â±ï¸' },
+  { code: 'PE',        label: "Perte d'Emploi",                   obligatoire: false, desc: "Souvent chÃ¨re avec beaucoup d'exclusions. Je vous aide Ã  Ã©valuer si elle vaut vraiment le coÃ»t dans votre situation.",                                        icon: 'ğŸ’¼' },
 ];
 
 const DANGERS = [
-  { icon: '??', title: 'Le piège du contrat bancaire "par défaut"',           text: "À la signature du crédit, par simplicité ou par pression, vous signez l'assurance de la banque. Problème : leurs taux sont 2 à 3 fois plus élevés que le prix réel du marché. Une \"facilité\" qui vous coûte le prix d'une voiture neuve sur 20 ans." },
-  { icon: '??', title: 'Ce que votre conseiller ne vous crie pas sur les toits', text: "Vous êtes totalement libre de choisir votre assureur, ou d'en changer. Les banques le savent mais freinent des quatre fers, car l'assurance emprunteur est l'un de leurs produits les plus rentables." },
-  { icon: '?', title: 'Le temps joue contre votre portefeuille',              text: "Plus vous attendez, plus vous engraissez la banque. L'assurance se paie chaque mois sur le capital restant. En changeant aujourd'hui plutôt que dans 3 ans, vous sauvez des milliers d'euros de vos propres poches." },
+  { icon: 'ğŸ¦', title: 'Le piÃ¨ge du contrat bancaire "par dÃ©faut"',           text: "Ã€ la signature du crÃ©dit, par simplicitÃ© ou par pression, vous signez l'assurance de la banque. ProblÃ¨me : leurs taux sont 2 Ã  3 fois plus Ã©levÃ©s que le prix rÃ©el du marchÃ©. Une \"facilitÃ©\" qui vous coÃ»te le prix d'une voiture neuve sur 20 ans." },
+  { icon: 'ğŸ”’', title: 'Ce que votre conseiller ne vous crie pas sur les toits', text: "Vous Ãªtes totalement libre de choisir votre assureur, ou d'en changer. Les banques le savent mais freinent des quatre fers, car l'assurance emprunteur est l'un de leurs produits les plus rentables." },
+  { icon: 'â±ï¸', title: 'Le temps joue contre votre portefeuille',              text: "Plus vous attendez, plus vous engraissez la banque. L'assurance se paie chaque mois sur le capital restant. En changeant aujourd'hui plutÃ´t que dans 3 ans, vous sauvez des milliers d'euros de vos propres poches." },
 ];
 
 const LOI_LEMOINE_POINTS = [
-  { icon: '??', title: 'Liberté immédiate',              desc: "Changement autorisé n'importe quand. Plus de préavis annuel à respecter." },
-  { icon: '??', title: 'Fin du questionnaire de santé',  desc: 'Sous conditions (capital < 200k€/pers, fin du prêt avant 60 ans), votre passé médical ne vous pénalise plus.' },
-  { icon: '??', title: "Droit à l'oubli réduit",        desc: 'Le délai passe de 10 à 5 ans pour les anciens malades (cancers, hépatite C).' },
-  { icon: '???', title: 'Équivalence stricte',           desc: "La banque DOIT accepter le nouveau contrat s'il vous couvre aussi bien que le sien." },
+  { icon: 'âœ…', title: 'LibertÃ© immÃ©diate',              desc: "Changement autorisÃ© n'importe quand. Plus de prÃ©avis annuel Ã  respecter." },
+  { icon: 'ğŸ¥', title: 'Fin du questionnaire de santÃ©',  desc: 'Sous conditions (capital < 200kâ‚¬/pers, fin du prÃªt avant 60 ans), votre passÃ© mÃ©dical ne vous pÃ©nalise plus.' },
+  { icon: 'â±ï¸', title: "Droit Ã  l'oubli rÃ©duit",        desc: 'Le dÃ©lai passe de 10 Ã  5 ans pour les anciens malades (cancers, hÃ©patite C).' },
+  { icon: 'ğŸ›¡ï¸', title: 'Ã‰quivalence stricte',           desc: "La banque DOIT accepter le nouveau contrat s'il vous couvre aussi bien que le sien." },
 ];
 
 const ETAPES = [
-  { n: '01', title: "J'épluche votre contrat actuel",         text: "Envoyez-moi votre offre de prêt. Je décortique ce que vous payez aujourd'hui et je vous donne un chiffre clair : combien vous allez économiser." },
-  { n: '02', title: 'Je sélectionne le contrat parfait',      text: "En tant qu'indépendante, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver le meilleur taux, avec des garanties béton validées par la banque." },
-  { n: '03', title: 'Je monte au front face à la banque',     text: "C'est la partie que mes clients détestent, et c'est mon expertise. Je prépare le dossier, j'envoie la résiliation, je relance votre banquier. Je gère le bras de fer." },
-  { n: '04', title: 'Vous constatez la baisse de vos mensualités', text: 'Une fois la substitution acceptée, votre nouveau contrat prend le relais. Vous êtes aussi bien couvert, mais votre prélèvement mensuel fond considérablement.' },
+  { n: '01', title: "J'Ã©pluche votre contrat actuel",         text: "Envoyez-moi votre offre de prÃªt. Je dÃ©cortique ce que vous payez aujourd'hui et je vous donne un chiffre clair : combien vous allez Ã©conomiser." },
+  { n: '02', title: 'Je sÃ©lectionne le contrat parfait',      text: "En tant qu'indÃ©pendante, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver le meilleur taux, avec des garanties bÃ©ton validÃ©es par la banque." },
+  { n: '03', title: 'Je monte au front face Ã  la banque',     text: "C'est la partie que mes clients dÃ©testent, et c'est mon expertise. Je prÃ©pare le dossier, j'envoie la rÃ©siliation, je relance votre banquier. Je gÃ¨re le bras de fer." },
+  { n: '04', title: 'Vous constatez la baisse de vos mensualitÃ©s', text: 'Une fois la substitution acceptÃ©e, votre nouveau contrat prend le relais. Vous Ãªtes aussi bien couvert, mais votre prÃ©lÃ¨vement mensuel fond considÃ©rablement.' },
 ];
 
 const OBJECTIONS = [
-  { q: '« Si je fais ça, ma banque va changer le taux de mon crédit. »',        r: "C'est du chantage pur et simple, et c'est illégal. La loi Lagarde interdit formellement à une banque de modifier votre taux de crédit ou vos conditions si vous prenez une assurance externe." },
-  { q: '« Je viens juste de signer mon prêt, je dois attendre un an, non ? »',  r: "Plus maintenant ! Avec la loi Lemoine, le droit de résiliation est permanent. Vous avez signé hier ? On peut changer demain. Il n'y a plus de période de blocage." },
-  { q: '« Ça a l\'air d\'être une montagne de démarches administratives. »',    r: "Pour vous ? Aucune. Vous me signez un mandat, et je fais absolument tout. Je récupère les documents, je gère les courriers recommandés, je relance le service prêt de votre banque. C'est du clé en main." },
-  { q: "« Mon état de santé s'est dégradé depuis la signature. »",              r: "Si vous êtes éligible à la suppression du questionnaire médical (moins de 200k€ par emprunteur, fin du prêt avant 60 ans), on ne vous posera aucune question. Votre santé actuelle n'impactera pas le tarif." },
+  { q: 'Â« Si je fais Ã§a, ma banque va changer le taux de mon crÃ©dit. Â»',        r: "C'est du chantage pur et simple, et c'est illÃ©gal. La loi Lagarde interdit formellement Ã  une banque de modifier votre taux de crÃ©dit ou vos conditions si vous prenez une assurance externe." },
+  { q: 'Â« Je viens juste de signer mon prÃªt, je dois attendre un an, non ? Â»',  r: "Plus maintenant ! Avec la loi Lemoine, le droit de rÃ©siliation est permanent. Vous avez signÃ© hier ? On peut changer demain. Il n'y a plus de pÃ©riode de blocage." },
+  { q: 'Â« Ã‡a a l\'air d\'Ãªtre une montagne de dÃ©marches administratives. Â»',    r: "Pour vous ? Aucune. Vous me signez un mandat, et je fais absolument tout. Je rÃ©cupÃ¨re les documents, je gÃ¨re les courriers recommandÃ©s, je relance le service prÃªt de votre banque. C'est du clÃ© en main." },
+  { q: "Â« Mon Ã©tat de santÃ© s'est dÃ©gradÃ© depuis la signature. Â»",              r: "Si vous Ãªtes Ã©ligible Ã  la suppression du questionnaire mÃ©dical (moins de 200kâ‚¬ par emprunteur, fin du prÃªt avant 60 ans), on ne vous posera aucune question. Votre santÃ© actuelle n'impactera pas le tarif." },
 ];
 
 export default function AssuranceEmprunteurPage() {
@@ -205,44 +205,44 @@ export default function AssuranceEmprunteurPage() {
           <div className="ae-hero-inner">
             <nav aria-label="breadcrumb" className="ae-breadcrumb">
               <Link href="/">Accueil</Link>
-              {' › '}
+              {' â€º '}
               <Link href="/assurer">Assurer</Link>
-              {' › '}
+              {' â€º '}
               <span>Assurance Emprunteur</span>
             </nav>
 
             <span className="fin-badge ae-hero-badge">
-              ?? Divisez le coût de votre assurance par deux
+              ğŸ’° Divisez le coÃ»t de votre assurance par deux
             </span>
 
             <h1 className="ae-hero-title">
-              Arrêtez de laisser des milliers<br />d'euros à votre banque
+              ArrÃªtez de laisser des milliers<br />d'euros Ã  votre banque
             </h1>
 
             <p className="ae-hero-intro">
-              Votre assurance de crédit vous coûte probablement beaucoup trop cher. Avec la{' '}
-              <strong>loi Lemoine</strong>, changez de contrat à tout moment. En tant que courtière
-              indépendante, je compare les taux,{' '}
-              <strong>je défie votre banque à votre place</strong>, et je vous fais économiser{' '}
-              <strong>jusqu'à 15 000€</strong>.
+              Votre assurance de crÃ©dit vous coÃ»te probablement beaucoup trop cher. Avec la{' '}
+              <strong>loi Lemoine</strong>, changez de contrat Ã  tout moment. En tant que courtiÃ¨re
+              indÃ©pendante, je compare les taux,{' '}
+              <strong>je dÃ©fie votre banque Ã  votre place</strong>, et je vous fais Ã©conomiser{' '}
+              <strong>jusqu'Ã  15 000â‚¬</strong>.
             </p>
 
             <div className="ae-hero-btns">
-              <ContactPopup label="?? Calculer mon économie avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="ğŸ“… Calculer mon Ã©conomie avec Cindy" className="fin-btn-primary" />
               <ScrollButton targetId="section-calculateur" className="fin-btn-secondary">
-                ?? Voir les vrais chiffres
+                ğŸ“Š Voir les vrais chiffres
               </ScrollButton>
             </div>
 
             <div className="ae-hero-trust">
-              <span>? Loi Lemoine : je résilie quand je veux</span>
-              <span>?? Service 100% délégué, sans frais de dossier</span>
-              <span>? Mêmes garanties, prix divisé par 2</span>
+              <span>âœ… Loi Lemoine : je rÃ©silie quand je veux</span>
+              <span>ğŸ’¼ Service 100% dÃ©lÃ©guÃ©, sans frais de dossier</span>
+              <span>ğŸ’° MÃªmes garanties, prix divisÃ© par 2</span>
             </div>
           </div>
         </section>
 
-        {/* -- CHIFFRES CLÉS -- */}
+        {/* -- CHIFFRES CLÃ‰S -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
@@ -261,7 +261,7 @@ export default function AssuranceEmprunteurPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy.webp"
-                  alt="Cindy Urbansky, courtière experte en assurance de prêt immobilier"
+                  alt="Cindy Urbansky, courtiÃ¨re experte en assurance de prÃªt immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -272,34 +272,34 @@ export default function AssuranceEmprunteurPage() {
 
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « L'assurance de prêt est la vache à lait des banques. On vous l'impose
-                  discrètement à la signature, et vous finissez par payer des milliers d'euros en
-                  trop. »
+                  Â« L'assurance de prÃªt est la vache Ã  lait des banques. On vous l'impose
+                  discrÃ¨tement Ã  la signature, et vous finissez par payer des milliers d'euros en
+                  trop. Â»
                 </p>
                 <p className="ae-citation-text">
-                  Mon métier, c'est de reprendre cet argent pour le remettre dans votre poche. Et
-                  le meilleur ? Je monte au front face à votre banque et je m'occupe de toutes les
-                  démarches, sans que vous n'ayez à lever le petit doigt.
+                  Mon mÃ©tier, c'est de reprendre cet argent pour le remettre dans votre poche. Et
+                  le meilleur ? Je monte au front face Ã  votre banque et je m'occupe de toutes les
+                  dÃ©marches, sans que vous n'ayez Ã  lever le petit doigt.
                 </p>
                 <span className="ae-citation-author">
-                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
+                  Cindy Urbansky, courtier indÃ©pendant et fondatrice de Orizia Courtage
                 </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* -- PROBLÈME -- */}
+        {/* -- PROBLÃˆME -- */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ?? Ce qu'on ne vous dit pas à la signature
+                âš ï¸ Ce qu'on ne vous dit pas Ã  la signature
               </span>
               <h2>Pourquoi vous engraissez votre banque<br />chaque mois (sans le savoir)</h2>
               <p>
-                L'assurance groupe de la banque est le produit financier le plus margé du marché.
-                Il est temps de reprendre le contrôle.
+                L'assurance groupe de la banque est le produit financier le plus margÃ© du marchÃ©.
+                Il est temps de reprendre le contrÃ´le.
               </p>
             </div>
 
@@ -316,8 +316,8 @@ export default function AssuranceEmprunteurPage() {
               <div className="ae-probleme-image">
                 <Image
                   src="/images/banque-pression.webp"
-                  alt="Client surpris par le coût caché de son assurance emprunteur bancaire"
-                  title="Les coûts cachés de l'assurance bancaire"
+                  alt="Client surpris par le coÃ»t cachÃ© de son assurance emprunteur bancaire"
+                  title="Les coÃ»ts cachÃ©s de l'assurance bancaire"
                   width={716}
                   height={1024}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -328,8 +328,8 @@ export default function AssuranceEmprunteurPage() {
             </div>
 
             <div className="ae-probleme-cta">
-              <p className="ae-probleme-cta-text">Arrêtez l'hémorragie financière dès aujourd'hui.</p>
-              <ContactPopup label="?? Faire chiffrer mes économies" className="fin-btn-primary" />
+              <p className="ae-probleme-cta-text">ArrÃªtez l'hÃ©morragie financiÃ¨re dÃ¨s aujourd'hui.</p>
+              <ContactPopup label="ğŸ“Š Faire chiffrer mes Ã©conomies" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -338,10 +338,10 @@ export default function AssuranceEmprunteurPage() {
         <section id="section-calculateur" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">La réalité des chiffres</span>
-              <h2>Banque vs Courtier :<br />le match est plié d'avance</h2>
+              <span className="fin-badge">La rÃ©alitÃ© des chiffres</span>
+              <h2>Banque vs Courtier :<br />le match est pliÃ© d'avance</h2>
               <p>
-                Entrez votre situation et voyez en temps réel combien vous pouvez récupérer.
+                Entrez votre situation et voyez en temps rÃ©el combien vous pouvez rÃ©cupÃ©rer.
                 Le constat est simple : sortir de sa banque permet presque toujours de diviser la facture par deux.
               </p>
             </div>
@@ -349,7 +349,7 @@ export default function AssuranceEmprunteurPage() {
 
             {/* Exemples concrets */}
             <div className="ae-economies-grid">
-              <div className="ae-economies-title">?? Exemples concrets de clients accompagnés</div>
+              <div className="ae-economies-title">ğŸ“Š Exemples concrets de clients accompagnÃ©s</div>
               <div className="ae-economies-cards">
                 {ECONOMIES_EXEMPLES.map(e => (
                   <div key={e.profil} className="ae-economie-card" style={{ borderTopColor: e.couleur }}>
@@ -360,14 +360,14 @@ export default function AssuranceEmprunteurPage() {
                         <div className="ae-economie-taux-label">Banque</div>
                         <div className="ae-economie-taux-val">{e.tauxBanque}/an</div>
                       </div>
-                      <div className="ae-economie-taux-arrow">?</div>
+                      <div className="ae-economie-taux-arrow">â†’</div>
                       <div className="ae-economie-taux-item ae-economie-taux-item--good">
                         <div className="ae-economie-taux-label">Orizia</div>
                         <div className="ae-economie-taux-val" style={{ color: e.couleur }}>{e.tauxCourt}/an</div>
                       </div>
                     </div>
                     <div className="ae-economie-gain" style={{ color: e.couleur, borderTopColor: `${e.couleur}20` }}>
-                      <span className="ae-economie-gain-label">Économie totale</span>
+                      <span className="ae-economie-gain-label">Ã‰conomie totale</span>
                       <span className="ae-economie-gain-val">{e.economie}</span>
                     </div>
                   </div>
@@ -382,23 +382,23 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head" style={{ marginBottom: 32 }}>
               <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                ?? Êtes-vous éligible ?
+                âœ… ÃŠtes-vous Ã©ligible ?
               </span>
-              <h2>Vérifiez votre éligibilité<br />à la loi Lemoine en 3 questions</h2>
-              <p>Répondez à 3 questions pour savoir si vous pouvez changer d'assurance sans questionnaire médical.</p>
+              <h2>VÃ©rifiez votre Ã©ligibilitÃ©<br />Ã  la loi Lemoine en 3 questions</h2>
+              <p>RÃ©pondez Ã  3 questions pour savoir si vous pouvez changer d'assurance sans questionnaire mÃ©dical.</p>
             </div>
             <LemoineQuiz />
           </div>
         </section>
 
-        {/* -- LOI LEMOINE DÉTAIL -- */}
+        {/* -- LOI LEMOINE DÃ‰TAIL -- */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="ae-lemoine-banner">
               <Image
                 src="/images/loi-lemoine.webp"
-                alt="Signature d'un nouveau contrat d'assurance emprunteur grâce à la loi Lemoine"
-                title="Changer d'assurance de prêt avec la Loi Lemoine"
+                alt="Signature d'un nouveau contrat d'assurance emprunteur grÃ¢ce Ã  la loi Lemoine"
+                title="Changer d'assurance de prÃªt avec la Loi Lemoine"
                 width={2814}
                 height={1247}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -409,21 +409,21 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-lemoine-layout">
               <div className="ae-lemoine-text">
-                <span className="fin-badge ae-lemoine-text-badge">? La loi est de votre côté</span>
+                <span className="fin-badge ae-lemoine-text-badge">âœ… La loi est de votre cÃ´tÃ©</span>
                 <h2>La loi Lemoine : l'outil ultime<br />pour reprendre le pouvoir</h2>
                 <p>
-                  Oubliez les anciennes règles restrictives. Aujourd'hui, changer d'assurance de
-                  prêt n'a jamais été aussi simple et rapide.
+                  Oubliez les anciennes rÃ¨gles restrictives. Aujourd'hui, changer d'assurance de
+                  prÃªt n'a jamais Ã©tÃ© aussi simple et rapide.
                 </p>
                 <p>
-                  Peu importe quand vous avez signé votre crédit immobilier, la loi s'applique.{' '}
+                  Peu importe quand vous avez signÃ© votre crÃ©dit immobilier, la loi s'applique.{' '}
                   <strong>La banque n'a plus le droit de vous retenir.</strong>
                 </p>
-                <ContactPopup label="?? Faire valoir mes droits" className="fin-btn-primary" />
+                <ContactPopup label="âš–ï¸ Faire valoir mes droits" className="fin-btn-primary" />
               </div>
 
               <div className="ae-lemoine-card">
-                <div className="ae-lemoine-card-title">Ce qui a changé pour vous</div>
+                <div className="ae-lemoine-card-title">Ce qui a changÃ© pour vous</div>
                 <div className="ae-lemoine-points-list">
                   {LOI_LEMOINE_POINTS.map(pt => (
                     <div key={pt.title} className="ae-lemoine-point-item">
@@ -447,9 +447,9 @@ export default function AssuranceEmprunteurPage() {
               <span className="fin-badge">Les garanties</span>
               <h2>Moins cher, oui.<br />Mais aussi bien couvert ? Mieux.</h2>
               <p>
-                Je ne sacrifie jamais votre protection pour afficher un prix bas. Mon rôle est
+                Je ne sacrifie jamais votre protection pour afficher un prix bas. Mon rÃ´le est
                 d'analyser les exigences strictes de votre banque, et de vous trouver le contrat
-                qui matche à 100%.
+                qui matche Ã  100%.
               </p>
             </div>
 
@@ -480,11 +480,11 @@ export default function AssuranceEmprunteurPage() {
         <section id="section-accompagnement" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Mon engagement : le "zéro friction"</span>
-              <h2>Détendez-vous,<br />j'affronte la banque à votre place</h2>
+              <span className="fin-badge">Mon engagement : le "zÃ©ro friction"</span>
+              <h2>DÃ©tendez-vous,<br />j'affronte la banque Ã  votre place</h2>
               <p>
-                Changer d'assurance fait peur car la banque aime faire traîner les choses. Mon job ?
-                Mettre la pression juridique pour que ça aille vite.
+                Changer d'assurance fait peur car la banque aime faire traÃ®ner les choses. Mon job ?
+                Mettre la pression juridique pour que Ã§a aille vite.
               </p>
             </div>
 
@@ -503,8 +503,8 @@ export default function AssuranceEmprunteurPage() {
               <div className="ae-accompagnement-image">
                 <Image
                   src="/images/dossier_assurance_emprunteur.webp"
-                  alt="Courtière Orizia Courtage gérant un dossier de délégation d'assurance"
-                  title="Un accompagnement de A à Z"
+                  alt="CourtiÃ¨re Orizia Courtage gÃ©rant un dossier de dÃ©lÃ©gation d'assurance"
+                  title="Un accompagnement de A Ã  Z"
                   width={863}
                   height={1080}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -514,17 +514,17 @@ export default function AssuranceEmprunteurPage() {
               </div>
             </div>
 
-            <div className="av-sans frais de dossier-bloc" style={{ marginTop: '40px' }}>
-              <div className="av-sans frais de dossier-icon">??</div>
+            <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
+              <div className="av-gratuit-icon">ğŸ¤</div>
               <div>
                 <strong>Et le plus beau : c'est sans frais de dossier pour vous.</strong>
                 <p>
-                  Je suis rémunérée par la compagnie d'assurance partenaire, de manière totalement
-                  transparente. Vous profitez d'une experte dédiée pour affronter votre banque, sans
-                  débourser un centime d'honoraires de courtage.
+                  Je suis rÃ©munÃ©rÃ©e par la compagnie d'assurance partenaire, de maniÃ¨re totalement
+                  transparente. Vous profitez d'une experte dÃ©diÃ©e pour affronter votre banque, sans
+                  dÃ©bourser un centime d'honoraires de courtage.
                 </p>
               </div>
-              <ContactPopup label="?? On lance la machine ?" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="ğŸš€ On lance la machine ?" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -547,7 +547,7 @@ export default function AssuranceEmprunteurPage() {
           </div>
         </section>
 
-        {/* -- AUTO-ÉVALUATION -- */}
+        {/* -- AUTO-Ã‰VALUATION -- */}
         <section id="section-autoevaluation" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <EmprunteurChecklist />
@@ -559,8 +559,8 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions, mes réponses cash</h2>
-              <p>On démystifie l'assurance de prêt ensemble.</p>
+              <h2>Vos questions, mes rÃ©ponses cash</h2>
+              <p>On dÃ©mystifie l'assurance de prÃªt ensemble.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -572,9 +572,9 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spÃ©cifique Ã  votre situation ? Je vous rÃ©ponds sous 24h.
               </p>
-              <ContactPopup label="?? Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="ğŸ“ Poser une autre question Ã  Cindy" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -588,9 +588,9 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div className="fin-cards fin-cards--white">
               {[
-                { href: '/assurer/assurance-habitation', icon: '??', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: '?? Obligatoire avant la remise des clés', pillBg: 'rgba(217,119,6,0.08)', pillColor: '#d97706', pillBorder: 'rgba(217,119,6,0.2)', featured: false },
-                { href: '/assurer/auto-moto', icon: '??', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.", badge: '? Résiliation gérée pour vous', pillBg: 'rgba(124,58,237,0.08)', pillColor: '#7c3aed', pillBorder: 'rgba(124,58,237,0.2)', featured: false },
-                { href: '/investir/per', icon: '??', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: '?? Réduisez vos impôts dès cette année', pillBg: 'rgba(201,169,110,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(201,169,110,0.3)', featured: true },
+                { href: '/assurer/assurance-habitation', icon: 'ğŸ ', title: 'Assurance Habitation', sub: 'ProtÃ©ger votre cocon', text: "Votre prÃªt est protÃ©gÃ©, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: 'ğŸ  Obligatoire avant la remise des clÃ©s', pillBg: 'rgba(217,119,6,0.08)', pillColor: '#d97706', pillBorder: 'rgba(217,119,6,0.2)', featured: false },
+                { href: '/assurer/auto-moto', icon: 'ğŸš—', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupÃ© pour nÃ©gocier les meilleurs tarifs.", badge: 'âœ… RÃ©siliation gÃ©rÃ©e pour vous', pillBg: 'rgba(124,58,237,0.08)', pillColor: '#7c3aed', pillBorder: 'rgba(124,58,237,0.2)', featured: false },
+                { href: '/investir/per', icon: 'ğŸ–ï¸', title: 'Plan Ã‰pargne Retraite', sub: 'RÃ©investir vos gains', text: "Vous venez d'Ã©conomiser 10 000â‚¬ sur votre crÃ©dit ? Placez cette Ã©conomie mensuelle sur un PER pour rÃ©duire vos impÃ´ts intelligemment.", badge: 'ğŸ’¡ RÃ©duisez vos impÃ´ts dÃ¨s cette annÃ©e', pillBg: 'rgba(201,169,110,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(201,169,110,0.3)', featured: true },
               ].map(s => (
                 <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
@@ -602,7 +602,7 @@ export default function AssuranceEmprunteurPage() {
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir ?</span>
+                  <span className="fin-card-link">DÃ©couvrir ?</span>
                 </Link>
               ))}
             </div>
@@ -612,20 +612,20 @@ export default function AssuranceEmprunteurPage() {
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
-            <h2>Ne laissez plus la banque<br />décider pour vous</h2>
+            <h2>Ne laissez plus la banque<br />dÃ©cider pour vous</h2>
             <p>
-              Je calcule votre économie potentielle, je trouve le contrat qui matche
+              Je calcule votre Ã©conomie potentielle, je trouve le contrat qui matche
               parfaitement avec les exigences de votre banque, et je prends le relais sur toute la
               partie administrative.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="?? Contactez-moi" className="fin-btn-primary" />
+              <ContactPopup label="ğŸ“ Contactez-moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              *Les économies potentielles sont données à titre indicatif et dépendent de votre
-              capital restant dû, de la durée de votre prêt et de votre profil. Je suis
-              immatriculée à l'ORIAS, indépendante, et je défends vos intérêts face aux
-              établissements bancaires.
+              *Les Ã©conomies potentielles sont donnÃ©es Ã  titre indicatif et dÃ©pendent de votre
+              capital restant dÃ», de la durÃ©e de votre prÃªt et de votre profil. Je suis
+              immatriculÃ©e Ã  l'ORIAS, indÃ©pendante, et je dÃ©fends vos intÃ©rÃªts face aux
+              Ã©tablissements bancaires.
             </p>
           </div>
         </section>

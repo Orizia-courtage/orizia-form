@@ -214,21 +214,21 @@ const faqSchema = {
 
 const SERVICES = [
   {
-    img: '/images/investir.jpg',
+    img: '/images/investir.webp',
     tag: 'Stratégie Patrimoniale',
     title: 'Faire fructifier votre capital, intelligemment',
     desc: 'SCPI, assurance vie, PER, crowdfunding… Je sélectionne pour vous les placements qui correspondent vraiment à vos objectifs — pas à ceux de ma banque.',
     cta: { href: '/investir', label: 'Voir les solutions' },
   },
   {
-    img: '/images/financer.jpg',
+    img: '/images/financer.webp',
     tag: 'Financement',
     title: 'Votre meilleur taux, négocié pour vous',
     desc: 'Crédit immobilier, regroupement de crédits, prêt personnel… Je compare plus de 40 partenaires et je défends votre dossier jusqu\'à l\'accord.',
     cta: { href: '/financer', label: 'Étudier mon financement' },
   },
   {
-    img: '/images/assurer.jpg',
+    img: '/images/assurer.webp',
     tag: 'Protection',
     title: 'Protéger ce qui compte, au juste prix',
     desc: 'Assurance emprunteur, habitation, auto/moto… Je vous évite de payer pour des garanties inutiles et je veille à ce que vous soyez vraiment couvert.',
@@ -401,11 +401,12 @@ export default function HomePage() {
 
               <div className="home-why-image-wrap">
                 <Image
-                  src="/images/hero-orizia.webp"
+                  src="/images/hero-cindy.webp"
                   alt="Cindy Urbansky, courtier indépendant — Orizia Courtage"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  width={600}
+                  height={700}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  sizes="(max-width: 900px) 100vw, 600px"
                 />
               </div>
             </div>

@@ -12,7 +12,7 @@ export default function ServiceCard({ img, tag, title, desc, cta }) {
       <div style={{ position: 'relative', height: 220, overflow: 'hidden', flexShrink: 0 }}>
         {/* ↑ overflow: hidden + flexShrink: 0 ajoutés */}
         <Image src={img} alt={title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
-        <span style={{ position: 'absolute', top: 16, left: 16, background: 'var(--orizia-primary)', color: '#E6F5F2', padding: '4px 12px', borderRadius: 100, fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+        <span style={{ position: 'absolute', top: 16, left: 16, background: 'var(--orizia-gold)', color: '#E6F5F2', padding: '4px 12px', borderRadius: 100, fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           {tag}
         </span>
       </div>
