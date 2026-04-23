@@ -37,8 +37,8 @@ const CATEGORIES = [
     icon: '🛡️',
     gradient: 'linear-gradient(135deg, #7a4f4f 0%, #5a3737 100%)',
     products: [
-      { href: '/assurer/assurance-emprunteur', label: 'Ass. emprunteur', sub: 'Protégez votre prêt' },
-      { href: '/assurer/assurance-habitation', label: 'Ass. habitation', sub: 'Logement sécurisé' },
+      { href: '/assurer/assurance-emprunteur', label: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
+      { href: '/assurer/assurance-habitation', label: 'Assurance habitation', sub: 'Logement sécurisé' },
       { href: '/assurer/auto-moto', label: 'Auto / Moto', sub: 'Roulez sereinement' },
     ],
   },
@@ -154,7 +154,7 @@ export default function MobileDrawer({ isOpen, onClose, onRdv }) {
             <div className="mdr-v2-hero-icon">{activeCategory.icon}</div>
             <div className="mdr-v2-hero-text">
               <h2>Découvrir {activeCategory.label}</h2>
-              <p>Vue d'ensemble</p>
+              <p>Vue d'ensemble et conseils</p>
             </div>
             <svg className="mdr-v2-hero-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polyline points="9 18 15 12 9 6"/>
