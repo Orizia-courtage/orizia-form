@@ -5,65 +5,55 @@ import Image from 'next/image';
 
 const CATEGORIES = [
   {
+    id: 'investir',
     label: 'Investir',
     href: '/investir',
     icon: '💼',
-    sub: 'SCPI · PER · Assurance vie',
-    color: '#C9A96E',
-    bg: 'rgba(201,169,110,0.1)',
-    border: 'rgba(201,169,110,0.35)',
+    gradient: 'linear-gradient(135deg, #C9A96E 0%, #8B7355 100%)',
+    products: [
+      { href: '/investir/scpi', label: 'SCPI', sub: 'Immobilier de rendement' },
+      { href: '/investir/per', label: 'PER', sub: 'Préparez votre retraite' },
+      { href: '/investir/assurance-vie', label: 'Assurance Vie', sub: 'Épargne & transmission' },
+      { href: '/investir/crowdfunding', label: 'Crowdfunding', sub: 'Financement participatif' },
+    ],
   },
   {
+    id: 'financer',
     label: 'Financer',
     href: '/financer',
     icon: '🏠',
-    sub: 'Crédit · Regroupement',
-    color: '#432828',
-    bg: 'rgba(67,40,40,0.07)',
-    border: 'rgba(67,40,40,0.2)',
+    gradient: 'linear-gradient(135deg, #432828 0%, #2a1818 100%)',
+    products: [
+      { href: '/financer/credit-immobilier', label: 'Crédit immobilier', sub: 'Votre projet immobilier' },
+      { href: '/financer/regroupement-credits', label: 'Regroupement', sub: 'Réduisez vos mensualités' },
+      { href: '/financer/pret-personnel', label: 'Prêt personnel', sub: 'Financez vos projets' },
+      { href: '/financer/rachat-soulte', label: 'Rachat de soulte', sub: 'Divorce · Séparation' },
+    ],
   },
   {
+    id: 'assurer',
     label: 'Assurer',
     href: '/assurer',
     icon: '🛡️',
-    sub: 'Emprunteur · Habitation · Auto',
-    color: '#7a4f4f',
-    bg: 'rgba(122,79,79,0.07)',
-    border: 'rgba(122,79,79,0.2)',
+    gradient: 'linear-gradient(135deg, #7a4f4f 0%, #5a3737 100%)',
+    products: [
+      { href: '/assurer/assurance-emprunteur', label: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
+      { href: '/assurer/assurance-habitation', label: 'Assurance habitation', sub: 'Votre logement sécurisé' },
+      { href: '/assurer/auto-moto', label: 'Auto / Moto', sub: 'Roulez sereinement' },
+    ],
   },
 ];
 
-const SUB_LINKS = {
-  Investir: [
-    { href: '/investir/scpi',          label: 'SCPI',           sub: 'Immobilier de rendement', icon: '🏗️' },
-    { href: '/investir/per',           label: 'PER',            sub: 'Préparez votre retraite', icon: '🏖️' },
-    { href: '/investir/assurance-vie', label: 'Assurance Vie',  sub: 'Épargne & transmission', icon: '🛡️' },
-    { href: '/investir/crowdfunding',  label: 'Crowdfunding',   sub: 'Financement participatif', icon: '🤝' },
-  ],
-  Financer: [
-    { href: '/financer/credit-immobilier',    label: 'Crédit immobilier',       sub: 'Votre projet immobilier', icon: '🏠' },
-    { href: '/financer/regroupement-credits', label: 'Regroupement de crédits', sub: 'Réduisez vos mensualités', icon: '🔄' },
-    { href: '/financer/pret-personnel',       label: 'Prêt personnel',          sub: 'Financez vos projets', icon: '🚗' },
-    { href: '/financer/rachat-soulte',        label: 'Rachat de soulte',        sub: 'Divorce · Séparation', icon: '⚖️' },
-  ],
-  Assurer: [
-    { href: '/assurer/assurance-emprunteur', label: 'Assurance emprunteur', sub: 'Protégez votre prêt', icon: '💰' },
-    { href: '/assurer/assurance-habitation', label: 'Assurance habitation', sub: 'Votre logement sécurisé', icon: '🏠' },
-    { href: '/assurer/auto-moto',            label: 'Auto / Moto',          sub: 'Roulez sereinement', icon: '🚗' },
-  ],
-};
-
 const SECONDARY = [
-  { href: '/qui-suis-je', label: 'Qui suis-je ?', icon: '👤' },
-  { href: '/contact',     label: 'Contact',        icon: '✉️' },
-  { href: '/blog',        label: 'Blog',           icon: '📝' },
-  { href: '/actualites',  label: 'Actualités',     icon: '📰' },
+  { href: '/qui-suis-je', label: 'Qui suis-je ?' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/actualites', label: 'Actualités' },
 ];
 
 export default function MobileDrawer({ isOpen, onClose, onRdv }) {
-  const [expanded, setExpanded] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [clickedCard, setClickedCard] = useState(null);
+  const [activeTab, setActiveTab] = useState('investir');
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Masquer / afficher le ContactWidget selon l'état du drawer
   useEffect(() => {
@@ -80,32 +70,31 @@ export default function MobileDrawer({ isOpen, onClose, onRdv }) {
     return () => document.removeEventListener('keydown', onKey);
   }, [isOpen, onClose]);
 
-  // Reset expanded when drawer closes
+  // Reset au close
   useEffect(() => {
     if (!isOpen) {
-      setExpanded(null);
-      setHoveredCard(null);
-      setClickedCard(null);
+      setTimeout(() => setActiveTab('investir'), 300);
     }
   }, [isOpen]);
 
+  const handleTabChange = (tabId) => {
+    if (tabId === activeTab) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setActiveTab(tabId);
+      setIsAnimating(false);
+    }, 150);
+  };
+
   const handleLink = () => {
-    setExpanded(null);
     onClose();
   };
 
-  const toggleExpand = (label) => {
-    const newExpanded = expanded === label ? null : label;
-    setExpanded(newExpanded);
-    
-    // Animation de feedback
-    setClickedCard(label);
-    setTimeout(() => setClickedCard(null), 300);
-  };
+  const activeCategory = CATEGORIES.find(cat => cat.id === activeTab);
 
   return (
     <>
-      {/* Overlay flouté */}
+      {/* Overlay */}
       <div
         className={`mdr-overlay${isOpen ? ' mdr-overlay--open' : ''}`}
         onClick={onClose}
@@ -114,174 +103,124 @@ export default function MobileDrawer({ isOpen, onClose, onRdv }) {
 
       {/* Drawer */}
       <div
-        className={`mdr${isOpen ? ' mdr--open' : ''}`}
+        className={`mdr-v2${isOpen ? ' mdr-v2--open' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"
       >
-
-        {/* ── Header ── */}
-        <div className="mdr-head">
-          <Link href="/" onClick={handleLink} className="mdr-logo">
+        {/* Header */}
+        <div className="mdr-v2-header">
+          <Link href="/" onClick={handleLink} className="mdr-v2-logo">
             <Image
               src="/images/Orizia_logo.webp"
               alt="Orizia Courtage"
-              width={100}
-              height={42}
+              width={90}
+              height={38}
               style={{ objectFit: 'contain' }}
             />
           </Link>
-          <div className="mdr-head-right">
-            <span className="mdr-head-badge">Courtier indépendant</span>
-            <button className="mdr-close" onClick={onClose} aria-label="Fermer le menu">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* ── Corps scrollable ── */}
-        <div className="mdr-body">
-
-          {/* ── 1. Cards catégories ── */}
-          <div className="mdr-cats">
-            <p className="mdr-section-label">
-              <span className="mdr-section-label-icon">✨</span>
-              Mes expertises
-            </p>
-            <div className="mdr-cats-grid">
-              {CATEGORIES.map((cat, idx) => (
-                <div 
-                  key={cat.label} 
-                  className="mdr-cat-wrap"
-                  style={{ 
-                    animationDelay: `${idx * 50}ms`,
-                  }}
-                >
-                  {/* Card cliquable → page catégorie */}
-                  <Link
-                    href={cat.href}
-                    className={`mdr-cat-card${clickedCard === cat.label ? ' mdr-cat-card--clicked' : ''}`}
-                    style={{ background: cat.bg, borderColor: cat.border }}
-                    onClick={handleLink}
-                    onMouseEnter={() => setHoveredCard(cat.label)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                  >
-                    <span className="mdr-cat-icon">{cat.icon}</span>
-                    <span className="mdr-cat-label" style={{ color: cat.color }}>{cat.label}</span>
-                    <span className="mdr-cat-sub">{cat.sub}</span>
-                    {hoveredCard === cat.label && (
-                      <span className="mdr-cat-hover-hint">Voir tout</span>
-                    )}
-                  </Link>
-
-                  {/* Bouton expand sous-pages */}
-                  <button
-                    className={`mdr-cat-expand${expanded === cat.label ? ' mdr-cat-expand--open' : ''}`}
-                    onClick={() => toggleExpand(cat.label)}
-                    aria-expanded={expanded === cat.label}
-                    aria-label={`${expanded === cat.label ? 'Masquer' : 'Afficher'} les options ${cat.label}`}
-                    style={{ borderColor: cat.border, color: cat.color }}
-                  >
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <polyline points="6 9 12 15 18 9"/>
-                    </svg>
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ── 2. Sous-pages (accordéon) ── */}
-          {CATEGORIES.map((cat) => (
-            expanded === cat.label && (
-              <div key={cat.label} className="mdr-sublinks">
-                <p className="mdr-section-label">
-                  <span className="mdr-section-label-icon">{cat.icon}</span>
-                  {cat.label} — détail
-                </p>
-                {SUB_LINKS[cat.label].map((l, idx) => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className="mdr-sublink"
-                    onClick={handleLink}
-                    style={{ 
-                      animationDelay: `${idx * 40}ms`,
-                    }}
-                  >
-                    <span className="mdr-sublink-icon">{l.icon}</span>
-                    <span className="mdr-sublink-content">
-                      <span className="mdr-sublink-title">{l.label}</span>
-                      <span className="mdr-sublink-sub">{l.sub}</span>
-                    </span>
-                    <svg className="mdr-sublink-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <polyline points="9 18 15 12 9 6"/>
-                    </svg>
-                  </Link>
-                ))}
-              </div>
-            )
-          ))}
-
-          {/* ── 3. Liens secondaires ── */}
-          <div className="mdr-secondary">
-            <p className="mdr-section-label">
-              <span className="mdr-section-label-icon">🔗</span>
-              Liens utiles
-            </p>
-            <div className="mdr-secondary-grid">
-              {SECONDARY.map((s, idx) => (
-                <Link 
-                  key={s.href} 
-                  href={s.href} 
-                  className="mdr-secondary-link" 
-                  onClick={handleLink}
-                  style={{ 
-                    animationDelay: `${idx * 40}ms`,
-                  }}
-                >
-                  <span className="mdr-secondary-icon">{s.icon}</span>
-                  <span className="mdr-secondary-label">{s.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-        {/* ── Footer RDV ── */}
-        <div className="mdr-footer">
-          <div className="mdr-footer-trust">
-            <span className="mdr-footer-trust-item">
-              <span className="mdr-footer-trust-icon">🛡️</span>
-              ORIAS certifié
-            </span>
-            <span className="mdr-footer-trust-sep">·</span>
-            <span className="mdr-footer-trust-item">Sans frais</span>
-            <span className="mdr-footer-trust-sep">·</span>
-            <span className="mdr-footer-trust-item">
-              <span className="mdr-footer-trust-icon">⚡</span>
-              24h
-            </span>
-          </div>
-          <button
-            className="mdr-rdv-btn"
-            onClick={() => { onClose(); onRdv(); }}
-          >
-            <span className="mdr-rdv-icon">📅</span>
-            <span className="mdr-rdv-text">
-              <strong>Prendre rendez-vous</strong>
-              <small>Sans engagement · 100% en visio</small>
-            </span>
-            <svg className="mdr-rdv-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="9 18 15 12 9 6"/>
+          <button className="mdr-v2-close" onClick={onClose} aria-label="Fermer le menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
             </svg>
           </button>
         </div>
 
+        {/* Tabs Navigation */}
+        <div className="mdr-v2-tabs">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat.id}
+              className={`mdr-v2-tab${activeTab === cat.id ? ' mdr-v2-tab--active' : ''}`}
+              onClick={() => handleTabChange(cat.id)}
+              aria-selected={activeTab === cat.id}
+            >
+              <span className="mdr-v2-tab-icon">{cat.icon}</span>
+              <span className="mdr-v2-tab-label">{cat.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content Area */}
+        <div className="mdr-v2-content">
+          {/* Hero Section */}
+          <Link
+            href={activeCategory.href}
+            className="mdr-v2-hero"
+            style={{ background: activeCategory.gradient }}
+            onClick={handleLink}
+          >
+            <div className="mdr-v2-hero-icon">{activeCategory.icon}</div>
+            <div className="mdr-v2-hero-text">
+              <h2>Découvrir {activeCategory.label}</h2>
+              <p>Vue d'ensemble et conseils</p>
+            </div>
+            <svg className="mdr-v2-hero-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </Link>
+
+          {/* Products Grid */}
+          <div className={`mdr-v2-products${isAnimating ? ' mdr-v2-products--animating' : ''}`}>
+            {activeCategory.products.map((product, idx) => (
+              <Link
+                key={product.href}
+                href={product.href}
+                className="mdr-v2-product"
+                onClick={handleLink}
+                style={{ animationDelay: `${idx * 50}ms` }}
+              >
+                <div className="mdr-v2-product-content">
+                  <h3 className="mdr-v2-product-title">{product.label}</h3>
+                  <p className="mdr-v2-product-sub">{product.sub}</p>
+                </div>
+                <svg className="mdr-v2-product-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </Link>
+            ))}
+          </div>
+
+          {/* Secondary Links */}
+          <div className="mdr-v2-secondary">
+            {SECONDARY.map((link, idx) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="mdr-v2-secondary-link"
+                onClick={handleLink}
+                style={{ animationDelay: `${idx * 30}ms` }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer CTA */}
+        <div className="mdr-v2-footer">
+          <div className="mdr-v2-trust">
+            <span>ORIAS</span>
+            <span>·</span>
+            <span>Sans frais</span>
+            <span>·</span>
+            <span>24h</span>
+          </div>
+          <button
+            className="mdr-v2-cta"
+            onClick={() => { onClose(); onRdv(); }}
+          >
+            <span className="mdr-v2-cta-icon">📅</span>
+            <span className="mdr-v2-cta-text">
+              <strong>Prendre rendez-vous</strong>
+              <small>Gratuit · Sans engagement</small>
+            </span>
+            <svg className="mdr-v2-cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </>
   );
