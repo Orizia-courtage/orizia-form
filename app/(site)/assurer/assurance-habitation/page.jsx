@@ -288,7 +288,6 @@ export default function AssuranceHabitationPage() {
               quality={80}
               sizes="100vw"
               className="hero-image"
-              sizes="100vw"
             />
           </div>
           <div className="ae-hero-inner">
@@ -458,7 +457,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {/* IMAGE 2 AJOUTÉE ICI */}
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage-habitation.webp"
+                  src="/images/dossier_assurance_emprunteur.webp"
                   alt="Courtier préparant un dossier d'assurance habitation"
                   title="Un accompagnement transparent et sans effort"
                   width={863}
@@ -466,6 +465,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
             </div>

@@ -4053,8 +4053,7 @@ body.contact-popup-open .cw-trigger {
   flex: 1 1 300px;
   max-width: 100%; /* Empêche le débordement sur mobile */
   border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  background: transparent;
   align-self: center;
 }
 .ae-accompagnement-image img {

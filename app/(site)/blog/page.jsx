@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
 export const metadata = {

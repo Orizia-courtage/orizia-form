@@ -280,7 +280,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="inv-why-layout">
               <div className="inv-why-image">
                 <Image
-                  src="/images/courtier-assurance-independant.webp"
+                  src="/images/assurer.webp"
                   alt="Cindy Urbansky, courtier indépendant en assurance – Orizia Courtage"
                   width={600}
                   height={480}
@@ -350,6 +350,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
             </div>

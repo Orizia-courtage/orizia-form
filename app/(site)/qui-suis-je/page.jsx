@@ -252,7 +252,7 @@ export default function QuiSuisJePage() {
                   { icon: '🎯', titre: 'Indépendance totale', desc: 'Aucun lien exclusif avec une banque ou un assureur. Je travaille pour vous, pas pour eux.' },
                   { icon: '🔍', titre: 'Expertise terrain', desc: '15+ ans dans l\'intermédiation bancaire, de l\'analyse crédit à la direction commerciale nationale.' },
                   { icon: '🤝', titre: 'Relation directe', desc: 'Vous parlez toujours à moi. Pas à un centre d\'appels, pas à un assistant.' },
-                  { icon: '⚖️', titre: 'Engagement sectoriel', desc: 'Présidente de l\'AFIB — je contribue à l\'amélioration des pratiques du secteur.' },
+                  { icon: '⚖️', titre: 'Engagement sectoriel', desc: 'Présidente du conseil de surveillance de l\'AFIB — je contribue à l\'amélioration des pratiques du secteur.' },
                 ].map(e => (
                   <div key={e.titre} className="crowd-schema-step" style={{ marginBottom: 12 }}>
                     <div className="crowd-schema-icon">{e.icon}</div>
