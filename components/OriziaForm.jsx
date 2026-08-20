@@ -14,8 +14,8 @@ import { countryOptions } from './countryOptions';
 registerLocale('fr', fr);
 
 // ─── CONSTANTES ───────────────────────────────────────────────
-const WEBHOOK_SUBMIT = 'https://hook.eu1.make.com/7er13ro11zpx7q8bblcag6m325fp8dqs';
-const WEBHOOK_RAPPEL = 'https://hook.eu1.make.com/av4l1wfmfezsmgsz50c26w4jaoubrjqb';
+const FORM_SUBMIT_ENDPOINT = '/api/orizia-form';
+const FORM_RAPPEL_ENDPOINT = '/api/orizia-rappel';
 const CONTACT_EMAIL  = 'cindy.urbansky@orizia-courtage.fr';
 const TURNSTILE_KEY  = '0x4AAAAAACu8a5g2pFEtNqxD';
 const TOTAL_STEPS    = 10;
@@ -79,6 +79,7 @@ function getSegmentType(seg) {
 const genDossier=()=>{const d=new Date();return `DS${d.getFullYear().toString().slice(-2)}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${String(Math.floor(Math.random()*9999)).padStart(4,'0')}`;};
 const normalizeStr=(s)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/-/g,' ').replace(/\s+/g,' ').trim();
 const fmtNum=(v)=>{const n=parseFloat(String(v||'').replace(/\s/g,'').replace(',','.'));return isNaN(n)?'':new Intl.NumberFormat('fr-FR').format(n);};
+const getTurnstileToken=()=>document.querySelector('[name="cf-turnstile-response"]')?.value||document.querySelector('input[name="cf-turnstile-response"]')?.value||'';
 
 // ─── ÉTAT INITIAL ─────────────────────────────────────────────
 const INIT = {
@@ -190,7 +191,7 @@ export default function OriziaForm() {
       if(!f.ville.trim())e.ville=true;
       if(!f.optin_orizia)e.optin_orizia=true;
       if(!f.optin_partenaires)e.optin_partenaires=true;
-      const tok=document.querySelector('[name="cf-turnstile-response"]')?.value||document.querySelector('input[name="cf-turnstile-response"]')?.value;
+      const tok=getTurnstileToken();
       if(!tok)e.bot=true;
     }
     setErrors(e);
@@ -216,6 +217,7 @@ export default function OriziaForm() {
   async function submit() {
     if(!validate(10)){setTimeout(()=>document.querySelector('.f-err.show')?.scrollIntoView({behavior:'smooth',block:'center'}),50);return;}
     setSending(true);
+    const turnstileToken=getTurnstileToken();
     const loa_total=form.has_loa==='oui'?(parseFloat(form.loa_mensualite)||0)*(parseInt(form.loa_duree)||0):0;
     const fd={
       numero_dossier:genDossier(), date_creation:new Date().toISOString().split('T')[0],
@@ -238,18 +240,27 @@ export default function OriziaForm() {
       profil_codetel:form.tel_etranger==='oui'?form.code_pays.split('|')[1]:'+33',
       profil_ville:form.ville, profil_CP:form.cp,
       'Opt-in_Orizia':form.optin_orizia==='oui', 'Opt-in_Paternaire':form.optin_partenaires==='oui',
+      turnstileToken,
     };
     fd.MAF=computeMAF(fd); fd.EV=computeEV(fd);
     fd.Revenu=(fd.revenu_foyer||0)+(fd.revenu_autre||0);
     fd.Segment=determineSegment(fd);
     rappelRef.current={numero_dossier:fd.numero_dossier,date_creation:fd.date_creation,profil_prenom:fd.profil_prenom,profil_nom:fd.profil_nom,profil_tel:fd.profil_tel,profil_codetel:fd.profil_codetel,profil_mail:fd.profil_mail,profil_ville:fd.profil_ville,action:'rappel_souhaite'};
-    try{await fetch(WEBHOOK_SUBMIT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)});setSegment(fd.Segment);setDone(true);}
+    try{
+      const res=await fetch(FORM_SUBMIT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)});
+      if(!res.ok)throw new Error('submit_failed');
+      setSegment(fd.Segment);setDone(true);
+    }
     catch{alert("Une erreur est survenue. Veuillez réessayer.");}
     finally{setSending(false);}
   }
   async function demanderRappel() {
     if(!rappelRef.current)return;setRappel('pending');
-    try{await fetch(WEBHOOK_RAPPEL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rappelRef.current)});setRappel('ok');}
+    try{
+      const res=await fetch(FORM_RAPPEL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rappelRef.current)});
+      if(!res.ok)throw new Error('rappel_failed');
+      setRappel('ok');
+    }
     catch{setRappel(false);alert("Erreur lors de la demande de rappel.");}
   }
 
