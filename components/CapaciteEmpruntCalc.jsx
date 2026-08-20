@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { creditConfig, debtConfig, formatPercent } from '@/lib/simulationConfig';
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
@@ -11,10 +12,10 @@ export default function CapaciteEmpruntCalc() {
   const [revenus, setRevenus] = useState(3500);
   const [charges, setCharges] = useState(0);
   const [duree, setDuree] = useState(20);
-  const [taux, setTaux] = useState(3.5);
+  const [taux, setTaux] = useState(creditConfig.defaultRate);
 
   const result = useMemo(() => {
-    const mensuelMax = (revenus - charges) * 0.35;
+    const mensuelMax = (revenus - charges) * debtConfig.maxRatio;
     const tauxMensuel = taux / 100 / 12;
     const n = duree * 12;
     const capital = tauxMensuel > 0
@@ -66,14 +67,14 @@ export default function CapaciteEmpruntCalc() {
             <label>Taux estimé</label>
             <span className="cap-field-value">{taux}%</span>
           </div>
-          <input type="range" min={2} max={6} step={0.1} value={taux}
+          <input type="range" min={creditConfig.minRate} max={creditConfig.maxRate} step={0.1} value={taux}
             onChange={e => setTaux(+e.target.value)} className="aec-slider"
-            style={{ '--pct': `${((taux - 2) / 4) * 100}%` }} />
-          <div className="aec-slider-labels"><span>2%</span><span>6%</span></div>
+            style={{ '--pct': `${((taux - creditConfig.minRate) / (creditConfig.maxRate - creditConfig.minRate)) * 100}%` }} />
+          <div className="aec-slider-labels"><span>{formatPercent(creditConfig.minRate)}</span><span>{formatPercent(creditConfig.maxRate)}</span></div>
         </div>
 
         <div className="aec-note">
-          💡 Estimation basée sur un taux d'endettement de 35%. Je calcule votre capacité exacte en tenant compte de votre profil complet.
+          💡 Estimation basée sur un taux d'endettement de {formatPercent(debtConfig.maxRatio, { ratio: true })}. Je calcule votre capacité exacte en tenant compte de votre profil complet.
         </div>
       </div>
 
@@ -94,7 +95,7 @@ export default function CapaciteEmpruntCalc() {
             <span>Charges existantes</span><strong>{fmt(charges)}/mois</strong>
           </div>
           <div className="aec-detail-row">
-            <span>Mensualité maximale (35%)</span><strong style={{ color: 'var(--orizia-gold)' }}>{fmt(result.mensuelMax)}/mois</strong>
+            <span>Mensualité maximale ({formatPercent(debtConfig.maxRatio, { ratio: true })})</span><strong style={{ color: 'var(--orizia-gold)' }}>{fmt(result.mensuelMax)}/mois</strong>
           </div>
           <div className="aec-detail-sep" />
           <div className="aec-detail-row aec-detail-row--bold">

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from '@vnedyalk0v/react19-simple-maps';
 import geoData from '../data/france-zones.json';
+import { creditConfig } from '@/lib/simulationConfig';
 
 import ReunionSVG           from '../src/assets/outremer/reunion.svg';
 import GuadeloupeSVG        from '../src/assets/outremer/guadeloupe.svg';
@@ -31,25 +32,7 @@ const ISLAND_COMPONENTS = {
 };
 
 // ─── RATES DATA ───────────────────────────────────────────────────────────────
-export const RATES = {
-  'ile-de-france':         { '10': 2.65, '11-15': 2.80, '16-20': 3.00, '21-25': 3.15 },
-  'nord-ouest':            { '10': 2.70, '11-15': 2.85, '16-20': 3.05, '21-25': 3.20 },
-  'nord-est':              { '10': 2.75, '11-15': 2.90, '16-20': 3.10, '21-25': 3.25 },
-  'sud-ouest':             { '10': 2.80, '11-15': 2.95, '16-20': 3.15, '21-25': 3.30 },
-  'sud-est':               { '10': 2.85, '11-15': 3.00, '16-20': 3.20, '21-25': 3.35 },
-  'corse':                 { '10': 2.90, '11-15': 3.05, '16-20': 3.25, '21-25': 3.40 },
-  'reunion':               { '10': 3.05, '11-15': 3.20, '16-20': 3.40, '21-25': 3.55 },
-  'guadeloupe':            { '10': 3.10, '11-15': 3.25, '16-20': 3.45, '21-25': 3.60 },
-  'guyane':                { '10': 3.15, '11-15': 3.30, '16-20': 3.50, '21-25': 3.65 },
-  'nouvelle-caledonie':    { '10': 3.20, '11-15': 3.35, '16-20': 3.55, '21-25': 3.70 },
-  'martinique':            { '10': 3.10, '11-15': 3.25, '16-20': 3.45, '21-25': 3.60 },
-  'mayotte':               { '10': 3.25, '11-15': 3.40, '16-20': 3.60, '21-25': 3.75 },
-  'polynesie':             { '10': 3.20, '11-15': 3.35, '16-20': 3.55, '21-25': 3.70 },
-  'saint-martin':          { '10': 3.15, '11-15': 3.30, '16-20': 3.50, '21-25': 3.65 },
-  'saint-barthelemy':      { '10': 3.15, '11-15': 3.30, '16-20': 3.50, '21-25': 3.65 },
-  'saint-pierre-miquelon': { '10': 3.05, '11-15': 3.20, '16-20': 3.40, '21-25': 3.55 },
-  'wallis-futuna':         { '10': 3.25, '11-15': 3.40, '16-20': 3.60, '21-25': 3.75 },
-};
+export const RATES = creditConfig.ratesByZone;
 
 // ─── OUTRE-MER ────────────────────────────────────────────────────────────────
 const OUTREMER_REGIONS = [

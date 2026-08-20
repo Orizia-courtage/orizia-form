@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { formatPercent, scpiConfig } from '@/lib/simulationConfig';
 
 const fmt    = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const fmtDec = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
@@ -10,12 +11,12 @@ export default function SimulateurSCPI() {
   const [capital, setCapital] = useState(20000);
   const [epargne, setEpargne] = useState(200);
   const [duree,   setDuree]   = useState(10);
-  const [taux,    setTaux]    = useState(5);
+  const [taux,    setTaux]    = useState(scpiConfig.defaultDistributionRate);
 
   // ── Mode Capital ──
   const revenusAnnuels    = capital * (taux / 100);
   const revenusMenusuels  = revenusAnnuels / 12;
-  const valeurPartsTerme  = capital * Math.pow(1.01, duree);
+  const valeurPartsTerme  = capital * Math.pow(1 + scpiConfig.revaluationRate, duree);
 
   // ── Mode Épargne mensuelle ──
   const capitalConstitue    = epargne * 12 * duree;
@@ -25,7 +26,7 @@ export default function SimulateurSCPI() {
   const pctCapital = ((capital - 1000)  / (200000 - 1000)) * 100;
   const pctEpargne = ((epargne - 50)    / (2000 - 50))     * 100;
   const pctDuree   = ((duree - 1)       / (30 - 1))        * 100;
-  const pctTaux    = ((taux - 3)        / (8 - 3))         * 100;
+  const pctTaux    = ((taux - scpiConfig.minDistributionRate) / (scpiConfig.maxDistributionRate - scpiConfig.minDistributionRate)) * 100;
 
   return (
     <div className="scpi-simu-outer">
@@ -101,14 +102,14 @@ export default function SimulateurSCPI() {
                 </div>
                 <div className="simu-slider-wrap">
                   <input
-                    type="range" min={3} max={8} step={0.1}
+                    type="range" min={scpiConfig.minDistributionRate} max={scpiConfig.maxDistributionRate} step={0.1}
                     value={taux}
                     onChange={e => setTaux(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctTaux}%` }}
                     aria-label="Taux de distribution annuel"
                   />
-                  <div className="simu-slider-labels"><span>3%</span><span>8%</span></div>
+                  <div className="simu-slider-labels"><span>{formatPercent(scpiConfig.minDistributionRate)}</span><span>{formatPercent(scpiConfig.maxDistributionRate)}</span></div>
                 </div>
               </div>
             </>
@@ -160,14 +161,14 @@ export default function SimulateurSCPI() {
                 </div>
                 <div className="simu-slider-wrap">
                   <input
-                    type="range" min={3} max={8} step={0.1}
+                    type="range" min={scpiConfig.minDistributionRate} max={scpiConfig.maxDistributionRate} step={0.1}
                     value={taux}
                     onChange={e => setTaux(Number(e.target.value))}
                     className="simu-slider"
                     style={{ '--pct': `${pctTaux}%` }}
                     aria-label="Taux de distribution annuel"
                   />
-                  <div className="simu-slider-labels"><span>3%</span><span>8%</span></div>
+                  <div className="simu-slider-labels"><span>{formatPercent(scpiConfig.minDistributionRate)}</span><span>{formatPercent(scpiConfig.maxDistributionRate)}</span></div>
                 </div>
               </div>
             </>
@@ -201,7 +202,7 @@ export default function SimulateurSCPI() {
                   <strong key={valeurPartsTerme} className="scpi-result-big scpi-result-big--secondary">
                     {fmt(valeurPartsTerme)}
                   </strong>
-                  <span className="scpi-result-sub">avec revalorisation +1%/an estimée</span>
+                  <span className="scpi-result-sub">avec revalorisation +{formatPercent(scpiConfig.revaluationRate, { ratio: true })}/an estimée</span>
                 </div>
               </div>
               <div className="scpi-simu-result-detail">

@@ -2,13 +2,9 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { perConfig } from '@/lib/simulationConfig';
 
-const TRANCHES = [
-  { label: '11%', tmi: 0.11, plafond: 4000 },
-  { label: '30%', tmi: 0.30, plafond: 35000 },
-  { label: '41%', tmi: 0.41, plafond: 35000 },
-  { label: '45%', tmi: 0.45, plafond: 85000 },
-];
+const TRANCHES = perConfig.tranches;
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);

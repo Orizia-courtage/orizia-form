@@ -10,6 +10,7 @@ import ReactCountryFlag from 'react-country-flag';
 import { citiesData } from './citiesData';
 import { PHONE_PATTERNS } from './PHONE_PATTERNS';
 import { countryOptions } from './countryOptions';
+import { debtConfig } from '@/lib/simulationConfig';
 
 registerLocale('fr', fr);
 
@@ -43,30 +44,30 @@ function determineSegment(fd) {
   if(CI===0&&CC===2&&crdConso<25000&&treso>1000&&maf>25000) return 'Client projet premium 2';
   if(CI===0&&CC===0&&treso>40000) return 'Trésorerie 1';
   if(CI===1&&CC===0&&treso>20000&&crdImmo<50000) return 'Trésorerie 2';
-  if(CC===1&&crdConso<20000&&treso>20000&&maf>50000&&ev<0.35&&revFoyer>3000) return 'Trésorerie 3';
-  if(CC===1&&crdConso>15000&&treso>5000&&maf>20000&&ev<0.35) return 'Trésorerie 4';
-  if(CC===2&&crdConso<15000&&treso>20000&&ev<0.35&&revFoyer>3000) return 'Trésorerie 5';
+  if(CC===1&&crdConso<20000&&treso>20000&&maf>50000&&ev<debtConfig.maxRatio&&revFoyer>3000) return 'Trésorerie 3';
+  if(CC===1&&crdConso>15000&&treso>5000&&maf>20000&&ev<debtConfig.maxRatio) return 'Trésorerie 4';
+  if(CC===2&&crdConso<15000&&treso>20000&&ev<debtConfig.maxRatio&&revFoyer>3000) return 'Trésorerie 5';
   if(CC===1&&crdConso>25000&&treso>1000) return 'Trésorerie 6';
   if(CC===1&&crdConso<25000&&treso>1000) return 'Trésorerie 7';
   if(CC>=2&&crdConso<15000&&maf>25000&&totalCred===3) return 'Pro Contraint 1';
-  if(CC>=2&&crdConso>15000&&maf>20000&&ev<0.30&&revFoyer<2500&&totalCred===3) return 'Pro Contraint 2';
-  if(CC>=2&&crdConso>15000&&maf>20000&&ev>0.30&&totalCred===3) return 'Pro Contraint 3';
-  if(CI===0&&CC>=2&&crdConso<15000&&maf<25000&&ev<0.35&&revFoyer>2500&&totalCred===3) return 'Pro Contraint 4';
-  if(CI===0&&CC>=3&&crdConso<15000&&ev>0.35&&totalCred===3) return 'Pro Contraint 5';
+  if(CC>=2&&crdConso>15000&&maf>20000&&ev<debtConfig.targetRatio&&revFoyer<2500&&totalCred===3) return 'Pro Contraint 2';
+  if(CC>=2&&crdConso>15000&&maf>20000&&ev>debtConfig.targetRatio&&totalCred===3) return 'Pro Contraint 3';
+  if(CI===0&&CC>=2&&crdConso<15000&&maf<25000&&ev<debtConfig.maxRatio&&revFoyer>2500&&totalCred===3) return 'Pro Contraint 4';
+  if(CI===0&&CC>=3&&crdConso<15000&&ev>debtConfig.maxRatio&&totalCred===3) return 'Pro Contraint 5';
   if(CI>=1&&CC===0&&maf>50000) return 'IR 1';
   if(CI===1&&CC===1&&crdConso<10000&&treso===0&&maf>50000) return 'IR 2';
   if(CI===1&&CC===1&&crdConso>=10000&&crdConso<=20000&&maf<25000) return 'Petit Pro 1';
   if(CI===0&&CC===2&&crdConso<15000&&maf<25000) return 'Petit Pro 2';
-  if(CI===0&&CC>=3&&crdConso<15000&&maf<25000&&ev<0.35&&revFoyer<2500) return 'Petit Pro 3';
+  if(CI===0&&CC>=3&&crdConso<15000&&maf<25000&&ev<debtConfig.maxRatio&&revFoyer<2500) return 'Petit Pro 3';
   if(CI===1&&CC>=2&&crdConso<15000&&maf<25000) return 'Petit Pro 4';
-  if(CI===2&&CC===0&&maf>50000&&ev<0.35) return 'Client projet 1';
+  if(CI===2&&CC===0&&maf>50000&&ev<debtConfig.maxRatio) return 'Client projet 1';
   if(CI===1&&CC===1&&crdConso>20000&&maf>25000) return 'Client projet 2';
   if(CI===1&&CC===1&&crdConso<15000&&treso>0&&maf>25000) return 'Client projet 3';
   if(CI===2&&CC===1&&crdConso>8000&&maf>25000) return 'Client projet 4';
   if(CI===1&&CC===1&&crdConso>10000&&maf>50000) return 'Client projet 5';
-  if(CC>=2&&crdConso>15000&&maf>25000&&ev<0.30&&revFoyer>1600&&totalCred>=3) return 'Pro Consommateur 1';
+  if(CC>=2&&crdConso>15000&&maf>25000&&ev<debtConfig.targetRatio&&revFoyer>1600&&totalCred>=3) return 'Pro Consommateur 1';
   if(CI===1&&CC>=2&&crdConso<15000&&maf>25000&&totalCred>=3) return 'Pro Consommateur 2';
-  if(CI===2&&CC===1&&crdConso<10000&&treso>1000&&maf>50000&&ev<0.30&&revFoyer>3000&&totalCred>=3) return 'Pro Consommateur 3';
+  if(CI===2&&CC===1&&crdConso<10000&&treso>1000&&maf>50000&&ev<debtConfig.targetRatio&&revFoyer>3000&&totalCred>=3) return 'Pro Consommateur 3';
   return 'Autre';
 }
 function getSegmentType(seg) {
@@ -273,7 +274,7 @@ export default function OriziaForm() {
     const tot=(parseFloat(form.mensualite_immo)||0)+(parseFloat(form.mensualite_conso)||0);
     if(tot>0) items.push({icon:'📉',v:`${fmtNum(tot)} €/mois`});
     if(form.profession) items.push({icon:'💼',v:form.profession.split(' ')[0]});
-    if(taux!==null) items.push({icon:'📊',v:`${taux}%`,color:taux>35?'#dc2626':taux>25?'#d97706':'#16a34a'});
+    if(taux!==null) items.push({icon:'📊',v:`${taux}%`,color:taux>debtConfig.highRatio*100?'#dc2626':taux>debtConfig.watchRatio*100?'#d97706':'#16a34a'});
     return items;
   },[form,taux]);
 
@@ -649,7 +650,7 @@ function S7({form,set,clr,errors,next,isBack}){
 // S8 — Finances
 function S8({form,set,clr,errors,taux,next}){
   const isLoc=LOC_STATUTS.includes(form.statut_logement);
-  const tc=taux===null?null:taux>50?'#dc2626':taux>35?'#ea580c':taux>25?'#d97706':'#16a34a';
+  const tc=taux===null?null:taux>debtConfig.criticalRatio*100?'#dc2626':taux>debtConfig.highRatio*100?'#ea580c':taux>debtConfig.watchRatio*100?'#d97706':'#16a34a';
   return(
     <div className="f-step">
       <div className="f-block">
@@ -674,10 +675,10 @@ function S8({form,set,clr,errors,taux,next}){
           </div>
           <div className="f-taux-track">
             <div className="f-taux-fill" style={{width:`${Math.min(taux,100)}%`,background:tc}}/>
-            <div className="f-taux-mark" style={{left:'35%'}}><span>35%</span></div>
+            <div className="f-taux-mark" style={{left:`${debtConfig.maxRatio*100}%`}}><span>{Math.round(debtConfig.maxRatio*100)}%</span></div>
           </div>
           <p className="f-taux-msg">
-            {taux>35?'⚠️ Au-dessus du seuil bancaire — le regroupement peut vous aider.':taux>25?'📊 Taux à surveiller — une optimisation est possible.':'✅ Taux sain — votre dossier est bien positionné.'}
+            {taux>debtConfig.maxRatio*100?'⚠️ Au-dessus du seuil bancaire — le regroupement peut vous aider.':taux>debtConfig.watchRatio*100?'📊 Taux à surveiller — une optimisation est possible.':'✅ Taux sain — votre dossier est bien positionné.'}
           </p>
         </div>
       )}

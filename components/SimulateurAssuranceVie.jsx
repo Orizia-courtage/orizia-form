@@ -1,13 +1,14 @@
 ﻿'use client';
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { assuranceVieConfig, formatPercent } from '@/lib/simulationConfig';
 
 // ── Constantes SG (tarification Sogecap) ──
-const FRAIS_VERSEMENTS = 0.02;   // 2% sur chaque versement
-const FRAIS_GESTION    = 0.00239; // 0.24%/an déduits du taux hypothétique
+const FRAIS_VERSEMENTS = assuranceVieConfig.paymentFeeRate;
+const FRAIS_GESTION    = assuranceVieConfig.managementFeeRate;
 
 // ── Table rendements selon répartition ──
-const REPARTITION = [
+const DEFAULT_REPARTITION = [
   { fe: 100, uc: 0,   taux: 0.50 },
   { fe: 95,  uc: 5,   taux: 0.73 },
   { fe: 90,  uc: 10,  taux: 0.95 },
@@ -30,6 +31,7 @@ const REPARTITION = [
   { fe: 5,   uc: 95,  taux: 4.78 },
   { fe: 0,   uc: 100, taux: 5.00 },
 ];
+const REPARTITION = assuranceVieConfig.repartition?.length ? assuranceVieConfig.repartition : DEFAULT_REPARTITION;
 
 // ── Formatters ──
 const fmt = (n) => new Intl.NumberFormat('fr-FR', {
@@ -105,8 +107,8 @@ function solveVR(target, vi, dureeYears, annualRate) {
 
 function calcNetRachat(capital, totalVers, dureeYears, abattement) {
   const gains       = Math.max(0, capital - totalVers);
-  const socialTax   = gains * 0.172;
-  const pfnlRate    = dureeYears >= 8 ? 0.075 : 0.128;
+  const socialTax   = gains * assuranceVieConfig.socialTaxRate;
+  const pfnlRate    = dureeYears >= 8 ? assuranceVieConfig.pfnlAfter8YearsRate : assuranceVieConfig.pfnlBefore8YearsRate;
   const taxableGain = dureeYears >= 8 ? Math.max(0, gains - abattement) : gains;
   const pfnl        = taxableGain * pfnlRate;
   return capital - socialTax - pfnl;
@@ -204,7 +206,7 @@ export default function SimulateurAssuranceVie() {
   const annualRate = repartData.taux;
   const pctSlider  = (repartIdx / 20) * 100;
 
-  const abattAmount = abattType === 'couple' ? 9200 : abattType === 'seul' ? 4600 : 0;
+  const abattAmount = abattType === 'couple' ? assuranceVieConfig.abatementCouple : abattType === 'seul' ? assuranceVieConfig.abatementSingle : 0;
 
   // ── Calculs ──
   const results = useMemo(() => {
@@ -518,8 +520,15 @@ export default function SimulateurAssuranceVie() {
   // STEP 5 — Résultats
   // ─────────────────────────────────────────────
   if (step === 5 && results) {
-    const pfnlRate  = dureeEpargne >= 8 ? '7,5%' : '12,8%';
-    const abattLabel = abattType === 'couple' ? '9 200€ (couple)' : abattType === 'seul' ? '4 600€ (personne seule)' : 'sans abattement';
+    const pfnlRate  = dureeEpargne >= 8
+      ? formatPercent(assuranceVieConfig.pfnlAfter8YearsRate, { ratio: true })
+      : formatPercent(assuranceVieConfig.pfnlBefore8YearsRate, { ratio: true });
+    const socialTaxRate = formatPercent(assuranceVieConfig.socialTaxRate, { ratio: true });
+    const abattLabel = abattType === 'couple'
+      ? `${fmtShort(assuranceVieConfig.abatementCouple)} (couple)`
+      : abattType === 'seul'
+        ? `${fmtShort(assuranceVieConfig.abatementSingle)} (personne seule)`
+        : 'sans abattement';
 
     return (
       <div className="av-simu">
@@ -628,8 +637,8 @@ export default function SimulateurAssuranceVie() {
                   </p>
                   <div className="av-fiscal-options">
                     {[
-                      { key: 'seul',   label: 'Avec abattement de 4 600€ — personne seule' },
-                      { key: 'couple', label: 'Avec abattement de 9 200€ — couple marié/pacsé' },
+                      { key: 'seul',   label: `Avec abattement de ${fmtShort(assuranceVieConfig.abatementSingle)} — personne seule` },
+                      { key: 'couple', label: `Avec abattement de ${fmtShort(assuranceVieConfig.abatementCouple)} — couple marié/pacsé` },
                       { key: 'sans',   label: 'Sans abattement (si déjà utilisé)' },
                     ].map(o => (
                       <label key={o.key} className={`av-fiscal-option${abattType === o.key ? ' active' : ''}`}>
@@ -649,18 +658,18 @@ export default function SimulateurAssuranceVie() {
                   </div>
                   {dureeEpargne >= 8 ? (
                     <p className="av-fiscal-text">
-                      PFNL 7,5% retenu par l'assureur l'année du rachat sur les gains après abattement
+                      PFNL {pfnlRate} retenu par l'assureur l'année du rachat sur les gains après abattement
                       de {abattLabel}. Option barème IR possible l'année suivante.
                     </p>
                   ) : (
                     <p className="av-fiscal-text">
-                      PFNL 12,8% retenu par l'assureur l'année du rachat.
+                      PFNL {pfnlRate} retenu par l'assureur l'année du rachat.
                       L'abattement sera accessible à partir des 8 ans du contrat.
                       Option barème IR possible l'année suivante.
                     </p>
                   )}
                   <p className="av-fiscal-note">
-                    + 17,2% de prélèvements sociaux sur l'ensemble des gains, quelle que soit la durée.
+                    + {socialTaxRate} de prélèvements sociaux sur l'ensemble des gains, quelle que soit la durée.
                   </p>
                 </div>
               </div>

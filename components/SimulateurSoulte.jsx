@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { formatPercent, soulteConfig } from '@/lib/simulationConfig';
 
 const QP_PRESETS = ['25', '33', '50', '67', '75'];
 
@@ -49,7 +50,7 @@ export default function SimulateurSoulte() {
     if (valeurNette <= 0) return { error: 'Le capital restant dû dépasse la valeur du bien.' };
     if (!q || isNaN(q) || q <= 0 || q >= 100) return null;
     const soulte = valeurNette * (q / 100);
-    const droitsPartage = valeurNette * 0.025;
+    const droitsPartage = valeurNette * soulteConfig.sharingDutyRate;
     return { valeurNette, soulte, droitsPartage, quotePart: q };
   }, [valeur, crd, activeQP]);
 
@@ -173,7 +174,7 @@ export default function SimulateurSoulte() {
               <div className="ss-result-card-icon">📋</div>
               <span className="ss-result-card-label">Droits de partage notaire</span>
               <span className="ss-result-card-value">{fmt(result.droitsPartage)}</span>
-              <span className="ss-result-card-sub">2,5% de la valeur nette</span>
+              <span className="ss-result-card-sub">{formatPercent(soulteConfig.sharingDutyRate, { ratio: true })} de la valeur nette</span>
             </div>
 
           </div>

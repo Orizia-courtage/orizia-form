@@ -2,9 +2,10 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { assuranceEmprunteurConfig } from '@/lib/simulationConfig';
 
 // Taux moyens banque et Orizia par tranche d'âge
-const TAUX_PAR_AGE = [
+const DEFAULT_TAUX_PAR_AGE = [
   { label: '20–29 ans', tauxBanque: 0.0023, tauxOrizia: 0.0008, gain: 65 },
   { label: '30–35 ans', tauxBanque: 0.0030, tauxOrizia: 0.0012, gain: 60 },
   { label: '36–40 ans', tauxBanque: 0.0032, tauxOrizia: 0.0014, gain: 56 },
@@ -13,6 +14,7 @@ const TAUX_PAR_AGE = [
   { label: '51–55 ans', tauxBanque: 0.0044, tauxOrizia: 0.0026, gain: 41 },
   { label: '56–60 ans', tauxBanque: 0.0048, tauxOrizia: 0.0030, gain: 37 },
 ];
+const TAUX_PAR_AGE = assuranceEmprunteurConfig.ageRates?.length ? assuranceEmprunteurConfig.ageRates : DEFAULT_TAUX_PAR_AGE;
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);

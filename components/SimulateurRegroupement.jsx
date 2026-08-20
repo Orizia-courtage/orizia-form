@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { debtConfig, formatPercent } from '@/lib/simulationConfig';
 
 export default function SimulateurRegroupement() {
   const [mensualite, setMensualite] = useState('');
@@ -21,13 +22,13 @@ export default function SimulateurRegroupement() {
     if (!m || !r || m <= 0 || r <= 0) return null;
 
     const tauxEndettement = (m / r) * 100;
-    const mensualiteCible = r * 0.33;
+    const mensualiteCible = r * debtConfig.targetRatio;
     const gainMensuel = Math.max(0, m - mensualiteCible);
 
     let niveau = 'ok';
-    if (tauxEndettement > 50) niveau = 'critique';
-    else if (tauxEndettement > 35) niveau = 'eleve';
-    else if (tauxEndettement > 25) niveau = 'surveiller';
+    if (tauxEndettement > debtConfig.criticalRatio * 100) niveau = 'critique';
+    else if (tauxEndettement > debtConfig.highRatio * 100) niveau = 'eleve';
+    else if (tauxEndettement > debtConfig.watchRatio * 100) niveau = 'surveiller';
 
     let creditMsg = null;
     if (nbCredits === '1') {
@@ -155,13 +156,13 @@ export default function SimulateurRegroupement() {
                     className="sr-result-gauge-fill"
                     style={{ width: `${Math.min(result.tauxEndettement, 100)}%`, background: cfg.color }}
                   />
-                  <div className="sr-result-gauge-marker" style={{ left: '33%' }}>
-                    <span>33%</span>
+                  <div className="sr-result-gauge-marker" style={{ left: `${debtConfig.targetRatio * 100}%` }}>
+                    <span>{formatPercent(debtConfig.targetRatio, { ratio: true })}</span>
                   </div>
                 </div>
                 {result.niveau !== 'ok' && (
                   <p className="sr-result-gauge-msg">
-                    La limite bancaire est de 35%. Au-delà, les banques refusent généralement tout nouveau crédit.
+                    La limite bancaire est de {formatPercent(debtConfig.highRatio, { ratio: true })}. Au-delà, les banques refusent généralement tout nouveau crédit.
                   </p>
                 )}
               </div>
@@ -177,7 +178,7 @@ export default function SimulateurRegroupement() {
                   <span className="sr-result-card-value sr-result-card-value--main">
                     {fmt(result.mensualiteCible)}
                   </span>
-                  <span className="sr-result-card-sub">À 33% d'endettement</span>
+                  <span className="sr-result-card-sub">À {formatPercent(debtConfig.targetRatio, { ratio: true })} d'endettement</span>
                 </div>
               </div>
               <div className="sr-result-card">
@@ -231,7 +232,7 @@ export default function SimulateurRegroupement() {
 
           {/* Disclaimer */}
           <p className="sr-disclaimer">
-            ℹ️ Estimation indicative basée sur un taux cible de 33%. La simulation complète prend en compte votre profil complet.
+            ℹ️ Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet.
           </p>
         </div>
       )}

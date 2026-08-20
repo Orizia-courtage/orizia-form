@@ -1,33 +1,28 @@
 ﻿'use client';
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
+import { crowdfundingConfig, formatPercent } from '@/lib/simulationConfig';
 
-const PRESETS = [
-  { label: '🟢 Prudent',   montant: 5000,  taux: 8,  duree: 12 },
-  { label: '🟡 Équilibré', montant: 10000, taux: 10, duree: 24 },
-  { label: '🔴 Dynamique', montant: 25000, taux: 12, duree: 36 },
-];
-
-const LIVRET_A_NET = 2.1; // 3% brut × 0.70
+const PRESETS = crowdfundingConfig.presets;
 
 export default function SimulateurCrowdfunding() {
   const [montant, setMontant] = useState(10000);
-  const [taux,    setTaux]    = useState(10);
+  const [taux,    setTaux]    = useState(crowdfundingConfig.defaultRate);
   const [duree,   setDuree]   = useState(24);
 
   // ── Calculs ──
   const dureeAns      = duree / 12;
   const interetsBruts = montant * (taux / 100) * dureeAns;
-  const flatTax       = interetsBruts * 0.30;
+  const flatTax       = interetsBruts * crowdfundingConfig.flatTaxRate;
   const interetsNets  = Math.round(interetsBruts - flatTax);
   const capitalFinal  = Math.round(montant + interetsNets);
-  const rendementNet  = (taux * 0.70).toFixed(2);
-  const gainLivretA   = Math.round(montant * (LIVRET_A_NET / 100) * dureeAns);
+  const rendementNet  = (taux * (1 - crowdfundingConfig.flatTaxRate)).toFixed(2);
+  const gainLivretA   = Math.round(montant * (crowdfundingConfig.livretANetRate / 100) * dureeAns);
   const surplusVsLivret = interetsNets - gainLivretA;
 
   // ── Sliders fill ──
   const pctMontant = ((montant - 1000)  / (50000 - 1000)) * 100;
-  const pctTaux    = ((taux - 6)        / (14 - 6))       * 100;
+  const pctTaux    = ((taux - crowdfundingConfig.minRate) / (crowdfundingConfig.maxRate - crowdfundingConfig.minRate)) * 100;
   const pctDuree   = ((duree - 12)      / (48 - 12))      * 100;
 
   const fmt = (n) =>
@@ -93,7 +88,7 @@ export default function SimulateurCrowdfunding() {
           <div className="simu-slider-wrap">
             <input
               type="range"
-              min={6} max={14} step={0.5}
+              min={crowdfundingConfig.minRate} max={crowdfundingConfig.maxRate} step={0.5}
               value={taux}
               onChange={e => setTaux(Number(e.target.value))}
               className="simu-slider"
@@ -101,8 +96,8 @@ export default function SimulateurCrowdfunding() {
               aria-label="Rendement annuel brut du projet"
             />
             <div className="simu-slider-labels">
-              <span>6%</span>
-              <span>14%</span>
+              <span>{formatPercent(crowdfundingConfig.minRate)}</span>
+              <span>{formatPercent(crowdfundingConfig.maxRate)}</span>
             </div>
           </div>
         </div>
@@ -153,7 +148,7 @@ export default function SimulateurCrowdfunding() {
           >
             {fmt(interetsNets)}
           </strong>
-          <span className="simu-result-sub">après flat tax de 30%</span>
+          <span className="simu-result-sub">après flat tax de {formatPercent(crowdfundingConfig.flatTaxRate, { ratio: true })}</span>
         </div>
 
         {/* Détail lignes */}
@@ -167,7 +162,7 @@ export default function SimulateurCrowdfunding() {
             <strong className="simu-positive">{fmt(Math.round(interetsBruts))}</strong>
           </div>
           <div className="simu-result-line simu-result-line--neg">
-            <span>Flat tax (30%)</span>
+            <span>Flat tax ({formatPercent(crowdfundingConfig.flatTaxRate, { ratio: true })})</span>
             <strong>– {fmt(Math.round(flatTax))}</strong>
           </div>
           <div className="simu-result-line simu-result-line--sep" />
@@ -185,7 +180,7 @@ export default function SimulateurCrowdfunding() {
         <div className="simu-result-tag">
           <div>
             💡 Soit <strong>{rendementNet}% net/an</strong> équivalent
-            — contre ~{LIVRET_A_NET}% pour un livret A
+            — contre ~{crowdfundingConfig.livretANetRate}% pour un livret A
           </div>
           {surplusVsLivret > 0 && (
             <span className="simu-vs-surplus">
