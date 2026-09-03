@@ -1,6 +1,15 @@
 import { NextResponse } from 'next/server';
 
+const PUBLIC_PATHS = new Set([
+  '/cindy-urbansky.vcf',
+  '/images/photo-cindy.webp',
+]);
+
 export function proxy(request) {
+  if (PUBLIC_PATHS.has(request.nextUrl.pathname)) {
+    return NextResponse.next();
+  }
+
   // Si les variables d'environnement ne sont pas définies, pas de protection
   if (!process.env.SITE_USER || !process.env.SITE_PASSWORD) {
     return NextResponse.next();
