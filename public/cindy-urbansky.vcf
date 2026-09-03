@@ -1,0 +1,28 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Orizia Courtage//Cindy Urbansky vCard//FR
+N:URBANSKY;Cindy;;;
+FN:Cindy URBANSKY
+ORG:ORIZIA COURTAGE
+TITLE:Fondatrice et gerante
+ROLE:Courtier independant en credit, assurance et gestion de patrimoine
+TEL;TYPE=CELL,VOICE:+33777259706
+TEL;TYPE=WORK,VOICE:+33777259706
+EMAIL;TYPE=PREF,INTERNET:cindy.urbansky@orizia-courtage.fr
+URL;TYPE=WORK:https://www.orizia-courtage.fr
+URL;TYPE=PROFILE:https://www.orizia-courtage.fr/qui-suis-je
+PHOTO;VALUE=URI;TYPE=WEBP:https://www.orizia-courtage.fr/images/photo-cindy.webp
+LOGO;VALUE=URI;TYPE=WEBP:https://www.orizia-courtage.fr/images/Orizia_logo.webp
+ADR;TYPE=WORK:;;;;Hauts-de-France;;France
+TZ:Europe/Paris
+LANG:fr-FR
+NOTE:Courtier independant certifie ORIAS. Fondatrice d'Orizia Courtage\, specialisee en credit immobilier\, assurance emprunteur\, regroupement de credits\, pret personnel\, rachat de soulte\, assurance habitation\, assurance auto/moto\, assurance vie\, PER\, SCPI et crowdfunding immobilier. Plus de 15 ans d'experience en intermediation bancaire et assurance. Presidente du conseil de surveillance de l'AFIB. Rendez-vous a distance\, sans engagement\, reponse sous 24h.
+CATEGORIES:Courtier,Courtage,Credit immobilier,Assurance,Assurance emprunteur,Patrimoine,Investissement,Hauts-de-France,ORIAS,AFIB
+X-SOCIALPROFILE;TYPE=LinkedIn:https://www.linkedin.com/in/cindy-urbansky-034323162/
+X-SOCIALPROFILE;TYPE=WhatsApp:https://wa.me/33777259706
+X-ABRELATEDNAMES;TYPE=Entreprise:Orizia Courtage
+X-SERVICE-AREA:Hauts-de-France;France;100% distanciel
+X-OPENING-HOURS:Lundi-Vendredi 09:00-18:00
+UID:cindy-urbansky@orizia-courtage.fr
+REV:20260903T000000Z
+END:VCARD
