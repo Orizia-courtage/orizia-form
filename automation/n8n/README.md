@@ -1,6 +1,10 @@
 # Migration Make vers n8n — Orizia
 
-Les deux workflows ont été préparés à partir des exports Make fournis, puis importés **non publiés** dans n8n. Les identifiants MongoDB et SMTP ne figurent pas dans les exports : les renseigner dans n8n avant la bascule. Aucun email de test n'a été envoyé et aucun dossier n'a été inséré.
+Les deux workflows ont été préparés à partir des exports Make fournis. Les fichiers JSON de ce dépôt sont des modèles **non publiés**, sans identifiants MongoDB/SMTP.
+
+Validation du 7 septembre 2026 : les connexions ont été renseignées dans n8n. Deux copies de test ont terminé avec succès : insertion d'un dossier fictif dans `OriziaDB.Dossiers_TestMigration` et acceptation de trois emails par les serveurs SMTP vers la boîte de test autorisée. Les copies de test ont ensuite été dépubliées et les deux workflows de production publiés. Aucun dossier client réel n'a été utilisé. La réception effective des messages dans la boîte de test reste à confirmer par son propriétaire.
+
+Le code compatible n8n a été poussé sur GitHub et le déploiement Vercel a réussi. La bascule des formulaires nécessite encore l'ajout des trois variables N8N dans Vercel et un redéploiement. Sans ces variables, Make reste sélectionné.
 
 ## Workflows
 
@@ -35,7 +39,7 @@ Pour une validation réelle, utiliser une copie de chaque workflow, une collecti
 
 Après validation et accord pour la bascule :
 
-1. Publier les deux workflows de production dans n8n.
+1. Vérifier que les deux workflows de production sont publiés dans n8n (déjà effectué lors de la validation ci-dessus).
 2. Déployer les modifications de ce dépôt `CINDY/orizia-form` sur Vercel.
 3. Ajouter dans Vercel les trois variables du fichier `.env.n8n.local` : `N8N_WEBHOOK_SUBMIT_URL`, `N8N_WEBHOOK_RAPPEL_URL`, `N8N_WEBHOOK_SECRET`, puis redéployer.
 4. Vérifier une soumission contrôlée et un rappel, puis désactiver les scénarios Make seulement après confirmation de réception.
