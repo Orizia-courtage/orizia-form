@@ -33,3 +33,9 @@ Tests sans email ni insertion MongoDB :
 ```sh
 node --test scripts/test-form-protection.mjs scripts/test-n8n-migration.mjs
 ```
+
+## Formulaires de contact
+
+Le widget et la popup utilisent aussi Turnstile, avec une action dediee `orizia_contact`, verifiee sur `/api/contact` avant Resend. Les donnees sont limitees et le HTML saisi est echappe. Tests : `node --test scripts/test-contact-protection.mjs`.
+
+Le proprietaire a ensuite confirme avoir elargi la regle Vercel a **Starts With `/api/`** : elle couvre donc aussi le contact et les autres API. La limite de 20 requetes par IP sur 600 secondes est partagee entre ces routes.

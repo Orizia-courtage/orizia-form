@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import ContactCaptcha from './ContactCaptcha';
 
 // Icônes SVG inline — remplace Font Awesome pour ne pas bloquer le rendu
 const IconXmark = () => (
@@ -153,19 +154,25 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
     if (submitted) setErrors(validate(updated));
   };
 
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const submitLock = useRef(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitLock.current) return;
+    if (!turnstileToken) { setServerError('Veuillez valider la verification anti-robot.'); return; }
     setSubmitted(true);
     setServerError('');
     const errs = validate(form);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    submitLock.current = true;
     setLoading(true);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({...form, turnstileToken}),
       });
+      if (!res.ok) window.dispatchEvent(new CustomEvent('orizia-turnstile-reset', {detail: 'orizia_contact'}));
       if (res.status === 429) {
         setServerError("Vous avez envoyé trop de messages. Veuillez patienter quelques minutes.");
       } else if (!res.ok) {
@@ -178,9 +185,10 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
         setSubmitted(false);
       }
     } catch (err) {
-      console.error(err);
+      window.dispatchEvent(new CustomEvent('orizia-turnstile-reset', {detail: 'orizia_contact'}));
       setServerError("Impossible de joindre le serveur. Vérifiez votre connexion internet.");
     } finally {
+      submitLock.current = false;
       setLoading(false);
     }
   };
@@ -281,7 +289,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                   <IconArrowLeft />
                 </button>
                 <div>
-                  <strong>M'écrire un message</strong>
+                  <strong>M&apos;écrire un message</strong>
                   <span>Je vous réponds sous 24h</span>
                 </div>
               </div>
@@ -354,7 +362,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                       <option value="">Urgence *</option>
                       <option>Faible – dans le mois</option>
                       <option>Modérée – dans la semaine</option>
-                      <option>Urgente – aujourd'hui</option>
+                      <option>Urgente – aujourd&apos;hui</option>
                     </select>
                   </Field>
 
@@ -362,7 +370,8 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                     value={form.commentaire}
                     onChange={e => handleChange('commentaire', e.target.value)} />
 
-                  <button type="submit" className="cp-form-submit" disabled={loading}>
+                  <ContactCaptcha onToken={setTurnstileToken}/>
+                  <button type="submit" className="cp-form-submit" disabled={loading || !turnstileToken}>
                     {loading ? 'Envoi en cours…' : 'Envoyer le message'}
                   </button>
 

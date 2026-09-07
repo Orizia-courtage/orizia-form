@@ -1,5 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import ContactCaptcha from './ContactCaptcha';
 
 const TABS = [
   { id: 'rdv',        icon: '📅', label: 'RDV' },
@@ -52,9 +53,9 @@ export default function ContactWidget() {
   const [form, setForm]           = useState(EMPTY_FORM);
   const [errors, setErrors]       = useState({});
   const [submitted, setSubmitted] = useState(false);
-  
+
   // NOUVEAU : État pour stocker le message d'erreur renvoyé par le serveur ou Vercel
-  const [serverError, setServerError] = useState(''); 
+  const [serverError, setServerError] = useState('');
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -69,35 +70,41 @@ export default function ContactWidget() {
     if (submitted) setErrors(validate(updated));
   };
 
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const submitLock = useRef(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitLock.current) return;
+    if (!turnstileToken) { setServerError('Veuillez valider la verification anti-robot.'); return; }
     setSubmitted(true);
     setServerError(''); // Réinitialiser l'erreur serveur au début d'une nouvelle tentative
 
     const errs = validate(form);
-    if (Object.keys(errs).length > 0) { 
-      setErrors(errs); 
-      return; 
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
     }
-    
+
+    submitLock.current = true;
     setLoading(true);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({...form, turnstileToken}),
       });
 
       // 1. Interception de la limitation de débit (Rate Limit de Vercel)
+      if (!res.ok) window.dispatchEvent(new CustomEvent('orizia-turnstile-reset', {detail: 'orizia_contact'}));
       if (res.status === 429) {
         setServerError("Vous avez envoyé trop de messages. Veuillez patienter quelques minutes avant de réessayer.");
-      } 
+      }
       // 2. Interception des autres erreurs serveur (ex: erreur 500 de Resend)
       else if (!res.ok) {
         // Tenter de lire le message d'erreur de votre API s'il y en a un
-        const data = await res.json().catch(() => ({})); 
+        const data = await res.json().catch(() => ({}));
         setServerError(data.error || "Une erreur inattendue est survenue lors de l'envoi.");
-      } 
+      }
       // 3. Succès (statut 200)
       else {
         setSent(true);
@@ -105,11 +112,12 @@ export default function ContactWidget() {
         setErrors({});
         setSubmitted(false);
       }
-    } catch (err) { 
-      console.error(err); 
+    } catch (err) {
+      window.dispatchEvent(new CustomEvent('orizia-turnstile-reset', {detail: 'orizia_contact'}));
       setServerError("Impossible de joindre le serveur. Vérifiez votre connexion internet.");
     } finally {
       // Le bloc finally s'exécute toujours, succès ou échec
+      submitLock.current = false;
       setLoading(false);
     }
   };
@@ -261,7 +269,7 @@ export default function ContactWidget() {
                         <option value="">Urgence *</option>
                         <option>Faible — dans le mois</option>
                         <option>Modérée — dans la semaine</option>
-                        <option>Urgente — aujourd'hui</option>
+                        <option>Urgente — aujourd&apos;hui</option>
                       </select>
                     </Field>
 
@@ -272,7 +280,8 @@ export default function ContactWidget() {
                       onChange={e => handleChange('commentaire', e.target.value)}
                     />
 
-                    <button type="submit" disabled={loading}>
+                    <ContactCaptcha onToken={setTurnstileToken}/>
+                  <button type="submit" disabled={loading || !turnstileToken}>
                       {loading ? 'Envoi...' : 'Envoyer le message'}
                     </button>
 

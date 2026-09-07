@@ -1,10 +1,20 @@
 import { Resend } from 'resend';
+import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
+
+export const runtime = 'nodejs';
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
-    const { prenom, nom, email, telephone, typedemande, urgence, commentaire } = await req.json();
+    const payload = await readForm(req, ['prenom', 'nom', 'email'], 'email');
+    for (const key of ['prenom', 'nom', 'email', 'telephone', 'typedemande', 'urgence', 'commentaire']) {
+      if (payload[key] !== undefined && typeof payload[key] !== 'string') throw new FormError('Champ invalide.');
+    }
+    if (!payload.commentaire?.trim()) throw new FormError('Veuillez saisir votre message.');
+    await verifyTurnstile(payload.turnstileToken, req, 'orizia_contact');
+    const { prenom, nom, email, telephone, typedemande, urgence, commentaire } = Object.fromEntries(Object.entries(payload).map(([key, value]) => [key, escapeHtml(value)]));
 
     // 1. Validation basique : vérifier que les champs obligatoires sont présents
     if (!email || !prenom || !nom || !commentaire) {
@@ -48,7 +58,7 @@ export async function POST(req) {
 
   } catch (error) {
     // 4. Capturer les erreurs inattendues (ex: JSON mal formaté)
-    console.error('Erreur serveur:', error);
+    if (error instanceof FormError) return Response.json({error: error.message}, {status: error.status});
     return new Response(JSON.stringify({ error: 'Erreur interne du serveur.' }), { 
       status: 500,
       headers: { 'Content-Type': 'application/json' }
