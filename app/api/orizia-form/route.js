@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
+import { webhookConfig, forwardWebhook } from '@/lib/automation-webhook.mjs';
 
-const MAKE_WEBHOOK_URL = process.env.MAKE_WEBHOOK_SUBMIT_URL;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 
 async function verifyTurnstile(token, request) {
@@ -23,7 +23,10 @@ async function verifyTurnstile(token, request) {
 }
 
 export async function POST(request) {
-  if (!MAKE_WEBHOOK_URL) {
+  let config;
+  try {
+    config = webhookConfig('submit');
+  } catch {
     return NextResponse.json({ error: 'Webhook non configuré.' }, { status: 500 });
   }
 
@@ -36,13 +39,9 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Validation anti-robot échouée.' }, { status: 403 });
     }
 
-    const response = await fetch(MAKE_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(makePayload),
-    });
+    const success = await forwardWebhook(config, makePayload);
 
-    if (!response.ok) {
+    if (!success) {
       return NextResponse.json({ error: 'Erreur webhook.' }, { status: 502 });
     }
 

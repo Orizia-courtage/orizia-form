@@ -1,22 +1,21 @@
 import { NextResponse } from 'next/server';
+import { webhookConfig, forwardWebhook } from '@/lib/automation-webhook.mjs';
 
-const MAKE_WEBHOOK_URL = process.env.MAKE_WEBHOOK_RAPPEL_URL;
 
 export async function POST(request) {
-  if (!MAKE_WEBHOOK_URL) {
+  let config;
+  try {
+    config = webhookConfig('rappel');
+  } catch {
     return NextResponse.json({ error: 'Webhook non configuré.' }, { status: 500 });
   }
 
   try {
     const payload = await request.json();
 
-    const response = await fetch(MAKE_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
+    const success = await forwardWebhook(config, payload);
 
-    if (!response.ok) {
+    if (!success) {
       return NextResponse.json({ error: 'Erreur webhook.' }, { status: 502 });
     }
 
