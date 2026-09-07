@@ -11,6 +11,7 @@ import { citiesData } from './citiesData';
 import { PHONE_PATTERNS } from './PHONE_PATTERNS';
 import { countryOptions } from './countryOptions';
 import { debtConfig } from '@/lib/simulationConfig';
+import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
 
 registerLocale('fr', fr);
 
@@ -80,7 +81,13 @@ function getSegmentType(seg) {
 const genDossier=()=>{const d=new Date();return `DS${d.getFullYear().toString().slice(-2)}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${String(Math.floor(Math.random()*9999)).padStart(4,'0')}`;};
 const normalizeStr=(s)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/-/g,' ').replace(/\s+/g,' ').trim();
 const fmtNum=(v)=>{const n=parseFloat(String(v||'').replace(/\s/g,'').replace(',','.'));return isNaN(n)?'':new Intl.NumberFormat('fr-FR').format(n);};
-const getTurnstileToken=()=>document.querySelector('[name="cf-turnstile-response"]')?.value||document.querySelector('input[name="cf-turnstile-response"]')?.value||'';
+const getTurnstileToken=()=>document.querySelector('[data-turnstile-action="orizia_submit"] [name="cf-turnstile-response"]')?.value||'';
+const resetTurnstile=action=>window.dispatchEvent(new CustomEvent('orizia-turnstile-reset',{detail:action}));
+async function submissionResult(res){
+  const body=await res.json().catch(()=>null);
+  if(!res.ok)throw new Error(res.status===429?'Trop de demandes. Veuillez patienter quelques minutes avant de réessayer.':body?.error||'Envoi indisponible. Veuillez réessayer.');
+  return body;
+}
 
 // ─── ÉTAT INITIAL ─────────────────────────────────────────────
 const INIT = {
@@ -129,13 +136,15 @@ export default function OriziaForm() {
   const [cityInput, setCityInput] = useState('');
   const [citySugg, setCitySugg]   = useState([]);
   const rappelRef = useRef(null);
+  const submissionLock = useRef(false);
+  const rappelLock = useRef(false);
   const topRef    = useRef(null);
 
   // Turnstile
   useEffect(() => {
     if (!document.getElementById('cf-ts')) {
       const s = document.createElement('script');
-      s.id='cf-ts'; s.src='https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.id='cf-ts'; s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
       s.async=true; s.defer=true; document.head.appendChild(s);
     }
   }, []);
@@ -216,7 +225,9 @@ export default function OriziaForm() {
 
   // ── Soumission ──
   async function submit() {
+    if(submissionLock.current)return;
     if(!validate(10)){setTimeout(()=>document.querySelector('.f-err.show')?.scrollIntoView({behavior:'smooth',block:'center'}),50);return;}
+    submissionLock.current=true;
     setSending(true);
     const turnstileToken=getTurnstileToken();
     const loa_total=form.has_loa==='oui'?(parseFloat(form.loa_mensualite)||0)*(parseInt(form.loa_duree)||0):0;
@@ -249,20 +260,23 @@ export default function OriziaForm() {
     rappelRef.current={numero_dossier:fd.numero_dossier,date_creation:fd.date_creation,profil_prenom:fd.profil_prenom,profil_nom:fd.profil_nom,profil_tel:fd.profil_tel,profil_codetel:fd.profil_codetel,profil_mail:fd.profil_mail,profil_ville:fd.profil_ville,action:'rappel_souhaite'};
     try{
       const res=await fetch(FORM_SUBMIT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)});
-      if(!res.ok)throw new Error('submit_failed');
+      const result=await submissionResult(res);
+      rappelRef.current.rappelProof=result.rappelProof;
       setSegment(fd.Segment);setDone(true);
     }
-    catch{alert("Une erreur est survenue. Veuillez réessayer.");}
-    finally{setSending(false);}
+    catch(error){resetTurnstile('orizia_submit');alert(error.message||"Une erreur est survenue. Veuillez réessayer.");}
+    finally{submissionLock.current=false;setSending(false);}
   }
-  async function demanderRappel() {
-    if(!rappelRef.current)return;setRappel('pending');
+  async function demanderRappel(turnstileToken) {
+    if(!rappelRef.current||rappelLock.current||rappelSent==='ok')return;
+    rappelLock.current=true;setRappel('pending');
     try{
-      const res=await fetch(FORM_RAPPEL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rappelRef.current)});
-      if(!res.ok)throw new Error('rappel_failed');
+      const res=await fetch(FORM_RAPPEL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...rappelRef.current,turnstileToken})});
+      await submissionResult(res);
       setRappel('ok');
     }
-    catch{setRappel(false);alert("Erreur lors de la demande de rappel.");}
+    catch(error){setRappel(false);resetTurnstile('orizia_rappel');alert(error.message||"Erreur lors de la demande de rappel.");}
+    finally{rappelLock.current=false;}
   }
 
   // ── Résumé ──
@@ -629,7 +643,7 @@ function S7({form,set,clr,errors,next,isBack}){
   return(
     <div className="f-step">
       <div className="f-field">
-        <label className="f-label">Faites-vous l'objet d'un fichage bancaire (FICP / FCC) ?</label>
+        <label className="f-label">Faites-vous l&apos;objet d&apos;un fichage bancaire (FICP / FCC) ?</label>
         <div className="f-chips">
           <Chip label="✅ Non" selected={form.fichage==='non'} onClick={()=>{set('fichage','non');set('raison_fichage','');clr('fichage');}}/>
           <Chip label="⚠️ Oui" selected={form.fichage==='oui'} onClick={()=>{set('fichage','oui');clr('fichage');}}/>
@@ -670,7 +684,7 @@ function S8({form,set,clr,errors,taux,next}){
       {taux!==null&&(
         <div className="f-taux" style={{borderColor:tc+'40',background:tc+'0a'}}>
           <div className="f-taux-hd">
-            <span>Taux d'endettement estimé</span>
+            <span>Taux d&apos;endettement estimé</span>
             <strong style={{color:tc}}>{taux}%</strong>
           </div>
           <div className="f-taux-track">
@@ -776,14 +790,18 @@ function S9({form,set,clr,errors,next}){
   );
 }
 
+function TurnstileWidget({action,onToken}){
+  const element=useRef(null);
+  const [error,setError]=useState('');
+  useEffect(()=>mountTurnstile(element.current,action,TURNSTILE_KEY,onToken,setError),[action,onToken]);
+  return <div style={{margin:'20px 0 8px',textAlign:'center'}}>
+    <div data-turnstile-action={action} style={{display:'flex',justifyContent:'center'}}><div ref={element}/></div>
+    {error&&<div role="alert"><p>{error}</p><button type="button" onClick={()=>resetTurnstile(action)}>Relancer la vérification</button></div>}
+  </div>;
+}
+
 // S10 — Localisation & consentements
 function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,submit,sending}){
-  const tsRef=useRef(null); const wid=useRef(null);
-  useEffect(()=>{
-    const render=()=>{if(tsRef.current&&window.turnstile&&!wid.current){wid.current=window.turnstile.render(tsRef.current,{sitekey:TURNSTILE_KEY,theme:'light'});}};
-    if(window.turnstile){render();}else{const iv=setInterval(()=>{if(window.turnstile){clearInterval(iv);render();}},100);return()=>clearInterval(iv);}
-    return()=>{if(wid.current&&window.turnstile){window.turnstile.remove(wid.current);wid.current=null;}};
-  },[]);
   function selCity(c){setCityInput(`${c[0]} (${c[1]})`);set('ville',c[0]);set('cp',c[1]);setCitySugg([]);clr('ville');}
   return(
     <div className="f-step">
@@ -802,7 +820,7 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
       </div>
       <div className="f-divider"><span>Consentements</span></div>
       <div className="f-optin">
-        <p>J'accepte de recevoir des appels, emails et SMS sur des offres de solutions de financement et d'assurance proposées par <strong>Orizia Courtage</strong>.</p>
+        <p>J&apos;accepte de recevoir des appels, emails et SMS sur des offres de solutions de financement et d&apos;assurance proposées par <strong>Orizia Courtage</strong>.</p>
         <div className="f-chips">
           <Chip label="✅ J'accepte" selected={form.optin_orizia==='oui'} onClick={()=>{set('optin_orizia','oui');clr('optin_orizia');}}/>
           <Chip label="❌ Je refuse" selected={form.optin_orizia==='non'} onClick={()=>{set('optin_orizia','non');clr('optin_orizia');}}/>
@@ -810,15 +828,15 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
         <Err show={errors.optin_orizia}>Veuillez accepter ou refuser ce consentement.</Err>
       </div>
       <div className="f-optin">
-        <p>J'accepte de recevoir des offres personnalisées de la part des <strong>partenaires d'Orizia Courtage</strong> par téléphone, email et SMS.</p>
+        <p>J&apos;accepte de recevoir des offres personnalisées de la part des <strong>partenaires d&apos;Orizia Courtage</strong> par téléphone, email et SMS.</p>
         <div className="f-chips">
           <Chip label="✅ J'accepte" selected={form.optin_partenaires==='oui'} onClick={()=>{set('optin_partenaires','oui');clr('optin_partenaires');}}/>
           <Chip label="❌ Je refuse" selected={form.optin_partenaires==='non'} onClick={()=>{set('optin_partenaires','non');clr('optin_partenaires');}}/>
         </div>
         <Err show={errors.optin_partenaires}>Veuillez accepter ou refuser ce consentement.</Err>
       </div>
-      <div style={{display:'flex',justifyContent:'center',margin:'20px 0 8px'}}><div ref={tsRef}/></div>
-      <Err show={errors.bot}>Veuillez valider que vous n'êtes pas un robot.</Err>
+      <TurnstileWidget action="orizia_submit"/>
+      <Err show={errors.bot}>Veuillez valider que vous n&apos;êtes pas un robot.</Err>
       <Btn submit={submit} sending={sending}/>
     </div>
   );
@@ -826,6 +844,7 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
 
 // ─── ÉCRAN DE RÉSULTAT ────────────────────────────────────────
 function SuccessScreen({segment,segType,rappelSent,onRappel,prenom}){
+  const [rappelToken,setRappelToken]=useState('');
   const h={rdv:{icon:'fa-solid fa-check',title:'Dossier enregistré !',color:'#16a34a'},bdf:{icon:'fa-solid fa-triangle-exclamation',title:'Dossier bien reçu',color:'#f59e0b'},tns:{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'},loc:{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'},other:{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'}}[segType]||{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'};
   return(
     <div className="f-success">
@@ -838,15 +857,16 @@ function SuccessScreen({segment,segType,rappelSent,onRappel,prenom}){
         <div className="f-success-body">
           <p className="f-success-cta">Votre profil nous permet de vous proposer une solution adaptée.<br/><strong>Découvrez vos nouvelles mensualités — Étude sans frais de dossiere & sans engagement</strong></p>
           <a href="https://zcal.co/cindyurbansky/regroupement-credit" target="_blank" rel="noopener noreferrer" className="f-cta-primary"><i className="fa-regular fa-calendar-check"></i> Choisir mon créneau de rendez-vous</a>
+          {rappelSent!=='ok'&&<TurnstileWidget action="orizia_rappel" onToken={setRappelToken}/>}
           {rappelSent!=='ok'
-            ?<button className="f-cta-secondary" onClick={onRappel} disabled={rappelSent==='pending'}>{rappelSent==='pending'?<><i className="fa-solid fa-spinner fa-spin"></i> Envoi…</>:<><i className="fa-solid fa-phone-volume"></i> Je préfère être rappelé(e)</>}</button>
-            :<div className="f-rappel-ok"><i className="fa-solid fa-circle-check" style={{color:'#16a34a',marginRight:6}}></i><strong>C'est noté !</strong> Je vous rappelle très prochainement.</div>
+            ?<button className="f-cta-secondary" onClick={()=>onRappel(rappelToken)} disabled={rappelSent==='pending'||!rappelToken}>{rappelSent==='pending'?<><i className="fa-solid fa-spinner fa-spin"></i> Envoi…</>:<><i className="fa-solid fa-phone-volume"></i> Je préfère être rappelé(e)</>}</button>
+            :<div className="f-rappel-ok"><i className="fa-solid fa-circle-check" style={{color:'#16a34a',marginRight:6}}></i><strong>C&apos;est noté !</strong> Je vous rappelle très prochainement.</div>
           }
         </div>
       )}
-      {segType==='bdf'&&<div className="f-msg"><div className="f-msg-ico">🙏</div><p>Merci {prenom?prenom+' ':''}d'avoir pris le temps de compléter ce formulaire.</p><p>Malheureusement, nous ne sommes pas en mesure de traiter les dossiers présentant un fichage bancaire (FICP / FCC).</p><p>Nous vous souhaitons de trouver rapidement la solution qui vous convient.</p></div>}
-      {segType==='tns'&&<div className="f-msg"><div className="f-msg-ico">🚀</div><p>Merci {prenom?prenom+' ':''}pour votre confiance !</p><p>Votre profil TNS présente des spécificités que nous n'intégrons pas encore dans notre processus standard. N'hésitez pas à me contacter : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
-      {(segType==='loc'||segType==='other')&&<div className="f-msg"><div className="f-msg-ico">💬</div><p>Merci {prenom?prenom+' ':''}d'avoir pris le temps de remplir ce formulaire.</p><p>Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour. Pour toute question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
+      {segType==='bdf'&&<div className="f-msg"><div className="f-msg-ico">🙏</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de compléter ce formulaire.</p><p>Malheureusement, nous ne sommes pas en mesure de traiter les dossiers présentant un fichage bancaire (FICP / FCC).</p><p>Nous vous souhaitons de trouver rapidement la solution qui vous convient.</p></div>}
+      {segType==='tns'&&<div className="f-msg"><div className="f-msg-ico">🚀</div><p>Merci {prenom?prenom+' ':''}pour votre confiance !</p><p>Votre profil TNS présente des spécificités que nous n&apos;intégrons pas encore dans notre processus standard. N&apos;hésitez pas à me contacter : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
+      {(segType==='loc'||segType==='other')&&<div className="f-msg"><div className="f-msg-ico">💬</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de remplir ce formulaire.</p><p>Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour. Pour toute question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
     </div>
   );
 }
