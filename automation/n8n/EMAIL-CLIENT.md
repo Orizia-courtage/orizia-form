@@ -20,6 +20,8 @@ Le 8 septembre à 06:00:56 UTC, un seul test autorisé a été envoyé à la bo�
 
 DNS observé : SPF `v=spf1 include:mx.ovh.com -all`, DMARC `v=DMARC1; p=none;`, deux sélecteurs DKIM OVH (`ovhmo-selector-1` et `ovhmo-selector-2`) avec clés publiques résolues. Leur présence ne suffit pas à prouver que chaque message est correctement signé et aligné. Aucun DNS n'a été modifié ; un passage DMARC à `reject` nécessiterait d'abord de contrôler tous les émetteurs du domaine, dont les formulaires envoyant via Resend.
 
+Le propriétaire a confirmé que ce test est arrivé dans la boîte de réception Orange, et non dans les spams. Les en-têtes d'authentification du message reçu n'ont pas été fournis ; les résultats SPF/DKIM/DMARC individuels ne sont donc pas attestés ici. Ce test réussi ne garantit pas le classement des futurs messages.
+
 Orange exige une authentification SPF/DKIM/DMARC correcte : https://postmaster.orange.fr/. Pour diagnostiquer le classement du test, vérifier les en-têtes `Authentication-Results`, `DKIM-Signature` et `Return-Path` dans le message reçu. L'activation et les clés DKIM se gèrent chez le fournisseur d'envoi : https://docs.ovhcloud.com/fr/guides/web-cloud/domains/dns-zone-dkim. Ne pas fabriquer de sélecteur ni ajouter un deuxième enregistrement SPF.
 
 ```sh
