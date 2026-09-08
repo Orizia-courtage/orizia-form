@@ -98,7 +98,11 @@ const select = (value, ...args) => {
     # Render trusted static templates while escaping all submitted string values.
     for i, email in enumerate(emails):
         code += f'const html{i} = ' + template(email['mapper']['html']) + ';\n'
-    code += 'return [{json: {...document, ' + ', '.join(f'html{i}' for i in range(len(emails))) + '}}];'
+    if kind == 'rac':
+        code += (OUT / 'rac-routing.js').read_text(encoding='utf-8') + '\n'
+        code += 'return [{json: {...document, html0: routingBanner + html0, html1, routingSegment, potential, sendClientEmail, internalSubject}}];'
+    else:
+        code += 'return [{json: {...document, ' + ', '.join(f'html{i}' for i in range(len(emails))) + '}}];'
     (OUT / f'{kind}-render.js').write_text(code, encoding='utf-8')
     names = ['Reception ' + kind, 'Preparer ' + kind]
     nodes = [node(names[0], 'webhook', {'httpMethod': 'POST', 'path': 'orizia-' + kind,
@@ -134,6 +138,22 @@ const select = (value, ...args) => {
         'respondWith': 'json', 'responseBody': '{"success":true}', 'options': {'responseCode': 200}}, len(nodes) * 260, 1.4))
     connections = {a['name']: {'main': [[{'node': b['name'], 'type': 'main', 'index': 0}]]}
                    for a, b in zip(nodes, nodes[1:])}
+    if kind == 'rac':
+        internal = next(n for n in nodes if n['name'] == 'Email rac Cindy')
+        internal['parameters']['subject'] = "={{ $('Preparer rac').first().json.internalSubject }}"
+        gate = node('Email client autorise', 'if', {
+            'conditions': {'options': {'caseSensitive': True, 'leftValue': '', 'typeValidation': 'strict', 'version': 2},
+                           'conditions': [{'id': 'orizia-high-potential',
+                                           'leftValue': "={{ $('Preparer rac').first().json.sendClientEmail }}",
+                                           'rightValue': True,
+                                           'operator': {'type': 'boolean', 'operation': 'true', 'singleValue': True}}],
+                           'combinator': 'and'}, 'options': {}}, 1040, 2.2)
+        nodes.append(gate)
+        client['position'] = [1300, -100]
+        next(n for n in nodes if n['name'] == 'Confirmer rac')['position'] = [1560, 0]
+        connections['Email rac Cindy'] = {'main': [[{'node': gate['name'], 'type': 'main', 'index': 0}]]}
+        connections[gate['name']] = {'main': [[{'node': 'Email rac client', 'type': 'main', 'index': 0}],
+                                             [{'node': 'Confirmer rac', 'type': 'main', 'index': 0}]]}
     note = '## Connexions à renseigner avant publication\n'
     note += 'SMTP : ' + ('demande-rappel@orizia-courtage.fr' if kind == 'rappel' else 'dossier@orizia-courtage.fr (les deux emails)')
     if kind == 'rac':
