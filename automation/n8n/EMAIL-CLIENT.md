@@ -12,6 +12,16 @@ Validation : 10 tests automatiques (modèle client et migration), expression ren
 
 Les aperçus avec des données fictives se trouvent dans `artifacts/email-rac/`.
 
+## Identité et délivrabilité — 8 septembre 2026
+
+Les trois nœuds SMTP RAC/rappel affichent désormais `Orizia Courtage` tout en conservant leur adresse d'envoi. Le client reçoit un message multipart texte/HTML, avec `Reply-To: Cindy Urbansky <cindy.urbansky@orizia-courtage.fr>`, un objet descriptif et la vérification des certificats activée. Le bouton « Ajouter Cindy à mes contacts » ouvre la VCF publique ; l'utilisateur confirme l'enregistrement sur son téléphone. L'ajout n'est pas automatique.
+
+Le 8 septembre à 06:00:56 UTC, un seul test autorisé a été envoyé à la boîte Orange du propriétaire via l'implémentation Send Email installée dans n8n, le credential SMTP existant et les paramètres du nouveau nœud client. Transport OVH `ssl0.ovh.net:465`, TLS implicite. Réponse SMTP : `250 2.0.0 Ok: 14033 bytes queued as 59C39C2604`. Aucun enregistrement MongoDB ni email à Cindy n'a été déclenché. L'acceptation SMTP ne prouve pas le classement en boîte de réception ni la validation DKIM du message reçu.
+
+DNS observé : SPF `v=spf1 include:mx.ovh.com -all`, DMARC `v=DMARC1; p=none;`, deux sélecteurs DKIM OVH (`ovhmo-selector-1` et `ovhmo-selector-2`) avec clés publiques résolues. Leur présence ne suffit pas à prouver que chaque message est correctement signé et aligné. Aucun DNS n'a été modifié ; un passage DMARC à `reject` nécessiterait d'abord de contrôler tous les émetteurs du domaine, dont les formulaires envoyant via Resend.
+
+Orange exige une authentification SPF/DKIM/DMARC correcte : https://postmaster.orange.fr/. Pour diagnostiquer le classement du test, vérifier les en-têtes `Authentication-Results`, `DKIM-Signature` et `Return-Path` dans le message reçu. L'activation et les clés DKIM se gèrent chez le fournisseur d'envoi : https://docs.ovhcloud.com/fr/guides/web-cloud/domains/dns-zone-dkim. Ne pas fabriquer de sélecteur ni ajouter un deuxième enregistrement SPF.
+
 ```sh
 node --test scripts/test-rac-client-email.mjs scripts/test-n8n-migration.mjs
 ```

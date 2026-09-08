@@ -20,5 +20,13 @@ test('Both exported workflows embed the exact tested email expression', () => {
     const email=workflow.nodes.find(n=>n.name==='Email rac client');
     assert.equal(email.parameters.html,"={{ (() => { const p = $('Preparer rac').first().json;\n"+source+'\n})() }}');
     assert.equal(email.parameters.toEmail,"={{ $('Preparer rac').first().json.profil_mail }}");
+    assert.equal(email.parameters.fromEmail,'Orizia Courtage <dossier@orizia-courtage.fr>');
+    assert.equal(email.parameters.emailFormat,'both');
+    assert.equal(email.parameters.options.replyTo,'Cindy Urbansky <cindy.urbansky@orizia-courtage.fr>');
+    const textSource=readFileSync(new URL('../automation/n8n/rac-client-text.js',import.meta.url),'utf8');
+    assert.equal(email.parameters.text,"={{ (() => { const p = $('Preparer rac').first().json;\n"+textSource+'\n})() }}');
+    const text=new Function('p',textSource)({profil_prenom:'Camille',numero_dossier:'TEST-001'});
+    assert.ok(text.includes('Bonjour Camille'));
+    assert.ok(text.includes('https://www.orizia-courtage.fr/cindy-urbansky.vcf'));
   }
 });

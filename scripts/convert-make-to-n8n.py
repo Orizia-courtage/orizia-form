@@ -119,12 +119,17 @@ const select = (value, ...args) => {
         if '{{' in subject:
             subject = '=' + subject
         nodes.append(node('Email ' + kind + (' client' if i else ' Cindy'), 'emailSend', {
-            'fromEmail': sender, 'toEmail': to, 'subject': subject, 'emailFormat': 'html',
-            'html': '={{ ' + ref + f'.html{i}' + ' }}', 'options': {'appendAttribution': False}}, len(nodes) * 260, 2.1))
+            'fromEmail': 'Orizia Courtage <' + sender + '>', 'toEmail': to, 'subject': subject, 'emailFormat': 'html',
+            'html': '={{ ' + ref + f'.html{i}' + ' }}', 'options': {'appendAttribution': False, 'allowUnauthorizedCerts': False}}, len(nodes) * 260, 2.1))
     if kind == 'rac':
         client = next(n for n in nodes if n['name'] == 'Email rac client')
         email_source = (OUT / 'rac-client-email.js').read_text(encoding='utf-8')
         client['parameters']['html'] = "={{ (() => { const p = $('Preparer rac').first().json;\n" + email_source + "\n})() }}"
+        text_source = (OUT / 'rac-client-text.js').read_text(encoding='utf-8')
+        client['parameters']['text'] = "={{ (() => { const p = $('Preparer rac').first().json;\n" + text_source + "\n})() }}"
+        client['parameters']['emailFormat'] = 'both'
+        client['parameters']['subject'] = 'Votre demande a bien été reçue | Orizia Courtage'
+        client['parameters']['options']['replyTo'] = 'Cindy Urbansky <cindy.urbansky@orizia-courtage.fr>'
     nodes.append(node('Confirmer ' + kind, 'respondToWebhook', {
         'respondWith': 'json', 'responseBody': '{"success":true}', 'options': {'responseCode': 200}}, len(nodes) * 260, 1.4))
     connections = {a['name']: {'main': [[{'node': b['name'], 'type': 'main', 'index': 0}]]}

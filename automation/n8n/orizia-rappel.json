@@ -50,13 +50,14 @@
         0
       ],
       "parameters": {
-        "fromEmail": "demande-rappel@orizia-courtage.fr",
+        "fromEmail": "Orizia Courtage <demande-rappel@orizia-courtage.fr>",
         "toEmail": "cindy.urbansky@orizia-courtage.fr",
         "subject": "=Demande de rappel {{ String($('Preparer rappel').first().json[\"numero_dossier\"]).replace(/[\\r\\n]/g, \" \") }}",
         "emailFormat": "html",
         "html": "={{ $('Preparer rappel').first().json.html0 }}",
         "options": {
-          "appendAttribution": false
+          "appendAttribution": false,
+          "allowUnauthorizedCerts": false
         }
       }
     },
