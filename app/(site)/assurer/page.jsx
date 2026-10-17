@@ -11,11 +11,11 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Assurances 2026 : Emprunteur, Habitation, Auto | Orizia',
   description:
-    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky compare, optimise et résilie vos contrats. Sans frais de dossier.',
+    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky compare, optimise et résilie vos contrats.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer' },
   openGraph: {
     title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',
-    description: 'Ne laissez plus vos contrats s\'envoler chaque année. Je mets le marché en concurrence, gère vos résiliations via la loi Hamon et Lemoine. Indépendant, sans frais de dossier.',
+    description: 'Ne laissez plus vos contrats s\'envoler chaque année. Je mets le marché en concurrence et gère vos résiliations via la loi Hamon et Lemoine.',
     url: 'https://www.orizia-courtage.fr/assurer',
     siteName: 'Orizia Courtage',
     images: [
@@ -63,7 +63,7 @@ const assurerHubSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Audit, comparaison et résiliation sans frais de dossiers pour le client.',
+        description: 'Audit, comparaison et résiliation avec présentation transparente des modalités.',
       },
     },
   ],
@@ -86,7 +86,7 @@ const faqSchema = {
       name: 'Est-ce que votre service de courtage me coûte plus cher ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pas du tout, c\'est sans frais de dossier pour vous. En assurance, ma rémunération est prise en charge par la compagnie d\'assurance chez qui nous décidons de placer votre contrat. Vous ne payez aucun honoraire, et la prime n\'est pas majorée.',
+        text: 'Les frais et modalités applicables à l\'accompagnement sont présentés de manière transparente avant tout engagement.',
       },
     },
     {
@@ -139,8 +139,8 @@ const DIFFERENCIANTS = [
   },
   {
     icon: '🎯',
-    title: 'sans frais de dossier pour vous',
-    desc: 'Mon accompagnement est sans frais de dossier. Je suis rémunérée par les compagnies partenaires — sans surcoût pour vous.',
+    title: 'Modalités transparentes',
+    desc: 'Les frais éventuels et modalités de l\'accompagnement sont expliqués avant tout engagement.',
     color: '#7c3aed',
     bg: 'rgba(124,58,237,0.06)',
   },
@@ -188,7 +188,7 @@ export default function AssurerPage() {
                   <strong style={{ color: 'var(--orizia-accent)' }}>résilie vos anciens contrats à votre place.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="📋 Auditer mes contrats sans frais de dossier" className="fin-btn-primary inv-hero-cta-main" />
+                  <ContactPopup label="📋 Auditer mes contrats" className="fin-btn-primary inv-hero-cta-main" />
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Voir mes solutions ?
                   </ScrollButton>
@@ -204,7 +204,7 @@ export default function AssurerPage() {
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    sans frais de dossier pour vous
+                    modalités expliquées avant engagement
                   </div>
                 </div>
               </div>
@@ -391,14 +391,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               Faites-moi passer vos avis d'échéance. Je vous dirai honnêtement si vous êtes
               bien assuré(e) ou si on peut faire beaucoup mieux ailleurs.{' '}
-              <strong>Sans frais de courtage pour vous.*</strong>
+              <strong>Modalités de courtage transparentes.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <ContactPopup label="📞 Contactez moi" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS, régie par l'ACPR.
-              Rémunérée par les compagnies partenaires, jamais par vous.
+              Les frais et modalités applicables sont expliqués avant tout engagement.
               * Je ne suis soumise à aucune obligation contractuelle de travailler exclusivement avec une ou plusieurs entreprises d'assurance.
             </p>
           </div>

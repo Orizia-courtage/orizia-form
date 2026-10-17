@@ -67,7 +67,7 @@ const investirCrowdfundingSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Audit des promoteurs, sélection des projets et définition de la stratégie de diversification sans frais de dossieres pour l'investisseur (rémunération par les plateformes partenaires).",
+          "Audit des promoteurs, sélection des projets et définition de la stratégie de diversification avec présentation transparente des modalités.",
       },
     },
     // 3. La FAQ existante
@@ -95,7 +95,7 @@ const investirCrowdfundingSchema = {
           name: 'Pourquoi passer par un courtier pour investir dans le crowdfunding ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les plateformes sont rémunérées par les promoteurs, pas par vous. Leurs intérêts ne sont pas toujours alignés avec les vôtres. En tant que courtier indépendant chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil — le tout sans frais de dossier.',
+            text: 'Les plateformes ont leurs propres modalités de rémunération. En tant que courtier indépendant chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil. Les frais et modalités sont présentés avec transparence.',
           },
         },
         {
@@ -253,7 +253,7 @@ export default function CrowdfundingPage() {
               Investir seul dans le crowdfunding, c'est analyser des bilans de promoteurs
               sans formation, comparer des plateformes sans critères objectifs, et diversifier
               sans stratégie. Je m'occupe de tout ça à votre place.{' '}
-              <strong>Sans frais de dossier.</strong>
+              <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="📅 Échanger avec Cindy" className="fin-btn-primary" />
@@ -663,7 +663,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
 
                 <ContactPopup label="📋 Obtenir ma sélection personnalisée" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
                 <p className="crd-vault-note">
-                  Sans frais de dossier · Sans engagement · Réponse sous 24h
+                  Modalités transparentes · Sans engagement · Réponse sous 24h
                 </p>
               </div>
 
@@ -714,9 +714,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
 
             <div className="crowd-cta-band" style={{ marginTop: 48 }}>
               <div>
-                <strong>Un accompagnement complet, sans frais de dossier</strong>
+                <strong>Un accompagnement complet et personnalisé</strong>
                 <p>
-                  Je suis rémunérée par les plateformes partenaires — jamais par vous.
+                  Les frais et modalités applicables sont expliqués avant tout engagement.
                   Cette indépendance est ma garantie de travailler uniquement dans votre intérêt.
                 </p>
               </div>
@@ -854,7 +854,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 520, margin: '24px auto 0' }}>
               Investir comporte des risques de perte en capital. Les performances passées ne
               préjugent pas des performances futures. Je suis immatriculée à l'ORIAS —
-              rémunérée par les plateformes partenaires, jamais par vous.
+              avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>
         </section>

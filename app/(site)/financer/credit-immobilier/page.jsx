@@ -62,7 +62,7 @@ const creditImmobilierSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de faisabilité sans frais de dossier et sans engagement.',
+        description: 'Étude de faisabilité et présentation transparente des modalités.',
       },
     },
   ],
@@ -109,7 +109,7 @@ const faqSchema = {
       name: 'Combien coûte votre accompagnement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Ils sont largement amortis par les économies réalisées sur le taux et l\'assurance. Un premier bilan de faisabilité est sans frais de dossier et sans engagement.',
+        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Ils sont largement amortis par les économies réalisées sur le taux et l\'assurance. Un premier bilan de faisabilité permet de présenter les modalités avant tout engagement.',
       },
     },
   ],
@@ -579,7 +579,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
-              L'étude est sans frais de dossier et sans engagement.
+              Les modalités de l'étude sont présentées avant tout engagement.
             </p>
           </div>
         </section>

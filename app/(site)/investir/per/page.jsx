@@ -79,7 +79,7 @@ const investirPerSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'L\'audit initial et le conseil en sélection de PER sont sans frais de dossier pour le client (rémunération par l\'assureur partenaire).'
+        description: 'L\'audit initial et le conseil en sélection de PER s\'accompagnent d\'une présentation transparente des modalités.'
       }
     }
   ]
@@ -359,7 +359,7 @@ export default function PERPage() {
               <strong>déduire vos versements de votre revenu imposable</strong> — jusqu'à{' '}
               <strong>4 100€ récupérés sur l'impôt</strong> pour 10 000€ versés à 41% de TMI.
               Je calcule vos plafonds exacts, sélectionne le meilleur contrat et construis
-              votre allocation. <strong>Sans frais de dossier.</strong>
+              votre allocation. <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="🧮 Calculer mon gain fiscal" className="fin-btn-primary"/>
@@ -708,11 +708,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
               <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
               <div>
-                <strong>Un accompagnement complet, sans frais de dossier</strong>
+                <strong>Un accompagnement complet et personnalisé</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
-                  Je suis rémunérée par l'assureur partenaire sous forme de commission
+                  Les frais et modalités applicables sont présentés avec transparence
                   de distribution, encadrée par la réglementation DDA et communiquée
-                  de façon transparente. Vous ne payez rien de plus qu'en souscrivant
+                  de façon claire avant tout engagement. Vous bénéficiez ainsi d'un accompagnement
                   directement — mais vous bénéficiez d'un audit fiscal personnalisé,
                   d'un conseil expert et d'un accès à des contrats haut de gamme.
                 </p>
@@ -866,7 +866,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               Je calcule vos plafonds de déduction exacts, sélectionne le meilleur
               contrat PER du marché et vous accompagne de la souscription au suivi annuel.
-              0% de frais sur versements. Rémunération par les partenaires.
+              Frais et modalités présentés avec transparence.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="🧮 Calculer mon gain fiscal avec Cindy" className="fin-btn-primary"/>
@@ -879,7 +879,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Les performances passées ne préjugent pas des performances futures.
               L'avantage fiscal dépend de votre situation personnelle et est susceptible d'évoluer.
               Je suis immatriculée à l'ORIAS, régie par l'ACPR —
-              rémunérée par les assureurs partenaires, jamais par vous.
+              avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>
         </section>

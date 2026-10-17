@@ -15,7 +15,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
   openGraph: {
     title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
-    description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine. Bilan sans frais.',
+    description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine.',
     url: 'https://www.orizia-courtage.fr/investir',
     siteName: 'Orizia Courtage',
     images: [
@@ -62,7 +62,7 @@ const investirHubSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Bilan patrimonial et conseil sans frais de dossier pour le client.',
+        description: 'Bilan patrimonial et conseil avec présentation transparente des modalités.',
       },
     },
   ],
@@ -98,7 +98,7 @@ const FAQ_INVESTIR = [
   },
   {
     q: 'Combien coûte un bilan patrimonial avec Orizia Courtage ?',
-    r: 'Le bilan patrimonial et l\'accompagnement sont sans frais de dossier pour vous. Je suis rémunérée par les sociétés de gestion ou assureurs partenaires sous forme de commission, encadrée par la réglementation DDA et communiquée de manière transparente dès notre premier échange.',
+    r: 'Les frais et modalités de l\'accompagnement sont présentés de manière transparente dès notre premier échange.',
   },
   {
     q: 'Par quel placement commencer quand on débute ?',
@@ -138,8 +138,8 @@ const DIFFERENCIANTS = [
   },
   {
     icon: '🎯',
-    title: 'Sans frais de dossier',
-    desc: 'Mon accompagnement est sans frais de dossier. Je suis rémunérée par les sociétés de gestion partenaires — sans surcoût pour vous, jamais.',
+    title: 'Modalités transparentes',
+    desc: 'Les frais éventuels et modalités de l\'accompagnement sont expliqués avant tout engagement.',
     color: '#16a34a',
     bg: 'rgba(22,163,74,0.06)',
   },
@@ -181,10 +181,10 @@ export default function InvestirPage() {
                   SCPI, Assurance Vie, PER, Crowdfunding — j'accède aux meilleurs
                   placements du marché, inaccessibles en banque classique.
                   Je construis votre stratégie patrimoniale sur-mesure.{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>Sans frais de dossier.</strong>
+                  <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="📅 Bilan patrimonial sans frais" className="fin-btn-primary inv-hero-cta-main"/>
+                  <ContactPopup label="📅 Bilan patrimonial" className="fin-btn-primary inv-hero-cta-main"/>
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Découvrir les placements ?
                   </ScrollButton>
@@ -392,7 +392,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               Faisons connaissance. Nous analyserons votre patrimoine actuel et définirons
               ensemble une stratégie pour atteindre vos objectifs financiers.
-              <strong> Sans frais de courtage pour vous.*</strong>
+              <strong> Modalités de courtage transparentes.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <ContactPopup label="📅 Planifier mon bilan" className="fin-btn-primary"/>
@@ -400,7 +400,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               L'investissement comporte des risques de perte en capital. Je suis
               immatriculée à l'ORIAS, indépendante.
-              * Je suis rémunérée par les sociétés de gestion ou assureurs partenaires — sans frais supplémentaires pour vous.
+              * Les frais et modalités applicables sont présentés avant tout engagement.
             </p>
           </div>
         </section>

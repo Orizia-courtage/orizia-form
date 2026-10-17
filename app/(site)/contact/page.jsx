@@ -107,7 +107,7 @@ const MOYENS = [
 const FAQ_CONTACT = [
   {
     q: 'Y a-t-il des frais pour le premier rendez-vous ?',
-    r: 'Oui, sans exception. Le premier rendez-vous est un échange de découverte, sans engagement. Orizia Courtage est rémunéré par les établissements partenaires uniquement si un dossier aboutit à une souscription. Vous ne payez jamais de frais de conseil.',
+    r: 'Le premier rendez-vous est un échange de découverte, sans engagement. Les frais et modalités de l\'accompagnement sont présentés de manière transparente avant tout engagement.',
   },
   {
     q: 'En combien de temps puis-je obtenir un rendez-vous ?',
@@ -156,13 +156,13 @@ export default function ContactPage() {
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, assurance, investissement — Cindy analyse votre situation
                   et vous propose une solution adaptée. Premier rendez-vous{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>sans frais de dossier, sans engagement</strong>,
+                  <strong style={{ color: 'var(--orizia-accent)' }}>modalités transparentes</strong>,
                   100% en visioconférence.
                 </p>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)', paddingTop: 20, marginTop: 8 }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    Sans frais de dossier · Sans engagement
+                    Modalités transparentes · Sans engagement
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
@@ -317,7 +317,7 @@ export default function ContactPage() {
               <div className="contact-cal-item">
                 <span>🎯</span>
                 <div>
-                  <strong>sans frais de dossier</strong>
+                  <strong>modalités transparentes</strong>
                   <span>Aucune obligation de suite</span>
                 </div>
               </div>

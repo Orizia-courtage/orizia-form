@@ -30,7 +30,7 @@ export default function RdvReassurance() {
       <div className="rdv-reassurance-points">
         {[
           { icon: '🎯', text: 'Analyse personnalisée de votre situation' },
-          { icon: '🔒', text: 'sans frais de dossier, sans engagement' },
+          { icon: '🔒', text: 'Modalités présentées avant engagement' },
           { icon: '⚡', text: 'Réponse sous 24h garantie' },
           { icon: '📞', text: 'Par téléphone ou visioconférence' },
         ].map(p => (

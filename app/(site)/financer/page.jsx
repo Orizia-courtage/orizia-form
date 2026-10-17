@@ -60,7 +60,7 @@ const financerHubSchema = {
         },
       },
       description:
-        'Négociation de crédit immobilier, regroupement de crédits, prêt personnel et rachat de soulte. Accès à plus de 40 banques et organismes partenaires. Étude de faisabilité sans frais de dossier et sans engagement.',
+        'Négociation de crédit immobilier, regroupement de crédits, prêt personnel et rachat de soulte. Accès à plus de 40 banques et organismes partenaires. Étude de faisabilité avec présentation transparente des modalités.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -81,7 +81,7 @@ const financerHubSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de faisabilité et accompagnement complet sans frais de dossier. Rémunération par la banque partenaire à la signature.',
+        description: 'Étude de faisabilité et accompagnement complet avec présentation transparente des modalités.',
       },
     },
   ],
@@ -96,7 +96,7 @@ const faqSchema = {
       name: 'Combien coûte le service d\'un courtier en crédit immobilier ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour la majorité des financements, ma rémunération est prise en charge par la banque chez qui nous signons. Vous ne payez aucun honoraire. L\'étude de faisabilité et l\'accompagnement complet sont sans frais de dossiers pour vous.',
+        text: 'Les frais et modalités de l\'accompagnement sont présentés de manière transparente avant tout engagement.',
       },
     },
     {
@@ -189,8 +189,8 @@ const DIFFERENCIANTS = [
   },
   {
     icon: '🎯',
-    title: 'sans frais de dossier pour vous',
-    desc: 'Ma rémunération est prise en charge par la banque partenaire. Vous ne payez aucun honoraire de courtage.',
+    title: 'Modalités transparentes',
+    desc: 'Les frais éventuels et modalités de courtage sont expliqués avant tout engagement.',
     color: '#7c3aed',
     bg: 'rgba(124,58,237,0.06)',
   },
@@ -230,7 +230,7 @@ export default function FinancerPage() {
                   Crédit immobilier, regroupement, prêt personnel, rachat de soulte —
                   je compare 40+ banques, négocie chaque dixième de point
                   et vous accompagne jusqu'à la signature.{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>Sans frais de dossier.</strong>
+                  <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
                 <div className="inv-hero-actions">
                   <ContactPopup label="📅 Étude de faisabilité avec Cindy" className="fin-btn-primary inv-hero-cta-main" />
@@ -249,7 +249,7 @@ export default function FinancerPage() {
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    sans frais de dossier pour vous
+                    modalités expliquées avant engagement
                   </div>
                 </div>
               </div>
@@ -490,7 +490,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               Confiez-moi votre dossier. Je compare 40+ banques, négocie chaque condition
               et vous accompagne jusqu'à la signature.{' '}
-              <strong>Sans frais de courtage pour vous.*</strong>
+              <strong>Modalités de courtage transparentes.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <ContactPopup label="✉️ Poser une question" className="fin-btn-primary" />
@@ -498,7 +498,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              * Je suis rémunérée par la banque partenaire à la signature — sans frais de dossier pour vous.
+              * Les frais et modalités applicables sont présentés avant tout engagement.
               Orizia Courtage, immatriculée à l'ORIAS, intervient en qualité de Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
             </p>
           </div>

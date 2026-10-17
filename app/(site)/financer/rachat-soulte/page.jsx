@@ -69,7 +69,7 @@ const rachatSoulteSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de faisabilité sans frais de dossier et sans engagement.',
+        description: 'Étude de faisabilité et présentation transparente des modalités.',
       },
     },
   ],
@@ -124,7 +124,7 @@ const faqSchema = {
       name: 'Combien coûte votre accompagnement pour un rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Mon accompagnement est sans frais de dossier pour vous. Je suis rémunérée par la banque partenaire chez qui nous signons le financement. L\'étude de faisabilité et le montage du dossier ne vous coûtent rien.',
+        text: 'Les frais et modalités de l\'accompagnement sont présentés de manière transparente avant tout engagement.',
       },
     },
   ],
@@ -236,7 +236,7 @@ export default function RachatSoultePage() {
             {[
               { val: '2,5%', label: 'Droits de partage dus au notaire', icon: '📋' },
               { val: '+40', label: 'Banques partenaires comparées', icon: '🏦' },
-              { val: '100%', label: 'sans frais de dossier pour vous', icon: '✅' },
+              { val: '100%', label: 'modalités transparentes', icon: '✅' },
               { val: '24h', label: 'Pour une première estimation', icon: '⏱️' },
             ].map(c => (
               <div key={c.label} className="fin-chiffre">
@@ -428,11 +428,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>
               <div>
-                <strong>Un accompagnement complet, sans frais de dossier</strong>
+                <strong>Un accompagnement complet et personnalisé</strong>
                 <p>
-                  Je suis rémunérée par la banque partenaire chez qui nous signons le financement.
-                  L'étude de faisabilité, le montage du dossier et la coordination avec votre notaire
-                  ne vous coûtent rien.
+                  Les frais et modalités applicables sont expliqués de manière claire avant tout engagement.
                 </p>
               </div>
               <ContactPopup label="🚀 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />

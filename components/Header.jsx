@@ -349,7 +349,7 @@ export default function Header() {
               onClick={openCalModal}
               className="mobile-sticky-btn mobile-sticky-btn--full"
             >
-              📅 Prendre rendez-vous — Sans frais de dossier
+              📅 Prendre rendez-vous
             </button>
           )}
 

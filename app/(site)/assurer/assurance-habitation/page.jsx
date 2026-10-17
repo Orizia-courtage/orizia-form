@@ -15,7 +15,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-habitation' },
   openGraph: {
     title: 'Assurance Habitation 2026 : Baissez la facture | Orizia Courtage',
-    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat via la loi Hamon, sans coupure. Indépendant, sans frais de dossier.',
+    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat via la loi Hamon, sans coupure.',
     url: 'https://www.orizia-courtage.fr/assurer/assurance-habitation',
     siteName: 'Orizia Courtage',
     images: [
@@ -64,7 +64,7 @@ const assuranceHabitationSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation sans frais de dossieres pour l\'assuré.',
+        description: 'Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation avec présentation transparente des modalités.',
       },
     },
   ],
@@ -111,7 +111,7 @@ const faqSchema = {
       name: "Pourquoi passer par une courtier indépendant ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat. Le tout, sans frais de dossier pour vous.",
+        text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat.",
       },
     },
   ],
@@ -473,10 +473,10 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
               <div className="av-gratuit-icon">🤝</div>
               <div>
-                <strong>Un accompagnement expert, sans frais de dossier</strong>
+                <strong>Un accompagnement expert et personnalisé</strong>
                 <p>
                   Je suis rémunérée directement par l'assureur que nous choisissons ensemble. 
-                  Vous ne payez pas de frais de dossier, vous ne payez pas plus cher votre cotisation, 
+                  Les frais et modalités applicables sont présentés de manière transparente,
                   mais vous gagnez une alliée qui lit les petites lignes à votre place.
                 </p>
               </div>

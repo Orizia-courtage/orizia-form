@@ -79,7 +79,7 @@ const oriziaSchema = {
   sameAs: [
     'https://www.linkedin.com/company/orizia-courtage',
     'https://www.facebook.com/orizia.courtage/',
-    'https://www.instagram.com/orizia.courtage/',
+    'https://www.instagram.com/orizia_courtage/',
     'https://www.linkedin.com/in/cindy-urbansky-034323162/',
   ],
   founder: {
@@ -88,7 +88,7 @@ const oriziaSchema = {
     name: 'Cindy Urbansky',
     jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
     description:
-      'Courtier indépendant certifié ORIAS avec plus de 15 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
+      'Courtier indépendant certifié ORIAS avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
     image: 'https://www.orizia-courtage.fr/images/photo-cindy.webp',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
@@ -134,7 +134,7 @@ const oriziaSchema = {
       closes: '18:00',
     },
   ],
-  priceRange: '€ (sans frais de dossier)',
+  priceRange: '€€',
   currenciesAccepted: 'EUR',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -182,7 +182,7 @@ const faqSchema = {
       name: 'Combien coûte le service d\'Orizia Courtage ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'L\'étude de faisabilité et l\'accompagnement sont sans frais de dossier pour vous. Je suis rémunérée par la banque ou l\'assureur partenaire à la signature — jamais par vous.',
+        text: 'Les modalités de rémunération et les éventuels frais sont présentés de manière transparente avant tout engagement.',
       },
     },
     {
@@ -315,7 +315,7 @@ export default function HomePage() {
                 dans un langage humain. Pas de jargon. Pas de pression.
               </p>
               <div className="home-citation-badges">
-                {['15+ ans d\'expérience', '+40 banques comparées', 'ORIAS certifié', 'Sans frais de dossier'].map(b => (
+                {['20 ans d\'expérience', '+40 banques comparées', 'ORIAS certifié', 'Accompagnement personnalisé'].map(b => (
                   <span key={b} className="home-citation-badge">{b}</span>
                 ))}
               </div>
@@ -378,7 +378,7 @@ export default function HomePage() {
                 </p>
                 <div className="home-why-points">
                   {[
-                    { icon: '🎯', text: 'Étude personnalisée, sans frais de dossier' },
+                    { icon: '🎯', text: 'Étude personnalisée' },
                     { icon: '🏦', text: 'Accès à plus de 40 partenaires bancaires' },
                     { icon: '📞', text: 'Vous parlez toujours à la même personne' },
                     { icon: '⚖️', text: 'Aucun lien exclusif avec les banques' },
@@ -453,7 +453,7 @@ export default function HomePage() {
             <p>
               On commence par une conversation simple sur votre situation et vos objectifs.
               Je vous dis franchement ce qui est possible, dans quel délai et pourquoi.
-              C'est sans frais de dossier. Et ça n'engage à rien.
+              Les modalités de l'accompagnement sont expliquées avant tout engagement.
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
               <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary"  />

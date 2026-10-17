@@ -16,7 +16,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
-    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon. Indépendant, sans frais de dossier.',
+    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon.',
     url: 'https://www.orizia-courtage.fr/assurer/auto-moto',
     siteName: 'Orizia Courtage',
     images: [
@@ -66,7 +66,7 @@ const assuranceAutoMotoSchema = {
         price: '0',
         priceCurrency: 'EUR',
         description:
-          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation sans frais de dossieres pour l'assuré.",
+          "Analyse des besoins, comparaison des devis et gestion administrative de la résiliation avec présentation transparente des modalités.",
       },
     },
   ]

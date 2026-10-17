@@ -6,11 +6,11 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 export const metadata = {
   title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
   description:
-    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 15+ ans d\'expérience en crédit, assurance et patrimoine. Présidente de l\'AFIB.',
+    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 20 ans d\'expérience en crédit, assurance et patrimoine. Présidente de l\'AFIB.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
   openGraph: {
     title: 'Cindy Urbansky — Courtier Indépendant | Orizia Courtage',
-    description: '15+ ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
+    description: '20 ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     siteName: 'Orizia Courtage',
     images: [{ url: 'https://www.orizia-courtage.fr/images/photo-cindy.webp', width: 800, height: 800, alt: 'Cindy Urbansky - Orizia Courtage' }],
@@ -24,10 +24,10 @@ const personSchema = {
   '@type': 'Person',
   name: 'Cindy Urbansky',
   jobTitle: 'Courtier indépendant en crédit, assurance et gestion de patrimoine',
-  description: 'Courtier indépendant certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. Plus de 15 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
+  description: 'Courtier indépendant certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
   image: 'https://www.orizia-courtage.fr/images/photo-cindy.webp',
   url: 'https://www.orizia-courtage.fr/qui-suis-je',
-  sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/'],
+  sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/', 'https://www.instagram.com/orizia_courtage/'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Marcq-en-Barœul',
@@ -46,7 +46,7 @@ const personSchema = {
 const PARCOURS = [
   
   {
-    periode: '2021 – Présent',
+    periode: '2021 à ce jour',
     poste: 'Présidente du conseil de surveillance',
     entreprise: 'AFIB — Association Française des Intermédiaires en Bancassurance',
     type: 'Indépendant',
@@ -122,7 +122,7 @@ const PARCOURS = [
 ];
 
 const CHIFFRES = [
-  { val: '15+', label: 'Ans d\'expérience', icon: '📅' },
+  { val: '20', label: 'Ans d\'expérience', icon: '📅' },
   { val: '2005', label: 'Début de carrière dans la banque', icon: '🏦' },
   { val: 'AFIB', label: 'Présidente du conseil de surveillance', icon: '⚖️' },
   { val: 'ORIAS', label: 'Immatriculée & certifiée', icon: '🛡️' },
@@ -160,7 +160,7 @@ export default function QuiSuisJePage() {
                 <div className="qsj-hero-photo-badge">
                   <span>🏆</span>
                   <div>
-                    <strong>15+ ans</strong>
+                    <strong>20 ans</strong>
                     <span>d'expérience</span>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ export default function QuiSuisJePage() {
                 </div>
                 {[
                   { icon: '🎯', titre: 'Indépendance totale', desc: 'Aucun lien exclusif avec une banque ou un assureur. Je travaille pour vous, pas pour eux.' },
-                  { icon: '🔍', titre: 'Expertise terrain', desc: '15+ ans dans l\'intermédiation bancaire, de l\'analyse crédit à la direction commerciale nationale.' },
+                  { icon: '🔍', titre: 'Expertise terrain', desc: '20 ans dans l\'intermédiation bancaire, de l\'analyse crédit à la direction commerciale nationale.' },
                   { icon: '🤝', titre: 'Relation directe', desc: 'Vous parlez toujours à moi. Pas à un centre d\'appels, pas à un assistant.' },
                   { icon: '⚖️', titre: 'Engagement sectoriel', desc: 'Présidente du conseil de surveillance de l\'AFIB — je contribue à l\'amélioration des pratiques du secteur.' },
                 ].map(e => (

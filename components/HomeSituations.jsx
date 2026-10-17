@@ -56,7 +56,7 @@ const SITUATIONS = [
       { label: 'Assurance Vie', href: '/investir/assurance-vie' },
       { label: 'Crowdfunding', href: '/investir/crowdfunding' },
     ],
-    cta: '📅 Bilan patrimonial sans frais',
+    cta: '📅 Bilan patrimonial',
   },
 ];
 

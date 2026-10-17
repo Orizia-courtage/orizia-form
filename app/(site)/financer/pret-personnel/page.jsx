@@ -62,7 +62,7 @@ const pretPersonnelSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude et accompagnement sans frais de dossiers (rémunération par l\'organisme prêteur partenaire).',
+        description: 'Étude et accompagnement avec présentation transparente des modalités.',
       },
     },
   ],
@@ -171,7 +171,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Est-ce que vos services vont me coûter cher ? »',
-    r: 'Zéro. Pour les prêts personnels, je suis rémunérée directement par l\'établissement bancaire partenaire chez qui nous signons le prêt. Mon accompagnement est sans frais de dossier pour vous.',
+    r: 'Les frais et modalités applicables aux prêts personnels vous sont présentés de manière transparente avant tout engagement.',
   },
   {
     q: '« J\'ai déjà plusieurs petits crédits en cours... »',
@@ -233,7 +233,7 @@ export default function PretPersonnelPage() {
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Accompagnement sans frais de dossier</span>
+              <span>✅ Accompagnement personnalisé</span>
               <span>❌ Zéro crédit toxique (renouvelable)</span>
               <span>⚡ Réponse de principe sous 48h</span>
             </div>
@@ -426,9 +426,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>
               <div>
-                <strong>Un accompagnement expert, sans frais de dossier</strong>
+                <strong>Un accompagnement expert et personnalisé</strong>
                 <p>
-                  Pour les crédits à la consommation, je suis rémunérée directement par l'organisme prêteur sous forme de commission d'apporteur d'affaires. Mon travail de recherche et de négociation ne vous coûte absolument rien.
+                  Pour les crédits à la consommation, les frais et modalités applicables sont expliqués de manière transparente avant tout engagement.
                 </p>
               </div>
               <ContactPopup label="🚀 Démarrer ma demande" className="fin-btn-primary" style={{ flexShrink: 0 }} />

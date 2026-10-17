@@ -109,7 +109,7 @@ const NAV = [
       { href: '/financer/pret-personnel',       title: 'Prêt personnel',          sub: 'Financez vos projets',         Icon: Icons.PretPerso },
       { href: '/financer/rachat-soulte',        title: 'Rachat de soulte',        sub: 'Divorce · Séparation',         Icon: Icons.Soulte },
     ],
-    cta: { href: '/financer', label: 'Faire une simulation gratuite' },
+    cta: { href: '/financer', label: 'Faire une simulation' },
   },
   {
     label: 'Assurer',
@@ -258,7 +258,7 @@ export default function HeaderV2() {
           <div className="hv2-topbar-inner">
             <span className="hv2-topbar-trust">
               <span className="hv2-topbar-dot" />
-              Courtier indépendant · Certifié ORIAS · Sans frais de dossier
+              Courtier indépendant · Certifié ORIAS
             </span>
             <div className="hv2-topbar-links">
               <Link href="/qui-suis-je">Qui suis-je ?</Link>
@@ -406,7 +406,7 @@ export default function HeaderV2() {
                   </div>
 
                   <div className="hv2-mega-footer-trust">
-                    {['ORIAS', 'Sans frais', 'Réponse 24h', '+40 banques'].map(t => (
+                    {['ORIAS', 'Accompagnement', 'Réponse 24h', '+40 banques'].map(t => (
                       <span key={t} className="hv2-mega-footer-badge">{t}</span>
                     ))}
                   </div>

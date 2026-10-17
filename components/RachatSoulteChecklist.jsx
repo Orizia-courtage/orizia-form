@@ -106,7 +106,7 @@ export default function RachatSoulteChecklist() {
                 <strong>Votre dossier semble viable — passons à l'étude</strong>
                 <p>
                   Les conditions sont réunies pour monter un financement. Je vérifie la faisabilité
-                  complète et je consulte mes partenaires bancaires sans frais pour vous.
+                  complète et je consulte mes partenaires bancaires en vous présentant les modalités applicables.
                 </p>
                 <ContactPopup label="📅 Lancer mon étude" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>

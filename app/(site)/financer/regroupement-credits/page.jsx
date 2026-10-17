@@ -15,7 +15,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
   openGraph: {
     title: 'Regroupement de Crédits : -60% sur vos mensualités | Orizia Courtage',
-    description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier sans frais de dossier et vous propose la solution adaptée à votre profil.',
+    description: 'Un seul crédit, une seule mensualité réduite. J\'étudie votre dossier et vous propose la solution adaptée à votre profil.',
     url: 'https://www.orizia-courtage.fr/financer/regroupement-credits',
     siteName: 'Orizia Courtage',
     images: [
@@ -70,7 +70,7 @@ const regroupementSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Étude de dossier sans frais de dossier et sans engagement.',
+        description: 'Étude de dossier et présentation transparente des modalités.',
       },
     },
   ],
@@ -122,10 +122,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'L\'étude est-elle sans frais de dossier et sans engagement ?',
+      name: 'Comment sont présentées les modalités de l\'étude ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, l\'étude est sans frais de dossier et sans engagement. Aucun frais n\'est demandé avant la mise en place effective du regroupement.',
+        text: 'Les modalités de l\'étude et les éventuels frais sont présentés de manière transparente avant tout engagement.',
       },
     },
   ],
@@ -134,7 +134,7 @@ const faqSchema = {
 const CHIFFRES = [
   { value: '-60%', label: 'de réduction de mensualités possible', icon: '📉' },
   { value: '24h', label: 'pour une première réponse de principe', icon: '⏱️' },
-  { value: '100%', label: 'sans frais · sans engagement', icon: '🎯' },
+  { value: '100%', label: 'accompagnement personnalisé', icon: '🎯' },
   { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: '📋' },
 ];
 
@@ -248,7 +248,7 @@ export default function RegroupementCreditsPage() {
               Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
               Le regroupement de crédits réunit tous vos emprunts en <strong>un seul</strong>,
               avec une mensualité unique et allégée. J'étudie votre
-              dossier <strong>sans frais de dossier</strong> et sans engagement.
+              dossier et vous présente les modalités avant tout engagement.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
@@ -259,7 +259,7 @@ export default function RegroupementCreditsPage() {
               </a>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Sans frais de dossier · Sans engagement</span>
+              <span>✅ Modalités transparentes · Accompagnement personnalisé</span>
               <span>⚡ Réponse sous 24h</span>
               <span>🔒 Données sécurisées</span>
             </div>
@@ -637,7 +637,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               5 minutes de formulaire. 24h de délai. Une proposition concrète.
               J'analyse votre profil, j'identifie la solution optimale
-              et je vous accompagne jusqu'à la mise en place. Sans frais.
+              et je vous accompagne jusqu'à la mise en place, avec des modalités expliquées en amont.
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">

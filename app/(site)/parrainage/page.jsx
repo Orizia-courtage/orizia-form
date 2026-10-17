@@ -4,9 +4,9 @@ import ContactPopup from '@/components/ContactPopup';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€ | Orizia Courtage',
+  title: 'Programme de Parrainage Orizia : jusqu\'à 200€ | Orizia Courtage',
   description:
-    'Recommandez-moi à vos proches et recevez jusqu\'à 200€ par dossier finalisé. Crédit immobilier, assurance emprunteur, placements. Parrainage sans frais.',
+    'Recommandez-moi à vos proches et recevez jusqu\'à 200€ par dossier finalisé. Crédit immobilier, assurance emprunteur et placements.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/parrainage' },
   openGraph: {
     title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€',
@@ -52,7 +52,7 @@ const parrainageSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Participation sans frais de dossier. Récompense versée sous forme de chèques cadeaux à la finalisation du dossier du filleul.',
+        description: 'Récompense versée au parrain sous forme de chèques cadeaux à la finalisation du dossier du filleul.',
       },
     },
   ],
@@ -67,7 +67,7 @@ const faqSchema = {
       name: 'Comment fonctionne le programme de parrainage Orizia ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Vous me recommandez à un proche en remplissant le formulaire de parrainage. Je prends contact avec votre filleul pour étudier son projet. Dès que son dossier est finalisé et signé, vous recevez tous les deux un chèque cadeau selon le type de dossier.',
+        text: 'Vous me recommandez à un proche en remplissant le formulaire de parrainage. Je prends contact avec votre filleul pour étudier son projet. Dès que son dossier est finalisé et signé, vous recevez un chèque cadeau selon le type de dossier.',
       },
     },
     {
@@ -75,7 +75,7 @@ const faqSchema = {
       name: 'Combien puis-je gagner avec le parrainage ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour un crédit immobilier finalisé : 200€ pour le parrain. Pour une délégation d\'assurance emprunteur : 100€ pour le parrain et 50€ pour le filleul. Pour un placement (SCPI, PER, Assurance Vie, Crowdfunding) ou une assurance habitation/auto : 50€ pour le parrain et 20€ pour le filleul. Il n\'y a pas de limite au nombre de parrainages.',
+        text: 'Pour un crédit immobilier finalisé : 200€ pour le parrain. Pour une délégation d\'assurance emprunteur : 50€ pour le parrain. Pour un placement (SCPI, PER, assurance vie ou crowdfunding) : 100€ pour le parrain. Il n\'y a pas de limite au nombre de parrainages.',
       },
     },
     {
@@ -128,8 +128,8 @@ export default function ParrainagePage() {
               Parlez-en autour de vous.
             </h1>
             <p>
-              Pour vous remercier de votre confiance, je vous offre, ainsi qu'à votre filleul,
-              des chèques cadeaux valables dans un large choix de boutiques pour chaque dossier finalisé.
+              Pour vous remercier de votre confiance, je vous offre des chèques cadeaux
+              valables dans un large choix de boutiques pour chaque dossier finalisé.
             </p>
           </div>
         </section>
@@ -159,8 +159,7 @@ export default function ParrainagePage() {
                   <li>• Délégation d'assurance emprunteur</li>
                 </ul>
                 <div className="reward-badge-group">
-                  <div className="reward-badge badge-assurance">Pour le parrain : 100 €</div>
-                  <div className="reward-badge badge-assurance light">Pour le filleul : 50 €</div>
+                  <div className="reward-badge badge-assurance">Pour le parrain : 50 €</div>
                 </div>
               </div>
               <div className="reward-card card-placement">
@@ -169,11 +168,9 @@ export default function ParrainagePage() {
                 <ul className="reward-list">
                   <li>• SCPI / PER / Assurance Vie</li>
                   <li>• Crowdfunding</li>
-                  <li>• Assurance Habitation / Auto</li>
                 </ul>
                 <div className="reward-badge-group">
-                  <div className="reward-badge badge-placement">Pour le parrain : 50 €</div>
-                  <div className="reward-badge badge-placement light">Pour le filleul : 20 €</div>
+                  <div className="reward-badge badge-placement">Pour le parrain : 100 €</div>
                 </div>
               </div>
             </div>

@@ -17,7 +17,7 @@ export const metadata = {
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
-    description: 'Je sélectionne pour vous le meilleur contrat d\'assurance vie. 0% de frais sur versements, contrats haut de gamme, accompagnement personnalisé. Indépendant et sans frais de dossier.',
+    description: 'Je sélectionne pour vous le contrat d\'assurance vie le plus adapté : contrats haut de gamme et accompagnement personnalisé.',
     url: 'https://www.orizia-courtage.fr/investir/assurance-vie',
     siteName: 'Orizia Courtage',
     images: [
@@ -65,7 +65,7 @@ const assuranceVieSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
-        description: 'Audit, conseil et accompagnement sans frais de dossier pour le client (rémunération par les assureurs partenaires).',
+        description: 'Audit, conseil et accompagnement avec présentation transparente des modalités.',
       },
     },
   ],
@@ -128,7 +128,7 @@ const faqSchema = {
       name: 'Combien de temps dure un rendez-vous avec Cindy Urbansky ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le premier rendez-vous dure environ 45 minutes, en visioconférence ou par téléphone. J\'analyse votre situation patrimoniale, vos objectifs et votre profil de risque. Sous 48h, vous recevez une recommandation personnalisée avec les contrats sélectionnés et l\'allocation conseillée. L\'accompagnement est sans frais de dossier.',
+        text: 'Le premier rendez-vous dure environ 45 minutes, en visioconférence ou par téléphone. J\'analyse votre situation patrimoniale, vos objectifs et votre profil de risque. Sous 48h, vous recevez une recommandation personnalisée avec les contrats sélectionnés et l\'allocation conseillée.',
       },
     },
   ],
@@ -281,7 +281,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Y a-t-il des frais de dossier ? »',
-    r: 'Totalement. Je suis rémunérée par l\'assureur partenaire sous forme de commission de distribution, incluse dans le contrat. Ce mécanisme est encadré par la réglementation DDA et vous est communiqué de manière transparente dès notre premier échange.',
+    r: 'Les frais et modalités applicables sont présentés de manière transparente dès notre premier échange, conformément au cadre réglementaire.',
   },
 ];
 
@@ -330,7 +330,7 @@ export default function AssuranceViePage() {
               trop de frais pour des performances insuffisantes. Je sélectionne pour vous
               les meilleurs contrats du marché, construis l'allocation adaptée à votre profil
               et rédige votre clause bénéficiaire sur-mesure.{' '}
-              <strong>Sans frais de dossier.</strong>
+              <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="📋 Auditer mon contrat" className="fin-btn-primary" />
@@ -593,11 +593,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="av-gratuit-bloc">
               <div className="av-gratuit-icon">🤝</div>
               <div>
-                <strong>Un accompagnement complet, sans frais de dossier</strong>
+                <strong>Un accompagnement complet et personnalisé</strong>
                 <p>
-                  Je suis rémunérée par l'assureur partenaire sous forme de commission
+                  Les frais et modalités applicables sont présentés avec transparence,
                   de distribution, incluse dans le contrat et encadrée par la réglementation
-                  DDA. Vous ne payez rien de plus qu'en souscrivant directement — mais vous
+                  DDA. Vous bénéficiez ainsi d'une information claire avant tout engagement — et vous
                   bénéficiez d'un conseil expert et d'un accès à des contrats inaccessibles
                   en banque classique.
                 </p>
@@ -764,7 +764,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <p>
               J'audite votre contrat actuel, sélectionne le meilleur contrat du marché
               selon votre profil et vous accompagne de la souscription au suivi annuel.
-              0% de frais sur versements. Rémunération par les partenaires.
+              Frais et modalités présentés avec transparence.
             </p>
             <div className="fin-hero-btns">
               <ContactPopup label="📞 Poser une question" className="fin-btn-primary" />
@@ -776,7 +776,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               L'assurance vie comporte un risque de perte en capital sur les unités
               de compte. Les performances passées ne préjugent pas des performances
               futures. Je suis immatriculée à l'ORIAS, régie par l'ACPR —
-              rémunérée par les assureurs partenaires, jamais par vous.
+              avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>
         </section>
