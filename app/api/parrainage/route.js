@@ -100,7 +100,7 @@ export async function POST(request) {
           </p>
           
           <p>Si vous préférez choisir un créneau précis, vous pouvez réserver un rendez-vous directement dans mon agenda : 
-          <a href="https://www.cal.eu/cindy-urbansky/rendez-vous" style="color:#3a6f6c; font-weight:bold;">Prendre rendez-vous ici</a>.</p>
+          <a href="https://cal.com/cindy-urbansky/rendez-vous" style="color:#3a6f6c; font-weight:bold;">Prendre rendez-vous ici</a>.</p>
           
           <p>Vous pouvez également consulter mon site pour découvrir mes solutions : <a href="${siteLink}" style="color:#3a6f6c;">${siteLink}</a>.</p>
           

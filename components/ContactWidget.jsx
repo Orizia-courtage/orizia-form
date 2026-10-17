@@ -156,7 +156,7 @@ export default function ContactWidget() {
 
             {tab === 'rdv' && (
               <iframe
-                src="https://cal.eu/cindy-urbansky?embed=true"
+                src="https://cal.com/cindy-urbansky?embed=true"
                 style={{ width: '100%', height: '100%', border: 'none' }}
               />
             )}

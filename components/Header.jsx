@@ -72,7 +72,7 @@ const HIDE_SCROLL_HEADER  = ['/contact', '/rendez-vous'];
 const STICKY_MOBILE_PAGES = ['/rendez-vous'];
 
 const CAL_LINK   = 'cindy-urbansky/rendez-vous';
-const CAL_ORIGIN = 'https://cal.eu';
+const CAL_ORIGIN = 'https://cal.com';
 
 function getMobileScrollType(pathname) {
   if (HIDE_SCROLL_HEADER.some(p => pathname.startsWith(p))) return 'hidden';
@@ -92,7 +92,7 @@ export default function Header() {
   const router   = useRouter();
   const pathname = usePathname();
 
-  // ── Chargement Cal.eu à la demande (lazy) ───────────────────────────────
+  // ── Chargement Cal.com à la demande (lazy) ──────────────────────────────
   const loadCal = useCallback(() => {
     return new Promise((resolve) => {
       if (window.Cal) { resolve(); return; }

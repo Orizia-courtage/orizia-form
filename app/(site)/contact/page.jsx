@@ -325,7 +325,7 @@ export default function ContactPage() {
 
             <div className="contact-cal-wrapper">
               <iframe
-                src="https://cal.eu/cindy-urbansky?embed=true&theme=light"
+                src="https://cal.com/cindy-urbansky?embed=true&theme=light"
                 style={{
                   width: '100%',
                   minHeight: 680,

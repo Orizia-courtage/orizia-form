@@ -413,7 +413,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
             </div>
             <div className="cp-modal-body">
               <iframe
-                src="https://cal.eu/cindy-urbansky/rendez-vous?embed=true"
+                src="https://cal.com/cindy-urbansky/rendez-vous?embed=true"
                 style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
                 title="Réserver un rendez-vous avec Cindy Urbansky – Orizia Courtage"
                 loading="lazy"

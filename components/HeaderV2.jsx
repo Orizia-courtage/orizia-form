@@ -128,7 +128,7 @@ const NAV = [
 ];
 
 const CAL_LINK   = 'cindy-urbansky/rendez-vous';
-const CAL_ORIGIN = 'https://cal.eu';
+const CAL_ORIGIN = 'https://cal.com';
 
 export default function HeaderV2() {
   const [drawerOpen, setDrawerOpen]     = useState(false);
@@ -184,7 +184,7 @@ export default function HeaderV2() {
   // ── Ferme le mega-menu à chaque navigation ───────────────────────────────
   useEffect(() => { setActiveMenu(null); }, [pathname]);
 
-  // ── Cal.eu lazy load ─────────────────────────────────────────────────────
+  // ── Cal.com lazy load ────────────────────────────────────────────────────
   const loadCal = useCallback(() => {
     return new Promise((resolve) => {
       if (window.Cal) { resolve(); return; }
