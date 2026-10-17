@@ -3,7 +3,6 @@ import Image from 'next/image';
 import ContactSujetsFilter from '@/components/ContactSujetsFilter';
 import DispoStatus from '@/components/DispoStatus';
 import ScrollButton from '@/components/ScrollButton';
-import CalAvailabilityCalendar from '@/components/CalAvailabilityCalendar';
 
 export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil personnalisé',
@@ -325,7 +324,7 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-cal-wrapper">
-              <CalAvailabilityCalendar
+              <iframe
                 src="https://cal.com/cindy-urbansky?embed=true&theme=light"
                 style={{
                   width: '100%',

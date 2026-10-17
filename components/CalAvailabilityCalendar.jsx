@@ -38,7 +38,11 @@ export default function CalAvailabilityCalendar() {
     fetch(`/api/cal/slots?start=${dates[0]}&end=${dates[6]}`, { signal: controller.signal })
       .then(response => response.ok ? response.json() : Promise.reject())
       .then(data => setSlots(data.slots || {}))
-      .catch(() => setStatus({ type: 'error', message: 'Les disponibilités ne peuvent pas être chargées pour le moment.' }))
+      .catch(error => {
+        if (error.name !== 'AbortError') {
+          setStatus({ type: 'error', message: 'Les disponibilités ne peuvent pas être chargées pour le moment.' });
+        }
+      })
       .finally(() => setLoading(false));
     return () => controller.abort();
   }, [dates]);
