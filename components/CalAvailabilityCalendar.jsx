@@ -1,107 +1,17 @@
 'use client';
-
 import { useEffect, useMemo, useState } from 'react';
-
-const TIME_ZONE = 'Europe/Paris';
-const TIMES = Array.from({ length: 18 }, (_, index) => {
-  const minutes = 9 * 60 + index * 30;
-  return `${String(Math.floor(minutes / 60)).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
-});
-const dateFormatter = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, weekday: 'short', day: 'numeric', month: 'short' });
-const timeFormatter = new Intl.DateTimeFormat('fr-FR', { timeZone: TIME_ZONE, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
-const parisDate = () => new Intl.DateTimeFormat('en-CA', { timeZone: TIME_ZONE }).format(new Date());
-
-function addDays(date, amount) {
-  const value = new Date(`${date}T12:00:00Z`);
-  value.setUTCDate(value.getUTCDate() + amount);
-  return value.toISOString().slice(0, 10);
-}
-
-function weekDates(start) {
-  return Array.from({ length: 7 }, (_, index) => addDays(start, index));
-}
-
-export default function CalAvailabilityCalendar() {
-  const [weekStart, setWeekStart] = useState(() => parisDate());
-  const [slots, setSlots] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState(null);
-  const [form, setForm] = useState({ name: '', email: '', phone: '' });
-  const [status, setStatus] = useState(null);
-  const dates = useMemo(() => weekDates(weekStart), [weekStart]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    setLoading(true);
-    setSelected(null);
-    setStatus(null);
-    fetch(`/api/cal/slots?start=${dates[0]}&end=${dates[6]}`, { signal: controller.signal })
-      .then(response => response.ok ? response.json() : Promise.reject())
-      .then(data => setSlots(data.slots || {}))
-      .catch(error => {
-        if (error.name !== 'AbortError') {
-          setStatus({ type: 'error', message: 'Les disponibilités ne peuvent pas être chargées pour le moment.' });
-        }
-      })
-      .finally(() => setLoading(false));
-    return () => controller.abort();
-  }, [dates]);
-
-  const slotFor = (date, time) => {
-    const match = (slots[date] || []).find(slot => {
-      const start = typeof slot === 'string' ? slot : slot?.start;
-      return start && timeFormatter.format(new Date(start)).replace(' h ', ':') === time;
-    });
-    return typeof match === 'string' ? match : match?.start || null;
-  };
-
-  async function submit(event) {
-    event.preventDefault();
-    if (!selected) return;
-    setStatus({ type: 'loading', message: 'Confirmation de votre rendez-vous…' });
-    const response = await fetch('/api/cal/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, start: selected }),
-    });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) {
-      setStatus({ type: 'error', message: data.error || 'Une erreur est survenue. Merci de réessayer.' });
-      return;
-    }
-    setStatus({ type: 'success', message: 'Votre rendez-vous est confirmé. Vous recevrez un e-mail de confirmation.' });
-  }
-
-  if (status?.type === 'success') return <div className="cal-custom-success">✓ {status.message}</div>;
-
-  return (
-    <div className="cal-custom" aria-live="polite">
-      <div className="cal-custom-head">
-        <button type="button" onClick={() => setWeekStart(addDays(weekStart, -7))} aria-label="Semaine précédente">←</button>
-        <strong>Choisissez votre créneau</strong>
-        <button type="button" onClick={() => setWeekStart(addDays(weekStart, 7))} aria-label="Semaine suivante">→</button>
-      </div>
-      <p className="cal-custom-note">Les créneaux grisés ne sont pas disponibles.</p>
-      <div className="cal-custom-grid" aria-busy={loading}>
-        <div className="cal-custom-time-head" />
-        {dates.map(date => <div className="cal-custom-day" key={date}>{dateFormatter.format(new Date(`${date}T12:00:00Z`))}</div>)}
-        {TIMES.map(time => <div className="cal-custom-row" key={time}>
-          <span>{time}</span>
-          {dates.map(date => {
-            const slot = slotFor(date, time);
-            const isSelected = slot && selected === slot;
-            return <button key={date} type="button" className={`cal-custom-slot${slot ? ' is-open' : ''}${isSelected ? ' is-selected' : ''}`} disabled={!slot || loading} onClick={() => setSelected(slot)} aria-label={`${date} à ${time}${slot ? ', disponible' : ', indisponible'}`} />;
-          })}
-        </div>)}
-      </div>
-      {selected && <form className="cal-custom-form" onSubmit={submit}>
-        <strong>Créneau choisi : {dateFormatter.format(new Date(selected))} à {timeFormatter.format(new Date(selected))}</strong>
-        <input required placeholder="Nom et prénom" value={form.name} onChange={event => setForm({ ...form, name: event.target.value })} />
-        <input required type="email" placeholder="Adresse e-mail" value={form.email} onChange={event => setForm({ ...form, email: event.target.value })} />
-        <input type="tel" placeholder="Téléphone (facultatif)" value={form.phone} onChange={event => setForm({ ...form, phone: event.target.value })} />
-        <button type="submit" disabled={status?.type === 'loading'}>{status?.type === 'loading' ? 'Confirmation…' : 'Confirmer le rendez-vous'}</button>
-      </form>}
-      {status?.type === 'error' && <p className="cal-custom-error">{status.message}</p>}
-    </div>
-  );
+const Z='Europe/Paris', W=['DIM.','LUN.','MAR.','MER.','JEU.','VEN.','SAM.'];
+const T=Array.from({length:18},(_,i)=>`${String(9+Math.floor(i/2)).padStart(2,'0')}:${i%2?'30':'00'}`);
+const tf=new Intl.DateTimeFormat('fr-FR',{timeZone:Z,hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+const mf=new Intl.DateTimeFormat('fr-FR',{timeZone:Z,month:'long',year:'numeric'});
+const dk=d=>d.toISOString().slice(0,10), fd=k=>new Date(`${k}T12:00:00Z`);
+const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:Z}).format(new Date());
+const days=(m)=>{const d=fd(m),o=d.getUTCDay();return Array.from({length:42},(_,i)=>{const x=fd(m);x.setUTCDate(1+i-o);return dk(x)})};
+const shift=(m,n)=>{const d=fd(m);d.setUTCMonth(d.getUTCMonth()+n,1);return dk(d)};
+export default function CalAvailabilityCalendar(){
+ const [month,setMonth]=useState(()=>`${today().slice(0,7)}-01`),[slots,setSlots]=useState({}),[date,setDate]=useState(today()),[chosen,setChosen]=useState(null),[loading,setLoading]=useState(true),[error,setError]=useState(''); const grid=useMemo(()=>days(month),[month]);
+ useEffect(()=>{const c=new AbortController();setLoading(true);setError('');setChosen(null);fetch(`/api/cal/slots?start=${grid[0]}&end=${grid[41]}`,{signal:c.signal}).then(r=>r.ok?r.json():Promise.reject()).then(x=>{const s=x.slots||{};setSlots(s);if(!(s[date]||[]).length)setDate(grid.find(d=>(s[d]||[]).length)||grid[0])}).catch(e=>{if(e.name!=='AbortError')setError('Les disponibilités ne peuvent pas être chargées pour le moment.')}).finally(()=>setLoading(false));return()=>c.abort()},[month]);
+ const at=t=>{const x=(slots[date]||[]).find(v=>{const s=typeof v==='string'?v:v?.start;return s&&tf.format(new Date(s)).replace(' h ',':')===t});return typeof x==='string'?x:x?.start||null};
+ const label=new Intl.DateTimeFormat('fr-FR',{timeZone:Z,weekday:'short',day:'numeric'}).format(fd(date));
+ return <div className="cal-replica"><aside className="cal-replica-info"><div className="cal-replica-avatar">CU</div><span>Cindy Urbansky</span><h3>Rendez-vous</h3><p>◷ <strong>30min</strong></p><p>⌖ 2 options de lieu</p><p>◎ Europe/Paris</p></aside><section className="cal-replica-month"><div className="cal-replica-nav"><h3>{mf.format(fd(month))}</h3><div><button onClick={()=>setMonth(shift(month,-1))}>‹</button><button onClick={()=>setMonth(shift(month,1))}>›</button></div></div><div className="cal-replica-weekdays">{W.map(x=><span key={x}>{x}</span>)}</div><div className="cal-replica-days">{grid.map(d=>{const ok=(slots[d]||[]).length>0,sel=d===date;return <button key={d} disabled={!ok||loading} onClick={()=>{setDate(d);setChosen(null)}} className={`${ok?'is-available':''}${sel?' is-selected':''}${d.slice(0,7)!==month.slice(0,7)?' is-other-month':''}`}>{fd(d).getUTCDate()}</button>})}</div></section><section className="cal-replica-times"><h3>{label}</h3><div className="cal-replica-toggles"><span>12 h</span><b>24 h</b></div><div className="cal-replica-time-list">{T.map(t=>{const s=at(t);return <button key={t} disabled={!s||loading} onClick={()=>setChosen(s)} className={`${s?'is-open':''}${chosen===s?' is-selected':''}`}><i/>{t}</button>})}</div>{error&&<p className="cal-replica-error">{error}</p>}{chosen&&<a className="cal-replica-confirm" href={`https://cal.com/cindy-urbansky/rendez-vous?date=${encodeURIComponent(chosen)}`} target="_blank" rel="noreferrer">Continuer avec {tf.format(new Date(chosen))}</a>}</section></div>
 }
