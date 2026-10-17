@@ -43,7 +43,13 @@ export default function CalAvailabilityCalendar() {
     return () => controller.abort();
   }, [dates]);
 
-  const slotFor = (date, time) => (slots[date] || []).find(slot => timeFormatter.format(new Date(slot)).replace(' h ', ':') === time);
+  const slotFor = (date, time) => {
+    const match = (slots[date] || []).find(slot => {
+      const start = typeof slot === 'string' ? slot : slot?.start;
+      return start && timeFormatter.format(new Date(start)).replace(' h ', ':') === time;
+    });
+    return typeof match === 'string' ? match : match?.start || null;
+  };
 
   async function submit(event) {
     event.preventDefault();
