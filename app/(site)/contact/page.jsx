@@ -193,7 +193,7 @@ export default function ContactPage() {
                   <div className="contact-cindy-role">courtier indépendant · Orizia Courtage</div>
                   <div className="contact-cindy-stats">
                     <div className="contact-cindy-stat">
-                      <strong>15 ans</strong>
+                      <strong>20 ans</strong>
                       <span>d'expérience</span>
                     </div>
                     <div className="contact-cindy-stat">

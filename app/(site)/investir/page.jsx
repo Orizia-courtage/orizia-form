@@ -292,7 +292,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div className="inv-why-image-badge">
                   <span className="inv-why-image-badge-icon">🏆</span>
                   <div>
-                    <div className="inv-why-image-badge-val">15 ans</div>
+                    <div className="inv-why-image-badge-val">20 ans</div>
                     <div className="inv-why-image-badge-label">d'expérience</div>
                   </div>
                 </div>
