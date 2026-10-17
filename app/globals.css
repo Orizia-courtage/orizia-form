@@ -11899,3 +11899,24 @@ body.contact-popup-open .cw-trigger {
     font-size: 0.7rem;
   }
 }
+
+/* Calendrier Cal.com personnalisé */
+.cal-custom { background:#fff; border:1px solid rgba(45,106,95,.16); border-radius:16px; padding:20px; box-shadow:0 8px 24px rgba(20,50,45,.06); color:var(--orizia-dark); }
+.cal-custom-head { display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--orizia-primary); }
+.cal-custom-head button { width:34px; height:34px; border:1px solid rgba(45,106,95,.25); border-radius:50%; background:#fff; color:var(--orizia-primary); font-size:18px; cursor:pointer; }
+.cal-custom-note { margin:10px 0 16px; font-size:.8rem; opacity:.65; }
+.cal-custom-grid { display:grid; grid-template-columns:42px repeat(7, minmax(32px,1fr)); gap:5px; overflow-x:auto; }
+.cal-custom-day { min-width:32px; padding:6px 2px; text-align:center; text-transform:capitalize; font-size:.7rem; font-weight:800; color:var(--orizia-primary); }
+.cal-custom-row { display:contents; }
+.cal-custom-row > span { align-self:center; font-size:.7rem; font-weight:700; color:#65736f; }
+.cal-custom-slot { min-width:32px; height:27px; border:0; border-radius:5px; background:#e8eceb; cursor:not-allowed; }
+.cal-custom-slot.is-open { background:#d6ebe8; border:1px solid #73ada5; cursor:pointer; }
+.cal-custom-slot.is-open:hover, .cal-custom-slot.is-selected { background:var(--orizia-primary); border-color:var(--orizia-primary); }
+.cal-custom-slot:disabled { opacity:.8; }
+.cal-custom-form { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin-top:20px; padding-top:18px; border-top:1px solid #e5eae8; }
+.cal-custom-form strong, .cal-custom-form button { grid-column:1 / -1; }
+.cal-custom-form input { min-width:0; padding:11px 12px; border:1px solid #c8d4d0; border-radius:7px; font:inherit; }
+.cal-custom-form button { padding:12px; border:0; border-radius:7px; color:#fff; background:var(--orizia-primary); font-weight:800; cursor:pointer; }
+.cal-custom-error { margin:12px 0 0; color:#b42318; font-size:.85rem; }
+.cal-custom-success { padding:28px; border-radius:16px; background:#e8f5f0; color:var(--orizia-primary); text-align:center; font-weight:800; }
+@media (max-width:640px) { .cal-custom { padding:14px; } .cal-custom-grid { gap:3px; } .cal-custom-slot { min-width:24px; height:24px; } .cal-custom-day { font-size:.58rem; } .cal-custom-form { grid-template-columns:1fr; } }
