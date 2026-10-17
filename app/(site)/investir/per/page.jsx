@@ -14,7 +14,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
   description:
-    'Je calcule vos plafonds de déduction exacts et sélectionne le meilleur PER : 0% de frais, jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
+    'Je calcule vos plafonds de déduction exacts et sélectionne le PER le plus adapté, avec jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
@@ -69,7 +69,7 @@ const investirPerSchema = {
       name: 'Conseil et Courtage en Plan Épargne Retraite (PER)',
       serviceType: 'Conseil en Investissement Financier',
       provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
-      description: 'Audit fiscal, calcul des plafonds de déduction, sélection du meilleur PER du marché (0% de frais) et construction de l\'allocation d\'actifs.',
+      description: 'Audit fiscal, calcul des plafonds de déduction, sélection du PER le plus adapté et construction de l\'allocation d\'actifs.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -142,7 +142,7 @@ const faqSchema = {
       name: 'Pourquoi ouvrir un PER via un courtier plutôt qu\'en banque ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les PER bancaires appliquent souvent 2 à 4% de frais sur versements et des frais de gestion élevés qui grignotent la performance sur 20 ans. En tant que courtier indépendant, j\'accède à des contrats haut de gamme avec 0% de frais sur versements, une large gamme d\'UC (ETF, SCPI, fonds actions) et un suivi personnalisé de l\'allocation selon votre horizon de retraite.',
+        text: 'Les PER peuvent comporter des frais sur versements et des frais de gestion qui influent sur la performance à long terme. En tant que courtier indépendant, je sélectionne des contrats haut de gamme avec une large gamme d\'UC (ETF, SCPI, fonds actions) et un suivi personnalisé de l\'allocation selon votre horizon de retraite.',
       },
     },
   ],
@@ -275,7 +275,7 @@ const ETAPES = [
   {
     n: '02',
     title: 'Je sélectionne le contrat optimal',
-    text: 'Parmi mes contrats partenaires (Abeille Épargne Active, Cardif Elite, Celebéa Vie, SwissLife Strategic Premium, SwissLife Vie Génération) — 0% de frais sur versements, large gamme d\'UC.',
+    text: 'Parmi les contrats sélectionnés : Abeille Épargne Active, Cardif Elite, Celebéa Vie, SwissLife Strategic Premium et SwissLife Vie Génération, avec une large gamme d\'UC. Les frais et modalités sont présentés avec transparence.',
   },
   {
     n: '03',
@@ -368,7 +368,7 @@ export default function PERPage() {
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ 0% de frais sur versements</span>
+              <span>✅ Frais et modalités transparents</span>
               <span>🎯 Plafonds calculés sur-mesure</span>
               <span>⚡ Réponse sous 24h</span>
             </div>
@@ -462,7 +462,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
 
             <div style={{ textAlign: 'center', marginTop: 48 }}>
               <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 12 }}>
-                Je calcule vos plafonds exacts et sélectionne le meilleur contrat avec 0% de frais.
+                Je calcule vos plafonds exacts et sélectionne le contrat le plus adapté.
               </p>
               <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
                 Je récupère aussi vos plafonds non utilisés des 3 dernières années —

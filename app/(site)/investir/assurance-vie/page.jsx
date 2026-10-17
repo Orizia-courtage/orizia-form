@@ -13,7 +13,7 @@ import ScrollButton from '@/components/ScrollButton';
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant | Orizia Courtage',
   description:
-    'Je sélectionne le meilleur contrat d\'assurance vie : 0% de frais, rendement optimisé, transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky.',
+    'Je sélectionne le contrat d\'assurance vie le plus adapté : rendement optimisé et transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
@@ -54,7 +54,7 @@ const assuranceVieSchema = {
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
       description:
-        'Audit de contrat existant, sélection de contrats haut de gamme (Abeille, Cardif, SwissLife), construction d\'allocation sur-mesure et rédaction de clause bénéficiaire. 0% de frais sur versements.',
+        'Audit de contrat existant, sélection de contrats haut de gamme (Abeille, Cardif, SwissLife), construction d\'allocation sur-mesure et rédaction de clause bénéficiaire.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -112,7 +112,7 @@ const faqSchema = {
       name: 'Pourquoi passer par un courtier pour ouvrir une assurance vie ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les contrats distribués en banque affichent souvent 2 à 4% de frais sur versements, une gamme UC limitée et des fonds euros peu compétitifs. En tant que courtier indépendant, j\'accède à des contrats haut de gamme (Abeille, Cardif, SwissLife…) à 0% de frais sur versements, normalement réservés aux professionnels — et je construis avec vous l\'allocation adaptée à votre profil.',
+        text: 'Les contrats distribués en banque peuvent afficher des frais sur versements, une gamme UC limitée et des fonds euros peu compétitifs. En tant que courtier indépendant, je sélectionne des contrats haut de gamme adaptés à votre profil et je construis avec vous l\'allocation appropriée.',
       },
     },
     {
@@ -221,7 +221,7 @@ const ETAPES = [
   {
     n: '02',
     title: 'Je sélectionne le contrat optimal',
-    text: 'J\'accède à des contrats haut de gamme inaccessibles en banque : Abeille Épargne Active, Cardif Elite, Celebéa Vie, SwissLife Strategic Premium, SwissLife Vie Génération. 0% de frais sur versements.',
+    text: 'Je sélectionne des contrats haut de gamme : Abeille Épargne Active, Cardif Elite, Celebéa Vie, SwissLife Strategic Premium et SwissLife Vie Génération. Les frais et modalités sont présentés avec transparence.',
   },
   {
     n: '03',
@@ -339,7 +339,7 @@ export default function AssuranceViePage() {
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ 0% de frais sur versements</span>
+              <span>✅ Frais et modalités transparents</span>
               <span>🏆 Contrats haut de gamme exclusifs</span>
               <span>⚡ Réponse sous 24h</span>
             </div>
@@ -428,7 +428,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
-                J'accède aux meilleurs contrats du marché avec 0% de frais sur versements.
+                Je sélectionne les contrats du marché les plus adaptés à votre situation.
               </p>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 20 }}>
                 Un audit de votre contrat actuel vous montre concrètement
