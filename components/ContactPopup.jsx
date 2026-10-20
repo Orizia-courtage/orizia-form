@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import QRCode from 'qrcode';
 import ContactCaptcha from './ContactCaptcha';
 
 // Icônes SVG inline — remplace Font Awesome pour ne pas bloquer le rendu
@@ -116,8 +117,9 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
   const [showCal, setShowCal]     = useState(false);
   const [showForm, setShowForm]   = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [expandedAction, setExpandedAction] = useState('');
+  const [selectedDesktopAction, setSelectedDesktopAction] = useState(null);
   const [copyFeedback, setCopyFeedback] = useState('');
+  const [qrCode, setQrCode] = useState('');
 
   // Form state
   const [form, setForm]           = useState(EMPTY_FORM);
@@ -131,13 +133,14 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
   useEffect(() => {
     const handler = (e) => {
       if (e.key === 'Escape') {
-        if (showForm) { setShowForm(false); setOpen(true); }
+        if (selectedDesktopAction) { setSelectedDesktopAction(null); }
+        else if (showForm) { setShowForm(false); setOpen(true); }
         else { setOpen(false); setShowCal(false); }
       }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [showForm]);
+  }, [showForm, selectedDesktopAction]);
 
   // Bloquer le défilement de la page derrière toute fenêtre de contact.
   useEffect(() => {
@@ -152,6 +155,13 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
     media.addEventListener('change', update);
     return () => media.removeEventListener('change', update);
   }, []);
+
+  useEffect(() => {
+    if (!selectedDesktopAction) { setQrCode(''); return; }
+    QRCode.toDataURL(selectedDesktopAction.href, { width: 220, margin: 1, color: { dark: '#432828', light: '#ffffff' } })
+      .then(setQrCode)
+      .catch(() => setQrCode(''));
+  }, [selectedDesktopAction]);
 
   // Masquer les éléments flottants quand une modal est ouverte
   useEffect(() => {
@@ -208,7 +218,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
     }
   };
 
-  const closeAll = () => { setOpen(false); setShowCal(false); setShowForm(false); };
+  const closeAll = () => { setOpen(false); setShowCal(false); setShowForm(false); setSelectedDesktopAction(null); };
   const copyContact = async (value, key) => {
     try {
       await navigator.clipboard.writeText(value);
@@ -262,6 +272,21 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
               </button>
             </div>
 
+            {selectedDesktopAction ? (
+              <div className="cp-contact-detail">
+                <button className="cp-detail-back" type="button" onClick={() => setSelectedDesktopAction(null)}>
+                  <IconArrowLeft /> Retour aux moyens de contact
+                </button>
+                <span className="cp-detail-icon" style={{ background: selectedDesktopAction.color + '18', color: selectedDesktopAction.color }}>{selectedDesktopAction.icon}</span>
+                <h2>{selectedDesktopAction.label}</h2>
+                <p className="cp-detail-value">{selectedDesktopAction.desktop.value}</p>
+                <div className="cp-detail-buttons">
+                  <button type="button" onClick={() => copyContact(selectedDesktopAction.desktop.value, selectedDesktopAction.label)}>{copyFeedback === selectedDesktopAction.label ? 'Copié ✓' : selectedDesktopAction.desktop.copyLabel}</button>
+                  <a href={selectedDesktopAction.href}>{selectedDesktopAction.desktop.openLabel}</a>
+                </div>
+                {qrCode && <><img className="cp-qr-code" src={qrCode} alt={`QR code pour ${selectedDesktopAction.label.toLowerCase()}`} /><p className="cp-qr-help">Scannez ce QR code avec l’appareil photo de votre téléphone.</p></>}
+              </div>
+            ) : <>
             <div className="cp-intro">
               <p>Comment souhaitez-vous me contacter ?</p>
             </div>
@@ -288,19 +313,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                     </button>
                   );
                 }
-                if (isDesktop && a.desktop) {
-                  const expanded = expandedAction === a.label;
-                  return (
-                    <div key={a.label} className={`cp-action-group${expanded ? ' cp-action-group--open' : ''}`}>
-                      <button type="button" className="cp-action" role="menuitem" onClick={() => setExpandedAction(expanded ? '' : a.label)} aria-expanded={expanded}>
-                        <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span>
-                        <span className="cp-action-text"><strong>{a.label}</strong><span>{a.desktop.value}</span></span>
-                        <IconArrowRight className="cp-action-arrow" />
-                      </button>
-                      {expanded && <div className="cp-contact-options"><button type="button" onClick={() => copyContact(a.desktop.value, a.label)}>{copyFeedback === a.label ? 'Copié ✓' : a.desktop.copyLabel}</button><a href={a.href}>{a.desktop.openLabel}</a></div>}
-                    </div>
-                  );
-                }
+                if (isDesktop && a.desktop) return <button key={a.label} type="button" className="cp-action" role="menuitem" onClick={() => setSelectedDesktopAction(a)}><span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span><span className="cp-action-text"><strong>{a.label}</strong><span>{a.desktop.value}</span></span><IconArrowRight className="cp-action-arrow" /></button>;
                 return (
                   <a key={a.label} href={a.href} className="cp-action" role="menuitem"
                     target={a.href.startsWith('http') ? '_blank' : undefined}
@@ -313,6 +326,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                 );
               })}
             </div>
+            </>}
 
             <div className="cp-panel-footer">
               <IconLock />

@@ -7292,6 +7292,75 @@ body.contact-popup-open .cw-trigger {
 .cp-contact-options a:hover {
   background: rgba(26,61,53,.08);
 }
+.cp-contact-detail {
+  padding: 18px 24px 22px;
+  text-align: center;
+}
+.cp-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  color: rgba(26,61,53,.62);
+  padding: 4px 0;
+  font: inherit;
+  font-size: .78rem;
+  cursor: pointer;
+}
+.cp-detail-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 14px auto 10px;
+  font-size: 1.45rem;
+}
+.cp-contact-detail h2 {
+  color: var(--orizia-accent);
+  font-size: 1.12rem;
+  margin: 0 0 5px;
+}
+.cp-detail-value {
+  color: rgba(26,61,53,.6);
+  font-size: .9rem;
+  margin: 0 0 14px;
+}
+.cp-detail-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.cp-detail-buttons button,
+.cp-detail-buttons a {
+  border: 1px solid rgba(26,61,53,.16);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--orizia-accent);
+  padding: 8px 10px;
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cp-detail-buttons button:hover,
+.cp-detail-buttons a:hover { background: rgba(26,61,53,.08); }
+.cp-qr-code {
+  width: 176px;
+  height: 176px;
+  display: block;
+  margin: 18px auto 7px;
+}
+.cp-qr-help {
+  max-width: 270px;
+  margin: 0 auto;
+  color: rgba(26,61,53,.48);
+  font-size: .72rem;
+  line-height: 1.4;
+}
 
 /* ── Footer ── */
 .cp-panel-footer {
