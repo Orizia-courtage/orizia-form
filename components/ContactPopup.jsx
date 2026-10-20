@@ -57,6 +57,7 @@ const ACTIONS = [
     href: 'tel:+33777259706',
     type: 'external',
     color: 'var(--orizia-primary)',
+    desktop: { value: '07 77 25 97 06', copyLabel: 'Copier le numéro', openLabel: "Ouvrir l’application d’appel" },
   },
   {
     icon: '📧',
@@ -65,6 +66,7 @@ const ACTIONS = [
     href: 'mailto:cindy.urbansky@orizia-courtage.fr',
     type: 'external',
     color: '#6366f1',
+    desktop: { value: 'cindy.urbansky@orizia-courtage.fr', copyLabel: "Copier l’adresse e-mail", openLabel: "Ouvrir l’application e-mail" },
   },
   {
     icon: '💬',
@@ -73,6 +75,7 @@ const ACTIONS = [
     href: 'sms:+33777259706',
     type: 'external',
     color: '#0ea5e9',
+    desktop: { value: '07 77 25 97 06', copyLabel: 'Copier le numéro', openLabel: "Ouvrir l’application de messages" },
   },
 ];
 
@@ -112,6 +115,9 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
   const [open, setOpen]           = useState(false);
   const [showCal, setShowCal]     = useState(false);
   const [showForm, setShowForm]   = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [expandedAction, setExpandedAction] = useState('');
+  const [copyFeedback, setCopyFeedback] = useState('');
 
   // Form state
   const [form, setForm]           = useState(EMPTY_FORM);
@@ -138,6 +144,14 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
     document.body.style.overflow = (open || showCal || showForm) ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open, showCal, showForm]);
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 768px) and (pointer: fine)');
+    const update = () => setIsDesktop(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
 
   // Masquer les éléments flottants quand une modal est ouverte
   useEffect(() => {
@@ -195,6 +209,20 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
   };
 
   const closeAll = () => { setOpen(false); setShowCal(false); setShowForm(false); };
+  const copyContact = async (value, key) => {
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = value;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      input.remove();
+    }
+    setCopyFeedback(key);
+    window.setTimeout(() => setCopyFeedback(''), 1800);
+  };
   // Rend les fenêtres directement sous <body>, hors de tout contexte d'empilement
   // créé par le hero de la page d'accueil ou par l'en-tête fixe.
   const portal = (content) => createPortal(content, document.body);
@@ -258,6 +286,19 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                       <span className="cp-action-text"><strong>{a.label}</strong><span>{a.sub}</span></span>
                       <IconArrowRight className="cp-action-arrow" />
                     </button>
+                  );
+                }
+                if (isDesktop && a.desktop) {
+                  const expanded = expandedAction === a.label;
+                  return (
+                    <div key={a.label} className={`cp-action-group${expanded ? ' cp-action-group--open' : ''}`}>
+                      <button type="button" className="cp-action" role="menuitem" onClick={() => setExpandedAction(expanded ? '' : a.label)} aria-expanded={expanded}>
+                        <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span>
+                        <span className="cp-action-text"><strong>{a.label}</strong><span>{a.desktop.value}</span></span>
+                        <IconArrowRight className="cp-action-arrow" />
+                      </button>
+                      {expanded && <div className="cp-contact-options"><button type="button" onClick={() => copyContact(a.desktop.value, a.label)}>{copyFeedback === a.label ? 'Copié ✓' : a.desktop.copyLabel}</button><a href={a.href}>{a.desktop.openLabel}</a></div>}
+                    </div>
                   );
                 }
                 return (

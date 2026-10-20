@@ -7260,6 +7260,38 @@ body.contact-popup-open .cw-trigger {
   transform: translateX(4px);
   color: var(--orizia-primary);
 }
+.cp-action-group {
+  border-radius: 14px;
+}
+.cp-action-group--open {
+  background: rgba(26,61,53,.05);
+}
+.cp-action-group--open .cp-action-arrow {
+  transform: rotate(90deg);
+  color: var(--orizia-primary);
+}
+.cp-contact-options {
+  display: flex;
+  gap: 8px;
+  padding: 0 14px 12px 70px;
+}
+.cp-contact-options button,
+.cp-contact-options a {
+  border: 1px solid rgba(26,61,53,.16);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--orizia-accent);
+  padding: 8px 10px;
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cp-contact-options button:hover,
+.cp-contact-options a:hover {
+  background: rgba(26,61,53,.08);
+}
 
 /* ── Footer ── */
 .cp-panel-footer {
