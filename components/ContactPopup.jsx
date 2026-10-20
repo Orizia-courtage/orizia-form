@@ -132,11 +132,11 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
     return () => document.removeEventListener('keydown', handler);
   }, [showForm]);
 
-  // Bloquer le scroll body quand la modal calendrier est ouverte
+  // Bloquer le défilement de la page derrière toute fenêtre de contact.
   useEffect(() => {
-    document.body.style.overflow = showCal ? 'hidden' : '';
+    document.body.style.overflow = (open || showCal || showForm) ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [showCal]);
+  }, [open, showCal, showForm]);
 
   // Masquer les éléments flottants quand une modal est ouverte
   useEffect(() => {
