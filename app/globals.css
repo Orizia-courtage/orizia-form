@@ -7485,7 +7485,7 @@ body.contact-popup-open .cw-trigger {
   background: rgba(10,20,18,.65);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  z-index: 1000;
+  z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;

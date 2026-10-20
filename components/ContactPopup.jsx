@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import ContactCaptcha from './ContactCaptcha';
 
 // Icônes SVG inline — remplace Font Awesome pour ne pas bloquer le rendu
@@ -194,6 +195,9 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
   };
 
   const closeAll = () => { setOpen(false); setShowCal(false); setShowForm(false); };
+  // Rend les fenêtres directement sous <body>, hors de tout contexte d'empilement
+  // créé par le hero de la page d'accueil ou par l'en-tête fixe.
+  const portal = (content) => createPortal(content, document.body);
 
   return (
     <>
@@ -213,7 +217,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
       </div>
 
       {/* -- MODAL LISTE DES ACTIONS -- */}
-      {open && (
+      {open && portal(
         <div className="cp-overlay" onClick={closeAll} role="dialog" aria-modal="true">
           <div className="cp-panel" role="menu" onClick={e => e.stopPropagation()}>
 
@@ -279,7 +283,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
       )}
 
       {/* -- MODAL FORMULAIRE -- */}
-      {showForm && (
+      {showForm && portal(
         <div className="cp-overlay" onClick={closeAll} role="dialog" aria-modal="true">
           <div className="cp-panel cp-panel--form" onClick={e => e.stopPropagation()}>
 
@@ -389,7 +393,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
       )}
 
       {/* -- MODAL CALENDRIER -- */}
-      {showCal && (
+      {showCal && portal(
         <div className="cp-modal-overlay" onClick={() => setShowCal(false)}>
           <div className="cp-modal" onClick={e => e.stopPropagation()}>
             <div className="cp-modal-header">
