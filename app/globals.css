@@ -875,7 +875,8 @@ body:has(.rp-bar) .cw-trigger {
 
 .cw-header { order:1;background:var(--orizia-accent);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0; }
 .cw-header-info { display:flex;align-items:center;gap:12px; }
-.cw-avatar { width:36px;height:36px;border-radius:50%;background:var(--orizia-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0; }
+.cw-avatar { width:36px;height:36px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+.cw-avatar img { width:100%;height:100%;object-fit:cover;object-position:50% 20%; }
 .cw-header-info strong { display:block;color:#fff;font-size:0.9rem;font-weight:800; }
 .cw-header-info span { display:block;color:rgba(255,255,255,0.75);font-size:0.75rem; }
 .cw-close { background:rgba(255,255,255,0.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center; }
@@ -7140,15 +7141,18 @@ body.contact-popup-open .cw-trigger {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--orizia-primary), var(--orizia-accent));
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 800;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   letter-spacing: .02em;
+}
+.cp-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
 }
 .cp-panel-header-left strong {
   display: block;

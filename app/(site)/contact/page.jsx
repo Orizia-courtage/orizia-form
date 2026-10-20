@@ -303,7 +303,7 @@ export default function ContactPage() {
               <div className="contact-cal-item">
                 <span>⏱️</span>
                 <div>
-                  <strong>Durée : 15 ou 30 minutes</strong>
+                  <strong>Durée : 30 minutes</strong>
                   <span>Pas de préparation nécessaire</span>
                 </div>
               </div>
@@ -317,7 +317,7 @@ export default function ContactPage() {
               <div className="contact-cal-item">
                 <span>🎯</span>
                 <div>
-                  <strong>modalités transparentes</strong>
+                  <strong>Modalités transparentes</strong>
                   <span>Aucune obligation de suite</span>
                 </div>
               </div>

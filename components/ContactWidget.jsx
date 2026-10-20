@@ -132,7 +132,7 @@ export default function ContactWidget() {
           {/* Header */}
           <div className="cw-header">
             <div className="cw-header-info">
-              <div className="cw-avatar">C</div>
+              <div className="cw-avatar"><img src="/images/photo-cindy.webp" alt="Cindy Urbansky" /></div>
               <div>
                 <strong>Cindy Urbansky</strong>
                 <span>Orizia Courtage</span>
