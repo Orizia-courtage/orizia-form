@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const STATS = [
   { value: 500, suffix: '+', label: 'Dossiers accompagnés' },
-  { value: 15, suffix: ' ans', label: "D'expérience terrain" },
+  { value: 20, suffix: ' ans', label: "D'expérience terrain" },
   { value: 98, suffix: '%', label: 'Clients satisfaits' },
   { value: null, suffix: 'ORIAS', label: 'Immatriculée & certifiée' },
 ];
