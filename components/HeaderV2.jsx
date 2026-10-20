@@ -160,7 +160,13 @@ export default function HeaderV2() {
 
   // ── Scroll simple avec seuil unique ──────────────────────────────────────
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      const position = window.scrollY;
+      // Hystérésis : le header change de hauteur au scroll. Deux seuils évitent
+      // qu'il repasse immédiatement de part et d'autre du même point.
+      setScrolled((wasScrolled) => (wasScrolled ? position > 8 : position > 96));
+    };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
