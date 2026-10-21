@@ -134,6 +134,18 @@ const select = (value, ...args) => {
         client['parameters']['emailFormat'] = 'both'
         client['parameters']['subject'] = 'Votre demande a bien été reçue | Orizia Courtage'
         client['parameters']['options']['replyTo'] = 'Cindy Urbansky <cindy.urbansky@orizia-courtage.fr>'
+        refusal_source = (OUT / 'rac-refusal-email.js').read_text(encoding='utf-8')
+        refusal_text = (OUT / 'rac-refusal-text.js').read_text(encoding='utf-8')
+        refusal = node('Email rac refus client', 'emailSend', {
+            'fromEmail': 'Orizia Courtage <dossier@orizia-courtage.fr>',
+            'toEmail': "={{ $('Preparer rac').first().json.profil_mail }}",
+            'subject': 'Un point sur votre demande | Orizia Courtage',
+            'emailFormat': 'both',
+            'html': "={{ (() => { const p = $('Preparer rac').first().json;\n" + refusal_source + '\n})() }}',
+            'text': "={{ (() => { const p = $('Preparer rac').first().json;\n" + refusal_text + '\n})() }}',
+            'options': {'appendAttribution': False, 'allowUnauthorizedCerts': False,
+                        'replyTo': 'Cindy Urbansky <cindy.urbansky@orizia-courtage.fr>'}}, 1300, 2.1)
+        nodes.append(refusal)
     nodes.append(node('Confirmer ' + kind, 'respondToWebhook', {
         'respondWith': 'json', 'responseBody': '{"success":true}', 'options': {'responseCode': 200}}, len(nodes) * 260, 1.4))
     connections = {a['name']: {'main': [[{'node': b['name'], 'type': 'main', 'index': 0}]]}
@@ -150,10 +162,13 @@ const select = (value, ...args) => {
                            'combinator': 'and'}, 'options': {}}, 1040, 2.2)
         nodes.append(gate)
         client['position'] = [1300, -100]
+        refusal['position'] = [1300, 100]
         next(n for n in nodes if n['name'] == 'Confirmer rac')['position'] = [1560, 0]
         connections['Email rac Cindy'] = {'main': [[{'node': gate['name'], 'type': 'main', 'index': 0}]]}
         connections[gate['name']] = {'main': [[{'node': 'Email rac client', 'type': 'main', 'index': 0}],
-                                             [{'node': 'Confirmer rac', 'type': 'main', 'index': 0}]]}
+                                             [{'node': 'Email rac refus client', 'type': 'main', 'index': 0}]]}
+        connections['Email rac client'] = {'main': [[{'node': 'Confirmer rac', 'type': 'main', 'index': 0}]]}
+        connections['Email rac refus client'] = {'main': [[{'node': 'Confirmer rac', 'type': 'main', 'index': 0}]]}
     note = '## Connexions à renseigner avant publication\n'
     note += 'SMTP : ' + ('demande-rappel@orizia-courtage.fr' if kind == 'rappel' else 'dossier@orizia-courtage.fr (les deux emails)')
     if kind == 'rac':

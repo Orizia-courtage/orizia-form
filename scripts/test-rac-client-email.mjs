@@ -9,7 +9,7 @@ test('Client email personalizes safely and remains readable without images', () 
   assert.ok(!html.includes('<img src=x'));
   assert.ok(html.includes('TEST&lt;&amp;'));
   assert.ok(html.includes('Budget &amp; projets'));
-  for (const value of ['photo-cindy.webp','Orizia_logo.webp','tel:+33777259706','cindy-urbansky.vcf','Cindy Urbansky','max-width:620px','<!--[if mso]>']) assert.ok(html.includes(value),value);
+  for (const value of ['cindy-signature-banner.jpg','Orizia_logo.webp','tel:+33777259706','cindy-urbansky.vcf','Cindy URBANSKY','Fondatrice &amp; Gérante','max-width:620px','<!--[if mso]>']) assert.ok(html.includes(value),value);
   assert.ok(Buffer.byteLength(html)<50000);
   assert.ok(render({}).includes('Regroupement de crédits'));
 });

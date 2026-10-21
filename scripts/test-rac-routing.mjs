@@ -19,8 +19,8 @@ function path(result){
 test('All high-potential segments notify Cindy then the client and confirm success',()=>{
  for(const segment of high){const r=render(segment);assert.equal(r.sendClientEmail,true,segment);assert.match(r.internalSubject,/^\[GROS POTENTIEL\]/);assert.ok(r.internalSubject.includes(segment));assert.match(r.html0,/GROS POTENTIEL/);assert.deepEqual(path(r),['Reception rac','Preparer rac','Enregistrer dossier MongoDB','Email rac Cindy','Email client autorise','Email rac client','Confirmer rac']);}
 });
-test('Low, unknown and missing segments notify Cindy but never reach the client email',()=>{
- for(const segment of low){const r=render(segment);assert.equal(r.sendClientEmail,false,String(segment));assert.match(r.internalSubject,/^\[PETIT POTENTIEL\]/);assert.match(r.html0,/Aucun email automatique/);assert.deepEqual(path(r),['Reception rac','Preparer rac','Enregistrer dossier MongoDB','Email rac Cindy','Email client autorise','Confirmer rac']);}
+test('Low, unknown and missing segments notify Cindy and receive the neutral refusal email',()=>{
+ for(const segment of low){const r=render(segment);assert.equal(r.sendClientEmail,false,String(segment));assert.match(r.internalSubject,/^\[PETIT POTENTIEL\]/);assert.match(r.html0,/refus sans motif détaillé/);assert.deepEqual(path(r),['Reception rac','Preparer rac','Enregistrer dossier MongoDB','Email rac Cindy','Email client autorise','Email rac refus client','Confirmer rac']);}
 });
 test('BDF, TNS and housing take priority over a conflicting high-potential segment',()=>{
  for(const extra of [{BDF:true},{BDF:'true'},{type_profession:'Commerçant, Artisan'},{type_profession:'Profession libérale'},{type_profession:"Chef d'entreprise"},{Type:'Locataire'},{Type:'Hébergé à titre gratuit'}]) assert.equal(render('Investisseur 1',extra).sendClientEmail,false);
