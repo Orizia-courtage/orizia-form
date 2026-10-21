@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { defaultSimulationSettings, resolveSimulationSettings } from '@/lib/simulationConfig';
 import { getSupabaseAdmin, requireAdmin } from '@/lib/supabase-server';
+import { takeAdminAttempt } from '@/lib/admin-rate-limit';
 
 export const dynamic = 'force-dynamic';
 const SETTING_KEY = 'simulation-settings';
@@ -16,6 +17,8 @@ export async function GET() {
 export async function PUT(request) {
   const admin = await requireAdmin(request);
   if (!admin) return NextResponse.json({ error: 'Accès non autorisé.' }, { status: 401 });
+  const attempt = await takeAdminAttempt({ supabase: admin.supabase, request, scope: 'save', limit: 15 });
+  if (!attempt.allowed) return NextResponse.json({ error: 'Trop d’enregistrements successifs. Réessayez dans quelques minutes.' }, { status: 429, headers: { 'Retry-After': String(attempt.retryAfter) } });
   const body = await request.json().catch(() => null);
   if (!body?.settings || typeof body.settings !== 'object') return NextResponse.json({ error: 'Réglages invalides.' }, { status: 400 });
   const settings = resolveSimulationSettings(body.settings);
