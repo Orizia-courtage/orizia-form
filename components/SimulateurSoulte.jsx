@@ -2,11 +2,13 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { formatPercent, soulteConfig } from '@/lib/simulationConfig';
+import { formatPercent } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 const QP_PRESETS = ['25', '33', '50', '67', '75'];
 
 export default function SimulateurSoulte() {
+  const { soulte: soulteConfig } = useSimulationConfig();
   const [valeur, setValeur] = useState('');
   const [crd, setCrd] = useState('');
   const [quotePart, setQuotePart] = useState('50');

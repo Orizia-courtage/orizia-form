@@ -1,13 +1,15 @@
 ﻿'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { crowdfundingConfig, formatPercent } from '@/lib/simulationConfig';
-
-const PRESETS = crowdfundingConfig.presets;
+import { formatPercent } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 export default function SimulateurCrowdfunding() {
+  const { crowdfunding: crowdfundingConfig } = useSimulationConfig();
+  const PRESETS = crowdfundingConfig.presets;
   const [montant, setMontant] = useState(10000);
   const [taux,    setTaux]    = useState(crowdfundingConfig.defaultRate);
+  useEffect(() => { setTaux(crowdfundingConfig.defaultRate); }, [crowdfundingConfig.defaultRate]);
   const [duree,   setDuree]   = useState(24);
 
   // ── Calculs ──

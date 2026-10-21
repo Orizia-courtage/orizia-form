@@ -1,18 +1,21 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { creditConfig, debtConfig, formatPercent } from '@/lib/simulationConfig';
+import { formatPercent } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 }
 
 export default function CapaciteEmpruntCalc() {
+  const { credit: creditConfig, debt: debtConfig } = useSimulationConfig();
   const [revenus, setRevenus] = useState(3500);
   const [charges, setCharges] = useState(0);
   const [duree, setDuree] = useState(20);
   const [taux, setTaux] = useState(creditConfig.defaultRate);
+  useEffect(() => { setTaux(creditConfig.defaultRate); }, [creditConfig.defaultRate]);
 
   const result = useMemo(() => {
     const mensuelMax = (revenus - charges) * debtConfig.maxRatio;
@@ -22,7 +25,7 @@ export default function CapaciteEmpruntCalc() {
       ? mensuelMax * (1 - Math.pow(1 + tauxMensuel, -n)) / tauxMensuel
       : mensuelMax * n;
     return { mensuelMax: Math.round(mensuelMax), capital: Math.round(capital) };
-  }, [revenus, charges, duree, taux]);
+  }, [revenus, charges, duree, taux, debtConfig.maxRatio]);
 
   return (
     <div className="cap-wrap">

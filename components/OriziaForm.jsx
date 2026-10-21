@@ -10,7 +10,7 @@ import ReactCountryFlag from 'react-country-flag';
 import { citiesData } from './citiesData';
 import { PHONE_PATTERNS } from './PHONE_PATTERNS';
 import { countryOptions } from './countryOptions';
-import { debtConfig } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
 
 registerLocale('fr', fr);
@@ -33,7 +33,7 @@ function computeEV(fd) {
   if (!rev) return 0;
   return ((fd.charge_loyer||0)+(fd.charge_autres||0)+(fd.mensu_loa||0))/rev;
 }
-function determineSegment(fd) {
+function determineSegment(fd, debtConfig) {
   const isTNS=TNS_PROFESSIONS.includes(fd.type_profession), isLOC=LOC_STATUTS.includes(fd.Type);
   const CI=fd.credit_immo||0, CC=fd.credit_conso||0, crdConso=fd.crd_conso||0, crdImmo=fd.crd_immo||0;
   const treso=fd.tresorerie_souhaite||0, maf=fd.MAF||0, ev=fd.EV||0, revFoyer=fd.revenu_foyer||0, totalCred=CI+CC;
@@ -124,6 +124,7 @@ const MSGS = ['Démarrons !','On avance !','Très bien !','Parfait !','Excellent
 
 // ─── COMPOSANT PRINCIPAL ──────────────────────────────────────
 export default function OriziaForm() {
+  const { debt: debtConfig } = useSimulationConfig();
   const [step, setStep]     = useState(1);
   const [dir, setDir]       = useState(1);
   const [key, setKey]       = useState(0);
@@ -256,7 +257,7 @@ export default function OriziaForm() {
     };
     fd.MAF=computeMAF(fd); fd.EV=computeEV(fd);
     fd.Revenu=(fd.revenu_foyer||0)+(fd.revenu_autre||0);
-    fd.Segment=determineSegment(fd);
+    fd.Segment=determineSegment(fd, debtConfig);
     rappelRef.current={numero_dossier:fd.numero_dossier,date_creation:fd.date_creation,profil_prenom:fd.profil_prenom,profil_nom:fd.profil_nom,profil_tel:fd.profil_tel,profil_codetel:fd.profil_codetel,profil_mail:fd.profil_mail,profil_ville:fd.profil_ville,action:'rappel_souhaite'};
     try{
       const res=await fetch(FORM_SUBMIT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)});

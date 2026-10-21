@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from '@vnedyalk0v/react19-simple-maps';
 import geoData from '../data/france-zones.json';
-import { creditConfig } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 import ReunionSVG           from '../src/assets/outremer/reunion.svg';
 import GuadeloupeSVG        from '../src/assets/outremer/guadeloupe.svg';
@@ -32,7 +32,6 @@ const ISLAND_COMPONENTS = {
 };
 
 // ─── RATES DATA ───────────────────────────────────────────────────────────────
-export const RATES = creditConfig.ratesByZone;
 
 // ─── OUTRE-MER ────────────────────────────────────────────────────────────────
 const OUTREMER_REGIONS = [
@@ -220,12 +219,14 @@ function OutreMerGrid({ selected, onSelect }) {
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 export default function MortgageRateWidget() {
+  const { credit: creditConfig } = useSimulationConfig();
+  const rates = creditConfig.ratesByZone;
   const [tab, setTab]                       = useState('metropole');
   const [selectedRegion, setSelectedRegion] = useState('ile-de-france');
   const [years, setYears]                   = useState(16);
 
   const bracket   = getBracket(years);
-  const rate      = RATES[selectedRegion]?.[bracket] ?? 0;
+  const rate      = rates[selectedRegion]?.[bracket] ?? 0;
   const sliderPct = ((years - 10) / 15) * 100;
 
   const METROPOLE_ZONE_LABELS = {

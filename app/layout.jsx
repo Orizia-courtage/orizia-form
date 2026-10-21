@@ -6,6 +6,7 @@ import './refonte-test.css';
 import { Analytics } from "@vercel/analytics/next"
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SimulationConfigProvider } from '@/components/SimulationConfigProvider';
 
 
 
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
       <head>
       </head>
       <body className={dmSans.className}>
-        {children}
+        <SimulationConfigProvider>{children}</SimulationConfigProvider>
         <Analytics />
         <SpeedInsights />
       </body>

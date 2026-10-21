@@ -1,17 +1,20 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { formatPercent, scpiConfig } from '@/lib/simulationConfig';
+import { formatPercent } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 const fmt    = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const fmtDec = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 
 export default function SimulateurSCPI() {
+  const { scpi: scpiConfig } = useSimulationConfig();
   const [mode,    setMode]    = useState('capital');
   const [capital, setCapital] = useState(20000);
   const [epargne, setEpargne] = useState(200);
   const [duree,   setDuree]   = useState(10);
   const [taux,    setTaux]    = useState(scpiConfig.defaultDistributionRate);
+  useEffect(() => { setTaux(scpiConfig.defaultDistributionRate); }, [scpiConfig.defaultDistributionRate]);
 
   // ── Mode Capital ──
   const revenusAnnuels    = capital * (taux / 100);

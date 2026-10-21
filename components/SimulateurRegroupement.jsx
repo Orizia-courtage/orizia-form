@@ -2,9 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { debtConfig, formatPercent } from '@/lib/simulationConfig';
+import { formatPercent } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 export default function SimulateurRegroupement() {
+  const { debt: debtConfig } = useSimulationConfig();
   const [mensualite, setMensualite] = useState('');
   const [revenus, setRevenus] = useState('');
   const [nbCredits, setNbCredits] = useState('2');
