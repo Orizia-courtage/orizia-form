@@ -20,6 +20,13 @@ const durationLabels = { '10': 'Jusqu’à 10 ans', '11-15': '11 à 15 ans', '16
 function read(settings, path) { return path.split('.').reduce((value, key) => value?.[key], settings); }
 function write(settings, path, value) { const keys = path.split('.'); const next = structuredClone(settings); let target = next; keys.slice(0, -1).forEach((key) => { target = target[key]; }); target[keys.at(-1)] = value; return next; }
 const numberValue = (raw, fallback = 0) => { const value = Number(String(raw).replace(',', '.')); return Number.isFinite(value) ? value : fallback; };
+const editableNumber = (value) => {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return '';
+  // A percentage stored as a ratio (for example 0.3) can otherwise become
+  // 30.000000000000004 after JavaScript arithmetic.
+  return String(Number(number.toFixed(6)));
+};
 
 export default function AdministrationPage() {
   const [settings, setSettings] = useState(null); const [email, setEmail] = useState(''); const [password, setPassword] = useState(''); const [session, setSession] = useState(null); const [message, setMessage] = useState(''); const [saving, setSaving] = useState(false); const [selectedZone, setSelectedZone] = useState('ile-de-france');
@@ -50,7 +57,7 @@ export default function AdministrationPage() {
   </section></main>;
 }
 
-function NumberField({ label, value, onChange, suffix }) { const hint = suffix === '€' ? 'Montant en euros' : suffix === 'mois' ? 'Nombre de mois' : 'Pourcentage'; return <label style={labelStyle}>{label}<span style={hintStyle}>{hint}</span><div style={{ position: 'relative' }}><input style={{ ...inputStyle, paddingRight: 40 }} type="number" step="0.01" value={value} onChange={(e) => onChange(e.target.value)} /><span style={suffixStyle}>{suffix}</span></div></label>; }
+function NumberField({ label, value, onChange, suffix }) { const hint = suffix === '€' ? 'Montant en euros' : suffix === 'mois' ? 'Nombre de mois' : 'Pourcentage'; const isInteger = suffix === 'mois'; return <label style={labelStyle}>{label}<span style={hintStyle}>{hint}</span><div style={{ position: 'relative' }}><input style={{ ...inputStyle, paddingRight: 40 }} type="number" inputMode={isInteger ? 'numeric' : 'decimal'} step={isInteger ? '1' : '0.01'} value={editableNumber(value)} onChange={(e) => onChange(e.target.value)} /><span style={suffixStyle}>{suffix}</span></div></label>; }
 function Panel({ title, description, children }) { return <section style={cardStyle}><h2 style={{ margin: '0 0 6px' }}>{title}</h2><p style={descriptionStyle}>{description}</p>{children}</section>; }
 function EditorCard({ children, onRemove }) { return <div style={editorCardStyle}>{onRemove && <button type="button" onClick={onRemove} style={removeButtonStyle}>Supprimer</button>}{children}</div>; }
 function TextField({ label, value, onChange }) { return <label style={labelStyle}>{label}<input style={inputStyle} value={value ?? ''} onChange={(e) => onChange(e.target.value)} /></label>; }
