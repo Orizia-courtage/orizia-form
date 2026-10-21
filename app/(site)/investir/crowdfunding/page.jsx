@@ -79,7 +79,7 @@ const investirCrowdfundingSchema = {
           name: 'Quel est le rendement moyen du crowdfunding immobilier en 2026 ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an — bien au-dessus du livret A (3%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
+            text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an — bien au-dessus du livret A (2,1%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
           },
         },
         {
@@ -184,7 +184,7 @@ const RISQUES = [
 ];
 
 const COMPARATIF = [
-  { produit: 'Livret A', rendement: '3%', duree: 'Libre', risque: '✅ Très faible', liquidite: '✅ Immédiate', highlight: false },
+  { produit: 'Livret A', rendement: '2,1%', duree: 'Libre', risque: '✅ Très faible', liquidite: '✅ Immédiate', highlight: false },
   { produit: 'Assurance Vie', rendement: '2–4%', duree: '8 ans+', risque: '✅ Très faible', liquidite: '✅ Bonne', highlight: false },
   { produit: 'SCPI', rendement: '4–6%', duree: '8–10 ans', risque: '⚠️ Faible', liquidite: '⚠️ Limitée', highlight: false },
   { produit: '🤝 Crowdfunding immo', rendement: '8–12%', duree: '1–3 ans', risque: '⚠️ Moyen', liquidite: '🔒 Bloqué', highlight: true },

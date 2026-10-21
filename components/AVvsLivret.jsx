@@ -34,7 +34,7 @@ const CRITERES = [
   {
     label: 'Rendement 2026',
     icon: '📈',
-    livretA: { val: '3%', note: 'Taux réglementé', ok: true },
+    livretA: { val: '2,1%', note: 'Taux réglementé', ok: true },
     pel:     { val: '2,25%', note: 'Taux garanti à l\'ouverture', ok: null },
     av:      { val: '2,5–5%', note: 'Selon profil (fonds € + UC)', ok: true, star: true },
   },
