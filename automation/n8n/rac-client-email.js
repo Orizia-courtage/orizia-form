@@ -3,7 +3,6 @@
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const base = 'https://www.orizia-courtage.fr';
 const logo = base + '/_next/image?url=%2Fimages%2FOrizia_logo.webp&amp;w=384&amp;q=75';
-const signature = base + '/images/cindy-signature-banner.jpg';
 const dossier = esc(p.numero_dossier);
 const prenom = esc(p.profil_prenom);
 const objectif = esc(p.Raison || 'Regroupement de crédits');
@@ -70,8 +69,13 @@ a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important
 </td></tr>
 <tr><td class="pad" style="padding:28px 40px 32px;">
  <p style="margin:0 0 24px;font-size:15px;line-height:24px;color:#514B47;">Une précision à ajouter ? Répondez simplement à cet email ou appelez-moi directement.<br>Au plaisir d’échanger avec vous,</p>
- <img src="${signature}" width="480" alt="Cindy Urbansky — Orizia Courtage" style="display:block;width:100%;max-width:480px;height:auto;border:0;">
- <p style="margin:16px 0 0;font-size:13px;line-height:21px;color:#434844;"><strong>Cindy URBANSKY</strong><br>Fondatrice &amp; Gérante<br>Courtier indépendant en crédit, assurance &amp; patrimoine<br><a href="tel:+33777259706" style="color:#1b1d1a;text-decoration:none;">07 77 25 97 06</a> · <a href="mailto:cindy.urbansky@orizia-courtage.fr" style="color:#1b1d1a;text-decoration:underline;">cindy.urbansky@orizia-courtage.fr</a></p>
+ <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+  <td width="31%" align="center" valign="middle" style="padding:6px 18px 6px 0;"><a href="${base}/" style="text-decoration:none;"><img src="${logo}" width="120" alt="Orizia Courtage" style="display:block;width:120px;height:auto;border:0;"></a></td>
+  <td width="1" bgcolor="#1b1d1a" style="width:1px;font-size:1px;line-height:1px;">&nbsp;</td>
+  <td valign="top" style="padding:2px 0 2px 20px;"><a href="${base}/qui-suis-je" style="font-size:16px;line-height:21px;font-family:Georgia,'Times New Roman',serif;font-weight:bold;color:#1b1d1a;text-decoration:underline;">Cindy URBANSKY</a><br><span style="display:inline-block;margin:2px 0 7px;font-size:13px;line-height:18px;color:#434844;font-style:italic;">Fondatrice &amp; Gérante</span><br><a href="tel:+33777259706" style="font-size:13px;line-height:20px;color:#1b1d1a;text-decoration:none;">📞&nbsp; 07 77 25 97 06</a><br><a href="mailto:cindy.urbansky@orizia-courtage.fr" style="font-size:13px;line-height:20px;color:#1b1d1a;text-decoration:none;">✉️&nbsp; cindy.urbansky@orizia-courtage.fr</a><br><span style="display:inline-block;margin-top:6px;font-size:13px;line-height:19px;color:#434844;">Courtier indépendant en crédit, assurance<br>&amp; patrimoine</span></td>
+ </tr></table>
+ <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;"><tr><td width="25%" height="7" bgcolor="#b3ddcb" style="height:7px;font-size:1px;line-height:1px;">&nbsp;</td><td width="25%" bgcolor="#6bb69b" style="height:7px;font-size:1px;line-height:1px;">&nbsp;</td><td width="25%" bgcolor="#7f7f7f" style="height:7px;font-size:1px;line-height:1px;">&nbsp;</td><td width="25%" bgcolor="#1b1d1a" style="height:7px;font-size:1px;line-height:1px;">&nbsp;</td></tr></table>
+ <p style="margin:13px 0 0;font-size:12px;line-height:20px;color:#1b1d1a;"><a href="${base}/" style="color:#1b1d1a;text-decoration:underline;font-weight:bold;">🌐 Site web</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://cal.com/cindy-urbansky/rendez-vous" style="color:#1b1d1a;text-decoration:underline;font-weight:bold;">📅 Rendez-vous</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/cindy-urbansky-034323162/" style="color:#1b1d1a;text-decoration:underline;font-weight:bold;">LinkedIn</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="${base}/cindy-urbansky.vcf" style="color:#1b1d1a;text-decoration:underline;font-weight:bold;">👤 Enregistrer contact</a></p>
 </td></tr>
 </table>
 <!--[if mso]></td></tr></table><![endif]-->

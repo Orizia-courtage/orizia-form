@@ -8,6 +8,6 @@ test('Refusal email is neutral, safe and gives a path to retry', () => {
   const html = render({ profil_prenom: '<img src=x>', numero_dossier: 'TEST<&' });
   assert.ok(html.includes('&lt;img src=x&gt;'));
   assert.ok(!html.includes('<img src=x>'));
-  for (const value of ['changement de situation', 'refaire le point', 'cindy-signature-banner.jpg', 'cal.com/cindy-urbansky/rendez-vous', 'cindy-urbansky.vcf']) assert.ok(html.includes(value), value);
+  for (const value of ['changement de situation', 'refaire le point', 'Cindy URBANSKY', 'qui-suis-je', 'cal.com/cindy-urbansky/rendez-vous', 'cindy-urbansky.vcf', '#b3ddcb', '#1b1d1a']) assert.ok(html.includes(value), value);
   assert.ok(!html.toLowerCase().includes('raison du refus'));
 });
