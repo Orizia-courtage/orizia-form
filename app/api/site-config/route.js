@@ -27,7 +27,7 @@ export async function PUT(request) {
       code: tableMissing ? 'CONFIG_TABLE_MISSING' : 'CONFIG_WRITE_FAILED',
       error: tableMissing
         ? "La table « site_settings » est introuvable dans Supabase. Exécutez le script SQL de configuration."
-        : "L'enregistrement Supabase a échoué. Vérifiez la clé secrète Vercel et la configuration de la table.",
+        : `L'enregistrement Supabase a échoué (${error.code || 'code inconnu'}) : ${error.message || 'détail non fourni'}`,
     }, { status: 500 });
   }
   return NextResponse.json({ settings, updatedAt: new Date().toISOString() }, { headers: { 'Cache-Control': 'no-store' } });
