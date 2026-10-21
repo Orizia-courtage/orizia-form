@@ -5,6 +5,7 @@ import Link from 'next/link';
 export default function ServiceCard({ img, tag, title, desc, cta }) {
   return (
     <div
+      className="service-card"
       style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 24px rgba(29,30,24,0.08)', transition: 'transform 0.3s', display: 'flex', flexDirection: 'column' }}
       onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-6px)'}
       onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
