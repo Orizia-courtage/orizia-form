@@ -34,8 +34,23 @@ const sections = [
   {
     title: 'Autres simulateurs',
     description: 'Valeurs utilisées dans les calculateurs affichés sur le site.',
-    fields: [['crowdfunding.livretANetRate', 'Taux net du Livret A'], ['soulte.sharingDutyRate', 'Droit de partage (soulte)']],
-    ratioKeys: ['soulte.sharingDutyRate'],
+    fields: [
+      ['crowdfunding.livretANetRate', 'Taux net du Livret A'], ['crowdfunding.defaultRate', 'Crowdfunding : taux par défaut'],
+      ['crowdfunding.minRate', 'Crowdfunding : taux minimum'], ['crowdfunding.maxRate', 'Crowdfunding : taux maximum'],
+      ['crowdfunding.flatTaxRate', 'Crowdfunding : flat tax'], ['soulte.sharingDutyRate', 'Droit de partage (soulte)'],
+    ],
+    ratioKeys: ['crowdfunding.flatTaxRate', 'soulte.sharingDutyRate'],
+  },
+  {
+    title: 'Assurance-vie',
+    description: 'Les frais et prélèvements sont exprimés en pourcentage. Les abattements sont en euros.',
+    fields: [
+      ['assuranceVie.paymentFeeRate', 'Frais sur versement'], ['assuranceVie.managementFeeRate', 'Frais de gestion annuels'],
+      ['assuranceVie.socialTaxRate', 'Prélèvements sociaux'], ['assuranceVie.pfnlBefore8YearsRate', 'PFNL avant 8 ans'],
+      ['assuranceVie.pfnlAfter8YearsRate', 'PFNL après 8 ans'], ['assuranceVie.abatementSingle', 'Abattement personne seule'],
+      ['assuranceVie.abatementCouple', 'Abattement couple'],
+    ],
+    ratioKeys: ['assuranceVie.paymentFeeRate', 'assuranceVie.managementFeeRate', 'assuranceVie.socialTaxRate', 'assuranceVie.pfnlBefore8YearsRate', 'assuranceVie.pfnlAfter8YearsRate'],
   },
 ];
 
@@ -55,11 +70,18 @@ export default function AdministrationPage() {
   const [message, setMessage] = useState('');
   const [saving, setSaving] = useState(false);
   const [mortgageJson, setMortgageJson] = useState('');
+  const [structuredJson, setStructuredJson] = useState({ assuranceRates: '', assuranceVieRepartition: '', perTranches: '', crowdfundingPresets: '' });
 
   const configured = Boolean(supabase);
   useEffect(() => {
     fetch('/api/site-config', { cache: 'no-store' }).then((r) => r.json()).then((data) => {
       setSettings(data.settings); setMortgageJson(JSON.stringify(data.settings?.credit?.ratesByZone ?? {}, null, 2));
+      setStructuredJson({
+        assuranceRates: JSON.stringify(data.settings?.assuranceEmprunteur?.ageRates ?? [], null, 2),
+        assuranceVieRepartition: JSON.stringify(data.settings?.assuranceVie?.repartition ?? [], null, 2),
+        perTranches: JSON.stringify(data.settings?.per?.tranches ?? [], null, 2),
+        crowdfundingPresets: JSON.stringify(data.settings?.crowdfunding?.presets ?? [], null, 2),
+      });
     }).catch(() => setMessage('Impossible de charger les réglages.'));
     if (!supabase) return;
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -82,7 +104,13 @@ export default function AdministrationPage() {
   };
   const save = async () => {
     let next = settings;
-    try { next = write(next, 'credit.ratesByZone', JSON.parse(mortgageJson)); } catch { setMessage('Le tableau des taux par zone doit être un JSON valide.'); return; }
+    try {
+      next = write(next, 'credit.ratesByZone', JSON.parse(mortgageJson));
+      next = write(next, 'assuranceEmprunteur.ageRates', JSON.parse(structuredJson.assuranceRates));
+      next = write(next, 'assuranceVie.repartition', JSON.parse(structuredJson.assuranceVieRepartition));
+      next = write(next, 'per.tranches', JSON.parse(structuredJson.perTranches));
+      next = write(next, 'crowdfunding.presets', JSON.parse(structuredJson.crowdfundingPresets));
+    } catch { setMessage('Un tableau de réglages contient un JSON invalide.'); return; }
     setSaving(true); setMessage('Enregistrement…');
     const response = await fetch('/api/site-config', {
       method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` }, body: JSON.stringify({ settings: next }),
@@ -91,6 +119,12 @@ export default function AdministrationPage() {
     setSaving(false);
     if (!response.ok) { setMessage(data.error || "L'enregistrement a échoué."); return; }
     setSettings(data.settings); setMortgageJson(JSON.stringify(data.settings.credit.ratesByZone, null, 2));
+    setStructuredJson({
+      assuranceRates: JSON.stringify(data.settings.assuranceEmprunteur.ageRates, null, 2),
+      assuranceVieRepartition: JSON.stringify(data.settings.assuranceVie.repartition, null, 2),
+      perTranches: JSON.stringify(data.settings.per.tranches, null, 2),
+      crowdfundingPresets: JSON.stringify(data.settings.crowdfunding.presets, null, 2),
+    });
     setMessage('Enregistré — les simulateurs utilisent ces nouvelles valeurs immédiatement.');
   };
   const signOut = async () => { await supabase?.auth.signOut(); setMessage('Vous êtes déconnecté.'); };
@@ -116,6 +150,10 @@ export default function AdministrationPage() {
           </div>
         </section>)}
         <section style={cardStyle}><h2 style={{ marginTop: 0 }}>Taux immobilier par zone</h2><p style={{ color: '#59635e', fontSize: 14 }}>Conservez les zones et les durées existantes ; modifiez uniquement les chiffres souhaités.</p><textarea value={mortgageJson} onChange={(e) => setMortgageJson(e.target.value)} spellCheck="false" style={{ ...inputStyle, minHeight: 330, fontFamily: 'ui-monospace, SFMono-Regular, Consolas, monospace', fontSize: 12, lineHeight: 1.5, resize: 'vertical' }} /></section>
+        <JsonSetting title="Assurance emprunteur — taux par âge" description="Chaque ligne définit le taux banque, le taux Orizia et le gain estimé pour une tranche d’âge." value={structuredJson.assuranceRates} onChange={(value) => setStructuredJson((current) => ({ ...current, assuranceRates: value }))} />
+        <JsonSetting title="Assurance-vie — rendements par répartition" description="Répartition fonds euros / unités de compte et rendement annuel estimé." value={structuredJson.assuranceVieRepartition} onChange={(value) => setStructuredJson((current) => ({ ...current, assuranceVieRepartition: value }))} />
+        <JsonSetting title="PER — tranches d’imposition" description="TMI et plafond de déduction utilisés par le simulateur PER." value={structuredJson.perTranches} onChange={(value) => setStructuredJson((current) => ({ ...current, perTranches: value }))} />
+        <JsonSetting title="Crowdfunding — profils prédéfinis" description="Montant, taux et durée proposés dans les boutons de simulation." value={structuredJson.crowdfundingPresets} onChange={(value) => setStructuredJson((current) => ({ ...current, crowdfundingPresets: value }))} />
         <button onClick={save} disabled={saving} style={{ ...buttonStyle, opacity: saving ? .6 : 1 }}>{saving ? 'Enregistrement…' : 'Enregistrer les modifications'}</button>
       </>}
       {message && <p aria-live="polite" style={{ marginTop: 18, color: message.startsWith('Enregistré') ? '#287155' : '#59433e' }}>{formattedUpdatedAt || message}</p>}
@@ -129,3 +167,4 @@ const labelStyle = { display: 'grid', gap: 6, fontWeight: 700, fontSize: 14 };
 const inputStyle = { width: '100%', boxSizing: 'border-box', padding: '11px 12px', borderRadius: 9, border: '1px solid #b9c9c0', font: 'inherit', color: '#1b1d1a', background: '#fff' };
 const buttonStyle = { border: 0, borderRadius: 10, padding: '13px 18px', marginTop: 18, background: '#1b1d1a', color: '#fff', fontWeight: 800, fontSize: 15, cursor: 'pointer' };
 const linkButtonStyle = { background: 'none', border: 0, color: '#1b1d1a', textDecoration: 'underline', cursor: 'pointer', font: 'inherit', fontWeight: 700 };
+function JsonSetting({ title, description, value, onChange }) { return <section style={cardStyle}><h2 style={{ marginTop: 0 }}>{title}</h2><p style={{ color: '#59635e', fontSize: 14 }}>{description}</p><textarea value={value} onChange={(e) => onChange(e.target.value)} spellCheck="false" style={{ ...inputStyle, minHeight: 240, fontFamily: 'ui-monospace, SFMono-Regular, Consolas, monospace', fontSize: 12, lineHeight: 1.5, resize: 'vertical' }} /></section>; }

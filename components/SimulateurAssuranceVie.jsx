@@ -1,11 +1,10 @@
 ﻿'use client';
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { assuranceVieConfig, formatPercent } from '@/lib/simulationConfig';
+import { formatPercent } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 // ── Constantes SG (tarification Sogecap) ──
-const FRAIS_VERSEMENTS = assuranceVieConfig.paymentFeeRate;
-const FRAIS_GESTION    = assuranceVieConfig.managementFeeRate;
 
 // ── Table rendements selon répartition ──
 const DEFAULT_REPARTITION = [
@@ -31,7 +30,6 @@ const DEFAULT_REPARTITION = [
   { fe: 5,   uc: 95,  taux: 4.78 },
   { fe: 0,   uc: 100, taux: 5.00 },
 ];
-const REPARTITION = assuranceVieConfig.repartition?.length ? assuranceVieConfig.repartition : DEFAULT_REPARTITION;
 
 // ── Formatters ──
 const fmt = (n) => new Intl.NumberFormat('fr-FR', {
@@ -48,8 +46,8 @@ const CUR_YEAR  = NOW.getFullYear();
 const CUR_MONTH = String(NOW.getMonth() + 1).padStart(2, '0');
 const CUR_DAY   = String(NOW.getDate()).padStart(2, '0');
 
-function tauxNet(annualRate) {
-  return Math.max(0, annualRate / 100 - FRAIS_GESTION);
+function tauxNet(annualRate, config) {
+  return Math.max(0, annualRate / 100 - config.managementFeeRate);
 }
 
 function endDateStr(plusYears) {
@@ -57,18 +55,18 @@ function endDateStr(plusYears) {
 }
 
 // ── Formules financières ──
-function calcFV(vi, vrMonth, dureeYears, annualRate) {
-  const r       = tauxNet(annualRate);
+function calcFV(vi, vrMonth, dureeYears, annualRate, config) {
+  const r       = tauxNet(annualRate, config);
   const n       = dureeYears;
-  const viNet   = vi * (1 - FRAIS_VERSEMENTS);
-  const pmtNet  = vrMonth * 12 * (1 - FRAIS_VERSEMENTS);
+  const viNet   = vi * (1 - config.paymentFeeRate);
+  const pmtNet  = vrMonth * 12 * (1 - config.paymentFeeRate);
   if (r === 0) return viNet + pmtNet * n;
   return viNet * Math.pow(1 + r, n) + pmtNet * (Math.pow(1 + r, n) - 1) / r;
 }
 
 
-function calcMonthlyIncome(capital, perceptionYears, annualRate) {
-  const r = tauxNet(annualRate);
+function calcMonthlyIncome(capital, perceptionYears, annualRate, config) {
+  const r = tauxNet(annualRate, config);
   const n = perceptionYears;
   if (n === 0) return 0;
   if (r === 0) return capital / (n * 12);
@@ -76,10 +74,10 @@ function calcMonthlyIncome(capital, perceptionYears, annualRate) {
   return pmtAnnuel / 12;
 }
 
-function solveVI(target, vrMonth, dureeYears, annualRate) {
-  const r      = tauxNet(annualRate);
+function solveVI(target, vrMonth, dureeYears, annualRate, config) {
+  const r      = tauxNet(annualRate, config);
   const n      = dureeYears;
-  const pmtNet = vrMonth * 12 * (1 - FRAIS_VERSEMENTS);
+  const pmtNet = vrMonth * 12 * (1 - config.paymentFeeRate);
   let viNet;
   if (r === 0) {
     viNet = target - pmtNet * n;
@@ -87,13 +85,13 @@ function solveVI(target, vrMonth, dureeYears, annualRate) {
     viNet = (target - pmtNet * (Math.pow(1 + r, n) - 1) / r) / Math.pow(1 + r, n);
   }
   // Reconvertir : viNet = vi * (1 - FRAIS_VERSEMENTS)  →  vi = viNet / (1 - FRAIS)
-  return Math.max(0, viNet / (1 - FRAIS_VERSEMENTS));
+  return Math.max(0, viNet / (1 - config.paymentFeeRate));
 }
 
-function solveVR(target, vi, dureeYears, annualRate) {
-  const r     = tauxNet(annualRate);
+function solveVR(target, vi, dureeYears, annualRate, config) {
+  const r     = tauxNet(annualRate, config);
   const n     = dureeYears;
-  const viNet = vi * (1 - FRAIS_VERSEMENTS);
+  const viNet = vi * (1 - config.paymentFeeRate);
   let pmtNet;
   if (r === 0) {
     pmtNet = (target - viNet) / n;
@@ -102,22 +100,22 @@ function solveVR(target, vi, dureeYears, annualRate) {
   }
   const vrMonthNet = pmtNet / 12;
   // Reconvertir en brut
-  return Math.max(25, vrMonthNet / (1 - FRAIS_VERSEMENTS));
+  return Math.max(25, vrMonthNet / (1 - config.paymentFeeRate));
 }
 
-function calcNetRachat(capital, totalVers, dureeYears, abattement) {
+function calcNetRachat(capital, totalVers, dureeYears, abattement, config) {
   const gains       = Math.max(0, capital - totalVers);
-  const socialTax   = gains * assuranceVieConfig.socialTaxRate;
-  const pfnlRate    = dureeYears >= 8 ? assuranceVieConfig.pfnlAfter8YearsRate : assuranceVieConfig.pfnlBefore8YearsRate;
+  const socialTax   = gains * config.socialTaxRate;
+  const pfnlRate    = dureeYears >= 8 ? config.pfnlAfter8YearsRate : config.pfnlBefore8YearsRate;
   const taxableGain = dureeYears >= 8 ? Math.max(0, gains - abattement) : gains;
   const pfnl        = taxableGain * pfnlRate;
   return capital - socialTax - pfnl;
 }
 
-function buildChartData(vi, vrMonth, dureeYears, annualRate) {
-  const r      = tauxNet(annualRate);
-  const viNet  = vi * (1 - FRAIS_VERSEMENTS);
-  const pmtNet = vrMonth * 12 * (1 - FRAIS_VERSEMENTS);
+function buildChartData(vi, vrMonth, dureeYears, annualRate, config) {
+  const r      = tauxNet(annualRate, config);
+  const viNet  = vi * (1 - config.paymentFeeRate);
+  const pmtNet = vrMonth * 12 * (1 - config.paymentFeeRate);
   return Array.from({ length: dureeYears }, (_, i) => {
     const n   = i + 1;
     const val = r === 0
@@ -190,6 +188,8 @@ function StepIndicator({ current }) {
 
 // ── Composant principal ──
 export default function SimulateurAssuranceVie() {
+  const { assuranceVie: assuranceVieConfig } = useSimulationConfig();
+  const REPARTITION = assuranceVieConfig.repartition?.length ? assuranceVieConfig.repartition : DEFAULT_REPARTITION;
   const [step,            setStep]            = useState(1);
   const [goal,            setGoal]            = useState('');       // 'capital' | 'revenus'
   const [subgoal,         setSubgoal]         = useState('');       // 'calcul_capital' | 'calcul_vi' | 'calcul_vr'
@@ -202,7 +202,7 @@ export default function SimulateurAssuranceVie() {
   const [repartIdx,       setRepartIdx]       = useState(6);        // défaut 70FE/30UC
   const [abattType,       setAbattType]       = useState('seul');   // 'seul' | 'couple' | 'sans'
 
-  const repartData = REPARTITION[repartIdx];
+  const repartData = REPARTITION[Math.min(repartIdx, REPARTITION.length - 1)];
   const annualRate = repartData.taux;
   const pctSlider  = (repartIdx / 20) * 100;
 
@@ -221,56 +221,56 @@ export default function SimulateurAssuranceVie() {
 
     if (goal === 'capital') {
       if (subgoal === 'calcul_capital') {
-        const capital       = calcFV(vi, vr, dureeEpargne, annualRate);
+        const capital       = calcFV(vi, vr, dureeEpargne, annualRate, assuranceVieConfig);
         const totalVers     = vi + vr * n;
-        const netRachat     = calcNetRachat(capital, totalVers, dureeEpargne, abattAmount);
+        const netRachat     = calcNetRachat(capital, totalVers, dureeEpargne, abattAmount, assuranceVieConfig);
         return { capital, totalVers, netRachat, viNeeded: null, vrNeeded: null, revenusMensuels: null };
       }
       if (subgoal === 'calcul_vi') {
-        const viNeeded  = solveVI(capitalCible, vr, dureeEpargne, annualRate);
+        const viNeeded  = solveVI(capitalCible, vr, dureeEpargne, annualRate, assuranceVieConfig);
         const viSafe    = Math.max(0, viNeeded);
         const totalVers = viSafe + vr * n;
-        const netRachat = calcNetRachat(capitalCible, totalVers, dureeEpargne, abattAmount);
+        const netRachat = calcNetRachat(capitalCible, totalVers, dureeEpargne, abattAmount, assuranceVieConfig);
         return { capital: capitalCible, totalVers, netRachat, viNeeded: viSafe, vrNeeded: null, revenusMensuels: null };
       }
       if (subgoal === 'calcul_vr') {
-        const vrNeeded  = Math.max(25, solveVR(capitalCible, vi, dureeEpargne, annualRate));
+        const vrNeeded  = Math.max(25, solveVR(capitalCible, vi, dureeEpargne, annualRate, assuranceVieConfig));
         const totalVers = vi + vrNeeded * n;
-        const netRachat = calcNetRachat(capitalCible, totalVers, dureeEpargne, abattAmount);
+        const netRachat = calcNetRachat(capitalCible, totalVers, dureeEpargne, abattAmount, assuranceVieConfig);
         return { capital: capitalCible, totalVers, netRachat, viNeeded: null, vrNeeded, revenusMensuels: null };
       }
     }
 
     if (goal === 'revenus') {
       if (subgoal === 'calcul_capital') {
-        const capital         = calcFV(vi, vr, dureeEpargne, annualRate);
-        const revenusMensuels = calcMonthlyIncome(capital, dureePerception, annualRate);
+        const capital         = calcFV(vi, vr, dureeEpargne, annualRate, assuranceVieConfig);
+        const revenusMensuels = calcMonthlyIncome(capital, dureePerception, annualRate, assuranceVieConfig);
         const totalVers       = vi + vr * n;
-        const netRachat       = calcNetRachat(capital, totalVers, dureeEpargne, abattAmount);
+        const netRachat       = calcNetRachat(capital, totalVers, dureeEpargne, abattAmount, assuranceVieConfig);
         return { capital, totalVers, netRachat, viNeeded: null, vrNeeded: null, revenusMensuels };
       }
       if (subgoal === 'calcul_vi') {
         const target   = targetCapitalFromRevenu();
-        const viNeeded = Math.max(0, solveVI(target, vr, dureeEpargne, annualRate));
+        const viNeeded = Math.max(0, solveVI(target, vr, dureeEpargne, annualRate, assuranceVieConfig));
         const totalVers = viNeeded + vr * n;
-        const netRachat = calcNetRachat(target, totalVers, dureeEpargne, abattAmount);
+        const netRachat = calcNetRachat(target, totalVers, dureeEpargne, abattAmount, assuranceVieConfig);
         return { capital: target, totalVers, netRachat, viNeeded, vrNeeded: null, revenusMensuels: revenusCompl };
       }
       if (subgoal === 'calcul_vr') {
         const target   = targetCapitalFromRevenu();
-        const vrNeeded = Math.max(25, solveVR(target, vi, dureeEpargne, annualRate));
+        const vrNeeded = Math.max(25, solveVR(target, vi, dureeEpargne, annualRate, assuranceVieConfig));
         const totalVers = vi + vrNeeded * n;
-        const netRachat = calcNetRachat(target, totalVers, dureeEpargne, abattAmount);
+        const netRachat = calcNetRachat(target, totalVers, dureeEpargne, abattAmount, assuranceVieConfig);
         return { capital: target, totalVers, netRachat, viNeeded: null, vrNeeded, revenusMensuels: revenusCompl };
       }
     }
 
     return null;
-  }, [goal, subgoal, vi, vr, dureeEpargne, capitalCible, revenusCompl, dureePerception, annualRate, abattAmount]);
+  }, [goal, subgoal, vi, vr, dureeEpargne, capitalCible, revenusCompl, dureePerception, annualRate, abattAmount, assuranceVieConfig]);
 
   const chartVI = results?.viNeeded   ?? vi;
   const chartVR = results?.vrNeeded   ?? vr;
-  const chartData = buildChartData(chartVI, chartVR, dureeEpargne, annualRate);
+  const chartData = buildChartData(chartVI, chartVR, dureeEpargne, annualRate, assuranceVieConfig);
 
   const displayVI = subgoal === 'calcul_vi' ? (results?.viNeeded ?? 0) : vi;
   const displayVR = subgoal === 'calcul_vr' ? (results?.vrNeeded ?? 25) : vr;

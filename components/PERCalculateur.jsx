@@ -2,19 +2,19 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { perConfig } from '@/lib/simulationConfig';
-
-const TRANCHES = perConfig.tranches;
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 }
 
 export default function PERCalculateur() {
+  const { per: perConfig } = useSimulationConfig();
+  const TRANCHES = perConfig.tranches;
   const [trancheIdx, setTrancheIdx] = useState(1);
   const [versement, setVersement] = useState(5000);
 
-  const tranche = TRANCHES[trancheIdx];
+  const tranche = TRANCHES[Math.min(trancheIdx, TRANCHES.length - 1)];
   const versementCapped = Math.min(versement, tranche.plafond);
 
   const result = useMemo(() => {

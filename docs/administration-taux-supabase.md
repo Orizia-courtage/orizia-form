@@ -41,8 +41,9 @@ Après l'ajout des variables, lancez un redéploiement Vercel. Les changements d
 
 - Tous les seuils d'endettement, dont le seuil critique.
 - Taux immobilier min., max., par défaut et par zone/durée.
-- Distribution et revalorisation SCPI.
-- Taux net du Livret A.
-- Droit de partage de soulte.
+- SCPI, crowdfunding, Livret A et droit de partage de soulte.
+- Assurance emprunteur par tranche d'âge.
+- Assurance-vie : frais, fiscalité, abattements et rendements par répartition.
+- PER : tranches marginales d'imposition et plafonds.
 
 Les anciennes variables Vercel restent des valeurs de secours. Elles peuvent être conservées ; dès le premier enregistrement dans l'administration, Supabase devient prioritaire.

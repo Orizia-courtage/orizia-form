@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Permet une compilation de contrôle hors du dossier synchronisé par OneDrive.
+  distDir: process.env.NEXT_BUILD_DIR || '.next',
   turbopack: {
     rules: {
       '*.svg': {

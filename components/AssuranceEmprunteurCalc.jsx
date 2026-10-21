@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
-import { assuranceEmprunteurConfig } from '@/lib/simulationConfig';
+import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 // Taux moyens banque et Orizia par tranche d'âge
 const DEFAULT_TAUX_PAR_AGE = [
@@ -14,18 +14,19 @@ const DEFAULT_TAUX_PAR_AGE = [
   { label: '51–55 ans', tauxBanque: 0.0044, tauxOrizia: 0.0026, gain: 41 },
   { label: '56–60 ans', tauxBanque: 0.0048, tauxOrizia: 0.0030, gain: 37 },
 ];
-const TAUX_PAR_AGE = assuranceEmprunteurConfig.ageRates?.length ? assuranceEmprunteurConfig.ageRates : DEFAULT_TAUX_PAR_AGE;
 
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 }
 
 export default function AssuranceEmprunteurCalc() {
+  const { assuranceEmprunteur: assuranceEmprunteurConfig } = useSimulationConfig();
+  const TAUX_PAR_AGE = assuranceEmprunteurConfig.ageRates?.length ? assuranceEmprunteurConfig.ageRates : DEFAULT_TAUX_PAR_AGE;
   const [ageIdx, setAgeIdx] = useState(2); // 36–40 ans par défaut
   const [capital, setCapital] = useState(200000);
   const [duree, setDuree] = useState(20);
 
-  const tranche = TAUX_PAR_AGE[ageIdx];
+  const tranche = TAUX_PAR_AGE[Math.min(ageIdx, TAUX_PAR_AGE.length - 1)];
 
   const result = useMemo(() => {
     const coutBanque = capital * tranche.tauxBanque * duree;
