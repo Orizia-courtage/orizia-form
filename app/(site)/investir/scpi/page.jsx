@@ -104,7 +104,7 @@ const faqSchema = {
       name: 'Quelle est la fiscalité des SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les revenus de SCPI françaises sont intégrés à votre revenu imposable (TMI + 17,2% PS). Un investisseur à 45% de TMI est taxé à 62,2% sur ses revenus SCPI en direct. Les SCPI européennes bénéficient souvent de conventions fiscales plus avantageuses. Loger des SCPI dans une assurance vie permet de bénéficier de la flat tax à 30% — voire 7,5% après 8 ans. La bonne stratégie dépend entièrement de votre profil fiscal.',
+        text: 'Les revenus de SCPI françaises sont intégrés à votre revenu imposable (TMI + 18,6% PS). Un investisseur à 45% de TMI est taxé à 63,6% sur ses revenus SCPI en direct. Les SCPI européennes bénéficient souvent de conventions fiscales plus avantageuses. Loger des SCPI dans une assurance vie permet de bénéficier de la flat tax à 31,4% — voire 7,5% après 8 ans. La bonne stratégie dépend entièrement de votre profil fiscal.',
       },
     },
     {

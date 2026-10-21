@@ -51,7 +51,7 @@ const PRODUITS = [
     tagBg: 'rgba(180,83,9,0.08)',
     tagColor: '#b45309',
     accentColor: '#b45309',
-    points: ['Déduction fiscale immédiate', 'Plafond TNS ~85 000€/an', '0% frais sur versements'],
+    points: ['Déduction fiscale immédiate', 'Plafond TNS ~85 000€/an', 'Frais et modalités présentés avant engagement'],
   },
   {
     href: '/investir/crowdfunding',
@@ -67,7 +67,7 @@ const PRODUITS = [
     tagBg: 'rgba(3,105,161,0.08)',
     tagColor: '#0369a1',
     accentColor: '#0369a1',
-    points: ['Durée connue à l\'avance', 'Flat tax 30%', 'Dès 1 000€'],
+    points: ['Durée connue à l\'avance', 'Flat tax 31,4%', 'Dès 1 000€'],
   },
 ];
 

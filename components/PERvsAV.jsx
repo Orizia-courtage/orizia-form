@@ -40,7 +40,7 @@ const RECOMMANDATIONS = {
 const CRITERES = [
   { label: 'Déduction fiscale à l\'entrée', per: '✅ Oui — jusqu\'à 45% de TMI', av: '❌ Non' },
   { label: 'Disponibilité de l\'épargne', per: '⚠️ Bloqué (exceptions légales)', av: '✅ Disponible à tout moment' },
-  { label: 'Fiscalité à la sortie', per: '📋 IR sur primes + PFU 30% gains', av: '✅ Abattement + 7,5% après 8 ans' },
+  { label: 'Fiscalité à la sortie', per: '📋 IR sur primes + PFU 31,4% gains', av: '✅ Abattement + 7,5% après 8 ans' },
   { label: 'Transmission au décès', per: '✅ Hors succession', av: '✅ 152 500€/bénéf. exonérés' },
   { label: 'Plafond de versement', per: '📋 ~35k à ~85k€/an', av: '♾️ Illimité' },
 ];

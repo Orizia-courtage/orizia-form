@@ -118,7 +118,7 @@ const faqSchema = {
 const CHIFFRES = [
   { value: 'Jusqu\'à\u00A075k€', label: 'Plafond légal d\'emprunt', icon: '💳' },
   { value: '1 à 7 ans', label: 'Durée de remboursement', icon: '📅' },
-  { value: '0€', label: 'De frais d\'étude Orizia', icon: '🎯' },
+  { value: '✓', label: 'Étude personnalisée de votre projet', icon: '🎯' },
   { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: '⏱️' },
 ];
 

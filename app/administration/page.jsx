@@ -37,9 +37,10 @@ const sections = [
     fields: [
       ['crowdfunding.livretANetRate', 'Taux net du Livret A'], ['crowdfunding.defaultRate', 'Crowdfunding : taux par défaut'],
       ['crowdfunding.minRate', 'Crowdfunding : taux minimum'], ['crowdfunding.maxRate', 'Crowdfunding : taux maximum'],
-      ['crowdfunding.flatTaxRate', 'Crowdfunding : flat tax'], ['soulte.sharingDutyRate', 'Droit de partage (soulte)'],
+      ['crowdfunding.flatTaxRate', 'Crowdfunding : PFU total'], ['crowdfunding.socialTaxRate', 'Crowdfunding : prélèvements sociaux'],
+      ['soulte.sharingDutyRate', 'Droit de partage (soulte)'],
     ],
-    ratioKeys: ['crowdfunding.flatTaxRate', 'soulte.sharingDutyRate'],
+    ratioKeys: ['crowdfunding.flatTaxRate', 'crowdfunding.socialTaxRate', 'soulte.sharingDutyRate'],
   },
   {
     title: 'Assurance-vie',

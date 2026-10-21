@@ -103,7 +103,7 @@ const investirCrowdfundingSchema = {
           name: 'Quelle fiscalité s\'applique au crowdfunding immobilier ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impôt sur le revue + 17,2% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
+            text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impôt sur le revue + 18,6% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
           },
         },
         {
@@ -551,12 +551,12 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
               <div className="crowd-fiscalite-plus">+</div>
               <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
-                <strong>17,2%</strong>
+                <strong>18,6%</strong>
                 <span>Prélèvements sociaux</span>
               </div>
               <div className="crowd-fiscalite-plus">=</div>
               <div className="crowd-fiscalite-item crowd-fiscalite-total" style={{ border: '2px solid var(--orizia-gold)' }}>
-                <strong>30%</strong>
+                <strong>31,4%</strong>
                 <span>Flat tax totale</span>
               </div>
             </div>

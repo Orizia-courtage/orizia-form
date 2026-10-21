@@ -118,7 +118,7 @@ const faqSchema = {
       name: 'Vaut-il mieux sortir en capital ou en rente avec un PER ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La sortie en capital est généralement plus avantageuse pour les petits et moyens capitaux : les versements déduits sont imposés à l\'IR à la sortie, les gains au PFU 30%. La rente viagère garantit un revenu à vie — utile si votre espérance de vie est longue ou si vous avez peu d\'autres revenus à la retraite. Je vous aide à choisir selon votre TMI de retraite estimé lors du bilan annuel.',
+        text: 'La sortie en capital est généralement plus avantageuse pour les petits et moyens capitaux : les versements déduits sont imposés à l\'IR à la sortie, les gains au PFU 31,4%. La rente viagère garantit un revenu à vie — utile si votre espérance de vie est longue ou si vous avez peu d\'autres revenus à la retraite. Je vous aide à choisir selon votre TMI de retraite estimé lors du bilan annuel.',
       },
     },
     {

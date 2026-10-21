@@ -20,6 +20,15 @@ export async function PUT(request) {
   if (!body?.settings || typeof body.settings !== 'object') return NextResponse.json({ error: 'Réglages invalides.' }, { status: 400 });
   const settings = mergeSimulationSettings(defaultSimulationSettings, body.settings);
   const { error } = await admin.supabase.from('site_settings').upsert({ key: SETTING_KEY, value: settings, updated_at: new Date().toISOString() });
-  if (error) return NextResponse.json({ error: "L'enregistrement a échoué. Vérifiez la table Supabase." }, { status: 500 });
+  if (error) {
+    console.error('Supabase site_settings save failed:', error);
+    const tableMissing = error.code === '42P01';
+    return NextResponse.json({
+      code: tableMissing ? 'CONFIG_TABLE_MISSING' : 'CONFIG_WRITE_FAILED',
+      error: tableMissing
+        ? "La table « site_settings » est introuvable dans Supabase. Exécutez le script SQL de configuration."
+        : "L'enregistrement Supabase a échoué. Vérifiez la clé secrète Vercel et la configuration de la table.",
+    }, { status: 500 });
+  }
   return NextResponse.json({ settings, updatedAt: new Date().toISOString() }, { headers: { 'Cache-Control': 'no-store' } });
 }

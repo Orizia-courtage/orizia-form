@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 import LexiqueGrid from '@/components/LexiqueGrid';
 
@@ -107,7 +107,7 @@ const CATEGORIES = [
     termes: [
       { terme: 'SCPI', def: "Société Civile de Placement Immobilier. Fonds collectif qui achète et gère un portefeuille d'actifs immobiliers. Vous détenez des parts et percevez votre quote-part des loyers trimestriellement, sans aucune contrainte de gestion. Accessible dès 1 000 €." },
       { terme: 'Taux de distribution (SCPI)', def: "Rendement annuel brut d'une SCPI, exprimé en pourcentage de la valeur de la part. En 2026, il se situe entre 4 % et 6 % pour les meilleures SCPI. À distinguer du rendement net après fiscalité." },
-      { terme: 'SCPI européennes', def: "SCPI investissant dans des actifs immobiliers hors de France (Allemagne, Pays-Bas, Irlande…). Elles bénéficient souvent de conventions fiscales bilatérales permettant d'éviter les prélèvements sociaux français (17,2 %). Avantage décisif pour les TMI 30 %+." },
+      { terme: 'SCPI européennes', def: "SCPI investissant dans des actifs immobiliers hors de France (Allemagne, Pays-Bas, Irlande…). Elles bénéficient souvent de conventions fiscales bilatérales permettant d'éviter les prélèvements sociaux français (18,6 %). Avantage décisif pour les TMI 30 %+." },
       { terme: 'Nue-propriété (SCPI)', def: "Stratégie consistant à acheter des parts de SCPI à prix décoté (15 à 30 %) en cédant temporairement l'usufruit. Aucun revenu pendant 5 à 15 ans = zéro fiscalité. Idéal pour les TMI élevés qui n'ont pas besoin de revenus immédiats." },
       { terme: 'Démembrement de propriété', def: "Séparation entre la nue-propriété (droit de disposer du bien) et l'usufruit (droit d'en percevoir les revenus). Utilisé en SCPI pour optimiser la fiscalité selon votre profil." },
       { terme: 'PER (Plan Épargne Retraite)', def: "Produit d'épargne retraite créé par la loi PACTE (2019). Vos versements sont déductibles de votre revenu imposable, réduisant directement votre impôt l'année suivante. L'épargne est bloquée jusqu'à la retraite, sauf exceptions légales." },
@@ -116,7 +116,7 @@ const CATEGORIES = [
       { terme: 'Assurance vie', def: "Enveloppe fiscale permettant d'investir sur des supports en euros (capital garanti) et/ou en unités de compte. Votre argent n'est pas bloqué. Après 8 ans, la fiscalité devient très avantageuse : abattement annuel + taux réduit à 7,5 %." },
       { terme: 'Fonds en euros', def: "Support d'assurance vie à capital garanti par l'assureur. Rendement moyen de 2,5 à 3,5 % brut en 2026. Sécurisé mais sous-performant l'inflation sur le long terme si utilisé seul." },
       { terme: 'Unités de compte (UC)', def: "Supports d'investissement en assurance vie ou PER exposés aux marchés financiers (actions, obligations, SCPI, ETF…). Potentiel de rendement plus élevé mais risque de perte en capital. À calibrer selon votre horizon." },
-      { terme: 'Flat tax (PFU)', def: "Prélèvement Forfaitaire Unique de 30 % (12,8 % d'impôt + 17,2 % de prélèvements sociaux) applicable aux revenus de capitaux mobiliers, notamment les intérêts du crowdfunding immobilier." },
+      { terme: 'Flat tax (PFU)', def: "Prélèvement Forfaitaire Unique de 30 % (12,8 % d'impôt + 18,6 % de prélèvements sociaux) applicable aux revenus de capitaux mobiliers, notamment les intérêts du crowdfunding immobilier." },
       { terme: "TMI (Taux Marginal d'Imposition)", def: "Taux d'imposition appliqué à la dernière tranche de vos revenus. En France : 0 %, 11 %, 30 %, 41 % ou 45 %. Il détermine l'avantage fiscal du PER et la stratégie SCPI optimale. Visible sur votre avis d'imposition." },
       { terme: 'Crowdfunding immobilier', def: "Financement participatif permettant de prêter de l'argent à un promoteur immobilier via une plateforme agréée AMF. Rendement de 8 à 12 %/an sur 12 à 36 mois. Capital bloqué jusqu'à l'échéance, risque de perte en capital." },
       { terme: 'PSFP', def: "Prestataire de Services de Financement Participatif. Statut européen encadrant les plateformes de crowdfunding depuis 2022. Je ne travaille qu'avec des plateformes agréées PSFP." },
@@ -135,11 +135,11 @@ const CATEGORIES = [
     termes: [
       { terme: 'Déficit foncier', def: "Mécanisme fiscal permettant de déduire les charges d'un bien locatif (travaux, intérêts d'emprunt) de son revenu global, réduisant ainsi l'impôt. Particulièrement intéressant pour les TMI 30 %+." },
       { terme: 'LMNP (Loueur Meublé Non Professionnel)', def: "Statut fiscal pour les propriétaires qui louent un bien meublé. Permet d'amortir le bien et le mobilier, réduisant significativement la base imposable des loyers perçus." },
-      { terme: 'Prélèvements sociaux', def: "Cotisations de 17,2 % prélevées sur les revenus du patrimoine (loyers, intérêts, plus-values). Elles s'ajoutent à l'impôt sur le revenu. Les SCPI européennes permettent souvent de les éviter grâce aux conventions fiscales." },
+      { terme: 'Prélèvements sociaux', def: "Cotisations de 18,6 % prélevées sur les revenus du patrimoine (loyers, intérêts, plus-values). Elles s'ajoutent à l'impôt sur le revenu. Les SCPI européennes permettent souvent de les éviter grâce aux conventions fiscales." },
       { terme: 'Abattement fiscal (assurance vie)', def: "Après 8 ans, les gains d'une assurance vie bénéficient d'un abattement annuel de 4 600 € (personne seule) ou 9 200 € (couple). Au-delà, le taux réduit de 7,5 % s'applique sur les gains." },
       { terme: 'PASS (Plafond Annuel de la Sécurité Sociale)', def: "Référence utilisée pour calculer les plafonds de déduction du PER. En 2026, 1 PASS ≈ 46 368 €. Le plafond salarié est de 10 % de 8 PASS ≈ 35 000 €." },
-      { terme: 'Plus-value immobilière', def: "Gain réalisé lors de la vente d'un bien immobilier (prix de vente - prix d'achat). Elle est imposée à 19 % + 17,2 % de prélèvements sociaux, avec des abattements progressifs selon la durée de détention (exonération totale après 22 ans pour l'IR, 30 ans pour les PS)." },
-      { terme: 'Revenus fonciers', def: "Revenus issus de la location de biens immobiliers non meublés. Ils s'ajoutent à votre revenu imposable et sont taxés à votre TMI + 17,2 % de prélèvements sociaux. La stratégie SCPI doit en tenir compte." },
+      { terme: 'Plus-value immobilière', def: "Gain réalisé lors de la vente d'un bien immobilier (prix de vente - prix d'achat). Elle est imposée à 19 % + 18,6 % de prélèvements sociaux, avec des abattements progressifs selon la durée de détention (exonération totale après 22 ans pour l'IR, 30 ans pour les PS)." },
+      { terme: 'Revenus fonciers', def: "Revenus issus de la location de biens immobiliers non meublés. Ils s'ajoutent à votre revenu imposable et sont taxés à votre TMI + 18,6 % de prélèvements sociaux. La stratégie SCPI doit en tenir compte." },
     ],
   },
   {

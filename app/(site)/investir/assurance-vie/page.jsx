@@ -96,7 +96,7 @@ const faqSchema = {
       name: 'Quelle est la fiscalité de l\'assurance vie après 8 ans ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Après 8 ans, les gains bénéficient d\'un abattement annuel de 4 600€ pour une personne seule ou 9 200€ pour un couple. Au-delà, un taux réduit de 7,5% s\'applique, plus 17,2% de prélèvements sociaux. C\'est la fiscalité la plus avantageuse sur l\'épargne longue durée disponible en France.',
+        text: 'Après 8 ans, les gains bénéficient d\'un abattement annuel de 4 600€ pour une personne seule ou 9 200€ pour un couple. Au-delà, un taux réduit de 7,5% s\'applique, plus 18,6% de prélèvements sociaux. C\'est la fiscalité la plus avantageuse sur l\'épargne longue durée disponible en France.',
       },
     },
     {

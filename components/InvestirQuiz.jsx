@@ -39,11 +39,11 @@ const QUESTIONS = [
 
 const RECOMMANDATIONS = {
   revenus_court_faible:    { produit: 'Crowdfunding', href: '/investir/crowdfunding', icon: '📈', raison: '8–12%/an sur 12–36 mois. Rendement élevé à court terme, idéal pour votre profil.', color: '#0369a1' },
-  revenus_court_eleve:     { produit: 'Crowdfunding', href: '/investir/crowdfunding', icon: '📈', raison: 'Flat tax 30% sur les intérêts. Rendement élevé sur courte durée.', color: '#0369a1' },
+  revenus_court_eleve:     { produit: 'Crowdfunding', href: '/investir/crowdfunding', icon: '📈', raison: 'Flat tax 31,4% sur les intérêts. Rendement élevé sur courte durée.', color: '#0369a1' },
   revenus_moyen_faible:    { produit: 'SCPI', href: '/investir/scpi', icon: '🏢', raison: '4–6%/an, loyers trimestriels, zéro gestion. Parfait pour votre horizon.', color: 'var(--orizia-primary)' },
   revenus_moyen_eleve:     { produit: 'SCPI européennes', href: '/investir/scpi', icon: '🏢', raison: 'SCPI européennes pour éviter les prélèvements sociaux français. Rendement net optimisé.', color: 'var(--orizia-primary)' },
   revenus_long_faible:     { produit: 'Assurance Vie', href: '/investir/assurance-vie', icon: '🛡️', raison: 'Profil équilibré ou dynamique. Fiscalité optimale après 8 ans.', color: 'var(--orizia-accent)' },
-  revenus_long_eleve:      { produit: 'Assurance Vie + SCPI', href: '/investir/assurance-vie', icon: '🛡️', raison: 'SCPI logées en AV pour combiner rendement immobilier et flat tax 30%.', color: 'var(--orizia-accent)' },
+  revenus_long_eleve:      { produit: 'Assurance Vie + SCPI', href: '/investir/assurance-vie', icon: '🛡️', raison: 'SCPI logées en AV pour combiner rendement immobilier et flat tax 31,4%.', color: 'var(--orizia-accent)' },
   fiscal_court_eleve:      { produit: 'PER', href: '/investir/per', icon: '🏦', raison: 'Déduction fiscale immédiate dès cette année. Rendement fiscal garanti.', color: '#b45309' },
   fiscal_court_tns:        { produit: 'PER (Madelin)', href: '/investir/per', icon: '🏦', raison: 'Plafond Madelin jusqu\'à 85 000€/an. Le levier fiscal le plus puissant pour un TNS.', color: '#b45309' },
   fiscal_moyen_eleve:      { produit: 'PER', href: '/investir/per', icon: '🏦', raison: 'Versements déductibles + rattrapage des plafonds N-3. Économie d\'impôt immédiate.', color: '#b45309' },

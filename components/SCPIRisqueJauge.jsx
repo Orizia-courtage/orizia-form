@@ -36,7 +36,7 @@ const RISQUES = [
     icon: '🧾',
     sans: 80,
     avec: 10,
-    desc_sans: 'Sans optimisation, les revenus SCPI peuvent être taxés jusqu\'à 62,2% pour un TMI à 45%. Le rendement brut affiché et le rendement net dans votre poche sont deux réalités très différentes.',
+    desc_sans: 'Sans optimisation, les revenus SCPI peuvent être taxés jusqu\'à 63,6% pour un TMI à 45%. Le rendement brut affiché et le rendement net dans votre poche sont deux réalités très différentes.',
     desc_avec: 'J\'analyse votre TMI avant toute recommandation. SCPI européennes, assurance vie, nue-propriété — je structure la détention pour maximiser votre rendement net réel, pas le rendement brut affiché.',
   },
 ];
