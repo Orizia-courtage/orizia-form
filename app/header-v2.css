@@ -116,7 +116,7 @@
   backdrop-filter: blur(18px) saturate(1.4);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   box-shadow: 0 4px 32px rgba(26,61,53,0.10);
-  border-bottom-color: rgba(201,169,110,0.2);
+  border-bottom-color: rgba(107,182,155,0.24);
 }
 
 .hv2-main-inner {
@@ -174,7 +174,7 @@
 .hv2-nav-link:hover,
 .hv2-nav-item--active .hv2-nav-link {
   color: var(--orizia-accent);
-  background: rgba(67,40,40,0.05);
+  background: rgba(107,182,155,0.12);
 }
 
 .hv2-nav-chevron {
@@ -285,7 +285,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(201,169,110,0.15) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(107,182,155,0.18) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.22s;
 }
@@ -374,7 +374,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(201,169,110,0.2);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(107,182,155,0.28);
 }
 
 /* ── Image de fond avec overlay ── */
@@ -412,7 +412,7 @@
   flex-direction: column;
   gap: 6px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(201,169,110,0.2);
+  border-bottom: 1px solid rgba(107,182,155,0.28);
 }
 
 .hv2-mega-title {
@@ -461,7 +461,7 @@
 
 .hv2-mega-product:hover {
   background: rgba(255,255,255,0.12);
-  border-color: rgba(201,169,110,0.4);
+  border-color: rgba(107,182,155,0.52);
   transform: translateX(4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
@@ -474,14 +474,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--c, #C9A96E);
+  color: var(--c, #6bb69b);
   flex-shrink: 0;
   transition: all 0.22s;
 }
 
 .hv2-mega-product:hover .hv2-mega-product-icon {
-  background: var(--c, #C9A96E);
-  color: #1C1C1A;
+  background: var(--c, #6bb69b);
+  color: #1b1d1a;
   transform: scale(1.08);
 }
 
@@ -529,7 +529,7 @@
   background: rgba(0,0,0,0.3);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(201,169,110,0.2);
+  border-top: 1px solid rgba(107,182,155,0.28);
 }
 
 .hv2-mega-footer-stat {
@@ -589,12 +589,12 @@
   transition: all 0.22s;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(201,169,110,0.3);
+  box-shadow: 0 4px 16px rgba(107,182,155,0.30);
 }
 
 .hv2-mega-footer-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201,169,110,0.45);
+  box-shadow: 0 8px 24px rgba(107,182,155,0.45);
   filter: brightness(1.08);
 }
 

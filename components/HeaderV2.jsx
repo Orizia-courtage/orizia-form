@@ -84,7 +84,7 @@ const NAV = [
   {
     label: 'Investir',
     href: '/investir',
-    color: '#C9A96E',
+    color: '#6bb69b',
     tagline: 'Faites fructifier votre capital',
     stat: { number: '4,2%', label: 'Rendement moyen SCPI 2024' },
     bgImage: '/images/investir.webp',
@@ -99,7 +99,7 @@ const NAV = [
   {
     label: 'Financer',
     href: '/financer',
-    color: '#C9A96E',
+    color: '#6bb69b',
     tagline: 'Votre meilleur taux, négocié',
     stat: { number: '+40', label: 'Banques comparées' },
     bgImage: '/images/financer.webp',
@@ -114,7 +114,7 @@ const NAV = [
   {
     label: 'Assurer',
     href: '/assurer',
-    color: '#C9A96E',
+    color: '#6bb69b',
     tagline: 'Protégez ce qui compte',
     stat: { number: '60%', label: 'Économie moyenne sur assurance emprunteur' },
     bgImage: '/images/assurer.webp',
