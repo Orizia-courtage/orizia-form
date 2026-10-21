@@ -57,7 +57,8 @@ test('Workflow topology and MongoDB field list match Make', () => {
     const mongo = w.nodes.find(n => n.type === 'n8n-nodes-base.mongoDb');
     if (mongo) {
       assert.equal(mongo.parameters.collection, 'Dossiers');
-      assert.equal(mongo.parameters.fields.split(',').length, 39);
+      assert.equal(mongo.parameters.fields.split(',').length, 40);
+      assert.ok(mongo.parameters.fields.includes('refus_formulaire'));
       assert.ok(!mongo.parameters.fields.includes('html'));
     }
     assert.equal(w.settings.saveDataSuccessExecution, 'none');

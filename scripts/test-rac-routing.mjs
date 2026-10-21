@@ -20,7 +20,7 @@ test('All high-potential segments notify Cindy then the client and confirm succe
  for(const segment of high){const r=render(segment);assert.equal(r.sendClientEmail,true,segment);assert.match(r.internalSubject,/^\[GROS POTENTIEL\]/);assert.ok(r.internalSubject.includes(segment));assert.match(r.html0,/GROS POTENTIEL/);assert.deepEqual(path(r),['Reception rac','Preparer rac','Enregistrer dossier MongoDB','Email rac Cindy','Email client autorise','Email rac client','Confirmer rac']);}
 });
 test('Low, unknown and missing segments notify Cindy and receive the neutral refusal email',()=>{
- for(const segment of low){const r=render(segment);assert.equal(r.sendClientEmail,false,String(segment));assert.match(r.internalSubject,/^\[PETIT POTENTIEL\]/);assert.match(r.html0,/refus sans motif détaillé/);assert.deepEqual(path(r),['Reception rac','Preparer rac','Enregistrer dossier MongoDB','Email rac Cindy','Email client autorise','Email rac refus client','Confirmer rac']);}
+ for(const segment of low){const r=render(segment);assert.equal(r.sendClientEmail,false,String(segment));assert.equal(typeof r.refus_formulaire,'string');assert.match(r.internalSubject,/^\[PETIT POTENTIEL\]/);assert.match(r.html0,/refus sans motif détaillé/);assert.deepEqual(path(r),['Reception rac','Preparer rac','Enregistrer dossier MongoDB','Email rac Cindy','Email client autorise','Email rac refus client','Confirmer rac']);}
 });
 test('BDF, TNS and housing take priority over a conflicting high-potential segment',()=>{
  for(const extra of [{BDF:true},{BDF:'true'},{type_profession:'Commerçant, Artisan'},{type_profession:'Profession libérale'},{type_profession:"Chef d'entreprise"},{Type:'Locataire'},{Type:'Hébergé à titre gratuit'}]) assert.equal(render('Investisseur 1',extra).sendClientEmail,false);
@@ -34,5 +34,5 @@ test('Strict IF uses prepared data, internal fields are safe and MongoDB mapping
  assert.equal(gate.parameters.conditions.options.typeValidation,'strict');
  assert.equal(w.nodes.find(n=>n.name==='Email rac Cindy').parameters.subject,"={{ $('Preparer rac').first().json.internalSubject }}");
  const r=render('<img src=x>\r\nBcc: bad@example.invalid');assert.doesNotMatch(r.internalSubject,/[\r\n]/);assert.ok(r.html0.includes('&lt;img'));assert.ok(!r.html0.includes('<img src=x>'));
- const fields=w.nodes.find(n=>n.type==='n8n-nodes-base.mongoDb').parameters.fields.split(',');assert.equal(fields.length,39);assert.ok(!fields.includes('sendClientEmail'));
+ const fields=w.nodes.find(n=>n.type==='n8n-nodes-base.mongoDb').parameters.fields.split(',');assert.equal(fields.length,40);assert.ok(fields.includes('refus_formulaire'));assert.ok(!fields.includes('sendClientEmail'));
 });

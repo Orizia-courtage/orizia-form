@@ -79,6 +79,8 @@ def node(name, type_, parameters, x, version=1):
 def convert(source, kind):
     flow = source['flow']
     fields = [f['name'] for f in flow[0]['metadata']['interface']]
+    if kind == 'rac':
+        fields.append('refus_formulaire')
     emails = [n for n in flow if n['module'] == 'email:ActionSendEmail']
     code = """const p = $input.first().json.body;
 if (!p || typeof p !== 'object' || Array.isArray(p)) throw new Error('Corps JSON invalide');
@@ -100,7 +102,7 @@ const select = (value, ...args) => {
         code += f'const html{i} = ' + template(email['mapper']['html']) + ';\n'
     if kind == 'rac':
         code += (OUT / 'rac-routing.js').read_text(encoding='utf-8') + '\n'
-        code += 'return [{json: {...document, html0: routingBanner + html0, html1, routingSegment, potential, sendClientEmail, internalSubject}}];'
+        code += 'return [{json: {...document, refus_formulaire, html0: routingBanner + html0, html1, routingSegment, potential, sendClientEmail, internalSubject}}];'
     else:
         code += 'return [{json: {...document, ' + ', '.join(f'html{i}' for i in range(len(emails))) + '}}];'
     (OUT / f'{kind}-render.js').write_text(code, encoding='utf-8')
