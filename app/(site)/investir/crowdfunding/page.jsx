@@ -6,6 +6,7 @@ import PlacementsComparatif from '@/components/PlacementsComparatif';
 import RisqueJauge from '@/components/RisqueJauge';
 import InvestisseurChecklist from '@/components/InvestisseurChecklist';
 import ReadingProgress from '@/components/ReadingProgress';
+import { CrowdfundingTaxBreakdown, CrowdfundingTaxParagraph, CrowdfundingTaxValue } from '@/components/CrowdfundingTaxReferences';
 
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
@@ -103,7 +104,7 @@ const investirCrowdfundingSchema = {
           name: 'Quelle fiscalité s\'applique au crowdfunding immobilier ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 30% : 12,8% d\'impôt sur le revue + 18,6% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
+            text: 'Les intérêts sont soumis au Prélèvement Forfaitaire Unique (PFU) de 31,4% : 12,8% d\'impôt sur le revenu + 18,6% de prélèvements sociaux. Si votre TMI est inférieur à 12,8%, l\'option pour le barème progressif peut être plus avantageuse.',
           },
         },
         {
@@ -126,7 +127,7 @@ const CHIFFRES = [
   { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: '💶 ' },
   { value: '12–36 mois', label: "Durée d'investissement typique", icon: '⏱️ ' },
   // 📋 Le fix est ici 📋
-  { value: '🏦\u00A0Flat\u00A0tax\u00A030%', label: 'Fiscalité applicable aux intérêts', icon: '' },
+  { value: <><span aria-hidden="true">🏦&nbsp;</span>Flat tax <CrowdfundingTaxValue /></>, label: 'Fiscalité applicable aux intérêts', icon: '' },
 ];
 
 const DANGERS = [
@@ -537,29 +538,12 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <span className="fin-badge">Fiscalité 2026</span>
               <h2>Ce que vous touchez<br />vraiment après impôts</h2>
               <p>
-                Les intérêts perçus sont des <strong>revenus de capitaux mobiliers</strong>{' '}
-                soumis au <strong>Prélèvement Forfaitaire Unique (PFU) de 30%</strong>.
-                Voici comment ça se décompose — et ce que ça change concrètement sur votre gain.
+                <CrowdfundingTaxParagraph />
               </p>
             </div>
 
             {/* Décomposition flat tax */}
-            <div className="crowd-fiscalite-grid">
-              <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
-                <strong>12,8%</strong>
-                <span>Impôt sur le revenu</span>
-              </div>
-              <div className="crowd-fiscalite-plus">+</div>
-              <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
-                <strong>18,6%</strong>
-                <span>Prélèvements sociaux</span>
-              </div>
-              <div className="crowd-fiscalite-plus">=</div>
-              <div className="crowd-fiscalite-item crowd-fiscalite-total" style={{ border: '2px solid var(--orizia-gold)' }}>
-                <strong>31,4%</strong>
-                <span>Flat tax totale</span>
-              </div>
-            </div>
+            <CrowdfundingTaxBreakdown />
 
             {/* Notes fiscales */}
             <div className="crowd-fiscalite-notes">
@@ -567,7 +551,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <span className="crowd-fiscalite-note-icon">💡</span>
                 <p>
                   <strong>Bon à savoir :</strong> si votre taux marginal d'imposition est
-                  inférieur à 12,8%, vous pouvez opter pour le{' '}
+                  inférieur à <CrowdfundingTaxValue part="pfnl" />, vous pouvez opter pour le{' '}
                   <strong>barème progressif</strong> et réduire votre charge fiscale.
                   Je peux vous guider sur ce choix lors de notre rendez-vous.
                 </p>
