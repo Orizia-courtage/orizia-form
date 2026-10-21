@@ -126,6 +126,9 @@ const select = (value, ...args) => {
             'fromEmail': 'Orizia Courtage <' + sender + '>', 'toEmail': to, 'subject': subject, 'emailFormat': 'html',
             'html': '={{ ' + ref + f'.html{i}' + ' }}', 'options': {'appendAttribution': False, 'allowUnauthorizedCerts': False}}, len(nodes) * 260, 2.1))
     if kind == 'rac':
+        internal = next(n for n in nodes if n['name'] == 'Email rac Cindy')
+        internal_source = (OUT / 'rac-internal-email.js').read_text(encoding='utf-8')
+        internal['parameters']['html'] = "={{ (() => { const p = $('Preparer rac').first().json;\n" + internal_source + '\n})() }}'
         client = next(n for n in nodes if n['name'] == 'Email rac client')
         email_source = (OUT / 'rac-client-email.js').read_text(encoding='utf-8')
         client['parameters']['html'] = "={{ (() => { const p = $('Preparer rac').first().json;\n" + email_source + "\n})() }}"
@@ -151,7 +154,6 @@ const select = (value, ...args) => {
     connections = {a['name']: {'main': [[{'node': b['name'], 'type': 'main', 'index': 0}]]}
                    for a, b in zip(nodes, nodes[1:])}
     if kind == 'rac':
-        internal = next(n for n in nodes if n['name'] == 'Email rac Cindy')
         internal['parameters']['subject'] = "={{ $('Preparer rac').first().json.internalSubject }}"
         gate = node('Email client autorise', 'if', {
             'conditions': {'options': {'caseSensitive': True, 'leftValue': '', 'typeValidation': 'strict', 'version': 2},
