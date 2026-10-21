@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { defaultSimulationSettings, mergeSimulationSettings } from '@/lib/simulationConfig';
+import { defaultSimulationSettings, resolveSimulationSettings } from '@/lib/simulationConfig';
 
 const SimulationConfigContext = createContext(defaultSimulationSettings);
 
@@ -13,7 +13,7 @@ export function SimulationConfigProvider({ children }) {
     fetch('/api/site-config', { cache: 'no-store' })
       .then((response) => response.ok ? response.json() : null)
       .then((data) => {
-        if (active && data?.settings) setSettings(mergeSimulationSettings(defaultSimulationSettings, data.settings));
+        if (active && data?.settings) setSettings(resolveSimulationSettings(data.settings));
       })
       .catch(() => {});
     return () => { active = false; };

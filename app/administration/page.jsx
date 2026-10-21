@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -8,164 +8,74 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 const sections = [
-  {
-    title: 'Endettement',
-    description: 'Saisissez les pourcentages sans le signe %, par exemple 35 pour 35 %.',
-    fields: [
-      ['debt.maxRatio', 'Taux maximum'], ['debt.targetRatio', 'Taux cible'],
-      ['debt.watchRatio', 'Seuil à surveiller'], ['debt.highRatio', 'Seuil élevé'], ['debt.criticalRatio', 'Seuil critique'],
-    ],
-    ratio: true,
-  },
-  {
-    title: 'Crédit immobilier',
-    description: 'Taux annuels en pourcentage.',
-    fields: [['credit.defaultRate', 'Taux estimé par défaut'], ['credit.minRate', 'Taux minimum'], ['credit.maxRate', 'Taux maximum']],
-  },
-  {
-    title: 'SCPI',
-    description: 'Taux annuels en pourcentage.',
-    fields: [
-      ['scpi.defaultDistributionRate', 'Distribution par défaut'], ['scpi.minDistributionRate', 'Distribution minimum'],
-      ['scpi.maxDistributionRate', 'Distribution maximum'], ['scpi.revaluationRate', 'Revalorisation annuelle'],
-    ],
-    ratioKeys: ['scpi.revaluationRate'],
-  },
-  {
-    title: 'Autres simulateurs',
-    description: 'Valeurs utilisées dans les calculateurs affichés sur le site.',
-    fields: [
-      ['crowdfunding.livretANetRate', 'Taux net du Livret A'], ['crowdfunding.defaultRate', 'Crowdfunding : taux par défaut'],
-      ['crowdfunding.minRate', 'Crowdfunding : taux minimum'], ['crowdfunding.maxRate', 'Crowdfunding : taux maximum'],
-      ['crowdfunding.flatTaxRate', 'Crowdfunding : PFU total'], ['crowdfunding.socialTaxRate', 'Crowdfunding : prélèvements sociaux'],
-      ['soulte.sharingDutyRate', 'Droit de partage (soulte)'],
-    ],
-    ratioKeys: ['crowdfunding.flatTaxRate', 'crowdfunding.socialTaxRate', 'soulte.sharingDutyRate'],
-  },
-  {
-    title: 'Assurance-vie',
-    description: 'Les frais et prélèvements sont exprimés en pourcentage. Les abattements sont en euros.',
-    fields: [
-      ['assuranceVie.paymentFeeRate', 'Frais sur versement'], ['assuranceVie.managementFeeRate', 'Frais de gestion annuels'],
-      ['assuranceVie.socialTaxRate', 'Prélèvements sociaux'], ['assuranceVie.pfnlBefore8YearsRate', 'PFNL avant 8 ans'],
-      ['assuranceVie.pfnlAfter8YearsRate', 'PFNL après 8 ans'], ['assuranceVie.abatementSingle', 'Abattement personne seule'],
-      ['assuranceVie.abatementCouple', 'Abattement couple'],
-    ],
-    ratioKeys: ['assuranceVie.paymentFeeRate', 'assuranceVie.managementFeeRate', 'assuranceVie.socialTaxRate', 'assuranceVie.pfnlBefore8YearsRate', 'assuranceVie.pfnlAfter8YearsRate'],
-  },
+  { title: 'Endettement', description: 'Saisissez les pourcentages sans le signe %, par exemple 35 pour 35 %.', ratio: true, fields: [['debt.maxRatio', 'Taux maximum'], ['debt.targetRatio', 'Taux cible'], ['debt.watchRatio', 'Seuil à surveiller'], ['debt.highRatio', 'Seuil élevé'], ['debt.criticalRatio', 'Seuil critique']] },
+  { title: 'Crédit immobilier', description: 'Taux annuels en pourcentage.', fields: [['credit.defaultRate', 'Taux estimé par défaut'], ['credit.minRate', 'Taux minimum'], ['credit.maxRate', 'Taux maximum']] },
+  { title: 'SCPI', description: 'Taux annuels en pourcentage.', ratioKeys: ['scpi.revaluationRate'], fields: [['scpi.defaultDistributionRate', 'Distribution par défaut'], ['scpi.minDistributionRate', 'Distribution minimum'], ['scpi.maxDistributionRate', 'Distribution maximum'], ['scpi.revaluationRate', 'Revalorisation annuelle']] },
+  { title: 'Autres simulateurs', description: 'Valeurs utilisées dans les calculateurs affichés sur le site.', ratioKeys: ['crowdfunding.flatTaxRate', 'crowdfunding.socialTaxRate', 'soulte.sharingDutyRate'], fields: [['crowdfunding.livretANetRate', 'Taux net du Livret A'], ['crowdfunding.defaultRate', 'Crowdfunding : taux par défaut'], ['crowdfunding.minRate', 'Crowdfunding : taux minimum'], ['crowdfunding.maxRate', 'Crowdfunding : taux maximum'], ['crowdfunding.flatTaxRate', 'Crowdfunding : PFU total'], ['crowdfunding.socialTaxRate', 'Crowdfunding : prélèvements sociaux'], ['soulte.sharingDutyRate', 'Droit de partage (soulte)']] },
+  { title: 'Assurance-vie', description: 'Les frais et prélèvements sont exprimés en pourcentage. Les abattements sont en euros.', ratioKeys: ['assuranceVie.paymentFeeRate', 'assuranceVie.managementFeeRate', 'assuranceVie.socialTaxRate', 'assuranceVie.pfnlBefore8YearsRate', 'assuranceVie.pfnlAfter8YearsRate'], fields: [['assuranceVie.paymentFeeRate', 'Frais sur versement'], ['assuranceVie.managementFeeRate', 'Frais de gestion annuels'], ['assuranceVie.socialTaxRate', 'Prélèvements sociaux'], ['assuranceVie.pfnlBefore8YearsRate', 'PFNL avant 8 ans'], ['assuranceVie.pfnlAfter8YearsRate', 'PFNL après 8 ans'], ['assuranceVie.abatementSingle', 'Abattement personne seule'], ['assuranceVie.abatementCouple', 'Abattement couple']] },
 ];
 
+const zoneLabels = { 'ile-de-france': 'Île-de-France', 'nord-ouest': 'Nord-Ouest', 'nord-est': 'Nord-Est', 'sud-ouest': 'Sud-Ouest', 'sud-est': 'Sud-Est', corse: 'Corse', reunion: 'La Réunion', guadeloupe: 'Guadeloupe', guyane: 'Guyane', 'nouvelle-caledonie': 'Nouvelle-Calédonie', martinique: 'Martinique', mayotte: 'Mayotte', polynesie: 'Polynésie française', 'saint-martin': 'Saint-Martin', 'saint-barthelemy': 'Saint-Barthélemy', 'saint-pierre-miquelon': 'Saint-Pierre-et-Miquelon', 'wallis-futuna': 'Wallis-et-Futuna' };
+const durationLabels = { '10': 'Jusqu’à 10 ans', '11-15': '11 à 15 ans', '16-20': '16 à 20 ans', '21-25': '21 à 25 ans' };
 function read(settings, path) { return path.split('.').reduce((value, key) => value?.[key], settings); }
-function write(settings, path, value) {
-  const keys = path.split('.'); const next = structuredClone(settings); let target = next;
-  keys.slice(0, -1).forEach((key) => { target = target[key]; });
-  target[keys.at(-1)] = value;
-  return next;
-}
+function write(settings, path, value) { const keys = path.split('.'); const next = structuredClone(settings); let target = next; keys.slice(0, -1).forEach((key) => { target = target[key]; }); target[keys.at(-1)] = value; return next; }
+const numberValue = (raw, fallback = 0) => { const value = Number(String(raw).replace(',', '.')); return Number.isFinite(value) ? value : fallback; };
 
 export default function AdministrationPage() {
-  const [settings, setSettings] = useState(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [session, setSession] = useState(null);
-  const [message, setMessage] = useState('');
-  const [saving, setSaving] = useState(false);
-  const [mortgageJson, setMortgageJson] = useState('');
-  const [structuredJson, setStructuredJson] = useState({ assuranceRates: '', assuranceVieRepartition: '', perTranches: '', crowdfundingPresets: '' });
-
+  const [settings, setSettings] = useState(null); const [email, setEmail] = useState(''); const [password, setPassword] = useState(''); const [session, setSession] = useState(null); const [message, setMessage] = useState(''); const [saving, setSaving] = useState(false); const [selectedZone, setSelectedZone] = useState('ile-de-france');
   const configured = Boolean(supabase);
-  useEffect(() => {
-    fetch('/api/site-config', { cache: 'no-store' }).then((r) => r.json()).then((data) => {
-      setSettings(data.settings); setMortgageJson(JSON.stringify(data.settings?.credit?.ratesByZone ?? {}, null, 2));
-      setStructuredJson({
-        assuranceRates: JSON.stringify(data.settings?.assuranceEmprunteur?.ageRates ?? [], null, 2),
-        assuranceVieRepartition: JSON.stringify(data.settings?.assuranceVie?.repartition ?? [], null, 2),
-        perTranches: JSON.stringify(data.settings?.per?.tranches ?? [], null, 2),
-        crowdfundingPresets: JSON.stringify(data.settings?.crowdfunding?.presets ?? [], null, 2),
-      });
-    }).catch(() => setMessage('Impossible de charger les réglages.'));
-    if (!supabase) return;
-    supabase.auth.getSession().then(({ data }) => setSession(data.session));
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => setSession(nextSession));
-    return () => listener.subscription.unsubscribe();
-  }, []);
+  useEffect(() => { fetch('/api/site-config', { cache: 'no-store' }).then((r) => r.json()).then((data) => setSettings(data.settings)).catch(() => setMessage('Impossible de charger les réglages.')); if (!supabase) return; supabase.auth.getSession().then(({ data }) => setSession(data.session)); const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => setSession(nextSession)); return () => listener.subscription.unsubscribe(); }, []);
+  const updateField = (path, raw, ratio) => setSettings((current) => write(current, path, ratio ? numberValue(raw) / 100 : numberValue(raw)));
+  const updateList = (path, index, patch) => setSettings((current) => { const list = [...(read(current, path) ?? [])]; list[index] = { ...list[index], ...patch }; return write(current, path, list); });
+  const addListItem = (path, item) => setSettings((current) => write(current, path, [...(read(current, path) ?? []), item]));
+  const removeListItem = (path, index) => setSettings((current) => write(current, path, (read(current, path) ?? []).filter((_, itemIndex) => itemIndex !== index)));
+  const updateZone = (duration, raw) => setSettings((current) => write(current, `credit.ratesByZone.${selectedZone}.${duration}`, numberValue(raw)));
+  const signIn = async (event) => { event.preventDefault(); if (!supabase) return; setMessage('Connexion…'); const { error } = await supabase.auth.signInWithPassword({ email, password }); setMessage(error ? 'Connexion impossible : vérifiez vos identifiants.' : 'Connexion établie.'); };
+  const signOut = async () => { await supabase?.auth.signOut(); setMessage('Vous êtes déconnectée.'); };
+  const save = async () => { setSaving(true); setMessage('Enregistrement…'); const response = await fetch('/api/site-config', { method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` }, body: JSON.stringify({ settings }) }); const data = await response.json().catch(() => ({})); setSaving(false); if (!response.ok) { setMessage(data.error || "L’enregistrement a échoué."); return; } setSettings(data.settings); setMessage('Enregistré — les simulateurs utilisent ces nouvelles valeurs immédiatement.'); };
 
-  const formattedUpdatedAt = useMemo(() => session && message.startsWith('Enregistré') ? message : '', [message, session]);
-  const updateField = (path, raw, ratio) => {
-    const number = Number(String(raw).replace(',', '.'));
-    if (!Number.isFinite(number)) return;
-    setSettings((current) => write(current, path, ratio ? number / 100 : number));
-  };
-  const signIn = async (event) => {
-    event.preventDefault();
-    if (!supabase) return;
-    setMessage('Connexion…');
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setMessage(error ? 'Connexion impossible : vérifiez vos identifiants.' : 'Connexion établie.');
-  };
-  const save = async () => {
-    let next = settings;
-    try {
-      next = write(next, 'credit.ratesByZone', JSON.parse(mortgageJson));
-      next = write(next, 'assuranceEmprunteur.ageRates', JSON.parse(structuredJson.assuranceRates));
-      next = write(next, 'assuranceVie.repartition', JSON.parse(structuredJson.assuranceVieRepartition));
-      next = write(next, 'per.tranches', JSON.parse(structuredJson.perTranches));
-      next = write(next, 'crowdfunding.presets', JSON.parse(structuredJson.crowdfundingPresets));
-    } catch { setMessage('Un tableau de réglages contient un JSON invalide.'); return; }
-    setSaving(true); setMessage('Enregistrement…');
-    const response = await fetch('/api/site-config', {
-      method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` }, body: JSON.stringify({ settings: next }),
-    });
-    const data = await response.json().catch(() => ({}));
-    setSaving(false);
-    if (!response.ok) { setMessage(data.error || "L'enregistrement a échoué."); return; }
-    setSettings(data.settings); setMortgageJson(JSON.stringify(data.settings.credit.ratesByZone, null, 2));
-    setStructuredJson({
-      assuranceRates: JSON.stringify(data.settings.assuranceEmprunteur.ageRates, null, 2),
-      assuranceVieRepartition: JSON.stringify(data.settings.assuranceVie.repartition, null, 2),
-      perTranches: JSON.stringify(data.settings.per.tranches, null, 2),
-      crowdfundingPresets: JSON.stringify(data.settings.crowdfunding.presets, null, 2),
-    });
-    setMessage('Enregistré — les simulateurs utilisent ces nouvelles valeurs immédiatement.');
-  };
-  const signOut = async () => { await supabase?.auth.signOut(); setMessage('Vous êtes déconnecté.'); };
-
-  return <main style={{ minHeight: '100vh', background: '#f4f8f6', color: '#1b1d1a', padding: '48px 16px', fontFamily: 'inherit' }}>
-    <section style={{ maxWidth: 980, margin: '0 auto' }}>
-      <p style={{ color: '#43866f', fontWeight: 800, letterSpacing: '0.08em', fontSize: 12, margin: 0 }}>ORIZIA COURTAGE · ESPACE PRIVÉ</p>
-      <h1 style={{ fontSize: 'clamp(30px, 5vw, 48px)', margin: '10px 0 8px' }}>Réglages des taux</h1>
-      <p style={{ color: '#59635e', lineHeight: 1.6, marginTop: 0 }}>Modifiez les paramètres des simulateurs sans passer par GitHub ni Vercel.</p>
-      {!configured && <div style={noticeStyle}>Configuration Supabase incomplète. Ajoutez les quatre variables demandées dans Vercel avant de pouvoir vous connecter.</div>}
-      {!session && configured && <form onSubmit={signIn} style={cardStyle}>
-        <h2 style={{ marginTop: 0 }}>Connexion</h2><p style={{ color: '#59635e' }}>Utilisez le compte créé dans Supabase Authentication.</p>
-        <label style={labelStyle}>Adresse e-mail<input style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></label>
-        <label style={labelStyle}>Mot de passe<input style={inputStyle} type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /></label>
-        <button style={buttonStyle} type="submit">Se connecter</button>
-      </form>}
-      {session && settings && <>
-        <div style={{ ...noticeStyle, background: '#e3f3eb', borderColor: '#b3ddcb' }}>Connectée en tant que <strong>{session.user.email}</strong>. <button onClick={signOut} style={linkButtonStyle}>Se déconnecter</button></div>
-        {sections.map((section) => <section key={section.title} style={cardStyle}>
-          <h2 style={{ margin: '0 0 6px' }}>{section.title}</h2><p style={{ margin: '0 0 20px', color: '#59635e', fontSize: 14 }}>{section.description}</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 16 }}>
-            {section.fields.map(([path, label]) => { const ratio = section.ratio || section.ratioKeys?.includes(path); const value = read(settings, path); return <label key={path} style={labelStyle}>{label}<span style={{ fontSize: 12, color: '#7f7f7f' }}>{ratio ? 'Pourcentage' : 'Pourcentage'}</span><input style={inputStyle} type="number" step="0.01" value={ratio ? Number(value ?? 0) * 100 : value ?? ''} onChange={(e) => updateField(path, e.target.value, ratio)} /></label>; })}
-          </div>
-        </section>)}
-        <section style={cardStyle}><h2 style={{ marginTop: 0 }}>Taux immobilier par zone</h2><p style={{ color: '#59635e', fontSize: 14 }}>Conservez les zones et les durées existantes ; modifiez uniquement les chiffres souhaités.</p><textarea value={mortgageJson} onChange={(e) => setMortgageJson(e.target.value)} spellCheck="false" style={{ ...inputStyle, minHeight: 330, fontFamily: 'ui-monospace, SFMono-Regular, Consolas, monospace', fontSize: 12, lineHeight: 1.5, resize: 'vertical' }} /></section>
-        <JsonSetting title="Assurance emprunteur — taux par âge" description="Chaque ligne définit le taux banque, le taux Orizia et le gain estimé pour une tranche d’âge." value={structuredJson.assuranceRates} onChange={(value) => setStructuredJson((current) => ({ ...current, assuranceRates: value }))} />
-        <JsonSetting title="Assurance-vie — rendements par répartition" description="Répartition fonds euros / unités de compte et rendement annuel estimé." value={structuredJson.assuranceVieRepartition} onChange={(value) => setStructuredJson((current) => ({ ...current, assuranceVieRepartition: value }))} />
-        <JsonSetting title="PER — tranches d’imposition" description="TMI et plafond de déduction utilisés par le simulateur PER." value={structuredJson.perTranches} onChange={(value) => setStructuredJson((current) => ({ ...current, perTranches: value }))} />
-        <JsonSetting title="Crowdfunding — profils prédéfinis" description="Montant, taux et durée proposés dans les boutons de simulation." value={structuredJson.crowdfundingPresets} onChange={(value) => setStructuredJson((current) => ({ ...current, crowdfundingPresets: value }))} />
-        <button onClick={save} disabled={saving} style={{ ...buttonStyle, opacity: saving ? .6 : 1 }}>{saving ? 'Enregistrement…' : 'Enregistrer les modifications'}</button>
-      </>}
-      {message && <p aria-live="polite" style={{ marginTop: 18, color: message.startsWith('Enregistré') ? '#287155' : '#59433e' }}>{formattedUpdatedAt || message}</p>}
-    </section>
-  </main>;
+  return <main style={{ minHeight: '100vh', background: '#f4f8f6', color: '#1b1d1a', padding: '48px 16px', fontFamily: 'inherit' }}><section style={{ maxWidth: 1050, margin: '0 auto' }}>
+    <p style={eyebrowStyle}>ORIZIA COURTAGE · ESPACE PRIVÉ</p><h1 style={{ fontSize: 'clamp(30px, 5vw, 48px)', margin: '10px 0 8px' }}>Réglages du site</h1><p style={{ color: '#59635e', lineHeight: 1.6, marginTop: 0 }}>Modifiez les chiffres utilisés par les simulateurs et les repères affichés sans passer par GitHub ni Vercel.</p>
+    {!configured && <div style={noticeStyle}>Configuration Supabase incomplète. Ajoutez les variables Supabase dans Vercel avant de pouvoir vous connecter.</div>}
+    {!session && configured && <form onSubmit={signIn} style={cardStyle}><h2 style={{ marginTop: 0 }}>Connexion</h2><p style={descriptionStyle}>Utilisez le compte créé dans Supabase Authentication.</p><label style={labelStyle}>Adresse e-mail<input style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></label><label style={labelStyle}>Mot de passe<input style={inputStyle} type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /></label><button style={buttonStyle} type="submit">Se connecter</button></form>}
+    {session && settings && <><div style={{ ...noticeStyle, background: '#e3f3eb', borderColor: '#b3ddcb' }}>Connectée en tant que <strong>{session.user.email}</strong>. <button onClick={signOut} style={linkButtonStyle}>Se déconnecter</button></div>
+      {sections.map((section) => <section key={section.title} style={cardStyle}><h2 style={{ margin: '0 0 6px' }}>{section.title}</h2><p style={descriptionStyle}>{section.description}</p><div style={gridStyle}>{section.fields.map(([path, label]) => { const ratio = section.ratio || section.ratioKeys?.includes(path); const value = read(settings, path); return <NumberField key={path} label={label} value={ratio ? Number(value ?? 0) * 100 : value ?? ''} onChange={(raw) => updateField(path, raw, ratio)} suffix={ratio || !path.includes('abatement') ? '%' : '€'} />; })}</div></section>)}
+      <CrowdfundingEditor presets={settings.crowdfunding.presets} onUpdate={(i, patch) => updateList('crowdfunding.presets', i, patch)} onAdd={() => addListItem('crowdfunding.presets', { label: 'Nouveau profil', montant: 10000, taux: settings.crowdfunding.defaultRate, duree: 24 })} onRemove={(i) => removeListItem('crowdfunding.presets', i)} />
+      <PerEditor items={settings.per.tranches} onUpdate={(i, patch) => updateList('per.tranches', i, patch)} onAdd={() => addListItem('per.tranches', { label: 'Nouvelle tranche', tmi: 0.3, plafond: 35000 })} onRemove={(i) => removeListItem('per.tranches', i)} />
+      <AssuranceVieEditor items={settings.assuranceVie.repartition} onUpdate={(i, patch) => updateList('assuranceVie.repartition', i, patch)} onAdd={() => addListItem('assuranceVie.repartition', { fe: 50, uc: 50, taux: 2.75 })} onRemove={(i) => removeListItem('assuranceVie.repartition', i)} />
+      <AssuranceRatesEditor items={settings.assuranceEmprunteur.ageRates} onUpdate={(i, patch) => updateList('assuranceEmprunteur.ageRates', i, patch)} onAdd={() => addListItem('assuranceEmprunteur.ageRates', { label: 'Nouvelle tranche', tauxBanque: 0.003, tauxOrizia: 0.0012, gain: 60 })} onRemove={(i) => removeListItem('assuranceEmprunteur.ageRates', i)} />
+      <MortgageEditor rates={settings.credit.ratesByZone} selectedZone={selectedZone} onSelect={setSelectedZone} onUpdate={updateZone} />
+      <button onClick={save} disabled={saving} style={{ ...buttonStyle, opacity: saving ? .6 : 1 }}>{saving ? 'Enregistrement…' : 'Enregistrer les modifications'}</button></>}
+    {message && <p aria-live="polite" style={{ marginTop: 18, color: message.startsWith('Enregistré') ? '#287155' : '#59433e' }}>{message}</p>}
+  </section></main>;
 }
+
+function NumberField({ label, value, onChange, suffix }) { const hint = suffix === '€' ? 'Montant en euros' : suffix === 'mois' ? 'Nombre de mois' : 'Pourcentage'; return <label style={labelStyle}>{label}<span style={hintStyle}>{hint}</span><div style={{ position: 'relative' }}><input style={{ ...inputStyle, paddingRight: 40 }} type="number" step="0.01" value={value} onChange={(e) => onChange(e.target.value)} /><span style={suffixStyle}>{suffix}</span></div></label>; }
+function Panel({ title, description, children }) { return <section style={cardStyle}><h2 style={{ margin: '0 0 6px' }}>{title}</h2><p style={descriptionStyle}>{description}</p>{children}</section>; }
+function EditorCard({ children, onRemove }) { return <div style={editorCardStyle}>{onRemove && <button type="button" onClick={onRemove} style={removeButtonStyle}>Supprimer</button>}{children}</div>; }
+function TextField({ label, value, onChange }) { return <label style={labelStyle}>{label}<input style={inputStyle} value={value ?? ''} onChange={(e) => onChange(e.target.value)} /></label>; }
+function SmallNumber({ label, value, onChange, suffix = '%' }) { return <NumberField label={label} value={value} onChange={onChange} suffix={suffix} />; }
+function CrowdfundingEditor({ presets, onUpdate, onAdd, onRemove }) { return <Panel title="Crowdfunding — profils prédéfinis" description="Ce sont les choix proposés au visiteur pour démarrer une simulation."><div style={editorGridStyle}>{presets.map((item, index) => <EditorCard key={`${item.label}-${index}`} onRemove={presets.length > 1 ? () => onRemove(index) : null}><TextField label="Nom du profil" value={item.label} onChange={(label) => onUpdate(index, { label })} /><SmallNumber label="Montant investi" value={item.montant} suffix="€" onChange={(montant) => onUpdate(index, { montant: numberValue(montant) })} /><SmallNumber label="Taux annuel" value={item.taux} onChange={(taux) => onUpdate(index, { taux: numberValue(taux) })} /><SmallNumber label="Durée" value={item.duree} suffix="mois" onChange={(duree) => onUpdate(index, { duree: numberValue(duree) })} /></EditorCard>)}</div><button type="button" onClick={onAdd} style={secondaryButtonStyle}>+ Ajouter un profil</button></Panel>; }
+function PerEditor({ items, onUpdate, onAdd, onRemove }) { return <Panel title="PER — tranches d’imposition" description="Ces cartes déterminent l’économie d’impôt estimée dans le simulateur PER."><div style={editorGridStyle}>{items.map((item, index) => <EditorCard key={`${item.label}-${index}`} onRemove={items.length > 1 ? () => onRemove(index) : null}><TextField label="Nom de la tranche" value={item.label} onChange={(label) => onUpdate(index, { label })} /><SmallNumber label="Taux marginal d’imposition" value={Number(item.tmi) * 100} onChange={(value) => onUpdate(index, { tmi: numberValue(value) / 100 })} /><SmallNumber label="Plafond de déduction" value={item.plafond} suffix="€" onChange={(plafond) => onUpdate(index, { plafond: numberValue(plafond) })} /></EditorCard>)}</div><button type="button" onClick={onAdd} style={secondaryButtonStyle}>+ Ajouter une tranche</button></Panel>; }
+function AssuranceVieEditor({ items, onUpdate, onAdd, onRemove }) { return <Panel title="Assurance-vie — rendements par répartition" description="Pour chaque composition, indiquez la part en fonds euros, la part en unités de compte et le rendement annuel estimé."><div style={editorGridStyle}>{items.map((item, index) => <EditorCard key={`${item.fe}-${item.uc}-${index}`} onRemove={items.length > 1 ? () => onRemove(index) : null}><SmallNumber label="Fonds euros" value={item.fe} onChange={(fe) => onUpdate(index, { fe: numberValue(fe), uc: Math.max(0, 100 - numberValue(fe)) })} /><SmallNumber label="Unités de compte" value={item.uc} onChange={(uc) => onUpdate(index, { uc: numberValue(uc), fe: Math.max(0, 100 - numberValue(uc)) })} /><SmallNumber label="Rendement annuel estimé" value={item.taux} onChange={(taux) => onUpdate(index, { taux: numberValue(taux) })} /></EditorCard>)}</div><button type="button" onClick={onAdd} style={secondaryButtonStyle}>+ Ajouter une répartition</button></Panel>; }
+function AssuranceRatesEditor({ items, onUpdate, onAdd, onRemove }) { return <Panel title="Assurance emprunteur — taux par âge" description="Les taux sont annuels. Le gain est présenté comme une estimation au visiteur."><div style={editorGridStyle}>{items.map((item, index) => <EditorCard key={`${item.label}-${index}`} onRemove={items.length > 1 ? () => onRemove(index) : null}><TextField label="Tranche d’âge" value={item.label} onChange={(label) => onUpdate(index, { label })} /><SmallNumber label="Taux banque" value={Number(item.tauxBanque) * 100} onChange={(value) => onUpdate(index, { tauxBanque: numberValue(value) / 100 })} /><SmallNumber label="Taux Orizia" value={Number(item.tauxOrizia) * 100} onChange={(value) => onUpdate(index, { tauxOrizia: numberValue(value) / 100 })} /><SmallNumber label="Gain estimé" value={item.gain} onChange={(gain) => onUpdate(index, { gain: numberValue(gain) })} /></EditorCard>)}</div><button type="button" onClick={onAdd} style={secondaryButtonStyle}>+ Ajouter une tranche d’âge</button></Panel>; }
+function MortgageEditor({ rates, selectedZone, onSelect, onUpdate }) { const zone = rates?.[selectedZone] ?? {}; return <Panel title="Taux immobilier par zone" description="Choisissez une zone, puis modifiez les taux annuels par durée. Les visiteurs verront les nouveaux taux dans le simulateur."><div style={zoneListStyle}>{Object.keys(rates ?? {}).map((key) => <button type="button" key={key} onClick={() => onSelect(key)} style={{ ...zoneButtonStyle, ...(key === selectedZone ? zoneButtonActiveStyle : {}) }}>{zoneLabels[key] ?? key}</button>)}</div><div style={{ ...editorCardStyle, marginTop: 18 }}><h3 style={{ marginTop: 0 }}>{zoneLabels[selectedZone] ?? selectedZone}</h3><div style={gridStyle}>{Object.entries(durationLabels).map(([duration, label]) => <SmallNumber key={duration} label={label} value={zone[duration] ?? ''} onChange={(value) => onUpdate(duration, value)} />)}</div></div></Panel>; }
 
 const cardStyle = { background: '#fff', border: '1px solid #dce8e1', borderRadius: 18, padding: 28, marginTop: 22, boxShadow: '0 10px 30px rgba(27,29,26,.06)' };
 const noticeStyle = { background: '#fff8e8', border: '1px solid #ead49c', borderRadius: 12, padding: '14px 16px', margin: '22px 0', lineHeight: 1.5 };
+const eyebrowStyle = { color: '#43866f', fontWeight: 800, letterSpacing: '0.08em', fontSize: 12, margin: 0 };
+const descriptionStyle = { margin: '0 0 20px', color: '#59635e', fontSize: 14, lineHeight: 1.55 };
 const labelStyle = { display: 'grid', gap: 6, fontWeight: 700, fontSize: 14 };
+const hintStyle = { fontSize: 12, color: '#7f7f7f', fontWeight: 500 };
 const inputStyle = { width: '100%', boxSizing: 'border-box', padding: '11px 12px', borderRadius: 9, border: '1px solid #b9c9c0', font: 'inherit', color: '#1b1d1a', background: '#fff' };
+const suffixStyle = { position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', color: '#59635e', fontSize: 13, pointerEvents: 'none' };
 const buttonStyle = { border: 0, borderRadius: 10, padding: '13px 18px', marginTop: 18, background: '#1b1d1a', color: '#fff', fontWeight: 800, fontSize: 15, cursor: 'pointer' };
+const secondaryButtonStyle = { ...buttonStyle, background: '#e3f3eb', color: '#1b1d1a', marginTop: 16 };
 const linkButtonStyle = { background: 'none', border: 0, color: '#1b1d1a', textDecoration: 'underline', cursor: 'pointer', font: 'inherit', fontWeight: 700 };
-function JsonSetting({ title, description, value, onChange }) { return <section style={cardStyle}><h2 style={{ marginTop: 0 }}>{title}</h2><p style={{ color: '#59635e', fontSize: 14 }}>{description}</p><textarea value={value} onChange={(e) => onChange(e.target.value)} spellCheck="false" style={{ ...inputStyle, minHeight: 240, fontFamily: 'ui-monospace, SFMono-Regular, Consolas, monospace', fontSize: 12, lineHeight: 1.5, resize: 'vertical' }} /></section>; }
+const gridStyle = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 16 };
+const editorGridStyle = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(235px, 1fr))', gap: 14 };
+const editorCardStyle = { display: 'grid', gap: 13, padding: 18, border: '1px solid #dce8e1', borderRadius: 14, background: '#f8fbf9' };
+const removeButtonStyle = { justifySelf: 'end', border: 0, background: 'transparent', color: '#8d4237', fontWeight: 700, cursor: 'pointer', padding: 0 };
+const zoneListStyle = { display: 'flex', flexWrap: 'wrap', gap: 8 };
+const zoneButtonStyle = { border: '1px solid #b9c9c0', background: '#fff', borderRadius: 99, padding: '8px 11px', cursor: 'pointer', color: '#29453b', fontWeight: 700, fontSize: 13 };
+const zoneButtonActiveStyle = { background: '#1b1d1a', color: '#fff', borderColor: '#1b1d1a' };
