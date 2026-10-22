@@ -81,6 +81,11 @@ function getSegmentType(seg) {
 const genDossier=()=>{const d=new Date();return `DS${d.getFullYear().toString().slice(-2)}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${String(Math.floor(Math.random()*9999)).padStart(4,'0')}`;};
 const normalizeStr=(s)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/-/g,' ').replace(/\s+/g,' ').trim();
 const fmtNum=(v)=>{const n=parseFloat(String(v||'').replace(/\s/g,'').replace(',','.'));return isNaN(n)?'':new Intl.NumberFormat('fr-FR').format(n);};
+// A date of birth is a calendar date, not an instant in UTC. Using
+// toISOString() on a date selected at local midnight shifts it back one day
+// in positive time zones such as France.
+const formatDateOnly = (date) => date ? `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}` : '';
+const parseDateOnly = (value) => { const match = String(value ?? '').match(/^(\d{4})-(\d{2})-(\d{2})$/); return match ? new Date(Number(match[1]), Number(match[2])-1, Number(match[3])) : null; };
 const getTurnstileToken=()=>document.querySelector('[data-turnstile-action="orizia_submit"] [name="cf-turnstile-response"]')?.value||'';
 const resetTurnstile=action=>window.dispatchEvent(new CustomEvent('orizia-turnstile-reset',{detail:action}));
 async function submissionResult(res){
@@ -738,8 +743,8 @@ function S9({form,set,clr,errors,next}){
       </div>
       <div className="f-field">
         <label className="f-label">Date de naissance</label>
-        <DatePicker selected={form.date_naissance?new Date(form.date_naissance):null}
-          onChange={d=>{set('date_naissance',d?d.toISOString().split('T')[0]:'');clr('ddn');}}
+        <DatePicker selected={parseDateOnly(form.date_naissance)}
+          onChange={d=>{set('date_naissance',formatDateOnly(d));clr('ddn');}}
           dateFormat="dd/MM/yyyy" showMonthDropdown showYearDropdown dropdownMode="select"
           locale="fr" placeholderText="JJ/MM/AAAA" maxDate={maxDate} minDate={minDate}
           customInput={<DInput className={`f-input${errors.ddn?' f-input-err':''}`}/>}
