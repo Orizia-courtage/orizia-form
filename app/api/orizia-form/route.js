@@ -1,8 +1,17 @@
 import { NextResponse } from 'next/server';
 import { webhookConfig, forwardWebhook } from '@/lib/automation-webhook.mjs';
 import { readForm, verifyTurnstile, createCallbackProof, FormError } from '@/lib/form-protection.mjs';
+import { defaultSimulationSettings, racOutcomeForSegment, resolveSimulationSettings } from '@/lib/simulationConfig';
+import { getSupabaseAdmin } from '@/lib/supabase-server';
 
 export const runtime = 'nodejs';
+
+async function racSettings() {
+  const supabase = getSupabaseAdmin();
+  if (!supabase) return defaultSimulationSettings;
+  const { data } = await supabase.from('site_settings').select('value').eq('key', 'simulation-settings').maybeSingle();
+  return resolveSimulationSettings(data?.value);
+}
 
 export async function POST(request) {
   try {
@@ -10,6 +19,9 @@ export async function POST(request) {
     const { turnstileToken, ...data } = payload;
     delete data.rappelProof;
     await verifyTurnstile(turnstileToken, request, 'orizia_submit');
+    // Do not take this decision from the browser: it drives the email branch
+    // in n8n and is resolved from the protected administration settings.
+    data.rac_outcome = racOutcomeForSegment(await racSettings(), data.Segment);
     const config = webhookConfig('submit');
     const upstream = await forwardWebhook(config, data);
     const numeroDossier = upstream.data?.numero_dossier;
