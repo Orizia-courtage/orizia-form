@@ -847,7 +847,8 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
 // ─── ÉCRAN DE RÉSULTAT ────────────────────────────────────────
 function SuccessScreen({segment,segType,racConfig,rappelSent,onRappel,prenom}){
   const [rappelToken,setRappelToken]=useState('');
-  const configured = segType === 'rdv' ? { mode: 'rdv' } : racConfig?.results?.[segType];
+  const categoryConfig = segType === 'rdv' ? { mode: 'rdv' } : racConfig?.results?.[segType];
+  const configured = { ...categoryConfig, ...(racConfig?.segments?.[segment] ?? {}) };
   const showAppointment = configured?.mode === 'rdv';
   const h=showAppointment
     ? {icon:'fa-solid fa-check',title:'Dossier enregistré !',color:'#16a34a'}

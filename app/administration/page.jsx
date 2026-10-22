@@ -17,6 +17,11 @@ const sections = [
 
 const zoneLabels = { 'ile-de-france': 'Île-de-France', 'nord-ouest': 'Nord-Ouest', 'nord-est': 'Nord-Est', 'sud-ouest': 'Sud-Ouest', 'sud-est': 'Sud-Est', corse: 'Corse', reunion: 'La Réunion', guadeloupe: 'Guadeloupe', guyane: 'Guyane', 'nouvelle-caledonie': 'Nouvelle-Calédonie', martinique: 'Martinique', mayotte: 'Mayotte', polynesie: 'Polynésie française', 'saint-martin': 'Saint-Martin', 'saint-barthelemy': 'Saint-Barthélemy', 'saint-pierre-miquelon': 'Saint-Pierre-et-Miquelon', 'wallis-futuna': 'Wallis-et-Futuna' };
 const durationLabels = { '10': 'Jusqu’à 10 ans', '11-15': '11 à 15 ans', '16-20': '16 à 20 ans', '21-25': '21 à 25 ans' };
+const racSegmentGroups = [
+  ['Profils aujourd’hui orientés vers un rendez-vous', ['Investisseur 1', 'Client projet premium 1', 'Client projet premium 2', 'Trésorerie 1', 'Trésorerie 2', 'Trésorerie 3', 'Trésorerie 4', 'Trésorerie 5', 'Trésorerie 6', 'Trésorerie 7', 'Pro Contraint 1', 'Pro Contraint 2', 'Pro Contraint 3', 'Pro Contraint 4', 'Pro Contraint 5']],
+  ['Autres segments', ['IR 1', 'IR 2', 'Petit Pro 1', 'Petit Pro 2', 'Petit Pro 3', 'Petit Pro 4', 'Client projet 1', 'Client projet 2', 'Client projet 3', 'Client projet 4', 'Client projet 5', 'Pro Consommateur 1', 'Pro Consommateur 2', 'Pro Consommateur 3', 'Autre']],
+];
+const racSegmentCategory = (segment) => segment.startsWith('Investisseur') || segment.startsWith('Client projet premium') || segment.startsWith('Trésorerie') || segment.startsWith('Pro Contraint') ? 'rdv' : 'other';
 function read(settings, path) { return path.split('.').reduce((value, key) => value?.[key], settings); }
 function write(settings, path, value) { const keys = path.split('.'); const next = structuredClone(settings); let target = next; keys.slice(0, -1).forEach((key) => { target = target[key]; }); target[keys.at(-1)] = value; return next; }
 const numberValue = (raw, fallback = 0) => { const value = Number(String(raw).replace(',', '.')); return Number.isFinite(value) ? value : fallback; };
@@ -38,6 +43,7 @@ export default function AdministrationPage() {
   const removeListItem = (path, index) => setSettings((current) => write(current, path, (read(current, path) ?? []).filter((_, itemIndex) => itemIndex !== index)));
   const updateZone = (duration, raw) => setSettings((current) => write(current, `credit.ratesByZone.${selectedZone}.${duration}`, numberValue(raw)));
   const updateRacResult = (category, patch) => setSettings((current) => write(current, `rac.results.${category}`, { ...read(current, `rac.results.${category}`), ...patch }));
+  const updateRacSegment = (segment, patch) => setSettings((current) => write(current, `rac.segments.${segment}`, { ...read(current, `rac.segments.${segment}`), ...patch }));
   const signIn = async (event) => { event.preventDefault(); if (!supabase) return; setMessage('Connexion…'); const response = await fetch('/api/admin-login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) }); const data = await response.json().catch(() => ({})); if (!response.ok || !data.session) { setMessage(data.error || 'Connexion impossible : vérifiez vos identifiants.'); return; } const { error } = await supabase.auth.setSession({ access_token: data.session.access_token, refresh_token: data.session.refresh_token }); setMessage(error ? 'Connexion impossible : vérifiez vos identifiants.' : 'Connexion établie.'); };
   const signOut = async () => { await supabase?.auth.signOut(); setMessage('Vous êtes déconnectée.'); };
   const save = async () => { setSaving(true); setMessage('Enregistrement…'); const response = await fetch('/api/site-config', { method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` }, body: JSON.stringify({ settings }) }); const data = await response.json().catch(() => ({})); setSaving(false); if (!response.ok) { setMessage(data.error || "L’enregistrement a échoué."); return; } setSettings(data.settings); setMessage('Enregistré — les simulateurs utilisent ces nouvelles valeurs immédiatement.'); };
@@ -54,6 +60,7 @@ export default function AdministrationPage() {
       <AssuranceRatesEditor items={settings.assuranceEmprunteur.ageRates} onUpdate={(i, patch) => updateList('assuranceEmprunteur.ageRates', i, patch)} onAdd={() => addListItem('assuranceEmprunteur.ageRates', { label: 'Nouvelle tranche', tauxBanque: 0.003, tauxOrizia: 0.0012, gain: 60 })} onRemove={(i) => removeListItem('assuranceEmprunteur.ageRates', i)} />
       <MortgageEditor rates={settings.credit.ratesByZone} selectedZone={selectedZone} onSelect={setSelectedZone} onUpdate={updateZone} />
       <RacResultsEditor results={settings.rac.results} onUpdate={updateRacResult} />
+      <RacSegmentsEditor segments={settings.rac.segments} categoryResults={settings.rac.results} onUpdate={updateRacSegment} />
       <button onClick={save} disabled={saving} style={{ ...buttonStyle, opacity: saving ? .6 : 1 }}>{saving ? 'Enregistrement…' : 'Enregistrer les modifications'}</button></>}
     {message && <p aria-live="polite" style={{ marginTop: 18, color: message.startsWith('Enregistré') ? '#287155' : '#59433e' }}>{message}</p>}
   </section></main>;
@@ -70,6 +77,31 @@ function AssuranceVieEditor({ items, onUpdate, onAdd, onRemove }) { return <Pane
 function AssuranceRatesEditor({ items, onUpdate, onAdd, onRemove }) { return <Panel title="Assurance emprunteur — taux par âge" description="Les taux sont annuels. Le gain est présenté comme une estimation au visiteur."><div style={editorGridStyle}>{items.map((item, index) => <EditorCard key={`${item.label}-${index}`} onRemove={items.length > 1 ? () => onRemove(index) : null}><TextField label="Tranche d’âge" value={item.label} onChange={(label) => onUpdate(index, { label })} /><SmallNumber label="Taux banque" value={Number(item.tauxBanque) * 100} onChange={(value) => onUpdate(index, { tauxBanque: numberValue(value) / 100 })} /><SmallNumber label="Taux Orizia" value={Number(item.tauxOrizia) * 100} onChange={(value) => onUpdate(index, { tauxOrizia: numberValue(value) / 100 })} /><SmallNumber label="Gain estimé" value={item.gain} onChange={(gain) => onUpdate(index, { gain: numberValue(gain) })} /></EditorCard>)}</div><button type="button" onClick={onAdd} style={secondaryButtonStyle}>+ Ajouter une tranche d’âge</button></Panel>; }
 function MortgageEditor({ rates, selectedZone, onSelect, onUpdate }) { const zone = rates?.[selectedZone] ?? {}; return <Panel title="Taux immobilier par zone" description="Choisissez une zone, puis modifiez les taux annuels par durée. Les visiteurs verront les nouveaux taux dans le simulateur."><div style={zoneListStyle}>{Object.keys(rates ?? {}).map((key) => <button type="button" key={key} onClick={() => onSelect(key)} style={{ ...zoneButtonStyle, ...(key === selectedZone ? zoneButtonActiveStyle : {}) }}>{zoneLabels[key] ?? key}</button>)}</div><div style={{ ...editorCardStyle, marginTop: 18 }}><h3 style={{ marginTop: 0 }}>{zoneLabels[selectedZone] ?? selectedZone}</h3><div style={gridStyle}>{Object.entries(durationLabels).map(([duration, label]) => <SmallNumber key={duration} label={label} value={zone[duration] ?? ''} onChange={(value) => onUpdate(duration, value)} />)}</div></div></Panel>; }
 function RacResultsEditor({ results, onUpdate }) { const cards = [['bdf', 'Fichage bancaire (BDF / FICP / FCC)'], ['tns', 'Travailleur non salarié (TNS)'], ['loc', 'Locataire ou hébergé gratuitement'], ['other', 'Autres profils']]; return <Panel title="Formulaire RAC — parcours de fin" description="La catégorie du dossier reste enregistrée dans le CRM. Ici, vous choisissez ce que la personne voit après l’envoi du formulaire."><div style={editorGridStyle}>{cards.map(([key, label]) => { const item = results?.[key] ?? {}; const appointment = item.mode === 'rdv'; return <EditorCard key={key}><strong style={{ fontSize: 16 }}>{label}</strong><label style={labelStyle}>Parcours affiché<select style={inputStyle} value={appointment ? 'rdv' : 'message'} onChange={(e) => onUpdate(key, { mode: e.target.value })}><option value="message">Message personnalisé</option><option value="rdv">Parcours éligible : rendez-vous et rappel</option></select></label>{appointment ? <p style={{ margin: 0, color: '#287155', lineHeight: 1.55 }}>La personne verra le même parcours qu’un profil éligible : prise de rendez-vous et demande de rappel.</p> : <><TextField label="Titre affiché" value={item.title} onChange={(title) => onUpdate(key, { title })} /><label style={labelStyle}>Message affiché<textarea style={{ ...inputStyle, minHeight: 120, resize: 'vertical' }} value={item.body ?? ''} onChange={(e) => onUpdate(key, { body: e.target.value })} /></label></>}</EditorCard>; })}</div><p style={{ ...descriptionStyle, marginTop: 18 }}>Les changements prennent effet après « Enregistrer les modifications ». La catégorie d’origine demeure visible dans le CRM.</p></Panel>; }
+
+function RacSegmentsEditor({ segments, categoryResults, onUpdate }) {
+  return <Panel title="Formulaire RAC — réglage par segment" description="Chaque segment peut déroger à son parcours habituel. Exemple : arrêtez les rendez-vous pour « Investisseur 1 », ou acceptez « Petit Pro 2 ». Sans modification, le parcours de catégorie est appliqué.">
+    {racSegmentGroups.map(([group, names]) => <div key={group} style={{ marginTop: 22 }}>
+      <h3 style={{ margin: '0 0 12px', fontSize: 17 }}>{group}</h3>
+      <div style={editorGridStyle}>{names.map((name) => {
+        const fallback = racSegmentCategory(name) === 'rdv' ? { mode: 'rdv' } : (categoryResults?.other ?? { mode: 'message' });
+        const item = { ...fallback, ...(segments?.[name] ?? {}) };
+        const appointment = item.mode === 'rdv';
+        return <EditorCard key={name}>
+          <strong>{name}</strong>
+          <label style={labelStyle}>Parcours affiché<select style={inputStyle} value={appointment ? 'rdv' : 'message'} onChange={(e) => onUpdate(name, { mode: e.target.value })}>
+            <option value="rdv">Parcours éligible : rendez-vous et rappel</option>
+            <option value="message">Message affiché</option>
+          </select></label>
+          {!appointment && <>
+            <TextField label="Titre (facultatif)" value={segments?.[name]?.title ?? ''} onChange={(title) => onUpdate(name, { title })} />
+            <label style={labelStyle}>Message (facultatif)<textarea style={{ ...inputStyle, minHeight: 94, resize: 'vertical' }} placeholder="Vide : utilise le message « Autres profils »." value={segments?.[name]?.body ?? ''} onChange={(e) => onUpdate(name, { body: e.target.value })} /></label>
+          </>}
+          <span style={{ color: '#59635e', fontSize: 12 }}>{segments?.[name] ? 'Réglage personnalisé actif' : 'Parcours par défaut'}</span>
+        </EditorCard>;
+      })}</div>
+    </div>)}
+  </Panel>;
+}
 
 const cardStyle = { background: '#fff', border: '1px solid #dce8e1', borderRadius: 18, padding: 28, marginTop: 22, boxShadow: '0 10px 30px rgba(27,29,26,.06)' };
 const noticeStyle = { background: '#fff8e8', border: '1px solid #ead49c', borderRadius: 12, padding: '14px 16px', margin: '22px 0', lineHeight: 1.5 };
