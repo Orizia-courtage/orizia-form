@@ -1,8 +1,8 @@
 import http from 'node:http';
 import { MongoClient } from 'mongodb';
 
-const { MONGODB_URI, RAC_COUNTER_SECRET } = process.env;
-if (!MONGODB_URI || !RAC_COUNTER_SECRET) throw new Error('Configuration du compteur RAC manquante.');
+const { MONGODB_URI, MONGODB_DATABASE, RAC_COUNTER_SECRET } = process.env;
+if (!MONGODB_URI || !MONGODB_DATABASE || !RAC_COUNTER_SECRET) throw new Error('Configuration du compteur RAC manquante.');
 
 const client = new MongoClient(MONGODB_URI);
 let database;
@@ -10,7 +10,7 @@ let database;
 async function getDatabase() {
   if (!database) {
     await client.connect();
-    database = client.db();
+    database = client.db(MONGODB_DATABASE);
   }
   return database;
 }
