@@ -350,7 +350,7 @@ export default function OriziaForm() {
           {step===5  && <S5  form={form} set={set} clr={clr} errors={errors} next={next} isBack={isBack}/>}
           {step===6  && <S6  form={form} set={set} clr={clr} errors={errors} next={next} isBack={isBack}/>}
           {step===7  && <S7  form={form} set={set} clr={clr} errors={errors} next={next} isBack={isBack}/>}
-          {step===8  && <S8  form={form} set={set} clr={clr} errors={errors} taux={taux} next={next}/>}
+          {step===8  && <S8  form={form} set={set} clr={clr} errors={errors} taux={taux} next={next} debtConfig={debtConfig}/>}
           {step===9  && <S9  form={form} set={set} clr={clr} errors={errors} next={next}/>}
           {step===10 && <S10 form={form} set={set} clr={clr} errors={errors} cityInput={cityInput} setCityInput={setCityInput} citySugg={citySugg} setCitySugg={setCitySugg} submit={submit} sending={sending}/>}
         </div>
@@ -663,7 +663,7 @@ function S7({form,set,clr,errors,next,isBack}){
 }
 
 // S8 — Finances
-function S8({form,set,clr,errors,taux,next}){
+function S8({form,set,clr,errors,taux,next,debtConfig}){
   const isLoc=LOC_STATUTS.includes(form.statut_logement);
   const tc=taux===null?null:taux>debtConfig.criticalRatio*100?'#dc2626':taux>debtConfig.highRatio*100?'#ea580c':taux>debtConfig.watchRatio*100?'#d97706':'#16a34a';
   return(
