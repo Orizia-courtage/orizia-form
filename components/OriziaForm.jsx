@@ -78,7 +78,6 @@ function getSegmentType(seg) {
   if(seg.startsWith('Investisseur')||seg.startsWith('Client projet premium')||seg.startsWith('Trésorerie')||seg.startsWith('Pro Contraint')) return 'rdv';
   return 'other';
 }
-const genDossier=()=>{const d=new Date();return `DS${d.getFullYear().toString().slice(-2)}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${String(Math.floor(Math.random()*9999)).padStart(4,'0')}`;};
 const normalizeStr=(s)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/-/g,' ').replace(/\s+/g,' ').trim();
 const fmtNum=(v)=>{const n=parseFloat(String(v||'').replace(/\s/g,'').replace(',','.'));return isNaN(n)?'':new Intl.NumberFormat('fr-FR').format(n);};
 // A date of birth is a calendar date, not an instant in UTC. Using
@@ -238,7 +237,7 @@ export default function OriziaForm() {
     const turnstileToken=getTurnstileToken();
     const loa_total=form.has_loa==='oui'?(parseFloat(form.loa_mensualite)||0)*(parseInt(form.loa_duree)||0):0;
     const fd={
-      numero_dossier:genDossier(), date_creation:new Date().toISOString().split('T')[0],
+      date_creation:new Date().toISOString().split('T')[0],
       Raison:form.souhait, Type:form.statut_logement,
       credit_immo:form.nb_immo, credit_conso:form.nb_conso, Total_credit:form.nb_immo+form.nb_conso,
       mensu_immo:parseFloat(form.mensualite_immo)||null, crd_immo:parseFloat(form.capital_immo)||null,
