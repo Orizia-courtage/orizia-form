@@ -217,7 +217,6 @@ export default function AssuranceAutoMotoPage() {
               fill
               priority
               quality={80}
-              sizes="100vw"
               className="hero-image"
               sizes="100vw"
             />
