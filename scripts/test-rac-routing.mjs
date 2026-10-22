@@ -34,5 +34,6 @@ test('Strict IF uses prepared data, internal fields are safe and MongoDB mapping
  assert.equal(gate.parameters.conditions.options.typeValidation,'strict');
  assert.equal(w.nodes.find(n=>n.name==='Email rac Cindy').parameters.subject,"={{ $('Preparer rac').first().json.internalSubject }}");
  const r=render('<img src=x>\r\nBcc: bad@example.invalid');assert.doesNotMatch(r.internalSubject,/[\r\n]/);assert.ok(r.html0.includes('&lt;img'));assert.ok(!r.html0.includes('<img src=x>'));
- const fields=w.nodes.find(n=>n.type==='n8n-nodes-base.mongoDb').parameters.fields.split(',');assert.equal(fields.length,40);assert.ok(fields.includes('refus_formulaire'));assert.ok(!fields.includes('sendClientEmail'));
+ const fields=w.nodes.find(n=>n.type==='n8n-nodes-base.mongoDb').parameters.fields.split(',');assert.equal(fields.length,41);assert.ok(fields.includes('refus_formulaire'));assert.ok(fields.includes('source'));assert.ok(!fields.includes('sendClientEmail'));
+  assert.equal(render('Client projet premium 1').source, 'Formulaire RAC Site');
 });

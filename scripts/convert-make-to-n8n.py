@@ -81,6 +81,7 @@ def convert(source, kind):
     fields = [f['name'] for f in flow[0]['metadata']['interface']]
     if kind == 'rac':
         fields.append('refus_formulaire')
+        fields.append('source')
     emails = [n for n in flow if n['module'] == 'email:ActionSendEmail']
     code = """const p = $input.first().json.body;
 if (!p || typeof p !== 'object' || Array.isArray(p)) throw new Error('Corps JSON invalide');
@@ -97,6 +98,9 @@ const select = (value, ...args) => {
 """
     code += 'const fields = ' + json.dumps(fields, ensure_ascii=False) + ';\n'
     code += 'const document = Object.fromEntries(fields.map(k => [k, p[k] ?? null]));\n'
+    if kind == 'rac':
+        # This is assigned by the trusted workflow, rather than supplied by a visitor.
+        code += "document.source = 'Formulaire RAC Site';\n"
     # Render trusted static templates while escaping all submitted string values.
     for i, email in enumerate(emails):
         code += f'const html{i} = ' + template(email['mapper']['html']) + ';\n'
