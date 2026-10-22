@@ -22,6 +22,38 @@ const racSegmentGroups = [
   ['Autres segments', ['IR 1', 'IR 2', 'Petit Pro 1', 'Petit Pro 2', 'Petit Pro 3', 'Petit Pro 4', 'Client projet 1', 'Client projet 2', 'Client projet 3', 'Client projet 4', 'Client projet 5', 'Pro Consommateur 1', 'Pro Consommateur 2', 'Pro Consommateur 3', 'Autre']],
 ];
 const racSegmentCategory = (segment) => segment.startsWith('Investisseur') || segment.startsWith('Client projet premium') || segment.startsWith('Trésorerie') || segment.startsWith('Pro Contraint') ? 'rdv' : 'other';
+const racSegmentConditions = {
+  'Investisseur 1': 'Au moins 3 crédits immobiliers et revenus du foyer supérieurs à 1 800 €.',
+  'Client projet premium 1': 'Aucun crédit immobilier, 2 crédits conso, capital conso supérieur à 15 000 € et montant à financer supérieur à 20 000 €.',
+  'Client projet premium 2': 'Aucun crédit immobilier, 2 crédits conso, capital conso inférieur à 25 000 €, trésorerie supérieure à 1 000 € et montant à financer supérieur à 25 000 €.',
+  'Trésorerie 1': 'Aucun crédit déclaré et trésorerie demandée supérieure à 40 000 €.',
+  'Trésorerie 2': '1 crédit immobilier, aucun crédit conso, trésorerie supérieure à 20 000 € et capital immobilier inférieur à 50 000 €.',
+  'Trésorerie 3': '1 crédit conso, capital conso inférieur à 20 000 €, trésorerie supérieure à 20 000 €, montant à financer supérieur à 50 000 €, endettement sous le maximum et revenus supérieurs à 3 000 €.',
+  'Trésorerie 4': '1 crédit conso, capital conso supérieur à 15 000 €, trésorerie supérieure à 5 000 €, montant à financer supérieur à 20 000 € et endettement sous le maximum.',
+  'Trésorerie 5': '2 crédits conso, capital conso inférieur à 15 000 €, trésorerie supérieure à 20 000 €, endettement sous le maximum et revenus supérieurs à 3 000 €.',
+  'Trésorerie 6': '1 crédit conso, capital conso supérieur à 25 000 € et trésorerie supérieure à 1 000 €.',
+  'Trésorerie 7': '1 crédit conso, capital conso inférieur à 25 000 € et trésorerie supérieure à 1 000 €.',
+  'Pro Contraint 1': 'Au moins 2 crédits conso, capital conso inférieur à 15 000 €, montant à financer supérieur à 25 000 € et exactement 3 crédits au total.',
+  'Pro Contraint 2': 'Au moins 2 crédits conso, capital conso supérieur à 15 000 €, montant à financer supérieur à 20 000 €, endettement sous le seuil cible, revenus sous 2 500 € et exactement 3 crédits.',
+  'Pro Contraint 3': 'Au moins 2 crédits conso, capital conso supérieur à 15 000 €, montant à financer supérieur à 20 000 €, endettement au-dessus du seuil cible et exactement 3 crédits.',
+  'Pro Contraint 4': 'Aucun crédit immobilier, au moins 2 crédits conso, capital conso inférieur à 15 000 €, montant à financer inférieur à 25 000 €, endettement sous le maximum, revenus supérieurs à 2 500 € et exactement 3 crédits.',
+  'Pro Contraint 5': 'Aucun crédit immobilier, au moins 3 crédits conso, capital conso inférieur à 15 000 €, endettement au-dessus du maximum et exactement 3 crédits.',
+  'IR 1': 'Au moins 1 crédit immobilier, aucun crédit conso et montant à financer supérieur à 50 000 €.',
+  'IR 2': '1 crédit immobilier, 1 crédit conso, capital conso inférieur à 10 000 €, sans trésorerie et montant à financer supérieur à 50 000 €.',
+  'Petit Pro 1': '1 crédit immobilier, 1 crédit conso, capital conso entre 10 000 € et 20 000 € et montant à financer inférieur à 25 000 €.',
+  'Petit Pro 2': 'Aucun crédit immobilier, 2 crédits conso, capital conso inférieur à 15 000 € et montant à financer inférieur à 25 000 €.',
+  'Petit Pro 3': 'Aucun crédit immobilier, au moins 3 crédits conso, capital conso inférieur à 15 000 €, montant à financer inférieur à 25 000 €, endettement sous le maximum et revenus inférieurs à 2 500 €.',
+  'Petit Pro 4': '1 crédit immobilier, au moins 2 crédits conso, capital conso inférieur à 15 000 € et montant à financer inférieur à 25 000 €.',
+  'Client projet 1': '2 crédits immobiliers, aucun crédit conso, montant à financer supérieur à 50 000 € et endettement sous le maximum.',
+  'Client projet 2': '1 crédit immobilier, 1 crédit conso, capital conso supérieur à 20 000 € et montant à financer supérieur à 25 000 €.',
+  'Client projet 3': '1 crédit immobilier, 1 crédit conso, capital conso inférieur à 15 000 €, trésorerie demandée et montant à financer supérieur à 25 000 €.',
+  'Client projet 4': '2 crédits immobiliers, 1 crédit conso, capital conso supérieur à 8 000 € et montant à financer supérieur à 25 000 €.',
+  'Client projet 5': '1 crédit immobilier, 1 crédit conso, capital conso supérieur à 10 000 € et montant à financer supérieur à 50 000 €.',
+  'Pro Consommateur 1': 'Au moins 2 crédits conso, capital conso supérieur à 15 000 €, montant à financer supérieur à 25 000 €, endettement sous le seuil cible, revenus supérieurs à 1 600 € et au moins 3 crédits.',
+  'Pro Consommateur 2': '1 crédit immobilier, au moins 2 crédits conso, capital conso inférieur à 15 000 €, montant à financer supérieur à 25 000 € et au moins 3 crédits.',
+  'Pro Consommateur 3': '2 crédits immobiliers, 1 crédit conso, capital conso inférieur à 10 000 €, trésorerie supérieure à 1 000 €, montant à financer supérieur à 50 000 €, endettement sous le seuil cible, revenus supérieurs à 3 000 € et au moins 3 crédits.',
+  Autre: 'Toutes les situations qui ne correspondent à aucun des segments détaillés ci-dessus.',
+};
 function read(settings, path) { return path.split('.').reduce((value, key) => value?.[key], settings); }
 function write(settings, path, value) { const keys = path.split('.'); const next = structuredClone(settings); let target = next; keys.slice(0, -1).forEach((key) => { target = target[key]; }); target[keys.at(-1)] = value; return next; }
 const numberValue = (raw, fallback = 0) => { const value = Number(String(raw).replace(',', '.')); return Number.isFinite(value) ? value : fallback; };
@@ -86,18 +118,25 @@ function RacSegmentsEditor({ segments, categoryResults, onUpdate }) {
         const fallback = racSegmentCategory(name) === 'rdv' ? { mode: 'rdv' } : (categoryResults?.other ?? { mode: 'message' });
         const item = { ...fallback, ...(segments?.[name] ?? {}) };
         const appointment = item.mode === 'rdv';
-        return <EditorCard key={name}>
-          <strong>{name}</strong>
-          <label style={labelStyle}>Parcours affiché<select style={inputStyle} value={appointment ? 'rdv' : 'message'} onChange={(e) => onUpdate(name, { mode: e.target.value })}>
-            <option value="rdv">Parcours éligible : rendez-vous et rappel</option>
-            <option value="message">Message affiché</option>
-          </select></label>
-          {!appointment && <>
-            <TextField label="Titre (facultatif)" value={segments?.[name]?.title ?? ''} onChange={(title) => onUpdate(name, { title })} />
-            <label style={labelStyle}>Message (facultatif)<textarea style={{ ...inputStyle, minHeight: 94, resize: 'vertical' }} placeholder="Vide : utilise le message « Autres profils »." value={segments?.[name]?.body ?? ''} onChange={(e) => onUpdate(name, { body: e.target.value })} /></label>
-          </>}
-          <span style={{ color: '#59635e', fontSize: 12 }}>{segments?.[name] ? 'Réglage personnalisé actif' : 'Parcours par défaut'}</span>
-        </EditorCard>;
+        const title = segments?.[name]?.title ?? categoryResults?.other?.title ?? '';
+        const body = segments?.[name]?.body ?? categoryResults?.other?.body ?? '';
+        return <details key={name} style={{ ...editorCardStyle, display: 'block', padding: 0, overflow: 'hidden' }}>
+          <summary style={{ padding: '16px 18px', cursor: 'pointer', fontWeight: 800, listStylePosition: 'inside', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+            <span>{name}</span><span title="Afficher les conditions de ce segment" aria-label="Informations sur les conditions" style={{ color: '#43866f', fontSize: 18 }}>ⓘ</span>
+          </summary>
+          <div style={{ display: 'grid', gap: 13, padding: '0 18px 18px', borderTop: '1px solid #dce8e1' }}>
+            <p style={{ margin: '14px 0 0', color: '#59635e', fontSize: 13, lineHeight: 1.5 }}><strong>Conditions :</strong> {racSegmentConditions[name]}</p>
+            <label style={labelStyle}>Parcours affiché<select style={inputStyle} value={appointment ? 'rdv' : 'message'} onChange={(e) => onUpdate(name, { mode: e.target.value })}>
+              <option value="rdv">Parcours éligible : rendez-vous et rappel</option>
+              <option value="message">Message affiché</option>
+            </select></label>
+            {!appointment && <>
+              <TextField label="Titre" value={title} onChange={(nextTitle) => onUpdate(name, { title: nextTitle })} />
+              <label style={labelStyle}>Message<textarea style={{ ...inputStyle, minHeight: 94, resize: 'vertical' }} value={body} onChange={(e) => onUpdate(name, { body: e.target.value })} /></label>
+            </>}
+            <span style={{ color: '#59635e', fontSize: 12 }}>{segments?.[name] ? 'Réglage personnalisé actif' : 'Parcours par défaut'}</span>
+          </div>
+        </details>;
       })}</div>
     </div>)}
   </Panel>;
