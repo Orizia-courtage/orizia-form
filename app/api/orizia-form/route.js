@@ -11,10 +11,13 @@ export async function POST(request) {
     delete data.rappelProof;
     await verifyTurnstile(turnstileToken, request, 'orizia_submit');
     const config = webhookConfig('submit');
-    if (!await forwardWebhook(config, data)) {
+    const upstream = await forwardWebhook(config, data);
+    const numeroDossier = upstream.data?.numero_dossier;
+    if (!upstream.ok || typeof numeroDossier !== 'string' || !/^DS\d{6,}$/.test(numeroDossier)) {
       return NextResponse.json({ error: 'Envoi indisponible. Veuillez réessayer.' }, { status: 502 });
     }
-    return NextResponse.json({ success: true, rappelProof: createCallbackProof(data) }, { headers: { 'Cache-Control': 'no-store' } });
+    data.numero_dossier = numeroDossier;
+    return NextResponse.json({ success: true, numero_dossier: numeroDossier, rappelProof: createCallbackProof(data) }, { headers: { 'Cache-Control': 'no-store' } });
   } catch (error) {
     return NextResponse.json({ error: error instanceof FormError ? error.message : 'Envoi indisponible. Veuillez réessayer.' },
       { status: error instanceof FormError ? error.status : 503 });

@@ -11,7 +11,7 @@ export async function POST(request) {
     await verifyTurnstile(payload.turnstileToken, request, 'orizia_rappel');
     const data = { ...callbackData(payload), action: 'rappel_souhaite' };
     const config = webhookConfig('rappel');
-    if (!await forwardWebhook(config, data)) {
+    if (!(await forwardWebhook(config, data)).ok) {
       return NextResponse.json({ error: 'Envoi indisponible. Veuillez réessayer.' }, { status: 502 });
     }
     return NextResponse.json({ success: true }, { headers: { 'Cache-Control': 'no-store' } });

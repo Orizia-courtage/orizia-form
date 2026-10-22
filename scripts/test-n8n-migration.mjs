@@ -76,11 +76,11 @@ test('n8n requires its secret; no silent downgrade to Make', () => {
 test('Failed upstream request is not retried and is reported to the form', async () => {
   let calls = 0;
   const config = webhookConfig('rappel', { N8N_WEBHOOK_RAPPEL_URL: 'https://n8n.example/rappel', N8N_WEBHOOK_SECRET: 'secret' });
-  assert.equal(await forwardWebhook(config, sample, async (url, options) => {
+  assert.deepEqual(await forwardWebhook(config, sample, async (url, options) => {
     calls++;
     assert.equal(options.headers['X-Orizia-Webhook-Key'], 'secret');
     assert.deepEqual(JSON.parse(options.body), sample);
-    return { ok: false };
-  }), false);
+    return { ok: false, text: async () => '' };
+  }), { ok: false, data: null });
   assert.equal(calls, 1);
 });

@@ -262,6 +262,7 @@ export default function OriziaForm() {
     try{
       const res=await fetch(FORM_SUBMIT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fd)});
       const result=await submissionResult(res);
+      rappelRef.current.numero_dossier=result.numero_dossier;
       rappelRef.current.rappelProof=result.rappelProof;
       setSegment(fd.Segment);setDone(true);
     }

@@ -1,0 +1,8 @@
+{
+  "name": "orizia-rac-counter-service",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "mongodb": "^7.0.0"
+  }
+}

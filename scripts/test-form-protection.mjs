@@ -91,7 +91,10 @@ test('Routes require validation before forwarding, strip anti-bot fields and iss
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
     if (url.includes('siteverify')) return { ok: true, json: async () => ({ success: accepted, action, hostname: 'www.orizia-courtage.fr' }) };
-    return { ok: upstreamOk };
+    return {
+      ok: upstreamOk,
+      text: async () => url.includes('/form') && upstreamOk ? JSON.stringify({ numero_dossier: 'DS000001' }) : '',
+    };
   };
   try {
     const form = await loadRoute('form');
@@ -102,13 +105,14 @@ test('Routes require validation before forwarding, strip anti-bot fields and iss
     const result = await response.json();
     assert.equal(response.status, 200);
     assert.ok(result.rappelProof);
+    assert.equal(result.numero_dossier, 'DS000001');
     assert.equal(JSON.parse(calls.at(-1).options.body).turnstileToken, undefined);
     accepted = false; // Cloudflare's timeout-or-duplicate result on a reused token.
     assert.equal((await form.POST(request({ ...payload, turnstileToken: 'used' }))).status, 403);
     assert.equal(calls.filter(x => x.url.includes('upstream.invalid')).length, 1);
     accepted = true; action = 'orizia_rappel';
     assert.equal((await rappel.POST(request({ ...payload, turnstileToken: 'fresh' }))).status, 403);
-    assert.equal((await rappel.POST(request({ ...payload, turnstileToken: 'fresh', rappelProof: result.rappelProof }))).status, 200);
+    assert.equal((await rappel.POST(request({ ...payload, numero_dossier: result.numero_dossier, turnstileToken: 'fresh', rappelProof: result.rappelProof }))).status, 200);
     const sent = JSON.parse(calls.at(-1).options.body);
     assert.equal(sent.rappelProof, undefined);
     assert.equal(sent.turnstileToken, undefined);
