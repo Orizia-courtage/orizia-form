@@ -15,7 +15,9 @@ async function racSettings() {
 
 export async function POST(request) {
   try {
-    const payload = await readForm(request);
+    // The dossier number is allocated atomically by n8n after validation.
+    // It must not be required from the visitor's browser.
+    const payload = await readForm(request, ['profil_prenom', 'profil_nom', 'profil_mail', 'profil_tel']);
     const { turnstileToken, ...data } = payload;
     delete data.rappelProof;
     await verifyTurnstile(turnstileToken, request, 'orizia_submit');
