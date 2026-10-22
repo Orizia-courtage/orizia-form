@@ -124,7 +124,7 @@ const MSGS = ['Démarrons !','On avance !','Très bien !','Parfait !','Excellent
 
 // ─── COMPOSANT PRINCIPAL ──────────────────────────────────────
 export default function OriziaForm() {
-  const { debt: debtConfig } = useSimulationConfig();
+  const { debt: debtConfig, rac: racConfig } = useSimulationConfig();
   const [step, setStep]     = useState(1);
   const [dir, setDir]       = useState(1);
   const [key, setKey]       = useState(0);
@@ -294,7 +294,7 @@ export default function OriziaForm() {
     return items;
   },[form,taux]);
 
-  if(done) return <SuccessScreen segment={segment} segType={getSegmentType(segment)} rappelSent={rappelSent} onRappel={demanderRappel} prenom={form.prenom}/>;
+  if(done) return <SuccessScreen segment={segment} segType={getSegmentType(segment)} racConfig={racConfig} rappelSent={rappelSent} onRappel={demanderRappel} prenom={form.prenom}/>;
 
   const meta = STEPS[step-1];
   const pct  = Math.round((step/TOTAL_STEPS)*100);
@@ -845,9 +845,13 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
 }
 
 // ─── ÉCRAN DE RÉSULTAT ────────────────────────────────────────
-function SuccessScreen({segment,segType,rappelSent,onRappel,prenom}){
+function SuccessScreen({segment,segType,racConfig,rappelSent,onRappel,prenom}){
   const [rappelToken,setRappelToken]=useState('');
-  const h={rdv:{icon:'fa-solid fa-check',title:'Dossier enregistré !',color:'#16a34a'},bdf:{icon:'fa-solid fa-triangle-exclamation',title:'Dossier bien reçu',color:'#f59e0b'},tns:{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'},loc:{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'},other:{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'}}[segType]||{icon:'fa-solid fa-circle-info',title:'Dossier bien reçu',color:'#3b82f6'};
+  const configured = segType === 'rdv' ? { mode: 'rdv' } : racConfig?.results?.[segType];
+  const showAppointment = configured?.mode === 'rdv';
+  const h=showAppointment
+    ? {icon:'fa-solid fa-check',title:'Dossier enregistré !',color:'#16a34a'}
+    : {icon:segType==='bdf'?'fa-solid fa-triangle-exclamation':'fa-solid fa-circle-info',title:configured?.title||'Dossier bien reçu',color:segType==='bdf'?'#f59e0b':'#3b82f6'};
   return(
     <div className="f-success">
       <div className="f-success-hero">
@@ -855,7 +859,7 @@ function SuccessScreen({segment,segType,rappelSent,onRappel,prenom}){
         <h2>{h.title}</h2>
         <p>Vos informations ont été reçues et sécurisées.<br/><strong style={{color:'#fff'}}>Un e-mail de confirmation vient de vous être envoyé.</strong></p>
       </div>
-      {segType==='rdv'&&(
+      {showAppointment&&(
         <div className="f-success-body">
           <p className="f-success-cta">Votre profil nous permet de vous proposer une solution adaptée.<br/><strong>Découvrez vos nouvelles mensualités — Étude personnalisée</strong></p>
           <a href="https://zcal.co/cindyurbansky/regroupement-credit" target="_blank" rel="noopener noreferrer" className="f-cta-primary"><i className="fa-regular fa-calendar-check"></i> Choisir mon créneau de rendez-vous</a>
@@ -866,9 +870,7 @@ function SuccessScreen({segment,segType,rappelSent,onRappel,prenom}){
           }
         </div>
       )}
-      {segType==='bdf'&&<div className="f-msg"><div className="f-msg-ico">🙏</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de compléter ce formulaire.</p><p>Malheureusement, nous ne sommes pas en mesure de traiter les dossiers présentant un fichage bancaire (FICP / FCC).</p><p>Nous vous souhaitons de trouver rapidement la solution qui vous convient.</p></div>}
-      {segType==='tns'&&<div className="f-msg"><div className="f-msg-ico">🚀</div><p>Merci {prenom?prenom+' ':''}pour votre confiance !</p><p>Votre profil TNS présente des spécificités que nous n&apos;intégrons pas encore dans notre processus standard. N&apos;hésitez pas à me contacter : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
-      {(segType==='loc'||segType==='other')&&<div className="f-msg"><div className="f-msg-ico">💬</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de remplir ce formulaire.</p><p>Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour. Pour toute question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
+      {!showAppointment&&<div className="f-msg"><div className="f-msg-ico">{segType==='bdf'?'🙏':segType==='tns'?'🚀':'💬'}</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de remplir ce formulaire.</p><p>{configured?.body||'Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour.'}</p><p>Pour toute question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
     </div>
   );
 }
