@@ -39,12 +39,12 @@ async function allocateDossier(payload) {
   const filters = [];
   if (email) filters.push({ email_normalized: email });
   if (phone) filters.push({ telephone_normalized: phone });
-  const clients = db.collection('Dossiers');
-  let client = filters.length ? await clients.findOne({ type_document: 'client', $or: filters }) : null;
+  const clients = db.collection('clients');
+  let client = filters.length ? await clients.findOne({ $or: filters }) : null;
   const now = new Date();
   if (!client) {
     const created = {
-      type_document: 'client', civilite: String(payload.profil_genre || '').trim() || null,
+      civilite: String(payload.profil_genre || '').trim() || null,
       prenom: String(payload.profil_prenom || '').trim(), nom: String(payload.profil_nom || '').trim(),
       email: String(payload.profil_mail || '').trim() || null, email_normalized: email || null,
       telephone: String(payload.profil_tel || '').trim() || null, telephone_normalized: phone || null,

@@ -51,7 +51,7 @@
       ],
       "parameters": {
         "operation": "insert",
-        "collection": "Dossiers",
+        "collection": "dossiers",
         "fields": "numero_dossier,date_creation,Raison,Type,credit_immo,credit_conso,Total_credit,mensu_immo,crd_immo,mensu_conso,crd_conso,loa,mensu_loa,duree_loa,total_loa,paiment_multiple,total_remb_multiple,tresorerie_souhaite,projet_treso,situation_familial,type_profession,revenu_foyer,revenu_autre,charge_loyer,charge_autres,BDF,raison_BDF,profil_genre,profil_nom,profil_prenom,profil_date_naissance,profil_mail,profil_numeroFR,profil_tel,profil_codetel,profil_ville,profil_CP,Opt-in_Orizia,Opt-in_Paternaire,refus_formulaire,source",
         "options": {}
       }
@@ -184,7 +184,7 @@
         -320
       ],
       "parameters": {
-        "content": "## Connexions à renseigner avant publication\nSMTP : dossier@orizia-courtage.fr (les deux emails)\nMongoDB : base OriziaDB, collection Dossiers.\nClé HTTP : credential Orizia - Webhook prive.\nNe pas tester avec des clients réels : ce workflow envoie des emails.\nConserver Make jusqu’à validation.",
+        "content": "## Connexions à renseigner avant publication\nSMTP : dossier@orizia-courtage.fr (les deux emails)\nMongoDB : base OriziaDB, collections clients et dossiers.\nClé HTTP : credential Orizia - Webhook prive.\nNe pas tester avec des clients réels : ce workflow envoie des emails.\nConserver Make jusqu’à validation.",
         "height": 260,
         "width": 460
       }

@@ -9,7 +9,7 @@ Le code compatible n8n a été poussé sur GitHub et le déploiement Vercel a r�
 ## Workflows
 
 - [Demande de rappel](https://serveur-antoine.tail070809.ts.net/workflow/oriziaRappelMigration) : webhook → préparation du message → SMTP vers Cindy → réponse de succès.
-- [Dossier RAC](https://serveur-antoine.tail070809.ts.net/workflow/oriziaRacMigration) : webhook → préparation → insertion des 39 champs dans `OriziaDB.Dossiers` → SMTP vers Cindy → SMTP vers le client → réponse de succès.
+- [Dossier RAC](https://serveur-antoine.tail070809.ts.net/workflow/oriziaRacMigration) : webhook → création/recherche dans `OriziaDB.clients` → insertion dans `OriziaDB.dossiers` → SMTP vers Cindy → SMTP vers le client → réponse de succès.
 
 Les destinataires, objets, conditions et modèles HTML viennent des exports Make. Les données saisies sont échappées dans le HTML, mais restent intactes dans le document MongoDB. Les champs calculés MAF/EV/Revenu/Segment ne sont pas ajoutés à MongoDB, conformément au mapping Make. Les traces d'exécution contenant les données des prospects ne sont pas conservées par ces workflows. Les erreurs restent renvoyées à l'appelant.
 
