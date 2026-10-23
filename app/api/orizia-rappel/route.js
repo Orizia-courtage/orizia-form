@@ -10,6 +10,18 @@ export async function POST(request) {
     verifyCallbackProof(payload, payload.rappelProof);
     await verifyTurnstile(payload.turnstileToken, request, 'orizia_rappel');
     const data = { ...callbackData(payload), action: 'rappel_souhaite' };
+    const crmUrl = process.env.CRM_RAPPEL_URL || 'https://crm.orizia-courtage.fr/api/integrations/rappel';
+    const crmSecret = process.env.CRM_INTEGRATION_SECRET;
+    if (!crmSecret) throw new Error('CRM non configuré.');
+    const crmResponse = await fetch(crmUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-crm-integration-secret': crmSecret },
+      body: JSON.stringify({ numero_dossier: data.numero_dossier }),
+      signal: AbortSignal.timeout(10000),
+      cache: 'no-store',
+    });
+    const crmResult = await crmResponse.json().catch(() => null);
+    if (!crmResponse.ok || !crmResult?.ok) throw new Error('CRM indisponible.');
     const config = webhookConfig('rappel');
     if (!(await forwardWebhook(config, data)).ok) {
       return NextResponse.json({ error: 'Envoi indisponible. Veuillez réessayer.' }, { status: 502 });

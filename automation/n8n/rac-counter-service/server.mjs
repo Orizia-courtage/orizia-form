@@ -22,6 +22,7 @@ function json(response, status, payload) {
 
 function normalizedEmail(value) { return String(value || '').trim().toLowerCase(); }
 function normalizedPhone(value) { return String(value || '').replace(/[^+\d]/g, '').replace(/^00/, '+'); }
+function normalizedName(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
 async function readBody(request) {
   let body = '';
@@ -46,6 +47,8 @@ async function allocateDossier(payload) {
     const created = {
       civilite: String(payload.profil_genre || '').trim() || null,
       prenom: String(payload.profil_prenom || '').trim(), nom: String(payload.profil_nom || '').trim(),
+      date_naissance: /^\d{4}-\d{2}-\d{2}$/.test(String(payload.profil_date_naissance || '')) ? String(payload.profil_date_naissance) : null,
+      searchName: `${normalizedName(payload.profil_nom)} ${normalizedName(payload.profil_prenom)}`,
       email: String(payload.profil_mail || '').trim() || null, email_normalized: email || null,
       telephone: String(payload.profil_tel || '').trim() || null, telephone_normalized: phone || null,
       source: 'Formulaire RAC Site', createdAt: now, updatedAt: now,
@@ -53,7 +56,7 @@ async function allocateDossier(payload) {
     const result = await clients.insertOne(created);
     client = { ...created, _id: result.insertedId };
   } else {
-    await clients.updateOne({ _id: client._id }, { $set: { updatedAt: now, lastSource: 'Formulaire RAC Site' } });
+    await clients.updateOne({ _id: client._id }, { $set: { updatedAt: now, lastSource: 'Formulaire RAC Site', ...(client.date_naissance ? {} : { date_naissance: /^\d{4}-\d{2}-\d{2}$/.test(String(payload.profil_date_naissance || '')) ? String(payload.profil_date_naissance) : null }) } });
   }
   const result = await db.collection('Counters').findOneAndUpdate(
     { _id: 'rac_dossier' }, { $inc: { sequence: 1 }, $set: { updatedAt: now } }, { upsert: true, returnDocument: 'after' },
