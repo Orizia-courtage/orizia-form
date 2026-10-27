@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import QRCode from 'qrcode';
 import ContactCaptcha from './ContactCaptcha';
+import RappelForm from './RappelForm';
 
 import Icon from '@/components/Icon';
 // Icônes SVG inline — remplace Font Awesome pour ne pas bloquer le rendu
@@ -36,6 +37,13 @@ const ACTIONS = [
     sub: 'Créneau en visio ou téléphone',
     type: 'calendar',
     color: '#1b1d1a',
+  },
+  {
+    icon: 'headset',
+    label: 'Être rappelé',
+    sub: 'Laissez votre numéro, Cindy vous rappelle',
+    type: 'rappel',
+    color: '#3e7f68',
   },
   {
     icon: 'mail',
@@ -139,6 +147,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
   const [showForm, setShowForm]   = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [selectedDesktopAction, setSelectedDesktopAction] = useState(null);
+  const [showRappel, setShowRappel] = useState(false);
   const [copyFeedback, setCopyFeedback] = useState('');
   const [qrCode, setQrCode] = useState('');
 
@@ -154,14 +163,15 @@ export default function ContactPopup({ label = "M'envoyer un message", className
   useEffect(() => {
     const handler = (e) => {
       if (e.key === 'Escape') {
-        if (selectedDesktopAction) { setSelectedDesktopAction(null); }
+        if (showRappel) { setShowRappel(false); }
+        else if (selectedDesktopAction) { setSelectedDesktopAction(null); }
         else if (showForm) { setShowForm(false); setOpen(true); }
         else { setOpen(false); setShowCal(false); }
       }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [showForm, selectedDesktopAction]);
+  }, [showForm, selectedDesktopAction, showRappel]);
 
   // Bloquer le défilement de la page derrière toute fenêtre de contact.
   useEffect(() => {
@@ -239,7 +249,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
     }
   };
 
-  const closeAll = () => { setOpen(false); setShowCal(false); setShowForm(false); setSelectedDesktopAction(null); };
+  const closeAll = () => { setOpen(false); setShowCal(false); setShowForm(false); setSelectedDesktopAction(null); setShowRappel(false); };
   const copyContact = async (value, key) => {
     try {
       await navigator.clipboard.writeText(value);
@@ -294,7 +304,9 @@ export default function ContactPopup({ label = "M'envoyer un message", className
               </button>
             </div>
 
-            {selectedDesktopAction ? (
+            {showRappel ? (
+              <RappelForm onBack={() => setShowRappel(false)} />
+            ) : selectedDesktopAction ? (
               <div className="cp-contact-detail" key={selectedDesktopAction.label}>
                 <button className="cp-detail-back" type="button" onClick={() => setSelectedDesktopAction(null)}>
                   <IconArrowLeft /> Retour aux moyens de contact
@@ -341,6 +353,13 @@ export default function ContactPopup({ label = "M'envoyer un message", className
                   </button>
                   <a className="cp-scan-open" href={selectedDesktopAction.href}>{selectedDesktopAction.desktop.openLabel} <Icon name="arrow-right" className="oz-arrow" /></a>
                 </div>
+                {selectedDesktopAction.label === 'Appeler' && (
+                  <button type="button" className="cp-scan-callback" onClick={() => { setSelectedDesktopAction(null); setShowRappel(true); }}>
+                    <Icon name="headset" />
+                    <span><strong>Pas disponible maintenant&nbsp;?</strong> Cindy vous rappelle</span>
+                    <Icon name="arrow-right" className="oz-arrow" />
+                  </button>
+                )}
               </div>
             ) : <>
             <div className="cp-intro">
@@ -353,6 +372,16 @@ export default function ContactPopup({ label = "M'envoyer un message", className
                   return (
                     <button key={a.label} type="button" className="cp-action" role="menuitem"
                       onClick={() => { setOpen(false); setShowCal(true); }}>
+                      <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}><Icon name={a.icon} /></span>
+                      <span className="cp-action-text"><strong>{a.label}</strong><span>{a.sub}</span></span>
+                      <IconArrowRight className="cp-action-arrow" />
+                    </button>
+                  );
+                }
+                if (a.type === 'rappel') {
+                  return (
+                    <button key={a.label} type="button" className="cp-action cp-action--rappel" role="menuitem"
+                      onClick={() => setShowRappel(true)}>
                       <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}><Icon name={a.icon} /></span>
                       <span className="cp-action-text"><strong>{a.label}</strong><span>{a.sub}</span></span>
                       <IconArrowRight className="cp-action-arrow" />

@@ -526,3 +526,86 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 @media (prefers-reduced-motion: reduce) {
   .cp-confetto, .cp-qr-scanline, .cp-scan-stage::before { animation: none !important; }
 }
+
+/* ── Fenêtre contact : toujours entièrement visible ────────────────────── */
+.cp-overlay { padding: 12px !important; }
+.cp-panel {
+  max-height: calc(100dvh - 24px) !important; overflow-y: auto !important; overscroll-behavior: contain;
+  scrollbar-width: thin; scrollbar-color: rgba(27, 29, 26, .2) transparent;
+}
+.cp-panel-header { position: sticky; top: 0; z-index: 3; background: #fff; }
+.cp-panel-footer { position: sticky; bottom: 0; z-index: 3; background: #fff; }
+
+/* QR plus compact : tient dans un écran de portable sans défilement */
+.cp-scan-title { font-size: 1.3rem !important; margin-top: 6px !important; }
+.cp-scan-stage { height: 214px; max-width: 290px; }
+.cp-scan-stage::before { width: 190px; height: 190px; }
+.cp-qr-frame { padding: 11px; border-radius: 18px; }
+.cp-qr-code { width: 140px !important; height: 140px !important; }
+.cp-qr-badge { width: 34px; height: 34px; border-radius: 10px; font-size: 1.05rem; }
+.cp-qr-scanline { left: 11px; right: 11px; top: 11px; }
+@keyframes cp-scan { 0%, 100% { transform: translateY(0); opacity: 0; } 10%, 90% { opacity: 1; } 50% { transform: translateY(138px); } }
+.cp-scan-steps { margin: 2px 0 14px; }
+.cp-scan-steps li > span { width: 32px; height: 32px; border-radius: 10px; font-size: .95rem; }
+.cp-scan-alt { padding-top: 12px; gap: 6px; }
+.cp-scan-callback {
+  margin-top: 14px; width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+  padding: 12px 14px; border-radius: 14px; border: 1px dashed rgba(62, 127, 104, .45);
+  background: var(--oz-mint-wash); color: var(--oz-ink); font: inherit; font-size: .84rem; cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.cp-scan-callback > .oz-icon:first-child { font-size: 1.25rem; color: var(--oz-sage-deep); }
+.cp-scan-callback span { flex: 1; color: var(--oz-muted); }
+.cp-scan-callback strong { color: var(--oz-ink); font-weight: 600; }
+.cp-scan-callback:hover { background: var(--oz-mint-soft); border-color: var(--oz-sage); }
+@media (max-height: 760px) {
+  .cp-scan-stage { height: 186px; }
+  .cp-qr-code { width: 124px !important; height: 124px !important; }
+  @keyframes cp-scan { 0%, 100% { transform: translateY(0); opacity: 0; } 10%, 90% { opacity: 1; } 50% { transform: translateY(122px); } }
+  .cp-scan-steps li { font-size: .7rem; }
+}
+
+/* Mise en avant de « Être rappelé » dans la liste */
+.cp-action--rappel .cp-action-text strong::after {
+  content: 'Nouveau'; margin-left: 8px; padding: 2px 7px; border-radius: 999px; vertical-align: 2px;
+  background: var(--oz-mint-soft); color: var(--oz-sage-deep); font-size: .62rem; font-weight: 600; letter-spacing: .02em;
+}
+
+/* ── Formulaire « Être rappelé » ───────────────────────────────────────── */
+.rf { padding: 14px 26px 22px; display: flex; flex-direction: column; gap: 14px; text-align: left; animation: oz-fade .35s var(--oz-ease); }
+.rf .cp-detail-back { align-self: center; }
+.rf-title { font-family: var(--oz-font-display); font-weight: 500; font-size: 1.45rem; line-height: 1.15; letter-spacing: -.015em; margin: 0; text-align: center; color: var(--oz-ink); }
+.rf-lead { margin: -6px 0 2px; text-align: center; font-size: .86rem; line-height: 1.5; color: var(--oz-muted); }
+.rf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rf-field { display: flex; flex-direction: column; gap: 6px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.rf-field > span, .rf-field > legend { font-size: .78rem; font-weight: 600; color: var(--oz-ink); padding: 0; }
+.rf-field em { font-style: normal; font-weight: 400; color: var(--oz-muted); }
+.rf-field input, .rf-field select {
+  height: 46px; width: 100%; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(27, 29, 26, .16);
+  background: #fff; color: var(--oz-ink); font: inherit; font-size: .95rem; transition: border-color .2s, box-shadow .2s;
+}
+.rf-field input:focus, .rf-field select:focus { outline: none; border-color: var(--oz-sage); box-shadow: 0 0 0 4px rgba(107, 182, 155, .18); }
+.rf-slots legend { margin-bottom: 6px; }
+.rf-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.rf-chip {
+  padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(27, 29, 26, .14); background: #fff;
+  font: inherit; font-size: .8rem; color: var(--oz-ink); cursor: pointer; transition: all .18s;
+}
+.rf-chip:hover { border-color: var(--oz-sage); }
+.rf-chip.is-on { background: var(--oz-ink); border-color: var(--oz-ink); color: #fff; }
+.rf-hp { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
+.rf-consent { display: flex; gap: 10px; align-items: flex-start; font-size: .76rem; line-height: 1.45; color: var(--oz-muted); cursor: pointer; }
+.rf-consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--oz-ink); flex-shrink: 0; }
+.rf-captcha { display: flex; justify-content: center; min-height: 0; }
+.rf-error { margin: 0; padding: 10px 12px; border-radius: 10px; background: #f7e9e6; color: var(--oz-bad); font-size: .8rem; display: flex; gap: 8px; align-items: center; }
+.rf-submit { width: 100%; }
+.rf-submit[disabled] { opacity: .7; cursor: wait; transform: none !important; }
+.rf--done { align-items: center; text-align: center; padding: 34px 26px 30px; }
+.rf-done-badge {
+  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--oz-mint-soft); color: var(--oz-sage-deep); font-size: 2rem;
+  animation: cp-frame-in .5s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+.rf--done .rf-lead { margin: 0; max-width: 320px; }
+.rf-back-link { margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; font: inherit; font-size: .84rem; font-weight: 600; color: var(--oz-sage-deep); cursor: pointer; }
+@media (max-width: 480px) { .rf-row { grid-template-columns: 1fr; } .rf { padding: 12px 18px 20px; } }
