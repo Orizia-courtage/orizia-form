@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 // Taux moyens banque et Orizia par tranche d'âge
 const DEFAULT_TAUX_PAR_AGE = [
   { label: '20–29 ans', tauxBanque: 0.0023, tauxOrizia: 0.0008, gain: 65 },
@@ -98,7 +99,7 @@ export default function AssuranceEmprunteurCalc() {
         </div>
 
         <div className="aec-note">
-          💡 Taux indicatifs basés sur des profils standards. Je calcule votre taux exact en rendez-vous selon votre état de santé et votre dossier.
+          <Icon name="lightbulb" /> Taux indicatifs basés sur des profils standards. Je calcule votre taux exact en rendez-vous selon votre état de santé et votre dossier.
         </div>
       </div>
 
@@ -120,7 +121,7 @@ export default function AssuranceEmprunteurCalc() {
             <span className="aec-compare-taux">{(tranche.tauxBanque * 100).toFixed(2)}%/an</span>
             <span className="aec-compare-mensuel">{fmt(result.mensuelBanque)}/mois</span>
           </div>
-          <div className="aec-compare-arrow">→</div>
+          <div className="aec-compare-arrow"><Icon name="arrow-right" className="oz-arrow" /></div>
           <div className="aec-compare-item aec-compare-item--good">
             <span className="aec-compare-label">Orizia</span>
             <span className="aec-compare-taux">{(tranche.tauxOrizia * 100).toFixed(2)}%/an</span>
@@ -140,13 +141,13 @@ export default function AssuranceEmprunteurCalc() {
           </div>
           <div className="aec-detail-sep" />
           <div className="aec-detail-row aec-detail-row--bold">
-            <span>🎯 Économie totale</span>
+            <span><Icon name="target" /> Économie totale</span>
             <strong>{fmt(result.economie)}</strong>
           </div>
         </div>
 
         {/* CTA */}
-        <ContactPopup label="📅 Calculer mon économie exacte" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
+        <ContactPopup label="Calculer mon économie exacte" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Votre économie réelle dépend de votre profil de santé et du contrat actuel.
         </p>

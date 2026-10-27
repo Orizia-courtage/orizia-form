@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Blog : Conseils Crédit, Assurance & Patrimoine | Orizia',
   description:
@@ -58,7 +59,7 @@ export default function BlogPage() {
               {' › '}
               <span>Blog</span>
             </nav>
-            <span className="fin-badge">✍️ Conseils & Expertise</span>
+            <span className="fin-badge"><Icon name="pen-line" /> Conseils & Expertise</span>
             <h1 className="ae-hero-title">Le blog Orizia</h1>
             <p className="ae-hero-intro">
               Des conseils concrets sur le crédit immobilier, l'assurance, les placements
@@ -71,7 +72,7 @@ export default function BlogPage() {
         {/* ── ÉTAT VIDE ── */}
         <section className="crowd-section crowd-section--light" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center' }}>
           <div className="fin-section-inner" style={{ textAlign: 'center', width: '100%' }}>
-            <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>✍️</div>
+            <div style={{ fontSize: '3.5rem', marginBottom: 20 }}><Icon name="pen-line" /></div>
             <h2 style={{ color: 'var(--orizia-accent)', fontSize: '1.6rem', fontWeight: 900, marginBottom: 12 }}>
               Aucun article publié pour l'instant
             </h2>
@@ -79,7 +80,7 @@ export default function BlogPage() {
               Les premiers articles arrivent bientôt. En attendant, n'hésitez pas à me contacter
               directement pour toute question sur votre projet financier.
             </p>
-            <ContactPopup label="📅 Poser une question à Cindy" className="fin-btn-primary" />
+            <ContactPopup label="Poser une question à Cindy" icon="calendar-days" className="fin-btn-primary" />
           </div>
         </section>
       </main>

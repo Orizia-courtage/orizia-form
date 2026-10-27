@@ -7,6 +7,7 @@ import FinancerProduitsGrid from '@/components/FinancerProduitsGrid';
 import ReadingProgressFinancer from '@/components/ReadingProgressFinancer';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Courtier en Crédit 2026 : Comparez 40+ Banques | Orizia Courtage',
@@ -167,32 +168,32 @@ const ETAPES = [
 
 const DIFFERENCIANTS = [
   {
-    icon: '🏦',
+    icon: 'landmark',
     title: '+40 banques comparées',
     desc: 'Votre banque ne vous proposera jamais l\'offre de son concurrent. Moi, je consulte tout le marché pour chaque dossier.',
     color: 'var(--orizia-primary)',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
-    icon: '💰',
+    icon: 'coins',
     title: 'Taux + assurance négociés',
     desc: 'Le vrai levier d\'économie est souvent l\'assurance emprunteur — 2× moins chère hors banque. Je négocie les deux.',
-    color: '#16a34a',
-    bg: 'rgba(22,163,74,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
   },
   {
-    icon: '📞',
+    icon: 'phone',
     title: 'Interlocutrice unique',
     desc: 'Pas de centre d\'appels, pas de turnover. Je gère votre dossier du premier échange à la remise des clés.',
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.06)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.06)',
   },
   {
-    icon: '🎯',
+    icon: 'target',
     title: 'Modalités transparentes',
     desc: 'Les frais éventuels et modalités de courtage sont expliqués avant tout engagement.',
-    color: '#7c3aed',
-    bg: 'rgba(124,58,237,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
   },
 ];
 
@@ -221,7 +222,7 @@ export default function FinancerPage() {
             <div className="inv-hero-layout">
               {/* Gauche — texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge">🏦 Courtage en crédit indépendant</span>
+                <span className="inv-hero-badge"><Icon name="landmark" /> Courtage en crédit indépendant</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre projet mérite<br />
                   <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>le meilleur taux du marché</em>
@@ -233,9 +234,9 @@ export default function FinancerPage() {
                   <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="📅 Étude de faisabilité avec Cindy" className="fin-btn-primary inv-hero-cta-main" />
+                  <ContactPopup label="Étude de faisabilité avec Cindy" icon="calendar-days" className="fin-btn-primary inv-hero-cta-main" />
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Voir mes solutions ↓
+                    Voir mes solutions <Icon name="arrow-down" />
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
@@ -316,7 +317,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier échange existe.
               </p>
-              <ContactPopup label="📅 Faire le point avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Faire le point avec Cindy" icon="calendar-days" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -336,7 +337,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   loading="lazy"
                 />
                 <div className="inv-why-image-badge">
-                  <span className="inv-why-image-badge-icon">🏆</span>
+                  <span className="inv-why-image-badge-icon"><Icon name="trophy" /></span>
                   <div>
                     <div className="inv-why-image-badge-val">20 ans</div>
                     <div className="inv-why-image-badge-label">d'expérience</div>
@@ -353,7 +354,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div className="inv-why-grid">
                   {DIFFERENCIANTS.map(d => (
                     <div key={d.title} className="inv-why-item" style={{ background: d.bg }}>
-                      <div className="inv-why-item-icon" style={{ color: d.color }}>{d.icon}</div>
+                      <div className="inv-why-item-icon" style={{ color: d.color }}><Icon name={d.icon} /></div>
                       <div>
                         <div className="inv-why-item-title" style={{ color: d.color }}>{d.title}</div>
                         <div className="inv-why-item-desc">{d.desc}</div>
@@ -361,7 +362,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     </div>
                   ))}
                 </div>
-                <ContactPopup label="📅 Me confier mon dossier" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
+                <ContactPopup label="Me confier mon dossier" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
               </div>
             </div>
           </div>
@@ -424,7 +425,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="✉️ Poser une question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une question à Cindy" icon="mail" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -441,15 +442,15 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: '📋',
+                  icon: 'clipboard-list',
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie cachée de votre crédit',
                   text: 'L\'assurance emprunteur représente jusqu\'à 40% du coût total de votre crédit. Je la négocie pour vous faire économiser jusqu\'à 15 000€.',
-                  badge: '💰 Jusqu\'à 15 000€ d\'économies',
+                  badge: 'Jusqu\'à 15 000€ d\'économies',
                 },
                 {
                   href: '/investir/assurance-vie',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance Vie',
                   sub: 'Épargner en parallèle',
                   text: 'Même en remboursant un crédit, il est vital de se constituer une épargne. L\'assurance vie est l\'enveloppe idéale pour faire fructifier votre surplus mensuel.',
@@ -457,7 +458,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/investir/per',
-                  icon: '🏦',
+                  icon: 'landmark',
                   title: 'Plan Épargne Retraite',
                   sub: 'Réduire vos impôts',
                   text: 'Vous remboursez un crédit et payez des impôts ? Le PER vous permet de déduire vos versements de votre revenu imposable dès cette année.',
@@ -466,15 +467,15 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               ].map(s => (
                 <Link href={s.href} key={s.title} className={`fin-card${s.badge ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
-                    <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>
+                    <span className="fin-card-pill" style={{ background: 'rgba(107,182,155,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}>
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
+                  <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
                 </Link>
               ))}
             </div>
@@ -493,7 +494,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <strong>Modalités de courtage transparentes.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="✉️ Poser une question" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" icon="mail" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

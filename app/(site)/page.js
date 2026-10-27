@@ -1,10 +1,13 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import AnimatedStats from '@/components/AnimatedStats';
 import ContactPopup from '@/components/ContactPopup';
+import RdvButton from '@/components/RdvButton';
+import Icon from '@/components/Icon';
 import HomeSituations from '@/components/HomeSituations';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
+import BrokerNetwork from '@/components/BrokerNetwork';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -214,26 +217,80 @@ const faqSchema = {
 
 const SERVICES = [
   {
-    img: '/images/investir.webp',
-    tag: 'Stratégie Patrimoniale',
-    title: 'Faire fructifier votre capital, intelligemment',
-    desc: 'SCPI, assurance vie, PER, crowdfunding… Je sélectionne pour vous les placements qui correspondent vraiment à vos objectifs — pas à ceux de ma banque.',
-    cta: { href: '/investir', label: 'Voir les solutions' },
-  },
-  {
     img: '/images/financer.webp',
-    tag: 'Financement',
+    tag: 'Financer',
+    icon: 'landmark',
     title: 'Votre meilleur taux, négocié pour vous',
-    desc: 'Crédit immobilier, regroupement de crédits, prêt personnel… Je compare plus de 40 partenaires et je défends votre dossier jusqu\'à l\'accord.',
+    desc: 'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Je compare plus de 40 partenaires et je défends votre dossier jusqu\'à l\'accord.',
+    links: [
+      { label: 'Crédit immobilier', href: '/financer/credit-immobilier' },
+      { label: 'Regroupement de crédits', href: '/financer/regroupement-credits' },
+      { label: 'Prêt personnel', href: '/financer/pret-personnel' },
+      { label: 'Rachat de soulte', href: '/financer/rachat-soulte' },
+    ],
     cta: { href: '/financer', label: 'Étudier mon financement' },
   },
   {
     img: '/images/assurer.webp',
-    tag: 'Protection',
+    tag: 'Assurer',
+    icon: 'shield-check',
     title: 'Protéger ce qui compte, au juste prix',
-    desc: 'Assurance emprunteur, habitation, auto/moto… Je vous évite de payer pour des garanties inutiles et je veille à ce que vous soyez vraiment couvert.',
+    desc: 'Assurance emprunteur, habitation, auto et moto. Je vous évite de payer pour des garanties inutiles et je veille à ce que vous soyez vraiment couvert.',
+    links: [
+      { label: 'Assurance emprunteur', href: '/assurer/assurance-emprunteur' },
+      { label: 'Assurance habitation', href: '/assurer/assurance-habitation' },
+      { label: 'Auto et moto', href: '/assurer/auto-moto' },
+    ],
     cta: { href: '/assurer', label: 'Auditer mes contrats' },
   },
+  {
+    img: '/images/investir.webp',
+    tag: 'Investir',
+    icon: 'trending-up',
+    title: 'Faire fructifier votre capital, intelligemment',
+    desc: 'SCPI, assurance vie, PER, crowdfunding. Je sélectionne les placements qui correspondent à vos objectifs et à votre fiscalité, pas à ceux d\'une banque.',
+    links: [
+      { label: 'SCPI', href: '/investir/scpi' },
+      { label: 'Assurance vie', href: '/investir/assurance-vie' },
+      { label: 'PER', href: '/investir/per' },
+      { label: 'Crowdfunding', href: '/investir/crowdfunding' },
+    ],
+    cta: { href: '/investir', label: 'Voir les solutions' },
+  },
+];
+
+const ETAPES = [
+  {
+    icon: 'message-circle',
+    title: 'On fait connaissance',
+    text: '30 minutes en visio, par téléphone ou à Marcq-en-Barœul. Vous m\'exposez votre projet, je vous dis franchement ce qui est possible.',
+    meta: 'Sans engagement',
+  },
+  {
+    icon: 'search',
+    title: 'J\'étudie et je compare',
+    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 banques et assureurs partenaires.',
+    meta: 'Étude sous 24 à 48 h',
+  },
+  {
+    icon: 'handshake',
+    title: 'Je négocie pour vous',
+    text: 'Taux, frais de dossier, assurance, pénalités : je défends votre dossier et je vous présente les meilleures offres, expliquées clairement.',
+    meta: 'Vous gardez la main',
+  },
+  {
+    icon: 'pen-line',
+    title: 'Je vous accompagne jusqu\'au bout',
+    text: 'Rendez-vous en agence, signature chez le notaire, suivi après la signature : vous parlez toujours à la même personne.',
+    meta: 'Un seul interlocuteur',
+  },
+];
+
+const POURQUOI = [
+  { icon: 'user', title: 'Une seule interlocutrice', text: 'Pas de standard, pas de transfert de dossier. Vous avez mon numéro direct.' },
+  { icon: 'scale', title: 'Aucun lien exclusif', text: 'Je ne travaille pour aucune banque. Ma seule mission : la meilleure solution pour vous.' },
+  { icon: 'landmark', title: '+40 partenaires', text: 'Banques et assureurs mis en concurrence pour chaque dossier.' },
+  { icon: 'badge-check', title: 'Réglementée et engagée', text: 'Immatriculée ORIAS, présidente du conseil de surveillance de l\'AFIB.' },
 ];
 
 export default function HomePage() {
@@ -242,99 +299,119 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(oriziaSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <main>
+      <main className="home">
 
-        {/* ── HERO (inchangé) ── */}
-        <section className="orizia-hero">
-          <div className="image-column">
-            <div className="column-image">
-              <Image
-                src="/images/hero-orizia.webp"
-                alt="Cindy Urbansky, courtier indépendant – Orizia Courtage, Marcq-en-Barœul"
-                fill
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={75}
-              />
+        {/* ── HERO ── */}
+        <section className="hh">
+          <div className="hh-inner">
+            <div className="hh-text">
+              <p className="hh-eyebrow">
+                <span className="hh-eyebrow-dot" aria-hidden="true" />
+                Courtier indépendant à Marcq-en-Barœul, certifié ORIAS
+              </p>
+              <h1 className="hh-title">
+                Votre courtier indépendant, de la première question jusqu’à la signature.
+              </h1>
+              <p className="hh-lead">
+                Crédit, assurance, placements : je gère personnellement chaque dossier,
+                je mets les banques en concurrence et je défends vos intérêts. Pas les leurs.
+              </p>
+              <div className="hh-ctas">
+                <RdvButton className="fin-btn-primary hh-cta-main">Prendre rendez-vous</RdvButton>
+                <a href="tel:+33777259706" className="fin-btn-secondary hh-cta-call">
+                  <Icon name="phone" />
+                  07 77 25 97 06
+                </a>
+              </div>
+              <p className="hh-reassure">
+                Premier échange de 30 minutes, sans engagement. Réponse sous 24 h.
+              </p>
+
+              <ul className="hh-proof" aria-label="Garanties">
+                <li><Icon name="badge-check" /><span><strong>ORIAS</strong> Intermédiaire immatriculée</span></li>
+                <li><Icon name="landmark" /><span><strong>+40</strong> banques et assureurs</span></li>
+                <li><Icon name="award" /><span><strong>AFIB</strong> Présidente du conseil de surveillance</span></li>
+              </ul>
             </div>
-          </div>
-          <div className="orizia-hero-content">
-            <p style={{
-              color: 'var(--orizia-primary)',
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              marginBottom: 12,
-            }}>
-              Courtier indépendant · Certifié ORIAS · Hauts-de-France
-            </p>
-            <h1>
-              Votre courtier indépendant,<br />
-              de la première question<br />
-              jusqu'à la signature
-            </h1>
-            <p>
-              Je gère personnellement chaque dossier, du début à la fin.
-              Pas de commercial intermédiaire, pas d'objectif bancaire à atteindre —
-              juste un professionnel engagé pour défendre vos intérêts.
-            </p>
-            <div className="buttons">
-              <ContactPopup label="📅 Prendre rendez-vous" className="orizia-btn-main" />
-              <ContactPopup label="✉️ Échanger avec Cindy" className="orizia-btn-sec" />
+
+            <div className="hh-visual">
+              <svg className="hh-ring" viewBox="0 0 600 600" aria-hidden="true">
+                <circle className="hh-ring-a" cx="300" cy="300" r="290" />
+                <circle className="hh-ring-b" cx="300" cy="300" r="248" />
+              </svg>
+              <div className="hh-photo">
+                <Image
+                  src="/images/hero-cindy.webp"
+                  alt="Cindy Urbansky, courtier indépendant, à son bureau d'Orizia Courtage"
+                  fill
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 900px) 80vw, 480px"
+                  style={{ objectFit: 'cover', objectPosition: '50% 30%' }}
+                />
+              </div>
+              <div className="hh-card hh-card--a">
+                <span className="hh-card-num">500+</span>
+                <span className="hh-card-label">dossiers accompagnés</span>
+              </div>
+              <div className="hh-card hh-card--b">
+                <span className="hh-card-avatar"><img src="/images/photo-cindy.webp" alt="" width="40" height="40" /></span>
+                <span>
+                  <strong>Cindy Urbansky</strong>
+                  <span>Fondatrice, 20 ans d’expérience</span>
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── STATS ANIMÉES ── */}
+        {/* ── PARCOURS : PAR OÙ COMMENCER ── */}
+        <section className="hp">
+          <div className="hp-inner">
+            <div className="hp-head">
+              <h2>Par où commence-t-on&nbsp;?</h2>
+              <p>Choisissez ce qui vous amène. Je vous montre concrètement comment je peux vous aider.</p>
+            </div>
+            <HomeSituations />
+          </div>
+        </section>
+
+        {/* ── CHIFFRES ── */}
         <AnimatedStats />
 
         {/* ── CITATION CINDY ── */}
-        <section className="home-citation-section">
-          <div className="home-citation-inner">
-            <div className="home-citation-photo">
+        <section className="hq">
+          <div className="hq-inner">
+            <div className="hq-photo">
               <Image
                 src="/images/photo-cindy.webp"
-                alt="Cindy Urbansky – courtier indépendant, Orizia Courtage"
+                alt="Cindy Urbansky, courtier indépendant, Orizia Courtage"
                 fill
-                style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
-                sizes="(max-width: 768px) 120px, 200px"
+                style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
+                sizes="(max-width: 900px) 70vw, 420px"
               />
             </div>
-            <div className="home-citation-content">
-              <span className="home-citation-role">
-                Cindy Urbansky — Fondatrice · Courtier indépendant · Présidente AFIB
-              </span>
-              <blockquote className="home-citation-quote">
+            <div className="hq-content">
+              <blockquote className="hq-quote">
                 « Je ne travaille pas pour les banques. Je travaille pour vous. »
               </blockquote>
-              <p className="home-citation-text">
+              <p className="hq-text">
                 Quand vous me confiez un dossier, je cherche la solution la plus juste
-                pour votre situation — pas la plus rapide. Je pose les vraies questions,
-                je compare ce qui mérite d'être comparé, et je vous explique chaque choix
-                dans un langage humain. Pas de jargon. Pas de pression.
+                pour votre situation, pas la plus rapide. Je pose les vraies questions,
+                je compare ce qui mérite d’être comparé, et je vous explique chaque choix
+                simplement. Pas de jargon, pas de pression.
               </p>
-              <div className="home-citation-badges">
-                {['20 ans d\'expérience', '+40 banques comparées', 'ORIAS certifié', 'Accompagnement personnalisé'].map(b => (
-                  <span key={b} className="home-citation-badge">{b}</span>
-                ))}
+              <div className="hq-sign">
+                <strong>Cindy Urbansky</strong>
+                <span>Fondatrice d’Orizia Courtage</span>
               </div>
-              <ContactPopup label="📅 Parler à Cindy" className="fin-btn-primary" />
+              <div className="hq-ctas">
+                <RdvButton className="fin-btn-primary">Parler de mon projet</RdvButton>
+                <Link href="/qui-suis-je" className="hq-link">
+                  Mon parcours <Icon name="arrow-right" className="oz-arrow" />
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* ── VOTRE SITUATION ── */}
-        <section className="crowd-section crowd-section--white">
-          <div className="fin-section-inner">
-            <div className="fin-section-head">
-              <span className="fin-badge">Votre situation</span>
-              <h2>Quelle est votre priorité<br />du moment ?</h2>
-              <p>
-                Sélectionnez votre situation pour voir comment je peux vous aider concrètement.
-              </p>
-            </div>
-            <HomeSituations />
           </div>
         </section>
 
@@ -343,17 +420,13 @@ export default function HomePage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mes expertises</span>
-              <h2>Un seul interlocuteur.<br />Trois expertises à votre service.</h2>
+              <h2>Un seul interlocuteur, trois expertises</h2>
               <p>
-                Je traite personnellement chaque dossier — sans déléguer, sans intermédiaire.
-                Vous avez un numéro direct. Pas un service client.
+                Je traite personnellement chaque dossier, sans déléguer.
+                Vous avez un numéro direct, pas un service client.
               </p>
             </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: 28,
-            }}>
+            <div className="hx-grid">
               {SERVICES.map(s => (
                 <ServiceCard key={s.title} {...s} />
               ))}
@@ -361,81 +434,90 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── POURQUOI ORIZIA ── */}
+        {/* ── COMMENT ÇA SE PASSE ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
-            <div className="home-why-grid">
-              <div className="home-why-text">
-                <span className="fin-badge">Pourquoi Orizia ?</span>
-                <h2 style={{ color: 'var(--orizia-accent)', fontSize: '2rem', fontWeight: 900, marginTop: 12, marginBottom: 16 }}>
-                  Le seul courtier à qui vous<br />parlez directement
-                </h2>
-                <p style={{ color: 'var(--orizia-dark)', lineHeight: 1.7, marginBottom: 24, opacity: 0.8 }}>
-                  Je travaille seule. Et c'est précisément ce qui fait la différence.
-                  Pas de standardiste, pas de transfert de dossier — c'est moi qui vous
-                  réponds, moi qui négocie, moi qui suis votre dossier de la première
-                  question à la remise des clés.
-                </p>
-                <div className="home-why-points">
-                  {[
-                    { icon: '🎯', text: 'Étude personnalisée' },
-                    { icon: '🏦', text: 'Accès à plus de 40 partenaires bancaires' },
-                    { icon: '📞', text: 'Vous parlez toujours à la même personne' },
-                    { icon: '⚖️', text: 'Aucun lien exclusif avec les banques' },
-                    { icon: '🛡️', text: 'Immatriculée ORIAS — réglementée et engagée' },
-                    { icon: '🏆', text: 'Présidente du conseil de surveillance de l\'AFIB' },
-                  ].map(item => (
-                    <div key={item.text} className="home-why-point">
-                      <span className="home-why-point-icon">{item.icon}</span>
-                      <span>{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 28 }}>
-                  <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary" />
-                  <Link href="/qui-suis-je" className="fin-btn-secondary">
-                    En savoir plus sur Cindy →
-                  </Link>
-                </div>
-              </div>
+            <div className="fin-section-head">
+              <span className="fin-badge">Comment ça se passe</span>
+              <h2>Quatre étapes, une seule personne</h2>
+              <p>Du premier appel à la signature, vous savez toujours où en est votre dossier.</p>
+            </div>
+            <ol className="hs4">
+              {ETAPES.map((e, i) => (
+                <li key={e.title} className="hs4-step" style={{ '--i': i }}>
+                  <div className="hs4-top">
+                    <span className="hs4-num">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="hs4-icon"><Icon name={e.icon} /></span>
+                  </div>
+                  <h3>{e.title}</h3>
+                  <p>{e.text}</p>
+                  <span className="hs4-meta"><Icon name="check" /> {e.meta}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="hs4-cta">
+              <RdvButton className="fin-btn-primary">Commencer par un échange de 30 min</RdvButton>
+            </div>
+          </div>
+        </section>
 
-              <div className="home-why-image-wrap">
-                <Image
-                  src="/images/hero-cindy.webp"
-                  alt="Cindy Urbansky, courtier indépendant — Orizia Courtage"
-                  width={600}
-                  height={700}
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                  sizes="(max-width: 900px) 100vw, 600px"
-                />
+        {/* ── POURQUOI ORIZIA ── */}
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner">
+            <div className="hw-grid">
+              <div className="hw-visual">
+                <BrokerNetwork />
+              </div>
+              <div className="hw-text">
+                <span className="fin-badge">Pourquoi Orizia</span>
+                <h2>Le seul courtier à qui vous parlez directement</h2>
+                <p className="hw-lead">
+                  Je travaille seule, et c’est précisément ce qui fait la différence :
+                  c’est moi qui vous réponds, moi qui négocie, moi qui suis votre dossier
+                  de la première question à la remise des clés.
+                </p>
+                <ul className="hw-points">
+                  {POURQUOI.map(p => (
+                    <li key={p.title}>
+                      <span className="hw-point-icon"><Icon name={p.icon} /></span>
+                      <span>
+                        <strong>{p.title}</strong>
+                        {p.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── TÉMOIGNAGES ── */}
-        <section className="crowd-section crowd-section--light">
+        <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Ils en parlent</span>
               <h2>Ce que disent mes partenaires</h2>
-              <p>Des professionnels du secteur qui témoignent de leur expérience avec moi.</p>
+              <p>Des professionnels de la banque et de l’assurance qui ont travaillé avec moi.</p>
             </div>
             <TemoignagesCarousel />
-            
           </div>
         </section>
 
         {/* ── FAQ ── */}
-        <section className="crowd-section crowd-section--white">
-          <div className="fin-section-inner">
-            <div className="fin-section-head">
-              <span className="fin-badge">FAQ</span>
-              <h2>Les questions qu'on me pose<br />le plus souvent</h2>
+        <section className="crowd-section crowd-section--light">
+          <div className="fin-section-inner hf-grid">
+            <div className="hf-head">
+              <span className="fin-badge">Questions fréquentes</span>
+              <h2>Les questions qu’on me pose le plus souvent</h2>
+              <p>Une autre question&nbsp;? Appelez-moi directement, je réponds moi-même.</p>
+              <a href="tel:+33777259706" className="hq-link">
+                <Icon name="phone" /> 07 77 25 97 06
+              </a>
             </div>
-            <div className="crowd-faq-list" style={{ maxWidth: 760, margin: '0 auto' }}>
+            <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
-                <details key={i} className="crowd-faq-item">
+                <details key={i} className="crowd-faq-item" open={i === 0}>
                   <summary>{f.name}</summary>
                   <p>{f.acceptedAnswer.text}</p>
                 </details>
@@ -445,21 +527,19 @@ export default function HomePage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
+        <section className="fin-cta">
           <div className="fin-cta-inner">
-            <h2>
-              Un échange de 30 minutes.<br />Sans engagement. Sans jargon.
-            </h2>
+            <h2>Un échange de 30 minutes. Sans engagement, sans jargon.</h2>
             <p>
               On commence par une conversation simple sur votre situation et vos objectifs.
               Je vous dis franchement ce qui est possible, dans quel délai et pourquoi.
-              Les modalités de l'accompagnement sont expliquées avant tout engagement.
             </p>
-            <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-secondary"  />
+            <div className="fin-hero-btns">
+              <RdvButton className="fin-btn-primary">Choisir un créneau</RdvButton>
+              <ContactPopup label="Autres moyens de me joindre" icon="message-circle" className="fin-btn-secondary" />
             </div>
-            <p style={{ marginTop: 16, fontSize: '0.82rem' }}>
-              Réponse sous 24h · Disponible en visio ou en présentiel · Marcq-en-Barœul
+            <p className="hc-note">
+              Réponse sous 24 h · En visio ou à Marcq-en-Barœul · Du lundi au vendredi, 9 h – 18 h
             </p>
           </div>
         </section>

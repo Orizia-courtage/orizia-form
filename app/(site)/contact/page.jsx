@@ -4,6 +4,7 @@ import ContactSujetsFilter from '@/components/ContactSujetsFilter';
 import DispoStatus from '@/components/DispoStatus';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil personnalisé',
   description:
@@ -58,7 +59,7 @@ const contactSchema = {
 
 const MOYENS = [
   {
-    icon: '📅',
+    icon: 'calendar-days',
     title: 'Prendre rendez-vous',
     desc: 'Choisissez un créneau directement dans mon agenda. Visioconférence ou téléphone.',
     cta: 'Réserver un créneau',
@@ -69,38 +70,38 @@ const MOYENS = [
     bg: 'rgba(45,106,95,0.06)',
   },
   {
-    icon: '📞',
+    icon: 'phone',
     title: 'Appeler directement',
     desc: 'Pour une question rapide ou un premier contact sans formalité.',
     cta: '+33 7 77 25 97 06',
     href: 'tel:+33777259706',
     primary: false,
     detail: 'Lun–Ven 9h–18h',
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.06)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.06)',
   },
   {
-    icon: '💬',
+    icon: 'message-circle',
     title: 'WhatsApp',
     desc: 'Envoyez un message à votre rythme. Je réponds dans la journée.',
     cta: 'Écrire sur WhatsApp',
     href: 'https://wa.me/33777259706',
     primary: false,
     detail: 'Réponse le jour même',
-    color: '#16a34a',
-    bg: 'rgba(22,163,74,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
     external: true,
   },
   {
-    icon: '✉️',
+    icon: 'mail',
     title: 'Par email',
     desc: 'Pour toute demande écrite, pièces jointes ou questions détaillées.',
     cta: 'cindy.urbansky@orizia-courtage.fr',
     href: 'mailto:cindy.urbansky@orizia-courtage.fr',
     primary: false,
     detail: 'Réponse sous 24h',
-    color: '#7c3aed',
-    bg: 'rgba(124,58,237,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
   },
 ];
 
@@ -148,7 +149,7 @@ export default function ContactPage() {
             </nav>
             <div className="inv-hero-layout">
               <div className="inv-hero-text">
-                <span className="inv-hero-badge">⚡ Réponse sous 24h</span>
+                <span className="inv-hero-badge"><Icon name="zap" /> Réponse sous 24h</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Parlons de<br />
                   <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>votre projet</em>
@@ -206,7 +207,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="contact-cindy-horaires">
-                    <span>⏱️</span>
+                    <span><Icon name="timer" /></span>
                     <span>Lun–Ven · 9h–18h</span>
                   </div>
                 </div>
@@ -230,7 +231,7 @@ export default function ContactPage() {
                 const inner = (
                   <>
                     <div className="contact-moyen-icon" style={{ color: m.color, background: m.bg }}>
-                      {m.icon}
+                      <Icon name={m.icon} />
                     </div>
                     <h3>{m.title}</h3>
                     <p>{m.desc}</p>
@@ -283,7 +284,7 @@ export default function ContactPage() {
         <section id="calendrier" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">📅 Prise de rendez-vous</span>
+              <span className="fin-badge"><Icon name="calendar-days" /> Prise de rendez-vous</span>
               <h2>Réservez votre créneau<br />en quelques secondes</h2>
               <p>
                 Choisissez directement dans mon agenda le jour et l'heure qui vous conviennent.
@@ -294,28 +295,28 @@ export default function ContactPage() {
             {/* Réassurance avant le calendrier */}
             <div className="contact-cal-reassurance">
               <div className="contact-cal-item">
-                <span>📅</span>
+                <span><Icon name="calendar-days" /></span>
                 <div>
                   <strong>Visioconférence ou téléphone</strong>
                   <span>Le lien vous est envoyé automatiquement</span>
                 </div>
               </div>
               <div className="contact-cal-item">
-                <span>⏱️</span>
+                <span><Icon name="timer" /></span>
                 <div>
                   <strong>Durée : 30 minutes</strong>
                   <span>Pas de préparation nécessaire</span>
                 </div>
               </div>
               <div className="contact-cal-item">
-                <span>✅</span>
+                <span><Icon name="circle-check" /></span>
                 <div>
                   <strong>Annulation libre</strong>
                   <span>Modifiable jusqu'à 24h avant</span>
                 </div>
               </div>
               <div className="contact-cal-item">
-                <span>🎯</span>
+                <span><Icon name="target" /></span>
                 <div>
                   <strong>Modalités transparentes</strong>
                   <span>Aucune obligation de suite</span>
@@ -361,7 +362,7 @@ export default function ContactPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="contact-legal-bloc">
-              <div className="contact-legal-icon">🔒</div>
+              <div className="contact-legal-icon"><Icon name="lock" /></div>
               <div>
                 <strong>Vos données sont protégées</strong>
                 <p>

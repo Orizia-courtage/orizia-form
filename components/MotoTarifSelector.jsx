@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const TARIFS = [
   {
     cylindree: '≤ 50 cc',
-    emoji: '🛵',
+    emoji: 'scooter',
     label: 'Scooter / Cyclomoteur',
     desc: 'Usage urbain, petits trajets quotidiens.',
     tiers: 'Dès 200€',
@@ -14,11 +15,11 @@ const TARIFS = [
     tousRisques: 'Sur mesure',
     recommande: 'Tiers',
     recommandeDesc: 'Valeur faible du véhicule — le tiers suffit largement.',
-    recommandeColor: '#16a34a',
+    recommandeColor: '#3e7f68',
   },
   {
     cylindree: '125 cc',
-    emoji: '🏍️',
+    emoji: 'motorbike',
     label: 'Moto 125 cc',
     desc: 'Permis B suffisant, usage mixte ville/route.',
     tiers: 'Dès 350€',
@@ -26,11 +27,11 @@ const TARIFS = [
     tousRisques: 'Sur mesure',
     recommande: 'Intermédiaire',
     recommandeDesc: 'Bon compromis prix/protection pour un usage quotidien.',
-    recommandeColor: '#d97706',
+    recommandeColor: '#a87a2c',
   },
   {
     cylindree: '126–600 cc',
-    emoji: '🏍️',
+    emoji: 'motorbike',
     label: 'Moyenne cylindrée',
     desc: 'Roadster, trail, sportive légère.',
     tiers: 'Dès 400€',
@@ -42,7 +43,7 @@ const TARIFS = [
   },
   {
     cylindree: '600–999 cc',
-    emoji: '🏁',
+    emoji: 'flag',
     label: 'Haute cylindrée',
     desc: 'Sportive, roadster puissant, GT.',
     tiers: 'Dès 450€',
@@ -54,7 +55,7 @@ const TARIFS = [
   },
   {
     cylindree: '1000 cc+',
-    emoji: '🦅',
+    emoji: 'bird',
     label: 'Grosse cylindrée',
     desc: 'Superbike, custom, touring premium.',
     tiers: 'Dès 500€',
@@ -67,9 +68,9 @@ const TARIFS = [
 ];
 
 const FORMULES = [
-  { key: 'tiers', label: 'Au tiers', icon: '🔵', desc: 'Responsabilité civile uniquement' },
-  { key: 'inter', label: 'Intermédiaire', icon: '🟡', desc: 'Vol, incendie + RC' },
-  { key: 'tousRisques', label: 'Tous risques', icon: '🟢', desc: 'Protection maximale' },
+  { key: 'tiers', label: 'Au tiers', icon: 'dot-blue', desc: 'Responsabilité civile uniquement' },
+  { key: 'inter', label: 'Intermédiaire', icon: 'dot-amber', desc: 'Vol, incendie + RC' },
+  { key: 'tousRisques', label: 'Tous risques', icon: 'dot-green', desc: 'Protection maximale' },
 ];
 
 export default function MotoTarifSelector() {
@@ -87,7 +88,7 @@ export default function MotoTarifSelector() {
             onClick={() => setSelected(i)}
             className={`moto-selector-tab${selected === i ? ' moto-selector-tab--active' : ''}`}
           >
-            <span className="moto-tab-emoji">{t.emoji}</span>
+            <span className="moto-tab-emoji"><Icon name={t.emoji} /></span>
             <span className="moto-tab-cc">{t.cylindree}</span>
           </button>
         ))}
@@ -99,13 +100,13 @@ export default function MotoTarifSelector() {
           {/* Header */}
           <div className="moto-result-header">
             <div>
-              <div className="moto-result-emoji">{current.emoji}</div>
+              <div className="moto-result-emoji"><Icon name={current.emoji} /></div>
               <h3 className="moto-result-title">{current.label}</h3>
               <p className="moto-result-desc">{current.desc}</p>
             </div>
             <div className="moto-result-recommande" style={{ borderColor: current.recommandeColor }}>
               <span style={{ color: current.recommandeColor, fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 4 }}>
-                ⭐ Recommandé
+                <Icon name="star" /> Recommandé
               </span>
               <span style={{ color: current.recommandeColor, fontSize: '1.1rem', fontWeight: 900 }}>
                 {current.recommande}
@@ -127,10 +128,10 @@ export default function MotoTarifSelector() {
                   className={`moto-formule-card${isReco ? ' moto-formule-card--reco' : ''}`}
                 >
                   {isReco && (
-                    <div className="moto-formule-reco-badge">⭐ Recommandé</div>
+                    <div className="moto-formule-reco-badge"><Icon name="star" /> Recommandé</div>
                   )}
                   <div className="moto-formule-label">
-                    <span style={{ marginRight: 8 }}>{f.icon}</span>{f.label}
+                    <span style={{ marginRight: 8 }}><Icon name={f.icon} /></span>{f.label}
                   </div>
                   <div className="moto-formule-desc">{f.desc}</div>
                   <div className="moto-formule-prix">{prix}</div>
@@ -142,12 +143,12 @@ export default function MotoTarifSelector() {
           {/* CTA */}
           <div className="moto-result-cta">
             <p>Je compare les offres du marché pour votre {current.label.toLowerCase()} et vous trouve le meilleur tarif.</p>
-            <ContactPopup label="📅 Obtenir mon devis personnalisé" className="fin-btn-on-dark" />
+            <ContactPopup label="Obtenir mon devis personnalisé" icon="calendar-days" className="fin-btn-on-dark" />
           </div>
         </div>
       ) : (
         <div className="moto-selector-placeholder">
-          <span className="moto-placeholder-icon">🏍️</span>
+          <span className="moto-placeholder-icon"><Icon name="motorbike" /></span>
           <p>Sélectionnez votre cylindrée pour voir les tarifs et la formule recommandée</p>
         </div>
       )}

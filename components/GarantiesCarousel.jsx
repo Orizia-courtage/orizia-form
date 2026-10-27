@@ -2,18 +2,19 @@
 
 import { useState, useEffect, useRef } from 'react';
 
+import Icon from '@/components/Icon';
 const BASE = [
-  { icon: '🔥', label: 'Incendie & Explosions', desc: 'La base absolue. Couvre la destruction de votre logement et de vos biens suite à un incendie ou un court-circuit majeur.' },
-  { icon: '💧', label: 'Dégâts des eaux', desc: 'Le sinistre n°1 en France. Fuite, canalisation rompue ou infiltration : je vérifie toujours les plafonds d\'indemnisation.' },
-  { icon: '🛡️', label: 'Responsabilité civile', desc: 'Vous blessez quelqu\'un ou vous cassez un objet chez des amis ? Cette garantie prend le relais pour toute votre famille.' },
-  { icon: '🌪️', label: 'Catastrophes naturelles', desc: 'Inondations, sécheresse, tempêtes. Avec la taxe qui passe à 20%, c\'est le moment de comparer pour absorber cette hausse.' },
+  { icon: 'flame', label: 'Incendie & Explosions', desc: 'La base absolue. Couvre la destruction de votre logement et de vos biens suite à un incendie ou un court-circuit majeur.' },
+  { icon: 'droplets', label: 'Dégâts des eaux', desc: 'Le sinistre n°1 en France. Fuite, canalisation rompue ou infiltration : je vérifie toujours les plafonds d\'indemnisation.' },
+  { icon: 'shield-check', label: 'Responsabilité civile', desc: 'Vous blessez quelqu\'un ou vous cassez un objet chez des amis ? Cette garantie prend le relais pour toute votre famille.' },
+  { icon: 'tornado', label: 'Catastrophes naturelles', desc: 'Inondations, sécheresse, tempêtes. Avec la taxe qui passe à 20%, c\'est le moment de comparer pour absorber cette hausse.' },
 ];
 
 const OPTIONS = [
-  { icon: '🔒', label: 'Vol & Vandalisme', desc: 'Souvent en option. Attention aux contrats qui imposent des serrures complexes ou excluent les objets de valeur.' },
-  { icon: '🪟', label: 'Bris de glace', desc: 'Fenêtres, plaques vitrocéramiques, miroirs. Utile, mais il faut s\'assurer que la franchise ne soit pas supérieure au prix de la vitre.' },
-  { icon: '⚖️', label: 'Protection juridique', desc: 'Litige avec un voisin, un artisan ou le syndic ? Vos frais d\'avocat sont pris en charge. Un vrai bouclier au quotidien.' },
-  { icon: '💻', label: 'Dommages Électriques', desc: 'La foudre grille votre frigo et votre TV ? Cette option (souvent ignorée) vous sauve la mise. Idéal pour le télétravail.' },
+  { icon: 'lock', label: 'Vol & Vandalisme', desc: 'Souvent en option. Attention aux contrats qui imposent des serrures complexes ou excluent les objets de valeur.' },
+  { icon: 'window', label: 'Bris de glace', desc: 'Fenêtres, plaques vitrocéramiques, miroirs. Utile, mais il faut s\'assurer que la franchise ne soit pas supérieure au prix de la vitre.' },
+  { icon: 'scale', label: 'Protection juridique', desc: 'Litige avec un voisin, un artisan ou le syndic ? Vos frais d\'avocat sont pris en charge. Un vrai bouclier au quotidien.' },
+  { icon: 'laptop', label: 'Dommages Électriques', desc: 'La foudre grille votre frigo et votre TV ? Cette option (souvent ignorée) vous sauve la mise. Idéal pour le télétravail.' },
 ];
 
 function CarouselGroup({ items, type }) {
@@ -23,9 +24,9 @@ function CarouselGroup({ items, type }) {
   const intervalRef = useRef(null);
 
   const isBase = type === 'base';
-  const accentColor = isBase ? '#16a34a' : '#d97706';
-  const bgColor = isBase ? 'rgba(22,163,74,0.06)' : 'rgba(217,119,6,0.06)';
-  const borderColor = isBase ? 'rgba(22,163,74,0.25)' : 'rgba(217,119,6,0.25)';
+  const accentColor = isBase ? '#3e7f68' : '#a87a2c';
+  const bgColor = isBase ? 'rgba(62,127,104,0.06)' : 'rgba(168,122,44,0.06)';
+  const borderColor = isBase ? 'rgba(62,127,104,0.25)' : 'rgba(168,122,44,0.25)';
   const label = isBase ? 'BASE' : 'OPTION';
 
   const go = (dir) => {
@@ -72,7 +73,7 @@ function CarouselGroup({ items, type }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{
             display: 'inline-block',
-            background: isBase ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)',
+            background: isBase ? 'rgba(62,127,104,0.12)' : 'rgba(168,122,44,0.12)',
             color: accentColor,
             fontSize: '0.72rem',
             fontWeight: 900,
@@ -110,7 +111,7 @@ function CarouselGroup({ items, type }) {
               onMouseEnter={e => { e.currentTarget.style.background = accentColor; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = accentColor; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'var(--orizia-white)'; e.currentTarget.style.color = accentColor; e.currentTarget.style.borderColor = borderColor; }}
             >
-              {dir === 'prev' ? '←' : '→'}
+              {dir === 'prev' ? <Icon name="arrow-left" /> : <Icon name="arrow-right" />}
             </button>
           ))}
         </div>
@@ -138,7 +139,7 @@ function CarouselGroup({ items, type }) {
             borderRadius: 12,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0,
-          }}>{item.icon}</span>
+          }}><Icon name={item.icon} /></span>
           <h3 style={{ fontSize: '1.05rem', fontWeight: 900, color: 'var(--orizia-accent)', margin: 0 }}>
             {item.label}
           </h3>

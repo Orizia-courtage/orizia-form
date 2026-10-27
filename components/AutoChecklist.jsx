@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const CRITERES = [
   {
     id: 'anciennete',
@@ -55,7 +56,7 @@ export default function AutoChecklist() {
   return (
     <div className="icl-wrap">
       <div className="icl-header">
-        <span className="fin-badge">💰 Auto-évaluation</span>
+        <span className="fin-badge"><Icon name="coins" /> Auto-évaluation</span>
         <h3 className="icl-title">Suis-je en train de payer trop cher ?</h3>
         <p className="icl-subtitle">Cochez les situations qui vous correspondent.</p>
       </div>
@@ -65,14 +66,14 @@ export default function AutoChecklist() {
           className="icl-progress-bar"
           style={{
             width: `${pct}%`,
-            background: done >= 2 ? '#dc2626' : 'var(--orizia-primary)',
+            background: done >= 2 ? '#b0473b' : 'var(--orizia-primary)',
           }}
         />
       </div>
       <div className="icl-progress-label">
         <span>{done}/{total} critères cochés</span>
         {economieEstimee > 0 && (
-          <span style={{ color: '#16a34a', fontWeight: 800 }}>
+          <span style={{ color: '#3e7f68', fontWeight: 800 }}>
             ~{economieEstimee}€/an d'économies potentielles
           </span>
         )}
@@ -86,7 +87,7 @@ export default function AutoChecklist() {
             className={`icl-critere${checked[c.id] ? ' icl-critere--checked' : ''}`}
           >
             <div className="icl-checkbox">
-              {checked[c.id] ? '✅' : <span className="icl-checkbox-empty" />}
+              {checked[c.id] ? <Icon name="circle-check" /> : <span className="icl-checkbox-empty" />}
             </div>
             <div className="icl-critere-content">
               <div className="icl-critere-label">
@@ -94,8 +95,8 @@ export default function AutoChecklist() {
                 {c.economie && (
                   <span style={{
                     fontSize: '0.68rem', fontWeight: 700,
-                    color: '#16a34a',
-                    background: 'rgba(22,163,74,0.08)',
+                    color: '#3e7f68',
+                    background: 'rgba(62,127,104,0.08)',
                     borderRadius: 4, padding: '1px 6px', marginLeft: 8,
                   }}>
                     ~{c.economie}€/an
@@ -110,32 +111,32 @@ export default function AutoChecklist() {
 
       {done >= 2 && (
         <div className={`icl-result${allRequired ? ' icl-result--ready' : ' icl-result--partial'}`}
-          style={allRequired ? { borderColor: '#dc2626', background: 'rgba(220,38,38,0.04)' } : {}}
+          style={allRequired ? { borderColor: '#b0473b', background: 'rgba(176,71,59,0.04)' } : {}}
         >
           {allRequired ? (
             <>
-              <div className="icl-result-icon">🚨</div>
+              <div className="icl-result-icon"><Icon name="siren" /></div>
               <div>
-                <strong style={{ color: '#dc2626' }}>
+                <strong style={{ color: '#b0473b' }}>
                   Vous payez très probablement trop cher — ~{economieEstimee}€/an en jeu
                 </strong>
                 <p>
                   Les signaux sont clairs. En 30 minutes, je compare le marché et vous montre
                   concrètement ce que vous pouvez économiser. Sans engagement.
                 </p>
-                <ContactPopup label="📅 Calculer mes économies" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Calculer mes économies" icon="calendar-days" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
             <>
-              <div className="icl-result-icon">💬</div>
+              <div className="icl-result-icon"><Icon name="message-circle" /></div>
               <div>
                 <strong>Des économies sont probablement possibles</strong>
                 <p>
                   Même sans tous les critères, une comparaison rapide révèle souvent
                   des opportunités. Je vous dis honnêtement si vous pouvez faire mieux.
                 </p>
-                <ContactPopup label="📅 Vérifier mon tarif" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Vérifier mon tarif" icon="calendar-days" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

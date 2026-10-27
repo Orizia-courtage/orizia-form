@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const CRITERES = [
   {
     id: 'epargne',
@@ -49,18 +50,18 @@ export default function InvestisseurChecklist() {
   return (
     <div className="icl-wrap">
       <div className="icl-header">
-        <span className="fin-badge">✅ Auto-évaluation</span>
+        <span className="fin-badge"><Icon name="circle-check" /> Auto-évaluation</span>
         <h3 className="icl-title">Suis-je prêt à investir dans le crowdfunding ?</h3>
         <p className="icl-subtitle">Cochez les critères qui correspondent à votre situation.</p>
       </div>
 
       {/* Barre de progression */}
       <div className="icl-progress">
-        <div className="icl-progress-bar" style={{ width: `${pct}%`, background: allDone ? '#16a34a' : 'var(--orizia-primary)' }} />
+        <div className="icl-progress-bar" style={{ width: `${pct}%`, background: allDone ? '#3e7f68' : 'var(--orizia-primary)' }} />
       </div>
       <div className="icl-progress-label">
         <span>{done}/{total} critères validés</span>
-        <span style={{ color: allDone ? '#16a34a' : 'var(--orizia-dark)', fontWeight: 800 }}>{pct}%</span>
+        <span style={{ color: allDone ? '#3e7f68' : 'var(--orizia-dark)', fontWeight: 800 }}>{pct}%</span>
       </div>
 
       {/* Critères */}
@@ -72,7 +73,7 @@ export default function InvestisseurChecklist() {
             className={`icl-critere${checked[c.id] ? ' icl-critere--checked' : ''}`}
           >
             <div className="icl-checkbox">
-              {checked[c.id] ? '✅' : <span className="icl-checkbox-empty" />}
+              {checked[c.id] ? <Icon name="circle-check" /> : <span className="icl-checkbox-empty" />}
             </div>
             <div className="icl-critere-content">
               <div className="icl-critere-label">{c.label}</div>
@@ -87,20 +88,20 @@ export default function InvestisseurChecklist() {
         <div className={`icl-result${allDone ? ' icl-result--ready' : ' icl-result--partial'}`}>
           {allDone ? (
             <>
-              <div className="icl-result-icon">🎯</div>
+              <div className="icl-result-icon"><Icon name="target" /></div>
               <div>
                 <strong>Vous êtes prêt — parlons stratégie</strong>
                 <p>Tous les critères sont validés. Il ne reste plus qu'à définir le montant, la durée et les plateformes adaptées à votre profil.</p>
-                <ContactPopup label="📅 Construire ma stratégie" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Construire ma stratégie" icon="calendar-days" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
             <>
-              <div className="icl-result-icon">⚠️</div>
+              <div className="icl-result-icon"><Icon name="triangle-alert" /></div>
               <div>
                 <strong>Quelques points à préparer d'abord</strong>
                 <p>Vous êtes sur la bonne voie. Avant d'investir, je vous aide à consolider les critères manquants — c'est l'objet du premier rendez-vous.</p>
-                <ContactPopup label="📅 Préparer mon investissement" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Préparer mon investissement" icon="calendar-days" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

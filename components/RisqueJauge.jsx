@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 const RISQUES = [
   {
     id: 'capital',
     label: 'Perte en capital',
-    icon: '💸',
+    icon: 'banknote',
     sans: 85,
     avec: 15,
     desc: 'Sans analyse du promoteur, le risque de défaut est élevé. J\'audite les bilans, les fonds propres et l\'historique de livraisons avant chaque recommandation.',
@@ -14,7 +15,7 @@ const RISQUES = [
   {
     id: 'retard',
     label: 'Retard de remboursement',
-    icon: '⏳',
+    icon: 'hourglass',
     sans: 70,
     avec: 25,
     desc: 'Les retards sont fréquents sur les projets mal sélectionnés. Je ne recommande que des promoteurs avec un track record vérifié sur les 3 dernières années.',
@@ -22,7 +23,7 @@ const RISQUES = [
   {
     id: 'liquidite',
     label: 'Mauvaise allocation',
-    icon: '🔒',
+    icon: 'lock',
     sans: 60,
     avec: 10,
     desc: 'Investir trop sur une seule plateforme ou un seul projet amplifie le risque. Je construis une stratégie de diversification adaptée à votre profil.',
@@ -30,7 +31,7 @@ const RISQUES = [
   {
     id: 'plateforme',
     label: 'Risque plateforme',
-    icon: '🏦',
+    icon: 'landmark',
     sans: 50,
     avec: 5,
     desc: 'Certaines plateformes ont des taux de défaut > 10%. Je ne travaille qu\'avec des plateformes agréées AMF dont j\'ai vérifié la solidité financière.',
@@ -66,13 +67,13 @@ export default function RisqueJauge() {
           onClick={() => setMode('sans')}
           className={`rj-toggle-btn${!isAvec ? ' rj-toggle-btn--active rj-toggle-btn--bad' : ''}`}
         >
-          ❌ Sans accompagnement
+          <Icon name="circle-x" /> Sans accompagnement
         </button>
         <button
           onClick={() => setMode('avec')}
           className={`rj-toggle-btn${isAvec ? ' rj-toggle-btn--active rj-toggle-btn--good' : ''}`}
         >
-          ✅ Avec Orizia
+          <Icon name="circle-check" /> Avec Orizia
         </button>
       </div>
 
@@ -81,8 +82,8 @@ export default function RisqueJauge() {
         {RISQUES.map(r => {
           const val = isAvec ? r.avec : r.sans;
           const color = isAvec
-            ? val < 20 ? '#16a34a' : '#d97706'
-            : val > 60 ? '#dc2626' : '#d97706';
+            ? val < 20 ? '#3e7f68' : '#a87a2c'
+            : val > 60 ? '#b0473b' : '#a87a2c';
 
           return (
             <div
@@ -91,7 +92,7 @@ export default function RisqueJauge() {
               onClick={() => setSelected(selected === r.id ? null : r.id)}
             >
               <div className="rj-jauge-header">
-                <span className="rj-jauge-icon">{r.icon}</span>
+                <span className="rj-jauge-icon"><Icon name={r.icon} /></span>
                 <span className="rj-jauge-label">{r.label}</span>
                 <div className="rj-jauge-bar-wrap">
                   <Jauge value={val} color={color} animated />
@@ -103,8 +104,8 @@ export default function RisqueJauge() {
               </div>
               {selected === r.id && (
                 <div className="rj-jauge-desc">
-                  <span style={{ color: isAvec ? '#16a34a' : '#dc2626', fontWeight: 800, marginRight: 6 }}>
-                    {isAvec ? '🛡️ Comment je réduis ce risque :' : '⚠️ Le problème :'}
+                  <span style={{ color: isAvec ? '#3e7f68' : '#b0473b', fontWeight: 800, marginRight: 6 }}>
+                    {isAvec ? 'Comment je réduis ce risque :' : 'Le problème :'}
                   </span>
                   {r.desc}
                 </div>

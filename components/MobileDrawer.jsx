@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import Icon from '@/components/Icon';
 const CATEGORIES = [
   {
     id: 'investir',
     label: 'Investir',
     href: '/investir',
-    icon: '💼',
-    gradient: 'linear-gradient(135deg, #C9A96E 0%, #8B7355 100%)',
+    icon: 'briefcase',
+    gradient: 'linear-gradient(135deg, #3e7f68 0%, #1b1d1a 100%)',
     products: [
       { href: '/investir/scpi', label: 'SCPI', sub: 'Immobilier de rendement' },
       { href: '/investir/per', label: 'PER', sub: 'Préparez votre retraite' },
@@ -21,8 +22,8 @@ const CATEGORIES = [
     id: 'financer',
     label: 'Financer',
     href: '/financer',
-    icon: '🏠',
-    gradient: 'linear-gradient(135deg, #432828 0%, #2a1818 100%)',
+    icon: 'house',
+    gradient: 'linear-gradient(135deg, #2a302b 0%, #1b1d1a 100%)',
     products: [
       { href: '/financer/credit-immobilier', label: 'Crédit immobilier', sub: 'Votre projet immobilier' },
       { href: '/financer/regroupement-credits', label: 'Regroupement', sub: 'Réduisez vos mensualités' },
@@ -34,8 +35,8 @@ const CATEGORIES = [
     id: 'assurer',
     label: 'Assurer',
     href: '/assurer',
-    icon: '🛡️',
-    gradient: 'linear-gradient(135deg, #7a4f4f 0%, #5a3737 100%)',
+    icon: 'shield-check',
+    gradient: 'linear-gradient(135deg, #6bb69b 0%, #2f6352 100%)',
     products: [
       { href: '/assurer/assurance-emprunteur', label: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
       { href: '/assurer/assurance-habitation', label: 'Assurance habitation', sub: 'Logement sécurisé' },
@@ -136,7 +137,7 @@ export default function MobileDrawer({ isOpen, onClose, onRdv }) {
               onClick={() => handleTabChange(cat.id)}
               aria-selected={activeTab === cat.id}
             >
-              <span className="mdr-v2-tab-icon">{cat.icon}</span>
+              <span className="mdr-v2-tab-icon"><Icon name={cat.icon} /></span>
               <span className="mdr-v2-tab-label">{cat.label}</span>
             </button>
           ))}
@@ -151,7 +152,7 @@ export default function MobileDrawer({ isOpen, onClose, onRdv }) {
             style={{ background: activeCategory.gradient }}
             onClick={handleLink}
           >
-            <div className="mdr-v2-hero-icon">{activeCategory.icon}</div>
+            <div className="mdr-v2-hero-icon"><Icon name={activeCategory.icon} /></div>
             <div className="mdr-v2-hero-text">
               <h2>Découvrir {activeCategory.label}</h2>
               <p>Vue d'ensemble et conseils</p>
@@ -211,7 +212,7 @@ export default function MobileDrawer({ isOpen, onClose, onRdv }) {
             className="mdr-v2-cta"
             onClick={() => { onClose(); onRdv(); }}
           >
-            <span className="mdr-v2-cta-icon">📅</span>
+            <span className="mdr-v2-cta-icon"><Icon name="calendar-days" /></span>
             <span className="mdr-v2-cta-text">
               <strong>Prendre rendez-vous</strong>
               <small>Modalités transparentes · Sans engagement</small>

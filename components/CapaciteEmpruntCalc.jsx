@@ -5,6 +5,7 @@ import ContactPopup from '@/components/ContactPopup';
 import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 }
@@ -77,7 +78,7 @@ export default function CapaciteEmpruntCalc() {
         </div>
 
         <div className="aec-note">
-          💡 Estimation basée sur un taux d'endettement de {formatPercent(debtConfig.maxRatio, { ratio: true })}. Je calcule votre capacité exacte en tenant compte de votre profil complet.
+          <Icon name="lightbulb" /> Estimation basée sur un taux d'endettement de {formatPercent(debtConfig.maxRatio, { ratio: true })}. Je calcule votre capacité exacte en tenant compte de votre profil complet.
         </div>
       </div>
 
@@ -102,12 +103,12 @@ export default function CapaciteEmpruntCalc() {
           </div>
           <div className="aec-detail-sep" />
           <div className="aec-detail-row aec-detail-row--bold">
-            <span>🏠 Capacité d'emprunt</span>
+            <span><Icon name="house" /> Capacité d'emprunt</span>
             <strong>{fmt(result.capital)}</strong>
           </div>
         </div>
 
-        <ContactPopup label="📅 Affiner avec Cindy" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
+        <ContactPopup label="Affiner avec Cindy" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié.
         </p>

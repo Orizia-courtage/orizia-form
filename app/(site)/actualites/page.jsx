@@ -1,6 +1,7 @@
 ﻿import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
   description:
@@ -57,7 +58,7 @@ export default function ActualitesPage() {
               {' › '}
               <span>Actualités</span>
             </nav>
-            <span className="fin-badge">📰 Marché & Réglementation</span>
+            <span className="fin-badge"><Icon name="newspaper" /> Marché & Réglementation</span>
             <h1 className="ae-hero-title">Les actualités du secteur</h1>
             <p className="ae-hero-intro">
               Taux immobiliers, évolutions réglementaires, nouvelles lois — je décrypte
@@ -70,7 +71,7 @@ export default function ActualitesPage() {
         {/* ── ÉTAT VIDE ── */}
         <section className="crowd-section crowd-section--light" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center' }}>
           <div className="fin-section-inner" style={{ textAlign: 'center', width: '100%' }}>
-            <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>📰</div>
+            <div style={{ fontSize: '3.5rem', marginBottom: 20 }}><Icon name="newspaper" /></div>
             <h2 style={{ color: 'var(--orizia-accent)', fontSize: '1.6rem', fontWeight: 900, marginBottom: 12 }}>
               Aucune actualité publiée pour l'instant
             </h2>
@@ -78,7 +79,7 @@ export default function ActualitesPage() {
               Les premières actualités arrivent bientôt. En attendant, je reste disponible
               pour répondre à vos questions sur l'évolution des taux ou de la réglementation.
             </p>
-            <ContactPopup label="📅 Me poser une question" className="fin-btn-primary" />
+            <ContactPopup label="Me poser une question" icon="calendar-days" className="fin-btn-primary" />
           </div>
         </section>
       </main>

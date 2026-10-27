@@ -7,6 +7,7 @@ import EmprunteurChecklist from '@/components/EmprunteurChecklist';
 import ReadingProgressEmprunteur from '@/components/ReadingProgressEmprunteur';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Assurance Emprunteur 2026 : Loi Lemoine | Orizia Courtage',
@@ -126,36 +127,36 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: '💰' },
-  { value: '15\u00A0000€', label: 'Économies moyennes constatées', icon: '💶' },
-  { value: '-50%', label: "Sur votre taux d'assurance", icon: '📈' },
-  { value: '0\u00A0effort', label: 'Je gère toute la paperasse', icon: '✅' },
+  { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: 'coins' },
+  { value: '15\u00A0000€', label: 'Économies moyennes constatées', icon: 'euro' },
+  { value: '-50%', label: "Sur votre taux d'assurance", icon: 'trending-up' },
+  { value: '0\u00A0effort', label: 'Je gère toute la paperasse', icon: 'circle-check' },
 ];
 
 const ECONOMIES_EXEMPLES = [
-  { profil: 'Couple, 32 ans',      pret: '250 000€ restants sur 25 ans', tauxBanque: '0,32%', tauxCourt: '0,13%', economie: '11 875€', couleur: '#16a34a' },
-  { profil: 'Salarié, 38 ans',     pret: '180 000€ restants sur 20 ans', tauxBanque: '0,34%', tauxCourt: '0,15%', economie: '6 840€',  couleur: '#d97706' },
+  { profil: 'Couple, 32 ans',      pret: '250 000€ restants sur 25 ans', tauxBanque: '0,32%', tauxCourt: '0,13%', economie: '11 875€', couleur: '#3e7f68' },
+  { profil: 'Salarié, 38 ans',     pret: '180 000€ restants sur 20 ans', tauxBanque: '0,34%', tauxCourt: '0,15%', economie: '6 840€',  couleur: '#a87a2c' },
   { profil: 'Indépendant, 44 ans', pret: '300 000€ restants sur 20 ans', tauxBanque: '0,42%', tauxCourt: '0,24%', economie: '10 800€', couleur: 'var(--orizia-primary)' },
 ];
 
 const GARANTIES = [
-  { code: 'DC / PTIA', label: "Décès & Perte d'Autonomie",      obligatoire: true,  desc: 'Le socle exigé par toutes les banques. Rembourse le capital restant dû en cas de drame.',                                                                   icon: '🛡️' },
-  { code: 'IPT / IPP', label: 'Invalidité (Totale ou Partielle)', obligatoire: false, desc: "Vous protège si une maladie ou un accident réduit votre capacité à travailler de façon permanente.",                                                          icon: '🏥' },
-  { code: 'ITT',       label: 'Arrêt de travail temporaire',      obligatoire: false, desc: "L'assureur paie vos mensualités de crédit pendant votre arrêt maladie prolongé.",                                                                             icon: '⏱️' },
-  { code: 'PE',        label: "Perte d'Emploi",                   obligatoire: false, desc: "Souvent chère avec beaucoup d'exclusions. Je vous aide à évaluer si elle vaut vraiment le coût dans votre situation.",                                        icon: '💼' },
+  { code: 'DC / PTIA', label: "Décès & Perte d'Autonomie",      obligatoire: true,  desc: 'Le socle exigé par toutes les banques. Rembourse le capital restant dû en cas de drame.',                                                                   icon: 'shield-check' },
+  { code: 'IPT / IPP', label: 'Invalidité (Totale ou Partielle)', obligatoire: false, desc: "Vous protège si une maladie ou un accident réduit votre capacité à travailler de façon permanente.",                                                          icon: 'hospital' },
+  { code: 'ITT',       label: 'Arrêt de travail temporaire',      obligatoire: false, desc: "L'assureur paie vos mensualités de crédit pendant votre arrêt maladie prolongé.",                                                                             icon: 'timer' },
+  { code: 'PE',        label: "Perte d'Emploi",                   obligatoire: false, desc: "Souvent chère avec beaucoup d'exclusions. Je vous aide à évaluer si elle vaut vraiment le coût dans votre situation.",                                        icon: 'briefcase' },
 ];
 
 const DANGERS = [
-  { icon: '🏦', title: 'Le piège du contrat bancaire "par défaut"',           text: "À la signature du crédit, par simplicité ou par pression, vous signez l'assurance de la banque. Problème : leurs taux sont 2 à 3 fois plus élevés que le prix réel du marché. Une \"facilité\" qui vous coûte le prix d'une voiture neuve sur 20 ans." },
-  { icon: '🔒', title: 'Ce que votre conseiller ne vous crie pas sur les toits', text: "Vous êtes totalement libre de choisir votre assureur, ou d'en changer. Les banques le savent mais freinent des quatre fers, car l'assurance emprunteur est l'un de leurs produits les plus rentables." },
-  { icon: '⏱️', title: 'Le temps joue contre votre portefeuille',              text: "Plus vous attendez, plus vous engraissez la banque. L'assurance se paie chaque mois sur le capital restant. En changeant aujourd'hui plutôt que dans 3 ans, vous sauvez des milliers d'euros de vos propres poches." },
+  { icon: 'landmark', title: 'Le piège du contrat bancaire "par défaut"',           text: "À la signature du crédit, par simplicité ou par pression, vous signez l'assurance de la banque. Problème : leurs taux sont 2 à 3 fois plus élevés que le prix réel du marché. Une \"facilité\" qui vous coûte le prix d'une voiture neuve sur 20 ans." },
+  { icon: 'lock', title: 'Ce que votre conseiller ne vous crie pas sur les toits', text: "Vous êtes totalement libre de choisir votre assureur, ou d'en changer. Les banques le savent mais freinent des quatre fers, car l'assurance emprunteur est l'un de leurs produits les plus rentables." },
+  { icon: 'timer', title: 'Le temps joue contre votre portefeuille',              text: "Plus vous attendez, plus vous engraissez la banque. L'assurance se paie chaque mois sur le capital restant. En changeant aujourd'hui plutôt que dans 3 ans, vous sauvez des milliers d'euros de vos propres poches." },
 ];
 
 const LOI_LEMOINE_POINTS = [
-  { icon: '✅', title: 'Liberté immédiate',              desc: "Changement autorisé n'importe quand. Plus de préavis annuel à respecter." },
-  { icon: '🏥', title: 'Fin du questionnaire de santé',  desc: 'Sous conditions (capital < 200k€/pers, fin du prêt avant 60 ans), votre passé médical ne vous pénalise plus.' },
-  { icon: '⏱️', title: "Droit à l'oubli réduit",        desc: 'Le délai passe de 10 à 5 ans pour les anciens malades (cancers, hépatite C).' },
-  { icon: '🛡️', title: 'Équivalence stricte',           desc: "La banque DOIT accepter le nouveau contrat s'il vous couvre aussi bien que le sien." },
+  { icon: 'circle-check', title: 'Liberté immédiate',              desc: "Changement autorisé n'importe quand. Plus de préavis annuel à respecter." },
+  { icon: 'hospital', title: 'Fin du questionnaire de santé',  desc: 'Sous conditions (capital < 200k€/pers, fin du prêt avant 60 ans), votre passé médical ne vous pénalise plus.' },
+  { icon: 'timer', title: "Droit à l'oubli réduit",        desc: 'Le délai passe de 10 à 5 ans pour les anciens malades (cancers, hépatite C).' },
+  { icon: 'shield-check', title: 'Équivalence stricte',           desc: "La banque DOIT accepter le nouveau contrat s'il vous couvre aussi bien que le sien." },
 ];
 
 const ETAPES = [
@@ -211,7 +212,7 @@ export default function AssuranceEmprunteurPage() {
             </nav>
 
             <span className="fin-badge ae-hero-badge">
-              💰 Divisez le coût de votre assurance par deux
+              <Icon name="coins" /> Divisez le coût de votre assurance par deux
             </span>
 
             <h1 className="ae-hero-title">
@@ -227,16 +228,16 @@ export default function AssuranceEmprunteurPage() {
             </p>
 
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Calculer mon économie avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Calculer mon économie avec Cindy" icon="calendar-days" className="fin-btn-primary" />
               <ScrollButton targetId="section-calculateur" className="fin-btn-secondary">
-                📊 Voir les vrais chiffres
+                <Icon name="chart-column" /> Voir les vrais chiffres
               </ScrollButton>
             </div>
 
             <div className="ae-hero-trust">
-              <span>✅ Loi Lemoine : je résilie quand je veux</span>
-              <span>💼 Service 100% délégué</span>
-              <span>💰 Mêmes garanties, prix divisé par 2</span>
+              <span><Icon name="circle-check" /> Loi Lemoine : je résilie quand je veux</span>
+              <span><Icon name="briefcase" /> Service 100% délégué</span>
+              <span><Icon name="coins" /> Mêmes garanties, prix divisé par 2</span>
             </div>
           </div>
         </section>
@@ -246,7 +247,7 @@ export default function AssuranceEmprunteurPage() {
           <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon}{c.value}</strong>
+                <strong><Icon name={c.icon} />{c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -292,8 +293,8 @@ export default function AssuranceEmprunteurPage() {
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce qu'on ne vous dit pas à la signature
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Ce qu'on ne vous dit pas à la signature
               </span>
               <h2>Pourquoi vous engraissez votre banque<br />chaque mois (sans le savoir)</h2>
               <p>
@@ -305,8 +306,8 @@ export default function AssuranceEmprunteurPage() {
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                    <div className="crowd-avantage-icon">{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b' }}>
+                    <div className="crowd-avantage-icon"><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -328,7 +329,7 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-probleme-cta">
               <p className="ae-probleme-cta-text">Arrêtez l'hémorragie financière dès aujourd'hui.</p>
-              <ContactPopup label="📊 Faire chiffrer mes économies" className="fin-btn-primary" />
+              <ContactPopup label="Faire chiffrer mes économies" icon="chart-column" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -348,7 +349,7 @@ export default function AssuranceEmprunteurPage() {
 
             {/* Exemples concrets */}
             <div className="ae-economies-grid">
-              <div className="ae-economies-title">📊 Exemples concrets de clients accompagnés</div>
+              <div className="ae-economies-title"><Icon name="chart-column" /> Exemples concrets de clients accompagnés</div>
               <div className="ae-economies-cards">
                 {ECONOMIES_EXEMPLES.map(e => (
                   <div key={e.profil} className="ae-economie-card" style={{ borderTopColor: e.couleur }}>
@@ -359,7 +360,7 @@ export default function AssuranceEmprunteurPage() {
                         <div className="ae-economie-taux-label">Banque</div>
                         <div className="ae-economie-taux-val">{e.tauxBanque}/an</div>
                       </div>
-                      <div className="ae-economie-taux-arrow">→</div>
+                      <div className="ae-economie-taux-arrow"><Icon name="arrow-right" className="oz-arrow" /></div>
                       <div className="ae-economie-taux-item ae-economie-taux-item--good">
                         <div className="ae-economie-taux-label">Orizia</div>
                         <div className="ae-economie-taux-val" style={{ color: e.couleur }}>{e.tauxCourt}/an</div>
@@ -380,8 +381,8 @@ export default function AssuranceEmprunteurPage() {
         <section id="section-lemoine" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head" style={{ marginBottom: 32 }}>
-              <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                ✅ Êtes-vous éligible ?
+              <span className="fin-badge" style={{ background: 'rgba(62,127,104,0.1)', color: '#3e7f68' }}>
+                <Icon name="circle-check" /> Êtes-vous éligible ?
               </span>
               <h2>Vérifiez votre éligibilité<br />à la loi Lemoine en 3 questions</h2>
               <p>Répondez à 3 questions pour savoir si vous pouvez changer d'assurance sans questionnaire médical.</p>
@@ -408,7 +409,7 @@ export default function AssuranceEmprunteurPage() {
 
             <div className="ae-lemoine-layout">
               <div className="ae-lemoine-text">
-                <span className="fin-badge ae-lemoine-text-badge">✅ La loi est de votre côté</span>
+                <span className="fin-badge ae-lemoine-text-badge"><Icon name="circle-check" /> La loi est de votre côté</span>
                 <h2>La loi Lemoine : l'outil ultime<br />pour reprendre le pouvoir</h2>
                 <p>
                   Oubliez les anciennes règles restrictives. Aujourd'hui, changer d'assurance de
@@ -418,7 +419,7 @@ export default function AssuranceEmprunteurPage() {
                   Peu importe quand vous avez signé votre crédit immobilier, la loi s'applique.{' '}
                   <strong>La banque n'a plus le droit de vous retenir.</strong>
                 </p>
-                <ContactPopup label="⚖️ Faire valoir mes droits" className="fin-btn-primary" />
+                <ContactPopup label="Faire valoir mes droits" icon="scale" className="fin-btn-primary" />
               </div>
 
               <div className="ae-lemoine-card">
@@ -426,7 +427,7 @@ export default function AssuranceEmprunteurPage() {
                 <div className="ae-lemoine-points-list">
                   {LOI_LEMOINE_POINTS.map(pt => (
                     <div key={pt.title} className="ae-lemoine-point-item">
-                      <div className="ae-lemoine-point-icon">{pt.icon}</div>
+                      <div className="ae-lemoine-point-icon"><Icon name={pt.icon} /></div>
                       <div className="ae-lemoine-point-text">
                         <strong>{pt.title}</strong>
                         <span>{pt.desc}</span>
@@ -459,7 +460,7 @@ export default function AssuranceEmprunteurPage() {
                   className={`ae-garantie-flex-card ${g.obligatoire ? 'ae-garantie-flex-card--base' : 'ae-garantie-flex-card--option'}`}
                 >
                   <div className="ae-garantie-flex-header">
-                    <span className="ae-garantie-flex-icon">{g.icon}</span>
+                    <span className="ae-garantie-flex-icon"><Icon name={g.icon} /></span>
                     <div>
                       <div className="ae-garantie-flex-code">{g.code}</div>
                       <div className="ae-garantie-flex-label">{g.label}</div>
@@ -515,7 +516,7 @@ export default function AssuranceEmprunteurPage() {
             </div>
 
             <div className="av-gratuit-bloc" style={{ marginTop: '40px' }}>
-              <div className="av-gratuit-icon">🤝</div>
+              <div className="av-gratuit-icon"><Icon name="handshake" /></div>
               <div>
                 <strong>Des modalités expliquées avec transparence.</strong>
                 <p>
@@ -524,7 +525,7 @@ export default function AssuranceEmprunteurPage() {
                   débourser un centime d'honoraires de courtage.
                 </p>
               </div>
-              <ContactPopup label="🚀 On lance la machine ?" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="On lance la machine ?" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -574,7 +575,7 @@ export default function AssuranceEmprunteurPage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -588,9 +589,9 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div className="fin-cards fin-cards--white">
               {[
-                { href: '/assurer/assurance-habitation', icon: '🏠', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: '🏠 Obligatoire avant la remise des clés', pillBg: 'rgba(217,119,6,0.08)', pillColor: '#d97706', pillBorder: 'rgba(217,119,6,0.2)', featured: false },
-                { href: '/assurer/auto-moto', icon: '🚗', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.", badge: '✅ Résiliation gérée pour vous', pillBg: 'rgba(124,58,237,0.08)', pillColor: '#7c3aed', pillBorder: 'rgba(124,58,237,0.2)', featured: false },
-                { href: '/investir/per', icon: '🏖️', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: '💡 Réduisez vos impôts dès cette année', pillBg: 'rgba(201,169,110,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(201,169,110,0.3)', featured: true },
+                { href: '/assurer/assurance-habitation', icon: 'house', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: 'Obligatoire avant la remise des clés', pillBg: 'rgba(168,122,44,0.08)', pillColor: '#a87a2c', pillBorder: 'rgba(168,122,44,0.2)', featured: false },
+                { href: '/assurer/auto-moto', icon: 'car', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.", badge: 'Résiliation gérée pour vous', pillBg: 'rgba(62,127,104,0.08)', pillColor: '#3e7f68', pillBorder: 'rgba(62,127,104,0.2)', featured: false },
+                { href: '/investir/per', icon: 'tree-palm', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: 'Réduisez vos impôts dès cette année', pillBg: 'rgba(107,182,155,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(107,182,155,0.3)', featured: true },
               ].map(s => (
                 <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (
@@ -598,7 +599,7 @@ export default function AssuranceEmprunteurPage() {
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
@@ -619,7 +620,7 @@ export default function AssuranceEmprunteurPage() {
               partie administrative.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📞 Contactez-moi" className="fin-btn-primary" />
+              <ContactPopup label="Contactez-moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               *Les économies potentielles sont données à titre indicatif et dépendent de votre

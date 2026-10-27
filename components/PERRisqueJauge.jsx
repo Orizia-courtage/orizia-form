@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 const RISQUES = [
   {
     id: 'blocage',
     label: 'Blocage de l\'épargne',
-    icon: '🔒',
+    icon: 'lock',
     sans: 80,
     avec: 20,
     desc_sans: 'Sans stratégie globale, le blocage du PER peut créer une tension de liquidité si vous n\'avez pas d\'épargne de précaution par ailleurs.',
@@ -15,7 +16,7 @@ const RISQUES = [
   {
     id: 'uc',
     label: 'Perte en capital (UC)',
-    icon: '📉',
+    icon: 'trending-down',
     sans: 65,
     avec: 18,
     desc_sans: 'Investir en unités de compte sans gestion pilotée expose à des baisses de marché non anticipées, surtout à l\'approche de la retraite.',
@@ -24,7 +25,7 @@ const RISQUES = [
   {
     id: 'fiscal',
     label: 'Imposition à la sortie',
-    icon: '🧾',
+    icon: 'receipt',
     sans: 55,
     avec: 15,
     desc_sans: 'Si votre TMI de retraite est identique à celui d\'aujourd\'hui, l\'avantage fiscal est limité. Beaucoup d\'épargnants ne font pas ce calcul avant de verser.',
@@ -33,7 +34,7 @@ const RISQUES = [
   {
     id: 'frais',
     label: 'Frais excessifs (contrat bancaire)',
-    icon: '🏦',
+    icon: 'landmark',
     sans: 75,
     avec: 5,
     desc_sans: 'Un PER bancaire avec 3% de frais sur versements sur 25 ans peut vous coûter 30 000€ de performance nette. La déduction fiscale attire l\'œil — les frais la rongent discrètement.',
@@ -70,13 +71,13 @@ export default function PERRisqueJauge() {
           onClick={() => setMode('sans')}
           className={`rj-toggle-btn${!isAvec ? ' rj-toggle-btn--active rj-toggle-btn--bad' : ''}`}
         >
-          ❌ Sans accompagnement
+          <Icon name="circle-x" /> Sans accompagnement
         </button>
         <button
           onClick={() => setMode('avec')}
           className={`rj-toggle-btn${isAvec ? ' rj-toggle-btn--active rj-toggle-btn--good' : ''}`}
         >
-          ✅ Avec Orizia
+          <Icon name="circle-check" /> Avec Orizia
         </button>
       </div>
 
@@ -85,8 +86,8 @@ export default function PERRisqueJauge() {
         {RISQUES.map(r => {
           const val = isAvec ? r.avec : r.sans;
           const color = isAvec
-            ? val < 20 ? '#16a34a' : '#d97706'
-            : val > 60 ? '#dc2626' : '#d97706';
+            ? val < 20 ? '#3e7f68' : '#a87a2c'
+            : val > 60 ? '#b0473b' : '#a87a2c';
 
           return (
             <div
@@ -95,7 +96,7 @@ export default function PERRisqueJauge() {
               onClick={() => setSelected(selected === r.id ? null : r.id)}
             >
               <div className="rj-jauge-header">
-                <span className="rj-jauge-icon">{r.icon}</span>
+                <span className="rj-jauge-icon"><Icon name={r.icon} /></span>
                 <span className="rj-jauge-label">{r.label}</span>
                 <div className="rj-jauge-bar-wrap">
                   <Jauge value={val} color={color} />
@@ -107,8 +108,8 @@ export default function PERRisqueJauge() {
               </div>
               {selected === r.id && (
                 <div className="rj-jauge-desc">
-                  <span style={{ color: isAvec ? '#16a34a' : '#dc2626', fontWeight: 800, marginRight: 6 }}>
-                    {isAvec ? '🛡️ Comment je réduis ce risque :' : '⚠️ Le problème :'}
+                  <span style={{ color: isAvec ? '#3e7f68' : '#b0473b', fontWeight: 800, marginRight: 6 }}>
+                    {isAvec ? 'Comment je réduis ce risque :' : 'Le problème :'}
                   </span>
                   {isAvec ? r.desc_avec : r.desc_sans}
                 </div>

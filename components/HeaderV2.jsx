@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import MobileDrawer from '@/components/MobileDrawer';
+import Icon from '@/components/Icon';
 
 // ── Icônes SVG inline ────────────────────────────────────────────────────────
 const Icons = {
@@ -201,7 +202,7 @@ export default function HeaderV2() {
       calLoadingRef.current = true;
       const initCal = () => {
         window.Cal('init', { origin: CAL_ORIGIN });
-        window.Cal('ui', { theme: 'light', styles: { branding: { brandColor: '#3a6f6c' } }, hideEventTypeDetails: false, layout: 'month_view' });
+        window.Cal('ui', { theme: 'light', styles: { branding: { brandColor: '#1b1d1a' } }, hideEventTypeDetails: false, layout: 'month_view' });
         setCalReady(true);
         resolve();
       };
@@ -238,6 +239,13 @@ export default function HeaderV2() {
     await loadCal();
     window.Cal('modal', { calLink: CAL_LINK, config: { layout: 'month_view' } });
   }, [loadCal]);
+
+  // Tout bouton « Prendre rendez-vous » du site ouvre le même agenda Cal.com
+  useEffect(() => {
+    const onRdv = () => openCalModal();
+    window.addEventListener('orizia:rdv', onRdv);
+    return () => window.removeEventListener('orizia:rdv', onRdv);
+  }, [openCalModal]);
 
   // ── Gestion hover mega-menu avec délai ───────────────────────────────────
   const handleMenuEnter = (label) => {
@@ -285,7 +293,7 @@ export default function HeaderV2() {
                 alt="Orizia Courtage"
                 width={148}
                 height={68}
-                style={{ objectFit: 'contain' }}
+                style={{ objectFit: 'contain', width: 'auto', height: 'auto' }}
                 priority
                 sizes="148px"
               />
@@ -315,25 +323,20 @@ export default function HeaderV2() {
 
             {/* Droite */}
             <div className="hv2-right">
-              {/* Dispo pill */}
-              <div className={`hv2-dispo${isOnline ? ' hv2-dispo--online' : ' hv2-dispo--offline'}`}>
-                <span className="hv2-dispo-dot" />
-                <span className="hv2-dispo-label">{dispoText}</span>
-              </div>
+              {/* Téléphone direct + statut de disponibilité */}
+              <a href="tel:+33777259706" className={`hv2-phone${isOnline ? ' is-online' : ''}`} aria-label={`Appeler Cindy au 07 77 25 97 06 — ${dispoText}`}>
+                <span className="hv2-phone-icon"><Icon name="phone" /></span>
+                <span className="hv2-phone-text">
+                  <span className="hv2-phone-num">07 77 25 97 06</span>
+                  <span className="hv2-phone-sub"><span className="hv2-dispo-dot" />{dispoText}</span>
+                </span>
+              </a>
 
-              {/* CTA Contact */}
-              <Link href="/contact" className="hv2-contact-btn">
-                <span className="hv2-contact-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                </span>
-                <span className="hv2-contact-text">
-                  <span className="hv2-contact-main">Me contacter</span>
-                  <span className="hv2-contact-sub">Réponse sous 24h</span>
-                </span>
-              </Link>
+              {/* CTA principal */}
+              <button type="button" className="hv2-rdv-btn" onClick={openCalModal}>
+                <Icon name="calendar-days" />
+                <span>Prendre rendez-vous</span>
+              </button>
 
               {/* Burger mobile */}
               <button
@@ -411,11 +414,9 @@ export default function HeaderV2() {
                     <span className="hv2-mega-footer-label">{activeItem.stat.label}</span>
                   </div>
 
-                  <div className="hv2-mega-footer-trust">
-                    {['ORIAS', 'Accompagnement', 'Réponse 24h', '+40 banques'].map(t => (
-                      <span key={t} className="hv2-mega-footer-badge">{t}</span>
-                    ))}
-                  </div>
+                  <p className="hv2-mega-footer-trust">
+                    Un seul interlocuteur, de l’étude à la signature. Réponse sous 24&nbsp;h.
+                  </p>
 
                   <button 
                     className="hv2-mega-footer-cta" 

@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/Icon';
 const PLACEMENTS = [
   {
     id: 'livret',
-    icon: '🏦',
+    icon: 'landmark',
     label: 'Livret A',
     rendement: '3%',
     rendementNum: 3,
@@ -21,7 +22,7 @@ const PLACEMENTS = [
   },
   {
     id: 'av',
-    icon: '🛡️',
+    icon: 'shield-check',
     label: 'Assurance Vie',
     rendement: '2–4%',
     rendementNum: 3,
@@ -36,7 +37,7 @@ const PLACEMENTS = [
   },
   {
     id: 'scpi',
-    icon: '🏢',
+    icon: 'building-2',
     label: 'SCPI',
     rendement: '4–6%',
     rendementNum: 5,
@@ -51,7 +52,7 @@ const PLACEMENTS = [
   },
   {
     id: 'crowd',
-    icon: '📈',
+    icon: 'trending-up',
     label: 'Crowdfunding',
     rendement: '8–12%',
     rendementNum: 10,
@@ -66,7 +67,7 @@ const PLACEMENTS = [
   },
   {
     id: 'bourse',
-    icon: '📊',
+    icon: 'chart-column',
     label: 'Actions bourse',
     rendement: 'Variable',
     rendementNum: 7,
@@ -88,7 +89,7 @@ function RisqueBar({ niveau }) {
         <div key={i} style={{
           width: 20, height: 6, borderRadius: 3,
           background: i <= niveau
-            ? niveau === 1 ? '#16a34a' : niveau === 2 ? '#d97706' : niveau === 3 ? '#ea580c' : '#dc2626'
+            ? niveau === 1 ? '#3e7f68' : niveau === 2 ? '#a87a2c' : niveau === 3 ? '#a87a2c' : '#b0473b'
             : 'rgba(26,61,53,0.12)',
           transition: 'background 0.2s',
         }} />
@@ -112,8 +113,8 @@ export default function PlacementsComparatif() {
             onClick={() => setSelected(p.id)}
             className={`plac-card${selected === p.id ? ' plac-card--active' : ''}${p.highlight ? ' plac-card--highlight' : ''}`}
           >
-            {p.highlight && <div className="plac-card-star">⭐ Meilleur rendement</div>}
-            <span className="plac-card-icon">{p.icon}</span>
+            {p.highlight && <div className="plac-card-star"><Icon name="star" /> Meilleur rendement</div>}
+            <span className="plac-card-icon"><Icon name={p.icon} /></span>
             <span className="plac-card-label">{p.label}</span>
             <span className="plac-card-rendement">{p.rendement}/an</span>
           </button>
@@ -125,10 +126,10 @@ export default function PlacementsComparatif() {
         <div className={`plac-detail${current.highlight ? ' plac-detail--highlight' : ''}`} key={current.id}>
           <div className="plac-detail-header">
             <div>
-              <span className="plac-detail-icon">{current.icon}</span>
+              <span className="plac-detail-icon"><Icon name={current.icon} /></span>
               <h3 className="plac-detail-title">{current.label}</h3>
               {current.highlight && (
-                <span className="plac-detail-badge">⭐ Recommandé par Orizia</span>
+                <span className="plac-detail-badge"><Icon name="star" /> Recommandé par Orizia</span>
               )}
             </div>
             <div className="plac-detail-rendement-big">{current.rendement}<span>/an</span></div>
@@ -139,7 +140,7 @@ export default function PlacementsComparatif() {
           <div className="plac-detail-grid">
             <div className="plac-detail-item">
               <span className="plac-detail-item-label">Durée recommandée</span>
-              <span className="plac-detail-item-value">⏳ {current.duree}</span>
+              <span className="plac-detail-item-value"><Icon name="hourglass" /> {current.duree}</span>
             </div>
             <div className="plac-detail-item">
               <span className="plac-detail-item-label">Niveau de risque</span>
@@ -151,12 +152,12 @@ export default function PlacementsComparatif() {
             <div className="plac-detail-item">
               <span className="plac-detail-item-label">Liquidité</span>
               <span className="plac-detail-item-value">
-                {current.liquiditeOk ? '✅' : '⚠️'} {current.liquidite}
+                {current.liquiditeOk ? <Icon name="circle-check" /> : <Icon name="triangle-alert" />} {current.liquidite}
               </span>
             </div>
             <div className="plac-detail-item">
               <span className="plac-detail-item-label">Idéal pour</span>
-              <span className="plac-detail-item-value">🎯 {current.pour}</span>
+              <span className="plac-detail-item-value"><Icon name="target" /> {current.pour}</span>
             </div>
           </div>
 
@@ -183,7 +184,7 @@ export default function PlacementsComparatif() {
       )}
 
       <p className="crowd-table-note" style={{ marginTop: 16 }}>
-        ⚠️ Rendements indicatifs. Tout investissement comporte un risque de perte en capital.
+        <Icon name="triangle-alert" /> Rendements indicatifs. Tout investissement comporte un risque de perte en capital.
       </p>
     </div>
   );

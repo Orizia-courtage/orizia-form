@@ -15,7 +15,7 @@ function getStatus() {
   const isInHours = timeDecimal >= 9 && timeDecimal < 18;
 
   if (isWeekday && isInHours) {
-    return { label: 'Disponible', color: '#16a34a', dot: '#16a34a' };
+    return { label: 'Disponible', color: '#3e7f68', dot: '#3e7f68' };
   }
 
   // Calcul du prochain créneau
@@ -25,7 +25,7 @@ function getStatus() {
   else if (timeDecimal < 9) nextLabel = 'Disponible à 9h';
   else nextLabel = 'Disponible demain à 9h';
 
-  return { label: nextLabel, color: '#d97706', dot: '#d97706' };
+  return { label: nextLabel, color: '#a87a2c', dot: '#a87a2c' };
 }
 
 export default function DispoStatus() {
@@ -46,7 +46,7 @@ export default function DispoStatus() {
         className="contact-dispo-dot"
         style={{
           background: status.dot,
-          animation: status.dot === '#16a34a' ? 'pulse 2s infinite' : 'none',
+          animation: status.dot === '#3e7f68' ? 'pulse 2s infinite' : 'none',
         }}
       />
       {status.label}

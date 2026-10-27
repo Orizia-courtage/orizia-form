@@ -7,6 +7,7 @@ import SimulateurRegroupement from '@/components/SimulateurRegroupement';
 import RegroupementChecklist from '@/components/RegroupementChecklist';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Regroupement de Crédits 2026 : -60% mensualités | Orizia',
@@ -132,74 +133,74 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '-60%', label: 'de réduction de mensualités possible', icon: '📉' },
-  { value: '24h', label: 'pour une première réponse de principe', icon: '⏱️' },
-  { value: '100%', label: 'accompagnement personnalisé', icon: '🎯' },
-  { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: '📋' },
+  { value: '-60%', label: 'de réduction de mensualités possible', icon: 'trending-down' },
+  { value: '24h', label: 'pour une première réponse de principe', icon: 'timer' },
+  { value: '100%', label: 'accompagnement personnalisé', icon: 'target' },
+  { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: 'clipboard-list' },
 ];
 
 const CREDITS_REGROUPABLES = [
-  { icon: '🏠', label: 'Crédit immobilier', desc: 'Résidence principale, secondaire ou investissement locatif' },
-  { icon: '💳', label: 'Crédits à la consommation', desc: 'Prêts personnels, crédits renouvelables, travaux' },
-  { icon: '🚗', label: 'LOA / LLD', desc: 'Crédit-bail auto, rachat de contrat de location' },
-  { icon: '⚠️', label: 'Dettes diverses', desc: 'Paiements en plusieurs fois, découverts chroniques' },
-  { icon: '💼', label: 'Crédits professionnels', desc: 'Sous conditions selon le profil et le montant' },
-  { icon: '💰', label: 'Trésorerie complémentaire', desc: 'Possibilité d\'intégrer une enveloppe de liquidités' },
+  { icon: 'house', label: 'Crédit immobilier', desc: 'Résidence principale, secondaire ou investissement locatif' },
+  { icon: 'credit-card', label: 'Crédits à la consommation', desc: 'Prêts personnels, crédits renouvelables, travaux' },
+  { icon: 'car', label: 'LOA / LLD', desc: 'Crédit-bail auto, rachat de contrat de location' },
+  { icon: 'triangle-alert', label: 'Dettes diverses', desc: 'Paiements en plusieurs fois, découverts chroniques' },
+  { icon: 'briefcase', label: 'Crédits professionnels', desc: 'Sous conditions selon le profil et le montant' },
+  { icon: 'coins', label: 'Trésorerie complémentaire', desc: 'Possibilité d\'intégrer une enveloppe de liquidités' },
 ];
 
 const PROFILS = [
   {
-    icon: '👨‍👩‍👧',
+    icon: 'users',
     title: 'Famille en CDI',
     desc: 'Revenus stables, crédits accumulés après plusieurs achats.',
     resultat: 'Profil le plus favorable — réduction de 40 à 60% de la mensualité.',
-    color: '#16a34a',
+    color: '#3e7f68',
   },
   {
-    icon: '👤',
+    icon: 'user',
     title: 'Retraité propriétaire',
     desc: 'Revenu fixe, patrimoine immobilier, besoin de reste à vivre.',
     resultat: 'Rachat adossé à l\'immobilier — durée adaptée à l\'âge.',
     color: 'var(--orizia-primary)',
   },
   {
-    icon: '🏆',
+    icon: 'trophy',
     title: 'Fonctionnaire',
     desc: 'Emploi stable, solvabilité reconnue, dossier prioritaire.',
     resultat: 'Conditions souvent plus avantageuses.',
-    color: '#d97706',
+    color: '#a87a2c',
   },
   {
-    icon: '💼',
+    icon: 'briefcase',
     title: 'TNS / Indépendant',
     desc: 'Revenus variables, bilans à analyser, étude spécifique requise.',
     resultat: 'Étude au cas par cas — solutions partielles parfois possibles.',
-    color: '#7c3aed',
+    color: '#3e7f68',
   },
 ];
 
 const COMMENT_CA_MARCHE = [
   {
     n: '01',
-    icon: '📋',
+    icon: 'clipboard-list',
     title: 'Vous complétez le formulaire',
     text: '10 questions sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
   },
   {
     n: '02',
-    icon: '🔍',
+    icon: 'search',
     title: 'J\'analyse votre profil',
     text: 'Sous 24h ouvrées, j\'étudie votre dossier, calcule votre taux d\'endettement et identifie le bon segment.',
   },
   {
     n: '03',
-    icon: '📊',
+    icon: 'chart-column',
     title: 'Vous recevez une proposition',
     text: 'Simulation avant/après, durée, taux, coût total. Vous décidez en toute transparence.',
   },
   {
     n: '04',
-    icon: '✅',
+    icon: 'circle-check',
     title: 'Montage et mise en place',
     text: 'Si vous acceptez, je transmets le dossier et suis la procédure jusqu\'au déblocage des fonds.',
   },
@@ -242,7 +243,7 @@ export default function RegroupementCreditsPage() {
               {' › '}
               <span>Regroupement de crédits</span>
             </nav>
-            <span className="fin-badge">🔄 Étude de faisabilité · Réponse sous 24h</span>
+            <span className="fin-badge"><Icon name="refresh-cw" /> Étude de faisabilité · Réponse sous 24h</span>
             <h1 className="ae-hero-title">Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à -60%</h1>
             <p className="ae-hero-intro">
               Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
@@ -252,16 +253,16 @@ export default function RegroupementCreditsPage() {
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🚀 Démarrer mon étude
+                <Icon name="rocket" /> Démarrer mon étude
               </a>
               <a href="#section-comprendre" className="fin-btn-secondary">
                 Comment ça marche ?
               </a>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Modalités transparentes · Accompagnement personnalisé</span>
-              <span>⚡ Réponse sous 24h</span>
-              <span>🔒 Données sécurisées</span>
+              <span><Icon name="circle-check" /> Modalités transparentes · Accompagnement personnalisé</span>
+              <span><Icon name="zap" /> Réponse sous 24h</span>
+              <span><Icon name="lock" /> Données sécurisées</span>
             </div>
           </div>
         </section>
@@ -271,7 +272,7 @@ export default function RegroupementCreditsPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.value} className="fin-chiffre">
-                <strong>{c.icon} {c.value}</strong>
+                <strong><Icon name={c.icon} /> {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -326,7 +327,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   chaque mois.
                 </p>
                 <p style={{ fontSize: '0.85rem', opacity: 0.6, fontStyle: 'italic' }}>
-                  ⚠️ Contrepartie : la durée totale de remboursement s'allonge,
+                  <Icon name="triangle-alert" /> Contrepartie : la durée totale de remboursement s'allonge,
                   ce qui augmente le coût global du crédit. Je vous présente
                   une simulation complète pour décider en connaissance de cause.
                 </p>
@@ -364,7 +365,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                           border: '1px solid rgba(58,111,108,0.12)',
                         }}
                       >
-                        <span style={{ fontSize: '1.2rem', flexShrink: 0, marginTop: 1 }}>{c.icon}</span>
+                        <span style={{ fontSize: '1.2rem', flexShrink: 0, marginTop: 1 }}><Icon name={c.icon} /></span>
                         <div>
                           <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--orizia-accent)', marginBottom: 2 }}>
                             {c.label}
@@ -386,7 +387,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-simulateur" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">🧮 Simulateur</span>
+              <span className="fin-badge"><Icon name="calculator" /> Simulateur</span>
               <h2>Calculez votre taux d'endettement<br />et votre mensualité cible</h2>
               <p>
                 Renseignez vos mensualités actuelles et vos revenus pour voir immédiatement
@@ -472,7 +473,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                         border: `2px solid ${p.color}22`,
                       }}
                     >
-                      <div style={{ fontSize: '1.8rem', marginBottom: 10 }}>{p.icon}</div>
+                      <div style={{ fontSize: '1.8rem', marginBottom: 10 }}><Icon name={p.icon} /></div>
                       <h3 style={{ fontSize: '1rem', fontWeight: 900, color: 'var(--orizia-accent)', marginBottom: 6 }}>
                         {p.title}
                       </h3>
@@ -488,7 +489,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                         borderRadius: 8,
                         lineHeight: 1.4,
                       }}>
-                        ✅ {p.resultat}
+                        <Icon name="circle-check" /> {p.resultat}
                       </div>
                     </div>
                   ))}
@@ -503,7 +504,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     </p>
                   </div>
                   <a href="#formulaire" className="fin-btn-on-dark">
-                    🚀 Démarrer l'analyse
+                    <Icon name="rocket" /> Démarrer l'analyse
                   </a>
                 </div>
               </div>
@@ -561,7 +562,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -578,11 +579,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/financer/credit-immobilier',
-                  icon: '🏠',
+                  icon: 'house',
                   title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
                   text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
-                  badge: '🏦 +40 banques comparées',
+                  badge: '+40 banques comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',
@@ -590,26 +591,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance Emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer des économies supplémentaires.',
-                  badge: '💰 Économisez jusqu\'à 15 000€',
-                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Économisez jusqu\'à 15 000€',
+                  badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
-                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  badgeBorder: '1px solid rgba(107,182,155,0.3)',
                   featured: true,
                 },
                 {
                   href: '/investir/assurance-vie',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance Vie',
                   sub: 'Épargner en parallèle',
                   text: 'Une mensualité allégée libère de la capacité d\'épargne. L\'assurance vie est l\'outil idéal pour faire fructifier ce surplus mensuel.',
-                  badge: '✅ Fiscalité optimisée après 8 ans',
-                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Fiscalité optimisée après 8 ans',
+                  badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
-                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  badgeBorder: '1px solid rgba(107,182,155,0.3)',
                   featured: false,
                 },
               ].map(s => (
@@ -619,7 +620,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
@@ -641,7 +642,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </p>
             <div className="fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
-                🚀 Démarrer mon étude
+                <Icon name="rocket" /> Démarrer mon étude
               </a>
               <ContactPopup />
             </div>

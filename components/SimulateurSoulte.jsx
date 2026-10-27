@@ -5,6 +5,7 @@ import ContactPopup from '@/components/ContactPopup';
 import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 const QP_PRESETS = ['25', '33', '50', '67', '75'];
 
 export default function SimulateurSoulte() {
@@ -65,7 +66,7 @@ export default function SimulateurSoulte() {
         {/* Valeur du bien */}
         <div className="ss-field">
           <label className="ss-label" htmlFor="ss-valeur">
-            <span className="ss-label-icon">🏠</span>
+            <span className="ss-label-icon"><Icon name="house" /></span>
             Valeur estimée du bien
           </label>
           <div className="ss-input-wrap">
@@ -87,7 +88,7 @@ export default function SimulateurSoulte() {
         {/* Capital restant dû */}
         <div className="ss-field">
           <label className="ss-label" htmlFor="ss-crd">
-            <span className="ss-label-icon">🏦</span>
+            <span className="ss-label-icon"><Icon name="landmark" /></span>
             Capital restant dû
           </label>
           <div className="ss-input-wrap">
@@ -109,7 +110,7 @@ export default function SimulateurSoulte() {
         {/* Quote-part */}
         <div className="ss-field ss-field--qp">
           <label className="ss-label">
-            <span className="ss-label-icon">⚖️</span>
+            <span className="ss-label-icon"><Icon name="scale" /></span>
             Quote-part à racheter
           </label>
           <div className="ss-qp-grid">
@@ -159,21 +160,21 @@ export default function SimulateurSoulte() {
           <div className="ss-result-cards">
 
             <div className="ss-result-card">
-              <div className="ss-result-card-icon">📐</div>
+              <div className="ss-result-card-icon"><Icon name="ruler" /></div>
               <span className="ss-result-card-label">Valeur nette du bien</span>
               <span className="ss-result-card-value">{fmt(result.valeurNette)}</span>
               <span className="ss-result-card-sub">Valeur − Capital restant dû</span>
             </div>
 
             <div className="ss-result-card ss-result-card--main">
-              <div className="ss-result-card-icon">💰</div>
+              <div className="ss-result-card-icon"><Icon name="coins" /></div>
               <span className="ss-result-card-label">Soulte à financer</span>
               <span className="ss-result-card-value ss-result-card-value--main">{fmt(result.soulte)}</span>
               <span className="ss-result-card-sub">{result.quotePart}% de la valeur nette</span>
             </div>
 
             <div className="ss-result-card">
-              <div className="ss-result-card-icon">📋</div>
+              <div className="ss-result-card-icon"><Icon name="clipboard-list" /></div>
               <span className="ss-result-card-label">Droits de partage notaire</span>
               <span className="ss-result-card-value">{fmt(result.droitsPartage)}</span>
               <span className="ss-result-card-sub">{formatPercent(soulteConfig.sharingDutyRate, { ratio: true })} de la valeur nette</span>
@@ -183,17 +184,17 @@ export default function SimulateurSoulte() {
 
           <div className="ss-result-footer">
             <div className="ss-result-disclaimer">
-              <span className="ss-result-disclaimer-icon">ℹ️</span>
+              <span className="ss-result-disclaimer-icon"><Icon name="info" /></span>
               <p>Estimation indicative. Je vérifie la faisabilité complète de votre financement et vous présente les modalités avant tout engagement.</p>
             </div>
-            <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary ss-result-cta" />
+            <ContactPopup label="Étudier mon financement" icon="calendar-days" className="fin-btn-primary ss-result-cta" />
           </div>
         </div>
       )}
 
       {result?.error && (
         <div className="ss-error">
-          <span>⚠️</span>
+          <span><Icon name="triangle-alert" /></span>
           <p>{result.error}</p>
         </div>
       )}
@@ -201,7 +202,7 @@ export default function SimulateurSoulte() {
       {!result && (
         <div className="ss-placeholder">
           <div className="ss-placeholder-inner">
-            <span className="ss-placeholder-icon">🧮</span>
+            <span className="ss-placeholder-icon"><Icon name="calculator" /></span>
             <p>Renseignez la valeur du bien pour voir le calcul apparaître ici.</p>
           </div>
         </div>

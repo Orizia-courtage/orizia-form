@@ -13,6 +13,7 @@ import { countryOptions } from './countryOptions';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
 
+import Icon from '@/components/Icon';
 registerLocale('fr', fr);
 
 // ─── CONSTANTES ───────────────────────────────────────────────
@@ -113,16 +114,16 @@ const INIT = {
 
 // ─── MÉTADONNÉES ÉTAPES ───────────────────────────────────────
 const STEPS = [
-  { title:'Votre objectif',            emoji:'🎯', hint:'Votre réponse oriente immédiatement votre dossier.' },
-  { title:'Vos crédits en cours',      emoji:'💳', hint:'Comptez tous vos crédits : immobilier, auto, travaux, renouvelable…' },
-  { title:'Montants de vos crédits',   emoji:'💰', hint:'Ces chiffres permettent de calculer votre taux d\'endettement réel.' },
-  { title:'LOA & paiements fractionnés', emoji:'🚗', hint:'Ces engagements sont inclus dans votre endettement total.' },
-  { title:'Trésorerie complémentaire', emoji:'🚀', hint:'Optionnel — intégrez un projet à financer en même temps.' },
-  { title:'Votre profil',              emoji:'👤', hint:'Logement, situation familiale et profession influencent les conditions.' },
-  { title:'Fichage bancaire',          emoji:'🔍', hint:'Soyez honnête — un fichage oriente vers des solutions alternatives.' },
-  { title:'Revenus & charges',         emoji:'📊', hint:'Ces données calculent votre reste à vivre et capacité réelle.' },
-  { title:'Vos coordonnées',           emoji:'✉️', hint:'Pour vous envoyer la simulation et vous recontacter sous 24h.' },
-  { title:'Localisation & consentements', emoji:'📍', hint:'Votre ville identifie les partenaires bancaires de votre zone.' },
+  { title:'Votre objectif',            emoji:'target', hint:'Votre réponse oriente immédiatement votre dossier.' },
+  { title:'Vos crédits en cours',      emoji:'credit-card', hint:'Comptez tous vos crédits : immobilier, auto, travaux, renouvelable…' },
+  { title:'Montants de vos crédits',   emoji:'coins', hint:'Ces chiffres permettent de calculer votre taux d\'endettement réel.' },
+  { title:'LOA & paiements fractionnés', emoji:'car', hint:'Ces engagements sont inclus dans votre endettement total.' },
+  { title:'Trésorerie complémentaire', emoji:'rocket', hint:'Optionnel — intégrez un projet à financer en même temps.' },
+  { title:'Votre profil',              emoji:'user', hint:'Logement, situation familiale et profession influencent les conditions.' },
+  { title:'Fichage bancaire',          emoji:'search', hint:'Soyez honnête — un fichage oriente vers des solutions alternatives.' },
+  { title:'Revenus & charges',         emoji:'chart-column', hint:'Ces données calculent votre reste à vivre et capacité réelle.' },
+  { title:'Vos coordonnées',           emoji:'mail', hint:'Pour vous envoyer la simulation et vous recontacter sous 24h.' },
+  { title:'Localisation & consentements', emoji:'map-pin', hint:'Votre ville identifie les partenaires bancaires de votre zone.' },
 ];
 const MSGS = ['Démarrons !','On avance !','Très bien !','Parfait !','Excellent !','À mi-chemin !','Presque là !','Encore un peu !','Dernière ligne droite !','Dernière étape !'];
 
@@ -288,13 +289,13 @@ export default function OriziaForm() {
   // ── Résumé ──
   const summary = useMemo(()=>{
     const items=[];
-    if(form.souhait) items.push({icon:'🎯',v:form.souhait.split(' ').slice(0,2).join(' ')+'…'});
+    if(form.souhait) items.push({icon:'target',v:form.souhait.split(' ').slice(0,2).join(' ')+'…'});
     const nb=form.nb_immo+form.nb_conso;
-    if(nb>0) items.push({icon:'💳',v:`${nb} crédit${nb>1?'s':''}`});
+    if(nb>0) items.push({icon:'credit-card',v:`${nb} crédit${nb>1?'s':''}`});
     const tot=(parseFloat(form.mensualite_immo)||0)+(parseFloat(form.mensualite_conso)||0);
-    if(tot>0) items.push({icon:'📉',v:`${fmtNum(tot)} €/mois`});
-    if(form.profession) items.push({icon:'💼',v:form.profession.split(' ')[0]});
-    if(taux!==null) items.push({icon:'📊',v:`${taux}%`,color:taux>debtConfig.highRatio*100?'#dc2626':taux>debtConfig.watchRatio*100?'#d97706':'#16a34a'});
+    if(tot>0) items.push({icon:'trending-down',v:`${fmtNum(tot)} €/mois`});
+    if(form.profession) items.push({icon:'briefcase',v:form.profession.split(' ')[0]});
+    if(taux!==null) items.push({icon:'chart-column',v:`${taux}%`,color:taux>debtConfig.highRatio*100?'#b0473b':taux>debtConfig.watchRatio*100?'#a87a2c':'#3e7f68'});
     return items;
   },[form,taux]);
 
@@ -331,7 +332,7 @@ export default function OriziaForm() {
             <i className="fa-solid fa-arrow-left"></i>
           </button>
           <div className="f-card-meta">
-            <span className="f-step-emoji">{meta.emoji}</span>
+            <span className="f-step-emoji"><Icon name={meta.emoji} /></span>
             <div>
               <div className="f-step-num">Étape {step} sur {TOTAL_STEPS}</div>
               <h2 className="f-step-title">{meta.title}</h2>
@@ -366,7 +367,7 @@ export default function OriziaForm() {
         <div className="f-summary">
           {summary.map((s,i)=>(
             <span key={i} className="f-sum-tag" style={s.color?{color:s.color,borderColor:s.color+'33'}:{}}>
-              {s.icon} {s.v}
+              <Icon name={s.icon} /> {s.v}
             </span>
           ))}
         </div>
@@ -381,15 +382,15 @@ function Err({show,children}){return <div className={`f-err${show?' show':''}`}>
 function Card({emoji,label,sub,selected,onClick}){
   return(
     <button type="button" className={`f-card-opt${selected?' sel':''}`} onClick={onClick}>
-      <span className="f-card-opt-icon">{emoji}</span>
+      <span className="f-card-opt-icon"><Icon name={emoji} /></span>
       <span className="f-card-opt-text"><strong>{label}</strong>{sub&&<span>{sub}</span>}</span>
       <span className="f-card-opt-check"><i className="fa-solid fa-check"></i></span>
     </button>
   );
 }
 
-function Chip({label,selected,onClick}){
-  return <button type="button" className={`f-chip${selected?' sel':''}`} onClick={onClick}>{label}</button>;
+function Chip({label,icon,selected,onClick}){
+  return <button type="button" className={`f-chip${selected?' sel':''}`} onClick={onClick}>{icon ? <Icon name={icon} /> : null}{label}</button>;
 }
 
 function Ctr({icon,label,sub,value,onChange}){
@@ -457,9 +458,9 @@ const FlagVal=({data,...p})=>{const iso=data.value?.split('|')[0];return <Select
 // S1 — Objectif
 function S1({form,set,clr,errors,next}){
   const opts=[
-    {v:'Réduire vos mensualités',   e:'📉',s:'Alléger vos remboursements mensuels'},
-    {v:'Renégocier vos crédits',    e:'🔄',s:'Obtenir un meilleur taux global'},
-    {v:'Financer un nouveau projet',e:'🚀',s:'Intégrer une trésorerie complémentaire'},
+    {v:'Réduire vos mensualités',   e:'trending-down',s:'Alléger vos remboursements mensuels'},
+    {v:'Renégocier vos crédits',    e:'refresh-cw',s:'Obtenir un meilleur taux global'},
+    {v:'Financer un nouveau projet',e:'rocket',s:'Intégrer une trésorerie complémentaire'},
   ];
   return(
     <div className="f-step">
@@ -563,7 +564,7 @@ function S4({form,set,clr,errors,next,isBack}){
 
 // S5 — Trésorerie
 function S5({form,set,clr,errors,next,isBack}){
-  const projets=[{v:'Travaux',e:'🔨'},{v:'Voiture',e:'🚗'},{v:'Loisirs / Voyage',e:'✈️'},{v:'Immobilier',e:'🏠'},{v:'Autre',e:'💡'}];
+  const projets=[{v:'Travaux',e:'hammer'},{v:'Voiture',e:'car'},{v:'Loisirs / Voyage',e:'plane'},{v:'Immobilier',e:'house'},{v:'Autre',e:'lightbulb'}];
 
   useEffect(()=>{
     if(isBack?.current) return;
@@ -582,7 +583,7 @@ function S5({form,set,clr,errors,next,isBack}){
       {+form.somme_comp>0&&(
         <div className="f-cond">
           <label className="f-label">Pour quel projet ?</label>
-          <div className="f-chips f-chips--wrap">{projets.map(p=><Chip key={p.v} label={`${p.e} ${p.v}`} selected={form.type_projet===p.v} onClick={()=>{set('type_projet',p.v);clr('type_projet');}}/>)}</div>
+          <div className="f-chips f-chips--wrap">{projets.map(p=><Chip key={p.v} label={p.v} icon={p.e} selected={form.type_projet===p.v} onClick={()=>{set('type_projet',p.v);clr('type_projet');}}/>)}</div>
           <Err show={errors.type_projet}>Veuillez sélectionner un type de projet.</Err>
         </div>
       )}
@@ -608,7 +609,7 @@ function S6({form,set,clr,errors,next,isBack}){
       <div className="f-field">
         <label className="f-label">Situation de logement</label>
         <div className="f-opts">
-          {[{v:'Propriétaire',e:'🏠',s:'Vous êtes propriétaire'},{v:'Locataire',e:'🔑',s:'Vous payez un loyer'},{v:'Hébergé à titre gratuit',e:'🤝',s:'Vous êtes logé à titre gratuit'}].map(o=>(
+          {[{v:'Propriétaire',e:'house',s:'Vous êtes propriétaire'},{v:'Locataire',e:'key-round',s:'Vous payez un loyer'},{v:'Hébergé à titre gratuit',e:'handshake',s:'Vous êtes logé à titre gratuit'}].map(o=>(
             <Card key={o.v} emoji={o.e} label={o.v} sub={o.s} selected={form.statut_logement===o.v} onClick={()=>{set('statut_logement',o.v);clr('statut_logement');}}/>
           ))}
         </div>
@@ -651,8 +652,8 @@ function S7({form,set,clr,errors,next,isBack}){
       <div className="f-field">
         <label className="f-label">Faites-vous l&apos;objet d&apos;un fichage bancaire (FICP / FCC) ?</label>
         <div className="f-chips">
-          <Chip label="✅ Non" selected={form.fichage==='non'} onClick={()=>{set('fichage','non');set('raison_fichage','');clr('fichage');}}/>
-          <Chip label="⚠️ Oui" selected={form.fichage==='oui'} onClick={()=>{set('fichage','oui');clr('fichage');}}/>
+          <Chip label="Non" selected={form.fichage==='non'} onClick={()=>{set('fichage','non');set('raison_fichage','');clr('fichage');}}/>
+          <Chip label="Oui" selected={form.fichage==='oui'} onClick={()=>{set('fichage','oui');clr('fichage');}}/>
         </div>
         <Err show={errors.fichage}>Veuillez répondre à cette question.</Err>
       </div>
@@ -670,7 +671,7 @@ function S7({form,set,clr,errors,next,isBack}){
 // S8 — Finances
 function S8({form,set,clr,errors,taux,next,debtConfig}){
   const isLoc=LOC_STATUTS.includes(form.statut_logement);
-  const tc=taux===null?null:taux>debtConfig.criticalRatio*100?'#dc2626':taux>debtConfig.highRatio*100?'#ea580c':taux>debtConfig.watchRatio*100?'#d97706':'#16a34a';
+  const tc=taux===null?null:taux>debtConfig.criticalRatio*100?'#b0473b':taux>debtConfig.highRatio*100?'#a87a2c':taux>debtConfig.watchRatio*100?'#a87a2c':'#3e7f68';
   return(
     <div className="f-step">
       <div className="f-block">
@@ -698,7 +699,7 @@ function S8({form,set,clr,errors,taux,next,debtConfig}){
             <div className="f-taux-mark" style={{left:`${debtConfig.maxRatio*100}%`}}><span>{Math.round(debtConfig.maxRatio*100)}%</span></div>
           </div>
           <p className="f-taux-msg">
-            {taux>debtConfig.maxRatio*100?'⚠️ Au-dessus du seuil bancaire — le regroupement peut vous aider.':taux>debtConfig.watchRatio*100?'📊 Taux à surveiller — une optimisation est possible.':'✅ Taux sain — votre dossier est bien positionné.'}
+            {taux>debtConfig.maxRatio*100?'Au-dessus du seuil bancaire — le regroupement peut vous aider.':taux>debtConfig.watchRatio*100?'Taux à surveiller — une optimisation est possible.':'Taux sain — votre dossier est bien positionné.'}
           </p>
         </div>
       )}
@@ -778,7 +779,7 @@ function S9({form,set,clr,errors,next}){
           <div className="f-tel-row">
             <Select options={countryOptions} value={countryOptions.find(o=>o.value===form.code_pays)||null}
               onChange={opt=>{if(!opt||opt.isDisabled)return;set('code_pays',opt.value);set('tel_inter','');}}
-              placeholder="🔍 Pays…" noOptionsMessage={()=>'Aucun pays trouvé'}
+              placeholder="Pays…" noOptionsMessage={()=>'Aucun pays trouvé'}
               isOptionDisabled={opt=>!!opt.isDisabled}
               components={{Option:FlagOpt,SingleValue:FlagVal}}
               menuPortalTarget={typeof document!=='undefined'?document.body:null}
@@ -828,16 +829,16 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
       <div className="f-optin">
         <p>J&apos;accepte de recevoir des appels, emails et SMS sur des offres de solutions de financement et d&apos;assurance proposées par <strong>Orizia Courtage</strong>.</p>
         <div className="f-chips">
-          <Chip label="✅ J'accepte" selected={form.optin_orizia==='oui'} onClick={()=>{set('optin_orizia','oui');clr('optin_orizia');}}/>
-          <Chip label="❌ Je refuse" selected={form.optin_orizia==='non'} onClick={()=>{set('optin_orizia','non');clr('optin_orizia');}}/>
+          <Chip label="J'accepte" selected={form.optin_orizia==='oui'} onClick={()=>{set('optin_orizia','oui');clr('optin_orizia');}}/>
+          <Chip label="Je refuse" selected={form.optin_orizia==='non'} onClick={()=>{set('optin_orizia','non');clr('optin_orizia');}}/>
         </div>
         <Err show={errors.optin_orizia}>Veuillez accepter ou refuser ce consentement.</Err>
       </div>
       <div className="f-optin">
         <p>J&apos;accepte de recevoir des offres personnalisées de la part des <strong>partenaires d&apos;Orizia Courtage</strong> par téléphone, email et SMS.</p>
         <div className="f-chips">
-          <Chip label="✅ J'accepte" selected={form.optin_partenaires==='oui'} onClick={()=>{set('optin_partenaires','oui');clr('optin_partenaires');}}/>
-          <Chip label="❌ Je refuse" selected={form.optin_partenaires==='non'} onClick={()=>{set('optin_partenaires','non');clr('optin_partenaires');}}/>
+          <Chip label="J'accepte" selected={form.optin_partenaires==='oui'} onClick={()=>{set('optin_partenaires','oui');clr('optin_partenaires');}}/>
+          <Chip label="Je refuse" selected={form.optin_partenaires==='non'} onClick={()=>{set('optin_partenaires','non');clr('optin_partenaires');}}/>
         </div>
         <Err show={errors.optin_partenaires}>Veuillez accepter ou refuser ce consentement.</Err>
       </div>
@@ -855,8 +856,8 @@ function SuccessScreen({segment,segType,racConfig,rappelSent,onRappel,prenom}){
   const configured = { ...categoryConfig, ...(racConfig?.segments?.[segment] ?? {}) };
   const showAppointment = configured?.mode === 'rdv';
   const h=showAppointment
-    ? {icon:'fa-solid fa-check',title:'Dossier enregistré !',color:'#16a34a'}
-    : {icon:segType==='bdf'?'fa-solid fa-triangle-exclamation':'fa-solid fa-circle-info',title:configured?.title||'Dossier bien reçu',color:segType==='bdf'?'#f59e0b':'#3b82f6'};
+    ? {icon:'fa-solid fa-check',title:'Dossier enregistré !',color:'#3e7f68'}
+    : {icon:segType==='bdf'?'fa-solid fa-triangle-exclamation':'fa-solid fa-circle-info',title:configured?.title||'Dossier bien reçu',color:segType==='bdf'?'#c9a24a':'#6bb69b'};
   return(
     <div className="f-success">
       <div className="f-success-hero">
@@ -871,11 +872,11 @@ function SuccessScreen({segment,segType,racConfig,rappelSent,onRappel,prenom}){
           {rappelSent!=='ok'&&<TurnstileWidget action="orizia_rappel" onToken={setRappelToken}/>}
           {rappelSent!=='ok'
             ?<button className="f-cta-secondary" onClick={()=>onRappel(rappelToken)} disabled={rappelSent==='pending'||!rappelToken}>{rappelSent==='pending'?<><i className="fa-solid fa-spinner fa-spin"></i> Envoi…</>:<><i className="fa-solid fa-phone-volume"></i> Je préfère être rappelé(e)</>}</button>
-            :<div className="f-rappel-ok"><i className="fa-solid fa-circle-check" style={{color:'#16a34a',marginRight:6}}></i><strong>C&apos;est noté !</strong> Je vous rappelle très prochainement.</div>
+            :<div className="f-rappel-ok"><i className="fa-solid fa-circle-check" style={{color:'#3e7f68',marginRight:6}}></i><strong>C&apos;est noté !</strong> Je vous rappelle très prochainement.</div>
           }
         </div>
       )}
-      {!showAppointment&&<div className="f-msg"><div className="f-msg-ico">{segType==='bdf'?'🙏':segType==='tns'?'🚀':'💬'}</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de remplir ce formulaire.</p><p>{configured?.body||'Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour.'}</p><p>Pour toute question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
+      {!showAppointment&&<div className="f-msg"><div className="f-msg-ico">{segType==='bdf'?<Icon name="heart-handshake" />:segType==='tns'?<Icon name="rocket" />:<Icon name="message-circle" />}</div><p>Merci {prenom?prenom+' ':''}d&apos;avoir pris le temps de remplir ce formulaire.</p><p>{configured?.body||'Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour.'}</p><p>Pour toute question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>}
     </div>
   );
 }

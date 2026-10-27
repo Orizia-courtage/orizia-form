@@ -3,30 +3,31 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/Icon';
 const QUESTIONS = [
   {
     id: 'montant',
     question: 'Quel est le montant de votre prêt par personne ?',
     options: [
-      { label: 'Moins de 200 000€', value: 'ok', icon: '✅' },
-      { label: 'Entre 200 000€ et 400 000€', value: 'couple', icon: '👥' },
-      { label: 'Plus de 400 000€', value: 'high', icon: '🏦' },
+      { label: 'Moins de 200 000€', value: 'ok', icon: 'circle-check' },
+      { label: 'Entre 200 000€ et 400 000€', value: 'couple', icon: 'users' },
+      { label: 'Plus de 400 000€', value: 'high', icon: 'landmark' },
     ],
   },
   {
     id: 'age',
     question: 'Quel âge aurez-vous à la fin du remboursement ?',
     options: [
-      { label: 'Moins de 60 ans', value: 'ok', icon: '✅' },
-      { label: '60 ans ou plus', value: 'limit', icon: '⚠️' },
+      { label: 'Moins de 60 ans', value: 'ok', icon: 'circle-check' },
+      { label: '60 ans ou plus', value: 'limit', icon: 'triangle-alert' },
     ],
   },
   {
     id: 'sante',
     question: 'Avez-vous des antécédents médicaux significatifs ?',
     options: [
-      { label: 'Non, aucun', value: 'ok', icon: '💪' },
-      { label: 'Oui, j\'ai eu des problèmes de santé', value: 'risk', icon: '🏥' },
+      { label: 'Non, aucun', value: 'ok', icon: 'biceps-flexed' },
+      { label: 'Oui, j\'ai eu des problèmes de santé', value: 'risk', icon: 'hospital' },
     ],
   },
 ];
@@ -51,30 +52,30 @@ export default function LemoineQuiz() {
     if ((montant === 'ok' || montant === 'couple') && age === 'ok') {
       return {
         type: 'eligible',
-        title: '🎉 Vous êtes éligible à la loi Lemoine',
+        title: 'Vous êtes éligible à la loi Lemoine',
         desc: 'Aucun questionnaire médical ne vous sera demandé. Vous pouvez changer d\'assurance immédiatement, sans condition de santé.',
         cta: 'Calculer mon économie',
         href: '#economies',
-        color: '#16a34a',
-        bg: 'rgba(22,163,74,0.08)',
-        border: 'rgba(22,163,74,0.3)',
+        color: '#3e7f68',
+        bg: 'rgba(62,127,104,0.08)',
+        border: 'rgba(62,127,104,0.3)',
       };
     }
     if (sante === 'risk') {
       return {
         type: 'risque',
-        title: '🤝 Votre dossier mérite une analyse experte',
+        title: 'Votre dossier mérite une analyse experte',
         desc: 'Même avec des antécédents, des solutions existent. Je travaille avec des assureurs spécialisés dans les risques aggravés. Parlons-en.',
         cta: 'Prendre rendez-vous',
         href: '/rendez-vous',
-        color: '#d97706',
-        bg: 'rgba(217,119,6,0.08)',
-        border: 'rgba(217,119,6,0.3)',
+        color: '#a87a2c',
+        bg: 'rgba(168,122,44,0.08)',
+        border: 'rgba(168,122,44,0.3)',
       };
     }
     return {
       type: 'analyse',
-      title: '📋 Une analyse personnalisée s\'impose',
+      title: 'Une analyse personnalisée s\'impose',
       desc: 'Votre situation dépasse les seuils automatiques de la loi Lemoine, mais des solutions existent. Je calcule votre économie potentielle en rendez-vous.',
       cta: 'Prendre rendez-vous',
       href: '/rendez-vous',
@@ -100,7 +101,7 @@ export default function LemoineQuiz() {
           <div className="lemoine-options">
             {q.options.map(o => (
               <button key={o.value} onClick={() => handleAnswer(o.value)} className="lemoine-option">
-                <span className="lemoine-option-icon">{o.icon}</span>
+                <span className="lemoine-option-icon"><Icon name={o.icon} /></span>
                 <span>{o.label}</span>
               </button>
             ))}

@@ -10,6 +10,7 @@ import ReadingProgressPER from '@/components/ReadingProgressPER';
 import ContactPopup from '@/components/ContactPopup';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
@@ -149,25 +150,25 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '💰\u00A0~35\u00A0000€', label: 'Plafond déduction salarié 2026', icon: '' },
-  { value: '💼\u00A0~85\u00A0000€', label: 'Plafond Madelin TNS 2026', icon: '' },
-  { value: '🔄\u00A03 ans', label: 'Report des plafonds non utilisés', icon: '' },
-  { value: '✅\u00A00€', label: 'Frais sur versements via Orizia', icon: '' },
+  { value: ' ~35 000€', label: 'Plafond déduction salarié 2026', icon: '' },
+  { value: ' ~85 000€', label: 'Plafond Madelin TNS 2026', icon: '' },
+  { value: ' 3 ans', label: 'Report des plafonds non utilisés', icon: '' },
+  { value: ' 0€', label: 'Frais sur versements via Orizia', icon: '' },
 ];
 
 const DANGERS = [
   {
-    icon: '🏦',
+    icon: 'landmark',
     title: 'Votre banque vous vend son PER — pas le meilleur du marché',
     text: 'Avec 2 à 4% de frais sur versements et des fonds limités aux gammes maison, un PER bancaire sur 25 ans peut vous coûter plusieurs dizaines de milliers d\'euros de performance nette. La déduction fiscale attire l\'œil — mais les frais la rongent discrètement, année après année.',
   },
   {
-    icon: '💡',
+    icon: 'lightbulb',
     title: 'Plafonds non utilisés : des milliers d\'euros de déduction oubliés',
     text: 'Les plafonds non utilisés sont reportables sur 3 ans. La grande majorité des épargnants l\'ignorent et laissent filer des milliers d\'euros de déduction. Un audit de votre situation fiscale révèle presque toujours des capacités inexploitées — parfois considerables.',
   },
   {
-    icon: '⏱️',
+    icon: 'timer',
     title: 'Chaque année sans PER est une erreur fiscale qui se paie cash',
     text: '10 000€ investis à 35 ans valent le double à 60 ans à 5%/an. Et les impôts économisés chaque année — réinvestis eux aussi — multiplient encore l\'effet. Attendre coûte réellement de l\'argent, chaque année.',
   },
@@ -175,32 +176,32 @@ const DANGERS = [
 
 const AVANTAGES = [
   {
-    icon: '💰',
+    icon: 'coins',
     title: 'Réduction d\'impôt immédiate et garantie',
     text: 'Chaque euro versé réduit votre revenu imposable. À 41% de TMI, 10 000€ versés = 4 100€ d\'impôt récupérés l\'année suivante. C\'est le seul placement avec un rendement fiscal garanti dès jour 1.',
   },
   {
-    icon: '🏠',
+    icon: 'house',
     title: 'Déblocage anticipé pour votre résidence principale',
     text: 'Votre PER n\'est pas une prison. L\'achat de votre résidence principale permet un déblocage total ou partiel sans pénalité. Vous préparez votre retraite ET votre projet immobilier dans la même enveloppe.',
   },
   {
-    icon: '📈',
+    icon: 'trending-up',
     title: 'Performance maximale sur le long terme',
     text: 'Investi sur des UC (ETF monde, fonds actions, SCPI…) sur 20–30 ans, votre PER peut viser 4–7%/an. Combiné à l\'avantage fiscal initial, c\'est le placement retraite le plus puissant disponible en France.',
   },
   {
-    icon: '🏖️',
+    icon: 'tree-palm',
     title: 'Sortie flexible à la retraite',
     text: 'Capital en une fois ou progressivement, rente viagère, ou combinaison des deux. Vous choisissez à la retraite selon votre situation réelle — pas aujourd\'hui selon une hypothèse.',
   },
   {
-    icon: '💼',
+    icon: 'briefcase',
     title: 'Plafonds exceptionnels pour les TNS',
     text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
   },
   {
-    icon: '👨‍👩‍👧',
+    icon: 'users',
     title: 'Transmission avantageuse au décès',
     text: 'En cas de décès avant la retraite, le capital est transmis aux bénéficiaires avec la même fiscalité qu\'une assurance vie — exonération jusqu\'à 152 500€ par bénéficiaire pour les versements avant 70 ans.',
   },
@@ -208,7 +209,7 @@ const AVANTAGES = [
 
 const PROFILS = [
   {
-    icon: '👤',
+    icon: 'user',
     title: 'Salarié cadre',
     tmi: '30% ou 41%',
     gain: '3 000–4 100€ d\'impôt en moins',
@@ -218,48 +219,48 @@ const PROFILS = [
     featured: false,
   },
   {
-    icon: '💼',
+    icon: 'briefcase',
     title: 'Travailleur indépendant / TNS',
     tmi: '41% ou 45%',
     gain: 'Jusqu\'à 38 250€ d\'impôt en moins',
     base: 'avec plafond Madelin complet',
     conseil: 'Versements modulables selon le bénéfice — idéal les bonnes années',
-    color: '#d97706',
+    color: '#a87a2c',
     featured: true,
   },
   {
-    icon: '🏢',
+    icon: 'building-2',
     title: 'Dirigeant de société',
     tmi: '41% ou 45%',
     gain: 'Déduction IS + IR possible',
     base: 'selon la structure de rémunération',
     conseil: 'Combinaison PER individuel + contrat Madelin via la société selon statut',
-    color: '#7c3aed',
+    color: '#3e7f68',
     featured: false,
   },
 ];
 
 const RISQUES = [
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '🔒',
+    niveau: 'Moyen', color: '#a87a2c', bg: '#f8f2e6', border: '#ead8b5', icon: 'lock',
     title: 'Blocage jusqu\'à la retraite',
     text: 'Sauf exceptions légales, votre épargne est immobilisée. Le PER n\'est pas un placement de liquidité — il faut disposer d\'une épargne de précaution accessible par ailleurs.',
     mitigation: 'Mon rôle : dimensionner le PER en complément d\'une AV liquide, jamais à la place.',
   },
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '📉',
+    niveau: 'Moyen', color: '#a87a2c', bg: '#f8f2e6', border: '#ead8b5', icon: 'trending-down',
     title: 'Perte en capital sur unités de compte',
     text: 'Les UC suivent les marchés financiers et peuvent baisser à court terme. Sur 20–30 ans, les données historiques montrent des performances positives significatives pour les profils bien diversifiés.',
     mitigation: 'Mon rôle : utiliser la gestion pilotée — exposition UC forte jeune, sécurisation progressive à l\'approche de la retraite.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '📊',
+    niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'chart-column',
     title: 'Imposition à la sortie',
     text: 'Les sommes déduites à l\'entrée sont imposées à l\'IR à la sortie. Si votre TMI de retraite est identique à celui d\'aujourd\'hui, le gain est limité. Dans la majorité des cas, le TMI baisse significativement à la retraite.',
     mitigation: 'Mon rôle : estimer votre TMI de retraite avant de valider la stratégie PER — le calcul se fait en 10 minutes.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '⚖️',
+    niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'scale',
     title: 'Risque législatif',
     text: 'La fiscalité du PER dépend de la loi. Ce risque existe pour tout placement fiscal. La déduction à l\'entrée est acquise l\'année du versement — seule la fiscalité de sortie pourrait évoluer.',
     mitigation: 'Mon rôle : vous tenir informé des évolutions réglementaires et adapter la stratégie si nécessaire lors du bilan annuel.',
@@ -352,7 +353,7 @@ export default function PERPage() {
               {' › '}
               <span>Plan Épargne Retraite</span>
             </nav>
-            <span className="fin-badge">🏖️ Réduire ses impôts tout en préparant sa retraite</span>
+            <span className="fin-badge"><Icon name="tree-palm" /> Réduire ses impôts tout en préparant sa retraite</span>
             <h1>PER : payez moins d'impôts<br />dès cette année</h1>
             <p>
               Le Plan Épargne Retraite vous permet de{' '}
@@ -362,15 +363,15 @@ export default function PERPage() {
               votre allocation. <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="🧮 Calculer mon gain fiscal" className="fin-btn-primary"/>
+              <ContactPopup label="Calculer mon gain fiscal" icon="calculator" className="fin-btn-primary"/>
               <ScrollButton targetId="section-fiscalite" className="fin-btn-secondary">
-                📊 Voir les exemples chiffrés
+                <Icon name="chart-column" /> Voir les exemples chiffrés
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Frais et modalités transparents</span>
-              <span>🎯 Plafonds calculés sur-mesure</span>
-              <span>⚡ Réponse sous 24h</span>
+              <span><Icon name="circle-check" /> Frais et modalités transparents</span>
+              <span><Icon name="target" /> Plafonds calculés sur-mesure</span>
+              <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
           </div>
         </section>
@@ -380,7 +381,7 @@ export default function PERPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}>{c.icon}</div>
+                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}><Icon name={c.icon} /></div>
                 <strong>{c.value}</strong>
                 <span>{c.label}</span>
               </div>
@@ -425,8 +426,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Les erreurs coûteuses à éviter
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Les erreurs coûteuses à éviter
               </span>
               <h2>Pourquoi la plupart des épargnants<br />ratent leur PER</h2>
               <p>
@@ -438,9 +439,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout" style={{ marginTop: '40px' }}>
               <div className="ae-probleme-dangers" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626', background: '#fff' }}>
-                    <div className="crowd-avantage-icon" style={{ display: 'none' }}>{d.icon}</div>
-                    <div className="ae-danger-icon" style={{ fontSize: '2rem', marginBottom: '12px' }}>{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b', background: '#fff' }}>
+                    <div className="crowd-avantage-icon" style={{ display: 'none' }}><Icon name={d.icon} /></div>
+                    <div className="ae-danger-icon" style={{ fontSize: '2rem', marginBottom: '12px' }}><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -468,7 +469,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 Je récupère aussi vos plafonds non utilisés des 3 dernières années —
                 souvent plusieurs milliers d'euros de déduction oubliés.
               </p>
-              <ContactPopup label="🧮 Calculer mes plafonds" className="fin-btn-primary"/>
+              <ContactPopup label="Calculer mes plafonds" icon="calculator" className="fin-btn-primary"/>
             </div>
           </div>
         </section>
@@ -507,26 +508,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   className="crowd-avantage-card"
                   style={
                     a.title === 'Réduction d\'impôt immédiate et garantie' || a.title === 'Plafonds exceptionnels pour les TNS'
-                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(107,182,155,0.04)' }
                       : {}
                   }
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
-                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}><Icon name={a.icon} /></span>
                   </div>
                   {(a.title === 'Réduction d\'impôt immédiate et garantie' || a.title === 'Plafonds exceptionnels pour les TNS') && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
-                      background: 'rgba(201,169,110,0.15)',
+                      background: 'rgba(107,182,155,0.15)',
                       color: 'var(--orizia-gold)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
                       marginBottom: 8,
                     }}>
-                      ⭐ Avantage différenciant
+                      <Icon name="star" /> Avantage différenciant
                     </div>
                   )}
                   <p>{a.text}</p>
@@ -550,7 +551,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
 
             {/* Exemples fiscaux de référence */}
             <div className="per-fiscal-exemples">
-              <div className="per-fiscal-exemples-title">📊 Exemples de référence 2026</div>
+              <div className="per-fiscal-exemples-title"><Icon name="chart-column" /> Exemples de référence 2026</div>
               <div className="per-fiscal-exemples-grid">
                 {FISCAL_EXEMPLES.map(ex => (
                   <div key={ex.tmi} className="per-fiscal-ex">
@@ -569,7 +570,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
 
             <div className="per-plafonds-bloc">
               <div className="per-plafonds-header">
-                <span>📊</span>
+                <span><Icon name="chart-column" /></span>
                 <h3>Plafonds de déduction 2026 — ce que vous pouvez vraiment déduire</h3>
               </div>
               <div className="per-plafonds-grid">
@@ -595,7 +596,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 </div>
               </div>
               <div className="crowd-risques-note" style={{ marginTop: 20 }}>
-                📊 <strong>Où trouver vos plafonds :</strong> votre avis d'imposition, rubrique{' '}
+                <Icon name="chart-column" /> <strong>Où trouver vos plafonds :</strong> votre avis d'imposition, rubrique{' '}
                 <em>« Plafond épargne retraite »</em>. Je les calcule et les optimise
                 lors du premier rendez-vous — avec les reports des 3 années précédentes.
               </div>
@@ -610,7 +611,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   vis-à-vis de votre TMI.
                 </p>
               </div>
-              <ContactPopup label="🧮 Calculer mon gain" className="fin-btn-on-dark"/>
+              <ContactPopup label="Calculer mon gain" icon="calculator" className="fin-btn-on-dark"/>
               
             </div>
           </div>
@@ -651,8 +652,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Analyse des risques
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Analyse des risques
               </span>
               <h2>Les risques réels,<br />sans langue de bois</h2>
               <p>
@@ -706,7 +707,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
 
             <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
-              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
+              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}><Icon name="handshake" /></div>
               <div>
                 <strong>Un accompagnement complet et personnalisé</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
@@ -717,7 +718,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   d'un conseil expert et d'un accès à des contrats haut de gamme.
                 </p>
               </div>
-              <ContactPopup label="🚀 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }}/>
+              <ContactPopup label="Démarrer" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }}/>
             </div>
           </div>
         </section>
@@ -746,9 +747,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 Une situation particulière ? Je vous réponds personnellement sous 24h.
               </p>
               <div className="ae-hero-btns" style={{ justifyContent: 'center' }}>
-                <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary"/>
+                <ContactPopup label="Prendre rendez-vous" icon="calendar-days" className="fin-btn-primary"/>
                   
-                <ContactPopup label="📞 Poser une question" className="fin-btn-secondary"/>
+                <ContactPopup label="Poser une question" icon="phone" className="fin-btn-secondary"/>
               </div>
             </div>
           </div>
@@ -781,7 +782,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question à Cindy" className="fin-btn-secondary"/>
+              <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary"/>
                 
             </div>
           </div>
@@ -803,23 +804,23 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/investir/assurance-vie',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance Vie',
                   sub: 'Épargne disponible & transmission',
                   text: 'Le complément naturel du PER : épargne liquide à tout moment, fiscalité avantageuse après 8 ans et transmission hors succession jusqu\'à 152 500€ par bénéficiaire.',
-                  badge: '⭐ Fiscalité optimisée après 8 ans',
-                  pillBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Fiscalité optimisée après 8 ans',
+                  pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
-                  pillBorder: 'rgba(201,169,110,0.3)',
+                  pillBorder: 'rgba(107,182,155,0.3)',
                   featured: true,
                 },
                 {
                   href: '/investir/scpi',
-                  icon: '🏗️',
+                  icon: 'construction',
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, zéro gestion. Logeable dans votre PER ou votre AV pour combiner rendement immobilier et fiscalité optimisée dans une seule enveloppe.',
-                  badge: '🏗️ 4–6%/an sans gestion',
+                  badge: '4–6%/an sans gestion',
                   pillBg: 'rgba(45,106,95,0.1)',
                   pillColor: 'var(--orizia-primary)',
                   pillBorder: 'rgba(45,106,95,0.25)',
@@ -827,14 +828,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/investir/crowdfunding',
-                  icon: '🤝',
+                  icon: 'handshake',
                   title: 'Crowdfunding immobilier',
                   sub: 'Financement participatif',
                   text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal pour les capitaux non immobilisés dans le PER — rendement élevé à court terme.',
-                  badge: '🤝 8–12%/an sur 12–36 mois',
-                  pillBg: 'rgba(3,105,161,0.08)',
-                  pillColor: '#0369a1',
-                  pillBorder: 'rgba(3,105,161,0.2)',
+                  badge: '8–12%/an sur 12–36 mois',
+                  pillBg: 'rgba(62,127,104,0.08)',
+                  pillColor: '#3e7f68',
+                  pillBorder: 'rgba(62,127,104,0.2)',
                   featured: false,
                 },
               ].map(s => (
@@ -848,11 +849,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                         {s.badge}
                       </span>
                     )}
-                    <div className="fin-card-icon">{s.icon}</div>
+                    <div className="fin-card-icon"><Icon name={s.icon} /></div>
                     <div className="fin-card-sub">{s.sub}</div>
                     <h3>{s.title}</h3>
                     <p>{s.text}</p>
-                    <span className="fin-card-link">Découvrir →</span>
+                    <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
                   </Link>
               ))}
             </div>
@@ -869,7 +870,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Frais et modalités présentés avec transparence.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="🧮 Calculer mon gain fiscal avec Cindy" className="fin-btn-primary"/>
+              <ContactPopup label="Calculer mon gain fiscal avec Cindy" icon="calculator" className="fin-btn-primary"/>
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

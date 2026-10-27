@@ -10,6 +10,7 @@ import AVRisqueJauge from '@/components/AVRisqueJauge';
 import AVvsLivret from '@/components/AVvsLivret';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant | Orizia Courtage',
   description:
@@ -136,17 +137,17 @@ const faqSchema = {
 
 const DANGERS = [
   {
-    icon: '🏦',
+    icon: 'landmark',
     title: 'Les contrats bancaires vous coûtent de l\'argent — silencieusement',
     text: 'Frais de versement de 2 à 4%, fonds euros peu compétitifs, gamme UC limitée aux fonds maison : votre conseiller bancaire vous vend le contrat de son employeur, pas le meilleur du marché. La différence sur 20 ans peut représenter des dizaines de milliers d\'euros perdus.',
   },
   {
-    icon: '📊',
+    icon: 'chart-column',
     title: 'Choisir son allocation sans analyse, c\'est risqué',
     text: 'Un contrat 100% fonds euros sous-performe l\'inflation. Un contrat 100% UC peut perdre 30% en un an. L\'allocation optimale dépend de votre horizon, votre TMI et votre tolérance réelle au risque — pas d\'une case à cocher sur un formulaire.',
   },
   {
-    icon: '📋',
+    icon: 'clipboard-list',
     title: 'La clause bénéficiaire bâclée peut tout ruiner',
     text: 'Une clause standard ne couvre pas les situations familiales complexes : enfants de plusieurs unions, PACS, donation-partage… Une clause mal rédigée peut transformer votre meilleur outil de transmission en cauchemar successoral.',
   },
@@ -154,32 +155,32 @@ const DANGERS = [
 
 const AVANTAGES = [
   {
-    icon: '📈',
+    icon: 'trending-up',
     title: 'Double moteur de performance',
     text: 'Combinez la sécurité du fonds en euros (capital garanti) avec le potentiel des unités de compte. Résultat : jusqu\'à 5–8%/an sur le long terme, sans tout risquer.',
   },
   {
-    icon: '💶',
+    icon: 'euro',
     title: 'Fiscalité ultra-avantageuse',
     text: 'Après 8 ans : abattement de 4 600€ (ou 9 200€ en couple) + taux réduit à 7,5%. Aucun autre placement ne combine épargne disponible et fiscalité aussi allégée.',
   },
   {
-    icon: '🔓',
+    icon: 'lock-open',
     title: 'Votre capital reste disponible',
     text: 'Rachats partiels possibles à tout moment, en quelques jours. Vous ne sacrifiez pas votre liquidité pour obtenir une bonne fiscalité — les deux coexistent.',
   },
   {
-    icon: '👨‍👩‍👧',
+    icon: 'users',
     title: 'Transmission hors succession',
     text: 'Jusqu\'à 152 500€ par bénéficiaire transmis sans droits de succession. Le seul placement qui vous permet de choisir librement qui hérite — et à quel coût fiscal.',
   },
   {
-    icon: '📅',
+    icon: 'calendar-days',
     title: 'Versements à votre rythme',
     text: 'Versement initial unique, mensualités automatiques, versements ponctuels… Vous épargnez quand vous le pouvez, au montant que vous décidez.',
   },
   {
-    icon: '🌍',
+    icon: 'globe',
     title: 'Accès aux meilleures classes d\'actifs',
     text: 'SCPI, ETF, fonds actions mondiales, private equity, fonds obligataires : tout dans une seule enveloppe, gérée par un professionnel qui connaît votre situation.',
   },
@@ -187,25 +188,25 @@ const AVANTAGES = [
 
 const RISQUES = [
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '✅',
+    niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'circle-check',
     title: 'Perte sur fonds en euros',
     text: 'Le fonds en euros est à capital garanti par l\'assureur. Sauf faillite (couverte jusqu\'à 70 000€ par le FGAP), vous ne pouvez pas perdre cette partie de votre épargne.',
     mitigation: 'Mon rôle : sélectionner des assureurs solides avec des fonds euros compétitifs et transparents.',
   },
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '⚠️',
+    niveau: 'Moyen', color: '#a87a2c', bg: '#f8f2e6', border: '#ead8b5', icon: 'triangle-alert',
     title: 'Fluctuation des unités de compte',
     text: 'Les UC suivent les marchés financiers. Sur 1 an, un fonds actions peut perdre 20 à 30%. Sur 10–20 ans, l\'historique montre des performances significativement positives pour les profils bien diversifiés.',
     mitigation: 'Mon rôle : calibrer précisément la part UC à votre horizon réel et votre tolérance au risque — pas à celle d\'un formulaire.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '🔒',
+    niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'lock',
     title: 'Risque de liquidité',
     text: 'Le seul vrai risque de liquidité est de racheter la part UC en période de baisse de marchés. Le fonds euros est lui toujours disponible à sa valeur nette.',
     mitigation: 'Mon rôle : dimensionner la part sécurisée pour couvrir vos besoins de liquidité à court terme, avant d\'allouer le reste en UC.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '🏦',
+    niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'landmark',
     title: 'Défaillance de l\'assureur',
     text: 'En cas de faillite de l\'assureur, le Fonds de Garantie des Assurances de Personnes (FGAP) couvre jusqu\'à 70 000€ par assureur et par assuré.',
     mitigation: 'Mon rôle : diversifier sur 2 assureurs si votre capital dépasse 70 000€ — une précaution simple et efficace.',
@@ -237,7 +238,7 @@ const ETAPES = [
 
 const PROFILS = [
   {
-    icon: '🛡️',
+    icon: 'shield-check',
     title: 'Profil Prudent',
     desc: 'Vous prioritisez la sécurité de votre capital avant tout.',
     repart: '80% Fonds euros / 20% UC',
@@ -246,23 +247,23 @@ const PROFILS = [
     color: 'var(--orizia-primary)',
   },
   {
-    icon: '⚖️',
+    icon: 'scale',
     title: 'Profil Équilibré',
     desc: 'Vous cherchez le juste équilibre entre sécurité et performance.',
     repart: '50% Fonds euros / 50% UC',
     rendement: '~2,75%/an',
     for: 'Horizon 8–15 ans · Profil de risque modéré',
-    color: '#d97706',
+    color: '#a87a2c',
     featured: true,
   },
   {
-    icon: '🚀',
+    icon: 'rocket',
     title: 'Profil Dynamique',
     desc: 'Vous visez la performance maximale sur le long terme.',
     repart: '20% Fonds euros / 80% UC',
     rendement: '~4,1%/an',
     for: 'Horizon 15+ ans · Forte tolérance au risque',
-    color: '#dc2626',
+    color: '#b0473b',
   },
 ];
 
@@ -323,7 +324,7 @@ export default function AssuranceViePage() {
               {' › '}
               <span>Assurance Vie</span>
             </nav>
-            <span className="fin-badge">🛡️ L'enveloppe fiscale préférée des Français</span>
+            <span className="fin-badge"><Icon name="shield-check" /> L'enveloppe fiscale préférée des Français</span>
             <h1 className="ae-hero-title">Assurance vie : le placement<br />que vous avez — mais pas optimisé</h1>
             <p className="ae-hero-intro">
               La majorité des Français possède une assurance vie en banque — et paient
@@ -333,15 +334,15 @@ export default function AssuranceViePage() {
               <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="📋 Auditer mon contrat" className="fin-btn-primary" />
+              <ContactPopup label="Auditer mon contrat" icon="clipboard-list" className="fin-btn-primary" />
               <ScrollButton targetId="section-accompagnement" className="fin-btn-secondary">
-                🔍 Découvrir mon approche
+                <Icon name="search" /> Découvrir mon approche
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Frais et modalités transparents</span>
-              <span>🏆 Contrats haut de gamme exclusifs</span>
-              <span>⚡ Réponse sous 24h</span>
+              <span><Icon name="circle-check" /> Frais et modalités transparents</span>
+              <span><Icon name="trophy" /> Contrats haut de gamme exclusifs</span>
+              <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
           </div>
         </section>
@@ -349,10 +350,10 @@ export default function AssuranceViePage() {
         {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
-            <div className="fin-chiffre"><strong>💰 1 900 Mds€</strong><span>Encours total en France</span></div>
-            <div className="fin-chiffre"><strong>📈 2,5–5%</strong><span>Rendement annuel selon profil</span></div>
-            <div className="fin-chiffre"><strong>👨‍👩‍👧 152 500€</strong><span>Exonération par bénéficiaire</span></div>
-            <div className="fin-chiffre"><strong>📅 8 ans</strong><span>Pour la fiscalité optimale</span></div>
+            <div className="fin-chiffre"><strong><Icon name="coins" /> 1 900 Mds€</strong><span>Encours total en France</span></div>
+            <div className="fin-chiffre"><strong><Icon name="trending-up" /> 2,5–5%</strong><span>Rendement annuel selon profil</span></div>
+            <div className="fin-chiffre"><strong><Icon name="users" /> 152 500€</strong><span>Exonération par bénéficiaire</span></div>
+            <div className="fin-chiffre"><strong><Icon name="calendar-days" /> 8 ans</strong><span>Pour la fiscalité optimale</span></div>
           </div>
         </section>
 
@@ -393,8 +394,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce que votre banque ne vous dit pas
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Ce que votre banque ne vous dit pas
               </span>
               <h2>Pourquoi votre contrat actuel<br />vous coûte probablement de l'argent</h2>
               <p>
@@ -406,8 +407,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                    <div className="crowd-avantage-icon">{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b' }}>
+                    <div className="crowd-avantage-icon"><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -434,7 +435,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 Un audit de votre contrat actuel vous montre concrètement
                 ce que vous perdez chaque année.
               </p>
-              <ContactPopup label="📋 Auditer mon contrat" className="fin-btn-primary" />
+              <ContactPopup label="Auditer mon contrat" icon="clipboard-list" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -473,26 +474,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   className="crowd-avantage-card"
                   style={
                     a.title === 'Fiscalité ultra-avantageuse' || a.title === 'Transmission hors succession'
-                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(107,182,155,0.04)' }
                       : {}
                   }
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
-                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}><Icon name={a.icon} /></span>
                   </div>
                   {(a.title === 'Fiscalité ultra-avantageuse' || a.title === 'Transmission hors succession') && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
-                      background: 'rgba(201,169,110,0.15)',
+                      background: 'rgba(107,182,155,0.15)',
                       color: 'var(--orizia-gold)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
                       marginBottom: 8,
                     }}>
-                      ⭐ Avantage différenciant
+                      <Icon name="star" /> Avantage différenciant
                     </div>
                   )}
                   <p>{a.text}</p>
@@ -522,8 +523,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Analyse des risques
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Analyse des risques
               </span>
               <h2>Les risques réels,<br />sans langue de bois</h2>
               <p>
@@ -591,7 +592,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
             </div>
             <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+              <div className="av-gratuit-icon"><Icon name="handshake" /></div>
               <div>
                 <strong>Un accompagnement complet et personnalisé</strong>
                 <p>
@@ -602,7 +603,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   en banque classique.
                 </p>
               </div>
-              <ContactPopup label="🚀 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="Démarrer" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -631,8 +632,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 Une autre question ? Je vous réponds personnellement sous 24h.
               </p>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary" />
-                <ContactPopup label="📞 Poser une question" className="fin-btn-secondary" />
+                <ContactPopup label="Prendre rendez-vous" icon="calendar-days" className="fin-btn-primary" />
+                <ContactPopup label="Poser une question" icon="phone" className="fin-btn-secondary" />
               </div>
             </div>
           </div>
@@ -680,7 +681,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -701,23 +702,23 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/investir/per',
-                  icon: '🏖️',
+                  icon: 'tree-palm',
                   title: 'Plan Épargne Retraite',
                   sub: 'Préparez votre retraite',
                   text: 'Complémentaire à l\'AV : déduisez vos versements de votre revenu imposable dès cette année et construisez votre retraite avec un avantage fiscal immédiat.',
-                  badge: '💡 Déduction fiscale immédiate',
-                  pillBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Déduction fiscale immédiate',
+                  pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
-                  pillBorder: 'rgba(201,169,110,0.3)',
+                  pillBorder: 'rgba(107,182,155,0.3)',
                   featured: true,
                 },
                 {
                   href: '/investir/scpi',
-                  icon: '🏗️',
+                  icon: 'construction',
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
                   text: '4–6%/an, zéro gestion. Logez des SCPI dans votre assurance vie pour combiner rendement immobilier et fiscalité AV dans une seule enveloppe.',
-                  badge: '🏗️ 4–6%/an sans gestion',
+                  badge: '4–6%/an sans gestion',
                   pillBg: 'rgba(45,106,95,0.1)',
                   pillColor: 'var(--orizia-primary)',
                   pillBorder: 'rgba(45,106,95,0.25)',
@@ -725,14 +726,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/investir/crowdfunding',
-                  icon: '🤝',
+                  icon: 'handshake',
                   title: 'Crowdfunding immobilier',
                   sub: 'Financement participatif',
                   text: '8–12%/an sur 12–36 mois. Le complément dynamique idéal pour booster le rendement global sans déséquilibrer votre patrimoine.',
-                  badge: '🚀 8–12%/an sur 12–36 mois',
-                  pillBg: 'rgba(3,105,161,0.08)',
-                  pillColor: '#0369a1',
-                  pillBorder: 'rgba(3,105,161,0.2)',
+                  badge: '8–12%/an sur 12–36 mois',
+                  pillBg: 'rgba(62,127,104,0.08)',
+                  pillColor: '#3e7f68',
+                  pillBorder: 'rgba(62,127,104,0.2)',
                   featured: false,
                 },
               ].map(s => (
@@ -746,11 +747,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir →</span>
+                  <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
                 </Link>
               ))}
             </div>
@@ -767,7 +768,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Frais et modalités présentés avec transparence.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="📞 Poser une question" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

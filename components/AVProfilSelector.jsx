@@ -3,15 +3,16 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const PROFILS = [
   {
     id: 'prudent',
-    icon: '🛡️',
+    icon: 'shield-check',
     label: 'Prudent',
     desc: 'Je prioritise la sécurité',
     badge: null,
     color: 'var(--orizia-primary)',
-    ucColor: '#64748b',
+    ucColor: '#5f655f',
     bg: 'rgba(45,106,95,0.06)',
     border: 'rgba(45,106,95,0.2)',
     repart: { euros: 80, uc: 20 },
@@ -23,14 +24,14 @@ const PROFILS = [
   },
   {
     id: 'equilibre',
-    icon: '⚖️',
+    icon: 'scale',
     label: 'Équilibré',
     desc: 'Sécurité et performance',
-    badge: '⭐ Le plus choisi',
-    color: '#d97706',
-    ucColor: '#d97706',
-    bg: 'rgba(217,119,6,0.06)',
-    border: 'rgba(217,119,6,0.2)',
+    badge: 'Le plus choisi',
+    color: '#a87a2c',
+    ucColor: '#a87a2c',
+    bg: 'rgba(168,122,44,0.06)',
+    border: 'rgba(168,122,44,0.2)',
     repart: { euros: 50, uc: 50 },
     taux: 0.0275,
     taux_label: '~2,75%/an',
@@ -40,14 +41,14 @@ const PROFILS = [
   },
   {
     id: 'dynamique',
-    icon: '🚀',
+    icon: 'rocket',
     label: 'Dynamique',
     desc: 'Je vise la performance max',
     badge: null,
-    color: '#dc2626',
-    ucColor: '#dc2626',
-    bg: 'rgba(220,38,38,0.06)',
-    border: 'rgba(220,38,38,0.2)',
+    color: '#b0473b',
+    ucColor: '#b0473b',
+    bg: 'rgba(176,71,59,0.06)',
+    border: 'rgba(176,71,59,0.2)',
     repart: { euros: 20, uc: 80 },
     taux: 0.041,
     taux_label: '~4,1%/an',
@@ -67,7 +68,7 @@ function SimulateurRendement({ profil }) {
 
   return (
     <div className="avps-simulateur">
-      <div className="avps-sim-title">📊 Simulateur de rendement estimé</div>
+      <div className="avps-sim-title"><Icon name="chart-column" /> Simulateur de rendement estimé</div>
       <div className="avps-sim-inputs">
         <div className="avps-sim-field">
           <label className="avps-sim-label">Capital initial</label>
@@ -114,14 +115,14 @@ function SimulateurRendement({ profil }) {
         <div className="avps-sim-result-sep" />
         <div className="avps-sim-result-item">
           <div className="avps-sim-result-label">Gain estimé</div>
-          <div className="avps-sim-result-value" style={{ color: '#16a34a' }}>
+          <div className="avps-sim-result-value" style={{ color: '#3e7f68' }}>
             +{gain.toLocaleString('fr-FR')}€
           </div>
         </div>
         <div className="avps-sim-result-sep" />
         <div className="avps-sim-result-item">
           <div className="avps-sim-result-label">Performance</div>
-          <div className="avps-sim-result-value" style={{ color: '#16a34a' }}>
+          <div className="avps-sim-result-value" style={{ color: '#3e7f68' }}>
             +{gainPct}%
           </div>
         </div>
@@ -153,7 +154,7 @@ export default function AVProfilSelector() {
             style={selected === p.id ? { borderColor: p.color, background: p.bg } : p.badge ? { borderColor: p.color } : {}}
           >
             {p.badge && <span className="avps-btn-badge" style={{ background: p.color }}>{p.badge}</span>}
-            <span className="avps-btn-icon">{p.icon}</span>
+            <span className="avps-btn-icon"><Icon name={p.icon} /></span>
             <span className="avps-btn-name">{p.label}</span>
             <span className="avps-btn-desc">{p.desc}</span>
           </button>
@@ -201,20 +202,20 @@ export default function AVProfilSelector() {
 
           {/* Stratégie */}
           <div className="avps-strategie">
-            <div className="avps-strategie-title" style={{ color: profil.color }}>📋 Stratégie</div>
+            <div className="avps-strategie-title" style={{ color: profil.color }}><Icon name="clipboard-list" /> Stratégie</div>
             <p>{profil.strategie}</p>
           </div>
 
           {/* Conseil Cindy */}
           <div className="avps-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{profil.conseil}</p>
           </div>
 
           {/* Simulateur */}
           <SimulateurRendement profil={profil} />
 
-          <ContactPopup label="📅 Construire mon allocation sur-mesure" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 20 }} />
+          <ContactPopup label="Construire mon allocation sur-mesure" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 20 }} />
         </div>
       )}
     </div>

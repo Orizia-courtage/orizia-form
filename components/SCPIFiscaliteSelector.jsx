@@ -3,72 +3,73 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const STRATEGIES = [
   {
     id: 'direct',
-    icon: '🧾',
+    icon: 'receipt',
     label: 'SCPI françaises en direct',
     badge: null,
-    color: '#64748b',
+    color: '#5f655f',
     border: 'rgba(100,116,139,0.2)',
     bg: 'rgba(100,116,139,0.04)',
     desc: 'Revenus fonciers soumis à votre TMI + 18,6% de prélèvements sociaux.',
     taux: {
       tmi11: { brut: '5%', net: '~3,5%', taux_fiscal: '29,6%', note: 'Fiscalité supportable à ce TMI' },
       tmi30: { brut: '5%', net: '~2,6%', taux_fiscal: '48,6%', note: 'Fiscalité lourde — envisager les européennes' },
-      tmi41: { brut: '5%', net: '~1,7%', taux_fiscal: '59,6%', note: '⚠️ Rendement net très dégradé' },
-      tmi45: { brut: '5%', net: '~1,4%', taux_fiscal: '63,6%', note: '🔴 Contre-productif à ce TMI' },
+      tmi41: { brut: '5%', net: '~1,7%', taux_fiscal: '59,6%', note: 'Rendement net très dégradé', tone: 'bad' },
+      tmi45: { brut: '5%', net: '~1,4%', taux_fiscal: '63,6%', note: 'Contre-productif à ce TMI', tone: 'bad' },
     },
     conseil: 'Adapté uniquement aux TMI faibles (11%). Au-delà, la fiscalité ampute trop le rendement net.',
   },
   {
     id: 'europeennes',
-    icon: '🌍',
+    icon: 'globe',
     label: 'SCPI européennes',
-    badge: '⭐ TMI 30%+',
+    badge: 'TMI 30%+',
     color: 'var(--orizia-primary)',
     border: 'rgba(45,106,95,0.25)',
     bg: 'rgba(45,106,95,0.05)',
     desc: 'Conventions fiscales bilatérales : souvent exonérées de prélèvements sociaux français.',
     taux: {
       tmi11: { brut: '4,5%', net: '~3,7%', taux_fiscal: '~18%', note: 'Avantage limité à ce TMI' },
-      tmi30: { brut: '4,5%', net: '~3,2%', taux_fiscal: '~29%', note: '✅ Gain net vs SCPI françaises' },
-      tmi41: { brut: '4,5%', net: '~3%', taux_fiscal: '~33%', note: '✅ Nettement meilleur qu\'en direct' },
-      tmi45: { brut: '4,5%', net: '~2,9%', taux_fiscal: '~36%', note: '✅ Stratégie recommandée à ce TMI' },
+      tmi30: { brut: '4,5%', net: '~3,2%', taux_fiscal: '~29%', note: 'Gain net vs SCPI françaises', tone: 'good' },
+      tmi41: { brut: '4,5%', net: '~3%', taux_fiscal: '~33%', note: 'Nettement meilleur qu\'en direct', tone: 'good' },
+      tmi45: { brut: '4,5%', net: '~2,9%', taux_fiscal: '~36%', note: 'Stratégie recommandée à ce TMI', tone: 'good' },
     },
     conseil: 'Idéal pour les TMI 30%+. Les conventions fiscales avec l\'Allemagne, les Pays-Bas et l\'Irlande permettent d\'éviter les 18,6% de PS français.',
   },
   {
     id: 'av',
-    icon: '🛡️',
+    icon: 'shield-check',
     label: 'SCPI en assurance vie',
-    badge: '✅ Meilleur ratio',
-    color: '#d97706',
-    border: 'rgba(217,119,6,0.25)',
-    bg: 'rgba(217,119,6,0.05)',
+    badge: 'Meilleur ratio',
+    color: '#a87a2c',
+    border: 'rgba(168,122,44,0.25)',
+    bg: 'rgba(168,122,44,0.05)',
     desc: 'Flat tax 31,4% — voire 7,5% + abattements après 8 ans. Liquidité améliorée.',
     taux: {
       tmi11: { brut: '4%', net: '~2,8%', taux_fiscal: '31,4%', note: 'Moins avantageux qu\'en direct à ce TMI' },
-      tmi30: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: '✅ Flat tax 31,4% vs 48,6% en direct' },
-      tmi41: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: '✅ Économie de 28,2% vs direct' },
-      tmi45: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: '✅ Économie de 32,2% vs direct' },
+      tmi30: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Flat tax 31,4% vs 48,6% en direct', tone: 'good' },
+      tmi41: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Économie de 28,2% vs direct', tone: 'good' },
+      tmi45: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Économie de 32,2% vs direct', tone: 'good' },
     },
     conseil: 'La meilleure enveloppe pour les TMI 30%+. Après 8 ans, la fiscalité tombe à 7,5% + abattement 4 600€/an. Liquidité améliorée en bonus.',
   },
   {
     id: 'nuepropriete',
-    icon: '📊',
+    icon: 'chart-column',
     label: 'SCPI en nue-propriété',
     badge: null,
-    color: '#7c3aed',
-    border: 'rgba(124,58,237,0.2)',
-    bg: 'rgba(124,58,237,0.04)',
+    color: '#3e7f68',
+    border: 'rgba(62,127,104,0.2)',
+    bg: 'rgba(62,127,104,0.04)',
     desc: 'Achat à prix décoté (15–30%). Aucun revenu pendant 5–15 ans = zéro fiscalité.',
     taux: {
       tmi11: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: 'Peu adapté à ce TMI' },
-      tmi30: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: '✅ Intéressant si pas besoin de revenus' },
-      tmi41: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: '✅ Stratégie patrimoniale avancée' },
-      tmi45: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: '✅ Zéro fiscalité pendant la période' },
+      tmi30: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: 'Intéressant si pas besoin de revenus', tone: 'good' },
+      tmi41: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: 'Stratégie patrimoniale avancée', tone: 'good' },
+      tmi45: { brut: '0% pendant 5–15 ans', net: 'Décote + plus-value', taux_fiscal: '0%', note: 'Zéro fiscalité pendant la période', tone: 'good' },
     },
     conseil: 'Stratégie avancée pour les TMI élevés qui n\'ont pas besoin de revenus immédiats. Vous achetez à prix décoté et récupérez la pleine propriété à terme.',
   },
@@ -105,7 +106,7 @@ export default function SCPIFiscaliteSelector() {
                 {st.badge}
               </span>
             )}
-            <span className="scpifis-strat-icon">{st.icon}</span>
+            <span className="scpifis-strat-icon"><Icon name={st.icon} /></span>
             <span className="scpifis-strat-label">{st.label}</span>
           </button>
         ))}
@@ -132,7 +133,7 @@ export default function SCPIFiscaliteSelector() {
       {s && t && (
         <div className="scpifis-result" style={{ borderColor: s.border }}>
           <div className="scpifis-result-header">
-            <div className="scpifis-result-icon">{s.icon}</div>
+            <div className="scpifis-result-icon"><Icon name={s.icon} /></div>
             <div>
               <div className="scpifis-result-name" style={{ color: s.color }}>{s.label}</div>
               <div className="scpifis-result-desc">{s.desc}</div>
@@ -146,27 +147,27 @@ export default function SCPIFiscaliteSelector() {
             </div>
             <div className="scpifis-result-stat">
               <div className="scpifis-result-stat-label">Fiscalité appliquée</div>
-              <div className="scpifis-result-stat-val" style={{ color: '#dc2626' }}>{t.taux_fiscal}</div>
+              <div className="scpifis-result-stat-val" style={{ color: '#b0473b' }}>{t.taux_fiscal}</div>
             </div>
             <div className="scpifis-result-stat scpifis-result-stat--highlight">
               <div className="scpifis-result-stat-label">Rendement net estimé</div>
-              <div className="scpifis-result-stat-val" style={{ color: '#16a34a' }}>{t.net}</div>
+              <div className="scpifis-result-stat-val" style={{ color: '#3e7f68' }}>{t.net}</div>
             </div>
           </div>
 
-          <div className="scpifis-result-note" style={{ color: t.note.startsWith('✅') ? '#16a34a' : t.note.startsWith('⚠️') || t.note.startsWith('🔴') ? '#dc2626' : 'var(--orizia-accent)' }}>
+          <div className="scpifis-result-note" style={{ color: t.tone === 'good' ? '#3e7f68' : t.tone === 'bad' ? '#b0473b' : 'var(--orizia-accent)' }}>
             {t.note}
           </div>
 
           <div className="scpifis-result-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{s.conseil}</p>
           </div>
         </div>
       )}
 
       <div className="crowd-risques-note" style={{ marginTop: 20 }}>
-        💡 <strong>Mon approche :</strong> je commence toujours par analyser votre TMI avant de recommander une SCPI.
+        <Icon name="lightbulb" /> <strong>Mon approche :</strong> je commence toujours par analyser votre TMI avant de recommander une SCPI.
         La même SCPI peut être excellente pour un profil et contre-productive pour un autre.
         <ContactPopup label="Calculer mon rendement net" className="" style={{ color: 'var(--orizia-primary)', fontWeight: 700, marginLeft: 6 }} />
       </div>

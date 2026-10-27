@@ -7,6 +7,7 @@ import ReadingProgressInvestir from '@/components/ReadingProgressInvestir';
 import ContactPopup from '@/components/ContactPopup';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Investir en 2026 : Placements & Patrimoine | Orizia Courtage',
@@ -116,32 +117,32 @@ const FAQ_INVESTIR = [
 
 const DIFFERENCIANTS = [
   {
-    icon: '🛡️',
+    icon: 'shield-check',
     title: 'Indépendance totale',
     desc: 'Je n\'appartiens à aucun groupe bancaire. Mon seul intérêt, c\'est de trouver le produit qui sert VOS objectifs — pas ceux de mon employeur.',
     color: 'var(--orizia-primary)',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
-    icon: '📜',
+    icon: 'scroll-text',
     title: 'Certifiée & réglementée',
     desc: 'Immatriculée ORIAS, contrôlée par l\'ACPR. Mon métier est strictement encadré pour protéger votre capital et vos intérêts.',
-    color: '#7c3aed',
-    bg: 'rgba(124,58,237,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
   },
   {
-    icon: '👤',
+    icon: 'user',
     title: 'Interlocutrice unique',
     desc: 'Pas de plateforme, pas de turnover. Je gère votre dossier de la première stratégie jusqu\'aux bilans annuels. Vous parlez toujours à Cindy.',
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.06)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.06)',
   },
   {
-    icon: '🎯',
+    icon: 'target',
     title: 'Modalités transparentes',
     desc: 'Les frais éventuels et modalités de l\'accompagnement sont expliqués avant tout engagement.',
-    color: '#16a34a',
-    bg: 'rgba(22,163,74,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
   },
 ];
 
@@ -172,7 +173,7 @@ export default function InvestirPage() {
             <div className="inv-hero-layout">
               {/* Gauche — texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge">💼 Stratégie patrimoniale indépendante</span>
+                <span className="inv-hero-badge"><Icon name="briefcase" /> Stratégie patrimoniale indépendante</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre argent mérite<br />
                   <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>mieux qu'une banque</em>
@@ -184,7 +185,7 @@ export default function InvestirPage() {
                   <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
                 <div className="inv-hero-actions">
-                  <ContactPopup label="📅 Bilan patrimonial" className="fin-btn-primary inv-hero-cta-main"/>
+                  <ContactPopup label="Bilan patrimonial" icon="calendar-days" className="fin-btn-primary inv-hero-cta-main"/>
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Découvrir les placements ?
                   </ScrollButton>
@@ -270,7 +271,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 Vous ne savez pas par quoi commencer ? C'est normal — c'est précisément
                 pour ça que le premier rendez-vous existe.
               </p>
-              <ContactPopup label="📅 Définir ma stratégie avec Cindy" className="fin-btn-primary"/>
+              <ContactPopup label="Définir ma stratégie avec Cindy" icon="calendar-days" className="fin-btn-primary"/>
             </div>
           </div>
         </section>
@@ -290,7 +291,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   loading="lazy"
                 />
                 <div className="inv-why-image-badge">
-                  <span className="inv-why-image-badge-icon">🏆</span>
+                  <span className="inv-why-image-badge-icon"><Icon name="trophy" /></span>
                   <div>
                     <div className="inv-why-image-badge-val">20 ans</div>
                     <div className="inv-why-image-badge-label">d'expérience</div>
@@ -307,7 +308,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div className="inv-why-grid">
                   {DIFFERENCIANTS.map(d => (
                     <div key={d.title} className="inv-why-item" style={{ background: d.bg }}>
-                      <div className="inv-why-item-icon" style={{ color: d.color }}>{d.icon}</div>
+                      <div className="inv-why-item-icon" style={{ color: d.color }}><Icon name={d.icon} /></div>
                       <div>
                         <div className="inv-why-item-title" style={{ color: d.color }}>{d.title}</div>
                         <div className="inv-why-item-desc">{d.desc}</div>
@@ -315,7 +316,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     </div>
                   ))}
                 </div>
-                <ContactPopup label="📅 Planifier mon bilan" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
+                <ContactPopup label="Planifier mon bilan" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }}/>
               </div>
             </div>
           </div>
@@ -378,7 +379,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une question à Cindy" className="fin-btn-secondary"/>
+              <ContactPopup label="Poser une question à Cindy" icon="phone" className="fin-btn-secondary"/>
             </div>
           </div>
         </section>
@@ -395,7 +396,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <strong> Modalités de courtage transparentes.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="📅 Planifier mon bilan" className="fin-btn-primary"/>
+              <ContactPopup label="Planifier mon bilan" icon="calendar-days" className="fin-btn-primary"/>
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               L'investissement comporte des risques de perte en capital. Je suis

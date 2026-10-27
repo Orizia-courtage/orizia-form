@@ -5,6 +5,7 @@ import ContactPopup from '@/components/ContactPopup';
 import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 export default function SimulateurRegroupement() {
   const { debt: debtConfig } = useSimulationConfig();
   const [mensualite, setMensualite] = useState('');
@@ -36,7 +37,7 @@ export default function SimulateurRegroupement() {
     if (nbCredits === '1') {
       creditMsg = {
         type: 'info',
-        icon: '💡',
+        icon: 'lightbulb',
         title: 'Avec un seul crédit, le regroupement n\'est pas la bonne piste.',
         text: 'La solution adaptée est plutôt une renégociation de taux ou un rachat de crédit simple. Je peux étudier cette option avec vous.',
         cta: 'Me contacter',
@@ -45,7 +46,7 @@ export default function SimulateurRegroupement() {
     } else {
       creditMsg = {
         type: 'ok',
-        icon: '✅',
+        icon: 'circle-check',
         title: nbCredits === '5+' ? `${nbCredits} crédits — profil éligible au regroupement.` : `${nbCredits} crédits — profil adapté au regroupement.`,
         text: 'Avec plusieurs crédits en cours, le regroupement peut réduire significativement votre mensualité globale. Complétez le formulaire pour obtenir une simulation personnalisée.',
         cta: 'Tester mon éligibilité',
@@ -57,10 +58,10 @@ export default function SimulateurRegroupement() {
   }, [mensualite, revenus, nbCredits]);
 
   const niveauConfig = {
-    ok:        { color: '#16a34a', bg: 'rgba(22,163,74,0.06)',  border: 'rgba(22,163,74,0.2)',  label: 'Taux sain',         icon: '✅' },
-    surveiller:{ color: '#d97706', bg: 'rgba(217,119,6,0.06)',  border: 'rgba(217,119,6,0.2)',  label: 'À surveiller',      icon: '⚠️' },
-    eleve:     { color: '#ea580c', bg: 'rgba(234,88,12,0.06)',  border: 'rgba(234,88,12,0.2)',  label: 'Taux élevé',        icon: '🔴' },
-    critique:  { color: '#dc2626', bg: 'rgba(220,38,38,0.06)',  border: 'rgba(220,38,38,0.2)',  label: 'Situation critique', icon: '🚨' },
+    ok:        { color: '#3e7f68', bg: 'rgba(62,127,104,0.06)',  border: 'rgba(62,127,104,0.2)',  label: 'Taux sain',         icon: 'circle-check' },
+    surveiller:{ color: '#a87a2c', bg: 'rgba(168,122,44,0.06)',  border: 'rgba(168,122,44,0.2)',  label: 'À surveiller',      icon: 'triangle-alert' },
+    eleve:     { color: '#a87a2c', bg: 'rgba(234,88,12,0.06)',  border: 'rgba(234,88,12,0.2)',  label: 'Taux élevé',        icon: 'dot-red' },
+    critique:  { color: '#b0473b', bg: 'rgba(176,71,59,0.06)',  border: 'rgba(176,71,59,0.2)',  label: 'Situation critique', icon: 'siren' },
   };
 
   const cfg = result ? niveauConfig[result.niveau] : null;
@@ -73,7 +74,7 @@ export default function SimulateurRegroupement() {
 
         <div className="sr-field">
           <label className="sr-label" htmlFor="sr-mensualite">
-            <span className="sr-label-icon">💳</span>
+            <span className="sr-label-icon"><Icon name="credit-card" /></span>
             Total de vos mensualités
           </label>
           <div className="sr-input-wrap">
@@ -95,7 +96,7 @@ export default function SimulateurRegroupement() {
 
         <div className="sr-field">
           <label className="sr-label" htmlFor="sr-revenus">
-            <span className="sr-label-icon">💼</span>
+            <span className="sr-label-icon"><Icon name="briefcase" /></span>
             Revenus nets du foyer
           </label>
           <div className="sr-input-wrap">
@@ -117,7 +118,7 @@ export default function SimulateurRegroupement() {
 
         <div className="sr-field">
           <label className="sr-label">
-            <span className="sr-label-icon">📋</span>
+            <span className="sr-label-icon"><Icon name="clipboard-list" /></span>
             Nombre de crédits en cours
           </label>
           <div className="sr-nb-grid">
@@ -145,7 +146,7 @@ export default function SimulateurRegroupement() {
             <div className="sr-result-gauge-header">
               <span className="sr-result-gauge-label">Votre taux d'endettement actuel</span>
               <span className="sr-result-gauge-badge" style={{ background: cfg.color }}>
-                {cfg.icon} {cfg.label}
+                <Icon name={cfg.icon} /> {cfg.label}
               </span>
             </div>
             <div className="sr-result-gauge-body">
@@ -195,7 +196,7 @@ export default function SimulateurRegroupement() {
               <div className="sr-result-card">
                 <div className="sr-result-card-body">
                   <span className="sr-result-card-label">Gain mensuel estimé</span>
-                  <span className="sr-result-card-value" style={{ color: '#16a34a' }}>
+                  <span className="sr-result-card-value" style={{ color: '#3e7f68' }}>
                     +{fmt(result.gainMensuel)}
                   </span>
                   <span className="sr-result-card-sub">De reste à vivre</span>
@@ -206,7 +207,7 @@ export default function SimulateurRegroupement() {
 
           {result.niveau === 'ok' && (
             <div className="sr-result-ok">
-              <span>✅</span>
+              <span><Icon name="circle-check" /></span>
               <div>
                 <strong>Votre taux d'endettement est sain ({result.tauxEndettement.toFixed(1)}%)</strong>
                 <p>Le regroupement de crédits n'est peut-être pas la priorité. Je peux néanmoins analyser votre situation pour identifier d'autres optimisations.</p>
@@ -217,7 +218,7 @@ export default function SimulateurRegroupement() {
           {/* Message contextuel nombre de crédits */}
           {result.creditMsg && (
             <div className={`sr-credit-msg sr-credit-msg--${result.creditMsg.type}`}>
-              <span className="sr-credit-msg-icon">{result.creditMsg.icon}</span>
+              <span className="sr-credit-msg-icon"><Icon name={result.creditMsg.icon} /></span>
               <div className="sr-credit-msg-content">
                 <strong>{result.creditMsg.title}</strong>
                 <p>{result.creditMsg.text}</p>
@@ -234,7 +235,7 @@ export default function SimulateurRegroupement() {
 
           {/* Disclaimer */}
           <p className="sr-disclaimer">
-            ℹ️ Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet.
+            <Icon name="info" /> Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet.
           </p>
         </div>
       )}
@@ -242,7 +243,7 @@ export default function SimulateurRegroupement() {
       {!result && (
         <div className="sr-placeholder">
           <div className="sr-placeholder-inner">
-            <span className="sr-placeholder-icon">📊</span>
+            <span className="sr-placeholder-icon"><Icon name="chart-column" /></span>
             <p>Renseignez vos mensualités et revenus pour calculer votre taux d'endettement.</p>
           </div>
         </div>

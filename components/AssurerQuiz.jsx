@@ -4,46 +4,47 @@ import { useState } from 'react';
 import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const QUESTIONS = [
   {
     id: 'situation',
     question: 'Quelle est votre situation principale ?',
     options: [
-      { id: 'pret', label: 'J\'ai un crédit immobilier', icon: '🏡', desc: 'En cours de remboursement' },
-      { id: 'locataire', label: 'Je suis locataire', icon: '🔑', desc: 'Appartement ou maison' },
-      { id: 'proprio', label: 'Je suis propriétaire', icon: '🏠', desc: 'Résidence principale ou investissement' },
-      { id: 'vehicule', label: 'J\'ai un véhicule', icon: '🚗', desc: 'Auto ou moto' },
+      { id: 'pret', label: 'J\'ai un crédit immobilier', icon: 'house-plus', desc: 'En cours de remboursement' },
+      { id: 'locataire', label: 'Je suis locataire', icon: 'key-round', desc: 'Appartement ou maison' },
+      { id: 'proprio', label: 'Je suis propriétaire', icon: 'house', desc: 'Résidence principale ou investissement' },
+      { id: 'vehicule', label: 'J\'ai un véhicule', icon: 'car', desc: 'Auto ou moto' },
     ],
   },
   {
     id: 'anciennete',
     question: 'Depuis combien de temps avez-vous votre contrat actuel ?',
     options: [
-      { id: 'moins1', label: 'Moins d\'un an', icon: '🆕', desc: 'Contrat récent' },
-      { id: 'un3', label: '1 à 3 ans', icon: '📅', desc: 'Changement possible' },
-      { id: 'plus3', label: 'Plus de 3 ans', icon: '⏳', desc: 'Vous payez probablement trop cher' },
-      { id: 'sais_pas', label: 'Je ne sais pas', icon: '❓', desc: 'À vérifier ensemble' },
+      { id: 'moins1', label: 'Moins d\'un an', icon: 'sparkles', desc: 'Contrat récent' },
+      { id: 'un3', label: '1 à 3 ans', icon: 'calendar-days', desc: 'Changement possible' },
+      { id: 'plus3', label: 'Plus de 3 ans', icon: 'hourglass', desc: 'Vous payez probablement trop cher' },
+      { id: 'sais_pas', label: 'Je ne sais pas', icon: 'circle-help', desc: 'À vérifier ensemble' },
     ],
   },
 ];
 
 const RECOMMANDATIONS = {
-  pret_moins1:   { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: '📋', color: '#16a34a', raison: 'Même récent, vous pouvez déjà changer ! La loi Lemoine autorise la résiliation à tout moment. Chaque mois d\'attente, c\'est de l\'argent perdu.' },
-  pret_un3:      { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: '📋', color: '#16a34a', raison: 'Vous avez déjà payé trop cher pendant 1 à 3 ans. Il est temps d\'agir — je calcule votre économie exacte en 30 minutes.' },
-  pret_plus3:    { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: '📋', color: '#16a34a', raison: 'Urgence absolue. Avec 3 ans de contrat bancaire, vous avez probablement laissé plusieurs milliers d\'euros sur la table. On corrige ça maintenant.' },
-  pret_sais_pas: { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: '📋', color: '#16a34a', raison: 'Envoyez-moi votre offre de prêt. Je vous dis en 24h combien vous pouvez économiser.' },
-  locataire_moins1:   { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Votre contrat est récent mais les tarifs augmentent chaque année. Je vérifie que vous êtes bien couvert au bon prix.' },
-  locataire_un3:      { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Après 1 an, la loi Hamon vous libère. Je compare le marché et résilie votre ancien contrat sans coupure.' },
-  locataire_plus3:    { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: '+7% par an depuis 3 ans = vous payez probablement 20% de trop. Je remets les compteurs à zéro.' },
-  locataire_sais_pas: { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Envoyez-moi votre avis d\'échéance. Je vous dis en 24h si vous payez trop cher.' },
-  proprio_moins1:   { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Propriétaire récent ? Je vérifie que vos murs, dépendances et biens sont correctement couverts.' },
-  proprio_un3:      { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Après 1 an, vous pouvez changer librement. Je compare les offres MRH et PNO pour votre profil.' },
-  proprio_plus3:    { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Vous payez probablement 30% de trop. Je remets le marché en concurrence pour vous.' },
-  proprio_sais_pas: { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: '🏠', color: '#d97706', raison: 'Envoyez-moi votre contrat actuel. Je l\'analyse avec attention.' },
-  vehicule_moins1:   { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: '🚗', color: 'var(--orizia-primary)', raison: 'Contrat récent mais déjà trop cher ? Je vérifie que la formule correspond à la valeur réelle de votre véhicule.' },
-  vehicule_un3:      { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: '🚗', color: 'var(--orizia-primary)', raison: 'Après 1 an, la loi Hamon vous libère. Je compare le marché et résilie votre ancien contrat.' },
-  vehicule_plus3:    { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: '🚗', color: 'var(--orizia-primary)', raison: 'La taxe de fidélité vous coûte cher. Je remets les assureurs en concurrence pour votre profil.' },
-  vehicule_sais_pas: { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: '🚗', color: 'var(--orizia-primary)', raison: 'Envoyez-moi votre contrat. Je vous dis en 24h si vous pouvez faire mieux.' },
+  pret_moins1:   { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: 'clipboard-list', color: '#3e7f68', raison: 'Même récent, vous pouvez déjà changer ! La loi Lemoine autorise la résiliation à tout moment. Chaque mois d\'attente, c\'est de l\'argent perdu.' },
+  pret_un3:      { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: 'clipboard-list', color: '#3e7f68', raison: 'Vous avez déjà payé trop cher pendant 1 à 3 ans. Il est temps d\'agir — je calcule votre économie exacte en 30 minutes.' },
+  pret_plus3:    { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: 'clipboard-list', color: '#3e7f68', raison: 'Urgence absolue. Avec 3 ans de contrat bancaire, vous avez probablement laissé plusieurs milliers d\'euros sur la table. On corrige ça maintenant.' },
+  pret_sais_pas: { produit: 'Assurance Emprunteur', href: '/assurer/assurance-emprunteur', icon: 'clipboard-list', color: '#3e7f68', raison: 'Envoyez-moi votre offre de prêt. Je vous dis en 24h combien vous pouvez économiser.' },
+  locataire_moins1:   { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Votre contrat est récent mais les tarifs augmentent chaque année. Je vérifie que vous êtes bien couvert au bon prix.' },
+  locataire_un3:      { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Après 1 an, la loi Hamon vous libère. Je compare le marché et résilie votre ancien contrat sans coupure.' },
+  locataire_plus3:    { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: '+7% par an depuis 3 ans = vous payez probablement 20% de trop. Je remets les compteurs à zéro.' },
+  locataire_sais_pas: { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Envoyez-moi votre avis d\'échéance. Je vous dis en 24h si vous payez trop cher.' },
+  proprio_moins1:   { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Propriétaire récent ? Je vérifie que vos murs, dépendances et biens sont correctement couverts.' },
+  proprio_un3:      { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Après 1 an, vous pouvez changer librement. Je compare les offres MRH et PNO pour votre profil.' },
+  proprio_plus3:    { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Vous payez probablement 30% de trop. Je remets le marché en concurrence pour vous.' },
+  proprio_sais_pas: { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Envoyez-moi votre contrat actuel. Je l\'analyse avec attention.' },
+  vehicule_moins1:   { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'Contrat récent mais déjà trop cher ? Je vérifie que la formule correspond à la valeur réelle de votre véhicule.' },
+  vehicule_un3:      { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'Après 1 an, la loi Hamon vous libère. Je compare le marché et résilie votre ancien contrat.' },
+  vehicule_plus3:    { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'La taxe de fidélité vous coûte cher. Je remets les assureurs en concurrence pour votre profil.' },
+  vehicule_sais_pas: { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'Envoyez-moi votre contrat. Je vous dis en 24h si vous pouvez faire mieux.' },
 };
 
 export default function AssurerQuiz() {
@@ -76,7 +77,7 @@ export default function AssurerQuiz() {
     <div className="iq-wrap">
       {isIntro && (
         <div className="iq-intro">
-          <div className="iq-intro-icon">🛡️</div>
+          <div className="iq-intro-icon"><Icon name="shield-check" /></div>
           <h3 className="iq-intro-title" style={{ color: 'var(--orizia-accent)' }}>Quel contrat optimiser en premier ?</h3>
           <p className="iq-intro-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.6 }}>
             2 questions · 20 secondes · Recommandation personnalisée
@@ -90,7 +91,7 @@ export default function AssurerQuiz() {
       {!isIntro && !isDone && currentQ && (
         <div className="iq-question">
           <div className="iq-progress-row">
-            <button onClick={goBack} className="iq-back">← Retour</button>
+            <button onClick={goBack} className="iq-back"><Icon name="arrow-left" /> Retour</button>
             <div className="iq-progress">
               {QUESTIONS.map((_, i) => (
                 <div key={i} className={`iq-progress-dot${i < step ? ' iq-progress-dot--done' : i === step - 1 ? ' iq-progress-dot--active' : ''}`} />
@@ -106,7 +107,7 @@ export default function AssurerQuiz() {
                 onClick={() => handleAnswer(currentQ.id, opt.id)}
                 className="iq-option"
               >
-                <span className="iq-option-icon">{opt.icon}</span>
+                <span className="iq-option-icon"><Icon name={opt.icon} /></span>
                 <div>
                   <div className="iq-option-label" style={{ color: 'var(--orizia-accent)' }}>{opt.label}</div>
                   <div className="iq-option-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.5 }}>{opt.desc}</div>
@@ -120,7 +121,7 @@ export default function AssurerQuiz() {
       {isDone && reco && (
         <div className="iq-result">
           <div className="iq-result-header">
-            <span className="iq-result-icon">{reco.icon}</span>
+            <span className="iq-result-icon"><Icon name={reco.icon} /></span>
             <div>
               <div className="iq-result-label">Priorité recommandée</div>
               <div className="iq-result-produit" style={{ color: reco.color }}>{reco.produit}</div>
@@ -131,9 +132,9 @@ export default function AssurerQuiz() {
             <Link href={reco.href} className="fin-btn-primary">
               Optimiser ce contrat
             </Link>
-            <ContactPopup label="📅 Bilan complet" className="fin-btn-secondary" />
+            <ContactPopup label="Bilan complet" icon="calendar-days" className="fin-btn-secondary" />
           </div>
-          <button onClick={reset} className="iq-reset">↩ Recommencer</button>
+          <button onClick={reset} className="iq-reset"><Icon name="undo-2" /> Recommencer</button>
         </div>
       )}
     </div>

@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const PROJETS = [
   {
     id: 'auto',
-    icon: '🚗',
+    icon: 'car',
     label: 'Auto & Moto',
     desc: 'Neuf ou occasion',
     featured: false,
@@ -14,15 +15,15 @@ const PROJETS = [
   },
   {
     id: 'travaux',
-    icon: '🔨',
+    icon: 'hammer',
     label: 'Travaux',
     desc: 'Rénovation, extension, énergie',
     featured: true,
-    badge: '⭐ Le plus demandé',
+    badge: 'Le plus demandé',
   },
   {
     id: 'tresorerie',
-    icon: '💸',
+    icon: 'banknote',
     label: 'Trésorerie & Projets',
     desc: 'Mariage, voyage, imprévus',
     featured: false,
@@ -32,9 +33,9 @@ const PROJETS = [
 
 const DETAILS = {
   auto: {
-    color: '#16a34a',
-    bg: 'rgba(22,163,74,0.05)',
-    border: 'rgba(22,163,74,0.2)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.05)',
+    border: 'rgba(62,127,104,0.2)',
     titre: 'Prêt Auto & Moto : le véhicule vous appartient à 100%',
     points: [
       'Taux souvent très avantageux sur les véhicules neufs',
@@ -46,9 +47,9 @@ const DETAILS = {
     astuce: 'Méfiez-vous des offres "0% en concession" — elles incluent souvent une majoration du prix du véhicule. Je compare le coût total réel.',
   },
   travaux: {
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.05)',
-    border: 'rgba(217,119,6,0.2)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.05)',
+    border: 'rgba(168,122,44,0.2)',
     titre: 'Prêt Travaux : valorisez votre bien immobilier',
     points: [
       'Taux préférentiels pour l\'éco-rénovation (isolation, pompe à chaleur)',
@@ -91,11 +92,11 @@ export default function PretProjetSelector() {
             style={selected === p.id && detail ? { borderColor: detail.color, background: detail.bg } : {}}
           >
             {p.badge && (
-              <span className="cps-btn-badge" style={{ background: selected === p.id && detail ? detail.color : '#d97706' }}>
+              <span className="cps-btn-badge" style={{ background: selected === p.id && detail ? detail.color : '#a87a2c' }}>
                 {p.badge}
               </span>
             )}
-            <span className="cps-btn-icon">{p.icon}</span>
+            <span className="cps-btn-icon"><Icon name={p.icon} /></span>
             <span className="cps-btn-label">{p.label}</span>
             <span className="cps-btn-desc">{p.desc}</span>
           </button>
@@ -107,18 +108,18 @@ export default function PretProjetSelector() {
           <h3 className="cps-detail-titre" style={{ color: detail.color }}>{detail.titre}</h3>
           <ul className="cps-detail-points">
             {detail.points.map(pt => (
-              <li key={pt}><span style={{ color: detail.color }}>✓</span> {pt}</li>
+              <li key={pt}><span style={{ color: detail.color }}><Icon name="check" /></span> {pt}</li>
             ))}
           </ul>
           <div className="cps-detail-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{detail.conseil}</p>
           </div>
           <div className="cps-detail-astuce">
-            <span>💡</span>
+            <span><Icon name="lightbulb" /></span>
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
-          <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
+          <ContactPopup label="Étudier mon financement" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

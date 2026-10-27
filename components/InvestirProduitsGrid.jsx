@@ -3,17 +3,18 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/Icon';
 const PRODUITS = [
   {
     href: '/investir/scpi',
-    icon: '🏢',
+    icon: 'building-2',
     title: 'SCPI',
     sub: 'Immobilier de rendement',
     desc: 'Percevez des loyers trimestriels sans gérer un seul bien. Accès à l\'immobilier professionnel dès 1 000€.',
     rendement: '4–6%',
     horizon: '8–10 ans',
     risque: 'Modéré',
-    risqueColor: '#d97706',
+    risqueColor: '#a87a2c',
     tag: 'Revenus réguliers',
     tagBg: 'rgba(45,106,95,0.1)',
     tagColor: 'var(--orizia-primary)',
@@ -22,14 +23,14 @@ const PRODUITS = [
   },
   {
     href: '/investir/assurance-vie',
-    icon: '🛡️',
+    icon: 'shield-check',
     title: 'Assurance Vie',
     sub: 'Épargne & transmission',
     desc: 'L\'enveloppe fiscale la plus puissante. Épargne disponible, fiscalité allégée après 8 ans, transmission hors succession.',
     rendement: '2,5–5%',
     horizon: '8 ans+',
     risque: 'Faible à modéré',
-    risqueColor: '#16a34a',
+    risqueColor: '#3e7f68',
     tag: 'Liquidité & Fiscalité',
     tagBg: 'rgba(26,61,53,0.08)',
     tagColor: 'var(--orizia-accent)',
@@ -39,34 +40,34 @@ const PRODUITS = [
   },
   {
     href: '/investir/per',
-    icon: '🏦',
+    icon: 'landmark',
     title: 'PER',
     sub: 'Retraite & défiscalisation',
     desc: 'Le seul placement avec un rendement fiscal garanti dès jour 1. Jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
     rendement: '4–7% + fiscal',
     horizon: 'Retraite',
     risque: 'Modéré',
-    risqueColor: '#d97706',
+    risqueColor: '#a87a2c',
     tag: 'Réduction d\'impôt',
     tagBg: 'rgba(180,83,9,0.08)',
-    tagColor: '#b45309',
-    accentColor: '#b45309',
+    tagColor: '#8a6424',
+    accentColor: '#8a6424',
     points: ['Déduction fiscale immédiate', 'Plafond TNS ~85 000€/an', 'Frais et modalités présentés avant engagement'],
   },
   {
     href: '/investir/crowdfunding',
-    icon: '📈',
+    icon: 'trending-up',
     title: 'Crowdfunding',
     sub: 'Financement participatif',
     desc: 'Financez des projets immobiliers sélectionnés et auditionnés. Rendement élevé sur une durée maîtrisée.',
     rendement: '8–12%',
     horizon: '12–36 mois',
     risque: 'Élevé',
-    risqueColor: '#dc2626',
+    risqueColor: '#b0473b',
     tag: 'Rendement dynamique',
-    tagBg: 'rgba(3,105,161,0.08)',
-    tagColor: '#0369a1',
-    accentColor: '#0369a1',
+    tagBg: 'rgba(62,127,104,0.08)',
+    tagColor: '#3e7f68',
+    accentColor: '#3e7f68',
     points: ['Durée connue à l\'avance', 'Flat tax 31,4%', 'Dès 1 000€'],
   },
 ];
@@ -98,12 +99,12 @@ export default function InvestirProduitsGrid() {
           onMouseLeave={() => setHovered(null)}
         >
           {p.featured && (
-            <div className="ipg-card-featured-badge">⭐ Le plus polyvalent</div>
+            <div className="ipg-card-featured-badge"><Icon name="star" /> Le plus polyvalent</div>
           )}
 
           {/* Header */}
           <div className="ipg-card-header">
-            <span className="ipg-card-icon">{p.icon}</span>
+            <span className="ipg-card-icon"><Icon name={p.icon} /></span>
             <div>
               <div className="ipg-card-title">{p.title}</div>
               <div className="ipg-card-sub">{p.sub}</div>
@@ -138,14 +139,14 @@ export default function InvestirProduitsGrid() {
           <ul className="ipg-card-points">
             {p.points.map(pt => (
               <li key={pt}>
-                <span style={{ color: p.accentColor }}>✓</span> {pt}
+                <span style={{ color: p.accentColor }}><Icon name="check" /></span> {pt}
               </li>
             ))}
           </ul>
 
           {/* CTA */}
           <div className="ipg-card-cta" style={{ color: p.accentColor }}>
-            En savoir plus →
+            En savoir plus <Icon name="arrow-right" className="oz-arrow" />
           </div>
         </Link>
       ))}

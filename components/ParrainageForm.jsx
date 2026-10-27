@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 const EMPTY = {
   parrainNom: '', parrainPrenom: '', parrainTel: '', parrainEmail: '',
   filleulNom: '', filleulPrenom: '', filleulTel: '', filleulEmail: '', projetFilleul: '',
@@ -103,7 +104,7 @@ export default function ParrainageForm() {
   if (isSuccess) {
     return (
       <div className="parr-success">
-        <div className="parr-success-icon">🎉</div>
+        <div className="parr-success-icon"><Icon name="party-popper" /></div>
         <h3>Merci pour votre recommandation !</h3>
         <p>Votre demande a bien été envoyée. Je prendrai contact avec votre filleul très prochainement.</p>
         <button onClick={() => { setIsSuccess(false); setData(EMPTY); setStep(1); }} className="parr-btn-primary">
@@ -120,7 +121,7 @@ export default function ParrainageForm() {
       <div className="parr-stepper">
         <div className="parr-step-item">
           <div className={`parr-step-dot${step >= 1 ? ' parr-step-dot--active' : ''}`}>
-            {step > 1 ? '✓' : '1'}
+            {step > 1 ? <Icon name="check" /> : '1'}
           </div>
           <span className={`parr-step-label${step === 1 ? ' parr-step-label--active' : ''}`}>
             Informations du parrain
@@ -139,7 +140,7 @@ export default function ParrainageForm() {
       {step === 1 && (
         <div className="parr-step-content">
           <div className="parr-step-header">
-            <div className="parr-step-icon">👤</div>
+            <div className="parr-step-icon"><Icon name="user" /></div>
             <div>
               <h3 className="parr-step-title">Informations du parrain</h3>
               <p className="parr-step-sub">Vos coordonnées pour que je puisse vous contacter</p>
@@ -168,7 +169,7 @@ export default function ParrainageForm() {
         <form onSubmit={handleSubmit} noValidate>
           <div className="parr-step-content">
             <div className="parr-step-header">
-              <div className="parr-step-icon">🤝</div>
+              <div className="parr-step-icon"><Icon name="handshake" /></div>
               <div>
                 <h3 className="parr-step-title">Informations du filleul</h3>
                 <p className="parr-step-sub">Les coordonnées de la personne que vous recommandez</p>
@@ -200,12 +201,12 @@ export default function ParrainageForm() {
             </div>
 
             {serverError && (
-              <div className="parr-server-error">🚫 {serverError}</div>
+              <div className="parr-server-error"><Icon name="ban" /> {serverError}</div>
             )}
 
             <div className="parr-actions parr-actions--two">
               <button type="button" className="parr-btn-secondary" onClick={goBack}>
-                ← Retour
+                <Icon name="arrow-left" /> Retour
               </button>
               <button type="submit" className="parr-btn-primary" disabled={isSubmitting}>
                 {isSubmitting ? 'Envoi en cours…' : 'Envoyer la recommandation'}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 
+import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
   description:
@@ -50,8 +51,8 @@ const PARCOURS = [
     poste: 'Présidente du conseil de surveillance',
     entreprise: 'AFIB — Association Française des Intermédiaires en Bancassurance',
     type: 'Indépendant',
-    icon: '⚖️',
-    color: '#7c3aed',
+    icon: 'scale',
+    color: '#3e7f68',
     highlight: true,
   },
   {
@@ -59,7 +60,7 @@ const PARCOURS = [
     poste: 'Directrice',
     entreprise: 'Simply Miob',
     type: 'CDI',
-    icon: '🏢',
+    icon: 'building-2',
     color: 'var(--orizia-primary)',
   },
   {
@@ -67,15 +68,15 @@ const PARCOURS = [
     poste: 'Directrice commerciale des réseaux Crédit Libra et Simply MIOB',
     entreprise: 'Premista',
     type: 'CDI',
-    icon: '📊',
-    color: '#d97706',
+    icon: 'chart-column',
+    color: '#1b1d1a',
   },
   {
     periode: '2017 – 2023',
     poste: 'Responsable Brookéo',
     entreprise: 'Brookéo — Groupe VILAVI',
     type: 'CDI · Hauts-de-France',
-    icon: '🤝',
+    icon: 'handshake',
     color: 'var(--orizia-primary)',
     desc: 'Pilotage de la politique commerciale, animation des partenariats, gestion prévisionnelle des équipes au niveau national.',
   },
@@ -84,31 +85,31 @@ const PARCOURS = [
     poste: 'Responsable d\'équipe',
     entreprise: 'FRANFINANCE',
     type: 'CDI · Marcq-en-Barœul',
-    icon: '👥',
-    color: '#16a34a',
+    icon: 'users',
+    color: '#3e7f68',
   },
   {
     periode: '2013',
     poste: 'Responsable commerciale',
     entreprise: 'Avon',
     type: 'CDI · Nord',
-    icon: '💼',
-    color: '#0369a1',
+    icon: 'briefcase',
+    color: '#3e7f68',
   },
   {
     periode: '2011 – 2013',
     poste: 'Courtier en regroupement de crédits (IOBSP)',
     entreprise: 'Indépendant',
     type: 'Nord',
-    icon: '🔄',
-    color: '#d97706',
+    icon: 'refresh-cw',
+    color: '#1b1d1a',
   },
   {
     periode: '2008 – 2010',
     poste: 'Analyste en regroupement de crédits',
     entreprise: 'Empruntis',
     type: 'CDI · Île-de-France',
-    icon: '📋',
+    icon: 'clipboard-list',
     color: 'var(--orizia-primary)',
   },
   {
@@ -116,16 +117,16 @@ const PARCOURS = [
     poste: 'Conseiller banque particulier',
     entreprise: 'LCL',
     type: 'CDI · Les Ulis, Île-de-France',
-    icon: '🏦',
-    color: '#dc2626',
+    icon: 'landmark',
+    color: '#1b1d1a',
   },
 ];
 
 const CHIFFRES = [
-  { val: '20', label: 'Ans d\'expérience', icon: '📅' },
-  { val: '2005', label: 'Début de carrière dans la banque', icon: '🏦' },
-  { val: 'AFIB', label: 'Présidente du conseil de surveillance', icon: '⚖️' },
-  { val: 'ORIAS', label: 'Immatriculée & certifiée', icon: '🛡️' },
+  { val: '20', label: 'Ans d\'expérience', icon: 'calendar-days' },
+  { val: '2005', label: 'Début de carrière dans la banque', icon: 'landmark' },
+  { val: 'AFIB', label: 'Présidente du conseil de surveillance', icon: 'scale' },
+  { val: 'ORIAS', label: 'Immatriculée & certifiée', icon: 'shield-check' },
 ];
 
 export default function QuiSuisJePage() {
@@ -158,7 +159,7 @@ export default function QuiSuisJePage() {
                   />
                 </div>
                 <div className="qsj-hero-photo-badge">
-                  <span>🏆</span>
+                  <span><Icon name="trophy" /></span>
                   <div>
                     <strong>20 ans</strong>
                     <span>d'expérience</span>
@@ -168,7 +169,7 @@ export default function QuiSuisJePage() {
 
               {/* Texte */}
               <div className="qsj-hero-text">
-                <span className="fin-badge">👋 Courtier indépendant · Hauts-de-France</span>
+                <span className="fin-badge"><Icon name="hand" /> Courtier indépendant · Hauts-de-France</span>
                 <h1 className="qsj-hero-title">
                   Cindy Urbansky
                 </h1>
@@ -187,7 +188,7 @@ export default function QuiSuisJePage() {
                   juste une professionnelle engagée pour vous obtenir les meilleures conditions.
                 </p>
                 <div className="qsj-hero-actions">
-                  <ContactPopup label="📅 Contactez-moi" className="fin-btn-primary" />
+                  <ContactPopup label="Contactez-moi" icon="calendar-days" className="fin-btn-primary" />
                   <a
                     href="https://www.linkedin.com/in/cindy-urbansky-034323162/"
                     target="_blank"
@@ -211,7 +212,7 @@ export default function QuiSuisJePage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.val}</strong>
+                <strong><Icon name={c.icon} /> {c.val}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -249,13 +250,13 @@ export default function QuiSuisJePage() {
                   Mon engagement
                 </div>
                 {[
-                  { icon: '🎯', titre: 'Indépendance totale', desc: 'Aucun lien exclusif avec une banque ou un assureur. Je travaille pour vous, pas pour eux.' },
-                  { icon: '🔍', titre: 'Expertise terrain', desc: '20 ans dans l\'intermédiation bancaire, de l\'analyse crédit à la direction commerciale nationale.' },
-                  { icon: '🤝', titre: 'Relation directe', desc: 'Vous parlez toujours à moi. Pas à un centre d\'appels, pas à un assistant.' },
-                  { icon: '⚖️', titre: 'Engagement sectoriel', desc: 'Présidente du conseil de surveillance de l\'AFIB — je contribue à l\'amélioration des pratiques du secteur.' },
+                  { icon: 'target', titre: 'Indépendance totale', desc: 'Aucun lien exclusif avec une banque ou un assureur. Je travaille pour vous, pas pour eux.' },
+                  { icon: 'search', titre: 'Expertise terrain', desc: '20 ans dans l\'intermédiation bancaire, de l\'analyse crédit à la direction commerciale nationale.' },
+                  { icon: 'handshake', titre: 'Relation directe', desc: 'Vous parlez toujours à moi. Pas à un centre d\'appels, pas à un assistant.' },
+                  { icon: 'scale', titre: 'Engagement sectoriel', desc: 'Présidente du conseil de surveillance de l\'AFIB — je contribue à l\'amélioration des pratiques du secteur.' },
                 ].map(e => (
                   <div key={e.titre} className="crowd-schema-step" style={{ marginBottom: 12 }}>
-                    <div className="crowd-schema-icon">{e.icon}</div>
+                    <div className="crowd-schema-icon"><Icon name={e.icon} /></div>
                     <div className="crowd-schema-text">
                       <strong>{e.titre}</strong>
                       <span>{e.desc}</span>
@@ -280,7 +281,7 @@ export default function QuiSuisJePage() {
               {PARCOURS.map((p, i) => (
                 <div key={i} className={`qsj-timeline-item${p.highlight ? ' qsj-timeline-item--highlight' : ''}`}>
                   <div className="qsj-timeline-dot" style={{ background: p.color }}>
-                    {p.icon}
+                    <Icon name={p.icon} />
                   </div>
                   <div className="qsj-timeline-content">
                     <div className="qsj-timeline-periode">{p.periode}</div>
@@ -295,7 +296,7 @@ export default function QuiSuisJePage() {
 
             {/* Formation */}
             <div className="qsj-formation">
-              <div className="qsj-formation-icon">🎓</div>
+              <div className="qsj-formation-icon"><Icon name="graduation-cap" /></div>
               <div>
                 <div className="qsj-formation-titre">BTS Commerce & Management</div>
                 <div className="qsj-formation-ecole">ISCI · 2003 – 2005</div>
@@ -322,7 +323,7 @@ export default function QuiSuisJePage() {
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
-                <span className="fin-badge">📍 Ancrée dans les Hauts-de-France</span>
+                <span className="fin-badge"><Icon name="map-pin" /> Ancrée dans les Hauts-de-France</span>
                 <h2>Marcq-en-Barœul,<br />ma ville depuis plus de 10 ans</h2>
                 <p>
                   Installée à Marcq-en-Barœul depuis plus d'une décennie, je connais
@@ -347,24 +348,24 @@ export default function QuiSuisJePage() {
                       fontSize: '0.8rem',
                       fontWeight: 700,
                     }}>
-                      📍 {v}
+                      <Icon name="map-pin" /> {v}
                     </span>
                   ))}
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {[
-                  { icon: '🏠', titre: 'Marché immobilier local', desc: 'Connaissance fine des prix et des tendances de la métropole lilloise.' },
-                  { icon: '🏦', titre: 'Réseau bancaire régional', desc: 'Relations établies avec les agences locales pour des réponses plus rapides.' },
-                  { icon: '🤝', titre: 'Réseau de partenaires', desc: 'Notaires, agents immobiliers, experts-comptables — un écosystème de confiance.' },
-                  { icon: '💻', titre: 'Accompagnement à distance', desc: 'Visioconférence disponible pour les clients hors région.' },
+                  { icon: 'house', titre: 'Marché immobilier local', desc: 'Connaissance fine des prix et des tendances de la métropole lilloise.' },
+                  { icon: 'landmark', titre: 'Réseau bancaire régional', desc: 'Relations établies avec les agences locales pour des réponses plus rapides.' },
+                  { icon: 'handshake', titre: 'Réseau de partenaires', desc: 'Notaires, agents immobiliers, experts-comptables — un écosystème de confiance.' },
+                  { icon: 'laptop', titre: 'Accompagnement à distance', desc: 'Visioconférence disponible pour les clients hors région.' },
                 ].map(item => (
                   <div key={item.titre} style={{
                     display: 'flex', gap: 14, alignItems: 'flex-start',
                     background: 'var(--orizia-light)', borderRadius: 12, padding: '14px 16px',
                     border: '1px solid rgba(45,106,95,0.1)',
                   }}>
-                    <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                    <span style={{ fontSize: '1.4rem', flexShrink: 0 }}><Icon name={item.icon} /></span>
                     <div>
                       <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--orizia-accent)', marginBottom: 3 }}>{item.titre}</div>
                       <div style={{ fontSize: '0.8rem', color: 'var(--orizia-dark)', opacity: 0.65, lineHeight: 1.4 }}>{item.desc}</div>
@@ -386,7 +387,7 @@ export default function QuiSuisJePage() {
               et le même engagement que j'apporte à chaque dossier.
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="✉️ M'envoyer un message" className="fin-btn-primary" />
+              <ContactPopup label="M'envoyer un message" icon="mail" className="fin-btn-primary" />
             </div>
           </div>
         </section>

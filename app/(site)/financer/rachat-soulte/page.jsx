@@ -6,6 +6,7 @@ import SimulateurSoulte from '@/components/SimulateurSoulte';
 import RachatSoulteChecklist from '@/components/RachatSoulteChecklist';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
@@ -155,17 +156,17 @@ const ETAPES = [
 
 const DANGERS = [
   {
-    icon: '🏦',
+    icon: 'landmark',
     title: 'Votre banque actuelle n\'est pas votre alliée',
     text: 'La banque qui détient votre crédit actuel a tout intérêt à vous proposer un rachat de soulte à ses propres conditions — souvent peu compétitives. Elle peut aussi refuser si votre profil a évolué. Je mets le marché en concurrence pour vous.',
   },
   {
-    icon: '📊',
+    icon: 'chart-column',
     title: 'Le taux d\'endettement change tout',
     text: 'Passer de deux revenus à un seul modifie radicalement votre capacité d\'emprunt. Certains dossiers nécessitent une restructuration préalable (regroupement de crédits, optimisation des charges) avant de pouvoir financer la soulte. Je l\'anticipe avec vous.',
   },
   {
-    icon: '⏱️',
+    icon: 'timer',
     title: 'Le timing avec le notaire est critique',
     text: 'L\'acte de partage et le financement doivent être synchronisés. Un retard bancaire peut bloquer la procédure et générer des frais supplémentaires. Je coordonne les deux pour éviter tout décalage.',
   },
@@ -208,7 +209,7 @@ export default function RachatSoultePage() {
               {' › '}
               <span>Rachat de Soulte</span>
             </nav>
-            <span className="fin-badge">⚖️ Divorce · Séparation · Succession</span>
+            <span className="fin-badge"><Icon name="scale" /> Divorce · Séparation · Succession</span>
             <h1 className="ae-hero-title">Rachat de soulte :<br />conservez votre bien, je monte le financement</h1>
             <p className="ae-hero-intro">
               Vous souhaitez racheter la part de votre ex-conjoint ou d'un co-héritier pour rester
@@ -217,15 +218,15 @@ export default function RachatSoultePage() {
               <strong>Étude de faisabilité.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="📅 Étudier mon financement" className="fin-btn-primary" />
+              <ContactPopup label="Étudier mon financement" icon="calendar-days" className="fin-btn-primary" />
               <ScrollButton targetId="section-simulateur" className="fin-btn-secondary">
-                🧮 Calculer ma soulte
+                <Icon name="calculator" /> Calculer ma soulte
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ +40 banques comparées</span>
-              <span>🤝 Coordination avec votre notaire</span>
-              <span>⚡ Réponse sous 24h</span>
+              <span><Icon name="circle-check" /> +40 banques comparées</span>
+              <span><Icon name="handshake" /> Coordination avec votre notaire</span>
+              <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
           </div>
         </section>
@@ -234,13 +235,13 @@ export default function RachatSoultePage() {
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {[
-              { val: '2,5%', label: 'Droits de partage dus au notaire', icon: '📋' },
-              { val: '+40', label: 'Banques partenaires comparées', icon: '🏦' },
-              { val: '100%', label: 'modalités transparentes', icon: '✅' },
-              { val: '24h', label: 'Pour une première estimation', icon: '⏱️' },
+              { val: '2,5%', label: 'Droits de partage dus au notaire', icon: 'clipboard-list' },
+              { val: '+40', label: 'Banques partenaires comparées', icon: 'landmark' },
+              { val: '100%', label: 'modalités transparentes', icon: 'circle-check' },
+              { val: '24h', label: 'Pour une première estimation', icon: 'timer' },
             ].map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.val}</strong>
+                <strong><Icon name={c.icon} /> {c.val}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -310,7 +311,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   Calcul de la soulte
                 </div>
                 <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">🏠</div>
+                  <div className="crowd-schema-icon"><Icon name="house" /></div>
                   <div className="crowd-schema-text">
                     <strong>Valeur du bien</strong>
                     <span>Estimée par un agent ou un notaire</span>
@@ -318,7 +319,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 </div>
                 <div className="crowd-schema-arrow">-</div>
                 <div className="crowd-schema-step">
-                  <div className="crowd-schema-icon">🏦</div>
+                  <div className="crowd-schema-icon"><Icon name="landmark" /></div>
                   <div className="crowd-schema-text">
                     <strong>Capital restant dû</strong>
                     <span>Sur le crédit immobilier en cours</span>
@@ -326,14 +327,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 </div>
                 <div className="crowd-schema-arrow">÷ 2</div>
                 <div className="crowd-schema-step crowd-schema-step--result">
-                  <div className="crowd-schema-icon">⚖️</div>
+                  <div className="crowd-schema-icon"><Icon name="scale" /></div>
                   <div className="crowd-schema-text">
                     <strong>Montant de la soulte</strong>
                     <span>À financer par le co-propriétaire rachetant</span>
                   </div>
                 </div>
                 <div style={{ marginTop: 12, background: 'var(--orizia-light)', borderRadius: 10, padding: '12px 14px', fontSize: '0.78rem', color: 'var(--orizia-dark)', opacity: 0.7 }}>
-                  💡 <strong>Exemple :</strong> Bien à 300 000€ · CRD 100 000€ → Valeur nette 200 000€ → Soulte = <strong>100 000€</strong>
+                  <Icon name="lightbulb" /> <strong>Exemple :</strong> Bien à 300 000€ · CRD 100 000€ → Valeur nette 200 000€ → Soulte = <strong>100 000€</strong>
                 </div>
               </div>
             </div>
@@ -344,7 +345,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-simulateur" className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">🧮 Simulateur</span>
+              <span className="fin-badge"><Icon name="calculator" /> Simulateur</span>
               <h2>Calculez votre soulte<br />en temps réel</h2>
               <p>
                 Renseignez les informations de votre bien pour obtenir une estimation immédiate
@@ -359,8 +360,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Les pièges à éviter
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Les pièges à éviter
               </span>
               <h2>Pourquoi ne pas gérer<br />le financement seul</h2>
               <p>Le rachat de soulte cumule complexité bancaire et pression émotionnelle. Voici les 3 erreurs les plus fréquentes.</p>
@@ -368,8 +369,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                    <div className="crowd-avantage-icon">{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b' }}>
+                    <div className="crowd-avantage-icon"><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -426,14 +427,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
             </div>
             <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+              <div className="av-gratuit-icon"><Icon name="handshake" /></div>
               <div>
                 <strong>Un accompagnement complet et personnalisé</strong>
                 <p>
                   Les frais et modalités applicables sont expliqués de manière claire avant tout engagement.
                 </p>
               </div>
-              <ContactPopup label="🚀 Démarrer" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="Démarrer" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -462,7 +463,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               ))}
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
-              <ContactPopup label="📞 Poser une autre question" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -478,11 +479,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/financer/credit-immobilier',
-                  icon: '🏠',
+                  icon: 'house',
                   title: 'Crédit immobilier',
                   sub: 'Votre projet de vie',
                   text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
-                  badge: '🏦 +40 banques comparées',
+                  badge: '+40 banques comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',
@@ -490,26 +491,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'économiser des milliers d\'euros.',
-                  badge: '💰 Économisez jusqu\'à 15 000€',
-                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Économisez jusqu\'à 15 000€',
+                  badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
-                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  badgeBorder: '1px solid rgba(107,182,155,0.3)',
                   featured: true,
                 },
                 {
                   href: '/financer/regroupement-credits',
-                  icon: '🔄',
+                  icon: 'refresh-cw',
                   title: 'Regroupement de crédits',
                   sub: 'Alléger vos mensualités',
                   text: 'Si le rachat de soulte alourdit votre endettement, le regroupement de crédits peut réduire vos mensualités globales jusqu\'à 60%.',
-                  badge: '🔄 Jusqu\'à -60% de mensualités',
-                  badgeBg: 'rgba(124,58,237,0.08)',
-                  badgeColor: '#7c3aed',
-                  badgeBorder: '1px solid rgba(124,58,237,0.2)',
+                  badge: 'Jusqu\'à -60% de mensualités',
+                  badgeBg: 'rgba(62,127,104,0.08)',
+                  badgeColor: '#3e7f68',
+                  badgeBorder: '1px solid rgba(62,127,104,0.2)',
                   featured: false,
                 },
               ].map(s => (
@@ -519,7 +520,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
@@ -536,7 +537,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <h2>Prêt(e) à conserver votre bien ?</h2>
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
-              <ContactPopup label="⚖️ Étudier mon rachat de soulte" className="fin-btn-primary" />
+              <ContactPopup label="Étudier mon rachat de soulte" icon="scale" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

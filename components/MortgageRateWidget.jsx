@@ -91,7 +91,7 @@ function FranceMap({ selected, onSelect }) {
               const zoneId     = geo.properties.zoneId;
               const isSelected = selected === zoneId;
               const isHovered  = hovered  === zoneId;
-              const fill = isSelected ? '#E87118' : isHovered ? '#EDAB78' : '#F2BC94';
+              const fill = isSelected ? '#a87a2c' : isHovered ? '#EDAB78' : '#ead8b5';
 
               return (
                 <Geography
@@ -124,7 +124,7 @@ function FranceMap({ selected, onSelect }) {
               textAnchor="middle"
               fontSize={zone.fontSize}
               fontWeight="700"
-              fill={selected === zone.id ? 'white' : '#7A3B0A'}
+              fill={selected === zone.id ? 'white' : '#7a5820'}
               style={{ pointerEvents: 'none', userSelect: 'none', fontFamily: 'inherit' }}
             >
               {zone.lines.map((line, i) => (
@@ -137,7 +137,7 @@ function FranceMap({ selected, onSelect }) {
               dominantBaseline="middle"
               fontSize={zone.fontSize}
               fontWeight="700"
-              fill={selected === zone.id ? 'white' : '#7A3B0A'}
+              fill={selected === zone.id ? 'white' : '#7a5820'}
               style={{ pointerEvents: 'none', userSelect: 'none', fontFamily: 'inherit' }}
             >
               {zone.label}
@@ -164,7 +164,7 @@ function OutreMerGrid({ selected, onSelect }) {
       {OUTREMER_REGIONS.map((region) => {
         const isSelected      = selected === region.id;
         const IslandComponent = ISLAND_COMPONENTS[region.id];
-        const fillColor       = isSelected ? '#E87118' : '#F2BC94';
+        const fillColor       = isSelected ? '#a87a2c' : '#ead8b5';
 
         return (
           <div
@@ -172,7 +172,7 @@ function OutreMerGrid({ selected, onSelect }) {
             onClick={() => onSelect(region.id)}
             style={{
               background: 'white',
-              border: `2px solid ${isSelected ? '#E87118' : 'transparent'}`,
+              border: `2px solid ${isSelected ? '#a87a2c' : 'transparent'}`,
               borderRadius: '14px',
               padding: '8px 6px 4px',
               cursor: 'pointer',
@@ -182,14 +182,14 @@ function OutreMerGrid({ selected, onSelect }) {
               gap: '2px',
               transition: 'all 0.18s ease',
               boxShadow: isSelected
-                ? '0 4px 14px rgba(232,113,24,0.3)'
+                ? '0 4px 14px rgba(168,122,44,0.3)'
                 : '0 1px 4px rgba(0,0,0,0.06)',
             }}
           >
             <span style={{
               fontSize: '8px',
               fontWeight: '800',
-              color: isSelected ? '#E87118' : '#1A2D5A',
+              color: isSelected ? '#a87a2c' : '#1b1d1a',
               textTransform: 'uppercase',
               letterSpacing: '0.3px',
               textAlign: 'center',
@@ -261,7 +261,7 @@ export default function MortgageRateWidget() {
           outline: none; cursor: pointer;
           background: linear-gradient(
             to right,
-            #E87118 0%, #E87118 ${sliderPct}%,
+            #a87a2c 0%, #a87a2c ${sliderPct}%,
             #DEDEDE ${sliderPct}%, #DEDEDE 100%
           );
           transition: background 0.1s;
@@ -269,13 +269,13 @@ export default function MortgageRateWidget() {
         .mrw-slider::-webkit-slider-thumb {
           -webkit-appearance: none; appearance: none;
           width: 24px; height: 24px; border-radius: 50%;
-          background: #E87118; border: 3px solid white;
-          box-shadow: 0 2px 8px rgba(232,113,24,0.45); cursor: pointer;
+          background: #a87a2c; border: 3px solid white;
+          box-shadow: 0 2px 8px rgba(168,122,44,0.45); cursor: pointer;
         }
         .mrw-slider::-moz-range-thumb {
           width: 24px; height: 24px; border-radius: 50%;
-          background: #E87118; border: 3px solid white;
-          box-shadow: 0 2px 8px rgba(232,113,24,0.45); cursor: pointer;
+          background: #a87a2c; border: 3px solid white;
+          box-shadow: 0 2px 8px rgba(168,122,44,0.45); cursor: pointer;
         }
       `}</style>
 
@@ -292,18 +292,18 @@ export default function MortgageRateWidget() {
           boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
           display: 'flex', flexDirection: 'column', gap: '20px',
         }}>
-          <h2 style={{ margin: 0, fontSize: '22px', fontWeight: '800', color: '#1A2D5A' }}>
+          <h2 style={{ margin: 0, fontSize: '22px', fontWeight: '800', color: '#1b1d1a' }}>
             {regionLabel}
           </h2>
           <div style={{
-            background: '#FEF0E6', borderRadius: '18px', padding: '16px 22px',
+            background: '#f8f2e6', borderRadius: '18px', padding: '16px 22px',
             display: 'flex', alignItems: 'center', gap: '10px',
           }}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 7L12 14L19 7" stroke="#22C55E" strokeWidth="2.8"
+              <path d="M5 7L12 14L19 7" stroke="#6bb69b" strokeWidth="2.8"
                 strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span style={{ fontSize: '40px', fontWeight: '800', color: '#1A2D5A', letterSpacing: '-1.5px', lineHeight: 1 }}>
+            <span style={{ fontSize: '40px', fontWeight: '800', color: '#1b1d1a', letterSpacing: '-1.5px', lineHeight: 1 }}>
               {formatRate(rate)}
             </span>
           </div>
@@ -312,8 +312,8 @@ export default function MortgageRateWidget() {
           </p>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '17px', fontWeight: '700', color: '#1A2D5A' }}>J'emprunte sur</span>
-              <span style={{ fontSize: '17px', fontWeight: '800', color: '#E87118' }}>{years} ans</span>
+              <span style={{ fontSize: '17px', fontWeight: '700', color: '#1b1d1a' }}>J'emprunte sur</span>
+              <span style={{ fontSize: '17px', fontWeight: '800', color: '#a87a2c' }}>{years} ans</span>
             </div>
             <div style={{ padding: '0 2px' }}>
               <input
@@ -326,7 +326,7 @@ export default function MortgageRateWidget() {
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
               {[10, 15, 20, 25].map((y) => (
                 <div key={y} style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '13px', fontWeight: '700', color: '#1A2D5A' }}>{y}</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: '#1b1d1a' }}>{y}</div>
                   <div style={{ fontSize: '12px', color: '#9AA0B0' }}>ans</div>
                 </div>
               ))}
@@ -336,7 +336,7 @@ export default function MortgageRateWidget() {
 
         {/* RIGHT PANEL */}
         <div style={{
-          background: '#FEF0E6', borderRadius: '26px', padding: '28px 24px 24px',
+          background: '#f8f2e6', borderRadius: '26px', padding: '28px 24px 24px',
           flex: '1 1 380px', minWidth: '320px',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px',
           boxShadow: '0 4px 24px rgba(0,0,0,0.04)',
@@ -355,13 +355,13 @@ export default function MortgageRateWidget() {
                 key={key}
                 onClick={() => handleTabChange(key)}
                 style={{
-                  background: tab === key ? '#E87118' : 'transparent',
+                  background: tab === key ? '#a87a2c' : 'transparent',
                   border: 'none', borderRadius: '50px', padding: '11px 30px',
                   cursor: 'pointer',
-                  color: tab === key ? 'white' : '#E87118',
+                  color: tab === key ? 'white' : '#a87a2c',
                   fontSize: '15px', fontWeight: '700',
                   transition: 'all 0.2s ease', fontFamily: 'inherit',
-                  boxShadow: tab === key ? '0 4px 14px rgba(232,113,24,0.35)' : 'none',
+                  boxShadow: tab === key ? '0 4px 14px rgba(168,122,44,0.35)' : 'none',
                   whiteSpace: 'nowrap',
                 }}
                 aria-pressed={tab === key}

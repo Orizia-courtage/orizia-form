@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 const RISQUES = [
   {
     id: 'uc',
     label: 'Fluctuation des UC',
-    icon: '📉',
+    icon: 'trending-down',
     sans: 70,
     avec: 18,
     desc_sans: 'Sans calibrage précis, une allocation trop agressive peut perdre 20–30% en un an. Beaucoup d\'épargnants découvrent leur vraie tolérance au risque lors d\'une baisse — trop tard.',
@@ -15,7 +16,7 @@ const RISQUES = [
   {
     id: 'frais',
     label: 'Frais excessifs (contrat bancaire)',
-    icon: '🏦',
+    icon: 'landmark',
     sans: 80,
     avec: 5,
     desc_sans: 'Un contrat bancaire avec 3% de frais sur versements sur 20 ans peut vous coûter 30 000€ de performance nette. La plupart des épargnants ne le réalisent jamais.',
@@ -24,7 +25,7 @@ const RISQUES = [
   {
     id: 'clause',
     label: 'Clause bénéficiaire mal rédigée',
-    icon: '📜',
+    icon: 'scroll-text',
     sans: 65,
     avec: 5,
     desc_sans: 'Une clause standard "mes héritiers légaux" peut transformer votre meilleur outil de transmission en cauchemar successoral — surtout en cas de famille recomposée, PACS ou donation-partage.',
@@ -33,7 +34,7 @@ const RISQUES = [
   {
     id: 'liquidite',
     label: 'Rachat en mauvais moment',
-    icon: '⏱️',
+    icon: 'timer',
     sans: 55,
     avec: 10,
     desc_sans: 'Racheter la part UC lors d\'une baisse de marché cristallise les pertes. Sans stratégie de liquidité, c\'est le scénario le plus fréquent en cas de besoin urgent.',
@@ -69,13 +70,13 @@ export default function AVRisqueJauge() {
           onClick={() => setMode('sans')}
           className={`rj-toggle-btn${!isAvec ? ' rj-toggle-btn--active rj-toggle-btn--bad' : ''}`}
         >
-          ❌ Sans accompagnement
+          <Icon name="circle-x" /> Sans accompagnement
         </button>
         <button
           onClick={() => setMode('avec')}
           className={`rj-toggle-btn${isAvec ? ' rj-toggle-btn--active rj-toggle-btn--good' : ''}`}
         >
-          ✅ Avec Orizia
+          <Icon name="circle-check" /> Avec Orizia
         </button>
       </div>
 
@@ -84,8 +85,8 @@ export default function AVRisqueJauge() {
         {RISQUES.map(r => {
           const val = isAvec ? r.avec : r.sans;
           const color = isAvec
-            ? val < 20 ? '#16a34a' : '#d97706'
-            : val > 60 ? '#dc2626' : '#d97706';
+            ? val < 20 ? '#3e7f68' : '#a87a2c'
+            : val > 60 ? '#b0473b' : '#a87a2c';
 
           return (
             <div
@@ -94,7 +95,7 @@ export default function AVRisqueJauge() {
               onClick={() => setSelected(selected === r.id ? null : r.id)}
             >
               <div className="rj-jauge-header">
-                <span className="rj-jauge-icon">{r.icon}</span>
+                <span className="rj-jauge-icon"><Icon name={r.icon} /></span>
                 <span className="rj-jauge-label">{r.label}</span>
                 <div className="rj-jauge-bar-wrap">
                   <Jauge value={val} color={color} />
@@ -104,8 +105,8 @@ export default function AVRisqueJauge() {
               </div>
               {selected === r.id && (
                 <div className="rj-jauge-desc">
-                  <span style={{ color: isAvec ? '#16a34a' : '#dc2626', fontWeight: 800, marginRight: 6 }}>
-                    {isAvec ? '🛡️ Comment je réduis ce risque :' : '⚠️ Le problème :'}
+                  <span style={{ color: isAvec ? '#3e7f68' : '#b0473b', fontWeight: 800, marginRight: 6 }}>
+                    {isAvec ? 'Comment je réduis ce risque :' : 'Le problème :'}
                   </span>
                   {isAvec ? r.desc_avec : r.desc_sans}
                 </div>

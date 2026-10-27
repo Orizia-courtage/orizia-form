@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 import LexiqueGrid from '@/components/LexiqueGrid';
 
+import Icon from '@/components/Icon';
 export const metadata = {
   title: "Lexique Crédit & Assurance : 50+ Termes | Orizia Courtage",
   description:
@@ -48,7 +49,7 @@ const lexiqueSchema = {
 const CATEGORIES = [
   {
     id: 'credit',
-    label: '🏠 Crédit & Financement',
+    label: 'Crédit & Financement',
     color: 'var(--orizia-primary)',
     bg: 'rgba(45,106,95,0.04)',
     termes: [
@@ -75,9 +76,9 @@ const CATEGORIES = [
   },
   {
     id: 'assurance',
-    label: '🛡️ Assurance',
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.04)',
+    label: 'Assurance',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.04)',
     termes: [
       { terme: 'Assurance emprunteur', def: "Contrat obligatoire lié à un crédit immobilier qui rembourse les mensualités en cas de décès, invalidité ou arrêt de travail. Elle représente jusqu'à 40 % du coût total du crédit. Grâce à la loi Lemoine, vous pouvez en changer à tout moment." },
       { terme: "Délégation d'assurance", def: "Droit de choisir un assureur externe à la banque pour votre assurance emprunteur. Le contrat doit offrir des garanties équivalentes à celles exigées par la banque. C'est le principal levier d'économie sur un crédit immobilier — souvent 50 % moins cher." },
@@ -101,9 +102,9 @@ const CATEGORIES = [
   },
   {
     id: 'investissement',
-    label: '💼 Investissement & Patrimoine',
-    color: '#7c3aed',
-    bg: 'rgba(124,58,237,0.04)',
+    label: 'Investissement & Patrimoine',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.04)',
     termes: [
       { terme: 'SCPI', def: "Société Civile de Placement Immobilier. Fonds collectif qui achète et gère un portefeuille d'actifs immobiliers. Vous détenez des parts et percevez votre quote-part des loyers trimestriellement, sans aucune contrainte de gestion. Accessible dès 1 000 €." },
       { terme: 'Taux de distribution (SCPI)', def: "Rendement annuel brut d'une SCPI, exprimé en pourcentage de la valeur de la part. En 2026, il se situe entre 4 % et 6 % pour les meilleures SCPI. À distinguer du rendement net après fiscalité." },
@@ -129,9 +130,9 @@ const CATEGORIES = [
   },
   {
     id: 'fiscal',
-    label: '🧾 Fiscalité',
-    color: '#16a34a',
-    bg: 'rgba(22,163,74,0.04)',
+    label: 'Fiscalité',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.04)',
     termes: [
       { terme: 'Déficit foncier', def: "Mécanisme fiscal permettant de déduire les charges d'un bien locatif (travaux, intérêts d'emprunt) de son revenu global, réduisant ainsi l'impôt. Particulièrement intéressant pour les TMI 30 %+." },
       { terme: 'LMNP (Loueur Meublé Non Professionnel)', def: "Statut fiscal pour les propriétaires qui louent un bien meublé. Permet d'amortir le bien et le mobilier, réduisant significativement la base imposable des loyers perçus." },
@@ -144,9 +145,9 @@ const CATEGORIES = [
   },
   {
     id: 'reglementation',
-    label: '⚖️ Réglementation',
-    color: '#0369a1',
-    bg: 'rgba(3,105,161,0.04)',
+    label: 'Réglementation',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.04)',
     termes: [
       { terme: 'ORIAS', def: "Organisme pour le Registre des Intermédiaires en Assurance, banque et finance. Tout courtier doit y être immatriculé pour exercer légalement. Cindy Urbansky est immatriculée à l'ORIAS." },
       { terme: 'ACPR', def: "Autorité de Contrôle Prudentiel et de Résolution. Superviseur des banques et assurances en France, sous l'égide de la Banque de France. Elle contrôle les courtiers et intermédiaires financiers." },
@@ -177,7 +178,7 @@ export default function LexiquePage() {
               {' › '}
               <span>Lexique</span>
             </nav>
-            <span className="fin-badge">📖 Glossaire · 50+ termes</span>
+            <span className="fin-badge"><Icon name="book-open" /> Glossaire · 50+ termes</span>
             <h1 className="ae-hero-title">Lexique du crédit,<br />de l'assurance & des placements</h1>
             <p className="ae-hero-intro">
               Le jargon financier peut être opaque. Retrouvez ici tous les termes utilisés
@@ -236,7 +237,7 @@ export default function LexiquePage() {
               Je vous explique tout sans jargon, lors d'un premier échange sans engagement.
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="📅 Poser une question à Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question à Cindy" icon="calendar-days" className="fin-btn-primary" />
             </div>
           </div>
         </section>

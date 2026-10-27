@@ -6,6 +6,7 @@ import PretProjetSelector from '@/components/PretProjetSelector';
 import PretPersonnelChecklist from '@/components/PretPersonnelChecklist';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Prêt Personnel 2026 : Comparez les taux | Orizia Courtage',
@@ -116,26 +117,26 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: 'Jusqu\'à\u00A075k€', label: 'Plafond légal d\'emprunt', icon: '💳' },
-  { value: '1 à 7 ans', label: 'Durée de remboursement', icon: '📅' },
-  { value: '✓', label: 'Étude personnalisée de votre projet', icon: '🎯' },
-  { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: '⏱️' },
+  { value: 'Jusqu\'à\u00A075k€', label: 'Plafond légal d\'emprunt', icon: 'credit-card' },
+  { value: '1 à 7 ans', label: 'Durée de remboursement', icon: 'calendar-days' },
+  { value: 'check', label: 'Étude personnalisée de votre projet', icon: 'target' },
+  { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: 'timer' },
 ];
 
 
 const DANGERS = [
   {
-    icon: '🔒',
+    icon: 'lock',
     title: 'Le piège des taux d\'appel sur internet',
     text: 'Vous voyez "À partir de 0,90%" en grand, mais en petits caractères, c\'est valable uniquement sur 12 mois pour 5 000€. Pour votre vrai projet sur 48 mois, le taux grimpe à 6% ou 7%. Je vous donne l\'heure juste, sans fausses promesses.',
   },
   {
-    icon: '⚠️',
+    icon: 'triangle-alert',
     title: 'L\'assurance facultative (qui vous est imposée)',
     text: 'Sur un prêt personnel, l\'assurance décès/invalidité n\'est quasiment jamais obligatoire. Pourtant, les organismes la cochent par défaut, gonflant votre mensualité de 10 à 20€. Je veille à supprimer ces frais superflus.',
   },
   {
-    icon: '❌',
+    icon: 'circle-x',
     title: 'Le crédit renouvelable toxique',
     text: 'Certaines enseignes transforment habilement votre demande de prêt en "crédit renouvelable" (réserve d\'argent) avec des taux frôlant l\'usure (jusqu\'à 21%). Avec moi, vous signez un prêt amortissable classique, clair, avec une date de fin précise.',
   },
@@ -219,7 +220,7 @@ export default function PretPersonnelPage() {
               {' › '}
               <span>Prêt Personnel</span>
             </nav>
-            <span className="fin-badge">🚗 Auto, Travaux, Trésorerie</span>
+            <span className="fin-badge"><Icon name="car" /> Auto, Travaux, Trésorerie</span>
             <h1 className="ae-hero-title">Financez vos projets,<br />pas les marges des banques</h1>
             <p className="ae-hero-intro">
               Souscrire un prêt personnel sur internet est devenu trop facile, et souvent <strong>trop cher</strong>.
@@ -227,15 +228,15 @@ export default function PretPersonnelPage() {
               et je vous trouve la mensualité qui <strong>respecte votre budget</strong>.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="📅 Faire une simulation avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Faire une simulation avec Cindy" icon="calendar-days" className="fin-btn-primary" />
               <ScrollButton targetId="section-projets" className="fin-btn-secondary">
-                🔍 Voir les types de prêts
+                <Icon name="search" /> Voir les types de prêts
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Accompagnement personnalisé</span>
-              <span>❌ Zéro crédit toxique (renouvelable)</span>
-              <span>⚡ Réponse de principe sous 48h</span>
+              <span><Icon name="circle-check" /> Accompagnement personnalisé</span>
+              <span><Icon name="circle-x" /> Zéro crédit toxique (renouvelable)</span>
+              <span><Icon name="zap" /> Réponse de principe sous 48h</span>
             </div>
           </div>
         </section>
@@ -245,7 +246,7 @@ export default function PretPersonnelPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong style={{ whiteSpace: 'nowrap' }}>{c.icon} {c.value}</strong>
+                <strong style={{ whiteSpace: 'nowrap' }}><Icon name={c.icon} /> <Icon name={c.value} /></strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -285,8 +286,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce que les publicités ne disent pas
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Ce que les publicités ne disent pas
               </span>
               <h2>Pourquoi souscrire seul<br />est le meilleur moyen de payer trop cher</h2>
               <p>
@@ -296,8 +297,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                    <div className="crowd-avantage-icon">{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b' }}>
+                    <div className="crowd-avantage-icon"><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -320,7 +321,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--orizia-accent)', marginBottom: 6 }}>
                 Confiez-moi la recherche de votre financement.
               </p>
-              <ContactPopup label="📊 Étudier ma capacité d'emprunt" className="fin-btn-primary" />
+              <ContactPopup label="Étudier ma capacité d'emprunt" icon="chart-column" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -344,8 +345,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
-                <span className="fin-badge" style={{ background: 'rgba(124,58,237,0.1)', color: '#7c3aed' }}>
-                  🔄 Cas particulier : Le regroupement de crédits
+                <span className="fin-badge" style={{ background: 'rgba(62,127,104,0.1)', color: '#3e7f68' }}>
+                  <Icon name="refresh-cw" /> Cas particulier : Le regroupement de crédits
                 </span>
                 <h2>Vos mensualités<br />vous étouffent ?</h2>
                 <p>
@@ -356,26 +357,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   Je m'occupe de fusionner toutes vos dettes actuelles en <strong>un seul prêt</strong>, 
                   avec <strong>une seule mensualité</strong>, souvent réduite de 30 à 50% (en allongeant la durée de remboursement).
                 </p>
-                <ContactPopup label="🧮 Calculer mon nouveau reste à vivre" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }} />
+                <ContactPopup label="Calculer mon nouveau reste à vivre" icon="calculator" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }} />
               </div>
               <div className="crowd-schema">
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
                   L'effet Regroupement
                 </div>
-                <div className="crowd-schema-step" style={{ background: 'rgba(220,38,38,0.08)', border: '1.5px solid rgba(220,38,38,0.2)' }}>
-                  <div className="crowd-schema-icon">⚠️</div>
+                <div className="crowd-schema-step" style={{ background: 'rgba(176,71,59,0.08)', border: '1.5px solid rgba(176,71,59,0.2)' }}>
+                  <div className="crowd-schema-icon"><Icon name="triangle-alert" /></div>
                   <strong>Avant : 3 crédits = 850€/mois</strong>
                   <span>Taux d'endettement dans le rouge</span>
                 </div>
-                <div className="crowd-schema-arrow">↓</div>
+                <div className="crowd-schema-arrow"><Icon name="arrow-down" /></div>
                 <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">🔄</div>
+                  <div className="crowd-schema-icon"><Icon name="refresh-cw" /></div>
                   <strong>Intervention Orizia</strong>
                   <span>Négociation et rachat soldé</span>
                 </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div className="crowd-schema-step" style={{ background: 'rgba(22,163,74,0.08)', border: '1.5px solid rgba(22,163,74,0.2)' }}>
-                  <div className="crowd-schema-icon">✅</div>
+                <div className="crowd-schema-arrow"><Icon name="arrow-down" /></div>
+                <div className="crowd-schema-step" style={{ background: 'rgba(62,127,104,0.08)', border: '1.5px solid rgba(62,127,104,0.2)' }}>
+                  <div className="crowd-schema-icon"><Icon name="circle-check" /></div>
                   <strong>Après : 1 crédit = 480€/mois</strong>
                   <span>Budget respirable (+ possibilité d'inclure une trésorerie)</span>
                 </div>
@@ -424,14 +425,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
             </div>
             <div className="av-gratuit-bloc">
-              <div className="av-gratuit-icon">🤝</div>
+              <div className="av-gratuit-icon"><Icon name="handshake" /></div>
               <div>
                 <strong>Un accompagnement expert et personnalisé</strong>
                 <p>
                   Pour les crédits à la consommation, les frais et modalités applicables sont expliqués de manière transparente avant tout engagement.
                 </p>
               </div>
-              <ContactPopup label="🚀 Démarrer ma demande" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="Démarrer ma demande" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -480,7 +481,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -496,11 +497,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/financer/credit-immobilier',
-                  icon: '🏠',
+                  icon: 'house',
                   title: 'Crédit Immobilier',
                   sub: 'Votre projet de vie',
                   text: 'Vous souhaitez acheter un bien immobilier ? La démarche est très différente d\'un prêt personnel. Je vous accompagne de A à Z.',
-                  badge: '🏠 Votre prochain grand projet',
+                  badge: 'Votre prochain grand projet',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',
@@ -508,26 +509,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 },
                 {
                   href: '/assurer/auto-moto',
-                  icon: '🚗',
+                  icon: 'car',
                   title: 'Assurance Auto',
                   sub: 'Protéger votre achat',
                   text: 'Vous venez de financer un véhicule ? Ne payez pas votre assurance plein pot. Je compare le marché pour vous.',
-                  badge: '✅ Résiliation gérée pour vous',
-                  badgeBg: 'rgba(99,102,241,0.08)',
-                  badgeColor: '#6366f1',
-                  badgeBorder: '1px solid rgba(99,102,241,0.2)',
+                  badge: 'Résiliation gérée pour vous',
+                  badgeBg: 'rgba(62,127,104,0.08)',
+                  badgeColor: '#3e7f68',
+                  badgeBorder: '1px solid rgba(62,127,104,0.2)',
                   featured: false,
                 },
                 {
                   href: '/investir/assurance-vie',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance Vie',
                   sub: 'L\'épargne de précaution',
                   text: 'Même en remboursant un crédit, il est vital de se constituer une épargne de sécurité. Découvrons l\'assurance vie.',
-                  badge: '✅ Fiscalité optimisée après 8 ans',
-                  badgeBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Fiscalité optimisée après 8 ans',
+                  badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
-                  badgeBorder: '1px solid rgba(201,169,110,0.3)',
+                  badgeBorder: '1px solid rgba(107,182,155,0.3)',
                   featured: false,
                 },
               ].map(s => (
@@ -537,7 +538,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
@@ -556,7 +557,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               On fait le point sur votre budget, je définis l'enveloppe possible et je m'occupe d'aller chercher le meilleur TAEG du marché. Sans engagement.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="🚀 Lancer mon étude" className="fin-btn-primary" />
+              <ContactPopup label="Lancer mon étude" icon="rocket" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. 

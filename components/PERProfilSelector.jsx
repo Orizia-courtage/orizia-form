@@ -3,22 +3,23 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const PROFILS = [
   {
     id: 'salarie',
-    icon: '👔',
+    icon: 'briefcase-business',
     label: 'Salarié cadre',
     desc: 'CDI, revenus stables',
   },
   {
     id: 'tns',
-    icon: '⚙️',
+    icon: 'settings',
     label: 'Indépendant / TNS',
     desc: 'Libéral, artisan, auto-entrepreneur',
   },
   {
     id: 'dirigeant',
-    icon: '🏢',
+    icon: 'building-2',
     label: 'Dirigeant de société',
     desc: 'Gérant, PDG, associé',
   },
@@ -40,8 +41,8 @@ const DETAILS = {
     exemple: { versement: 20000, tmi: '41%', gain: 8200 },
     strategie: 'Versements modulables selon le bénéfice annuel — versez plus les bonnes années, moins les années creuses.',
     conseil: 'Le plafond Madelin est 2,5× plus élevé que celui d\'un salarié. C\'est le levier fiscal le plus puissant disponible pour un indépendant.',
-    color: '#d97706',
-    badge: '⭐ Avantage maximal',
+    color: '#a87a2c',
+    badge: 'Avantage maximal',
   },
   dirigeant: {
     tmi: ['41%', '45%'],
@@ -49,7 +50,7 @@ const DETAILS = {
     exemple: { versement: 15000, tmi: '45%', gain: 6750 },
     strategie: 'Combinaison PER individuel + contrat Madelin via la société selon votre structure de rémunération.',
     conseil: 'Selon votre statut (SAS, SARL, EURL…), la stratégie optimale diffère. Un audit de votre rémunération est indispensable avant d\'ouvrir un PER.',
-    color: '#7c3aed',
+    color: '#3e7f68',
     badge: null,
   },
 };
@@ -72,9 +73,9 @@ export default function PERProfilSelector() {
             style={selected === p.id ? { borderColor: DETAILS[p.id].color } : {}}
           >
             {p.id === 'tns' && (
-              <span className="per-profil-btn-badge">⭐ Avantage maximal</span>
+              <span className="per-profil-btn-badge"><Icon name="star" /> Avantage maximal</span>
             )}
-            <span className="per-profil-icon">{p.icon}</span>
+            <span className="per-profil-icon"><Icon name={p.icon} /></span>
             <span className="per-profil-name">{p.label}</span>
             <span className="per-profil-desc">{p.desc}</span>
           </button>
@@ -106,7 +107,7 @@ export default function PERProfilSelector() {
             </div>
             <div className="per-profil-stat">
               <div className="per-profil-stat-label">Exemple : {detail.exemple.versement.toLocaleString('fr-FR')}€ versés à {detail.exemple.tmi}</div>
-              <div className="per-profil-stat-value" style={{ color: '#16a34a' }}>
+              <div className="per-profil-stat-value" style={{ color: '#3e7f68' }}>
                 -{detail.exemple.gain.toLocaleString('fr-FR')}€ d'impôt
               </div>
             </div>
@@ -115,18 +116,18 @@ export default function PERProfilSelector() {
           {/* Stratégie */}
           <div className="per-profil-strategie">
             <div className="per-profil-strategie-title" style={{ color: detail.color }}>
-              📋 Stratégie recommandée
+              <Icon name="clipboard-list" /> Stratégie recommandée
             </div>
             <p>{detail.strategie}</p>
           </div>
 
           {/* Conseil Cindy */}
           <div className="per-profil-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{detail.conseil}</p>
           </div>
 
-          <ContactPopup label="📅 Calculer mon gain pour ce profil" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
+          <ContactPopup label="Calculer mon gain pour ce profil" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

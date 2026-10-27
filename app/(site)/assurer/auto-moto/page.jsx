@@ -8,6 +8,7 @@ import AutoChecklist from '@/components/AutoChecklist';
 import ReadingProgressAutoMoto from '@/components/ReadingProgressAutoMoto';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
@@ -120,25 +121,25 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: '📈' },
-  { value: '1 an', label: 'Délai avant résiliation libre (Hamon)', icon: '📅' },
-  { value: '0€', label: 'Frais de gestion Orizia', icon: '🎯' },
-  { value: '400€', label: 'Économies moyennes constatées/an', icon: '💰' },
+  { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: 'trending-up' },
+  { value: '1 an', label: 'Délai avant résiliation libre (Hamon)', icon: 'calendar-days' },
+  { value: '0€', label: 'Frais de gestion Orizia', icon: 'target' },
+  { value: '400€', label: 'Économies moyennes constatées/an', icon: 'coins' },
 ];
 
 const DANGERS = [
   {
-    icon: '🔒',
+    icon: 'lock',
     title: 'La taxe invisible de la fidélité',
     text: 'En assurance, être fidèle coûte cher. Votre assureur augmente discrètement votre tarif de 4 à 6% chaque année au moment du renouvellement automatique.',
   },
   {
-    icon: '⚠️',
+    icon: 'triangle-alert',
     title: 'Le piège des garanties inutiles',
     text: 'Payer un "Tous risques" sur une Clio de 2010 qui ne cote plus grand-chose ? C\'est de l\'argent jeté par les fenêtres. Les formules doivent évoluer avec votre voiture.',
   },
   {
-    icon: '⏱️',
+    icon: 'timer',
     title: 'Le parcours du combattant',
     text: 'Chercher, comparer 15 devis, lire les petites lignes des franchises, faire la lettre recommandée de résiliation... C\'est long. C\'est pour ça que je le fais pour vous.',
   },
@@ -187,10 +188,10 @@ const OBJECTIONS = [
 ];
 
 const LOI_HAMON_POINTS = [
-  { icon: '✅', title: 'Liberté totale', desc: 'Après 1 an, vous êtes libre de partir quand vous voulez.' },
-  { icon: '📅', title: 'Préavis express', desc: '1 mois seulement pour basculer sur le nouveau contrat.' },
-  { icon: '🤝', title: 'Je gère la transition', desc: 'Je m\'occupe de toute la liaison avec votre ancien assureur.' },
-  { icon: '🛡️', title: 'Zéro interruption', desc: 'La nouvelle assurance prend le relais à la minute près.' },
+  { icon: 'circle-check', title: 'Liberté totale', desc: 'Après 1 an, vous êtes libre de partir quand vous voulez.' },
+  { icon: 'calendar-days', title: 'Préavis express', desc: '1 mois seulement pour basculer sur le nouveau contrat.' },
+  { icon: 'handshake', title: 'Je gère la transition', desc: 'Je m\'occupe de toute la liaison avec votre ancien assureur.' },
+  { icon: 'shield-check', title: 'Zéro interruption', desc: 'La nouvelle assurance prend le relais à la minute près.' },
 ];
 
 export default function AssuranceAutoMotoPage() {
@@ -229,7 +230,7 @@ export default function AssuranceAutoMotoPage() {
               {' › '}
               <span>Assurance Auto & Moto</span>
             </nav>
-            <span className="fin-badge ae-hero-badge">🔥 +5% d'augmentation en 2026</span>
+            <span className="fin-badge ae-hero-badge"><Icon name="flame" /> +5% d'augmentation en 2026</span>
             <h1 className="ae-hero-title">Votre assurance auto flambe ?<br />Je remets les compteurs à zéro.</h1>
             <p className="ae-hero-intro">
               Arrêtez de payer la taxe de la fidélité. Je compare les offres du marché, 
@@ -237,15 +238,15 @@ export default function AssuranceAutoMotoPage() {
               à votre place. Un accompagnement <strong>100% dédié à vos intérêts</strong>.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📅 Faire un bilan avec Cindy" className="fin-btn-primary" />
+              <ContactPopup label="Faire un bilan avec Cindy" icon="calendar-days" className="fin-btn-primary" />
               <ScrollButton targetId="section-formules" className="fin-btn-secondary">
-                🔍 Voir les formules
+                <Icon name="search" /> Voir les formules
               </ScrollButton>
             </div>
             <div className="ae-hero-trust">
-              <span>✅ Loi Hamon : je m'occupe de résilier</span>
-              <span>🛡️ Courtage 100% indépendant</span>
-              <span>⚡ Étude personnalisée sous 24h</span>
+              <span><Icon name="circle-check" /> Loi Hamon : je m'occupe de résilier</span>
+              <span><Icon name="shield-check" /> Courtage 100% indépendant</span>
+              <span><Icon name="zap" /> Étude personnalisée sous 24h</span>
             </div>
           </div>
         </section>
@@ -255,7 +256,7 @@ export default function AssuranceAutoMotoPage() {
           <div className="ae-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.value}</strong>
+                <strong><Icon name={c.icon} /> {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -295,8 +296,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce qui grignote votre budget
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Ce qui grignote votre budget
               </span>
               <h2>Pourquoi vous payez certainement<br />votre assurance trop cher</h2>
               <p>
@@ -307,8 +308,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                    <div className="crowd-avantage-icon">{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b' }}>
+                    <div className="crowd-avantage-icon"><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -350,7 +351,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-moto" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Spécial Motards 🏍️</span>
+              <span className="fin-badge">Spécial Motards <Icon name="motorbike" /></span>
               <h2>Assurance moto : on ajuste<br />selon la cylindrée et l'usage</h2>
               <p>
                 Parce qu'on n'assure pas un scooter 125cc comme une routière de 1000cc.
@@ -376,8 +377,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-hamon" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                ✅ Loi Hamon — Je m'occupe de tout
+              <span className="fin-badge" style={{ background: 'rgba(62,127,104,0.1)', color: '#3e7f68' }}>
+                <Icon name="circle-check" /> Loi Hamon — Je m'occupe de tout
               </span>
               <h2>Changer d'assureur<br />n'a jamais été aussi simple</h2>
               <p>
@@ -390,7 +391,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="am-hamon-grid">
               {LOI_HAMON_POINTS.map(p => (
                 <div key={p.title} className="am-hamon-card">
-                  <div className="am-hamon-icon">{p.icon}</div>
+                  <div className="am-hamon-icon"><Icon name={p.icon} /></div>
                   <div className="am-hamon-title">{p.title}</div>
                   <div className="am-hamon-desc">{p.desc}</div>
                 </div>
@@ -473,7 +474,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>          
           </div>
         </section>
@@ -490,35 +491,35 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               {[
                 {
                   href: '/assurer/assurance-habitation',
-                  icon: '🏠',
+                  icon: 'house',
                   title: 'Assurance Habitation',
                   sub: 'Protéger votre cocon',
                   text: 'Comme pour l\'auto, les tarifs augmentent. Faisons le point pour protéger vos biens au prix juste.',
-                  badge: '🔍 Audit de votre contrat',
-                  pillBg: 'rgba(217,119,6,0.08)',
-                  pillColor: '#d97706',
-                  pillBorder: 'rgba(217,119,6,0.2)',
+                  badge: 'Audit de votre contrat',
+                  pillBg: 'rgba(168,122,44,0.08)',
+                  pillColor: '#a87a2c',
+                  pillBorder: 'rgba(168,122,44,0.2)',
                   featured: false,
                 },
                 {
                   href: '/assurer/assurance-emprunteur',
-                  icon: '🛡️',
+                  icon: 'shield-check',
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
                   text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
-                  badge: '💰 Économisez jusqu\'à 15 000€',
-                  pillBg: 'rgba(201,169,110,0.12)',
+                  badge: 'Économisez jusqu\'à 15 000€',
+                  pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
-                  pillBorder: 'rgba(201,169,110,0.3)',
+                  pillBorder: 'rgba(107,182,155,0.3)',
                   featured: true,
                 },
                 {
                   href: '/investir/per',
-                  icon: '🏖️',
+                  icon: 'tree-palm',
                   title: 'Plan Épargne Retraite',
                   sub: 'Défiscaliser utile',
                   text: 'Vos économies d\'assurance réinvesties dans votre retraite, avec une déduction d\'impôt à la clé.',
-                  badge: '💡 Déduction fiscale immédiate',
+                  badge: 'Déduction fiscale immédiate',
                   pillBg: 'rgba(45,106,95,0.1)',
                   pillColor: 'var(--orizia-primary)',
                   pillBorder: 'rgba(45,106,95,0.25)',
@@ -535,7 +536,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       {s.badge}
                     </span>
                   )}
-                  <div className="fin-card-icon">{s.icon}</div>
+                  <div className="fin-card-icon"><Icon name={s.icon} /></div>
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
@@ -554,7 +555,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="📞 Contactez moi" className="fin-btn-primary" />
+              <ContactPopup label="Contactez moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée

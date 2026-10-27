@@ -1,33 +1,25 @@
-import { DM_Sans } from 'next/font/google';
-
 import './globals.css';
-import './refonte-test.css';
+import './design-system.css';
+import './design-home.css';
 
-import { Analytics } from "@vercel/analytics/next"
-
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SimulationConfigProvider } from '@/components/SimulationConfigProvider';
-
-
-
-const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400','500','600','700','800','900'] });
-
-
+import { fontSans, fontDisplay } from '@/lib/fonts';
 
 export const metadata = {
-
   title: 'Orizia Courtage – Expert en Financement & Stratégie Patrimoniale',
-
   description: 'Concrétisez vos projets immobiliers et développez votre capital.',
+};
 
+export const viewport = {
+  themeColor: '#1b1d1a',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
-      <head>
-      </head>
-      <body className={dmSans.className}>
+    <html lang="fr" className={`${fontSans.variable} ${fontDisplay.variable}`}>
+      <body className={fontSans.className}>
         <SimulationConfigProvider>{children}</SimulationConfigProvider>
         <Analytics />
         <SpeedInsights />

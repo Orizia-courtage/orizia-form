@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 const RISQUES = [
   {
     id: 'capital',
     label: 'Perte en capital',
-    icon: '📉',
+    icon: 'trending-down',
     sans: 75,
     avec: 20,
     desc_sans: 'La crise de 2022–2024 sur les SCPI de bureaux a vu certaines valeurs de parts chuter de 15 à 20%. Sans analyse experte du portefeuille et de la solidité de la société de gestion, vous investissez à l\'aveugle.',
@@ -15,7 +16,7 @@ const RISQUES = [
   {
     id: 'liquidite',
     label: 'Risque de liquidité',
-    icon: '🔒',
+    icon: 'lock',
     sans: 70,
     avec: 15,
     desc_sans: 'Les SCPI ne sont pas des placements liquides. Investir des capitaux dont vous pourriez avoir besoin à court terme peut vous forcer à vendre en marché dégradé — au pire moment.',
@@ -24,7 +25,7 @@ const RISQUES = [
   {
     id: 'locatif',
     label: 'Risque locatif',
-    icon: '🏢',
+    icon: 'building-2',
     sans: 55,
     avec: 12,
     desc_sans: 'Des locataires défaillants, des vacances prolongées ou un secteur en difficulté (bureaux, commerce) peuvent réduire les revenus distribués. Sans analyse sectorielle, vous subissez ces cycles.',
@@ -33,7 +34,7 @@ const RISQUES = [
   {
     id: 'fiscal',
     label: 'Fiscalité mal optimisée',
-    icon: '🧾',
+    icon: 'receipt',
     sans: 80,
     avec: 10,
     desc_sans: 'Sans optimisation, les revenus SCPI peuvent être taxés jusqu\'à 63,6% pour un TMI à 45%. Le rendement brut affiché et le rendement net dans votre poche sont deux réalités très différentes.',
@@ -67,13 +68,13 @@ export default function SCPIRisqueJauge() {
           onClick={() => setMode('sans')}
           className={`rj-toggle-btn${!isAvec ? ' rj-toggle-btn--active rj-toggle-btn--bad' : ''}`}
         >
-          ❌ Sans accompagnement
+          <Icon name="circle-x" /> Sans accompagnement
         </button>
         <button
           onClick={() => setMode('avec')}
           className={`rj-toggle-btn${isAvec ? ' rj-toggle-btn--active rj-toggle-btn--good' : ''}`}
         >
-          ✅ Avec Orizia
+          <Icon name="circle-check" /> Avec Orizia
         </button>
       </div>
 
@@ -81,8 +82,8 @@ export default function SCPIRisqueJauge() {
         {RISQUES.map(r => {
           const val = isAvec ? r.avec : r.sans;
           const color = isAvec
-            ? val < 20 ? '#16a34a' : '#d97706'
-            : val > 60 ? '#dc2626' : '#d97706';
+            ? val < 20 ? '#3e7f68' : '#a87a2c'
+            : val > 60 ? '#b0473b' : '#a87a2c';
 
           return (
             <div
@@ -91,7 +92,7 @@ export default function SCPIRisqueJauge() {
               onClick={() => setSelected(selected === r.id ? null : r.id)}
             >
               <div className="rj-jauge-header">
-                <span className="rj-jauge-icon">{r.icon}</span>
+                <span className="rj-jauge-icon"><Icon name={r.icon} /></span>
                 <span className="rj-jauge-label">{r.label}</span>
                 <div className="rj-jauge-bar-wrap">
                   <Jauge value={val} color={color} />
@@ -101,8 +102,8 @@ export default function SCPIRisqueJauge() {
               </div>
               {selected === r.id && (
                 <div className="rj-jauge-desc">
-                  <span style={{ color: isAvec ? '#16a34a' : '#dc2626', fontWeight: 800, marginRight: 6 }}>
-                    {isAvec ? '🛡️ Comment je réduis ce risque :' : '⚠️ Le problème :'}
+                  <span style={{ color: isAvec ? '#3e7f68' : '#b0473b', fontWeight: 800, marginRight: 6 }}>
+                    {isAvec ? 'Comment je réduis ce risque :' : 'Le problème :'}
                   </span>
                   {isAvec ? r.desc_avec : r.desc_sans}
                 </div>

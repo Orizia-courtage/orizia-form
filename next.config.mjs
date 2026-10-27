@@ -11,7 +11,7 @@ const nextConfig = {
     },
   },
   images: {
-    qualities: [75],
+    qualities: [75, 80],
     minimumCacheTTL: 31536000,
   },
   compress: true,

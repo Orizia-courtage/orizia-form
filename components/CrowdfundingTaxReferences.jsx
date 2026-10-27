@@ -19,11 +19,11 @@ export function CrowdfundingTaxParagraph() {
 
 export function CrowdfundingTaxBreakdown() {
   return <div className="crowd-fiscalite-grid">
-    <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
+    <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(107,182,155,0.4)' }}>
       <strong><CrowdfundingTaxValue part="pfnl" /></strong><span>Impôt sur le revenu</span>
     </div>
     <div className="crowd-fiscalite-plus">+</div>
-    <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(201,169,110,0.4)' }}>
+    <div className="crowd-fiscalite-item" style={{ background: 'var(--orizia-gold-light)', border: '1px solid rgba(107,182,155,0.4)' }}>
       <strong><CrowdfundingTaxValue part="social" /></strong><span>Prélèvements sociaux</span>
     </div>
     <div className="crowd-fiscalite-plus">=</div>

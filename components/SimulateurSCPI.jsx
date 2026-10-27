@@ -4,6 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 const fmt    = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const fmtDec = (n) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 
@@ -40,14 +41,14 @@ export default function SimulateurSCPI() {
           className={`scpi-simu-mode${mode === 'capital' ? ' active' : ''}`}
           onClick={() => setMode('capital')}
         >
-          <span className="scpi-simu-mode-icon">🏦</span>
+          <span className="scpi-simu-mode-icon"><Icon name="landmark" /></span>
           <span>Je dispose d'un capital<br /><strong>à investir maintenant</strong></span>
         </button>
         <button
           className={`scpi-simu-mode${mode === 'mensuel' ? ' active' : ''}`}
           onClick={() => setMode('mensuel')}
         >
-          <span className="scpi-simu-mode-icon">🐷</span>
+          <span className="scpi-simu-mode-icon"><Icon name="piggy-bank" /></span>
           <span>Je n'ai pas de capital mais<br /><strong>je peux épargner chaque mois</strong></span>
         </button>
       </div>
@@ -179,7 +180,7 @@ export default function SimulateurSCPI() {
 
           {/* Note pédagogique */}
           <div className="simu-note">
-            💡 Ces taux sont représentatifs du marché SCPI en 2026.
+            <Icon name="lightbulb" /> Ces taux sont représentatifs du marché SCPI en 2026.
             La SCPI sélectionnée et la structure fiscale choisie changeront le rendement net réel.
           </div>
         </div>
@@ -263,7 +264,7 @@ export default function SimulateurSCPI() {
             </>
           )}
 
-          <ContactPopup label="📅 Affiner ma simulation avec Cindy" className="fin-btn-primary scpi-simu-cta" />
+          <ContactPopup label="Affiner ma simulation avec Cindy" icon="calendar-days" className="fin-btn-primary scpi-simu-cta" />
 
           <p className="simu-disclaimer">
             Simulation indicative basée sur un taux de distribution moyen. Les performances

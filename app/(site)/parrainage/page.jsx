@@ -2,6 +2,7 @@
 import ParrainageForm from '@/components/ParrainageForm';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Programme de Parrainage Orizia : jusqu\'à 200€ | Orizia Courtage',
@@ -122,7 +123,7 @@ export default function ParrainagePage() {
         {/* ── HERO ── */}
         <section className="parrainage-hero">
           <div className="parrainage-hero-inner">
-            <span className="parrainage-badge">🎁 Programme de recommandation</span>
+            <span className="parrainage-badge"><Icon name="gift" /> Programme de recommandation</span>
             <h1>
               Vous êtes satisfait de mon accompagnement ?<br />
               Parlez-en autour de vous.
@@ -143,7 +144,7 @@ export default function ParrainagePage() {
             </div>
             <div className="rewards-grid">
               <div className="reward-card card-financement">
-                <div className="reward-icon">🏠</div>
+                <div className="reward-icon"><Icon name="house" /></div>
                 <h3>Financement</h3>
                 <ul className="reward-list">
                   <li>• Crédit immobilier</li>
@@ -153,7 +154,7 @@ export default function ParrainagePage() {
                 <div className="reward-badge badge-financement">Pour le parrain : 200 €</div>
               </div>
               <div className="reward-card card-assurance">
-                <div className="reward-icon">📋</div>
+                <div className="reward-icon"><Icon name="clipboard-list" /></div>
                 <h3>Assurance de prêt</h3>
                 <ul className="reward-list">
                   <li>• Délégation d'assurance emprunteur</li>
@@ -163,7 +164,7 @@ export default function ParrainagePage() {
                 </div>
               </div>
               <div className="reward-card card-placement">
-                <div className="reward-icon">🛡️</div>
+                <div className="reward-icon"><Icon name="shield-check" /></div>
                 <h3>Placements & Autres</h3>
                 <ul className="reward-list">
                   <li>• SCPI / PER / Assurance Vie</li>
@@ -210,7 +211,7 @@ export default function ParrainagePage() {
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="✉️ Poser une autre question à Cindy" className="fin-btn-secondary"/>
+              <ContactPopup label="Poser une autre question à Cindy" icon="mail" className="fin-btn-secondary"/>
             </div>
           </div>
         </section>

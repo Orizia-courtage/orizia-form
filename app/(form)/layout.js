@@ -1,9 +1,9 @@
-﻿import '../globals.css';
+import '../globals.css';
 import '../fontawesome.css';
-import { DM_Sans } from 'next/font/google';
+import '../design-system.css';
+import { fontSans, fontDisplay } from '@/lib/fonts';
 import ContactWidget from '@/components/ContactWidget';
 
-const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400','500','600','700','800','900'] });
 
 export const metadata = {
   title: 'Regroupement de crédits — Orizia Courtage',
@@ -12,8 +12,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
-      <body className={dmSans.className}>
+    <html lang="fr" className={`${fontSans.variable} ${fontDisplay.variable}`}>
+      <body className={fontSans.className}>
         {children}
         <ContactWidget />
       </body>

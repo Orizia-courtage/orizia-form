@@ -4,6 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 export default function SimulateurCrowdfunding() {
   const { crowdfunding: crowdfundingConfig } = useSimulationConfig();
   const PRESETS = crowdfundingConfig.presets;
@@ -129,7 +130,7 @@ export default function SimulateurCrowdfunding() {
 
         {/* Note pédagogique */}
         <div className="simu-note">
-          💡 Ces taux sont représentatifs du marché en 2026.
+          <Icon name="lightbulb" /> Ces taux sont représentatifs du marché en 2026.
           Je sélectionne uniquement des projets dont j'ai vérifié le promoteur.
         </div>
       </div>
@@ -137,7 +138,7 @@ export default function SimulateurCrowdfunding() {
       {/* ── RÉSULTATS ── */}
       <div className="simu-results">
         <div className="simu-results-header">
-          <span>📊</span>
+          <span><Icon name="chart-column" /></span>
           <h3>Simulation crowdfunding immobilier</h3>
         </div>
 
@@ -181,18 +182,18 @@ export default function SimulateurCrowdfunding() {
         {/* Comparaison Livret A */}
         <div className="simu-result-tag">
           <div>
-            💡 Soit <strong>{rendementNet}% net/an</strong> équivalent
+            <Icon name="lightbulb" /> Soit <strong>{rendementNet}% net/an</strong> équivalent
             — contre ~{crowdfundingConfig.livretANetRate}% pour un livret A
           </div>
           {surplusVsLivret > 0 && (
             <span className="simu-vs-surplus">
-              📈 +{fmt(surplusVsLivret)} de plus qu'un livret A sur la même durée
+              <Icon name="trending-up" /> +{fmt(surplusVsLivret)} de plus qu'un livret A sur la même durée
             </span>
           )}
         </div>
 
         {/* CTA */}
-        <ContactPopup label="📅 Être accompagnée par Cindy pour investir" className="fin-btn-primary simu-cta" />
+        <ContactPopup label="Être accompagnée par Cindy pour investir" icon="calendar-days" className="fin-btn-primary simu-cta" />
 
         <p className="simu-disclaimer">
           Simulation indicative. Les rendements passés ne préjugent pas des performances futures.

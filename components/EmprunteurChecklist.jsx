@@ -3,41 +3,42 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const CRITERES = [
   {
     id: 'bancaire',
     label: 'Mon assurance est celle proposée par ma banque',
     desc: 'Les contrats groupe bancaires sont en moyenne 2 à 3 fois plus chers que les contrats individuels à garanties équivalentes.',
     required: true,
-    signal: '🏦 Contrat bancaire',
+    signal: 'Contrat bancaire',
   },
   {
     id: 'anciennete',
     label: 'Je n\'ai pas changé d\'assurance depuis plus d\'un an',
     desc: 'Depuis la loi Lemoine (2022), vous pouvez changer à tout moment. Chaque mois d\'attente, c\'est de l\'argent perdu.',
     required: true,
-    signal: '⏳ Changement possible',
+    signal: 'Changement possible',
   },
   {
     id: 'capital',
     label: 'Mon capital restant dû est supérieur à 100 000€',
     desc: 'Plus le capital est élevé, plus l\'économie est spectaculaire. Sur 200 000€ à 30 ans, l\'écart peut dépasser 15 000€.',
     required: false,
-    signal: '💰 Fort potentiel d\'économie',
+    signal: 'Fort potentiel d\'économie',
   },
   {
     id: 'duree',
     label: 'Il me reste plus de 10 ans à rembourser',
     desc: 'L\'économie se calcule sur la durée restante. Plus il reste d\'années, plus le gain est important.',
     required: false,
-    signal: '📅 Horizon long',
+    signal: 'Horizon long',
   },
   {
     id: 'sante',
     label: 'Mon état de santé est bon (pas de pathologie lourde)',
     desc: 'Un bon profil de santé permet d\'accéder aux meilleurs taux du marché. La loi Lemoine supprime même le questionnaire médical sous conditions.',
     required: false,
-    signal: '🩺 Profil favorable',
+    signal: 'Profil favorable',
   },
 ];
 
@@ -54,7 +55,7 @@ export default function EmprunteurChecklist() {
   return (
     <div className="icl-wrap">
       <div className="icl-header">
-        <span className="fin-badge">💰 Auto-évaluation</span>
+        <span className="fin-badge"><Icon name="coins" /> Auto-évaluation</span>
         <h3 className="icl-title">Suis-je en train de payer trop cher ?</h3>
         <p className="icl-subtitle">Cochez les situations qui vous correspondent.</p>
       </div>
@@ -64,14 +65,14 @@ export default function EmprunteurChecklist() {
           className="icl-progress-bar"
           style={{
             width: `${pct}%`,
-            background: done >= 2 ? '#dc2626' : 'var(--orizia-primary)',
+            background: done >= 2 ? '#b0473b' : 'var(--orizia-primary)',
           }}
         />
       </div>
       <div className="icl-progress-label">
         <span>{done}/{total} critères cochés</span>
         {done >= 2 && (
-          <span style={{ color: '#dc2626', fontWeight: 800 }}>
+          <span style={{ color: '#b0473b', fontWeight: 800 }}>
             Analyse urgente recommandée
           </span>
         )}
@@ -85,15 +86,15 @@ export default function EmprunteurChecklist() {
             className={`icl-critere${checked[c.id] ? ' icl-critere--checked' : ''}`}
           >
             <div className="icl-checkbox">
-              {checked[c.id] ? '✅' : <span className="icl-checkbox-empty" />}
+              {checked[c.id] ? <Icon name="circle-check" /> : <span className="icl-checkbox-empty" />}
             </div>
             <div className="icl-critere-content">
               <div className="icl-critere-label">
                 {c.label}
                 <span style={{
                   fontSize: '0.65rem', fontWeight: 700,
-                  color: checked[c.id] ? '#dc2626' : 'var(--orizia-dark)',
-                  background: checked[c.id] ? 'rgba(220,38,38,0.08)' : 'rgba(26,61,53,0.06)',
+                  color: checked[c.id] ? '#b0473b' : 'var(--orizia-dark)',
+                  background: checked[c.id] ? 'rgba(176,71,59,0.08)' : 'rgba(26,61,53,0.06)',
                   borderRadius: 4, padding: '1px 6px', marginLeft: 8,
                 }}>
                   {c.signal}
@@ -108,13 +109,13 @@ export default function EmprunteurChecklist() {
       {done >= 2 && (
         <div
           className={`icl-result${allRequired ? ' icl-result--ready' : ' icl-result--partial'}`}
-          style={allRequired ? { borderColor: '#dc2626', background: 'rgba(220,38,38,0.04)' } : {}}
+          style={allRequired ? { borderColor: '#b0473b', background: 'rgba(176,71,59,0.04)' } : {}}
         >
           {allRequired ? (
             <>
-              <div className="icl-result-icon">🚨</div>
+              <div className="icl-result-icon"><Icon name="siren" /></div>
               <div>
-                <strong style={{ color: '#dc2626' }}>
+                <strong style={{ color: '#b0473b' }}>
                   Vous payez très probablement trop cher
                 </strong>
                 <p>
@@ -122,19 +123,19 @@ export default function EmprunteurChecklist() {
                   votre économie exacte et je vous montre le contrat qui remplace le vôtre
                   à garanties identiques — ou meilleures.
                 </p>
-                <ContactPopup label="📅 Calculer mon économie" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Calculer mon économie" icon="calendar-days" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
             <>
-              <div className="icl-result-icon">💬</div>
+              <div className="icl-result-icon"><Icon name="message-circle" /></div>
               <div>
                 <strong>Des économies sont probablement possibles</strong>
                 <p>
                   Votre profil présente des opportunités. Un audit rapide permet de
                   chiffrer précisément ce que vous pouvez récupérer.
                 </p>
-                <ContactPopup label="📅 Faire chiffrer mes économies" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Faire chiffrer mes économies" icon="calendar-days" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

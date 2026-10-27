@@ -3,18 +3,19 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const TRANCHES = [
   {
     id: 'avant4',
     label: '0–4 ans',
-    icon: '⏳',
+    icon: 'hourglass',
     badge: null,
-    color: '#dc2626',
-    bg: 'rgba(220,38,38,0.05)',
-    border: 'rgba(220,38,38,0.2)',
-    tag: '⚠️ Peu favorable',
-    tagColor: '#dc2626',
-    tagBg: 'rgba(220,38,38,0.08)',
+    color: '#b0473b',
+    bg: 'rgba(176,71,59,0.05)',
+    border: 'rgba(176,71,59,0.2)',
+    tag: 'Peu favorable',
+    tagColor: '#b0473b',
+    tagBg: 'rgba(176,71,59,0.08)',
     titre: 'Avant 4 ans',
     taux: '31,4%',
     taux_label: 'sur les gains',
@@ -28,14 +29,14 @@ const TRANCHES = [
   {
     id: 'entre4et8',
     label: '4–8 ans',
-    icon: '📅',
+    icon: 'calendar-days',
     badge: null,
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.05)',
-    border: 'rgba(217,119,6,0.2)',
-    tag: '⏳ En attente',
-    tagColor: '#d97706',
-    tagBg: 'rgba(217,119,6,0.08)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.05)',
+    border: 'rgba(168,122,44,0.2)',
+    tag: 'En attente',
+    tagColor: '#a87a2c',
+    tagBg: 'rgba(168,122,44,0.08)',
     titre: 'De 4 à 8 ans',
     taux: '31,4%',
     taux_label: 'sur les gains',
@@ -49,14 +50,14 @@ const TRANCHES = [
   {
     id: 'apres8',
     label: '8 ans +',
-    icon: '⭐',
+    icon: 'star',
     badge: 'Optimal',
-    color: '#16a34a',
-    bg: 'rgba(22,163,74,0.05)',
-    border: 'rgba(22,163,74,0.2)',
-    tag: '✅ Fiscalité optimale',
-    tagColor: '#16a34a',
-    tagBg: 'rgba(22,163,74,0.08)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.05)',
+    border: 'rgba(62,127,104,0.2)',
+    tag: 'Fiscalité optimale',
+    tagColor: '#3e7f68',
+    tagBg: 'rgba(62,127,104,0.08)',
     titre: 'Après 8 ans',
     taux: '7,5%',
     taux_label: 'après abattement',
@@ -72,25 +73,25 @@ const TRANCHES = [
 
 const TRANSMISSION = [
   {
-    icon: '👶',
+    icon: 'baby',
     label: 'Versements avant 70 ans',
     value: '152 500€',
     desc: 'par bénéficiaire, exonérés de droits de succession',
     color: 'var(--orizia-primary)',
   },
   {
-    icon: '👴',
+    icon: 'user-round',
     label: 'Versements après 70 ans',
     value: '30 500€',
     desc: 'abattement global sur les primes (gains toujours exonérés)',
-    color: '#d97706',
+    color: '#a87a2c',
   },
   {
-    icon: '💑',
+    icon: 'heart-handshake',
     label: 'Conjoint / PACS',
     value: '100%',
     desc: 'exonération totale, sans plafond',
-    color: '#16a34a',
+    color: '#3e7f68',
   },
 ];
 
@@ -113,7 +114,7 @@ export default function AVFiscalite() {
             {t.id === 'apres8' && (
               <span className="avfis-btn-ribbon" style={{ background: t.color }}>Optimal</span>
             )}
-            <span className="avfis-btn-icon">{t.icon}</span>
+            <span className="avfis-btn-icon"><Icon name={t.icon} /></span>
             <span className="avfis-btn-label">{t.label}</span>
           </button>
         ))}
@@ -152,7 +153,7 @@ export default function AVFiscalite() {
           </div>
 
           <div className="avfis-note">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{tranche.note}</p>
           </div>
         </div>
@@ -161,12 +162,12 @@ export default function AVFiscalite() {
       {/* Bloc transmission */}
       <div className="avfis-transmission">
         <div className="avfis-transmission-title">
-          🎁 Transmission : l'atout que votre banque ne met jamais en avant
+          <Icon name="gift" /> Transmission : l'atout que votre banque ne met jamais en avant
         </div>
         <div className="avfis-transmission-grid">
           {TRANSMISSION.map(t => (
             <div key={t.label} className="avfis-transm-card" style={{ borderTop: `3px solid ${t.color}` }}>
-              <div className="avfis-transm-icon">{t.icon}</div>
+              <div className="avfis-transm-icon"><Icon name={t.icon} /></div>
               <div className="avfis-transm-label">{t.label}</div>
               <div className="avfis-transm-value" style={{ color: t.color }}>{t.value}</div>
               <div className="avfis-transm-desc">{t.desc}</div>
@@ -174,14 +175,14 @@ export default function AVFiscalite() {
           ))}
         </div>
         <div className="crowd-risques-note" style={{ marginTop: 16 }}>
-          💡 <strong>Exemple concret :</strong> avec 2 enfants bénéficiaires, vous pouvez transmettre jusqu'à{' '}
+          <Icon name="lightbulb" /> <strong>Exemple concret :</strong> avec 2 enfants bénéficiaires, vous pouvez transmettre jusqu'à{' '}
           <strong>305 000€ totalement exonérés</strong> de droits de succession via votre assurance vie.
           Aucun autre placement ne permet ça.
         </div>
       </div>
 
       <div style={{ textAlign: 'center', marginTop: 28 }}>
-      <ContactPopup label="📅 Optimiser ma fiscalité avec Cindy" className="fin-btn-primary" />
+      <ContactPopup label="Optimiser ma fiscalité avec Cindy" icon="calendar-days" className="fin-btn-primary" />
       </div>
 
     </div>

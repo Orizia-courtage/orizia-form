@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import QRCode from 'qrcode';
 import ContactCaptcha from './ContactCaptcha';
 
+import Icon from '@/components/Icon';
 // Icônes SVG inline — remplace Font Awesome pour ne pas bloquer le rendu
 const IconXmark = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -30,21 +31,21 @@ const IconLock = () => (
 
 const ACTIONS = [
   {
-    icon: '📅',
+    icon: 'calendar-days',
     label: 'Prendre rendez-vous',
     sub: 'Créneau en visio ou téléphone',
     type: 'calendar',
-    color: 'var(--orizia-accent)',
+    color: '#1b1d1a',
   },
   {
-    icon: '✉️',
+    icon: 'mail',
     label: "M'écrire un message",
     sub: 'Je vous réponds sous 24h',
     type: 'form',
-    color: 'var(--orizia-gold)',
+    color: '#3e7f68',
   },
   {
-    icon: '💬',
+    icon: 'message-circle',
     label: 'WhatsApp',
     sub: 'Réponse le jour même',
     href: 'https://wa.me/33777259706',
@@ -52,30 +53,30 @@ const ACTIONS = [
     color: '#25D366',
   },
   {
-    icon: '📞',
+    icon: 'phone',
     label: 'Appeler',
     sub: 'Lun–Ven 9h–18h',
     href: 'tel:+33777259706',
     type: 'external',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     desktop: { value: '07 77 25 97 06', copyLabel: 'Copier le numéro', openLabel: "Ouvrir l’application d’appel" },
   },
   {
-    icon: '📧',
+    icon: 'mail',
     label: 'Envoyer un e-mail',
     sub: 'Réponse sous 24h',
     href: 'mailto:cindy.urbansky@orizia-courtage.fr',
     type: 'external',
-    color: '#6366f1',
+    color: '#3e7f68',
     desktop: { value: 'cindy.urbansky@orizia-courtage.fr', copyLabel: "Copier l’adresse e-mail", openLabel: "Ouvrir l’application e-mail" },
   },
   {
-    icon: '💬',
+    icon: 'message-circle',
     label: 'SMS',
     sub: 'Message rapide',
     href: 'sms:+33777259706',
     type: 'external',
-    color: '#0ea5e9',
+    color: '#6bb69b',
     desktop: { value: '07 77 25 97 06', copyLabel: 'Copier le numéro', openLabel: "Ouvrir l’application de messages" },
   },
 ];
@@ -86,7 +87,7 @@ const EMPTY_FORM = {
 };
 
 const ERRORS_MSG = {
-  prenom:      'Votre prénom nous permettra de personnaliser notre réponse 😊',
+  prenom:      'Votre prénom nous permettra de personnaliser notre réponse',
   nom:         'Votre nom est nécessaire pour traiter votre demande.',
   email:       'Un email valide est indispensable pour vous répondre.',
   typedemande: 'Indiquez-nous votre besoin pour mieux vous orienter.',
@@ -107,12 +108,12 @@ const Field = ({ name, errors, children }) => (
   <div className="cp-field">
     {children}
     {errors[name] && (
-      <span className="cp-field-error">⚠️ {errors[name]}</span>
+      <span className="cp-field-error"><Icon name="triangle-alert" /> {errors[name]}</span>
     )}
   </div>
 );
 
-export default function ContactPopup({ label = "✉️ M'envoyer un message", className = 'fin-btn-secondary' }) {
+export default function ContactPopup({ label = "M'envoyer un message", className = 'fin-btn-secondary', icon = null }) {
   const [open, setOpen]           = useState(false);
   const [showCal, setShowCal]     = useState(false);
   const [showForm, setShowForm]   = useState(false);
@@ -158,7 +159,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
 
   useEffect(() => {
     if (!selectedDesktopAction) { setQrCode(''); return; }
-    QRCode.toDataURL(selectedDesktopAction.href, { width: 220, margin: 1, color: { dark: '#432828', light: '#ffffff' } })
+    QRCode.toDataURL(selectedDesktopAction.href, { width: 220, margin: 1, color: { dark: '#1b1d1a', light: '#ffffff' } })
       .then(setQrCode)
       .catch(() => setQrCode(''));
   }, [selectedDesktopAction]);
@@ -247,7 +248,8 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
           aria-expanded={open}
           aria-haspopup="true"
         >
-          {label}
+          {icon ? <Icon name={icon} className="cp-btn-icon" /> : null}
+          <span className="cp-btn-label">{label}</span>
           <svg className="cp-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
             <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -277,11 +279,11 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                 <button className="cp-detail-back" type="button" onClick={() => setSelectedDesktopAction(null)}>
                   <IconArrowLeft /> Retour aux moyens de contact
                 </button>
-                <span className="cp-detail-icon" style={{ background: selectedDesktopAction.color + '18', color: selectedDesktopAction.color }}>{selectedDesktopAction.icon}</span>
+                <span className="cp-detail-icon" style={{ background: selectedDesktopAction.color + '18', color: selectedDesktopAction.color }}><Icon name={selectedDesktopAction.icon} /></span>
                 <h2>{selectedDesktopAction.label}</h2>
                 <p className="cp-detail-value">{selectedDesktopAction.desktop.value}</p>
                 <div className="cp-detail-buttons">
-                  <button type="button" onClick={() => copyContact(selectedDesktopAction.desktop.value, selectedDesktopAction.label)}>{copyFeedback === selectedDesktopAction.label ? 'Copié ✓' : selectedDesktopAction.desktop.copyLabel}</button>
+                  <button type="button" onClick={() => copyContact(selectedDesktopAction.desktop.value, selectedDesktopAction.label)}>{copyFeedback === selectedDesktopAction.label ? 'Copié' : selectedDesktopAction.desktop.copyLabel}</button>
                   <a href={selectedDesktopAction.href}>{selectedDesktopAction.desktop.openLabel}</a>
                 </div>
                 {qrCode && <><img className="cp-qr-code" src={qrCode} alt={`QR code pour ${selectedDesktopAction.label.toLowerCase()}`} /><p className="cp-qr-help">Scannez ce QR code avec l’appareil photo de votre téléphone.</p></>}
@@ -297,7 +299,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                   return (
                     <button key={a.label} type="button" className="cp-action" role="menuitem"
                       onClick={() => { setOpen(false); setShowCal(true); }}>
-                      <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span>
+                      <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}><Icon name={a.icon} /></span>
                       <span className="cp-action-text"><strong>{a.label}</strong><span>{a.sub}</span></span>
                       <IconArrowRight className="cp-action-arrow" />
                     </button>
@@ -307,19 +309,19 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                   return (
                     <button key={a.label} type="button" className="cp-action" role="menuitem"
                       onClick={() => { setOpen(false); setShowForm(true); }}>
-                      <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span>
+                      <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}><Icon name={a.icon} /></span>
                       <span className="cp-action-text"><strong>{a.label}</strong><span>{a.sub}</span></span>
                       <IconArrowRight className="cp-action-arrow" />
                     </button>
                   );
                 }
-                if (isDesktop && a.desktop) return <button key={a.label} type="button" className="cp-action" role="menuitem" onClick={() => setSelectedDesktopAction(a)}><span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span><span className="cp-action-text"><strong>{a.label}</strong><span>{a.desktop.value}</span></span><IconArrowRight className="cp-action-arrow" /></button>;
+                if (isDesktop && a.desktop) return <button key={a.label} type="button" className="cp-action" role="menuitem" onClick={() => setSelectedDesktopAction(a)}><span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}><Icon name={a.icon} /></span><span className="cp-action-text"><strong>{a.label}</strong><span>{a.desktop.value}</span></span><IconArrowRight className="cp-action-arrow" /></button>;
                 return (
                   <a key={a.label} href={a.href} className="cp-action" role="menuitem"
                     target={a.href.startsWith('http') ? '_blank' : undefined}
                     rel={a.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     onClick={() => setOpen(false)}>
-                    <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}>{a.icon}</span>
+                    <span className="cp-action-icon" style={{ background: a.color + '18', color: a.color }}><Icon name={a.icon} /></span>
                     <span className="cp-action-text"><strong>{a.label}</strong><span>{a.sub}</span></span>
                     <IconArrowRight className="cp-action-arrow" />
                   </a>
@@ -360,7 +362,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
             <div className="cp-form-body">
               {sent ? (
                 <div className="cp-success">
-                  <div className="cp-success-icon">✅</div>
+                  <div className="cp-success-icon"><Icon name="circle-check" /></div>
                   <strong>Message envoyé !</strong>
                   <p>Je vous réponds dans les plus brefs délais.</p>
                   <button className="cp-success-close" onClick={closeAll}>Fermer</button>
@@ -370,12 +372,12 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
 
                   {serverError && (
                     <div className="cp-form-banner cp-form-banner--error">
-                      ❌ {serverError}
+                      <Icon name="circle-x" /> {serverError}
                     </div>
                   )}
                   {submitted && Object.keys(errors).length > 0 && (
                     <div className="cp-form-banner cp-form-banner--warn">
-                      ⚠️ Quelques informations manquent pour traiter votre demande.
+                      <Icon name="triangle-alert" /> Quelques informations manquent pour traiter votre demande.
                     </div>
                   )}
 
@@ -383,19 +385,19 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                     <Field name="prenom" errors={errors}>
                       <input placeholder="Prénom *" value={form.prenom}
                         onChange={e => handleChange('prenom', e.target.value)}
-                        style={{ borderColor: errors.prenom ? '#dc2626' : undefined }} />
+                        style={{ borderColor: errors.prenom ? '#b0473b' : undefined }} />
                     </Field>
                     <Field name="nom" errors={errors}>
                       <input placeholder="Nom *" value={form.nom}
                         onChange={e => handleChange('nom', e.target.value)}
-                        style={{ borderColor: errors.nom ? '#dc2626' : undefined }} />
+                        style={{ borderColor: errors.nom ? '#b0473b' : undefined }} />
                     </Field>
                   </div>
 
                   <Field name="email" errors={errors}>
                     <input type="email" placeholder="Email *" value={form.email}
                       onChange={e => handleChange('email', e.target.value)}
-                      style={{ borderColor: errors.email ? '#dc2626' : undefined }} />
+                      style={{ borderColor: errors.email ? '#b0473b' : undefined }} />
                   </Field>
 
                   <input placeholder="Téléphone" value={form.telephone}
@@ -404,7 +406,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                   <Field name="typedemande" errors={errors}>
                     <select value={form.typedemande}
                       onChange={e => handleChange('typedemande', e.target.value)}
-                      style={{ borderColor: errors.typedemande ? '#dc2626' : undefined }}>
+                      style={{ borderColor: errors.typedemande ? '#b0473b' : undefined }}>
                       <option value="">Type de demande *</option>
                       <option>Crédit immobilier</option>
                       <option>Investissement</option>
@@ -417,7 +419,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                   <Field name="urgence" errors={errors}>
                     <select value={form.urgence}
                       onChange={e => handleChange('urgence', e.target.value)}
-                      style={{ borderColor: errors.urgence ? '#dc2626' : undefined }}>
+                      style={{ borderColor: errors.urgence ? '#b0473b' : undefined }}>
                       <option value="">Urgence *</option>
                       <option>Faible – dans le mois</option>
                       <option>Modérée – dans la semaine</option>
@@ -460,7 +462,7 @@ export default function ContactPopup({ label = "✉️ M'envoyer un message", cl
                 <IconArrowLeft />
               </button>
               <div className="cp-modal-title">
-                <span>📅</span>
+                <span><Icon name="calendar-days" /></span>
                 <div>
                   <strong>Prendre rendez-vous</strong>
                   <span>Choisissez un créneau dans mon agenda</span>

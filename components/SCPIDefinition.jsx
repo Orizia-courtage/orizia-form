@@ -2,37 +2,38 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 const ETAPES_FLUX = [
   {
-    icon: '👤',
+    icon: 'user',
     label: 'Vous investissez',
     desc: 'Dès 1 000€, comptant ou à crédit',
     color: 'var(--orizia-accent)',
   },
   {
-    icon: '🔍',
+    icon: 'search',
     label: 'Cindy sélectionne',
     desc: 'Analyse de 200+ SCPI selon votre profil fiscal',
     color: 'var(--orizia-primary)',
     orizia: true,
   },
   {
-    icon: '🏦',
+    icon: 'landmark',
     label: 'Société de gestion AMF',
     desc: 'Gère l\'intégralité du portefeuille',
-    color: '#7c3aed',
+    color: '#3e7f68',
   },
   {
-    icon: '🏢',
+    icon: 'building-2',
     label: 'Actifs immobiliers',
     desc: 'Bureaux, commerces, santé, logistique…',
-    color: '#d97706',
+    color: '#a87a2c',
   },
   {
-    icon: '💰',
+    icon: 'coins',
     label: 'Vous percevez',
     desc: 'Loyers trimestriels, sans rien gérer',
-    color: '#16a34a',
+    color: '#3e7f68',
   },
 ];
 
@@ -87,13 +88,13 @@ export default function SCPIDefinition() {
           onClick={() => setView('flux')}
           className={`scpidef-toggle-btn${view === 'flux' ? ' scpidef-toggle-btn--active' : ''}`}
         >
-          🔄 Comment ça fonctionne
+          <Icon name="refresh-cw" /> Comment ça fonctionne
         </button>
         <button
           onClick={() => setView('comparatif')}
           className={`scpidef-toggle-btn${view === 'comparatif' ? ' scpidef-toggle-btn--active' : ''}`}
         >
-          ⚖️ SCPI vs Immobilier direct
+          <Icon name="scale" /> SCPI vs Immobilier direct
         </button>
       </div>
 
@@ -106,7 +107,7 @@ export default function SCPIDefinition() {
                 className={`scpidef-flux-step${e.orizia ? ' scpidef-flux-step--orizia' : ''}`}
                 style={{ borderColor: e.color }}
               >
-                <div className="scpidef-flux-icon" style={{ background: e.color }}>{e.icon}</div>
+                <div className="scpidef-flux-icon" style={{ background: e.color }}><Icon name={e.icon} /></div>
                 <div className="scpidef-flux-content">
                   <div className="scpidef-flux-label" style={{ color: e.color }}>{e.label}</div>
                   <div className="scpidef-flux-desc">{e.desc}</div>
@@ -116,7 +117,7 @@ export default function SCPIDefinition() {
                 )}
               </div>
               {i < ETAPES_FLUX.length - 1 && (
-                <div className="scpidef-flux-arrow">↓</div>
+                <div className="scpidef-flux-arrow"><Icon name="arrow-down" /></div>
               )}
             </div>
           ))}
@@ -129,10 +130,10 @@ export default function SCPIDefinition() {
           <div className="scpidef-comp-header">
             <div className="scpidef-comp-header-empty" />
             <div className="scpidef-comp-col-head scpidef-comp-col-head--direct">
-              🏠 Immobilier direct
+              <Icon name="house" /> Immobilier direct
             </div>
             <div className="scpidef-comp-col-head scpidef-comp-col-head--scpi">
-              🏢 SCPI
+              <Icon name="building-2" /> SCPI
               <span className="scpidef-comp-best-badge">Recommandé</span>
             </div>
           </div>
@@ -140,14 +141,14 @@ export default function SCPIDefinition() {
             <div key={row.critere} className={`scpidef-comp-row${i % 2 === 0 ? ' scpidef-comp-row--alt' : ''}`}>
               <div className="scpidef-comp-critere">{row.critere}</div>
               <div className="scpidef-comp-cell scpidef-comp-cell--direct">
-                <span style={{ color: '#dc2626', marginRight: 6 }}>✗</span>
+                <span style={{ color: '#b0473b', marginRight: 6 }}><Icon name="x" /></span>
                 {row.direct}
               </div>
               <div className="scpidef-comp-cell scpidef-comp-cell--scpi">
-                <span style={{ color: row.scpiGood === true ? '#16a34a' : '#d97706', marginRight: 6 }}>
-                  {row.scpiGood === true ? '✓' : '~'}
+                <span style={{ color: row.scpiGood === true ? '#3e7f68' : '#a87a2c', marginRight: 6 }}>
+                  {row.scpiGood === true ? <Icon name="check" /> : '~'}
                 </span>
-                <strong style={{ color: row.scpiGood === true ? 'var(--orizia-primary)' : '#d97706' }}>
+                <strong style={{ color: row.scpiGood === true ? 'var(--orizia-primary)' : '#a87a2c' }}>
                   {row.scpi}
                 </strong>
               </div>
@@ -159,21 +160,21 @@ export default function SCPIDefinition() {
       {/* Points clés */}
       <div className="scpidef-points">
         <div className="scpidef-point">
-          <span className="scpidef-point-icon">🏛️</span>
+          <span className="scpidef-point-icon"><Icon name="landmark" /></span>
           <div>
             <div className="scpidef-point-title">Agréées AMF</div>
             <div className="scpidef-point-desc">Cadre réglementaire strict, audits annuels obligatoires</div>
           </div>
         </div>
         <div className="scpidef-point">
-          <span className="scpidef-point-icon">📅</span>
+          <span className="scpidef-point-icon"><Icon name="calendar-days" /></span>
           <div>
             <div className="scpidef-point-title">Loyers trimestriels</div>
             <div className="scpidef-point-desc">Revenus réguliers versés tous les 3 mois</div>
           </div>
         </div>
         <div className="scpidef-point">
-          <span className="scpidef-point-icon">🌍</span>
+          <span className="scpidef-point-icon"><Icon name="globe" /></span>
           <div>
             <div className="scpidef-point-title">Diversification géographique</div>
             <div className="scpidef-point-desc">France, Allemagne, Pays-Bas, Irlande et plus</div>

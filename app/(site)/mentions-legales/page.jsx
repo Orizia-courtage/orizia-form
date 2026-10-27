@@ -1,3 +1,4 @@
+import Icon from '@/components/Icon';
 ﻿import Link from 'next/link';
 
 export const metadata = {
@@ -45,7 +46,7 @@ export default function MentionsLegalesPage() {
       </h1>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           1. Éditeur du site
         </h2>
         <p>
@@ -60,7 +61,7 @@ export default function MentionsLegalesPage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           2. Directrice de la publication
         </h2>
         <p>
@@ -71,7 +72,7 @@ export default function MentionsLegalesPage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           3. Hébergement du site
         </h2>
         <p>
@@ -83,7 +84,7 @@ export default function MentionsLegalesPage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           4. Informations réglementaires (ORIAS & ACPR)
         </h2>
         <p>
@@ -97,7 +98,7 @@ export default function MentionsLegalesPage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           5. Traitement des données personnelles (RGPD)
         </h2>
         <p>
@@ -109,7 +110,7 @@ export default function MentionsLegalesPage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           6. Réclamation et Médiation
         </h2>
         <p>
@@ -130,7 +131,7 @@ export default function MentionsLegalesPage() {
           textDecoration: 'none',
           fontWeight: 'bold'
         }}>
-          ← Retour à l'accueil
+          <Icon name="arrow-left" /> Retour à l'accueil
         </Link>
       </div>
 

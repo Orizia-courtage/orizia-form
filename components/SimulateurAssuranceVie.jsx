@@ -4,6 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 // ── Constantes SG (tarification Sogecap) ──
 
 // ── Table rendements selon répartition ──
@@ -156,7 +157,7 @@ function BarChart({ data }) {
           <g key={i}>
             <rect x={x} y={y} width={barW} height={h} fill="var(--orizia-primary)" rx={3} opacity={0.85} />
             {show && (
-              <text x={x + barW / 2} y={H - 2} textAnchor="middle" fontSize={8} fill="#64748b">
+              <text x={x + barW / 2} y={H - 2} textAnchor="middle" fontSize={8} fill="#5f655f">
                 {d.year}
               </text>
             )}
@@ -178,7 +179,7 @@ function StepIndicator({ current }) {
           current === i + 1 ? 'av-step--active' : '',
           current > i + 1   ? 'av-step--done'   : '',
         ].filter(Boolean).join(' ')}>
-          <div className="av-step-dot">{current > i + 1 ? '✓' : i + 1}</div>
+          <div className="av-step-dot">{current > i + 1 ? <Icon name="check" /> : i + 1}</div>
           <span>{s}</span>
         </div>
       ))}
@@ -285,11 +286,11 @@ export default function SimulateurAssuranceVie() {
         <h3 className="av-card-title">Que souhaitez-vous obtenir ?</h3>
         <div className="av-goal-grid">
           {[
-            { key: 'capital', icon: '🏦', title: 'Un capital à terme',           sub: 'Vous constituer une épargne pour vos projets' },
-            { key: 'revenus', icon: '💸', title: 'Revenus complémentaires',       sub: 'Disposer de revenus futurs réguliers' },
+            { key: 'capital', icon: 'landmark', title: 'Un capital à terme',           sub: 'Vous constituer une épargne pour vos projets' },
+            { key: 'revenus', icon: 'banknote', title: 'Revenus complémentaires',       sub: 'Disposer de revenus futurs réguliers' },
           ].map(o => (
             <button key={o.key} className={`av-goal-btn${goal === o.key ? ' active' : ''}`} onClick={() => setGoal(o.key)}>
-              <span className="av-goal-icon">{o.icon}</span>
+              <span className="av-goal-icon"><Icon name={o.icon} /></span>
               <strong>{o.title}</strong>
               <span>{o.sub}</span>
             </button>
@@ -308,13 +309,13 @@ export default function SimulateurAssuranceVie() {
   // ─────────────────────────────────────────────
   if (step === 2) {
     const opts = goal === 'capital' ? [
-      { key: 'calcul_capital', icon: '📊', title: 'Votre capital à terme',      sub: 'À calculer selon votre capacité d\'épargne' },
-      { key: 'calcul_vi',      icon: '💶', title: 'Votre versement initial',     sub: 'Trouver le versement initial nécessaire pour atteindre le capital souhaité' },
-      { key: 'calcul_vr',      icon: '🔄', title: 'Vos versements réguliers',    sub: 'Trouver les versements réguliers nécessaires pour atteindre le capital souhaité' },
+      { key: 'calcul_capital', icon: 'chart-column', title: 'Votre capital à terme',      sub: 'À calculer selon votre capacité d\'épargne' },
+      { key: 'calcul_vi',      icon: 'euro', title: 'Votre versement initial',     sub: 'Trouver le versement initial nécessaire pour atteindre le capital souhaité' },
+      { key: 'calcul_vr',      icon: 'refresh-cw', title: 'Vos versements réguliers',    sub: 'Trouver les versements réguliers nécessaires pour atteindre le capital souhaité' },
     ] : [
-      { key: 'calcul_capital', icon: '📊', title: 'Vos revenus complémentaires', sub: 'Calculer le montant de vos revenus futurs' },
-      { key: 'calcul_vi',      icon: '💶', title: 'Votre versement initial',      sub: 'Trouver le versement initial nécessaire pour atteindre les revenus souhaités' },
-      { key: 'calcul_vr',      icon: '🔄', title: 'Vos versements réguliers',     sub: 'Trouver les versements réguliers nécessaires pour atteindre les revenus souhaités' },
+      { key: 'calcul_capital', icon: 'chart-column', title: 'Vos revenus complémentaires', sub: 'Calculer le montant de vos revenus futurs' },
+      { key: 'calcul_vi',      icon: 'euro', title: 'Votre versement initial',      sub: 'Trouver le versement initial nécessaire pour atteindre les revenus souhaités' },
+      { key: 'calcul_vr',      icon: 'refresh-cw', title: 'Vos versements réguliers',     sub: 'Trouver les versements réguliers nécessaires pour atteindre les revenus souhaités' },
     ];
 
     return (
@@ -325,7 +326,7 @@ export default function SimulateurAssuranceVie() {
           <div className="av-subgoal-list">
             {opts.map(o => (
               <button key={o.key} className={`av-subgoal-btn${subgoal === o.key ? ' active' : ''}`} onClick={() => setSubgoal(o.key)}>
-                <span className="av-subgoal-icon">{o.icon}</span>
+                <span className="av-subgoal-icon"><Icon name={o.icon} /></span>
                 <div className="av-subgoal-text">
                   <strong>{o.title}</strong>
                   <span>{o.sub}</span>
@@ -335,7 +336,7 @@ export default function SimulateurAssuranceVie() {
             ))}
           </div>
           <div className="av-nav">
-            <button className="fin-btn-secondary" onClick={() => setStep(1)}>← Retour</button>
+            <button className="fin-btn-secondary" onClick={() => setStep(1)}><Icon name="arrow-left" /> Retour</button>
             <button className="fin-btn-primary" disabled={!subgoal} onClick={() => setStep(3)}>Continuer</button>
           </div>
         </div>
@@ -450,7 +451,7 @@ export default function SimulateurAssuranceVie() {
         )}
 
         <div className="av-nav">
-          <button className="fin-btn-secondary" onClick={() => setStep(2)}>← Retour</button>
+          <button className="fin-btn-secondary" onClick={() => setStep(2)}><Icon name="arrow-left" /> Retour</button>
           <button className="fin-btn-primary" onClick={() => setStep(4)}>Continuer</button>
         </div>
       </div>
@@ -472,8 +473,8 @@ export default function SimulateurAssuranceVie() {
 
         <div className="av-repartition">
           <div className="av-repartition-axis">
-            <span>🛡️ Prudente</span>
-            <span>🚀 Risquée</span>
+            <span><Icon name="shield-check" /> Prudente</span>
+            <span><Icon name="rocket" /> Risquée</span>
           </div>
           <div className="simu-slider-wrap" style={{ margin: '14px 0 6px' }}>
             <input type="range" min={0} max={20} step={1} value={repartIdx}
@@ -509,7 +510,7 @@ export default function SimulateurAssuranceVie() {
         </div>
 
         <div className="av-nav">
-          <button className="fin-btn-secondary" onClick={() => setStep(3)}>← Retour</button>
+          <button className="fin-btn-secondary" onClick={() => setStep(3)}><Icon name="arrow-left" /> Retour</button>
           <button className="fin-btn-primary" onClick={() => setStep(5)}>Voir mes résultats</button>
         </div>
       </div>
@@ -549,7 +550,7 @@ export default function SimulateurAssuranceVie() {
                 <span className="av-result-label">Votre versement initial nécessaire</span>
                 <strong className="av-result-big">{fmt(results.viNeeded)}</strong>
                 {results.viNeeded <= 0
-                  ? <span className="av-result-note-good">✅ Vos versements réguliers seuls suffisent !</span>
+                  ? <span className="av-result-note-good"><Icon name="circle-check" /> Vos versements réguliers seuls suffisent !</span>
                   : <span className="av-result-date">pour atteindre {fmt(capitalCible)} au {endDateStr(dureeEpargne)}</span>
                 }
               </>
@@ -633,7 +634,7 @@ export default function SimulateurAssuranceVie() {
                   <div className="av-fiscal-col-title">① Abattement</div>
                   <p className="av-fiscal-col-desc">
                     En cas de rachats après 8 ans, les gains sont imposables après un abattement annuel.
-                    {dureeEpargne < 8 && <strong> ⚠️ Votre contrat a moins de 8 ans — abattement non applicable.</strong>}
+                    {dureeEpargne < 8 && <strong> <Icon name="triangle-alert" /> Votre contrat a moins de 8 ans — abattement non applicable.</strong>}
                   </p>
                   <div className="av-fiscal-options">
                     {[
@@ -654,7 +655,7 @@ export default function SimulateurAssuranceVie() {
                 <div className="av-fiscal-col">
                   <div className="av-fiscal-col-title">② Fiscalité applicable</div>
                   <div className={`av-pfnl-badge${dureeEpargne >= 8 ? ' av-pfnl-badge--good' : ' av-pfnl-badge--warn'}`}>
-                    PFNL {pfnlRate} {dureeEpargne >= 8 ? '✅ Après 8 ans' : '⚠️ Avant 8 ans'}
+                    PFNL {pfnlRate} {dureeEpargne >= 8 ? 'Après 8 ans' : 'Avant 8 ans'}
                   </div>
                   {dureeEpargne >= 8 ? (
                     <p className="av-fiscal-text">
@@ -685,15 +686,15 @@ export default function SimulateurAssuranceVie() {
                 sélectionne le contrat le plus adapté et vous accompagne jusqu'à la souscription.
               </p>
             </div>
-            <ContactPopup label="📅 Être accompagné" className="fin-btn-primary" />
+            <ContactPopup label="Être accompagné" icon="calendar-days" className="fin-btn-primary" />
           </div>
 
           <div className="av-nav" style={{ marginTop: 12 }}>
             <button className="fin-btn-secondary" onClick={() => { setStep(1); setGoal(''); setSubgoal(''); }}>
-              ↺ Nouvelle simulation
+              <Icon name="rotate-ccw" /> Nouvelle simulation
             </button>
             <button className="fin-btn-secondary" onClick={() => setStep(4)}>
-              ← Modifier la répartition
+              <Icon name="arrow-left" /> Modifier la répartition
             </button>
           </div>
 

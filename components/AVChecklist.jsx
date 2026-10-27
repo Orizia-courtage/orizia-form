@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const CRITERES = [
   {
     id: 'epargne',
@@ -50,7 +51,7 @@ export default function AVChecklist() {
   return (
     <div className="icl-wrap">
       <div className="icl-header">
-        <span className="fin-badge">✅ Auto-évaluation</span>
+        <span className="fin-badge"><Icon name="circle-check" /> Auto-évaluation</span>
         <h3 className="icl-title">L'assurance vie est-elle faite pour moi ?</h3>
         <p className="icl-subtitle">Cochez les critères qui correspondent à votre situation.</p>
       </div>
@@ -61,13 +62,13 @@ export default function AVChecklist() {
           className="icl-progress-bar"
           style={{
             width: `${pct}%`,
-            background: allRequired ? '#16a34a' : 'var(--orizia-primary)',
+            background: allRequired ? '#3e7f68' : 'var(--orizia-primary)',
           }}
         />
       </div>
       <div className="icl-progress-label">
         <span>{done}/{total} critères validés</span>
-        <span style={{ color: allRequired ? '#16a34a' : 'var(--orizia-dark)', fontWeight: 800 }}>
+        <span style={{ color: allRequired ? '#3e7f68' : 'var(--orizia-dark)', fontWeight: 800 }}>
           {pct}%
         </span>
       </div>
@@ -81,7 +82,7 @@ export default function AVChecklist() {
             className={`icl-critere${checked[c.id] ? ' icl-critere--checked' : ''}`}
           >
             <div className="icl-checkbox">
-              {checked[c.id] ? '✅' : <span className="icl-checkbox-empty" />}
+              {checked[c.id] ? <Icon name="circle-check" /> : <span className="icl-checkbox-empty" />}
             </div>
             <div className="icl-critere-content">
               <div className="icl-critere-label">
@@ -111,26 +112,26 @@ export default function AVChecklist() {
         <div className={`icl-result${allRequired ? ' icl-result--ready' : ' icl-result--partial'}`}>
           {allRequired ? (
             <>
-              <div className="icl-result-icon">🎯</div>
+              <div className="icl-result-icon"><Icon name="target" /></div>
               <div>
                 <strong>L'assurance vie est adaptée à votre situation</strong>
                 <p>
                   Les critères essentiels sont validés. Il reste à choisir le bon contrat,
                   construire l'allocation et rédiger votre clause bénéficiaire sur-mesure.
                 </p>
-                <ContactPopup label="📅 Ouvrir mon contrat avec Cindy" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Ouvrir mon contrat avec Cindy" icon="calendar-days" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           ) : (
             <>
-              <div className="icl-result-icon">💬</div>
+              <div className="icl-result-icon"><Icon name="message-circle" /></div>
               <div>
                 <strong>Quelques points à clarifier ensemble</strong>
                 <p>
                   L'assurance vie peut quand même être pertinente pour vous — mais
                   quelques éléments méritent d'être analysés avant de souscrire.
                 </p>
-                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Analyser ma situation" icon="calendar-days" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

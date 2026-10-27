@@ -3,29 +3,30 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const PROFILS = [
   {
     id: 'jeune',
-    icon: '🎓',
+    icon: 'graduation-cap',
     label: 'Jeune conducteur',
     desc: '< 3 ans de permis',
   },
   {
     id: 'experimente',
-    icon: '🚗',
+    icon: 'car',
     label: 'Conducteur expérimenté',
     desc: 'Bonus 50%, pas de sinistre',
     featured: true,
   },
   {
     id: 'malus',
-    icon: '⚠️',
+    icon: 'triangle-alert',
     label: 'Avec malus / sinistre',
     desc: 'Historique chargé',
   },
   {
     id: 'motard',
-    icon: '🏍️',
+    icon: 'motorbike',
     label: 'Motard',
     desc: 'Moto ou scooter',
   },
@@ -33,9 +34,9 @@ const PROFILS = [
 
 const DETAILS = {
   jeune: {
-    color: '#dc2626',
-    bg: 'rgba(220,38,38,0.05)',
-    border: 'rgba(220,38,38,0.2)',
+    color: '#b0473b',
+    bg: 'rgba(176,71,59,0.05)',
+    border: 'rgba(176,71,59,0.2)',
     titre: 'Jeune conducteur : la surprime, on peut la réduire',
     points: [
       'La surprime légale s\'applique les 2–3 premières années',
@@ -61,9 +62,9 @@ const DETAILS = {
     astuce: 'Votre bonus 50% est transférable d\'un assureur à l\'autre — c\'est votre meilleur argument de négociation.',
   },
   malus: {
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.05)',
-    border: 'rgba(217,119,6,0.2)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.05)',
+    border: 'rgba(168,122,44,0.2)',
     titre: 'Avec malus : des solutions existent',
     points: [
       'Certaines compagnies spécialisées acceptent les profils à risque',
@@ -75,9 +76,9 @@ const DETAILS = {
     astuce: 'Ne mentez jamais sur votre historique — c\'est un motif de nullité du contrat. Mais il existe des solutions légales pour optimiser.',
   },
   motard: {
-    color: '#7c3aed',
-    bg: 'rgba(124,58,237,0.05)',
-    border: 'rgba(124,58,237,0.2)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.05)',
+    border: 'rgba(62,127,104,0.2)',
     titre: 'Motard : un contrat modulable selon votre usage',
     points: [
       'Garantie équipement (casque, gants, cuir) souvent négligée',
@@ -105,8 +106,8 @@ export default function AutoProfilSelector() {
             className={`aps-btn${selected === p.id ? ' aps-btn--active' : ''}${p.featured ? ' aps-btn--featured' : ''}`}
             style={selected === p.id && detail ? { borderColor: detail.color, background: detail.bg } : {}}
           >
-            {p.featured && <span className="aps-btn-badge">✅ Profil le plus courant</span>}
-            <span className="aps-btn-icon">{p.icon}</span>
+            {p.featured && <span className="aps-btn-badge"><Icon name="circle-check" /> Profil le plus courant</span>}
+            <span className="aps-btn-icon"><Icon name={p.icon} /></span>
             <span className="aps-btn-label">{p.label}</span>
             <span className="aps-btn-desc">{p.desc}</span>
           </button>
@@ -120,22 +121,22 @@ export default function AutoProfilSelector() {
           <ul className="aps-detail-points">
             {detail.points.map(pt => (
               <li key={pt}>
-                <span style={{ color: detail.color }}>✓</span> {pt}
+                <span style={{ color: detail.color }}><Icon name="check" /></span> {pt}
               </li>
             ))}
           </ul>
 
           <div className="aps-detail-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{detail.conseil}</p>
           </div>
 
           <div className="aps-detail-astuce">
-            <span>💡</span>
+            <span><Icon name="lightbulb" /></span>
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
 
-          <ContactPopup label="📅 Étudier mon profil avec Cindy" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
+          <ContactPopup label="Étudier mon profil avec Cindy" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
     </div>

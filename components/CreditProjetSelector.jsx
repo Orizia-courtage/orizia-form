@@ -3,18 +3,19 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const PROJETS = [
   {
     id: 'primo',
-    icon: '🔑',
+    icon: 'key-round',
     label: 'Primo-accédant',
     desc: 'Mon premier achat',
     featured: true,
-    badge: '⭐ Le plus courant',
+    badge: 'Le plus courant',
   },
   {
     id: 'locatif',
-    icon: '🏢',
+    icon: 'building-2',
     label: 'Investissement locatif',
     desc: 'Construire mon patrimoine',
     featured: false,
@@ -22,7 +23,7 @@ const PROJETS = [
   },
   {
     id: 'secundo',
-    icon: '🏡',
+    icon: 'house-plus',
     label: 'Achat-Revente',
     desc: 'Acheter avant d\'avoir vendu',
     featured: false,
@@ -46,9 +47,9 @@ const DETAILS = {
     astuce: 'Contactez-moi avant même de commencer vos visites. Je vous donne une enveloppe précise — vous visitez sereinement et faites des offres avec une attestation de faisabilité.',
   },
   locatif: {
-    color: '#d97706',
-    bg: 'rgba(217,119,6,0.05)',
-    border: 'rgba(217,119,6,0.2)',
+    color: '#a87a2c',
+    bg: 'rgba(168,122,44,0.05)',
+    border: 'rgba(168,122,44,0.2)',
     titre: 'Investissement locatif : l\'effet de levier au maximum',
     points: [
       'Optimisation de l\'effet de levier bancaire',
@@ -60,9 +61,9 @@ const DETAILS = {
     astuce: 'Votre TMI détermine la stratégie fiscale optimale (déficit foncier, LMNP, SCI). Je coordonne avec votre comptable si nécessaire.',
   },
   secundo: {
-    color: '#7c3aed',
-    bg: 'rgba(124,58,237,0.05)',
-    border: 'rgba(124,58,237,0.2)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.05)',
+    border: 'rgba(62,127,104,0.2)',
     titre: 'Achat-Revente : sécuriser la transition',
     points: [
       'Mise en place d\'un prêt relais pour acheter avant de vendre',
@@ -91,7 +92,7 @@ export default function CreditProjetSelector() {
             style={selected === p.id && detail ? { borderColor: detail.color, background: detail.bg } : {}}
           >
             {p.badge && <span className="cps-btn-badge" style={{ background: selected === p.id && detail ? detail.color : 'var(--orizia-primary)' }}>{p.badge}</span>}
-            <span className="cps-btn-icon">{p.icon}</span>
+            <span className="cps-btn-icon"><Icon name={p.icon} /></span>
             <span className="cps-btn-label">{p.label}</span>
             <span className="cps-btn-desc">{p.desc}</span>
           </button>
@@ -105,22 +106,22 @@ export default function CreditProjetSelector() {
           <ul className="cps-detail-points">
             {detail.points.map(pt => (
               <li key={pt}>
-                <span style={{ color: detail.color }}>✓</span> {pt}
+                <span style={{ color: detail.color }}><Icon name="check" /></span> {pt}
               </li>
             ))}
           </ul>
 
           <div className="cps-detail-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{detail.conseil}</p>
           </div>
 
           <div className="cps-detail-astuce">
-            <span>💡</span>
+            <span><Icon name="lightbulb" /></span>
             <p><strong>Astuce :</strong> {detail.astuce}</p>
           </div>
 
-          <ContactPopup label="📅 Étudier mon projet" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
+          <ContactPopup label="Étudier mon projet" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 28 }} />
         </div>
       )}
     </div>

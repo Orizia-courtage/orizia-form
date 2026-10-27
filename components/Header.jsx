@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import MobileDrawer from '@/components/MobileDrawer';
 
+import Icon from '@/components/Icon';
 const NAV = [
   {
     label: 'Investir',
@@ -43,27 +44,27 @@ const SCROLL_HEADER_CONFIG = {
   '/investir': {
     placeholder: 'Choisir un produit',
     options: [
-      { value: '/investir/crowdfunding',  label: '📈 Crowdfunding' },
-      { value: '/investir/per',           label: '🏦 PERP / PER' },
-      { value: '/investir/assurance-vie', label: '🛡️ Assurance Vie' },
-      { value: '/investir/scpi',          label: '🏢 SCPI' },
+      { value: '/investir/crowdfunding',  label: 'Crowdfunding' },
+      { value: '/investir/per',           label: 'PERP / PER' },
+      { value: '/investir/assurance-vie', label: 'Assurance Vie' },
+      { value: '/investir/scpi',          label: 'SCPI' },
     ],
   },
   '/financer': {
     placeholder: 'Choisir un financement',
     options: [
-      { value: '/financer/credit-immobilier',    label: '🏠 Crédit immobilier' },
-      { value: '/financer/regroupement-credits', label: '💳 Regroupement' },
-      { value: '/financer/pret-personnel',       label: '💶 Prêt personnel' },
-      { value: '/financer/rachat-soulte',        label: '⚖️ Rachat de soulte' },
+      { value: '/financer/credit-immobilier',    label: 'Crédit immobilier' },
+      { value: '/financer/regroupement-credits', label: 'Regroupement' },
+      { value: '/financer/pret-personnel',       label: 'Prêt personnel' },
+      { value: '/financer/rachat-soulte',        label: 'Rachat de soulte' },
     ],
   },
   '/assurer': {
     placeholder: 'Choisir une assurance',
     options: [
-      { value: '/assurer/assurance-emprunteur', label: '📋 Emprunteur' },
-      { value: '/assurer/assurance-habitation', label: '🏡 Habitation' },
-      { value: '/assurer/auto-moto',  label: '🚗 Auto / Moto' },
+      { value: '/assurer/assurance-emprunteur', label: 'Emprunteur' },
+      { value: '/assurer/assurance-habitation', label: 'Habitation' },
+      { value: '/assurer/auto-moto',  label: 'Auto / Moto' },
     ],
   },
 };
@@ -108,7 +109,7 @@ export default function Header() {
         window.Cal('init', { origin: CAL_ORIGIN });
         window.Cal('ui', {
           theme: 'light',
-          styles: { branding: { brandColor: '#3a6f6c' } },
+          styles: { branding: { brandColor: '#3e7f68' } },
           hideEventTypeDetails: false,
           layout: 'month_view',
         });
@@ -307,9 +308,9 @@ export default function Header() {
                 onChange={e => { if (e.target.value) router.push(e.target.value); }}
               >
                 <option value="" disabled>Quel est votre projet ?</option>
-                <option value="/investir">💼 Investir</option>
-                <option value="/financer">🏠 Financer</option>
-                <option value="/assurer">🛡️ Assurer</option>
+                <option value="/investir">Investir</option>
+                <option value="/financer">Financer</option>
+                <option value="/assurer">Assurer</option>
               </select>
             </>
           )}
@@ -349,7 +350,7 @@ export default function Header() {
               onClick={openCalModal}
               className="mobile-sticky-btn mobile-sticky-btn--full"
             >
-              📅 Prendre rendez-vous
+              <Icon name="calendar-days" /> Prendre rendez-vous
             </button>
           )}
 

@@ -9,6 +9,7 @@ import ReadingProgressSCPI from '@/components/ReadingProgressSCPI';
 import SCPIRisqueJauge from '@/components/SCPIRisqueJauge';
 import SCPIFiscaliteSelector from '@/components/SCPIFiscaliteSelector';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
   title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
@@ -119,25 +120,25 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '📈\u00A04–6%', label: 'Rendement annuel brut moyen', icon: '' },
-  { value: '💶\u00A0Dès 1\u00A0000€', label: "Ticket d'entrée accessible", icon: '' },
-  { value: '🔍\u00A0200+', label: 'SCPI analysées par mes soins', icon: '' },
-  { value: '⏱️\u00A08–10 ans', label: 'Durée de détention recommandée', icon: '' },
+  { value: ' 4–6%', label: 'Rendement annuel brut moyen', icon: '' },
+  { value: ' Dès 1 000€', label: "Ticket d'entrée accessible", icon: '' },
+  { value: ' 200+', label: 'SCPI analysées par mes soins', icon: '' },
+  { value: ' 8–10 ans', label: 'Durée de détention recommandée', icon: '' },
 ];
 
 const DANGERS = [
   {
-    icon: '🔍',
+    icon: 'search',
     title: 'Toutes les SCPI ne se valent pas — et certaines sont à éviter',
     text: 'Sur les 200+ SCPI du marché, certaines affichent des taux de vacance locative inquiétants, des frais de souscription excessifs ou une stratégie patrimoniale inadaptée à 2026. Sans analyse experte, vous investissez à l\'aveugle dans un marché de plus en plus complexe.',
   },
   {
-    icon: '📉',
+    icon: 'trending-down',
     title: 'La valeur des parts peut baisser — comme ça s\'est vu',
     text: 'La crise de l\'immobilier de bureaux a impacté plusieurs SCPI entre 2022 et 2024. Certaines ont vu leur valeur de part chuter de 15 à 20%. Savoir lesquelles ont résisté — et comprendre pourquoi — demande une expertise que peu de particuliers peuvent développer seuls.',
   },
   {
-    icon: '⚠️',
+    icon: 'triangle-alert',
     title: 'La fiscalité peut annuler jusqu\'à 62% de votre rendement',
     text: 'Sans optimisation (assurance vie, démembrement, SCPI européennes), les revenus SCPI peuvent être taxés jusqu\'à 62% pour les plus hauts revenus. Le rendement brut affiché et le rendement net dans votre poche sont deux réalités très différentes.',
   },
@@ -145,32 +146,32 @@ const DANGERS = [
 
 const AVANTAGES = [
   {
-    icon: '📈',
+    icon: 'trending-up',
     title: '4–6% brut/an, versés chaque trimestre',
     text: 'Des rendements stables et réguliers, bien supérieurs aux livrets bancaires et à l\'assurance vie en fonds euros — avec un sous-jacent immobilier tangible et diversifié.',
   },
   {
-    icon: '🌍',
+    icon: 'globe',
     title: 'Diversification dès le premier euro',
     text: 'Une seule SCPI peut regrouper des centaines d\'actifs sur plusieurs secteurs et pays. Votre risque est mutualisé dès la première part — impossible avec un investissement immobilier direct.',
   },
   {
-    icon: '✅',
+    icon: 'circle-check',
     title: 'Zéro gestion, vraiment',
     text: 'Pas de locataire, pas de travaux, pas de taxe foncière à gérer. La société de gestion agréée AMF s\'occupe de tout. Vous percevez vos loyers sans rien faire.',
   },
   {
-    icon: '💰',
+    icon: 'coins',
     title: 'Accessible dès 1 000€ ou 50€/mois',
     text: 'Certaines SCPI sont accessibles dès 1 000€ en capital, ou via des versements mensuels programmés à partir de 50€/mois. L\'immobilier professionnel n\'est plus réservé aux gros patrimoines.',
   },
   {
-    icon: '🏗️',
+    icon: 'construction',
     title: 'Double performance : loyers + revalorisation',
     text: 'En plus des revenus trimestriels, la valeur des parts peut s\'apprécier avec le temps. Deux sources de performance dans un seul investissement.',
   },
   {
-    icon: '🗺️',
+    icon: 'map',
     title: 'SCPI européennes : avantage fiscal majeur',
     text: 'Les SCPI investies en Allemagne, Pays-Bas, Irlande… échappent souvent aux prélèvements sociaux français grâce aux conventions fiscales bilatérales. Un avantage décisif pour les TMI élevés.',
   },
@@ -178,25 +179,25 @@ const AVANTAGES = [
 
 const RISQUES = [
   {
-    niveau: 'Élevé', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: '📉',
+    niveau: 'Élevé', color: '#b0473b', bg: '#f7e9e6', border: '#e9c6c0', icon: 'trending-down',
     title: 'Perte en capital',
     text: 'La valeur des parts peut baisser si le marché immobilier se retourne ou si la qualité du portefeuille se dégrade. La période 2022–2024 sur les SCPI de bureaux l\'a démontré concrètement.',
     mitigation: 'Mon rôle : sélectionner des SCPI avec des portefeuilles diversifiés, des bilans solides et un historique de résistance aux crises.',
   },
   {
-    niveau: 'Élevé', color: '#dc2626', bg: '#fff1f0', border: '#fecaca', icon: '🔒',
+    niveau: 'Élevé', color: '#b0473b', bg: '#f7e9e6', border: '#e9c6c0', icon: 'lock',
     title: 'Risque de liquidité',
     text: 'Les SCPI ne sont pas des placements liquides. La revente de vos parts peut prendre plusieurs semaines, voire être impossible en marché dégradé. Ce n\'est pas un placement de trésorerie.',
     mitigation: 'Mon rôle : n\'orienter vers les SCPI à capital variable qu\'avec un horizon de 8 à 10 ans minimum, jamais sur des capitaux dont vous pourriez avoir besoin.',
   },
   {
-    niveau: 'Moyen', color: '#d97706', bg: '#fffbeb', border: '#fed7aa', icon: '🏠',
+    niveau: 'Moyen', color: '#a87a2c', bg: '#f8f2e6', border: '#ead8b5', icon: 'house',
     title: 'Risque locatif',
     text: 'Des locataires défaillants, des vacances prolongées ou un secteur en difficulté (bureaux, commerce) peuvent réduire les revenus distribués sur une ou plusieurs années.',
     mitigation: 'Mon rôle : privilégier des SCPI multi-secteurs avec un taux d\'occupation financier supérieur à 90% et des locataires institutionnels solides.',
   },
   {
-    niveau: 'Faible', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', icon: '💱',
+    niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'arrow-left-right',
     title: 'Risque de change',
     text: 'Les SCPI européennes exposées hors zone euro (Royaume-Uni, pays nordiques…) comportent un risque de change mineur mais réel à connaître avant d\'investir.',
     mitigation: 'Mon rôle : arbitrer entre SCPI zone euro et hors zone selon votre profil et votre tolérance à ce risque spécifique.',
@@ -263,7 +264,7 @@ export default function SCPIPage() {
               {' › '}
               <span>SCPI</span>
             </nav>
-            <span className="fin-badge">🏗️ Pierre-papier & immobilier de rendement</span>
+            <span className="fin-badge"><Icon name="construction" /> Pierre-papier & immobilier de rendement</span>
             <h1 className="ae-hero-title">SCPI : percevez des loyers<br />sans gérer un seul bien</h1>
             <p className="ae-hero-intro">
               Investissez dans l'immobilier professionnel dès 1 000€ et percevez des revenus
@@ -272,13 +273,13 @@ export default function SCPIPage() {
               <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="🎯 Trouver mes SCPI idéales" className="fin-btn-primary" />
+              <ContactPopup label="Trouver mes SCPI idéales" icon="target" className="fin-btn-primary" />
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ Conseil 100% indépendant</span>
-              <span>📊 200+ SCPI analysées</span>
-              <span>⚡ Réponse sous 24h</span>
+              <span><Icon name="circle-check" /> Conseil 100% indépendant</span>
+              <span><Icon name="chart-column" /> 200+ SCPI analysées</span>
+              <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
           </div>
         </section>
@@ -288,7 +289,7 @@ export default function SCPIPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}>{c.icon}</div>
+                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}><Icon name={c.icon} /></div>
                 <strong>{c.value}</strong>
                 <span>{c.label}</span>
               </div>
@@ -333,8 +334,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce que personne ne vous dit
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Ce que personne ne vous dit
               </span>
               <h2>Pourquoi choisir sa SCPI seul<br />est une erreur fréquente</h2>
               <p>
@@ -347,9 +348,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout" style={{ marginTop: '40px' }}>
               <div className="ae-probleme-dangers" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626', background: '#fff' }}>
-                    <div className="crowd-avantage-icon" style={{ display: 'none' }}>{d.icon}</div>
-                    <div className="ae-danger-icon" style={{ fontSize: '2rem', marginBottom: '12px' }}>{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b', background: '#fff' }}>
+                    <div className="crowd-avantage-icon" style={{ display: 'none' }}><Icon name={d.icon} /></div>
+                    <div className="ae-danger-icon" style={{ fontSize: '2rem', marginBottom: '12px' }}><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -378,7 +379,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
                 Indépendant, personnalisé selon votre situation fiscale et patrimoniale réelle.
               </p>
-              <ContactPopup label="🤝 Me faire accompagner" className="fin-btn-primary" />
+              <ContactPopup label="Me faire accompagner" icon="handshake" className="fin-btn-primary" />
             </div>
           </div>
         </section>
@@ -419,26 +420,26 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   className="crowd-avantage-card"
                   style={
                     a.title === 'Zéro gestion, vraiment' || a.title === 'SCPI européennes : avantage fiscal majeur'
-                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(201,169,110,0.04)' }
+                      ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(107,182,155,0.04)' }
                       : {}
                   }
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
-                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}>{a.icon}</span>
+                    <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}><Icon name={a.icon} /></span>
                   </div>
                   {(a.title === 'Zéro gestion, vraiment' || a.title === 'SCPI européennes : avantage fiscal majeur') && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
-                      background: 'rgba(201,169,110,0.15)',
+                      background: 'rgba(107,182,155,0.15)',
                       color: 'var(--orizia-gold)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
                       marginBottom: 8,
                     }}>
-                      ⭐ Avantage vs immobilier direct
+                      <Icon name="star" /> Avantage vs immobilier direct
                     </div>
                   )}
                   <p>{a.text}</p>
@@ -467,8 +468,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-risques" className="crowd-section" style={{ background: '#fafafa' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Analyse des risques
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Analyse des risques
               </span>
               <h2>Les risques réels,<br />expliqués honnêtement</h2>
               <p>
@@ -551,7 +552,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
 
             <div className="av-gratuit-bloc" style={{ marginTop: 48 }}>
-              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}>🤝</div>
+              <div className="av-gratuit-icon" style={{ fontSize: '2rem' }}><Icon name="handshake" /></div>
               <div>
                 <strong>Un accompagnement complet et personnalisé</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
@@ -560,7 +561,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   dans votre intérêt.
                 </p>
               </div>
-              <ContactPopup label="🚀 Démarrer mon accompagnement" className="fin-btn-primary" style={{ flexShrink: 0 }} />
+              <ContactPopup label="Démarrer mon accompagnement" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
             </div>
           </div>
         </section>
@@ -603,8 +604,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 32 }}>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-                <ContactPopup label="📅 Prendre rendez-vous" className="fin-btn-primary" />
-                <ContactPopup label="📞 Poser une question" className="fin-btn-secondary" />
+                <ContactPopup label="Prendre rendez-vous" icon="calendar-days" className="fin-btn-primary" />
+                <ContactPopup label="Poser une question" icon="phone" className="fin-btn-secondary" />
               </div>
             </div>
           </div>
@@ -637,7 +638,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -656,24 +657,24 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div className="fin-cards">
               <Link href="/investir/crowdfunding" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>🤝 8–12%/an sur 12–36 mois</span>
-                <div className="fin-card-icon">🤝</div>
+                <span className="fin-card-pill" style={{ background: 'rgba(168,122,44,0.08)', color: '#a87a2c', border: '1px solid rgba(168,122,44,0.2)' }}><Icon name="handshake" /> 8–12%/an sur 12–36 mois</span>
+                <div className="fin-card-icon"><Icon name="handshake" /></div>
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
                 <p>8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
                 <span className="fin-card-link">En savoir plus ?</span>
               </Link>
               <Link href="/investir/assurance-vie" className="fin-card fin-card--featured">
-                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>⭐ Fiscalité optimisée après 8 ans</span>
-                <div className="fin-card-icon">🛡️</div>
+                <span className="fin-card-pill" style={{ background: 'rgba(107,182,155,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}><Icon name="star" /> Fiscalité optimisée après 8 ans</span>
+                <div className="fin-card-icon"><Icon name="shield-check" /></div>
                 <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>
                 <p>L'enveloppe pour loger vos SCPI et bénéficier d'une fiscalité optimisée. Idéal pour les profils TMI 30%+ qui veulent garder la liquidité.</p>
                 <span className="fin-card-link">En savoir plus ?</span>
               </Link>
               <Link href="/investir/per" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(124,58,237,0.08)', color: '#7c3aed', border: '1px solid rgba(124,58,237,0.2)' }}>💡 Déduction fiscale immédiate</span>
-                <div className="fin-card-icon">🏖️</div>
+                <span className="fin-card-pill" style={{ background: 'rgba(62,127,104,0.08)', color: '#3e7f68', border: '1px solid rgba(62,127,104,0.2)' }}><Icon name="lightbulb" /> Déduction fiscale immédiate</span>
+                <div className="fin-card-icon"><Icon name="tree-palm" /></div>
                 <div className="fin-card-sub">Préparez votre retraite ?</div>
                 <h3>PER</h3>
                 <p>Réduisez vos impôts dès cette année et préparez votre retraite. Combiné aux SCPI dans une AV, un duo particulièrement puissant.</p>

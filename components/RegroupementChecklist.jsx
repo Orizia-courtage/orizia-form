@@ -3,40 +3,41 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const CRITERES = [
   {
     id: 'nb_credits',
     label: 'J\'ai au moins 2 crédits en cours',
     desc: 'Le regroupement n\'a de sens qu\'avec plusieurs emprunts. Un seul crédit en cours relève plutôt d\'une renégociation ou d\'un rachat simple.',
-    signal: '📋 Condition de base',
+    signal: 'Condition de base',
     isPositive: true,
   },
   {
     id: 'endettement',
     label: 'Mon taux d\'endettement dépasse 33%',
     desc: 'Si vos mensualités représentent plus d\'un tiers de vos revenus, votre budget est sous pression. C\'est exactement la situation que le regroupement est conçu pour résoudre.',
-    signal: '⚖️ Critère principal',
+    signal: 'Critère principal',
     isPositive: true,
   },
   {
     id: 'revenus',
     label: 'Mes revenus sont stables (CDI, fonctionnaire, retraité)',
     desc: 'Les établissements spécialisés exigent une stabilité de revenus. Les TNS et indépendants peuvent être étudiés au cas par cas avec 2 ans de bilans.',
-    signal: '💼 Stabilité requise',
+    signal: 'Stabilité requise',
     isPositive: true,
   },
   {
     id: 'ficp',
     label: 'Je ne suis pas fiché(e) FICP ou FCC',
     desc: 'Un fichage FICP (incidents de remboursement) ou FCC (chèques) bloque la quasi-totalité des dossiers. Des solutions alternatives existent mais sont rares.',
-    signal: '🚨 Blocage potentiel',
+    signal: 'Blocage potentiel',
     isPositive: true,
   },
   {
     id: 'duree',
     label: 'Mes crédits ont plus d\'un an d\'ancienneté',
     desc: 'Les crédits très récents (moins de 12 mois) sont difficiles à intégrer dans un regroupement. Les établissements préfèrent des historiques de remboursement établis.',
-    signal: '📅 Ancienneté',
+    signal: 'Ancienneté',
     isPositive: true,
   },
 ];
@@ -54,7 +55,7 @@ export default function RegroupementChecklist() {
   return (
     <div className="icl-wrap">
       <div className="icl-header">
-        <span className="fin-badge">💡 Auto-évaluation</span>
+        <span className="fin-badge"><Icon name="lightbulb" /> Auto-évaluation</span>
         <h3 className="icl-title">Suis-je éligible au regroupement de crédits ?</h3>
         <p className="icl-subtitle">Cochez les critères qui correspondent à votre situation.</p>
       </div>
@@ -64,13 +65,13 @@ export default function RegroupementChecklist() {
           className="icl-progress-bar"
           style={{
             width: `${pct}%`,
-            background: isReady ? '#16a34a' : 'var(--orizia-primary)',
+            background: isReady ? '#3e7f68' : 'var(--orizia-primary)',
           }}
         />
       </div>
       <div className="icl-progress-label">
         <span>{done}/{total} critères validés</span>
-        <span style={{ color: isReady ? '#16a34a' : 'var(--orizia-dark)', fontWeight: 800 }}>
+        <span style={{ color: isReady ? '#3e7f68' : 'var(--orizia-dark)', fontWeight: 800 }}>
           {pct}%
         </span>
       </div>
@@ -83,15 +84,15 @@ export default function RegroupementChecklist() {
             className={`icl-critere${checked[c.id] ? ' icl-critere--checked' : ''}`}
           >
             <div className="icl-checkbox">
-              {checked[c.id] ? '✅' : <span className="icl-checkbox-empty" />}
+              {checked[c.id] ? <Icon name="circle-check" /> : <span className="icl-checkbox-empty" />}
             </div>
             <div className="icl-critere-content">
               <div className="icl-critere-label">
                 {c.label}
                 <span style={{
                   fontSize: '0.65rem', fontWeight: 700,
-                  color: checked[c.id] ? '#16a34a' : 'var(--orizia-dark)',
-                  background: checked[c.id] ? 'rgba(22,163,74,0.08)' : 'rgba(26,61,53,0.06)',
+                  color: checked[c.id] ? '#3e7f68' : 'var(--orizia-dark)',
+                  background: checked[c.id] ? 'rgba(62,127,104,0.08)' : 'rgba(26,61,53,0.06)',
                   borderRadius: 4, padding: '1px 6px', marginLeft: 8,
                 }}>
                   {c.signal}
@@ -107,7 +108,7 @@ export default function RegroupementChecklist() {
         <div className={`icl-result${isReady ? ' icl-result--ready' : ' icl-result--partial'}`}>
           {isReady ? (
             <>
-              <div className="icl-result-icon">🎯</div>
+              <div className="icl-result-icon"><Icon name="target" /></div>
               <div>
                 <strong>Votre profil est favorable — passons à l'analyse complète</strong>
                 <p>
@@ -116,20 +117,20 @@ export default function RegroupementChecklist() {
                   avant/après sous 24h.
                 </p>
                 <a href="#formulaire" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }}>
-                  🔍 Démarrer mon étude
+                  <Icon name="search" /> Démarrer mon étude
                 </a>
               </div>
             </>
           ) : (
             <>
-              <div className="icl-result-icon">💬</div>
+              <div className="icl-result-icon"><Icon name="message-circle" /></div>
               <div>
                 <strong>Votre situation mérite une analyse personnalisée</strong>
                 <p>
                   Certains points peuvent compliquer le dossier. Je vous dis honnêtement
                   ce qui est possible et quelles alternatives existent dans votre cas.
                 </p>
-                <ContactPopup label="📅 Analyser ma situation" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
+                <ContactPopup label="Analyser ma situation" icon="calendar-days" className="fin-btn-secondary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>
             </>
           )}

@@ -3,25 +3,26 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/Icon';
 const SUJETS = [
-  { icon: '🏡', label: 'Crédit immobilier',        href: '/financer/credit-immobilier',       cat: 'financer' },
-  { icon: '🔄', label: 'Regroupement de crédits',  href: '/financer/regroupement-credits',    cat: 'financer' },
-  { icon: '💶', label: 'Prêt personnel',            href: '/financer/pret-personnel',          cat: 'financer' },
-  { icon: '⚖️', label: 'Rachat de soulte',          href: '/financer/rachat-soulte',           cat: 'financer' },
-  { icon: '🛡️', label: 'Assurance vie',            href: '/investir/assurance-vie',           cat: 'investir' },
-  { icon: '🏦', label: 'Plan Épargne Retraite',     href: '/investir/per',                     cat: 'investir' },
-  { icon: '🏢', label: 'SCPI',                      href: '/investir/scpi',                    cat: 'investir' },
-  { icon: '📈', label: 'Crowdfunding',              href: '/investir/crowdfunding',            cat: 'investir' },
-  { icon: '📋', label: 'Assurance emprunteur',      href: '/assurer/assurance-emprunteur',     cat: 'assurer' },
-  { icon: '🏠', label: 'Assurance habitation',      href: '/assurer/assurance-habitation',     cat: 'assurer' },
-  { icon: '🚗', label: 'Assurance auto & moto',     href: '/assurer/auto-moto',                cat: 'assurer' },
+  { icon: 'house-plus', label: 'Crédit immobilier',        href: '/financer/credit-immobilier',       cat: 'financer' },
+  { icon: 'refresh-cw', label: 'Regroupement de crédits',  href: '/financer/regroupement-credits',    cat: 'financer' },
+  { icon: 'euro', label: 'Prêt personnel',            href: '/financer/pret-personnel',          cat: 'financer' },
+  { icon: 'scale', label: 'Rachat de soulte',          href: '/financer/rachat-soulte',           cat: 'financer' },
+  { icon: 'shield-check', label: 'Assurance vie',            href: '/investir/assurance-vie',           cat: 'investir' },
+  { icon: 'landmark', label: 'Plan Épargne Retraite',     href: '/investir/per',                     cat: 'investir' },
+  { icon: 'building-2', label: 'SCPI',                      href: '/investir/scpi',                    cat: 'investir' },
+  { icon: 'trending-up', label: 'Crowdfunding',              href: '/investir/crowdfunding',            cat: 'investir' },
+  { icon: 'clipboard-list', label: 'Assurance emprunteur',      href: '/assurer/assurance-emprunteur',     cat: 'assurer' },
+  { icon: 'house', label: 'Assurance habitation',      href: '/assurer/assurance-habitation',     cat: 'assurer' },
+  { icon: 'car', label: 'Assurance auto & moto',     href: '/assurer/auto-moto',                cat: 'assurer' },
 ];
 
 const CATS = [
-  { id: 'all',     label: 'Tous les sujets', icon: '🎯' },
-  { id: 'financer', label: 'Financer',       icon: '💶' },
-  { id: 'investir', label: 'Investir',       icon: '📈' },
-  { id: 'assurer',  label: 'Assurer',        icon: '🛡️' },
+  { id: 'all',     label: 'Tous les sujets', icon: 'target' },
+  { id: 'financer', label: 'Financer',       icon: 'euro' },
+  { id: 'investir', label: 'Investir',       icon: 'trending-up' },
+  { id: 'assurer',  label: 'Assurer',        icon: 'shield-check' },
 ];
 
 export default function ContactSujetsFilter() {
@@ -38,7 +39,7 @@ export default function ContactSujetsFilter() {
             onClick={() => setCat(c.id)}
             className={`csf-filter${cat === c.id ? ' csf-filter--active' : ''}`}
           >
-            <span>{c.icon}</span> {c.label}
+            <span><Icon name={c.icon} /></span> {c.label}
           </button>
         ))}
       </div>
@@ -47,9 +48,9 @@ export default function ContactSujetsFilter() {
       <div className="contact-sujets-grid">
         {filtered.map(s => (
           <Link key={s.label} href={s.href} className="contact-sujet-card">
-            <span className="contact-sujet-icon">{s.icon}</span>
+            <span className="contact-sujet-icon"><Icon name={s.icon} /></span>
             <span className="contact-sujet-label">{s.label}</span>
-            <span className="contact-sujet-arrow">→</span>
+            <span className="contact-sujet-arrow"><Icon name="arrow-right" className="oz-arrow" /></span>
           </Link>
         ))}
       </div>

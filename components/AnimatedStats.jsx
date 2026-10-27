@@ -3,41 +3,36 @@
 import { useEffect, useRef, useState } from 'react';
 
 const STATS = [
-  { value: 500, suffix: '+', label: 'Dossiers accompagnés' },
-  { value: 20, suffix: ' ans', label: "D'expérience terrain" },
-  { value: 98, suffix: '%', label: 'Clients satisfaits' },
-  { value: null, suffix: 'ORIAS', label: 'Immatriculée & certifiée' },
+  { value: 500, suffix: '+', label: 'dossiers accompagnés' },
+  { value: 20, suffix: ' ans', label: "d'expérience en intermédiation bancaire" },
+  { value: 98, suffix: ' %', label: 'de clients satisfaits' },
+  { value: 40, prefix: '+', label: 'banques et assureurs partenaires' },
 ];
 
-function useCountUp(target, duration = 1800, start = false) {
-  const [count, setCount] = useState(0);
+function useCountUp(target, duration, start) {
+  const [count, setCount] = useState(target);
   useEffect(() => {
-    if (!start || target === null) return;
-    let startTime = null;
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+    if (!start) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let raf; let t0 = null;
+    const step = (t) => {
+      if (t0 === null) t0 = t;
+      const p = Math.min((t - t0) / duration, 1);
+      setCount(Math.round((1 - Math.pow(1 - p, 3)) * target));
+      if (p < 1) raf = requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
   }, [start, target, duration]);
   return count;
 }
 
 function StatItem({ stat, started }) {
-  const count = useCountUp(stat.value, 1800, started);
+  const count = useCountUp(stat.value, 1600, started);
   return (
-    <div>
-      <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#E6F5F2', marginBottom: 4 }}>
-        {stat.value === null
-          ? stat.suffix
-          : `${count}${stat.suffix}`}
-      </div>
-      <div style={{ fontSize: '0.9rem', color: 'rgba(230,245,242,0.75)', fontWeight: 600 }}>
-        {stat.label}
-      </div>
+    <div className="hst-item">
+      <div className="hst-num">{stat.prefix}{count}{stat.suffix}</div>
+      <div className="hst-label">{stat.label}</div>
     </div>
   );
 }
@@ -49,15 +44,15 @@ export default function AnimatedStats() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
-      { threshold: 0.3 }
+      { threshold: 0.4 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={ref} style={{ backgroundColor: 'var(--orizia-accent)', padding: '40px 20px' }}>
-      <div className="home-stats-grid">
+    <section ref={ref} className="hst" aria-label="Orizia en chiffres">
+      <div className="hst-grid">
         {STATS.map(s => <StatItem key={s.label} stat={s} started={started} />)}
       </div>
     </section>

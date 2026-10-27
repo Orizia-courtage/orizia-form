@@ -2,11 +2,12 @@
 import { useState, useEffect, useRef } from 'react';
 import ContactCaptcha from './ContactCaptcha';
 
+import Icon from '@/components/Icon';
 const TABS = [
-  { id: 'rdv',        icon: '📅', label: 'RDV' },
-  { id: 'message',    icon: '💬', label: 'Message' },
-  { id: 'formulaire', icon: '✉️', label: 'Écrire' },
-  { id: 'appel',      icon: '📞', label: 'Appeler' },
+  { id: 'rdv',        icon: 'calendar-days', label: 'RDV' },
+  { id: 'message',    icon: 'message-circle', label: 'Message' },
+  { id: 'formulaire', icon: 'mail', label: 'Écrire' },
+  { id: 'appel',      icon: 'phone', label: 'Appeler' },
 ];
 
 const EMPTY_FORM = {
@@ -15,7 +16,7 @@ const EMPTY_FORM = {
 };
 
 const ERRORS_MSG = {
-  prenom:      'Votre prénom nous permettra de personnaliser notre réponse 🙂',
+  prenom:      'Votre prénom nous permettra de personnaliser notre réponse',
   nom:         'Votre nom est nécessaire pour traiter votre demande.',
   email:       'Un email valide est indispensable pour vous répondre.',
   typedemande: 'Indiquez-nous votre besoin pour mieux vous orienter.',
@@ -37,8 +38,8 @@ const Field = ({ name, errors, children }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
     {children}
     {errors[name] && (
-      <span style={{ fontSize: '0.73rem', color: '#dc2626', fontWeight: 500, paddingLeft: 2 }}>
-        ⚠️ {errors[name]}
+      <span style={{ fontSize: '0.73rem', color: '#b0473b', fontWeight: 500, paddingLeft: 2 }}>
+        <Icon name="triangle-alert" /> {errors[name]}
       </span>
     )}
   </div>
@@ -62,6 +63,13 @@ export default function ContactWidget() {
     check();
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Ouverture depuis n'importe quel CTA du site : window.dispatchEvent(new CustomEvent('orizia:contact', { detail: 'rdv' }))
+  useEffect(() => {
+    const onOpen = (e) => { setTab(e.detail || 'rdv'); setOpen(true); };
+    window.addEventListener('orizia:contact', onOpen);
+    return () => window.removeEventListener('orizia:contact', onOpen);
   }, []);
 
   const handleChange = (field, value) => {
@@ -138,14 +146,14 @@ export default function ContactWidget() {
                 <span>Orizia Courtage</span>
               </div>
             </div>
-            <button className="cw-close" onClick={() => setOpen(false)}>✕</button>
+            <button className="cw-close" onClick={() => setOpen(false)}><Icon name="x" /></button>
           </div>
 
           {/* Tabs */}
           <div className="cw-tabs">
             {TABS.map(t => (
               <button key={t.id} className={`cw-tab ${tab === t.id ? 'active' : ''}`} onClick={() => setTab(t.id)}>
-                <span>{t.icon}</span>
+                <span><Icon name={t.icon} /></span>
                 <span>{t.label}</span>
               </button>
             ))}
@@ -163,7 +171,7 @@ export default function ContactWidget() {
 
             {tab === 'message' && (
               <div className="cw-action-center">
-                <div className="cw-action-icon">💬</div>
+                <div className="cw-action-icon"><Icon name="message-circle" /></div>
                 <h3>Envoyez-moi un message</h3>
                 <p>Je vous réponds dans les plus brefs délais.</p>
                 {isMobile ? (
@@ -180,7 +188,7 @@ export default function ContactWidget() {
               <div className="cw-form-wrap">
                 {sent ? (
                   <div className="cw-success">
-                    <span>✅</span>
+                    <span><Icon name="circle-check" /></span>
                     <p>Message envoyé ! Je vous réponds rapidement.</p>
                   </div>
                 ) : (
@@ -189,24 +197,24 @@ export default function ContactWidget() {
                     {/* NOUVEAU : Bandeau d'erreur Serveur (ex: 429 Vercel ou 500 Resend) */}
                     {serverError && (
                       <div style={{
-                        background: '#fef2f2', border: '1px solid #fecaca',
+                        background: '#f7e9e6', border: '1px solid #e9c6c0',
                         borderRadius: 8, padding: '10px 12px', marginBottom: '12px',
-                        fontSize: '0.85rem', color: '#dc2626', fontWeight: 600,
+                        fontSize: '0.85rem', color: '#b0473b', fontWeight: 600,
                         lineHeight: 1.4
                       }}>
-                        🚫 {serverError}
+                        <Icon name="ban" /> {serverError}
                       </div>
                     )}
 
                     {/* Bandeau erreur global validation */}
                     {submitted && Object.keys(errors).length > 0 && (
                       <div style={{
-                        background: '#fef2f2', border: '1px solid #fecaca',
+                        background: '#f7e9e6', border: '1px solid #e9c6c0',
                         borderRadius: 8, padding: '10px 12px', marginBottom: '12px',
-                        fontSize: '0.78rem', color: '#dc2626', fontWeight: 600,
+                        fontSize: '0.78rem', color: '#b0473b', fontWeight: 600,
                         lineHeight: 1.4
                       }}>
-                        💡 Quelques informations manquent pour traiter votre demande.
+                        <Icon name="lightbulb" /> Quelques informations manquent pour traiter votre demande.
                       </div>
                     )}
 
@@ -216,7 +224,7 @@ export default function ContactWidget() {
                           placeholder="Prénom *"
                           value={form.prenom}
                           onChange={e => handleChange('prenom', e.target.value)}
-                          style={{ borderColor: errors.prenom ? '#dc2626' : undefined }}
+                          style={{ borderColor: errors.prenom ? '#b0473b' : undefined }}
                         />
                       </Field>
                       <Field name="nom" errors={errors}>
@@ -224,7 +232,7 @@ export default function ContactWidget() {
                           placeholder="Nom *"
                           value={form.nom}
                           onChange={e => handleChange('nom', e.target.value)}
-                          style={{ borderColor: errors.nom ? '#dc2626' : undefined }}
+                          style={{ borderColor: errors.nom ? '#b0473b' : undefined }}
                         />
                       </Field>
                     </div>
@@ -235,7 +243,7 @@ export default function ContactWidget() {
                         placeholder="Email *"
                         value={form.email}
                         onChange={e => handleChange('email', e.target.value)}
-                        style={{ borderColor: errors.email ? '#dc2626' : undefined }}
+                        style={{ borderColor: errors.email ? '#b0473b' : undefined }}
                       />
                     </Field>
 
@@ -249,7 +257,7 @@ export default function ContactWidget() {
                       <select
                         value={form.typedemande}
                         onChange={e => handleChange('typedemande', e.target.value)}
-                        style={{ borderColor: errors.typedemande ? '#dc2626' : undefined }}
+                        style={{ borderColor: errors.typedemande ? '#b0473b' : undefined }}
                       >
                         <option value="">Type de demande *</option>
                         <option>Crédit immobilier</option>
@@ -264,7 +272,7 @@ export default function ContactWidget() {
                       <select
                         value={form.urgence}
                         onChange={e => handleChange('urgence', e.target.value)}
-                        style={{ borderColor: errors.urgence ? '#dc2626' : undefined }}
+                        style={{ borderColor: errors.urgence ? '#b0473b' : undefined }}
                       >
                         <option value="">Urgence *</option>
                         <option>Faible — dans le mois</option>
@@ -292,9 +300,9 @@ export default function ContactWidget() {
 
             {tab === 'appel' && (
               <div className="cw-action-center">
-                <div className="cw-action-icon">📞</div>
+                <div className="cw-action-icon"><Icon name="phone" /></div>
                 <h3>Appelez-moi directement</h3>
-                <p>Disponible du lundi au samedi.</p>
+                <p>Disponible du lundi au vendredi, de 9h à 18h.</p>
                 <a href="tel:+33777259706" className="cw-btn-action cw-btn-call">Appeler Cindy</a>
                 <span className="cw-tel-num">+33 7 77 25 97 06</span>
               </div>
@@ -306,8 +314,12 @@ export default function ContactWidget() {
 
       {/* Bouton flottant — masqué quand le widget est ouvert */}
       {!open && (
-        <button className="cw-trigger" onClick={() => setOpen(true)}>
-          💬
+        <button className="cw-trigger" onClick={() => setOpen(true)} aria-label="Contacter Cindy">
+          <span className="cw-trigger-avatar"><img src="/images/photo-cindy.webp" alt="" /></span>
+          <span className="cw-trigger-text">
+            <strong>Une question&nbsp;?</strong>
+            <span>Cindy vous répond</span>
+          </span>
         </button>
       )}
     </>

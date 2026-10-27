@@ -3,42 +3,43 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import Icon from '@/components/Icon';
 const PRODUITS = [
   {
     href: '/assurer/assurance-emprunteur',
-    icon: '📋',
+    icon: 'clipboard-list',
     title: 'Assurance Emprunteur',
     sub: 'Le plus gros levier d\'économie',
     desc: 'Votre banque vous facture 2 à 3 fois trop cher. La loi Lemoine vous libère à tout moment — je gère le bras de fer à votre place.',
     economie: 'Jusqu\'à 15 000€',
     economie_label: 'économisés sur la durée',
     loi: 'Loi Lemoine',
-    loiColor: '#16a34a',
-    loiBg: 'rgba(22,163,74,0.08)',
-    accentColor: '#16a34a',
+    loiColor: '#3e7f68',
+    loiBg: 'rgba(62,127,104,0.08)',
+    accentColor: '#3e7f68',
     points: ['Changement à tout moment', 'Mêmes garanties, prix divisé par 2', 'Je gère la résiliation'],
     featured: true,
-    badge: '💰 Économie maximale',
+    badge: 'Économie maximale',
   },
   {
     href: '/assurer/assurance-habitation',
-    icon: '🏠',
+    icon: 'house',
     title: 'Assurance Habitation',
     sub: 'Votre cocon au juste prix',
     desc: '+7% en 2026. Je compare les offres MRH pour locataires, propriétaires et PNO, et je résilie votre ancien contrat sans coupure.',
     economie: '~250€/an',
     economie_label: 'd\'économies possibles',
     loi: 'Loi Hamon',
-    loiColor: '#d97706',
-    loiBg: 'rgba(217,119,6,0.08)',
-    accentColor: '#d97706',
+    loiColor: '#a87a2c',
+    loiBg: 'rgba(168,122,44,0.08)',
+    accentColor: '#a87a2c',
     points: ['Locataire, propriétaire ou PNO', 'Garanties sur-mesure', 'Résiliation sans coupure'],
     featured: false,
     badge: null,
   },
   {
     href: '/assurer/auto-moto',
-    icon: '🚗',
+    icon: 'car',
     title: 'Assurance Auto & Moto',
     sub: 'Roulez au juste prix',
     desc: 'Tiers, intermédiaire ou tous risques — j\'adapte la formule à la valeur réelle de votre véhicule et je contrecarre la taxe de fidélité.',
@@ -69,12 +70,12 @@ export default function AssurerProduitsGrid() {
           onMouseLeave={() => setHovered(null)}
         >
           {p.featured && (
-            <div className="apg-card-featured-badge">⭐ Économie maximale</div>
+            <div className="apg-card-featured-badge"><Icon name="star" /> Économie maximale</div>
           )}
 
           {/* Header */}
           <div className="apg-card-header">
-            <span className="apg-card-icon">{p.icon}</span>
+            <span className="apg-card-icon"><Icon name={p.icon} /></span>
             <div>
               <div className="apg-card-title">{p.title}</div>
               <div className="apg-card-sub">{p.sub}</div>
@@ -92,21 +93,21 @@ export default function AssurerProduitsGrid() {
 
           {/* Loi */}
           <div className="apg-card-loi" style={{ color: p.loiColor, background: p.loiBg }}>
-            ✅ {p.loi} — résiliation libre
+            <Icon name="circle-check" /> {p.loi} — résiliation libre
           </div>
 
           {/* Points */}
           <ul className="apg-card-points">
             {p.points.map(pt => (
               <li key={pt}>
-                <span style={{ color: p.accentColor }}>✓</span> {pt}
+                <span style={{ color: p.accentColor }}><Icon name="check" /></span> {pt}
               </li>
             ))}
           </ul>
 
           {/* CTA */}
           <div className="apg-card-cta" style={{ color: p.accentColor }}>
-            Optimiser ce contrat →
+            Optimiser ce contrat <Icon name="arrow-right" className="oz-arrow" />
           </div>
         </Link>
       ))}

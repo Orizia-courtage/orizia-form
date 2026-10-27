@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import Icon from '@/components/Icon';
 export default function LexiqueGrid({ termes, color }) {
   const [flipped, setFlipped] = useState(null); // index de la carte retournée
 
@@ -18,7 +19,7 @@ export default function LexiqueGrid({ termes, color }) {
             <div className="lex-face lex-face--front" onClick={() => setFlipped(i)}>
               <div className="lex-face-inner">
                 <div className="lex-terme">{t.terme}</div>
-                <div className="lex-hint">Appuyer pour la définition →</div>
+                <div className="lex-hint">Appuyer pour la définition <Icon name="arrow-right" className="oz-arrow" /></div>
               </div>
             </div>
 

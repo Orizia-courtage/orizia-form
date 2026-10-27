@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
+import Icon from '@/components/Icon';
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 }
@@ -61,14 +62,14 @@ export default function PERCalculateur() {
             style={{ '--pct': `${((versement - 500) / 49500) * 100}%` }} />
           <div className="aec-slider-labels"><span>500€</span><span>50 000€</span></div>
           {versement > tranche.plafond && (
-            <div style={{ fontSize: '0.75rem', color: '#d97706', marginTop: 4, fontWeight: 600 }}>
-              ⚠️ Plafond de déduction pour votre TMI : {fmt(tranche.plafond)}
+            <div style={{ fontSize: '0.75rem', color: '#a87a2c', marginTop: 4, fontWeight: 600 }}>
+              <Icon name="triangle-alert" /> Plafond de déduction pour votre TMI : {fmt(tranche.plafond)}
             </div>
           )}
         </div>
 
         <div className="aec-note">
-          💡 Les plafonds non utilisés des 3 dernières années sont reportables. Je les calcule avec vous en rendez-vous.
+          <Icon name="lightbulb" /> Les plafonds non utilisés des 3 dernières années sont reportables. Je les calcule avec vous en rendez-vous.
         </div>
       </div>
 
@@ -91,7 +92,7 @@ export default function PERCalculateur() {
           </div>
           <div className="aec-detail-sep" />
           <div className="aec-detail-row aec-detail-row--bold">
-            <span>💰 Coût réel de l'épargne</span>
+            <span><Icon name="coins" /> Coût réel de l'épargne</span>
             <strong style={{ color: 'var(--orizia-gold)' }}>{fmt(result.coutReel)}</strong>
           </div>
         </div>
@@ -100,7 +101,7 @@ export default function PERCalculateur() {
           En clair : vous épargnez {fmt(versementCapped)} mais l'État vous rembourse {fmt(result.economie)} d'impôt. Votre effort réel n'est que de {fmt(result.coutReel)}.
         </div>
 
-        <ContactPopup label="📅 Calculer mes plafonds exacts" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
+        <ContactPopup label="Calculer mes plafonds exacts" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Vos plafonds réels figurent sur votre avis d'imposition.
         </p>

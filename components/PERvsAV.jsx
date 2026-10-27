@@ -3,46 +3,47 @@
 import { useState } from 'react';
 import ContactPopup from '@/components/ContactPopup';
 
+import Icon from '@/components/Icon';
 const PROFILS = [
-  { id: 'tmi_eleve', label: 'TMI 30%+', icon: '💼', desc: 'Cadre, TNS, dirigeant' },
-  { id: 'tmi_faible', label: 'TMI < 30%', icon: '👤', desc: 'Revenus modérés' },
-  { id: 'transmission', label: 'Transmission', icon: '🎁', desc: 'Préparer sa succession' },
-  { id: 'liquidite', label: 'Liquidité', icon: '💧', desc: 'Besoin d\'épargne disponible' },
+  { id: 'tmi_eleve', label: 'TMI 30%+', icon: 'briefcase', desc: 'Cadre, TNS, dirigeant' },
+  { id: 'tmi_faible', label: 'TMI < 30%', icon: 'user', desc: 'Revenus modérés' },
+  { id: 'transmission', label: 'Transmission', icon: 'gift', desc: 'Préparer sa succession' },
+  { id: 'liquidite', label: 'Liquidité', icon: 'droplets', desc: 'Besoin d\'épargne disponible' },
 ];
 
 const RECOMMANDATIONS = {
   tmi_eleve: {
     titre: 'Priorité PER, complété par l\'Assurance Vie',
-    per: { score: 90, label: 'Prioritaire', color: '#16a34a' },
-    av: { score: 60, label: 'Complémentaire', color: '#d97706' },
+    per: { score: 90, label: 'Prioritaire', color: '#3e7f68' },
+    av: { score: 60, label: 'Complémentaire', color: '#a87a2c' },
     conseil: 'À 41% de TMI, chaque euro versé sur le PER vous rapporte 0,41€ d\'impôt en moins dès l\'année suivante. L\'AV prend le relais pour l\'épargne liquide.',
   },
   tmi_faible: {
     titre: 'Assurance Vie en priorité, PER en complément',
-    per: { score: 45, label: 'Complémentaire', color: '#d97706' },
-    av: { score: 85, label: 'Prioritaire', color: '#16a34a' },
+    per: { score: 45, label: 'Complémentaire', color: '#a87a2c' },
+    av: { score: 85, label: 'Prioritaire', color: '#3e7f68' },
     conseil: 'Avec un TMI faible, l\'avantage fiscal du PER est limité. L\'AV offre plus de flexibilité et une fiscalité avantageuse après 8 ans.',
   },
   transmission: {
     titre: 'Les deux sont complémentaires pour la transmission',
-    per: { score: 75, label: 'Très utile', color: '#16a34a' },
-    av: { score: 80, label: 'Incontournable', color: '#16a34a' },
+    per: { score: 75, label: 'Très utile', color: '#3e7f68' },
+    av: { score: 80, label: 'Incontournable', color: '#3e7f68' },
     conseil: 'PER et AV transmettent tous les deux hors succession. L\'AV offre jusqu\'à 152 500€ par bénéficiaire exonérés. Le PER complète avec les mêmes règles.',
   },
   liquidite: {
     titre: 'Assurance Vie — le PER en parallèle si TMI élevé',
-    per: { score: 30, label: 'Secondaire', color: '#dc2626' },
-    av: { score: 95, label: 'Indispensable', color: '#16a34a' },
+    per: { score: 30, label: 'Secondaire', color: '#b0473b' },
+    av: { score: 95, label: 'Indispensable', color: '#3e7f68' },
     conseil: 'Si vous avez besoin de liquidité, le PER n\'est pas adapté (épargne bloquée). L\'AV reste disponible à tout moment. Ouvrez un PER uniquement si votre TMI le justifie.',
   },
 };
 
 const CRITERES = [
-  { label: 'Déduction fiscale à l\'entrée', per: '✅ Oui — jusqu\'à 45% de TMI', av: '❌ Non' },
-  { label: 'Disponibilité de l\'épargne', per: '⚠️ Bloqué (exceptions légales)', av: '✅ Disponible à tout moment' },
-  { label: 'Fiscalité à la sortie', per: '📋 IR sur primes + PFU 31,4% gains', av: '✅ Abattement + 7,5% après 8 ans' },
-  { label: 'Transmission au décès', per: '✅ Hors succession', av: '✅ 152 500€/bénéf. exonérés' },
-  { label: 'Plafond de versement', per: '📋 ~35k à ~85k€/an', av: '♾️ Illimité' },
+  { label: 'Déduction fiscale à l\'entrée', per: 'Oui — jusqu\'à 45% de TMI', av: 'Non' },
+  { label: 'Disponibilité de l\'épargne', per: 'Bloqué (exceptions légales)', av: 'Disponible à tout moment' },
+  { label: 'Fiscalité à la sortie', per: 'IR sur primes + PFU 31,4% gains', av: 'Abattement + 7,5% après 8 ans' },
+  { label: 'Transmission au décès', per: 'Hors succession', av: '152 500€/bénéf. exonérés' },
+  { label: 'Plafond de versement', per: '~35k à ~85k€/an', av: 'Illimité' },
 ];
 
 function ScoreBar({ score, color }) {
@@ -73,7 +74,7 @@ export default function PERvsAV() {
               onClick={() => setProfil(profil === p.id ? null : p.id)}
               className={`pervsav-profil-btn${profil === p.id ? ' pervsav-profil-btn--active' : ''}`}
             >
-              <span className="pervsav-profil-icon">{p.icon}</span>
+              <span className="pervsav-profil-icon"><Icon name={p.icon} /></span>
               <span className="pervsav-profil-label">{p.label}</span>
               <span className="pervsav-profil-desc">{p.desc}</span>
             </button>
@@ -84,7 +85,7 @@ export default function PERvsAV() {
       {/* Recommandation personnalisée */}
       {reco && (
         <div className="pervsav-reco">
-          <div className="pervsav-reco-title">🎯 {reco.titre}</div>
+          <div className="pervsav-reco-title"><Icon name="target" /> {reco.titre}</div>
           <div className="pervsav-reco-scores">
             <div className="pervsav-reco-score">
               <div className="pervsav-reco-score-label">
@@ -102,10 +103,10 @@ export default function PERvsAV() {
             </div>
           </div>
           <div className="pervsav-reco-conseil">
-            <span>💬</span>
+            <span><Icon name="message-circle" /></span>
             <p>{reco.conseil}</p>
           </div>
-          <ContactPopup label="📅 Calculer ma stratégie optimale" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
+          <ContactPopup label="Calculer ma stratégie optimale" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 16 }} />
         </div>
       )}
 
@@ -141,7 +142,7 @@ export default function PERvsAV() {
       </div>
 
       <div className="crowd-risques-note" style={{ marginTop: 20 }}>
-        💡 <strong>La stratégie optimale :</strong> PER pour réduire l'impôt sur vos revenus d'activité + Assurance Vie pour l'épargne liquide et la transmission. Je construis les deux en parallèle selon votre situation.
+        <Icon name="lightbulb" /> <strong>La stratégie optimale :</strong> PER pour réduire l'impôt sur vos revenus d'activité + Assurance Vie pour l'épargne liquide et la transmission. Je construis les deux en parallèle selon votre situation.
       </div>
 
     </div>

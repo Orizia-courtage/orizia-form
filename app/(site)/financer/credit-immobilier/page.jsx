@@ -7,6 +7,7 @@ import CreditChecklist from '@/components/CreditChecklist';
 import ReadingProgressCredit from '@/components/ReadingProgressCredit';
 import ScrollButton from '@/components/ScrollButton';
 
+import Icon from '@/components/Icon';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
@@ -116,15 +117,15 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '+40', label: 'Banques partenaires comparées', icon: '🏦' },
-  { value: '33%', label: 'Taux d\'endettement maximal légal', icon: '📊' },
-  { value: '24h', label: 'Pour calculer votre enveloppe', icon: '⏱️' },
-  { value: '1', label: 'Interlocutrice unique (moi)', icon: '👤' },
+  { value: '+40', label: 'Banques partenaires comparées', icon: 'landmark' },
+  { value: '33%', label: 'Taux d\'endettement maximal légal', icon: 'chart-column' },
+  { value: '24h', label: 'Pour calculer votre enveloppe', icon: 'timer' },
+  { value: '1', label: 'Interlocutrice unique (moi)', icon: 'user' },
 ];
 
 const TYPES_PROJETS = [
   {
-    icon: '🏠',
+    icon: 'house',
     title: 'Primo-accédant',
     desc: 'Votre premier achat immobilier.',
     points: [
@@ -138,7 +139,7 @@ const TYPES_PROJETS = [
     featured: true,
   },
   {
-    icon: '💼',
+    icon: 'briefcase',
     title: 'Investissement locatif',
     desc: 'Construire son patrimoine.',
     points: [
@@ -148,11 +149,11 @@ const TYPES_PROJETS = [
       'Maintien de votre capacité d\'endettement',
     ],
     cta: 'Financer mon investissement',
-    color: '#d97706',
+    color: '#a87a2c',
     featured: false,
   },
   {
-    icon: '🔄',
+    icon: 'refresh-cw',
     title: 'Achat Revente (Secundo)',
     desc: 'Acheter avant d\'avoir vendu.',
     points: [
@@ -162,24 +163,24 @@ const TYPES_PROJETS = [
       'Financement de la nouvelle résidence',
     ],
     cta: 'Sécuriser ma transition',
-    color: '#7c3aed',
+    color: '#3e7f68',
     featured: false,
   },
 ];
 
 const DANGERS = [
   {
-    icon: '🏦',
+    icon: 'landmark',
     title: 'La loyauté bancaire ne paie pas',
     text: 'C\'est dur à entendre, mais votre banque depuis 15 ans ne vous fera pas le meilleur taux par "gentillesse". Les banques réservent souvent leurs meilleures conditions pour attirer de nouveaux clients. Il faut faire jouer la concurrence.',
   },
   {
-    icon: '🔒',
+    icon: 'lock',
     title: 'Le piège de l\'assurance groupe',
     text: 'La banque va accepter de baisser son taux à condition que vous preniez son assurance emprunteur. Ce qu\'elle ne dit pas, c\'est que cette assurance est 2 à 3 fois plus chère que le marché. Mon rôle est de contourner ce piège.',
   },
   {
-    icon: '⏱️',
+    icon: 'timer',
     title: 'La perte de temps et d\'énergie',
     text: 'Monter un dossier, prendre RDV avec 4 banques différentes, relancer les conseillers qui ne répondent pas... Faire son crédit seul est un travail à temps plein. Laissez-moi cette charge mentale.',
   },
@@ -263,7 +264,7 @@ export default function CreditImmobilierPage() {
               {' › '}
               <span>Crédit Immobilier</span>
             </nav>
-            <span className="fin-badge">🏠 Votre projet de vie</span>
+            <span className="fin-badge"><Icon name="house" /> Votre projet de vie</span>
             <h1 className="ae-hero-title">Le bon crédit n'est pas qu'un taux.<br />C'est une stratégie.</h1>
             <p className="ae-hero-intro">
               Ne vous épuisez pas à faire le tour des banques. Je calcule votre enveloppe,
@@ -271,15 +272,15 @@ export default function CreditImmobilierPage() {
               à votre place. Concentrez-vous sur les cartons, je m'occupe des millions.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
-              <ContactPopup label="📅 Calculer ma capacité d'emprunt" className="fin-btn-primary" />
+              <ContactPopup label="Calculer ma capacité d'emprunt" icon="calendar-days" className="fin-btn-primary" />
               <ScrollButton targetId="section-projets" className="fin-btn-secondary">
-                🔍 Voir selon mon projet
+                <Icon name="search" /> Voir selon mon projet
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span>✅ +40 banques interrogées</span>
-              <span>🤝 Accompagnement jusqu'au notaire</span>
-              <span>⚡ Étude de faisabilité en 24h</span>
+              <span><Icon name="circle-check" /> +40 banques interrogées</span>
+              <span><Icon name="handshake" /> Accompagnement jusqu'au notaire</span>
+              <span><Icon name="zap" /> Étude de faisabilité en 24h</span>
             </div>
           </div>
         </section>
@@ -289,7 +290,7 @@ export default function CreditImmobilierPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong>{c.icon} {c.value}</strong>
+                <strong><Icon name={c.icon} /> {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}
@@ -329,8 +330,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge" style={{ background: 'rgba(220,38,38,0.08)', color: '#dc2626' }}>
-                ⚠️ Ce que la banque ne vous dit pas
+              <span className="fin-badge" style={{ background: 'rgba(176,71,59,0.08)', color: '#b0473b' }}>
+                <Icon name="triangle-alert" /> Ce que la banque ne vous dit pas
               </span>
               <h2>Négocier seul son prêt,<br />c'est partir avec un handicap</h2>
               <p>
@@ -340,8 +341,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="ae-probleme-layout">
               <div className="ae-probleme-dangers">
                 {DANGERS.map(d => (
-                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #dc2626' }}>
-                    <div className="crowd-avantage-icon">{d.icon}</div>
+                  <div key={d.title} className="crowd-avantage-card" style={{ borderLeft: '4px solid #b0473b' }}>
+                    <div className="crowd-avantage-icon"><Icon name={d.icon} /></div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>
                   </div>
@@ -380,8 +381,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="crowd-2col">
               <div>
-                <span className="fin-badge" style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a' }}>
-                  ✅ Le vrai secret d'un bon crédit
+                <span className="fin-badge" style={{ background: 'rgba(62,127,104,0.1)', color: '#3e7f68' }}>
+                  <Icon name="circle-check" /> Le vrai secret d'un bon crédit
                 </span>
                 <h2>Le taux, c'est l'arbre.<br />L'assurance, c'est la forêt.</h2>
                 <p>
@@ -401,20 +402,20 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
                   La méthode Orizia
                 </div>
-                <div className="crowd-schema-step" style={{ background: 'rgba(220,38,38,0.08)', border: '1.5px solid rgba(220,38,38,0.2)' }}>
-                  <div className="crowd-schema-icon">⚠️</div>
+                <div className="crowd-schema-step" style={{ background: 'rgba(176,71,59,0.08)', border: '1.5px solid rgba(176,71,59,0.2)' }}>
+                  <div className="crowd-schema-icon"><Icon name="triangle-alert" /></div>
                   <strong>Proposition classique (Banque seule)</strong>
                   <span>Bon taux + Assurance hors de prix = Coût élevé</span>
                 </div>
-                <div className="crowd-schema-arrow">↓</div>
+                <div className="crowd-schema-arrow"><Icon name="arrow-down" /></div>
                 <div className="crowd-schema-step crowd-schema-step--orizia">
-                  <div className="crowd-schema-icon">🤝</div>
+                  <div className="crowd-schema-icon"><Icon name="handshake" /></div>
                   <strong>Mon intervention</strong>
                   <span>Mise en concurrence + Séparation de l'assurance</span>
                 </div>
-                <div className="crowd-schema-arrow">↓</div>
-                <div className="crowd-schema-step" style={{ background: 'rgba(22,163,74,0.08)', border: '1.5px solid rgba(22,163,74,0.2)' }}>
-                  <div className="crowd-schema-icon">✅</div>
+                <div className="crowd-schema-arrow"><Icon name="arrow-down" /></div>
+                <div className="crowd-schema-step" style={{ background: 'rgba(62,127,104,0.08)', border: '1.5px solid rgba(62,127,104,0.2)' }}>
+                  <div className="crowd-schema-icon"><Icon name="circle-check" /></div>
                   <strong>Accord final</strong>
                   <span>Taux au plancher + Assurance divisée par 2</span>
                 </div>
@@ -517,7 +518,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
                 Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
-              <ContactPopup label="📞 Poser une autre question à Cindy" className="fin-btn-secondary" />
+              <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
           </div>
         </section>
@@ -531,34 +532,34 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div className="fin-cards fin-cards--light">
               <Link href="/assurer/assurance-emprunteur" className="fin-card fin-card--featured">
-                <span className="fin-card-pill" style={{ background: 'rgba(201,169,110,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(201,169,110,0.3)' }}>
-                  💰 Économisez jusqu'à 15 000€
+                <span className="fin-card-pill" style={{ background: 'rgba(107,182,155,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}>
+                  <Icon name="coins" /> Économisez jusqu'à 15 000€
                 </span>
-                <div className="fin-card-icon">🛡️</div>
+                <div className="fin-card-icon"><Icon name="shield-check" /></div>
                 <div className="fin-card-sub">L'économie cachée</div>
                 <h3>Assurance Emprunteur</h3>
                 <p>Obligatoire avec votre prêt immobilier. Je la négocie pour vous faire économiser des milliers d'euros.</p>
-                <span className="fin-card-link">Découvrir →</span>
+                <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
               <Link href="/assurer/assurance-habitation" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(217,119,6,0.08)', color: '#d97706', border: '1px solid rgba(217,119,6,0.2)' }}>
-                  🏠 Obligatoire avant la remise des clés
+                <span className="fin-card-pill" style={{ background: 'rgba(168,122,44,0.08)', color: '#a87a2c', border: '1px solid rgba(168,122,44,0.2)' }}>
+                  <Icon name="house" /> Obligatoire avant la remise des clés
                 </span>
-                <div className="fin-card-icon">🏠</div>
+                <div className="fin-card-icon"><Icon name="house" /></div>
                 <div className="fin-card-sub">Protéger votre nouvel achat</div>
                 <h3>Assurance Habitation</h3>
                 <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
-                <span className="fin-card-link">Découvrir →</span>
+                <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
               <Link href="/financer/rachat-soulte" className="fin-card">
-                <span className="fin-card-pill" style={{ background: 'rgba(22,163,74,0.08)', color: '#16a34a', border: '1px solid rgba(22,163,74,0.2)' }}>
-                  ✅ Coordination notaire incluse
+                <span className="fin-card-pill" style={{ background: 'rgba(62,127,104,0.08)', color: '#3e7f68', border: '1px solid rgba(62,127,104,0.2)' }}>
+                  <Icon name="circle-check" /> Coordination notaire incluse
                 </span>
-                <div className="fin-card-icon">⚖️</div>
+                <div className="fin-card-icon"><Icon name="scale" /></div>
                 <div className="fin-card-sub">Divorce · Séparation · Succession</div>
                 <h3>Rachat de soulte</h3>
                 <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
-                <span className="fin-card-link">Découvrir →</span>
+                <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
             </div>
           </div>
@@ -573,7 +574,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               et je vous donne une estimation claire et précise pour démarrer vos visites sereinement.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="📅 Faire un point ensemble" className="fin-btn-primary" />
+              <ContactPopup label="Faire un point ensemble" icon="calendar-days" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.

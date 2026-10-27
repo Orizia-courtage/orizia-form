@@ -1,3 +1,4 @@
+import Icon from '@/components/Icon';
 ﻿import Link from 'next/link';
 
 export const metadata = {
@@ -49,7 +50,7 @@ export default function ConfidentialitePage() {
       </p>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           1. Quelles données je collecte ?
         </h2>
         <p>Dans le cadre de mon accompagnement, je suis amenée à collecter les données suivantes :</p>
@@ -61,7 +62,7 @@ export default function ConfidentialitePage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           2. Pourquoi je collecte ces données ?
         </h2>
         <p>Je ne vous demande jamais d'informations inutiles. Vos données servent exclusivement à :</p>
@@ -74,7 +75,7 @@ export default function ConfidentialitePage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           3. Avec qui je partage vos données ?
         </h2>
         <p>
@@ -84,7 +85,7 @@ export default function ConfidentialitePage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           4. Combien de temps je conserve vos données ?
         </h2>
         <p>Vos données sont conservées le temps nécessaire à la réalisation de votre projet, puis archivées conformément aux durées légales :</p>
@@ -95,7 +96,7 @@ export default function ConfidentialitePage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           5. Vos droits (RGPD)
         </h2>
         <p>
@@ -116,7 +117,7 @@ export default function ConfidentialitePage() {
       </section>
 
       <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3a6f6c)', fontSize: '1.5rem', marginBottom: '16px' }}>
+        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           6. Gestion des Cookies
         </h2>
         <p>
@@ -128,14 +129,14 @@ export default function ConfidentialitePage() {
         <Link href="/" style={{ 
           display: 'inline-block', 
           padding: '12px 24px', 
-          backgroundColor: 'var(--orizia-primary, #3a6f6c)', 
+          backgroundColor: 'var(--orizia-primary, #3e7f68)', 
           color: '#fff', 
           borderRadius: '8px',
           textDecoration: 'none',
           fontWeight: 'bold',
           transition: 'opacity 0.3s'
         }}>
-          ← Retour à l'accueil
+          <Icon name="arrow-left" /> Retour à l'accueil
         </Link>
       </div>
 
