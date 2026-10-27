@@ -4,6 +4,7 @@ import ContactCaptcha from './ContactCaptcha';
 
 import Icon from '@/components/Icon';
 import RappelForm from './RappelForm';
+import ScanToPhone from './ScanToPhone';
 const TABS = [
   { id: 'rdv',        icon: 'calendar-days', label: 'RDV' },
   { id: 'rappel',     icon: 'headset', label: 'Rappel' },
@@ -47,9 +48,26 @@ const Field = ({ name, errors, children }) => (
   </div>
 );
 
+function EmailDirect() {
+  const [copied, setCopied] = useState(false);
+  const email = 'cindy.urbansky@orizia-courtage.fr';
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(email); } catch { /* presse-papiers indisponible */ }
+    setCopied(true); setTimeout(() => setCopied(false), 1800);
+  };
+  return (
+    <div className="cw-email-direct">
+      <Icon name="mail" />
+      <span>Ou écrivez directement à <a href={`mailto:${email}`}>{email}</a></span>
+      <button type="button" onClick={copy} aria-label="Copier l’adresse e-mail">{copied ? <Icon name="check" /> : <Icon name="clipboard-list" />}</button>
+    </div>
+  );
+}
+
 export default function ContactWidget() {
   const [open, setOpen]           = useState(false);
   const [tab, setTab]             = useState('rdv');
+  const [msgChannel, setMsgChannel] = useState('whatsapp');
   const [isMobile, setIsMobile]   = useState(false);
   const [sent, setSent]           = useState(false);
   const [loading, setLoading]     = useState(false);
@@ -85,7 +103,7 @@ export default function ContactWidget() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (submitLock.current) return;
-    if (!turnstileToken) { setServerError('Veuillez valider la verification anti-robot.'); return; }
+    if (!turnstileToken) { setServerError('Vérification anti-robot en cours… réessayez dans un instant.'); return; }
     setSubmitted(true);
     setServerError(''); // Réinitialiser l'erreur serveur au début d'une nouvelle tentative
 
@@ -172,18 +190,31 @@ export default function ContactWidget() {
             )}
 
             {tab === 'message' && (
-              <div className="cw-action-center">
-                <div className="cw-action-icon"><Icon name="message-circle" /></div>
-                <h3>Envoyez-moi un message</h3>
-                <p>Je vous réponds dans les plus brefs délais.</p>
-                {isMobile ? (
-                  <a href="sms:+33777259706" className="cw-btn-action">Envoyer un SMS</a>
-                ) : (
-                  <a href="https://web.whatsapp.com/send?phone=33777259706" target="_blank" rel="noreferrer" className="cw-btn-action cw-btn-whatsapp">
-                    Envoyer sur WhatsApp
-                  </a>
-                )}
-              </div>
+              isMobile ? (
+                <div className="cw-action-center">
+                  <div className="cw-action-icon"><Icon name="message-circle" /></div>
+                  <h3>Envoyez-moi un message</h3>
+                  <p>Je vous réponds le jour même, du lundi au vendredi.</p>
+                  <div className="cw-btn-stack">
+                    <a href="https://wa.me/33777259706" target="_blank" rel="noopener noreferrer" className="cw-btn-action cw-btn-whatsapp"><Icon name="message-circle" /> WhatsApp</a>
+                    <a href="sms:+33777259706" className="cw-btn-action cw-btn-ghost"><Icon name="smartphone" /> SMS</a>
+                  </div>
+                </div>
+              ) : (
+                <div className="cw-scan">
+                  <div className="cw-seg" role="tablist" aria-label="Canal de message">
+                    <button type="button" role="tab" aria-selected={msgChannel === 'whatsapp'} className={msgChannel === 'whatsapp' ? 'is-on' : ''} onClick={() => setMsgChannel('whatsapp')}>WhatsApp</button>
+                    <button type="button" role="tab" aria-selected={msgChannel === 'sms'} className={msgChannel === 'sms' ? 'is-on' : ''} onClick={() => setMsgChannel('sms')}>SMS</button>
+                  </div>
+                  {msgChannel === 'whatsapp' ? (
+                    <ScanToPhone key="wa" compact href="https://wa.me/33777259706" icon="message-circle" color="#25D366"
+                      value="07 77 25 97 06" copyLabel="Copier le numéro" openLabel="Ouvrir WhatsApp Web" finalStep="Écrivez sur WhatsApp" />
+                  ) : (
+                    <ScanToPhone key="sms" compact href="sms:+33777259706" icon="smartphone" color="#3e7f68"
+                      value="07 77 25 97 06" copyLabel="Copier le numéro" openLabel="Ouvrir l’application de messages" finalStep="Votre SMS est prêt" />
+                  )}
+                </div>
+              )
             )}
 
             {tab === 'formulaire' && (
@@ -195,6 +226,7 @@ export default function ContactWidget() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="cw-form" noValidate>
+                    <EmailDirect />
 
                     {/* NOUVEAU : Bandeau d'erreur Serveur (ex: 429 Vercel ou 500 Resend) */}
                     {serverError && (
@@ -305,16 +337,30 @@ export default function ContactWidget() {
             )}
 
             {tab === 'appel' && (
-              <div className="cw-action-center">
-                <div className="cw-action-icon"><Icon name="phone" /></div>
-                <h3>Appelez-moi directement</h3>
-                <p>Disponible du lundi au vendredi, de 9h à 18h.</p>
-                <a href="tel:+33777259706" className="cw-btn-action cw-btn-call">Appeler Cindy</a>
-                <span className="cw-tel-num">+33 7 77 25 97 06</span>
-                <button type="button" className="cw-rappel-link" onClick={() => setTab('rappel')}>
-                  <Icon name="headset" /> Pas disponible maintenant ? <strong>Être rappelé</strong>
-                </button>
-              </div>
+              isMobile ? (
+                <div className="cw-action-center">
+                  <div className="cw-action-icon"><Icon name="phone" /></div>
+                  <h3>Appelez-moi directement</h3>
+                  <p>Disponible du lundi au vendredi, de 9h à 18h.</p>
+                  <a href="tel:+33777259706" className="cw-btn-action cw-btn-call">Appeler Cindy</a>
+                  <span className="cw-tel-num">+33 7 77 25 97 06</span>
+                  <button type="button" className="cw-rappel-link" onClick={() => setTab('rappel')}>
+                    <Icon name="headset" /> Pas disponible maintenant ? <strong>Être rappelé</strong>
+                  </button>
+                </div>
+              ) : (
+                <div className="cw-scan">
+                  <p className="cw-scan-hint">Du lundi au vendredi, de 9 h à 18 h</p>
+                  <ScanToPhone compact href="tel:+33777259706" icon="phone" color="#3e7f68"
+                    value="07 77 25 97 06" copyLabel="Copier le numéro" openLabel="Ouvrir l’application d’appel" finalStep="Appelez en un geste">
+                    <button type="button" className="cp-scan-callback" onClick={() => setTab('rappel')}>
+                      <Icon name="headset" />
+                      <span><strong>Pas disponible maintenant&nbsp;?</strong> Cindy vous rappelle</span>
+                      <Icon name="arrow-right" className="oz-arrow" />
+                    </button>
+                  </ScanToPhone>
+                </div>
+              )
             )}
 
           </div>

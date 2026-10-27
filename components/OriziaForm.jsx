@@ -843,7 +843,7 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
         <Err show={errors.optin_partenaires}>Veuillez accepter ou refuser ce consentement.</Err>
       </div>
       <TurnstileWidget action="orizia_submit"/>
-      <Err show={errors.bot}>Veuillez valider que vous n&apos;êtes pas un robot.</Err>
+      <Err show={errors.bot}>Vérification anti-robot en cours… réessayez dans un instant.</Err>
       <Btn submit={submit} sending={sending}/>
     </div>
   );

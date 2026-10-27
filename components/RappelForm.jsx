@@ -20,8 +20,7 @@ function Turnstile({ onToken }) {
       script.async = true;
       document.head.appendChild(script);
     }
-    // « interaction-only » : invisible tant que Cloudflare n'a pas de doute → pas de place perdue
-    const cleanup = mountTurnstile(element.current, TURNSTILE_ACTION, TURNSTILE_KEY, onToken, setError, window, { appearance: 'interaction-only' });
+    const cleanup = mountTurnstile(element.current, TURNSTILE_ACTION, TURNSTILE_KEY, onToken, setError);
     return () => { cleanup(); onToken(''); };
   }, [onToken]);
   return (
