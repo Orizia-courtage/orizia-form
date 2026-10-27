@@ -2,23 +2,20 @@
 
 import ReadingProgressBase from './ReadingProgressBase';
 
-// Ordre réel des sections dans la page :
-// Comprendre (1/7) → Simulateur (2/7) → Processus (3/7) → Profils (4/7)
-// → Auto-évaluation (5/7) → Formulaire (6/7) → FAQ (7/7)
-
+// Jalons dans l'ordre de la page (les positions sont calculées automatiquement).
 const JALONS_DESKTOP = [
-  { label: 'Comprendre',     id: 'section-comprendre',     displayPct: 8  },
-  { label: 'Simulateur',     id: 'section-simulateur',     displayPct: 22 },
-  { label: 'Processus',      id: 'section-processus',      displayPct: 36 },
-  { label: 'Auto-évaluation',id: 'section-autoevaluation', displayPct: 56 },
-  { label: 'Formulaire',     id: 'formulaire',             displayPct: 72 },
-  { label: 'FAQ',            id: 'section-faq',            displayPct: 88 },
+  { label: 'Comprendre', id: 'section-comprendre' },
+  { label: 'Simulateur', id: 'section-simulateur' },
+  { label: 'Processus', id: 'section-processus' },
+  { label: 'Auto-évaluation', id: 'section-autoevaluation' },
+  { label: 'Formulaire', id: 'formulaire' },
+  { label: 'FAQ', id: 'section-faq' },
 ];
 
 const JALONS_MOBILE = [
-  { label: 'Simulateur', id: 'section-simulateur', displayPct: 20 },
-  { label: 'Formulaire', id: 'formulaire',          displayPct: 58 },
-  { label: 'FAQ',        id: 'section-faq',         displayPct: 84 },
+  { label: 'Simulateur', id: 'section-simulateur' },
+  { label: 'Formulaire', id: 'formulaire' },
+  { label: 'FAQ', id: 'section-faq' },
 ];
 
 export default function ReadingProgressRegroupement() {

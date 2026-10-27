@@ -136,7 +136,6 @@ export default function HeaderV2() {
   const [activeMenu, setActiveMenu]     = useState(null);
   const [scrolled, setScrolled]         = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
-  const [calReady, setCalReady]         = useState(false);
   const [isOnline, setIsOnline]         = useState(true);
   const calLoadingRef = useRef(false);
   const closeTimer    = useRef(null);
@@ -191,52 +190,46 @@ export default function HeaderV2() {
   // ── Ferme le mega-menu à chaque navigation ───────────────────────────────
   useEffect(() => { setActiveMenu(null); }, [pathname]);
 
-  // ── Cal.com lazy load ────────────────────────────────────────────────────
+  // ── Cal.com : chargement à la demande ───────────────────────────────────
+  // Le snippet officiel crée une file d'attente : les commandes (init, ui, modal)
+  // sont mémorisées puis exécutées dès que embed.js est chargé. Un seul appel
+  // `modal` par clic → une seule fenêtre à ouvrir et à fermer.
   const loadCal = useCallback(() => {
-    return new Promise((resolve) => {
-      if (window.Cal) { resolve(); return; }
-      if (calLoadingRef.current) {
-        const wait = setInterval(() => { if (window.Cal) { clearInterval(wait); resolve(); } }, 50);
-        return;
-      }
-      calLoadingRef.current = true;
-      const initCal = () => {
-        window.Cal('init', { origin: CAL_ORIGIN });
-        window.Cal('ui', { theme: 'light', styles: { branding: { brandColor: '#1b1d1a' } }, hideEventTypeDetails: false, layout: 'month_view' });
-        setCalReady(true);
-        resolve();
+    if (calLoadingRef.current) return;
+    calLoadingRef.current = true;
+    (function (C, A, L) {
+      const p = (a, ar) => { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function (...args) {
+        const cal = C.Cal;
+        if (!cal.loaded) {
+          cal.ns = {}; cal.q = cal.q || [];
+          const s = d.createElement('script');
+          s.src = A; s.async = true;
+          d.head.appendChild(s); cal.loaded = true;
+        }
+        if (args[0] === L) {
+          const api = function (...a) { p(api, a); };
+          api.q = [];
+          const ns = args[1];
+          if (typeof ns === 'string') { cal.ns[ns] = api; p(api, args); p(cal, [L, api]); }
+          else { p(cal, args); }
+          return;
+        }
+        p(cal, args);
       };
-      (function (C, A, L) {
-        const p = (a, ar) => { a.q.push(ar); };
-        const d = C.document;
-        C.Cal = C.Cal || function (...args) {
-          const cal = C.Cal;
-          if (!cal.loaded) {
-            cal.ns = {}; cal.q = cal.q || [];
-            const s = d.createElement('script');
-            s.src = A; s.async = true; s.onload = initCal;
-            d.head.appendChild(s); cal.loaded = true;
-          }
-          if (args[0] === L) {
-            const api = function (...a) { p(api, a); };
-            api.q = [];
-            const ns = args[1];
-            if (typeof ns === 'string') { cal.ns[ns] = api; p(api, args); p(cal, [L, api]); }
-            else { p(cal, args); }
-            return;
-          }
-          p(cal, args);
-        };
-      })(window, `${CAL_ORIGIN}/embed.js`, 'init');
-    });
+    })(window, `${CAL_ORIGIN}/embed.js`, 'init');
+    window.Cal('init', { origin: CAL_ORIGIN });
+    window.Cal('ui', { theme: 'light', styles: { branding: { brandColor: '#1b1d1a' } }, hideEventTypeDetails: false, layout: 'month_view' });
   }, []);
 
-  useEffect(() => {
-    if (window.Cal) { window.Cal('init', { origin: CAL_ORIGIN }); setCalReady(true); }
-  }, [pathname]);
-
-  const openCalModal = useCallback(async () => {
-    await loadCal();
+  const lastOpenRef = useRef(0);
+  const openCalModal = useCallback(() => {
+    // Anti double-clic : ignore un second déclenchement immédiat
+    const now = Date.now();
+    if (now - lastOpenRef.current < 1000) return;
+    lastOpenRef.current = now;
+    loadCal();
     window.Cal('modal', { calLink: CAL_LINK, config: { layout: 'month_view' } });
   }, [loadCal]);
 

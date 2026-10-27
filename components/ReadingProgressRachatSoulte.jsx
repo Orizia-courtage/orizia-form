@@ -2,18 +2,19 @@
 
 import ReadingProgressBase from './ReadingProgressBase';
 
+// Jalons dans l'ordre de la page (les positions sont calculées automatiquement).
 const JALONS_DESKTOP = [
-  { label: 'Définition', id: 'section-definition', displayPct: 14 },
-  { label: 'Simulateur', id: 'section-simulateur', displayPct: 34 },
-  { label: 'Accompagnement', id: 'section-accompagnement', displayPct: 56 },
-  { label: 'Auto-évaluation', id: 'section-autoevaluation', displayPct: 74 },
-  { label: 'FAQ', id: 'section-faq', displayPct: 88 },
+  { label: 'Définition', id: 'section-definition' },
+  { label: 'Simulateur', id: 'section-simulateur' },
+  { label: 'Accompagnement', id: 'section-accompagnement' },
+  { label: 'Auto-évaluation', id: 'section-autoevaluation' },
+  { label: 'FAQ', id: 'section-faq' },
 ];
 
 const JALONS_MOBILE = [
-  { label: 'Simulateur', id: 'section-simulateur', displayPct: 25 },
-  { label: 'Accompagnement', id: 'section-accompagnement', displayPct: 55 },
-  { label: 'FAQ', id: 'section-faq', displayPct: 82 },
+  { label: 'Simulateur', id: 'section-simulateur' },
+  { label: 'Accompagnement', id: 'section-accompagnement' },
+  { label: 'FAQ', id: 'section-faq' },
 ];
 
 export default function ReadingProgressRachatSoulte() {

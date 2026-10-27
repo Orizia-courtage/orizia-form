@@ -1,76 +1,23 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import ReadingProgressBase from './ReadingProgressBase';
 
-// Jalons crowdfunding — structure réelle de la page
+// Jalons dans l'ordre de la page (les positions sont calculées automatiquement).
 const JALONS_DESKTOP = [
-  { label: 'Définition', pct: 20, id: 'section-definition' },
-  { label: 'Risques', pct: 36, id: 'section-risques' },
-  { label: 'Fiscalité', pct: 50, id: 'section-fiscalite' },
-  { label: 'Sélection', pct: 63, id: 'section-selection' },
-  { label: 'Accompagnement', pct: 76, id: 'section-accompagnement' },
-  { label: 'Auto-évaluation', pct: 87, id: 'section-autoevaluation' },
+  { label: 'Définition', id: 'section-definition' },
+  { label: 'Risques', id: 'section-risques' },
+  { label: 'Fiscalité', id: 'section-fiscalite' },
+  { label: 'Sélection', id: 'section-selection' },
+  { label: 'Accompagnement', id: 'section-accompagnement' },
+  { label: 'Auto-évaluation', id: 'section-autoevaluation' },
 ];
 
 const JALONS_MOBILE = [
-  { label: 'Risques', pct: 36, displayPct: 25, id: 'section-risques' },
-  { label: 'Sélection', pct: 63, displayPct: 50, id: 'section-selection' },
-  { label: 'Auto-évaluation', pct: 87, displayPct: 75, id: 'section-autoevaluation' },
+  { label: 'Risques', id: 'section-risques' },
+  { label: 'Sélection', id: 'section-selection' },
+  { label: 'Auto-évaluation', id: 'section-autoevaluation' },
 ];
 
 export default function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
-      setProgress(pct);
-      setVisible(scrollTop > 200 && pct < 92);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
-
-  if (!visible) return null;
-
-  const jalons = isMobile ? JALONS_MOBILE : JALONS_DESKTOP;
-
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  return (
-    <div className="rp-bar">
-      <div className="rp-track">
-        <div className="rp-fill" style={{ width: `${progress}%` }} />
-        {jalons.map(j => {
-          const pos = isMobile ? j.displayPct : j.pct;
-          return (
-            <button
-              key={j.label}
-              onClick={() => scrollTo(j.id)}
-              className={`rp-jalon${progress >= j.pct ? ' rp-jalon--passed' : ''}`}
-              style={{ left: `${pos}%`, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-              aria-label={`Aller à : ${j.label}`}
-            >
-              <div className="rp-jalon-dot" />
-              <span className="rp-jalon-label">{j.label}</span>
-            </button>
-          );
-        })}
-      </div>
-      <span className="rp-pct">{progress}%</span>
-    </div>
-  );
+  return <ReadingProgressBase jalonsDesktop={JALONS_DESKTOP} jalonsMobile={JALONS_MOBILE} />;
 }

@@ -1,74 +1,22 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import ReadingProgressBase from './ReadingProgressBase';
 
+// Jalons dans l'ordre de la page (les positions sont calculées automatiquement).
 const JALONS_DESKTOP = [
-  { label: 'Définition', pct: 18, id: 'section-definition' },
-  { label: 'Calculateur', pct: 35, id: 'section-fiscalite' },
-  { label: 'Comparaison', pct: 52, id: 'section-comparaison' },
-  { label: 'Risques', pct: 65, id: 'section-risques' },
-  { label: 'Auto-évaluation', pct: 82, id: 'section-autoevaluation' },
+  { label: 'Définition', id: 'section-definition' },
+  { label: 'Calculateur', id: 'section-fiscalite' },
+  { label: 'Comparaison', id: 'section-comparaison' },
+  { label: 'Risques', id: 'section-risques' },
+  { label: 'Auto-évaluation', id: 'section-autoevaluation' },
 ];
 
 const JALONS_MOBILE = [
-  { label: 'Calculateur', pct: 35, displayPct: 25, id: 'section-fiscalite' },
-  { label: 'Risques', pct: 65, displayPct: 50, id: 'section-risques' },
-  { label: 'Auto-évaluation', pct: 82, displayPct: 75, id: 'section-autoevaluation' },
+  { label: 'Calculateur', id: 'section-fiscalite' },
+  { label: 'Risques', id: 'section-risques' },
+  { label: 'Auto-évaluation', id: 'section-autoevaluation' },
 ];
 
 export default function ReadingProgressPER() {
-  const [progress, setProgress] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
-      setProgress(pct);
-      setVisible(scrollTop > 200 && pct < 92);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
-
-  if (!visible) return null;
-
-  const jalons = isMobile ? JALONS_MOBILE : JALONS_DESKTOP;
-
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  return (
-    <div className="rp-bar">
-      <div className="rp-track">
-        <div className="rp-fill" style={{ width: `${progress}%` }} />
-        {jalons.map(j => {
-          const pos = isMobile ? j.displayPct : j.pct;
-          return (
-            <button
-              key={j.label}
-              onClick={() => scrollTo(j.id)}
-              className={`rp-jalon${progress >= j.pct ? ' rp-jalon--passed' : ''}`}
-              style={{ left: `${pos}%`, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-              aria-label={`Aller à : ${j.label}`}
-            >
-              <div className="rp-jalon-dot" />
-              <span className="rp-jalon-label">{j.label}</span>
-            </button>
-          );
-        })}
-      </div>
-      <span className="rp-pct">{progress}%</span>
-    </div>
-  );
+  return <ReadingProgressBase jalonsDesktop={JALONS_DESKTOP} jalonsMobile={JALONS_MOBILE} />;
 }

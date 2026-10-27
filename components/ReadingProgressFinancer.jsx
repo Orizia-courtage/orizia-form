@@ -2,17 +2,18 @@
 
 import ReadingProgressBase from './ReadingProgressBase';
 
+// Jalons dans l'ordre de la page (les positions sont calculées automatiquement).
 const JALONS_DESKTOP = [
-  { label: 'Solutions', id: 'produits', displayPct: 20 },
-  { label: 'Pourquoi Orizia', id: 'section-pourquoi', displayPct: 40 },
-  { label: 'Accompagnement', id: 'section-etapes', displayPct: 62 },
-  { label: 'FAQ', id: 'section-faq', displayPct: 80 },
+  { label: 'Solutions', id: 'produits' },
+  { label: 'Pourquoi Orizia', id: 'section-pourquoi' },
+  { label: 'Accompagnement', id: 'section-etapes' },
+  { label: 'FAQ', id: 'section-faq' },
 ];
 
 const JALONS_MOBILE = [
-  { label: 'Solutions', id: 'produits', displayPct: 25 },
-  { label: 'Accompagnement', id: 'section-etapes', displayPct: 50 },
-  { label: 'FAQ', id: 'section-faq', displayPct: 75 },
+  { label: 'Solutions', id: 'produits' },
+  { label: 'Accompagnement', id: 'section-etapes' },
+  { label: 'FAQ', id: 'section-faq' },
 ];
 
 export default function ReadingProgressFinancer() {
