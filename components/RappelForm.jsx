@@ -20,7 +20,8 @@ function Turnstile({ onToken }) {
       script.async = true;
       document.head.appendChild(script);
     }
-    const cleanup = mountTurnstile(element.current, TURNSTILE_ACTION, TURNSTILE_KEY, onToken, setError);
+    // « interaction-only » : invisible tant que Cloudflare n'a pas de doute → pas de place perdue
+    const cleanup = mountTurnstile(element.current, TURNSTILE_ACTION, TURNSTILE_KEY, onToken, setError, window, { appearance: 'interaction-only' });
     return () => { cleanup(); onToken(''); };
   }, [onToken]);
   return (
@@ -54,7 +55,7 @@ export default function RappelForm({ onBack, onDone }) {
     if (!form.prenom.trim()) return setError('Indiquez votre prénom.');
     if (form.telephone.replace(/\D/g, '').length < 9) return setError('Indiquez un numéro de téléphone valide.');
     if (!form.consent) return setError('Merci d’accepter d’être recontacté(e).');
-    if (!token) return setError('Merci de valider la vérification anti-robot.');
+    if (!token) return setError('Vérification anti-robot en cours… réessayez dans un instant.');
     lock.current = true;
     setStatus('sending');
     try {
@@ -93,18 +94,22 @@ export default function RappelForm({ onBack, onDone }) {
           {form.creneau === CRENEAUX[0] ? ' dès que possible' : <>, créneau <strong>{form.creneau.toLowerCase()}</strong></>}
           , sous 24 h ouvrées.
         </p>
-        <button type="button" className="rf-back-link" onClick={onBack}>
-          <Icon name="arrow-left" /> Retour aux moyens de contact
-        </button>
+        {onBack && (
+          <button type="button" className="rf-back-link" onClick={onBack}>
+            <Icon name="arrow-left" /> Retour aux moyens de contact
+          </button>
+        )}
       </div>
     );
   }
 
   return (
     <form className="rf" onSubmit={submit} noValidate>
-      <button type="button" className="cp-detail-back" onClick={onBack}>
-        <Icon name="arrow-left" /> Retour aux moyens de contact
-      </button>
+      {onBack && (
+        <button type="button" className="cp-detail-back" onClick={onBack}>
+          <Icon name="arrow-left" /> Retour aux moyens de contact
+        </button>
+      )}
       <h2 className="rf-title">Cindy vous rappelle</h2>
       <p className="rf-lead">Laissez votre numéro : vous êtes rappelé(e) sous 24 h ouvrées, sans engagement.</p>
 

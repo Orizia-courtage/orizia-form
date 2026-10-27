@@ -3,8 +3,10 @@ import { useState, useEffect, useRef } from 'react';
 import ContactCaptcha from './ContactCaptcha';
 
 import Icon from '@/components/Icon';
+import RappelForm from './RappelForm';
 const TABS = [
   { id: 'rdv',        icon: 'calendar-days', label: 'RDV' },
+  { id: 'rappel',     icon: 'headset', label: 'Rappel' },
   { id: 'message',    icon: 'message-circle', label: 'Message' },
   { id: 'formulaire', icon: 'mail', label: 'Écrire' },
   { id: 'appel',      icon: 'phone', label: 'Appeler' },
@@ -298,6 +300,10 @@ export default function ContactWidget() {
               </div>
             )}
 
+            {tab === 'rappel' && (
+              <div className="cw-rappel"><RappelForm /></div>
+            )}
+
             {tab === 'appel' && (
               <div className="cw-action-center">
                 <div className="cw-action-icon"><Icon name="phone" /></div>
@@ -305,6 +311,9 @@ export default function ContactWidget() {
                 <p>Disponible du lundi au vendredi, de 9h à 18h.</p>
                 <a href="tel:+33777259706" className="cw-btn-action cw-btn-call">Appeler Cindy</a>
                 <span className="cw-tel-num">+33 7 77 25 97 06</span>
+                <button type="button" className="cw-rappel-link" onClick={() => setTab('rappel')}>
+                  <Icon name="headset" /> Pas disponible maintenant ? <strong>Être rappelé</strong>
+                </button>
               </div>
             )}
 

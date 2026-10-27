@@ -558,12 +558,7 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .cp-scan-callback span { flex: 1; color: var(--oz-muted); }
 .cp-scan-callback strong { color: var(--oz-ink); font-weight: 600; }
 .cp-scan-callback:hover { background: var(--oz-mint-soft); border-color: var(--oz-sage); }
-@media (max-height: 760px) {
-  .cp-scan-stage { height: 186px; }
-  .cp-qr-code { width: 124px !important; height: 124px !important; }
-  @keyframes cp-scan { 0%, 100% { transform: translateY(0); opacity: 0; } 10%, 90% { opacity: 1; } 50% { transform: translateY(122px); } }
-  .cp-scan-steps li { font-size: .7rem; }
-}
+
 
 /* Mise en avant de « Être rappelé » dans la liste */
 .cp-action--rappel .cp-action-text strong::after {
@@ -609,3 +604,82 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .rf--done .rf-lead { margin: 0; max-width: 320px; }
 .rf-back-link { margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; font: inherit; font-size: .84rem; font-weight: 600; color: var(--oz-sage-deep); cursor: pointer; }
 @media (max-width: 480px) { .rf-row { grid-template-columns: 1fr; } .rf { padding: 12px 18px 20px; } }
+
+/* ── Fenêtre contact : version compacte (tient sans défiler dès 620 px de haut) ── */
+.cp-panel { max-width: 440px !important; border-radius: 22px !important; }
+.cp-panel-header { padding: 14px 18px 12px !important; }
+.cp-avatar { width: 36px !important; height: 36px !important; }
+.cp-panel-header-left strong { font-size: .88rem !important; }
+.cp-panel-header-left span { font-size: .72rem !important; }
+.cp-close { width: 34px !important; height: 34px !important; }
+.cp-intro { padding: 12px 18px 2px !important; }
+.cp-intro p { font-size: .72rem !important; letter-spacing: .04em !important; }
+.cp-actions { padding: 6px 10px 8px !important; gap: 2px !important; }
+.cp-action { padding: 8px 12px !important; gap: 12px !important; border-radius: 12px !important; }
+.cp-action-icon { width: 36px !important; height: 36px !important; border-radius: 11px !important; font-size: 1rem !important; }
+.cp-action-text { gap: 0 !important; }
+.cp-action-text strong { font-size: .86rem !important; }
+.cp-action-text span { font-size: .72rem !important; }
+.cp-panel-footer { padding: 8px 18px 10px !important; font-size: .68rem !important; }
+
+/* QR */
+.cp-contact-detail { padding: 8px 22px 16px !important; }
+.cp-detail-back { font-size: .74rem !important; padding: 2px 0 !important; }
+.cp-scan-title { font-size: 1.15rem !important; margin: 4px auto 0 !important; max-width: none; }
+.cp-scan-stage { height: 176px; }
+.cp-scan-stage::before { width: 160px; height: 160px; }
+.cp-qr-frame { padding: 9px; border-radius: 16px; }
+.cp-qr-code { width: 118px !important; height: 118px !important; }
+.cp-qr-badge { width: 30px; height: 30px; border-radius: 9px; font-size: .95rem; box-shadow: 0 0 0 3px #fff, 0 2px 6px rgba(27, 29, 26, .18); }
+.cp-qr-scanline { left: 9px; right: 9px; top: 9px; }
+.cp-qr-corner { width: 18px; height: 18px; border-width: 2.5px; }
+@keyframes cp-scan { 0%, 100% { transform: translateY(0); opacity: 0; } 10%, 90% { opacity: 1; } 50% { transform: translateY(116px); } }
+.cp-scan-steps { margin: 0 0 10px; gap: 6px; }
+.cp-scan-steps li { flex-direction: row; justify-content: center; gap: 7px; font-size: .7rem; text-align: left; }
+.cp-scan-steps li > span { width: 28px; height: 28px; border-radius: 9px; font-size: .85rem; flex-shrink: 0; }
+.cp-scan-steps li > span::after { width: 14px; height: 14px; font-size: .56rem; top: -4px; right: -4px; }
+.cp-scan-alt { padding-top: 10px; gap: 5px; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+.cp-scan-alt > span { width: 100%; text-align: center; font-size: .7rem; }
+.cp-copy-chip { padding: 5px 5px 5px 13px; }
+.cp-copy-chip strong { font-size: .86rem; }
+.cp-copy-chip-state { padding: 4px 9px; font-size: .7rem; }
+.cp-scan-open { width: 100%; justify-content: center; font-size: .76rem; }
+.cp-scan-callback { margin-top: 10px; padding: 9px 12px; font-size: .78rem; }
+
+/* Rappel */
+.rf { padding: 8px 22px 16px; gap: 10px; }
+.rf-title { font-size: 1.2rem; }
+.rf-lead { margin: -6px 0 0; font-size: .78rem; }
+.rf-field { gap: 4px; }
+.rf-field > span, .rf-field > legend { font-size: .74rem; }
+.rf-field input, .rf-field select { height: 40px; border-radius: 10px; font-size: .9rem; padding: 0 12px; }
+.rf-slots legend { margin-bottom: 4px; }
+.rf-chips { gap: 5px; }
+.rf-chip { padding: 6px 10px; font-size: .74rem; }
+.rf-consent { font-size: .7rem; gap: 8px; }
+.rf-consent input { width: 16px; height: 16px; }
+.rf-submit { min-height: 46px !important; }
+.rf-error { padding: 8px 10px; font-size: .76rem; }
+
+@media (max-height: 640px) {
+  .cp-intro { display: none; }
+  .cp-action { padding: 6px 12px !important; }
+  .cp-scan-stage { height: 150px; }
+  .cp-qr-code { width: 100px !important; height: 100px !important; }
+  @keyframes cp-scan { 0%, 100% { transform: translateY(0); opacity: 0; } 10%, 90% { opacity: 1; } 50% { transform: translateY(98px); } }
+  .rf-lead { display: none; }
+}
+
+/* ── Bulle « Une question ? » : onglet Rappel ─────────────────────────── */
+.cw-tabs { grid-template-columns: repeat(5, 1fr) !important; }
+.cw-panel-desktop { bottom: 24px !important; height: min(calc(100dvh - 48px), 680px) !important; }
+.cw-rappel .rf-title { font-size: 1.1rem; }
+.cw-rappel .rf-lead { display: none; }
+.cw-rappel .rf { padding: 14px 18px 18px; }
+.cw-rappel .rf-row { grid-template-columns: 1fr; }
+.cw-rappel-link {
+  margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: .82rem; color: var(--oz-muted);
+}
+.cw-rappel-link strong { color: var(--oz-sage-deep); font-weight: 600; }
+.cw-rappel-link:hover strong { text-decoration: underline; }
