@@ -18,6 +18,27 @@ const nameRe = /^[\p{L}][\p{L}\p{M} '’.-]{0,59}$/u;
 // Échappe chaque valeur interpolée dans le HTML des e-mails (comme /api/contact et /api/rappel).
 const escapeHtml = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+// Remonte le parrainage dans le CRM (« Rappels demandés », Source : Parrainage). Best-effort.
+async function notifyCrm(payload) {
+  const secret = process.env.CRM_INTEGRATION_SECRET;
+  if (!secret) return false;
+  const base = (process.env.CRM_URL || 'https://crm.orizia-courtage.fr').replace(/\/$/, '');
+  try {
+    const response = await fetch(`${base}/api/integrations/parrainage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-crm-integration-secret': secret },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(9000),
+      cache: 'no-store',
+    });
+    if (!response.ok) console.error('CRM parrainage:', response.status);
+    return response.ok;
+  } catch (error) {
+    console.error('CRM parrainage:', error?.message);
+    return false;
+  }
+}
+
 function cleanPhone(value) {
   const phone = parsePhoneNumberFromString(String(value || ''), 'FR');
   if (!phone || !phone.isValid()) throw new FormError('Numéro de téléphone invalide.');
@@ -199,6 +220,13 @@ export async function POST(request) {
             <strong>Projet :</strong> <span style="color:#3a6f6c; font-weight:bold;">${e.projetAffiche}</span>
           </p>
         </div>`,
+    });
+
+    // Remontée CRM best-effort : ne bloque pas la réponse au visiteur.
+    await notifyCrm({
+      filleulPrenom, filleulNom, filleulTel, filleulEmail,
+      parrainPrenom, parrainNom, parrainTel, parrainEmail,
+      projetFilleul: projetRaw, page: '/parrainage',
     });
 
     return NextResponse.json({ success: true }, { headers: { 'Cache-Control': 'no-store' } });
