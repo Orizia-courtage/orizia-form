@@ -15,18 +15,20 @@ async function sendToCrm(data) {
   const secret = process.env.CRM_INTEGRATION_SECRET;
   if (!secret) return false;
   const base = (process.env.CRM_URL || 'https://crm.orizia-courtage.fr').replace(/\/$/, '');
+  const started = Date.now();
   try {
     const response = await fetch(`${base}/api/integrations/rappel-express`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-crm-integration-secret': secret },
       body: JSON.stringify(data),
-      signal: AbortSignal.timeout(6000),
+      signal: AbortSignal.timeout(9000),
       cache: 'no-store',
     });
-    if (!response.ok) console.error('CRM rappel:', response.status);
+    const text = await response.text().catch(() => '');
+    console.log(`CRM rappel: ${response.status} en ${Date.now() - started} ms`, response.ok ? '' : text.slice(0, 200));
     return response.ok;
   } catch (error) {
-    console.error('CRM rappel:', error?.message);
+    console.error(`CRM rappel: ${error?.message} après ${Date.now() - started} ms`, error?.cause?.code || '');
     return false;
   }
 }
