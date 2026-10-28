@@ -4,12 +4,12 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
 import { takeAdminAttempt } from '@/lib/admin-rate-limit';
+import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 
 export const runtime = 'nodejs';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const SITE_URL = 'https://www.orizia-courtage.fr';
-const LOGO_URL = `${SITE_URL}/images/Orizia_logo.webp`;
 const MIN_FILL_MS = 2500; // un humain met plus de 2,5 s à remplir le formulaire
 const REQUIRED = ['parrainNom', 'parrainPrenom', 'parrainEmail', 'parrainTel', 'filleulNom', 'filleulPrenom', 'filleulEmail', 'filleulTel'];
 const emailRe = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
@@ -51,28 +51,7 @@ function cleanName(value, label) {
   return name;
 }
 
-// ── SIGNATURE PROFESSIONNELLE (Format Tableau pour compatibilité Mail) ──
-const getSignatureHTML = () => `
-  <br/><br/>
-  <div style="border-top: 1px solid #eee; padding-top: 20px; font-family: Arial, sans-serif;">
-    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 500px;">
-      <tr>
-        <td style="padding-right: 20px; vertical-align: top; width: 120px;">
-          <img src="${LOGO_URL}" alt="Orizia Courtage" width="120" style="display:block; border: none;" />
-        </td>
-        <td style="vertical-align: top; border-left: 2px solid #3a6f6c; padding-left: 20px;">
-          <p style="margin:0 0 4px 0; font-weight:bold; color:#3a6f6c; font-size: 16px;">Cindy Urbansky</p>
-          <p style="margin:0 0 12px 0; color:#666; font-size:14px;">Fondatrice &amp; Courtier | Orizia Courtage</p>
-          <p style="margin:4px 0; font-size:14px;">
-            📞 <a href="tel:+33777259706" style="color:#333; text-decoration:none;">07 77 25 97 06</a><br/>
-            ✉️ <a href="mailto:cindy.urbansky@orizia-courtage.fr" style="color:#3a6f6c; text-decoration:none;">cindy.urbansky@orizia-courtage.fr</a><br/>
-            🌐 <a href="${SITE_URL}" style="color:#3a6f6c; text-decoration:none;">www.orizia-courtage.fr</a>
-          </p>
-        </td>
-      </tr>
-    </table>
-  </div>
-`;
+// Signature unique partagée (identique à celle des formulaires n8n).
 
 export async function POST(request) {
   try {
@@ -105,7 +84,7 @@ export async function POST(request) {
     if (!attempt.allowed) throw new FormError('Vous avez déjà envoyé plusieurs recommandations. Réessayez dans quelques minutes.', 429);
 
     const emailExpediteur = 'Cindy - Orizia Courtage <cindy.urbansky@orizia-courtage.fr>';
-    const signature = getSignatureHTML();
+    const signature = SIGNATURE_BLOCK;
     const siteLink = SITE_URL + (projetKey ? projets[projetKey] : '');
     const projetAffiche = projetRaw.trim() || 'Aucun projet défini';
 

@@ -4,6 +4,7 @@ import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs'
 import { getSupabaseAdmin } from '@/lib/supabase-server';
 import { takeAdminAttempt } from '@/lib/admin-rate-limit';
 import { CRENEAUX, SUJETS } from '@/lib/rappel-options';
+import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 
 export const runtime = 'nodejs';
 
@@ -85,6 +86,7 @@ export async function POST(request) {
           <p style="margin:24px 0 0"><a href="tel:${intl}" style="display:inline-block;background:#1b1d1a;color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold">Appeler ${escapeHtml(prenom)}</a>
             <a href="https://crm.orizia-courtage.fr/rappels" style="display:inline-block;margin-left:8px;color:#3e7f68;padding:12px 6px;text-decoration:none;font-weight:bold">Voir dans le CRM →</a></p>
           <p style="margin:20px 0 0;font-size:12px;color:#7f7f7f">Le visiteur a accepté d’être recontacté par téléphone.</p>
+          ${SIGNATURE_BLOCK}
         </div>`,
       }).then(({ error }) => { if (error) throw new Error(error.message || 'resend'); return true; })
         .catch((err) => { console.error('Resend rappel:', err); return false; }),

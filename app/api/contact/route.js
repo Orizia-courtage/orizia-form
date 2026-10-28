@@ -2,6 +2,7 @@ import { Resend } from 'resend';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
 import { takeAdminAttempt } from '@/lib/admin-rate-limit';
+import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 
 export const runtime = 'nodejs';
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -42,6 +43,7 @@ export async function POST(req) {
         <p><strong>Type de demande :</strong> ${typedemande}</p>
         <p><strong>Urgence :</strong> ${urgence}</p>
         <p><strong>Commentaire :</strong> ${commentaire}</p>
+        ${SIGNATURE_BLOCK}
       `,
     });
 
