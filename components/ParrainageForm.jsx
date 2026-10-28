@@ -1,8 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/Icon';
+import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
+
+const TURNSTILE_KEY = '0x4AAAAAACu8a5g2pFEtNqxD';
+const TURNSTILE_ACTION = 'orizia_parrainage';
+
+function Turnstile({ onToken }) {
+  const element = useRef(null);
+  const [error, setError] = useState('');
+  useEffect(() => {
+    if (!document.getElementById('cf-ts')) {
+      const script = document.createElement('script');
+      script.id = 'cf-ts';
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+    const cleanup = mountTurnstile(element.current, TURNSTILE_ACTION, TURNSTILE_KEY, onToken, setError);
+    return () => { cleanup(); onToken(''); };
+  }, [onToken]);
+  return (
+    <div className="parr-field" style={{ marginTop: 12 }}>
+      <div ref={element} />
+      {error && <span className="parr-error" role="alert">{error}</span>}
+    </div>
+  );
+}
 const EMPTY = {
   parrainNom: '', parrainPrenom: '', parrainTel: '', parrainEmail: '',
   filleulNom: '', filleulPrenom: '', filleulTel: '', filleulEmail: '', projetFilleul: '',
@@ -58,6 +84,11 @@ export default function ParrainageForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [serverError, setServerError] = useState('');
+  const [token, setToken] = useState('');
+  const [website, setWebsite] = useState(''); // champ piège anti-robot
+  const openedAt = useRef(0);
+  useEffect(() => { openedAt.current = Date.now(); }, []);
+  const onToken = useCallback(t => setToken(t), []);
 
   const change = (name, value) => {
     setData(prev => ({ ...prev, [name]: value }));
@@ -78,20 +109,22 @@ export default function ParrainageForm() {
     const errs = validateStep2(data);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
+    if (!token) { setServerError("Vérification anti-robot en cours… réessayez dans un instant."); return; }
     setIsSubmitting(true);
     setServerError('');
     try {
       const res = await fetch('/api/parrainage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, website, elapsed: Date.now() - openedAt.current, turnstileToken: token }),
       });
+      const payload = await res.json().catch(() => ({}));
       if (res.ok) {
         setIsSuccess(true);
-      } else if (res.status === 429) {
-        setServerError("Trop de tentatives. Veuillez patienter quelques minutes.");
       } else {
-        setServerError("Une erreur s'est produite. Veuillez réessayer.");
+        window.dispatchEvent(new CustomEvent('orizia-turnstile-reset', { detail: TURNSTILE_ACTION }));
+        if (res.status === 429) setServerError("Trop de tentatives. Veuillez patienter quelques minutes.");
+        else setServerError(payload.error || "Une erreur s'est produite. Veuillez réessayer.");
       }
     } catch {
       setServerError("Erreur de connexion au serveur.");
@@ -199,6 +232,13 @@ export default function ParrainageForm() {
                 </select>
               </div>
             </div>
+
+            {/* Champ piège : invisible pour les humains, rempli par les robots */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+              <label>Site web<input type="text" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} /></label>
+            </div>
+
+            <Turnstile onToken={onToken} />
 
             {serverError && (
               <div className="parr-server-error"><Icon name="ban" /> {serverError}</div>
