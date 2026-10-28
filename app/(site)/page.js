@@ -8,6 +8,7 @@ import Icon from '@/components/Icon';
 import HomeSituations from '@/components/HomeSituations';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import BrokerNetwork from '@/components/BrokerNetwork';
+import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -56,7 +57,11 @@ const oriziaSchema = {
   '@type': ['FinancialService', 'LocalBusiness', 'InsuranceAgency'],
   '@id': 'https://www.orizia-courtage.fr/#organization',
   name: 'Orizia Courtage',
+  legalName: COMPANY.denomination,
   alternateName: ['Orizia', 'Cindy Urbansky Courtier'],
+  foundingDate: COMPANY.registeredAt,
+  taxID: COMPANY.sirenCompact,
+  identifier: COMPANY_IDENTIFIERS,
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
   url: 'https://www.orizia-courtage.fr',
   logo: {

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from '@/components/Icon';
 import RdvButton from '@/components/RdvButton';
+import { COMPANY } from '@/lib/company.mjs';
 
 const COLS = [
   { title: 'Financer', href: '/financer', links: [['Crédit immobilier', '/financer/credit-immobilier'], ['Regroupement de crédits', '/financer/regroupement-credits'], ['Prêt personnel', '/financer/pret-personnel'], ['Rachat de soulte', '/financer/rachat-soulte']] },
@@ -74,6 +75,10 @@ export default function Footer() {
               </ul>
             </nav>
           ))}
+        </div>
+
+        <div className="oz-footer-legal">
+          {COMPANY.denomination} · {COMPANY.legalForm} au capital de {COMPANY.capital} · {COMPANY.rcs} · Siège : {COMPANY.addressInline}
         </div>
 
         <div className="oz-footer-bottom">

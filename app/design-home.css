@@ -312,9 +312,13 @@
 .oz-footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .oz-footer-col a:not(.oz-footer-col-title) { color: rgba(237, 247, 242, .66); text-decoration: none; font-size: .9rem; transition: color .2s; }
 .oz-footer-col a:hover { color: var(--oz-mint) !important; }
+.oz-footer-legal {
+  margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(179, 221, 203, .14);
+  font-size: .78rem; line-height: 1.6; color: rgba(237, 247, 242, .5);
+}
 .oz-footer-bottom {
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  padding-top: 24px; border-top: 1px solid rgba(179, 221, 203, .14); font-size: .82rem; color: rgba(237, 247, 242, .5);
+  padding-top: 16px; font-size: .82rem; color: rgba(237, 247, 242, .5);
 }
 .oz-footer-bottom div { display: flex; gap: 20px; }
 .oz-footer-bottom a { color: inherit; text-decoration: none; }
