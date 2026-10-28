@@ -1,5 +1,7 @@
 import { Resend } from 'resend';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
+import { getSupabaseAdmin } from '@/lib/supabase-server';
+import { takeAdminAttempt } from '@/lib/admin-rate-limit';
 
 export const runtime = 'nodejs';
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -14,6 +16,8 @@ export async function POST(req) {
     }
     if (!payload.commentaire?.trim()) throw new FormError('Veuillez saisir votre message.');
     await verifyTurnstile(payload.turnstileToken, req, 'orizia_contact');
+    const attempt = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request: req, scope: 'contact', limit: 5 });
+    if (!attempt.allowed) throw new FormError('Trop de messages envoyés. Réessayez dans quelques minutes.', 429);
     const { prenom, nom, email, telephone, typedemande, urgence, commentaire } = Object.fromEntries(Object.entries(payload).map(([key, value]) => [key, escapeHtml(value)]));
 
     // 1. Validation basique : vérifier que les champs obligatoires sont présents
