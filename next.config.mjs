@@ -15,10 +15,6 @@ const nextConfig = {
     minimumCacheTTL: 31536000,
   },
   compress: true,
-  // L'ancienne page de réglages est remplacée par le CRM.
-  async redirects() {
-    return [{ source: '/administration', destination: 'https://crm.orizia-courtage.fr/parametres/site', permanent: false }];
-  },
 };
 
 export default nextConfig;
