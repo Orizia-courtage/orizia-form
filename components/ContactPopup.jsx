@@ -411,7 +411,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
                       style={{ borderColor: errors.email ? '#b0473b' : undefined }} />
                   </Field>
 
-                  <input placeholder="Téléphone" value={form.telephone}
+                  <input type="tel" inputMode="tel" autoComplete="tel" placeholder="Téléphone" value={form.telephone}
                     onChange={e => handleChange('telephone', e.target.value)} />
 
                   <Field name="typedemande" errors={errors}>

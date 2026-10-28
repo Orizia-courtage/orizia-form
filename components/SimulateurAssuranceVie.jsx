@@ -359,7 +359,7 @@ export default function SimulateurAssuranceVie() {
             <div className="av-field">
               <label>Capital à terme souhaité</label>
               <div className="av-input-wrap">
-                <input type="number" min={1000} step={1000} value={capitalCible}
+                <input type="number" inputMode="numeric" min={1000} step={1000} value={capitalCible}
                   onChange={e => setCapitalCible(Math.max(0, Number(e.target.value)))} className="av-input" />
                 <span className="av-input-unit">€</span>
               </div>
@@ -375,7 +375,7 @@ export default function SimulateurAssuranceVie() {
               <div className="av-field">
                 <label>Revenus complémentaires souhaités</label>
                 <div className="av-input-wrap">
-                  <input type="number" min={25} step={25} value={revenusCompl}
+                  <input type="number" inputMode="numeric" min={25} step={25} value={revenusCompl}
                     onChange={e => setRevenusCompl(Math.max(25, Number(e.target.value)))} className="av-input" />
                   <span className="av-input-unit">€/mois</span>
                 </div>
@@ -383,7 +383,7 @@ export default function SimulateurAssuranceVie() {
               <div className="av-field">
                 <label>Durée de perception</label>
                 <div className="av-input-wrap">
-                  <input type="number" min={1} max={30} step={1} value={dureePerception}
+                  <input type="number" inputMode="numeric" min={1} max={30} step={1} value={dureePerception}
                     onChange={e => setDureePerception(Math.min(30, Math.max(1, Number(e.target.value))))} className="av-input" />
                   <span className="av-input-unit">ans</span>
                 </div>
@@ -404,7 +404,7 @@ export default function SimulateurAssuranceVie() {
               <div className="av-field">
                 <label>Versement initial</label>
                 <div className="av-input-wrap">
-                  <input type="number" min={0} step={100} value={vi}
+                  <input type="number" inputMode="numeric" min={0} step={100} value={vi}
                     onChange={e => setVi(Math.max(0, Number(e.target.value)))} className="av-input" />
                   <span className="av-input-unit">€</span>
                 </div>
@@ -415,7 +415,7 @@ export default function SimulateurAssuranceVie() {
               <div className="av-field">
                 <label>Versement régulier</label>
                 <div className="av-input-wrap">
-                  <input type="number" min={25} step={25} value={vr}
+                  <input type="number" inputMode="numeric" min={25} step={25} value={vr}
                     onChange={e => setVr(Math.max(25, Number(e.target.value)))} className="av-input" />
                   <span className="av-input-unit">€/mois</span>
                 </div>
@@ -425,7 +425,7 @@ export default function SimulateurAssuranceVie() {
             <div className="av-field">
               <label>Durée de l'épargne</label>
               <div className="av-input-wrap">
-                <input type="number" min={1} max={30} step={1} value={dureeEpargne}
+                <input type="number" inputMode="numeric" min={1} max={30} step={1} value={dureeEpargne}
                   onChange={e => setDureeEpargne(Math.min(30, Math.max(1, Number(e.target.value))))} className="av-input" />
                 <span className="av-input-unit">ans</span>
               </div>
@@ -441,7 +441,7 @@ export default function SimulateurAssuranceVie() {
             <div className="av-field" style={{ maxWidth: 220 }}>
               <label>Durée de perception</label>
               <div className="av-input-wrap">
-                <input type="number" min={1} max={30} step={1} value={dureePerception}
+                <input type="number" inputMode="numeric" min={1} max={30} step={1} value={dureePerception}
                   onChange={e => setDureePerception(Math.min(30, Math.max(1, Number(e.target.value))))} className="av-input" />
                 <span className="av-input-unit">ans</span>
               </div>

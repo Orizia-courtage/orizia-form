@@ -282,6 +282,9 @@ export default function ContactWidget() {
                     </Field>
 
                     <input
+                      type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
                       placeholder="Téléphone"
                       value={form.telephone}
                       onChange={e => handleChange('telephone', e.target.value)}

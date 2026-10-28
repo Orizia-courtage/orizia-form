@@ -152,7 +152,7 @@ export default function ParrainageForm() {
               <Field label="Votre nom *"    name="parrainNom"    data={data} errors={errors} onChange={change} />
               <Field label="Votre prénom *" name="parrainPrenom" data={data} errors={errors} onChange={change} />
             </div>
-            <Field label="Votre téléphone *" name="parrainTel"   type="tel"   data={data} errors={errors} onChange={change} inputMode="numeric" />
+            <Field label="Votre téléphone *" name="parrainTel"   type="tel"   data={data} errors={errors} onChange={change} inputMode="tel" />
             <Field label="Votre e-mail *"    name="parrainEmail" type="email" data={data} errors={errors} onChange={change} />
           </div>
 
@@ -181,7 +181,7 @@ export default function ParrainageForm() {
                 <Field label="Son nom *"    name="filleulNom"    data={data} errors={errors} onChange={change} />
                 <Field label="Son prénom *" name="filleulPrenom" data={data} errors={errors} onChange={change} />
               </div>
-              <Field label="Son téléphone *" name="filleulTel"   type="tel"   data={data} errors={errors} onChange={change} inputMode="numeric" />
+              <Field label="Son téléphone *" name="filleulTel"   type="tel"   data={data} errors={errors} onChange={change} inputMode="tel" />
               <Field label="Son e-mail *"    name="filleulEmail" type="email" data={data} errors={errors} onChange={change} />
 
               <div className="parr-field">

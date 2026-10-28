@@ -768,7 +768,7 @@ function S9({form,set,clr,errors,next}){
         <div ref={telRef} className="f-cond">
           <label className="f-label">Numéro de téléphone</label>
           <span className="f-sub">10 chiffres — ex : 0612345678</span>
-          <input type="text" className={`f-input${errors.tel_fr?' f-input-err':''}`} placeholder="0612345678" value={form.tel_fr}
+          <input type="tel" inputMode="tel" autoComplete="tel-national" className={`f-input${errors.tel_fr?' f-input-err':''}`} placeholder="0612345678" value={form.tel_fr}
             onChange={e=>{set('tel_fr',new AsYouType('FR').input(e.target.value));clr('tel_fr');}}/>
           <Err show={errors.tel_fr}>Numéro invalide (10 chiffres).</Err>
         </div>
@@ -785,7 +785,7 @@ function S9({form,set,clr,errors,next}){
               menuPortalTarget={typeof document!=='undefined'?document.body:null}
               menuPosition="fixed" styles={{...selStyles,menuPortal:(b)=>({...b,zIndex:9999})}}/>
             <div style={{flex:1}}>
-              <input type="text" className={`f-input${errors.tel_inter?' f-input-err':''}`} placeholder="Numéro sans indicatif" value={form.tel_inter}
+              <input type="tel" inputMode="tel" autoComplete="tel-national" className={`f-input${errors.tel_inter?' f-input-err':''}`} placeholder="Numéro sans indicatif" value={form.tel_inter}
                 onChange={e=>{const[iso]=form.code_pays.split('|');set('tel_inter',new AsYouType(iso).input(e.target.value));clr('tel_inter');}}/>
             </div>
           </div>
