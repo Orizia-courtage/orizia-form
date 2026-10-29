@@ -91,4 +91,20 @@ const server = http.createServer(async (request, response) => {
   }
 });
 
+// Remise à niveau au démarrage : fiches sans searchName (créées par d'anciennes versions)
+// ou dans un ancien format. Idempotent : ne touche que les fiches à corriger.
+async function backfillSearchNames() {
+  const clients = (await getDatabase()).collection('clients');
+  let fixed = 0;
+  for await (const doc of clients.find({}, { projection: { nom: 1, prenom: 1, searchName: 1 } })) {
+    const expected = `${normalizeText(doc.nom)} ${normalizeText(doc.prenom)}`.trim();
+    if (expected && doc.searchName !== expected) {
+      await clients.updateOne({ _id: doc._id }, { $set: { searchName: expected } });
+      fixed += 1;
+    }
+  }
+  console.log(`searchName : ${fixed} fiche(s) mise(s) à jour`);
+}
+
 server.listen(3000, '0.0.0.0');
+backfillSearchNames().catch((error) => console.error('Backfill searchName', error instanceof Error ? error.message : 'unknown'));
