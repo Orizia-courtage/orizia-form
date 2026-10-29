@@ -1,5 +1,6 @@
 import http from 'node:http';
 import { MongoClient } from 'mongodb';
+import { ISO_DATE, canonicalPhone, isSamePerson, normalizeText, normalizedEmail, phoneVariants } from './identity.mjs';
 
 const { MONGODB_URI, MONGODB_DATABASE, RAC_COUNTER_SECRET } = process.env;
 if (!MONGODB_URI || !MONGODB_DATABASE || !RAC_COUNTER_SECRET) throw new Error('Configuration du compteur RAC manquante.');
@@ -20,10 +21,6 @@ function json(response, status, payload) {
   response.end(JSON.stringify(payload));
 }
 
-function normalizedEmail(value) { return String(value || '').trim().toLowerCase(); }
-function normalizedPhone(value) { return String(value || '').replace(/[^+\d]/g, '').replace(/^00/, '+'); }
-function normalizedName(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
-
 async function readBody(request) {
   let body = '';
   for await (const chunk of request) {
@@ -36,27 +33,32 @@ async function readBody(request) {
 async function allocateDossier(payload) {
   const db = await getDatabase();
   const email = normalizedEmail(payload.profil_mail);
-  const phone = normalizedPhone(payload.profil_tel);
+  const phone = canonicalPhone(payload.profil_tel, payload.profil_codetel);
   const filters = [];
   if (email) filters.push({ email_normalized: email });
-  if (phone) filters.push({ telephone_normalized: phone });
+  if (phone) filters.push({ telephone_normalized: { $in: [...new Set([...phoneVariants(phone), ...phoneVariants(payload.profil_tel)])] } });
   const clients = db.collection('clients');
-  let client = filters.length ? await clients.findOne({ $or: filters }) : null;
+  const candidates = filters.length ? await clients.find({ $or: filters }).sort({ updatedAt: -1 }).limit(20).toArray() : [];
+  let client = candidates.find((candidate) => isSamePerson(candidate, payload)) || null;
   const now = new Date();
+  const birth = ISO_DATE.test(String(payload.profil_date_naissance || '')) ? String(payload.profil_date_naissance) : null;
   if (!client) {
+    const nom = String(payload.profil_nom || '').trim(); const prenom = String(payload.profil_prenom || '').trim();
     const created = {
       civilite: String(payload.profil_genre || '').trim() || null,
-      prenom: String(payload.profil_prenom || '').trim(), nom: String(payload.profil_nom || '').trim(),
-      date_naissance: /^\d{4}-\d{2}-\d{2}$/.test(String(payload.profil_date_naissance || '')) ? String(payload.profil_date_naissance) : null,
-      searchName: `${normalizedName(payload.profil_nom)} ${normalizedName(payload.profil_prenom)}`,
+      prenom, nom,
+      date_naissance: birth,
+      searchName: `${normalizeText(nom)} ${normalizeText(prenom)}`,
       email: String(payload.profil_mail || '').trim() || null, email_normalized: email || null,
       telephone: String(payload.profil_tel || '').trim() || null, telephone_normalized: phone || null,
       source: 'Formulaire RAC Site', createdAt: now, updatedAt: now,
+      // Coordonnées partagées avec une autre fiche (ex. e-mail commun d'un couple) : signalé pour vérification.
+      ...(candidates.length ? { possible_duplicate_of: candidates.map((candidate) => candidate._id.toString()) } : {}),
     };
     const result = await clients.insertOne(created);
     client = { ...created, _id: result.insertedId };
   } else {
-    await clients.updateOne({ _id: client._id }, { $set: { updatedAt: now, lastSource: 'Formulaire RAC Site', ...(client.date_naissance ? {} : { date_naissance: /^\d{4}-\d{2}-\d{2}$/.test(String(payload.profil_date_naissance || '')) ? String(payload.profil_date_naissance) : null }) } });
+    await clients.updateOne({ _id: client._id }, { $set: { updatedAt: now, lastSource: 'Formulaire RAC Site', ...(client.date_naissance || !birth ? {} : { date_naissance: birth }) } });
   }
   const result = await db.collection('Counters').findOneAndUpdate(
     { _id: 'rac_dossier' }, { $inc: { sequence: 1 }, $set: { updatedAt: now } }, { upsert: true, returnDocument: 'after' },
