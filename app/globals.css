@@ -1250,7 +1250,7 @@ body.contact-popup-open .cw-trigger {
   white-space: nowrap;
 }
 
-.fin-chiffre span {
+.fin-chiffre > span {
   font-size: 0.82rem;
   color: var(--orizia-light);
   opacity: 0.8;
@@ -4337,6 +4337,7 @@ body.contact-popup-open .cw-trigger {
 }
 
 .parrainage-hero h1 {
+  color: #fff;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 900;
   margin-bottom: 20px;
@@ -4385,6 +4386,8 @@ body.contact-popup-open .cw-trigger {
 }
 
 .reward-card {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   padding: 30px;
   border-radius: 16px;
@@ -4415,6 +4418,10 @@ body.contact-popup-open .cw-trigger {
   font-size: 0.9rem;
   line-height: 1.6;
 }
+
+/* Badge "Pour le parrain" calé en bas de chaque carte : alignés entre eux */
+.reward-card > .reward-badge,
+.reward-card > .reward-badge-group { margin-top: auto; }
 
 .reward-badge-group {
   display: flex;

@@ -119,7 +119,7 @@ const faqSchema = {
 const CHIFFRES = [
   { value: 'Jusqu\'à\u00A075k€', label: 'Plafond légal d\'emprunt', icon: 'credit-card' },
   { value: '1 à 7 ans', label: 'Durée de remboursement', icon: 'calendar-days' },
-  { value: 'check', label: 'Étude personnalisée de votre projet', icon: 'target' },
+  { value: 'Sur mesure', label: 'Étude personnalisée de votre projet', icon: 'target' },
   { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: 'timer' },
 ];
 
@@ -246,7 +246,7 @@ export default function PretPersonnelPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <strong style={{ whiteSpace: 'nowrap' }}><Icon name={c.icon} /> <Icon name={c.value} /></strong>
+                <strong><Icon name={c.icon} /> {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}

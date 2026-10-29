@@ -150,10 +150,10 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: ' ~35 000€', label: 'Plafond déduction salarié 2026', icon: '' },
-  { value: ' ~85 000€', label: 'Plafond Madelin TNS 2026', icon: '' },
-  { value: ' 3 ans', label: 'Report des plafonds non utilisés', icon: '' },
-  { value: ' 0€', label: 'Frais sur versements via Orizia', icon: '' },
+  { value: '~35 000€', label: 'Plafond déduction salarié 2026', icon: 'piggy-bank' },
+  { value: '~85 000€', label: 'Plafond Madelin TNS 2026', icon: 'briefcase-business' },
+  { value: '3 ans', label: 'Report des plafonds non utilisés', icon: 'calendar-days' },
+  { value: '0€', label: 'Frais sur versements via Orizia', icon: 'badge-euro' },
 ];
 
 const DANGERS = [
@@ -381,8 +381,7 @@ export default function PERPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}><Icon name={c.icon} /></div>
-                <strong>{c.value}</strong>
+                <strong><Icon name={c.icon} /> {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}

@@ -120,10 +120,10 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: ' 4–6%', label: 'Rendement annuel brut moyen', icon: '' },
-  { value: ' Dès 1 000€', label: "Ticket d'entrée accessible", icon: '' },
-  { value: ' 200+', label: 'SCPI analysées par mes soins', icon: '' },
-  { value: ' 8–10 ans', label: 'Durée de détention recommandée', icon: '' },
+  { value: '4–6%', label: 'Rendement annuel brut moyen', icon: 'trending-up' },
+  { value: 'Dès 1 000€', label: "Ticket d'entrée accessible", icon: 'euro' },
+  { value: '200+', label: 'SCPI analysées par mes soins', icon: 'search' },
+  { value: '8–10 ans', label: 'Durée de détention recommandée', icon: 'hourglass' },
 ];
 
 const DANGERS = [
@@ -289,8 +289,7 @@ export default function SCPIPage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {CHIFFRES.map(c => (
               <div key={c.label} className="fin-chiffre">
-                <div className="fin-chiffre-icon" style={{ fontSize: '2rem', marginBottom: 8 }}><Icon name={c.icon} /></div>
-                <strong>{c.value}</strong>
+                <strong><Icon name={c.icon} /> {c.value}</strong>
                 <span>{c.label}</span>
               </div>
             ))}

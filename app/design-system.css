@@ -228,7 +228,7 @@ a:hover > .oz-arrow, button:hover > .oz-arrow { transform: translateX(3px); }
   color: #fff !important; margin-bottom: 8px !important; gap: 12px !important;
 }
 .fin-chiffre strong .oz-icon { font-size: .58em; color: var(--oz-mint); }
-.fin-chiffre span { color: rgba(237, 247, 242, .7) !important; opacity: 1 !important; font-size: .86rem !important; line-height: 1.45; display: block; }
+.fin-chiffre > span { color: rgba(237, 247, 242, .7) !important; opacity: 1 !important; font-size: .86rem !important; line-height: 1.45; display: block; }
 
 /* ── Cartes ───────────────────────────────────────────────────────────── */
 .crowd-avantage-card, .fin-card, .fin-focus-card {
@@ -406,7 +406,7 @@ a:hover > .oz-arrow, button:hover > .oz-arrow { transform: translateX(3px); }
 /* ── Responsive général ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .fin-chiffre + .fin-chiffre::before { display: none; }
-  .fin-chiffres-inner, .ae-chiffres-inner { row-gap: 28px !important; grid-template-columns: repeat(2, 1fr) !important; }
+  .fin-chiffres-inner, .ae-chiffres-inner { row-gap: 28px !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 }
 @media (max-width: 600px) {
   body { font-size: 16px; }
@@ -418,7 +418,15 @@ a:hover > .oz-arrow, button:hover > .oz-arrow { transform: translateX(3px); }
   .fin-hero-trust, .ae-hero-trust { flex-direction: column; align-items: flex-start !important; justify-content: flex-start !important; }
   .fin-section-head { text-align: left; }
   .fin-section-head > p { margin-left: 0; }
-  .fin-chiffre strong { font-size: 1.9rem !important; }
+  .fin-chiffres { overflow-x: clip; }
+  .fin-chiffre { padding: 6px 8px; min-width: 0; }
+  /* Mobile : icône au-dessus du chiffre, le chiffre peut passer à la ligne */
+  .fin-chiffre strong {
+    flex-direction: column; flex-wrap: nowrap !important; gap: 6px !important;
+    font-size: clamp(1.35rem, 6.2vw, 1.9rem) !important;
+    white-space: normal !important; text-align: center; line-height: 1.15;
+  }
+  .fin-chiffre strong .oz-icon { font-size: .7em; }
 }
 
 /* ── Titres : mots mis en avant ──────────────────────────────────────── */
@@ -710,7 +718,7 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
   background: var(--oz-mint-wash); font-size: .72rem; color: var(--oz-muted);
 }
 .cw-email-direct > .oz-icon { color: var(--oz-sage-deep); font-size: .95rem; }
-.cw-email-direct span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.cw-email-direct a { color: var(--oz-ink); font-weight: 600; text-decoration: none; }
+.cw-email-direct span { flex: 1; min-width: 0; line-height: 1.4; }
+.cw-email-direct a { display: block; color: var(--oz-ink); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
 .cw-email-direct a:hover { text-decoration: underline; }
 .cw-email-direct button { width: 28px; height: 28px; flex-shrink: 0; border-radius: 8px; border: 0; background: #fff; color: var(--oz-ink); cursor: pointer; display: grid; place-items: center; }

@@ -127,8 +127,7 @@ const CHIFFRES = [
   { value: '8–12%', label: 'Rendement annuel brut moyen', icon: 'trending-up' },
   { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: 'euro' },
   { value: '12–36 mois', label: "Durée d'investissement typique", icon: 'timer' },
-  // 📋 Le fix est ici 📋
-  { value: <><span aria-hidden="true"><Icon name="landmark" /> </span>Flat tax <CrowdfundingTaxValue /></>, label: 'Fiscalité applicable aux intérêts', icon: '' },
+  { value: <>Flat tax <CrowdfundingTaxValue /></>, label: 'Fiscalité applicable aux intérêts', icon: 'landmark' },
 ];
 
 const DANGERS = [
