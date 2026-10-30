@@ -25,8 +25,8 @@ export async function proxy(request) {
     return NextResponse.next();
   }
 
-  // Si les variables d'environnement ne sont pas définies, pas de protection.
-  if (!process.env.SITE_USER || !process.env.SITE_PASSWORD) {
+  // Verrou par mot de passe : actif seulement si SITE_LOCK=on (et identifiants définis).
+  if (process.env.SITE_LOCK !== 'on' || !process.env.SITE_USER || !process.env.SITE_PASSWORD) {
     return NextResponse.next();
   }
 

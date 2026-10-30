@@ -4,6 +4,8 @@ const securityHeaders = [
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
+  // Tant que l'indexation n'est pas activée (SITE_INDEXING=on), aucune page, image ou PDF n'est indexé.
+  ...(process.env.SITE_INDEXING === 'on' ? [] : [{ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }]),
 ];
 
 /** @type {import('next').NextConfig} */
