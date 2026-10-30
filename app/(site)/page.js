@@ -348,6 +348,7 @@ export default function HomePage() {
               <div className="hh-photo">
                 <Image
                   src="/images/hero-cindy-assis.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtier indépendant, à son bureau d'Orizia Courtage"
                   fill
                   priority
@@ -391,6 +392,7 @@ export default function HomePage() {
             <div className="hq-photo">
               <Image
                 src="/images/photo-cindy-gp.webp"
+                quality={90}
                 alt="Cindy Urbansky, courtier indépendant, Orizia Courtage"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center 25%' }}

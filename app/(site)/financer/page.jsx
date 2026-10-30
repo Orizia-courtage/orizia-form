@@ -277,6 +277,7 @@ export default function FinancerPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy-gp.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

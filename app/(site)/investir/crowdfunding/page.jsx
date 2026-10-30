@@ -287,6 +287,7 @@ export default function CrowdfundingPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy-gp.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtier experte en crowdfunding immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

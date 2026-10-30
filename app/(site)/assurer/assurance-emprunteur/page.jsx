@@ -261,6 +261,7 @@ export default function AssuranceEmprunteurPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy-gp.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtière experte en assurance de prêt immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

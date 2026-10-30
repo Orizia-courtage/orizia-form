@@ -228,6 +228,7 @@ export default function InvestirPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy-gp.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtier indépendant en gestion de patrimoine"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

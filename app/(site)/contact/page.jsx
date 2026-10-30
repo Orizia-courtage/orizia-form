@@ -181,6 +181,7 @@ export default function ContactPage() {
                 <div className="contact-cindy-photo">
                   <Image
                     src="/images/photo-cindy-gp.webp"
+                    quality={90}
                     alt="Cindy Urbansky, courtier indépendant – Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}

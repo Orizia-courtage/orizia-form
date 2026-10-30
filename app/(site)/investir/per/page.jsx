@@ -395,6 +395,7 @@ export default function PERPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy-gp.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtière experte en Plan Épargne Retraite"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

@@ -151,6 +151,7 @@ export default function QuiSuisJePage() {
                 <div className="qsj-hero-photo">
                   <Image
                     src="/images/photo-cindy-gp.webp"
+                    quality={90}
                     alt="Cindy Urbansky — Courtier indépendant, fondatrice d'Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}

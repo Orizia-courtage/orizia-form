@@ -303,6 +303,7 @@ export default function SCPIPage() {
               <div className="ae-citation-photo">
                 <Image
                   src="/images/photo-cindy-gp.webp"
+                  quality={90}
                   alt="Cindy Urbansky, courtier expert en SCPI"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
