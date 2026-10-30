@@ -8,6 +8,7 @@ import Icon from '@/components/Icon';
 import HomeSituations from '@/components/HomeSituations';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import BrokerNetwork from '@/components/BrokerNetwork';
+import HomeSteps from '@/components/HomeSteps';
 import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
 
 // ── 1. MÉTADONNÉES SEO ──
@@ -447,19 +448,7 @@ export default function HomePage() {
               <h2>Quatre étapes, une seule personne</h2>
               <p>Du premier appel à la signature, vous savez toujours où en est votre dossier.</p>
             </div>
-            <ol className="hs4">
-              {ETAPES.map((e, i) => (
-                <li key={e.title} className="hs4-step" style={{ '--i': i }}>
-                  <div className="hs4-top">
-                    <span className="hs4-num">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="hs4-icon"><Icon name={e.icon} /></span>
-                  </div>
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
-                  <span className="hs4-meta"><Icon name="check" /> {e.meta}</span>
-                </li>
-              ))}
-            </ol>
+            <HomeSteps steps={ETAPES} />
             <div className="hs4-cta">
               <RdvButton className="fin-btn-primary">Commencer par un échange de 30 min</RdvButton>
             </div>
