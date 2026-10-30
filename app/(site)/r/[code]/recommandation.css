@@ -1,0 +1,49 @@
+/* Page de recommandation /r/CODE */
+.reco-hero { padding: clamp(28px, 6vw, 72px) 20px clamp(48px, 7vw, 96px); background: var(--oz-grad-light, var(--oz-mint-wash)); }
+.reco-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 3vw, 36px); align-items: start; }
+.reco-card, .reco-form-card { background: #fff; border: 1px solid var(--oz-line); border-radius: var(--oz-radius-lg); box-shadow: var(--oz-shadow); padding: clamp(22px, 3vw, 36px); }
+.reco-card { background: var(--oz-grad-dark), var(--oz-ink); color: #fff; border: 0; }
+.reco-person { display: flex; gap: 20px; align-items: flex-start; }
+.reco-person img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; border: 3px solid #fff; box-shadow: 0 0 0 3px var(--oz-sage); flex: none; }
+.reco-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 600; color: var(--oz-mint); }
+.reco-card h1 { color: #fff !important; font-size: clamp(1.7rem, 3.4vw, 2.5rem) !important; margin: 10px 0 12px; line-height: 1.12 !important; }
+.reco-card h1 em { font-style: normal; color: var(--oz-mint); }
+.reco-person p { margin: 0; color: rgba(237, 247, 242, .78); line-height: 1.55; }
+.reco-proofs { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 12px; }
+.reco-proofs li { display: flex; align-items: center; gap: 12px; color: rgba(255, 255, 255, .92); }
+.reco-proofs .oz-icon { color: var(--oz-mint); font-size: 1.15rem; flex: none; }
+.reco-quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.reco-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 18px; border-radius: 12px; font-weight: 600; font-size: .95rem; text-decoration: none; cursor: pointer; border: 1px solid transparent; font-family: inherit; }
+.reco-btn--ghost { background: rgba(255, 255, 255, .08); color: #fff; border-color: rgba(255, 255, 255, .24); }
+.reco-btn--ghost:hover { background: rgba(255, 255, 255, .14); }
+.reco-btn--primary { width: 100%; background: var(--oz-ink); color: #fff; min-height: 52px; font-size: 1rem; }
+.reco-btn--primary:disabled { opacity: .6; cursor: wait; }
+.reco-form-card h2 { margin: 0 0 8px; font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+.reco-form-lead { color: var(--oz-muted); margin: 0 0 20px; line-height: 1.55; }
+.reco-form { display: grid; gap: 14px; }
+.reco-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.reco-field { display: grid; gap: 6px; }
+.reco-field label, .reco-legend { font-size: .86rem; font-weight: 600; color: var(--oz-ink); }
+.reco-field input { min-height: 48px; padding: 0 14px; border: 1px solid rgba(27, 29, 26, .16); border-radius: 12px; font: inherit; font-size: 1rem; background: #fff; }
+.reco-field input:focus { outline: none; border-color: var(--oz-sage); box-shadow: 0 0 0 3px rgba(107, 182, 155, .22); }
+.reco-field input[aria-invalid="true"] { border-color: var(--oz-bad); }
+.reco-error { color: var(--oz-bad); font-size: .82rem; }
+.reco-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.reco-chips button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(27, 29, 26, .16); background: #fff; font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer; color: var(--oz-ink); }
+.reco-chips button[aria-pressed="true"] { background: var(--oz-mint-soft); border-color: var(--oz-sage); color: var(--oz-sage-deep); }
+.reco-consent { font-size: .8rem; color: var(--oz-muted); line-height: 1.5; margin: 0; }
+.reco-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.reco-alert { padding: 12px 14px; border-radius: 12px; background: #fbeae7; color: #8f2a1c; font-size: .9rem; }
+.reco-success { text-align: center; padding: 20px 6px; }
+.reco-success .oz-icon { font-size: 2.4rem; color: var(--oz-sage-deep); }
+.reco-success h3 { margin: 12px 0 8px; font-size: 1.35rem; }
+.reco-success p { color: var(--oz-muted); margin: 0; line-height: 1.6; }
+@media (max-width: 900px) {
+  .reco-inner { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .reco-person { flex-direction: column; gap: 14px; }
+  .reco-person img { width: 76px; height: 76px; }
+  .reco-row { grid-template-columns: 1fr; }
+  .reco-quick .reco-btn { flex: 1 1 100%; }
+}
