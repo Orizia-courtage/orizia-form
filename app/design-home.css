@@ -73,7 +73,7 @@
 .hh-card-num { font-family: var(--oz-font-display); font-size: 2.2rem; line-height: 1; letter-spacing: -.02em; }
 .hh-card-label { font-size: .8rem; color: var(--oz-muted); margin-top: 4px; }
 .hh-card--b {
-  right: -8%; top: 12%; padding: 10px 16px 10px 10px; display: flex; align-items: center; gap: 10px;
+  right: -8%; top: -3%; padding: 10px 16px 10px 10px; display: flex; align-items: center; gap: 10px;
   animation: hh-card .9s 1.1s var(--oz-ease) both;
 }
 .hh-card--b > span:last-child { display: flex; flex-direction: column; line-height: 1.25; }
@@ -444,7 +444,7 @@ main:has(> .fin-cta:last-child) + .oz-footer .oz-footer-top { display: none; }
   .hh-proof { grid-template-columns: 1fr; gap: 14px; }
   .hh-proof li { max-width: none; }
   .hh-card--a { left: -4%; }
-  .hh-card--b { right: -4%; top: 6%; }
+  .hh-card--b { right: -4%; top: -5%; }
   .hsit-tabs { grid-template-columns: 1fr; }
   .hsit-tab { flex-direction: row; align-items: center; padding: 14px; }
   .hsit-cols { grid-template-columns: 1fr; gap: 20px; }

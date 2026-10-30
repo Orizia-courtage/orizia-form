@@ -338,7 +338,7 @@ export default function AssuranceHabitationPage() {
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
-                  src="/images/photo-cindy.webp"
+                  src="/images/photo-cindy-gp.webp"
                   alt="Cindy Urbansky, courtier indépendant"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

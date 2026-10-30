@@ -253,7 +253,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
 
             <div className="cp-panel-header">
               <div className="cp-panel-header-left">
-                <div className="cp-avatar"><img src="/images/photo-cindy.webp" alt="Cindy Urbansky" /></div>
+                <div className="cp-avatar"><img src="/images/avatar-cindy.webp" alt="Cindy Urbansky" /></div>
                 <div>
                   <strong>Cindy Urbansky</strong>
                   <span>Orizia Courtage – courtier indépendant</span>

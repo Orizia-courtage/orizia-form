@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server';
 
 const PUBLIC_PATHS = new Set([
   '/cindy-urbansky.vcf',
+  '/images/photo-cindy-gp.webp',
   '/images/photo-cindy.webp',
+  '/images/avatar-cindy.webp',
 ]);
 
 // Jeton de session dérivé des identifiants : non forgeable sans connaître le mot de passe.

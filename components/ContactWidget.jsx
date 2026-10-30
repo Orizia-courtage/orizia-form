@@ -160,7 +160,7 @@ export default function ContactWidget() {
           {/* Header */}
           <div className="cw-header">
             <div className="cw-header-info">
-              <div className="cw-avatar"><img src="/images/photo-cindy.webp" alt="Cindy Urbansky" /></div>
+              <div className="cw-avatar"><img src="/images/avatar-cindy.webp" alt="Cindy Urbansky" /></div>
               <div>
                 <strong>Cindy Urbansky</strong>
                 <span>Orizia Courtage</span>
@@ -373,7 +373,7 @@ export default function ContactWidget() {
       {/* Bouton flottant — masqué quand le widget est ouvert */}
       {!open && (
         <button className="cw-trigger" onClick={() => setOpen(true)} aria-label="Contacter Cindy">
-          <span className="cw-trigger-avatar"><img src="/images/photo-cindy.webp" alt="" /></span>
+          <span className="cw-trigger-avatar"><img src="/images/avatar-cindy.webp" alt="" /></span>
           <span className="cw-trigger-text">
             <strong>Une question&nbsp;?</strong>
             <span>Cindy vous répond</span>

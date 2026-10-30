@@ -98,7 +98,7 @@ const oriziaSchema = {
     jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
     description:
       'Courtier indépendant certifié ORIAS avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
-    image: 'https://www.orizia-courtage.fr/images/photo-cindy.webp',
+    image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
     knowsAbout: [
@@ -347,7 +347,7 @@ export default function HomePage() {
               </svg>
               <div className="hh-photo">
                 <Image
-                  src="/images/hero-cindy.webp"
+                  src="/images/hero-cindy-assis.webp"
                   alt="Cindy Urbansky, courtier indépendant, à son bureau d'Orizia Courtage"
                   fill
                   priority
@@ -361,7 +361,7 @@ export default function HomePage() {
                 <span className="hh-card-label">dossiers accompagnés</span>
               </div>
               <div className="hh-card hh-card--b">
-                <span className="hh-card-avatar"><img src="/images/photo-cindy.webp" alt="" width="40" height="40" /></span>
+                <span className="hh-card-avatar"><img src="/images/avatar-cindy.webp" alt="" width="40" height="40" /></span>
                 <span>
                   <strong>Cindy Urbansky</strong>
                   <span>Fondatrice, 20 ans d’expérience</span>
@@ -390,7 +390,7 @@ export default function HomePage() {
           <div className="hq-inner">
             <div className="hq-photo">
               <Image
-                src="/images/photo-cindy.webp"
+                src="/images/photo-cindy-gp.webp"
                 alt="Cindy Urbansky, courtier indépendant, Orizia Courtage"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center 25%' }}

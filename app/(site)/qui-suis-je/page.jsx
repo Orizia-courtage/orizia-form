@@ -14,7 +14,7 @@ export const metadata = {
     description: '20 ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     siteName: 'Orizia Courtage',
-    images: [{ url: 'https://www.orizia-courtage.fr/images/photo-cindy.webp', width: 800, height: 800, alt: 'Cindy Urbansky - Orizia Courtage' }],
+    images: [{ url: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp', width: 581, height: 775, alt: 'Cindy Urbansky - Orizia Courtage' }],
     locale: 'fr_FR',
     type: 'profile',
   },
@@ -26,7 +26,7 @@ const personSchema = {
   name: 'Cindy Urbansky',
   jobTitle: 'Courtier indépendant en crédit, assurance et gestion de patrimoine',
   description: 'Courtier indépendant certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
-  image: 'https://www.orizia-courtage.fr/images/photo-cindy.webp',
+  image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
   url: 'https://www.orizia-courtage.fr/qui-suis-je',
   sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/', 'https://www.instagram.com/orizia_courtage/'],
   address: {
@@ -150,7 +150,7 @@ export default function QuiSuisJePage() {
               <div className="qsj-hero-photo-wrap">
                 <div className="qsj-hero-photo">
                   <Image
-                    src="/images/photo-cindy.webp"
+                    src="/images/photo-cindy-gp.webp"
                     alt="Cindy Urbansky — Courtier indépendant, fondatrice d'Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}

@@ -363,7 +363,7 @@ export default function AssuranceViePage() {
             <div className="ae-citation-card">
               <div className="ae-citation-photo">
                 <Image
-                  src="/images/photo-cindy.webp"
+                  src="/images/photo-cindy-gp.webp"
                   alt="Cindy Urbansky, courtier indépendant en assurance vie"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill

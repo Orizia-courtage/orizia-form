@@ -31,7 +31,7 @@ export default async function RecommendationPage({ params }) {
         <div className="reco-inner">
           <div className="reco-card">
             <div className="reco-person">
-              <img src="/images/photo-cindy.webp" alt="Cindy Urbansky, courtière Orizia Courtage" width="96" height="96" />
+              <img src="/images/avatar-cindy.webp" alt="Cindy Urbansky, courtière Orizia Courtage" width="96" height="96" />
               <div>
                 <span className="reco-kicker"><Icon name="heart-handshake" /> Recommandation de {who}</span>
                 <h1><em>{who}</em> vous recommande Cindy Urbansky</h1>

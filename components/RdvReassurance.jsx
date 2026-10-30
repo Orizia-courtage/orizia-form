@@ -10,7 +10,7 @@ export default function RdvReassurance() {
       <div className="rdv-reassurance-cindy">
         <div className="rdv-reassurance-photo">
           <Image
-            src="/images/photo-cindy.webp"
+            src="/images/avatar-cindy.webp"
             alt="Cindy Urbansky — Orizia Courtage"
             fill
             style={{ objectFit: 'cover', objectPosition: '50% 20%' }}

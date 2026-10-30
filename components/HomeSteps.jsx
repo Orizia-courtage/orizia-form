@@ -213,7 +213,7 @@ export default function HomeSteps({ steps }) {
       </svg>
       <div className="hs4-guide" aria-hidden="true">
         <span className="hs4-guide-halo" />
-        <img src="/images/photo-cindy.webp" alt="" width="56" height="56" />
+        <img src="/images/avatar-cindy.webp" alt="" width="56" height="56" />
       </div>
       <ol className="hs4">
         {steps.map((s, i) => {
