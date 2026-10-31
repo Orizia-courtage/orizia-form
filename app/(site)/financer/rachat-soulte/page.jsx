@@ -59,7 +59,7 @@ const rachatSoulteSchema = {
           addressCountry: 'FR',
         },
       },
-      description: 'Montage du financement pour racheter la part d\'un co-propriétaire lors d\'un divorce, d\'une séparation ou d\'une succession. Accès à plus de 40 banques partenaires.',
+      description: 'Montage du financement pour racheter la part d\'un co-propriétaire lors d\'un divorce, d\'une séparation ou d\'une succession. Accès à plus de 40 offres bancaires partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -224,7 +224,7 @@ export default function RachatSoultePage() {
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span><Icon name="circle-check" /> +40 banques comparées</span>
+              <span><Icon name="circle-check" /> +40 offres bancaires comparées</span>
               <span><Icon name="handshake" /> Coordination avec votre notaire</span>
               <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
@@ -484,7 +484,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   title: 'Crédit immobilier',
                   sub: 'Votre projet de vie',
                   text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
-                  badge: '+40 banques comparées',
+                  badge: '+40 offres bancaires comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',

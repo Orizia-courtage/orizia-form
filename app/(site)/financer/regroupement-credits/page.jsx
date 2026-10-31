@@ -584,7 +584,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
                   text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
-                  badge: '+40 banques comparées',
+                  badge: '+40 offres bancaires comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
                   badgeBorder: '1px solid rgba(45,106,95,0.25)',

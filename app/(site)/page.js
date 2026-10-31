@@ -15,7 +15,7 @@ import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
 export const metadata = {
   title: 'Orizia Courtage — Courtier Indépendant | Hauts-de-France',
   description:
-    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées.',
+    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 offres bancaires comparées.',
   keywords: [
     'courtier indépendant Hauts-de-France',
     'courtier crédit immobilier Lille',
@@ -30,7 +30,7 @@ export const metadata = {
   openGraph: {
     title: 'Orizia Courtage — Courtier Indépendant | Crédit · Assurance · Patrimoine',
     description:
-      'Je défends vos intérêts face aux banques et assureurs. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 banques comparées. Étude de faisabilité à Marcq-en-Barœul.',
+      'Je défends vos intérêts face aux banques et assureurs. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 offres bancaires comparées. Étude de faisabilité à Marcq-en-Barœul.',
     url: 'https://www.orizia-courtage.fr',
     siteName: 'Orizia Courtage',
     images: [
@@ -215,7 +215,7 @@ const faqSchema = {
       name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtier indépendant, je compare 40+ banques et assureurs pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtier indépendant, je compare 40+ offres bancaires et d'assurance pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
       },
     },
   ],
@@ -275,7 +275,7 @@ const ETAPES = [
   {
     icon: 'search',
     title: 'J\'étudie et je compare',
-    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 banques et assureurs partenaires.',
+    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 offres bancaires et d'assurance.',
     meta: 'Étude sous 24 à 48 h',
   },
   {
@@ -335,7 +335,7 @@ export default function HomePage() {
 
               <ul className="hh-proof" aria-label="Garanties">
                 <li><Icon name="badge-check" /><span><strong>ORIAS</strong> Intermédiaire immatriculée</span></li>
-                <li><Icon name="landmark" /><span><strong>+40</strong> banques et assureurs</span></li>
+                <li><Icon name="landmark" /><span><strong>+40</strong> offres bancaires et d'assurance</span></li>
                 <li><Icon name="award" /><span><strong>AFIB</strong> Présidente du conseil de surveillance</span></li>
               </ul>
             </div>

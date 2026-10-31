@@ -39,7 +39,7 @@ export default async function RecommendationPage({ params }) {
               </div>
             </div>
             <ul className="reco-proofs">
-              <li><Icon name="landmark" /> Plus de 40 banques et assureurs mis en concurrence</li>
+              <li><Icon name="landmark" /> Plus de 40 offres bancaires et d'assurance mises en concurrence</li>
               <li><Icon name="user" /> Une seule interlocutrice, du premier appel à la signature</li>
               <li><Icon name="timer" /> Rappel sous 24 h, sans engagement</li>
             </ul>

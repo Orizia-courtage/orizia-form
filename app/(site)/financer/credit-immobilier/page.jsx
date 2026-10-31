@@ -52,7 +52,7 @@ const creditImmobilierSchema = {
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Négociation du taux, délégation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'à la signature chez le notaire. Accès à plus de 40 banques partenaires.',
+      description: 'Négociation du taux, délégation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'à la signature chez le notaire. Accès à plus de 40 offres bancaires partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -278,7 +278,7 @@ export default function CreditImmobilierPage() {
               </ScrollButton>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span><Icon name="circle-check" /> +40 banques interrogées</span>
+              <span><Icon name="circle-check" /> +40 offres bancaires comparées</span>
               <span><Icon name="handshake" /> Accompagnement jusqu'au notaire</span>
               <span><Icon name="zap" /> Étude de faisabilité en 24h</span>
             </div>

@@ -29,7 +29,7 @@ const QUESTIONS = [
 ];
 
 const RECOMMANDATIONS = {
-  achat_cdi:      { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: 'var(--orizia-primary)', raison: 'Profil idéal pour un crédit immobilier. Je mets 40+ banques en concurrence pour vous obtenir le meilleur taux et négocier l\'assurance emprunteur.' },
+  achat_cdi:      { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: 'var(--orizia-primary)', raison: 'Profil idéal pour un crédit immobilier. Je mets 40+ offres bancaires en concurrence pour vous obtenir le meilleur taux et négocier l\'assurance emprunteur.' },
   achat_tns:      { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: 'var(--orizia-primary)', raison: 'Finançable avec 2 bilans solides. Je sais quelles banques sont les plus ouvertes aux TNS et comment présenter votre dossier pour maximiser vos chances.' },
   achat_retraite: { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: 'var(--orizia-primary)', raison: 'Votre stabilité de revenus est un atout. Je trouve les banques qui acceptent les dossiers retraités aux meilleures conditions.' },
   achat_autre:    { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: 'var(--orizia-primary)', raison: 'Votre situation mérite une analyse personnalisée. Certaines banques ont des critères plus souples — je sais lesquelles.' },

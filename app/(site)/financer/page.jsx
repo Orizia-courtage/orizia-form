@@ -12,7 +12,7 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Courtier en Crédit 2026 : Comparez 40+ Banques | Orizia Courtage',
   description:
-    'Crédit immobilier, regroupement, prêt personnel, rachat de soulte. Cindy Urbansky négocie votre financement auprès de 40+ banques. Étude de faisabilité.',
+    'Crédit immobilier, regroupement, prêt personnel, rachat de soulte. Cindy Urbansky négocie votre financement en comparant 40+ offres bancaires. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer' },
   openGraph: {
     title: 'Courtier en Crédit 2026 : Comparez 40+ Banques | Orizia Courtage',
@@ -61,7 +61,7 @@ const financerHubSchema = {
         },
       },
       description:
-        'Négociation de crédit immobilier, regroupement de crédits, prêt personnel et rachat de soulte. Accès à plus de 40 banques et organismes partenaires. Étude de faisabilité avec présentation transparente des modalités.',
+        'Négociation de crédit immobilier, regroupement de crédits, prêt personnel et rachat de soulte. Accès à plus de 40 offres bancaires. Étude de faisabilité avec présentation transparente des modalités.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -105,7 +105,7 @@ const faqSchema = {
       name: 'Combien de banques comparez-vous pour mon crédit ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'J\'interroge plus de 40 banques et organismes partenaires pour chaque dossier. Contrairement à votre banque habituelle qui ne peut vous proposer que ses propres offres, je mets l\'ensemble du marché en concurrence pour vous obtenir le meilleur taux et les meilleures conditions.',
+        text: 'J\'étudie plus de 40 offres bancaires pour chaque dossier. Contrairement à votre banque habituelle qui ne peut vous proposer que ses propres offres, je mets l\'ensemble du marché en concurrence pour vous obtenir le meilleur taux et les meilleures conditions.',
       },
     },
     {
@@ -169,7 +169,7 @@ const ETAPES = [
 const DIFFERENCIANTS = [
   {
     icon: 'landmark',
-    title: '+40 banques comparées',
+    title: '+40 offres bancaires comparées',
     desc: 'Votre banque ne vous proposera jamais l\'offre de son concurrent. Moi, je consulte tout le marché pour chaque dossier.',
     color: 'var(--orizia-primary)',
     bg: 'rgba(45,106,95,0.06)',
@@ -229,7 +229,7 @@ export default function FinancerPage() {
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, regroupement, prêt personnel, rachat de soulte —
-                  je compare 40+ banques, négocie chaque dixième de point
+                  je compare 40+ offres bancaires, négocie chaque dixième de point
                   et vous accompagne jusqu'à la signature.{' '}
                   <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
@@ -242,7 +242,7 @@ export default function FinancerPage() {
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    +40 banques comparées
+                    +40 offres bancaires comparées
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
@@ -490,7 +490,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               Prêt(e) à obtenir<br />le meilleur taux du marché ?
             </h2>
             <p>
-              Confiez-moi votre dossier. Je compare 40+ banques, négocie chaque condition
+              Confiez-moi votre dossier. Je compare 40+ offres bancaires, négocie chaque condition
               et vous accompagne jusqu'à la signature.{' '}
               <strong>Modalités de courtage transparentes.*</strong>
             </p>

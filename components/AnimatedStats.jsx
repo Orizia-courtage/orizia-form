@@ -6,7 +6,7 @@ const STATS = [
   { value: 500, suffix: '+', label: 'dossiers accompagnés' },
   { value: 20, suffix: ' ans', label: "d'expérience en intermédiation bancaire" },
   { value: 98, suffix: ' %', label: 'de clients satisfaits' },
-  { value: 40, prefix: '+', label: 'banques et assureurs partenaires' },
+  { value: 40, prefix: '+', label: "offres bancaires et d'assurance" },
 ];
 
 function useCountUp(target, duration, start) {

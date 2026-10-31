@@ -12,7 +12,7 @@ const SITUATIONS = [
     label: 'Financer un projet',
     hint: 'Achat immobilier, travaux, regroupement…',
     probleme: 'Vous faites le tour des banques, chacune propose un taux différent, et vous ne savez pas si c\'est vraiment le meilleur.',
-    solution: 'Je compare plus de 40 banques en une seule démarche, je négocie le taux et l\'assurance emprunteur, et je vous accompagne jusqu\'à la signature chez le notaire.',
+    solution: 'Je compare plus de 40 offres bancaires en une seule démarche, je négocie le taux et l\'assurance emprunteur, et je vous accompagne jusqu\'à la signature chez le notaire.',
     gain: 'Jusqu\'à plusieurs milliers d\'euros économisés sur le coût total',
     liens: [
       { label: 'Crédit immobilier', href: '/financer/credit-immobilier' },
