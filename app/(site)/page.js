@@ -215,7 +215,7 @@ const faqSchema = {
       name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtier indépendant, je compare 40+ offres bancaires et d'assurance pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtier indépendant, je compare 40+ offres bancaires et d\'assurance pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
       },
     },
   ],
@@ -275,7 +275,7 @@ const ETAPES = [
   {
     icon: 'search',
     title: 'J\'étudie et je compare',
-    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 offres bancaires et d'assurance.',
+    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 offres bancaires et d\'assurance.',
     meta: 'Étude sous 24 à 48 h',
   },
   {
