@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
-import { takeAdminAttempt } from '@/lib/admin-rate-limit';
+import { takeAdminAttempt, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
 import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 import { resolveReferral } from '@/lib/referral.mjs';
 
@@ -98,6 +98,8 @@ export async function POST(request) {
     // 5. Limitation : 3 recommandations par 15 minutes et par adresse IP.
     const attempt = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: 'parrainage', limit: 3 });
     if (!attempt.allowed) throw new FormError('Vous avez déjà envoyé plusieurs recommandations. Réessayez dans quelques minutes.', 429);
+    const daily = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: DAILY_SCOPE, limit: DAILY_LIMIT, windowMs: DAY_MS });
+    if (!daily.allowed) throw new FormError(DAILY_MESSAGE, 429);
 
     const emailExpediteur = 'Cindy - Orizia Courtage <cindy.urbansky@orizia-courtage.fr>';
     const signature = SIGNATURE_BLOCK;
@@ -223,7 +225,7 @@ export async function POST(request) {
     await notifyCrm({
       filleulPrenom, filleulNom, filleulTel, filleulEmail,
       parrainPrenom, parrainNom, parrainTel, parrainEmail,
-      projetFilleul: projetRaw, page: viaCard ? '/r' : '/parrainage',
+      projetFilleul: projetRaw, page: viaCard ? '/r' : '/parrainage', visitor: visitorOf(request),
       ...(viaCard ? { parrainCode: payload.parrainCode } : {}),
     });
 

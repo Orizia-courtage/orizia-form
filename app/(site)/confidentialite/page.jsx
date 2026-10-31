@@ -58,6 +58,8 @@ export default function ConfidentialitePage() {
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
           <li style={{ marginBottom: '8px' }}><strong>Données d'identification :</strong> nom, prénom, adresse, téléphone, e-mail, situation familiale.</li>
           <li style={{ marginBottom: '8px' }}><strong>Données financières :</strong> revenus, charges, patrimoine, crédits en cours, avis d'imposition (strictement nécessaires pour l'étude de faisabilité d'un crédit ou d'un placement).</li>
+          <li style={{ marginBottom: '8px' }}><strong>Données techniques des formulaires :</strong> lorsque vous envoyez une demande (rappel, recommandation, fin de simulation), l'adresse IP de votre connexion et le type d'appareil et de navigateur utilisés (par exemple « iPhone · Safari »).</li>
+          <li style={{ marginBottom: '8px' }}><strong>Espace client :</strong> votre identifiant (adresse e-mail), votre mot de passe (enregistré sous forme chiffrée, jamais lisible), vos messages avec votre conseillère et, si vous les activez, les informations techniques nécessaires aux notifications sur votre téléphone.</li>
           <li style={{ marginBottom: '8px' }}><strong>Données de santé :</strong> uniquement dans le cadre précis de la recherche d'une assurance emprunteur (si le questionnaire médical est requis par la loi). Ces données sont traitées avec une confidentialité renforcée.</li>
         </ul>
       </section>
@@ -72,6 +74,8 @@ export default function ConfidentialitePage() {
           <li style={{ marginBottom: '8px' }}>Interroger mes partenaires bancaires et assureurs pour vous obtenir les meilleurs taux.</li>
           <li style={{ marginBottom: '8px' }}>Monter votre dossier de financement ou de souscription.</li>
           <li style={{ marginBottom: '8px' }}>Répondre à mes obligations légales et réglementaires (lutte contre le blanchiment, devoir de conseil ACPR).</li>
+          <li style={{ marginBottom: '8px' }}>Protéger le site contre les abus et les fausses demandes (adresse IP et type d'appareil) : c'est un intérêt légitime au sens du RGPD. Une même adresse IP ne peut pas envoyer plus de 3 demandes par jour.</li>
+          <li style={{ marginBottom: '8px' }}>Vous tenir informé(e) de l'avancement de vos dossiers dans votre espace client et, si vous l'avez accepté (par exemple en ajoutant votre carte de parrainage à votre téléphone), vous adresser des informations commerciales. Vous pouvez retirer cet accord à tout moment en supprimant la carte, en désactivant les notifications ou en me l'écrivant.</li>
         </ul>
       </section>
 
@@ -93,6 +97,8 @@ export default function ConfidentialitePage() {
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
           <li style={{ marginBottom: '8px' }}><strong>Si vous devenez client :</strong> 5 ans après la fin de notre relation commerciale (obligation légale pour les courtiers).</li>
           <li style={{ marginBottom: '8px' }}><strong>Si vous restez prospect (pas de contrat signé) :</strong> 3 ans à compter de notre dernier contact.</li>
+          <li style={{ marginBottom: '8px' }}><strong>Adresse IP et type d'appareil des formulaires :</strong> 7 jours, puis suppression automatique.</li>
+          <li style={{ marginBottom: '8px' }}><strong>Messages de l'espace client :</strong> 30 jours, puis suppression automatique.</li>
         </ul>
       </section>
 
@@ -110,7 +116,7 @@ export default function ConfidentialitePage() {
           <li style={{ marginBottom: '8px' }}>De vous opposer à leur traitement.</li>
         </ul>
         <p style={{ marginTop: '16px' }}>
-          Pour exercer ces droits, il vous suffit de m'envoyer un e-mail directement à : <strong>[Ton adresse email de contact, ex: contact@orizia.fr]</strong>. Je vous répondrai personnellement dans les plus brefs délais.
+          Pour exercer ces droits, il vous suffit de m'envoyer un e-mail directement à : <strong><a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: 'var(--orizia-primary)' }}>cindy.urbansky@orizia-courtage.fr</a></strong>. Je vous répondrai personnellement dans les plus brefs délais.
         </p>
         <p style={{ marginTop: '16px', fontSize: '0.9rem', opacity: 0.8 }}>
           <em>Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--orizia-primary)' }}>www.cnil.fr</a>).</em>

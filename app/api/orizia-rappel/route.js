@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { webhookConfig, forwardWebhook } from '@/lib/automation-webhook.mjs';
 import { readForm, verifyTurnstile, verifyCallbackProof, callbackData, FormError } from '@/lib/form-protection.mjs';
+import { takeAdminAttempt, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
+import { getSupabaseAdmin } from '@/lib/supabase-server';
 
 export const runtime = 'nodejs';
 
@@ -9,6 +11,8 @@ export async function POST(request) {
     const payload = await readForm(request);
     verifyCallbackProof(payload, payload.rappelProof);
     await verifyTurnstile(payload.turnstileToken, request, 'orizia_rappel');
+    const daily = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: DAILY_SCOPE, limit: DAILY_LIMIT, windowMs: DAY_MS });
+    if (!daily.allowed) throw new FormError(DAILY_MESSAGE, 429);
     const data = { ...callbackData(payload), action: 'rappel_souhaite' };
     const crmUrl = process.env.CRM_RAPPEL_URL || 'https://crm.orizia-courtage.fr/api/integrations/rappel';
     const crmSecret = process.env.CRM_INTEGRATION_SECRET;
@@ -16,7 +20,7 @@ export async function POST(request) {
     const crmResponse = await fetch(crmUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-crm-integration-secret': crmSecret },
-      body: JSON.stringify({ numero_dossier: data.numero_dossier }),
+      body: JSON.stringify({ numero_dossier: data.numero_dossier, visitor: visitorOf(request) }),
       signal: AbortSignal.timeout(10000),
       cache: 'no-store',
     });

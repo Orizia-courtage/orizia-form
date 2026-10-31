@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
-import { takeAdminAttempt } from '@/lib/admin-rate-limit';
+import { takeAdminAttempt, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
 import { CRENEAUX, SUJETS } from '@/lib/rappel-options';
 import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 
@@ -60,6 +60,8 @@ export async function POST(request) {
     // 4. Limitation : 3 demandes par 15 minutes et par adresse IP
     const attempt = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: 'rappel', limit: 3 });
     if (!attempt.allowed) throw new FormError('Vous avez déjà envoyé plusieurs demandes. Cindy vous rappelle très vite.', 429);
+    const daily = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: DAILY_SCOPE, limit: DAILY_LIMIT, windowMs: DAY_MS });
+    if (!daily.allowed) throw new FormError(DAILY_MESSAGE, 429);
 
     // 5. Email à Cindy
     const national = phone.formatNational();
@@ -90,7 +92,7 @@ export async function POST(request) {
         </div>`,
       }).then(({ error }) => { if (error) throw new Error(error.message || 'resend'); return true; })
         .catch((err) => { console.error('Resend rappel:', err); return false; }),
-      sendToCrm({ prenom, telephone: intl, creneau, sujet, page }),
+      sendToCrm({ prenom, telephone: intl, creneau, sujet, page, visitor: visitorOf(request) }),
     ]);
     if (!mail && !crm) {
       return Response.json({ error: 'Envoi indisponible. Appelez directement le 07 77 25 97 06.' }, { status: 502 });
