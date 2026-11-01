@@ -1,13 +1,34 @@
 import { Resend } from 'resend';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
-import { takeAdminAttempt } from '@/lib/admin-rate-limit';
+import { takeAdminAttempt, visitorOf } from '@/lib/admin-rate-limit';
 import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 
 export const runtime = 'nodejs';
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Le message arrive dans le CRM (rubrique Rappels, notification sur le téléphone de Cindy).
+async function sendToCrm(data) {
+  const secret = process.env.CRM_INTEGRATION_SECRET;
+  if (!secret) return false;
+  const base = (process.env.CRM_URL || 'https://crm.orizia-courtage.fr').replace(/\/$/, '');
+  try {
+    const response = await fetch(`${base}/api/integrations/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-crm-integration-secret': secret },
+      body: JSON.stringify(data),
+      signal: AbortSignal.timeout(9000),
+      cache: 'no-store',
+    });
+    if (!response.ok) console.error('CRM contact:', response.status, (await response.text().catch(() => '')).slice(0, 200));
+    return response.ok;
+  } catch (error) {
+    console.error('CRM contact:', error?.message);
+    return false;
+  }
+}
 
 export async function POST(req) {
   try {
@@ -29,7 +50,14 @@ export async function POST(req) {
       });
     }
 
-    // 2. Envoi de l'email via Resend
+    // 2. CRM d'abord ; l'e-mail à Cindy ne part qu'en secours, si le CRM n'a pas reçu le message.
+    const crm = await sendToCrm({
+      prenom: payload.prenom, nom: payload.nom, email: payload.email, telephone: payload.telephone || '',
+      typedemande: payload.typedemande || '', urgence: payload.urgence || '', message: payload.commentaire,
+      page: (() => { try { return new URL(req.headers.get('referer') || '').pathname; } catch { return null; } })(),
+      visitor: visitorOf(req),
+    });
+    if (crm) return new Response(JSON.stringify({ success: true, message: 'Message envoyé.' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     const data = await resend.emails.send({
       from: 'widget@orizia-courtage.fr',
       to: 'cindy.urbansky@orizia-courtage.fr',
