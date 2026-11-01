@@ -28,7 +28,7 @@ function Turnstile({ onToken }) {
   return <div><div ref={element} />{error && <span className="reco-error" role="alert">{error}</span>}</div>;
 }
 
-export default function RecommendationForm({ code, parrainPrenom }) {
+export default function RecommendationForm({ code, parrainPrenom, parrainPrevenu = 'prévenu(e)' }) {
   const [data, setData] = useState({ filleulPrenom: '', filleulNom: '', filleulTel: '', filleulEmail: '', projetFilleul: '' });
   const [errors, setErrors] = useState({});
   const [token, setToken] = useState('');
@@ -72,7 +72,7 @@ export default function RecommendationForm({ code, parrainPrenom }) {
       <div className="reco-success" role="status">
         <Icon name="party-popper" />
         <h3>Merci {data.filleulPrenom} !</h3>
-        <p>Je vous rappelle sous 24 h au {data.filleulTel}. Un e-mail de confirmation vient de vous être envoyé. {parrainPrenom} sera prévenu(e) de votre démarche.</p>
+        <p>Je vous rappelle sous 24 h au {data.filleulTel}. Un e-mail de confirmation vient de vous être envoyé. {parrainPrenom} sera {parrainPrevenu} de votre démarche.</p>
       </div>
     );
   }

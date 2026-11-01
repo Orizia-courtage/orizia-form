@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Icon from '@/components/Icon';
 import RdvButton from '@/components/RdvButton';
 import RecommendationForm from '@/components/RecommendationForm';
-import { resolveReferral, shortName } from '@/lib/referral.mjs';
+import { genre, resolveReferral, shortName } from '@/lib/referral.mjs';
 import './recommandation.css';
 
 export const dynamic = 'force-dynamic';
@@ -52,8 +52,8 @@ export default async function RecommendationPage({ params }) {
 
           <div className="reco-form-card">
             <h2>Être rappelé(e) par Cindy</h2>
-            <p className="reco-form-lead">Laissez vos coordonnées : je vous rappelle sous 24 h pour parler de votre projet. {referral.parrain.prenom} sera remercié(e) si votre dossier aboutit.</p>
-            <RecommendationForm code={referral.code} parrainPrenom={referral.parrain.prenom} />
+            <p className="reco-form-lead">Laissez vos coordonnées : je vous rappelle sous 24 h pour parler de votre projet. {referral.parrain.prenom} sera {genre(referral.parrain, 'remercié', 'remerciée')} si votre dossier aboutit.</p>
+            <RecommendationForm code={referral.code} parrainPrenom={referral.parrain.prenom} parrainPrevenu={genre(referral.parrain, 'prévenu', 'prévenue')} />
           </div>
         </div>
       </section>
