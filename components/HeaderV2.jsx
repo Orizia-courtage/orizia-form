@@ -35,12 +35,12 @@ const Icons = {
   ),
   Regroupement: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+      <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0115-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 01-15 6.7L3 16"/>
     </svg>
   ),
   PretPerso: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+      <path d="M18 7a7 7 0 100 10"/><path d="M4 10h9M4 14h9"/>
     </svg>
   ),
   Soulte: () => (
@@ -60,7 +60,7 @@ const Icons = {
   ),
   Auto: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+      <path d="M5 17H3v-5l2-5h11l3 5h2v5h-2"/><path d="M9 17h6"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5.5 12h13"/>
     </svg>
   ),
   Arrow: () => (
@@ -117,7 +117,7 @@ const NAV = [
     href: '/assurer',
     color: '#6bb69b',
     tagline: 'Protégez ce qui compte',
-    stat: { number: '60%', label: 'Économie moyenne sur assurance emprunteur' },
+    stat: { number: '-50 %', label: 'Jusqu\'à, sur l\'assurance emprunteur' },
     bgImage: '/images/assurer.webp',
     links: [
       { href: '/assurer/assurance-emprunteur', title: 'Assurance emprunteur', sub: 'Protégez votre prêt',       Icon: Icons.Emprunteur },
