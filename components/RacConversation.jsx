@@ -671,34 +671,53 @@ function Turnstile({ action, onToken }) {
   );
 }
 
-// ─── Les crédits qui se regroupent en un seul ─────────────────
+// ─── Ce que la personne paie chaque mois, puis tout réuni en un seul crédit ───
+// Une barre = le total des mensualités ; chaque couleur = un type de crédit,
+// d'une largeur proportionnelle à ce qu'il coûte par mois.
 function Merge({ form, merging }) {
   const reduce = useReducedMotion();
-  const blocks = [
-    ...Array.from({ length: form.nb_immo }, (_, i) => ({ k: `i${i}`, t: 'Immo', c: 'immo' })),
-    ...Array.from({ length: form.nb_conso }, (_, i) => ({ k: `c${i}`, t: 'Conso', c: 'conso' })),
-    ...(form.has_loa === 'oui' ? [{ k: 'loa', t: 'LOA', c: 'conso' }] : []),
-    ...(form.has_paiement === 'oui' ? [{ k: 'pf', t: '4×', c: 'conso' }] : []),
-    ...(n(form.somme_comp) > 0 ? [{ k: 'tr', t: 'Projet', c: 'proj' }] : []),
-  ];
-  const monthly = n(form.mensualite_immo) + n(form.mensualite_conso) + n(form.loa_mensualite);
+  const segs = [
+    { k: 'immo', label: form.nb_immo > 1 ? `${form.nb_immo} crédits immobiliers` : 'Crédit immobilier', v: n(form.mensualite_immo), c: '#6bb69b' },
+    { k: 'conso', label: form.nb_conso > 1 ? `${form.nb_conso} crédits conso` : 'Crédit conso', v: n(form.mensualite_conso), c: '#b3ddcb' },
+    { k: 'loa', label: 'LOA / LLD', v: n(form.loa_mensualite), c: '#e9d9a8' },
+  ].filter((x) => x.v > 0);
+  const total = segs.reduce((t, x) => t + x.v, 0);
+  const count = form.nb_immo + form.nb_conso + (form.has_loa === 'oui' ? 1 : 0) + (form.has_paiement === 'oui' ? 1 : 0);
+  const ease = [0.22, 0.61, 0.36, 1];
   return (
     <motion.div className="rc-merge" initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-      <div className="rc-merge-top"><span>{merging ? 'Regroupement…' : 'Aujourd\'hui'}</span><b>{merging ? '1 seule mensualité' : `${blocks.length} prélèvement${blocks.length > 1 ? 's' : ''}${monthly ? ` · ${eur(monthly)}/mois` : ''}`}</b></div>
-      <div className="rc-blocks">
-        <AnimatePresence>
-          {!merging && blocks.map((b, i) => (
-            <motion.div key={b.k} className={`rc-blk ${b.c}`} initial={reduce ? false : { opacity: 0, y: 30, scale: 0.6 }} animate={{ opacity: 1, y: 0, scale: 1, height: b.c === 'immo' ? 92 : 58 + (i % 3) * 10 }}
-              exit={reduce ? { opacity: 0 } : { opacity: 0, x: `${(blocks.length / 2 - i - 0.5) * 100}%`, scale: 0.4, transition: { duration: 0.55, ease: [0.22, 0.61, 0.36, 1], delay: i * 0.04 } }}
-              transition={{ delay: 0.4 + i * 0.08, type: 'spring', stiffness: 300, damping: 20 }}>{b.t}</motion.div>
-          ))}
-          {merging && (
-            <motion.div key="one" className="rc-blk one" initial={reduce ? false : { opacity: 0, scale: 0.3 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 16 }}>
-              1 mensualité<br /><span>étudiée par Cindy</span>
-            </motion.div>
-          )}
+      <div className="rc-merge-top">
+        <span>{merging ? 'Après le regroupement' : `Aujourd'hui · ${count} prélèvement${count > 1 ? 's' : ''}`}</span>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.b key={merging ? 'after' : 'before'} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}>
+            {merging ? '1 seul prélèvement' : <>{eur(total)} <small>par mois</small></>}
+          </motion.b>
         </AnimatePresence>
       </div>
+      <motion.div className="rc-bar" animate={{ gap: merging ? 0 : 4 }} transition={{ duration: reduce ? 0 : 0.6, ease }} role="img"
+        aria-label={merging ? 'Tous vos crédits réunis en une seule mensualité' : segs.map((x) => `${x.label} : ${eur(x.v)} par mois`).join(', ')}>
+        {segs.map((x, i) => (
+          <motion.span key={x.k} style={{ flexGrow: x.v, transformOrigin: 'left' }}
+            initial={reduce ? false : { scaleX: 0 }} animate={{ scaleX: 1, backgroundColor: merging ? '#dff1e9' : x.c, borderRadius: merging ? 0 : 10 }}
+            transition={{ scaleX: { delay: 0.5 + i * 0.15, duration: 0.6, ease }, default: { duration: reduce ? 0 : 0.6, ease } }}>
+            {!merging && x.v / total > 0.22 && <em>{eur(x.v)}</em>}
+          </motion.span>
+        ))}
+        <AnimatePresence>{merging && <motion.strong className="rc-bar-one" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: reduce ? 0 : 0.5 }}>1 mensualité unique</motion.strong>}</AnimatePresence>
+      </motion.div>
+      <AnimatePresence mode="wait" initial={false}>
+        {!merging ? (
+          <motion.ul key="legend" className="rc-legend" exit={{ opacity: 0 }}>
+            {segs.map((x) => <li key={x.k}><i style={{ background: x.c }} />{x.label}<b>{eur(x.v)}/mois</b></li>)}
+            {form.has_paiement === 'oui' && <li><i className="hollow" />Paiements en plusieurs fois<b>{eur(form.paiement_total)} restants</b></li>}
+            {n(form.somme_comp) > 0 && <li className="plus"><i className="plus">+</i>Pour votre projet{form.type_projet ? ` (${form.type_projet.toLowerCase()})` : ''}<b>{eur(form.somme_comp)}</b></li>}
+          </motion.ul>
+        ) : (
+          <motion.p key="after" className="rc-merge-note" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: reduce ? 0 : 0.4 }}>
+            Vos {count} prélèvements{n(form.somme_comp) > 0 ? ' et votre projet' : ''} réunis en un seul crédit. Cindy calcule la nouvelle mensualité avec les banques partenaires.
+          </motion.p>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
