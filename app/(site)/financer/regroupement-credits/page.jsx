@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import RacForm from '@/components/RacForm';
+import CreditsRegroupables3D from '@/components/CreditsRegroupables3D';
 import FormStepper from '@/components/FormStepper';
 import ReadingProgressRegroupement from '@/components/ReadingProgressRegroupement';
 import SimulateurRegroupement from '@/components/SimulateurRegroupement';
@@ -335,50 +336,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
 
               <div>
-                <div style={{
-                  background: 'var(--orizia-light)',
-                  borderRadius: 16,
-                  padding: '28px 24px',
-                  border: '1.5px solid rgba(58,111,108,0.2)',
-                }}>
-                  <div style={{
-                    fontSize: '0.78rem',
-                    fontWeight: 800,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.07em',
-                    color: 'var(--orizia-primary)',
-                    marginBottom: 18,
-                    textAlign: 'center',
-                  }}>
-                    Quels crédits peut-on regrouper ?
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                    {CREDITS_REGROUPABLES.map(c => (
-                      <div
-                        key={c.label}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: 12,
-                          background: '#fff',
-                          borderRadius: 10,
-                          padding: '12px 14px',
-                          border: '1px solid rgba(58,111,108,0.12)',
-                        }}
-                      >
-                        <span style={{ fontSize: '1.2rem', flexShrink: 0, marginTop: 1 }}><Icon name={c.icon} /></span>
-                        <div>
-                          <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--orizia-accent)', marginBottom: 2 }}>
-                            {c.label}
-                          </div>
-                          <div style={{ fontSize: '0.77rem', color: 'var(--orizia-dark)', opacity: 0.6, lineHeight: 1.4 }}>
-                            {c.desc}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <CreditsRegroupables3D items={CREDITS_REGROUPABLES} />
               </div>
             </div>
           </div>
