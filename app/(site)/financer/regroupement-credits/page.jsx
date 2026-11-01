@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import OriziaForm from '@/components/OriziaForm';
+import RacForm from '@/components/RacForm';
 import FormStepper from '@/components/FormStepper';
 import ReadingProgressRegroupement from '@/components/ReadingProgressRegroupement';
 import SimulateurRegroupement from '@/components/SimulateurRegroupement';
@@ -531,14 +531,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               <span className="fin-badge">Étude personnalisée</span>
               <h2>Complétez votre dossier en ligne</h2>
               <p>
-                10 questions · 5 à 8 minutes · Réponse sous 24h<br />
+                Une conversation de 3 à 5 minutes avec Cindy · Réponse sous 24h<br />
                 <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>
                   Aucun document à envoyer à ce stade. Vos données sont sécurisées.
                 </span>
               </p>
             </div>
             <div className="f-wrap-embedded">
-              <OriziaForm />
+              <RacForm />
             </div>
           </div>
         </section>
