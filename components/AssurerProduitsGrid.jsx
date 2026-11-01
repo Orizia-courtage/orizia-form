@@ -27,7 +27,7 @@ const PRODUITS = [
     title: 'Assurance Habitation',
     sub: 'Votre cocon au juste prix',
     desc: '+7% en 2026. Je compare les offres MRH pour locataires, propriétaires et PNO, et je résilie votre ancien contrat sans coupure.',
-    economie: 'Jusqu\'à 100\u00a0€/an',
+    economie: 'Jusqu\'à 250\u00a0€/an',
     economie_label: 'd\'économies possibles',
     loi: 'Loi Hamon',
     loiColor: '#a87a2c',

@@ -124,7 +124,7 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: '+7%', label: 'Hausse moyenne subie en 2026', icon: 'trending-up' },
-  { value: 'Jusqu\'à 100\u00a0€', label: 'Économie annuelle possible', icon: 'coins' },
+  { value: 'Jusqu\'à 250\u00a0€', label: 'Économie annuelle possible', icon: 'coins' },
   { value: '1 an', label: 'Délai pour changer librement', icon: 'calendar-days' },
   { value: '0 effort', label: 'Je gère la résiliation', icon: 'circle-check' },
 ];
@@ -304,7 +304,7 @@ export default function AssuranceHabitationPage() {
             <h1 className="ae-hero-title">Arrêtez de surpayer<br />votre assurance habitation</h1>
             <p className="ae-hero-intro">
               Votre assureur profite de votre fidélité pour augmenter les prix. Je mets le marché 
-              en concurrence pour vous faire économiser <strong>jusqu'à 100 €/an</strong>, 
+              en concurrence pour vous faire économiser <strong>jusqu'à 250 €/an</strong>, 
               avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="ae-hero-btns">
@@ -540,7 +540,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <div className="ah-hamon-chrono-sep"><Icon name="arrow-right" className="oz-arrow" /></div>
               <div className="ah-hamon-chrono-item ah-hamon-chrono-item--gold">
                 <div className="ah-hamon-chrono-icon"><Icon name="coins" /></div>
-                <div className="ah-hamon-chrono-val">~100 €</div>
+                <div className="ah-hamon-chrono-val">~250 €</div>
                 <div className="ah-hamon-chrono-label">Économies annuelles</div>
               </div>
             </div>

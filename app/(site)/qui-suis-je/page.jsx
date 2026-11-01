@@ -47,6 +47,16 @@ const personSchema = {
 
 const PARCOURS = [
   {
+    periode: '2026 à ce jour',
+    poste: 'Fondatrice',
+    entreprise: 'Orizia Courtage',
+    type: 'Courtière indépendante · Marcq-en-Barœul',
+    icon: 'sparkles',
+    color: '#3e7f68',
+    highlight: true,
+    desc: 'Crédit, assurance et placements : un seul interlocuteur, indépendant des banques, de la première question à la signature.',
+  },
+  {
     periode: '2025 – 2026',
     poste: 'Directrice',
     entreprise: 'Simply Miob',
