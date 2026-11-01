@@ -804,7 +804,7 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 }
 
 /* Pastilles des cartes « produits liés » : certaines couleurs (sauge clair sur menthe) étaient illisibles. */
-.fin-card .fin-card-pill { background: var(--oz-mint-soft) !important; color: var(--oz-sage-deep) !important; border-color: transparent !important; font-weight: 700; }
+.fin-card .fin-card-pill { background: var(--oz-mint-soft) !important; color: #2a604c !important; border-color: transparent !important; font-weight: 700; }
 .fin-card--featured .fin-card-pill { background: var(--oz-ink) !important; color: #bfe6d5 !important; }
 @media (max-width: 768px) { .oz-hamon-dark .ah-hamon-chrono { align-items: start; } .oz-hamon-dark .ah-hamon-chrono-item { justify-content: flex-start; } }
 
@@ -830,137 +830,137 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .fpg-icon { color: var(--oz-sage-deep); width: 52px; height: 52px; border-radius: 14px; display: inline-grid; place-items: center; background: var(--oz-mint-soft); font-size: 1.5rem !important; }
 .fpg-badge { background: var(--oz-ink) !important; color: #bfe6d5 !important; }
 /* ── Passe accessibilité : contrastes de texte (audit axe-core sur toutes les pages, cible ≥ 4,5:1) ── */
-.ae-economie-gain-label { color: #5b615c !important; }
-.ae-economie-gain-val { color: #8a5f1c !important; }
-.ae-economie-pret { color: #5b615c !important; }
-.ae-economie-taux-label { color: #5b615c !important; }
-.ae-economie-taux-val { color: #2f6e58 !important; }
-.ae-garantie-flex-badge { color: #2f6e58 !important; }
-.ae-lemoine-card-title { color: #2f6e58 !important; }
-.aec-disclaimer { color: #e8f5ef !important; }
-.aec-field-value { color: #2f6e58 !important; }
-.aec-inputs-title { color: #2f6e58 !important; }
-.afs-btn-desc { color: #5b615c !important; }
-.apg-card-cta { color: #2f6e58 !important; }
-.apg-card-economie-label { color: #5b615c !important; }
-.apg-card-economie-val { color: #2f6e58 !important; }
-.apg-card-loi { color: #2f6e58 !important; }
-.apg-card-sub { color: #5b615c !important; }
-.aps-btn-badge { background-color: #3e7f68 !important; color: #ffffff !important; }
-.aps-btn-desc { color: #5b615c !important; }
-.avdef-panel-chiffre { color: #2f6e58 !important; }
-.avdef-panel-chiffre-label { color: #5b615c !important; }
-.avdef-panel-title { color: #2f6e58 !important; }
-.avdef-support-stat-label { color: #5b615c !important; }
-.avdef-support-stat-value { color: #8a5f1c !important; }
-.avfis-detail-value { color: #2f6e58 !important; }
-.avfis-panel-tag { color: #2f6e58 !important; }
-.avfis-panel-taux-label { color: #5b615c !important; }
-.avfis-transm-value { color: #2f6e58 !important; }
-.avps-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
-.avps-btn-desc { color: #5b615c !important; }
-.avps-repart-euros { background-color: #3e7f68 !important; color: #ffffff !important; }
-.avps-repart-uc { background-color: #8a5f1c !important; color: #ffffff !important; }
-.avps-sim-disclaimer { color: #5b615c !important; }
-.avps-sim-result-label { color: #5b615c !important; }
-.avps-sim-result-value { color: #8a5f1c !important; }
-.avps-sim-val { color: #8a5f1c !important; }
-.avps-stat-label { color: #5b615c !important; }
-.avps-stat-value { color: #8a5f1c !important; }
-.avps-strategie-title { color: #8a5f1c !important; }
-.avvsl-cell-crit { color: #5b615c !important; }
-.avvsl-cell-note { color: #5b615c !important; }
-.avvsl-cell-val { color: #2f6e58 !important; }
-.avvsl-col-name { color: #2f6e58 !important; }
-.avvsl-ribbon { background-color: #3e7f68 !important; color: #ffffff !important; }
-.cap-field-value { color: #2f6e58 !important; }
-.cap-title { color: #2f6e58 !important; }
-.contact-cindy-role { color: #5b615c !important; }
-.contact-moyen-cta { color: #2f6e58 !important; }
-.contact-moyen-detail { color: #5b615c !important; }
-.cps-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
-.cps-btn-desc { color: #5b615c !important; }
-.crd-critere-desc { color: #5b615c !important; }
-.crd-flow-title { color: #2f6e58 !important; }
-.crd-vault-note { color: #e8f5ef !important; }
-.crowd-schema-arrow { color: #2f6e58 !important; }
-.crowd-table-note { color: #5b615c !important; }
-.fin-badge { color: #2f6e58 !important; }
-.fin-card-pill { color: #2f6e58 !important; }
-.fin-card-sub { color: #2f6e58 !important; }
-.fin-etape-num { background-color: #3e7f68 !important; color: #ffffff !important; }
-.fpg-desc { color: #2f6e58 !important; }
-.fpg-link { color: #8a5f1c !important; }
-.fpg-sub { color: #2f6e58 !important; }
-.fpg-title { color: #8a5f1c !important; }
-.hsit-label { color: #2f6e58 !important; }
-.icl-critere-desc { color: #5b615c !important; }
-.icl-subtitle { color: #5b615c !important; }
-.inv-hero-badge { color: #2f6e58 !important; }
-.inv-hero-cta-ghost { color: #2f6e58 !important; }
-.inv-hero-quiz-eyebrow { color: #2f6e58 !important; }
-.inv-hero-trust-item { color: #5b615c !important; }
-.inv-why-image-badge-label { color: #5b615c !important; }
-.inv-why-item-title { color: #2f6e58 !important; }
-.ipg-card-cta { color: #2f6e58 !important; }
-.ipg-card-stat-label { color: #5b615c !important; }
-.ipg-card-stat-val { color: #2f6e58 !important; }
-.ipg-card-sub { color: #5b615c !important; }
-.ipg-card-tag { color: #2f6e58 !important; }
-.iq-intro-desc { color: #5b615c !important; }
-.lemoine-step-label { color: #2f6e58 !important; }
-.lex-back-btn { color: #5b615c !important; }
-.lex-terme { color: #8a5f1c !important; }
-.mdr-v2-product-sub { color: #5b615c !important; }
-.moto-formule-desc { color: #5b615c !important; }
-.moto-formule-prix { color: #2f6e58 !important; }
-.moto-result-desc { color: #5b615c !important; }
-.parr-btn-primary { background-color: #3e7f68 !important; color: #ffffff !important; }
-.parr-link-btn { color: #2f6e58 !important; }
-.parr-step-label { color: #5b615c !important; }
-.parr-step-sub { color: #2f6e58 !important; }
-.per-def-point-title { color: #2f6e58 !important; }
-.per-fiscal-ex-gain { color: #2f6e58 !important; }
-.per-fiscal-ex-tmi { color: #2f6e58 !important; }
-.per-fiscal-ex-versement { color: #5b615c !important; }
-.per-plafond-max { color: #2f6e58 !important; }
-.per-profil-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
-.per-profil-desc { color: #5b615c !important; }
-.pervsav-badge { color: #8a5f1c !important; }
-.pervsav-col-critere { color: #5b615c !important; }
-.pervsav-col-subtitle { color: #5b615c !important; }
-.pervsav-profil-desc { color: #5b615c !important; }
-.plac-card-rendement { color: #2f6e58 !important; }
-.plac-detail-item-label { color: #5b615c !important; }
-.profil-hab-desc { color: #5b615c !important; }
-.qsj-formation-ecole { color: #2f6e58 !important; }
-.qsj-hero-subtitle { color: #2f6e58 !important; }
-.qsj-timeline-desc { color: #2f6e58 !important; }
-.qsj-timeline-periode { color: #5b615c !important; }
-.qsj-timeline-poste { color: #2f6e58 !important; }
-.qsj-timeline-type { color: #2f6e58 !important; }
-.reward-badge { color: #2f6e58 !important; }
-.rj-jauge-pct { color: #8a5f1c !important; }
-.rj-toggle-btn { color: #5b615c !important; }
-.scpidef-flux-label { color: #8a5f1c !important; }
-.scpidef-toggle-btn { color: #2f6e58 !important; }
-.scpifis-result-name { color: #2f6e58 !important; }
-.scpifis-result-note { color: #2f6e58 !important; }
-.scpifis-result-stat-label { color: #5b615c !important; }
-.scpifis-result-stat-val { color: #2f6e58 !important; }
-.scpifis-strat-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
-.scpifis-tmi-btn { color: #2f6e58 !important; }
-.scpipf-hint { color: #5b615c !important; }
-.scpipf-tmi-desc { color: #5b615c !important; }
-.scpipf-tmi-val { color: #2f6e58 !important; }
-.simu-disclaimer { color: #5b615c !important; }
-.simu-field-value { color: #2f6e58 !important; }
-.simu-positive { color: #2f6e58 !important; }
-.simu-preset-btn { color: #2f6e58 !important; }
-.simu-result-sub { color: #5b615c !important; }
-.sr-hint { color: #5b615c !important; }
-.sr-unit { color: #2f6e58 !important; }
-.ss-hint { color: #5b615c !important; }
+.ae-economie-gain-label { color: #5b615c !important; opacity: 1 !important; }
+.ae-economie-gain-val { color: #8a5f1c !important; opacity: 1 !important; }
+.ae-economie-pret { color: #5b615c !important; opacity: 1 !important; }
+.ae-economie-taux-label { color: #5b615c !important; opacity: 1 !important; }
+.ae-economie-taux-val { color: #2f6e58 !important; opacity: 1 !important; }
+.ae-garantie-flex-badge { color: #2f6e58 !important; opacity: 1 !important; }
+.ae-lemoine-card-title { color: #2f6e58 !important; opacity: 1 !important; }
+.aec-disclaimer { color: #e8f5ef !important; opacity: 1 !important; }
+.aec-field-value { color: #2f6e58 !important; opacity: 1 !important; }
+.aec-inputs-title { color: #2f6e58 !important; opacity: 1 !important; }
+.afs-btn-desc { color: #5b615c !important; opacity: 1 !important; }
+.apg-card-cta { color: #2f6e58 !important; opacity: 1 !important; }
+.apg-card-economie-label { color: #5b615c !important; opacity: 1 !important; }
+.apg-card-economie-val { color: #2f6e58 !important; opacity: 1 !important; }
+.apg-card-loi { color: #2f6e58 !important; opacity: 1 !important; }
+.apg-card-sub { color: #5b615c !important; opacity: 1 !important; }
+.aps-btn-badge { background-color: #3e7f68 !important; color: #ffffff !important; opacity: 1 !important; }
+.aps-btn-desc { color: #5b615c !important; opacity: 1 !important; }
+.avdef-panel-chiffre { color: #2f6e58 !important; opacity: 1 !important; }
+.avdef-panel-chiffre-label { color: #5b615c !important; opacity: 1 !important; }
+.avdef-panel-title { color: #2f6e58 !important; opacity: 1 !important; }
+.avdef-support-stat-label { color: #5b615c !important; opacity: 1 !important; }
+.avdef-support-stat-value { color: #8a5f1c !important; opacity: 1 !important; }
+.avfis-detail-value { color: #2f6e58 !important; opacity: 1 !important; }
+.avfis-panel-tag { color: #2f6e58 !important; opacity: 1 !important; }
+.avfis-panel-taux-label { color: #5b615c !important; opacity: 1 !important; }
+.avfis-transm-value { color: #2f6e58 !important; opacity: 1 !important; }
+.avps-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; opacity: 1 !important; }
+.avps-btn-desc { color: #5b615c !important; opacity: 1 !important; }
+.avps-repart-euros { background-color: #3e7f68 !important; color: #ffffff !important; opacity: 1 !important; }
+.avps-repart-uc { background-color: #8a5f1c !important; color: #ffffff !important; opacity: 1 !important; }
+.avps-sim-disclaimer { color: #5b615c !important; opacity: 1 !important; }
+.avps-sim-result-label { color: #5b615c !important; opacity: 1 !important; }
+.avps-sim-result-value { color: #8a5f1c !important; opacity: 1 !important; }
+.avps-sim-val { color: #8a5f1c !important; opacity: 1 !important; }
+.avps-stat-label { color: #5b615c !important; opacity: 1 !important; }
+.avps-stat-value { color: #8a5f1c !important; opacity: 1 !important; }
+.avps-strategie-title { color: #8a5f1c !important; opacity: 1 !important; }
+.avvsl-cell-crit { color: #5b615c !important; opacity: 1 !important; }
+.avvsl-cell-note { color: #5b615c !important; opacity: 1 !important; }
+.avvsl-cell-val { color: #2f6e58 !important; opacity: 1 !important; }
+.avvsl-col-name { color: #2f6e58 !important; opacity: 1 !important; }
+.avvsl-ribbon { background-color: #3e7f68 !important; color: #ffffff !important; opacity: 1 !important; }
+.cap-field-value { color: #2f6e58 !important; opacity: 1 !important; }
+.cap-title { color: #2f6e58 !important; opacity: 1 !important; }
+.contact-cindy-role { color: #5b615c !important; opacity: 1 !important; }
+.contact-moyen-cta { color: #2f6e58 !important; opacity: 1 !important; }
+.contact-moyen-detail { color: #5b615c !important; opacity: 1 !important; }
+.cps-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; opacity: 1 !important; }
+.cps-btn-desc { color: #5b615c !important; opacity: 1 !important; }
+.crd-critere-desc { color: #5b615c !important; opacity: 1 !important; }
+.crd-flow-title { color: #2f6e58 !important; opacity: 1 !important; }
+.crd-vault-note { color: #e8f5ef !important; opacity: 1 !important; }
+.crowd-schema-arrow { color: #2f6e58 !important; opacity: 1 !important; }
+.crowd-table-note { color: #5b615c !important; opacity: 1 !important; }
+.fin-badge { color: #2f6e58 !important; opacity: 1 !important; }
+.fin-card-pill { color: #2f6e58 !important; opacity: 1 !important; }
+.fin-card-sub { color: #2f6e58 !important; opacity: 1 !important; }
+.fin-etape-num { background-color: #3e7f68 !important; color: #ffffff !important; opacity: 1 !important; }
+.fpg-desc { color: #2f6e58 !important; opacity: 1 !important; }
+.fpg-link { color: #8a5f1c !important; opacity: 1 !important; }
+.fpg-sub { color: #2f6e58 !important; opacity: 1 !important; }
+.fpg-title { color: #8a5f1c !important; opacity: 1 !important; }
+.hsit-label { color: #2f6e58 !important; opacity: 1 !important; }
+.icl-critere-desc { color: #5b615c !important; opacity: 1 !important; }
+.icl-subtitle { color: #5b615c !important; opacity: 1 !important; }
+.inv-hero-badge { color: #2f6e58 !important; opacity: 1 !important; }
+.inv-hero-cta-ghost { color: #2f6e58 !important; opacity: 1 !important; }
+.inv-hero-quiz-eyebrow { color: #2f6e58 !important; opacity: 1 !important; }
+.inv-hero-trust-item { color: #5b615c !important; opacity: 1 !important; }
+.inv-why-image-badge-label { color: #5b615c !important; opacity: 1 !important; }
+.inv-why-item-title { color: #2f6e58 !important; opacity: 1 !important; }
+.ipg-card-cta { color: #2f6e58 !important; opacity: 1 !important; }
+.ipg-card-stat-label { color: #5b615c !important; opacity: 1 !important; }
+.ipg-card-stat-val { color: #2f6e58 !important; opacity: 1 !important; }
+.ipg-card-sub { color: #5b615c !important; opacity: 1 !important; }
+.ipg-card-tag { color: #2f6e58 !important; opacity: 1 !important; }
+.iq-intro-desc { color: #5b615c !important; opacity: 1 !important; }
+.lemoine-step-label { color: #2f6e58 !important; opacity: 1 !important; }
+.lex-back-btn { color: #5b615c !important; opacity: 1 !important; }
+.lex-terme { color: #8a5f1c !important; opacity: 1 !important; }
+.mdr-v2-product-sub { color: #5b615c !important; opacity: 1 !important; }
+.moto-formule-desc { color: #5b615c !important; opacity: 1 !important; }
+.moto-formule-prix { color: #2f6e58 !important; opacity: 1 !important; }
+.moto-result-desc { color: #5b615c !important; opacity: 1 !important; }
+.parr-btn-primary { background-color: #3e7f68 !important; color: #ffffff !important; opacity: 1 !important; }
+.parr-link-btn { color: #2f6e58 !important; opacity: 1 !important; }
+.parr-step-label { color: #5b615c !important; opacity: 1 !important; }
+.parr-step-sub { color: #2f6e58 !important; opacity: 1 !important; }
+.per-def-point-title { color: #2f6e58 !important; opacity: 1 !important; }
+.per-fiscal-ex-gain { color: #2f6e58 !important; opacity: 1 !important; }
+.per-fiscal-ex-tmi { color: #2f6e58 !important; opacity: 1 !important; }
+.per-fiscal-ex-versement { color: #5b615c !important; opacity: 1 !important; }
+.per-plafond-max { color: #2f6e58 !important; opacity: 1 !important; }
+.per-profil-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; opacity: 1 !important; }
+.per-profil-desc { color: #5b615c !important; opacity: 1 !important; }
+.pervsav-badge { color: #8a5f1c !important; opacity: 1 !important; }
+.pervsav-col-critere { color: #5b615c !important; opacity: 1 !important; }
+.pervsav-col-subtitle { color: #5b615c !important; opacity: 1 !important; }
+.pervsav-profil-desc { color: #5b615c !important; opacity: 1 !important; }
+.plac-card-rendement { color: #2f6e58 !important; opacity: 1 !important; }
+.plac-detail-item-label { color: #5b615c !important; opacity: 1 !important; }
+.profil-hab-desc { color: #5b615c !important; opacity: 1 !important; }
+.qsj-formation-ecole { color: #2f6e58 !important; opacity: 1 !important; }
+.qsj-hero-subtitle { color: #2f6e58 !important; opacity: 1 !important; }
+.qsj-timeline-desc { color: #2f6e58 !important; opacity: 1 !important; }
+.qsj-timeline-periode { color: #5b615c !important; opacity: 1 !important; }
+.qsj-timeline-poste { color: #2f6e58 !important; opacity: 1 !important; }
+.qsj-timeline-type { color: #2f6e58 !important; opacity: 1 !important; }
+.reward-badge { color: #2f6e58 !important; opacity: 1 !important; }
+.rj-jauge-pct { color: #8a5f1c !important; opacity: 1 !important; }
+.rj-toggle-btn { color: #5b615c !important; opacity: 1 !important; }
+.scpidef-flux-label { color: #8a5f1c !important; opacity: 1 !important; }
+.scpidef-toggle-btn { color: #2f6e58 !important; opacity: 1 !important; }
+.scpifis-result-name { color: #2f6e58 !important; opacity: 1 !important; }
+.scpifis-result-note { color: #2f6e58 !important; opacity: 1 !important; }
+.scpifis-result-stat-label { color: #5b615c !important; opacity: 1 !important; }
+.scpifis-result-stat-val { color: #2f6e58 !important; opacity: 1 !important; }
+.scpifis-strat-badge { background-color: #8a5f1c !important; color: #ffffff !important; opacity: 1 !important; }
+.scpifis-tmi-btn { color: #2f6e58 !important; opacity: 1 !important; }
+.scpipf-hint { color: #5b615c !important; opacity: 1 !important; }
+.scpipf-tmi-desc { color: #5b615c !important; opacity: 1 !important; }
+.scpipf-tmi-val { color: #2f6e58 !important; opacity: 1 !important; }
+.simu-disclaimer { color: #5b615c !important; opacity: 1 !important; }
+.simu-field-value { color: #2f6e58 !important; opacity: 1 !important; }
+.simu-positive { color: #2f6e58 !important; opacity: 1 !important; }
+.simu-preset-btn { color: #2f6e58 !important; opacity: 1 !important; }
+.simu-result-sub { color: #5b615c !important; opacity: 1 !important; }
+.sr-hint { color: #5b615c !important; opacity: 1 !important; }
+.sr-unit { color: #2f6e58 !important; opacity: 1 !important; }
+.ss-hint { color: #5b615c !important; opacity: 1 !important; }
 /* Jauge d'endettement : l'étiquette « 33 % » chevauchait la grande valeur sur téléphone → placée sous la barre. */
 .sr-result-gauge-marker span { top: auto !important; bottom: -22px; opacity: .75 !important; font-size: .72rem !important; background: transparent !important; }
 .sr-result-gauge-track-wrap { padding-bottom: 18px; }
@@ -1030,3 +1030,75 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .ipg-card-stat-label, .ipg-card-sub, .scpipf-tmi-desc { font-size: .75rem !important; }
 /* Bouton « Rendement visé le plus élevé » : ne déborde plus de sa tuile. */
 .plac-card-star { max-width: calc(100% - 8px); white-space: normal !important; text-align: center; line-height: 1.2; }
+/* Agenda cal.com (page Contact) : message de chargement derrière l'iframe + solution de repli. */
+.contact-cal-wrapper { position: relative; min-height: 680px; border-radius: 16px; background: #fff; }
+.contact-cal-wrapper::before { content: "Chargement de l'agenda…"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--oz-muted); font-size: .95rem; z-index: 0; }
+.contact-cal-wrapper iframe { position: relative; z-index: 1; background: transparent; }
+.contact-cal-fallback { text-align: center; font-size: .88rem; color: var(--oz-muted); margin: 12px 0 0; }
+.contact-cal-fallback a { color: var(--oz-sage-deep); font-weight: 600; }
+/* Lexique : recherche + catégories collantes, termes à l'encre, indice lisible. */
+.lex-toolbar { position: sticky; top: 64px; z-index: 20; background: rgba(252, 253, 252, .94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--oz-line); }
+.lex-toolbar-inner { max-width: 1160px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.lex-search { flex: 1 1 280px; display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--oz-line); border-radius: 12px; padding: 0 14px; min-height: 46px; color: var(--oz-muted); }
+.lex-search input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 1rem; color: var(--oz-ink); min-width: 0; }
+.lex-search:focus-within { border-color: var(--oz-sage); box-shadow: 0 0 0 3px rgba(107, 182, 155, .18); }
+.lex-chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.lex-chips::-webkit-scrollbar { display: none; }
+.lex-chips a { white-space: nowrap; padding: 9px 14px; border-radius: 999px; background: var(--oz-mint-soft); color: var(--oz-sage-deep); font-weight: 600; font-size: .85rem; text-decoration: none; }
+.lex-count { max-width: 1160px; margin: 18px auto 0; padding: 0 24px; color: var(--oz-muted); }
+.lex-cat-title { font-size: 1.4rem; font-weight: 800; margin: 0; }
+.lex-terme { color: var(--oz-ink) !important; }
+.lex-hint { font-size: .78rem !important; color: #5b6b66 !important; opacity: 1 !important; }
+@media (max-width: 760px) { .lex-toolbar { top: 56px; } .lex-toolbar-inner { padding: 10px 16px; } .lex-section { padding-top: 40px !important; padding-bottom: 40px !important; } }
+/* Carrousel des recommandations : sur téléphone, les flèches passaient sur le texte → placées sous la carte. */
+@media (max-width: 600px) {
+  .tc3-wrap { padding: 0 0 64px !important; position: relative; }
+  .tc3-arrow { top: auto !important; bottom: 4px !important; transform: none !important; }
+  .tc3-arrow--prev { left: calc(50% - 56px) !important; }
+  .tc3-arrow--next { right: calc(50% - 56px) !important; left: auto !important; }
+}
+.tc3-auteur-poste { font-size: .8rem !important; }
+.tc3-auteur-date { font-size: .78rem !important; }
+/* Accueil « Quatre étapes » : les étapes à venir restaient grisées (0,5) et semblaient désactivées. */
+.hs4-wrap.is-enhanced .hs4-card { opacity: .88 !important; }
+.hs4-wrap.is-enhanced .hs4-step.is-active .hs4-card { opacity: 1 !important; }
+/* Page Contact : icônes des sujets en bleu par défaut → couleur de la marque. */
+.contact-sujet-icon { color: var(--oz-sage-deep) !important; }
+/* Petits textes (< 12 px) relevés. */
+.hh-proof span, .hh-proof small { font-size: .78rem !important; }
+.mdr-v2-product-sub, .bn-tag { font-size: .78rem !important; }
+/* Pied de page : liens assez hauts pour le doigt (≥ 44 px). */
+@media (max-width: 760px) {
+  .oz-footer a:not([class*="btn"]) { display: inline-flex; align-items: center; min-height: 40px; }
+}
+/* Parrainage : sous-titres moins lourds ; cartes récompenses de même hauteur, sans vide au-dessus de l'icône. */
+.form-subtitle { font-weight: 400 !important; color: var(--oz-muted); font-size: 1.02rem !important; line-height: 1.6; }
+.rewards-grid { align-items: stretch; }
+.reward-card { display: flex; flex-direction: column; padding-top: 24px !important; }
+.reward-card .reward-badge, .reward-card .reward-badge-group { margin-top: auto; }
+/* Agendas intégrés (fenêtre contact, widget) : message de chargement au lieu d'un grand vide blanc. */
+.oz-cal-frame { position: relative; height: 100%; display: flex; flex-direction: column; background: #fff; }
+.oz-cal-frame::before { content: "Chargement de l'agenda…"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--oz-muted); font-size: .95rem; pointer-events: none; }
+.oz-cal-frame iframe { position: relative; z-index: 1; flex: 1; background: transparent; min-height: 0; }
+.oz-cal-fallback { position: relative; z-index: 1; margin: 0; padding: 10px 14px; text-align: center; font-size: .82rem; color: var(--oz-muted); border-top: 1px solid var(--oz-line); background: #fff; }
+.oz-cal-fallback a { color: var(--oz-sage-deep); font-weight: 600; }
+/* Page 404 */
+.oz-404 { background: radial-gradient(800px 360px at 50% 0%, var(--oz-mint-soft), transparent 70%), var(--oz-paper); padding: clamp(110px, 14vw, 160px) 16px 80px; }
+.oz-404-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.oz-404 h1 { font-family: var(--oz-font-display); font-weight: 500; font-size: clamp(2rem, 5vw, 3.2rem); margin: 14px 0 12px; letter-spacing: -.02em; }
+.oz-404 p { color: var(--oz-muted); font-size: 1.05rem; margin: 0 0 28px; }
+.oz-404-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; text-align: left; margin-bottom: 28px; }
+.oz-404-card { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: #fff; border: 1px solid var(--oz-line); border-radius: 16px; text-decoration: none; color: var(--oz-ink); transition: transform .25s, border-color .25s, box-shadow .25s; }
+.oz-404-card:hover { transform: translateY(-2px); border-color: var(--oz-sage); box-shadow: var(--oz-shadow); }
+.oz-404-card > span:nth-child(2) { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.oz-404-card small { color: var(--oz-muted); font-size: .85rem; }
+.oz-404-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--oz-mint-soft); color: var(--oz-sage-deep); font-size: 1.3rem; flex: none; }
+.oz-404-home { display: inline-flex; }
+@media (max-width: 600px) { .oz-404-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Passe 2 : textes atténués par opacité ou couleur inline. */
+.rc-dossier dd { color: #5f655f; }
+[style*="background:rgba(45,106,95,0.08)"], [style*="background: rgba(45,106,95,0.08)"], [style*="font-size:0.68rem"][style*="#3e7f68"] { color: #2a604c !important; }
+.aec-slider-labels span, .sr-slider-labels span, .simu-slider-labels span, [class$="-slider-labels"] span, [class*="-slider-labels "] span { color: #5f655f !important; opacity: 1 !important; }
+.sr-result-card-sub, .ss-result-card-sub, .sr-result-card-label, .ss-result-card-label, .scpipf-obj-desc, .per-profil-stat-label, .scpipf-result-stat-label { color: #565c57 !important; opacity: 1 !important; }
+.per-profil-stat-value, .scpipf-result-stat-val { color: #2a604c !important; }

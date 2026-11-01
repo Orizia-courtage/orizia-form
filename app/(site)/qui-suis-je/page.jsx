@@ -6,12 +6,12 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
-  title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
+  title: 'Qui suis-je ? Cindy Urbansky, Courtière Indépendante | Orizia Courtage',
   description:
     'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 20 ans d\'expérience en crédit, assurance et patrimoine. Présidente de l\'AFIB.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
   openGraph: {
-    title: 'Cindy Urbansky — Courtier Indépendant | Orizia Courtage',
+    title: 'Cindy Urbansky — Courtière Indépendante | Orizia Courtage',
     description: '20 ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     siteName: 'Orizia Courtage',
@@ -26,7 +26,7 @@ const personSchema = {
   '@type': 'Person',
   name: 'Cindy Urbansky',
   jobTitle: 'Courtier indépendant en crédit, assurance et gestion de patrimoine',
-  description: 'Courtier indépendant certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
+  description: 'Courtière indépendante certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
   image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
   url: 'https://www.orizia-courtage.fr/qui-suis-je',
   sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/', 'https://www.instagram.com/orizia_courtage/'],
@@ -46,16 +46,6 @@ const personSchema = {
 };
 
 const PARCOURS = [
-  
-  {
-    periode: '2021 à ce jour',
-    poste: 'Présidente du conseil de surveillance',
-    entreprise: 'AFIB — Association Française des Intermédiaires en Bancassurance',
-    type: 'Indépendant',
-    icon: 'scale',
-    color: '#3e7f68',
-    highlight: true,
-  },
   {
     periode: '2025 – 2026',
     poste: 'Directrice',
@@ -71,6 +61,15 @@ const PARCOURS = [
     type: 'CDI',
     icon: 'chart-column',
     color: '#1b1d1a',
+  },
+  {
+    periode: '2021 à ce jour',
+    poste: 'Présidente du conseil de surveillance',
+    entreprise: 'AFIB — Association Française des Intermédiaires en Bancassurance',
+    type: 'Mandat associatif',
+    icon: 'scale',
+    color: '#3e7f68',
+    highlight: true,
   },
   {
     periode: '2017 – 2023',
@@ -99,7 +98,7 @@ const PARCOURS = [
   },
   {
     periode: '2011 – 2013',
-    poste: 'Courtier en regroupement de crédits (IOBSP)',
+    poste: 'Courtière en regroupement de crédits (IOBSP)',
     entreprise: 'Indépendant',
     type: 'Nord',
     icon: 'refresh-cw',
@@ -115,7 +114,7 @@ const PARCOURS = [
   },
   {
     periode: '2005 – 2008',
-    poste: 'Conseiller banque particulier',
+    poste: 'Conseillère banque particulier',
     entreprise: 'LCL',
     type: 'CDI · Les Ulis, Île-de-France',
     icon: 'landmark',
@@ -153,7 +152,7 @@ export default function QuiSuisJePage() {
                   <Image
                     src="/images/photo-cindy-gp.webp"
                     quality={90}
-                    alt="Cindy Urbansky — Courtier indépendant, fondatrice d'Orizia Courtage"
+                    alt="Cindy Urbansky — Courtière indépendante, fondatrice d'Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
                     priority

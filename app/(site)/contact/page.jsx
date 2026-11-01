@@ -8,7 +8,7 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Contacter Orizia Courtage — Conseil personnalisé',
   description:
-    'Contactez Cindy Urbansky, courtier indépendant dans les Hauts-de-France. Crédit, assurance, investissement — rendez-vous sans engagement, réponse sous 24h.',
+    'Contactez Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Crédit, assurance, investissement — rendez-vous sans engagement, réponse sous 24h.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/contact' },
   openGraph: {
     title: 'Contacter Orizia Courtage — Conseil personnalisé',
@@ -41,7 +41,7 @@ const contactSchema = {
     {
       '@type': 'FinancialService',
       name: 'Orizia Courtage',
-      description: 'Courtier indépendant en crédit immobilier, assurance vie et investissement.',
+      description: 'Courtière indépendante en crédit immobilier, assurance vie et investissement.',
       url: 'https://www.orizia-courtage.fr',
       telephone: '+33777259706',
       email: 'cindy.urbansky@orizia-courtage.fr',
@@ -73,7 +73,7 @@ const MOYENS = [
     icon: 'phone',
     title: 'Appeler directement',
     desc: 'Pour une question rapide ou un premier contact sans formalité.',
-    cta: '+33 7 77 25 97 06',
+    cta: '07 77 25 97 06',
     href: 'tel:+33777259706',
     primary: false,
     detail: 'Lun–Ven 9h–18h',
@@ -116,7 +116,7 @@ const FAQ_CONTACT = [
   },
   {
     q: 'Les rendez-vous se font-ils en présentiel ?',
-    r: 'Orizia Courtage fonctionne en 100% distanciel — visioconférence ou téléphone. Cela vous permet d\'être accompagné depuis chez vous, sans vous déplacer, quel que soit votre lieu de résidence en France.',
+    r: 'Je vous reçois à Marcq-en-Barœul, ou à distance en visioconférence ou par téléphone. Vous pouvez donc être accompagné depuis chez vous, quel que soit votre lieu de résidence en France.',
   },
   {
     q: 'Quels documents préparer avant le rendez-vous ?',
@@ -124,7 +124,7 @@ const FAQ_CONTACT = [
   },
   {
     q: 'Puis-je être accompagné sur plusieurs sujets à la fois ?',
-    r: 'Tout à fait. En tant que courtier indépendant généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
+    r: 'Tout à fait. En tant que courtière indépendante généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
   },
 ];
 
@@ -157,8 +157,8 @@ export default function ContactPage() {
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, assurance, investissement — Cindy analyse votre situation
                   et vous propose une solution adaptée. Premier rendez-vous{' '}
-                  <strong style={{ color: 'var(--orizia-accent)' }}>modalités transparentes</strong>,
-                  100% en visioconférence.
+                  <strong style={{ color: 'var(--orizia-accent)' }}>sans engagement</strong>,
+                  en visio, par téléphone ou à Marcq-en-Barœul.
                 </p>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)', paddingTop: 20, marginTop: 8 }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    100% distanciel
+                    En visio ou à Marcq-en-Barœul
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default function ContactPage() {
                   <Image
                     src="/images/photo-cindy-gp.webp"
                     quality={90}
-                    alt="Cindy Urbansky, courtier indépendant – Orizia Courtage"
+                    alt="Cindy Urbansky, courtière indépendante – Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
                     sizes="200px"
@@ -192,7 +192,7 @@ export default function ContactPage() {
                 <div className="contact-cindy-info">
                   <DispoStatus />
                   <div className="contact-cindy-name">Cindy Urbansky</div>
-                  <div className="contact-cindy-role">courtier indépendant · Orizia Courtage</div>
+                  <div className="contact-cindy-role">Courtière indépendante · Orizia Courtage</div>
                   <div className="contact-cindy-stats">
                     <div className="contact-cindy-stat">
                       <strong>20 ans</strong>
@@ -337,6 +337,11 @@ export default function ContactPage() {
                 title="Réserver un rendez-vous avec Cindy Urbansky — Orizia Courtage"
               />
             </div>
+            <p className="contact-cal-fallback">
+              L'agenda ne s'affiche pas ?{' '}
+              <a href="https://cal.com/cindy-urbansky" target="_blank" rel="noopener noreferrer">Ouvrir l'agenda dans un nouvel onglet</a>
+              {' '}ou appelez le <a href="tel:+33777259706">07 77 25 97 06</a>.
+            </p>
           </div>
         </section>
 
@@ -345,7 +350,7 @@ export default function ContactPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Questions fréquentes<br />avant de nous contacter</h2>
+              <h2>Questions fréquentes<br />avant de me contacter</h2>
               <p>Les réponses aux doutes les plus courants — honnêtes et directes.</p>
             </div>
             <div className="crowd-faq-list">

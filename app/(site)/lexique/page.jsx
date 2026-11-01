@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
-import LexiqueGrid from '@/components/LexiqueGrid';
+import LexiqueExplorer from '@/components/LexiqueExplorer';
 
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
@@ -186,49 +186,11 @@ export default function LexiquePage() {
               sur le site, expliqués simplement — pour que vous compreniez exactement
               ce que vous signez.
             </p>
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 24 }}>
-              {CATEGORIES.map(c => (
-                <a
-                  key={c.id}
-                  href={`#${c.id}`}
-                  style={{
-                    padding: '6px 14px',
-                    borderRadius: 100,
-                    background: c.bg,
-                    color: c.color,
-                    border: `1px solid ${c.color}30`,
-                    fontSize: '0.82rem',
-                    fontWeight: 700,
-                    textDecoration: 'none',
-                  }}
-                >
-                  {c.label}
-                </a>
-              ))}
-            </div>
           </div>
         </section>
 
-        {/* ── CATÉGORIES ── */}
-        {CATEGORIES.map((cat, ci) => (
-          <section
-            key={cat.id}
-            id={cat.id}
-            className={`crowd-section ${ci % 2 === 0 ? 'crowd-section--white' : 'crowd-section--light'}`}
-            style={{ scrollMarginTop: 80 }}
-          >
-            <div className="fin-section-inner">
-              <div style={{ marginBottom: 32 }}>
-                <h2 style={{ color: cat.color, fontSize: '1.4rem', fontWeight: 900, margin: 0 }}>
-                  {cat.label}
-                </h2>
-                <div style={{ height: 3, width: 48, background: cat.color, borderRadius: 2, marginTop: 10, opacity: 0.5 }} />
-              </div>
-
-              <LexiqueGrid termes={cat.termes} color={cat.color} />
-            </div>
-          </section>
-        ))}
+        {/* ── RECHERCHE + CATÉGORIES ── */}
+        <LexiqueExplorer categories={CATEGORIES.map(({ id, label, color, termes }) => ({ id, label, color, termes }))} />
 
         {/* ── CTA ── */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-accent)' }}>

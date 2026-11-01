@@ -483,7 +483,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
                 <IconXmark />
               </button>
             </div>
-            <div className="cp-modal-body">
+            <div className="cp-modal-body oz-cal-frame">
               <iframe
                 src="https://cal.com/cindy-urbansky/rendez-vous?embed=true"
                 style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}

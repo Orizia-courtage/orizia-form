@@ -166,7 +166,7 @@
 .rc dl div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--rc-line); font-size: 14.5px; }
 .rc dt { color: var(--rc-muted); }
 .rc dd { margin: 0; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
-.rc dl .empty dd { color: #b9bdb9; font-weight: 500; }
+.rc dl .empty dd { color: #5f655f; font-weight: 500; }
 .rc-gauge { margin-top: 14px; display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 16px; background: var(--rc-wash); }
 .rc-gauge[hidden] { display: none; }
 .rc-gauge b { font-size: 22px; font-variant-numeric: tabular-nums; }

@@ -265,7 +265,7 @@ export default function HeaderV2() {
           <div className="hv2-topbar-inner">
             <span className="hv2-topbar-trust">
               <span className="hv2-topbar-dot" />
-              Courtier indépendant · Certifié ORIAS
+              Courtière indépendante · Certifiée ORIAS
             </span>
             <div className="hv2-topbar-links">
               <Link href="/qui-suis-je">Qui suis-je ?</Link>

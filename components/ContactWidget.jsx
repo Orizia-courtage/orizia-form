@@ -78,6 +78,14 @@ export default function ContactWidget() {
   // NOUVEAU : État pour stocker le message d'erreur renvoyé par le serveur ou Vercel
   const [serverError, setServerError] = useState('');
 
+  // Échap ferme la fenêtre (clavier, et bouton « retour » de certains claviers mobiles).
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
@@ -183,10 +191,14 @@ export default function ContactWidget() {
           <div className="cw-content">
 
             {tab === 'rdv' && (
-              <iframe
-                src="https://cal.com/cindy-urbansky?embed=true"
-                style={{ width: '100%', height: '100%', border: 'none' }}
-              />
+              <div className="oz-cal-frame">
+                <iframe
+                  src="https://cal.com/cindy-urbansky?embed=true"
+                  title="Réserver un rendez-vous avec Cindy Urbansky"
+                  style={{ width: '100%', height: '100%', border: 'none' }}
+                />
+                <p className="oz-cal-fallback">L'agenda ne s'affiche pas ? <a href="https://cal.com/cindy-urbansky" target="_blank" rel="noopener noreferrer">Ouvrir l'agenda</a> ou appelez le <a href="tel:+33777259706">07 77 25 97 06</a>.</p>
+              </div>
             )}
 
             {tab === 'message' && (

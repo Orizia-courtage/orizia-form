@@ -16,7 +16,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Orizia Courtage — Courtier Indépendant | Hauts-de-France',
   description:
-    'Cindy Urbansky, courtier indépendant certifié ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 offres bancaires comparées.',
+    'Cindy Urbansky, courtière indépendante certifiée ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 offres bancaires comparées.',
   keywords: [
     'courtier indépendant Hauts-de-France',
     'courtier crédit immobilier Lille',
@@ -39,7 +39,7 @@ export const metadata = {
         url: 'https://www.orizia-courtage.fr/images/img-orizia.webp',
         width: 1200,
         height: 630,
-        alt: 'Cindy Urbansky, courtier indépendant — Orizia Courtage, Marcq-en-Barœul',
+        alt: 'Cindy Urbansky, courtière indépendante — Orizia Courtage, Marcq-en-Barœul',
       },
     ],
     locale: 'fr_FR',
@@ -98,7 +98,7 @@ const oriziaSchema = {
     name: 'Cindy Urbansky',
     jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
     description:
-      'Courtier indépendant certifié ORIAS avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
+      'Courtière indépendante certifiée ORIAS avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
     image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
@@ -216,7 +216,7 @@ const faqSchema = {
       name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtier indépendant, je compare 40+ offres bancaires et d\'assurance pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière indépendante, je compare 40+ offres bancaires et d\'assurance pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
       },
     },
   ],
@@ -314,10 +314,10 @@ export default function HomePage() {
             <div className="hh-text">
               <p className="hh-eyebrow">
                 <span className="hh-eyebrow-dot" aria-hidden="true" />
-                Courtier indépendant à Marcq-en-Barœul, certifié ORIAS
+                Courtière indépendante à Marcq-en-Barœul, certifiée ORIAS
               </p>
               <h1 className="hh-title">
-                Votre courtier indépendant, de la première question jusqu’à la signature.
+                Votre courtière indépendante, de la première question jusqu’à la signature.
               </h1>
               <p className="hh-lead">
                 Crédit, assurance, placements : je gère personnellement chaque dossier,
@@ -350,7 +350,7 @@ export default function HomePage() {
                 <Image
                   src="/images/hero-cindy-assis.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant, à son bureau d'Orizia Courtage"
+                  alt="Cindy Urbansky, courtière indépendante, à son bureau d'Orizia Courtage"
                   fill
                   priority
                   fetchPriority="high"
@@ -394,7 +394,7 @@ export default function HomePage() {
               <Image
                 src="/images/photo-cindy-gp.webp"
                 quality={90}
-                alt="Cindy Urbansky, courtier indépendant, Orizia Courtage"
+                alt="Cindy Urbansky, courtière indépendante, Orizia Courtage"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
                 sizes="(max-width: 900px) 70vw, 420px"

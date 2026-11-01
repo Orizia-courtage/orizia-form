@@ -18,7 +18,8 @@ function useCountUp(target, duration, start) {
     const step = (t) => {
       if (t0 === null) t0 = t;
       const p = Math.min((t - t0) / duration, 1);
-      setCount(Math.round((1 - Math.pow(1 - p, 3)) * target));
+      // Départ à 60 % de la valeur : jamais de chiffre absurde (« 9 ans ») visible à l'écran.
+      setCount(Math.round(target * (0.6 + 0.4 * (1 - Math.pow(1 - p, 3)))));
       if (p < 1) raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
@@ -28,7 +29,7 @@ function useCountUp(target, duration, start) {
 }
 
 function StatItem({ stat, started }) {
-  const count = useCountUp(stat.value, 1600, started);
+  const count = useCountUp(stat.value, 900, started);
   return (
     <div className="hst-item">
       <div className="hst-num">{stat.prefix}{count}{stat.suffix}</div>
@@ -44,7 +45,7 @@ export default function AnimatedStats() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
-      { threshold: 0.4 }
+      { threshold: 0.25 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();

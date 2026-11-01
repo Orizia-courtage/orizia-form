@@ -18,7 +18,7 @@ export default function Footer() {
 
         <div className="oz-footer-top">
           <div className="oz-footer-pitch">
-            <p className="oz-footer-title">Un projet, une question&nbsp;? Parlons-en.</p>
+            <p className="oz-footer-title">Un projet, une question&nbsp;?<br />Parlons‑en.</p>
             <p>Premier échange de 30 minutes, sans engagement.</p>
           </div>
           <div className="oz-footer-ctas">
@@ -38,7 +38,7 @@ export default function Footer() {
               className="oz-footer-logo"
               style={{ width: 130, height: 'auto' }}
             />
-            <p>Courtier indépendant en financement, assurance et patrimoine. Immatriculée à l’ORIAS.</p>
+            <p>Courtière indépendante en financement, assurance et patrimoine. Immatriculée à l’ORIAS.</p>
             <address className="oz-footer-contact">
               <a href="https://www.google.com/maps/search/?api=1&query=23+bd+Clemenceau+59700+Marcq-en-Baroeul" target="_blank" rel="noopener noreferrer">
                 <Icon name="map-pin" /> 23 bd Clemenceau, 59700 Marcq-en-Barœul
