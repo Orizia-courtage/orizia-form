@@ -188,6 +188,7 @@ export async function POST(request) {
 
           ${viaCard ? `
           <p><strong>Je me permettrai de vous appeler dans les prochaines 24h via le <a href="tel:+33777259706" style="color:#333; text-decoration:none;">07 77 25 97 06</a>.</strong> Je vous recommande d'enregistrer mon numéro afin de faciliter notre échange.</p>
+          <div style="margin:4px 0 14px">${cta(`${SITE_URL}/cindy-urbansky.vcf`, '👤 Enregistrer mon contact', true)}</div>
           <p style="background-color: #f9f9f9; padding: 10px; border-left: 3px solid #3a6f6c;">
             <em>Note :</em> Le numéro que vous m'avez indiqué est le <strong>${e.filleulTel}</strong>. S'il y a une erreur, n'hésitez pas à me le faire savoir en répondant directement à cet e-mail.
           </p>

@@ -22,6 +22,18 @@ const confidentialiteSchema = {
   },
 };
 
+// Sous-traitants (article 28 du RGPD) : à tenir à jour avec le registre des traitements.
+const SOUS_TRAITANTS = [
+  ['Vercel Inc.', 'Hébergement du site, de l\'outil de suivi des dossiers et de l\'espace client', 'États-Unis / Union européenne · Data Privacy Framework, clauses contractuelles types'],
+  ['MongoDB Inc. (Atlas)', 'Base de données des dossiers et des fiches clients', 'Union européenne · clauses contractuelles types'],
+  ['Cloudflare Inc. (R2, Turnstile)', 'Stockage chiffré des documents que vous déposez ; protection anti-robot des formulaires', 'Union européenne / États-Unis · Data Privacy Framework'],
+  ['Resend Inc.', 'Envoi des e-mails (confirmations, rendez-vous, demandes de documents)', 'États-Unis · Data Privacy Framework, clauses contractuelles types'],
+  ['Cal.com Inc.', 'Prise et gestion des rendez-vous', 'États-Unis / Union européenne · clauses contractuelles types'],
+  ['Supabase Inc.', 'Réglages des simulateurs et protection contre les envois abusifs (aucune donnée de dossier)', 'Union européenne'],
+  ['Google LLC / Apple Inc.', 'Carte de recommandation dans le portefeuille du téléphone (uniquement si vous l\'ajoutez)', 'États-Unis · Data Privacy Framework'],
+  ['Orizia Courtage (serveur en France)', 'Automatisation du traitement des demandes du site', 'France'],
+];
+
 export default function ConfidentialitePage() {
   return (
     <>
@@ -87,17 +99,44 @@ export default function ConfidentialitePage() {
           <strong>Vos données ne sont JAMAIS vendues à des tiers.</strong><br /><br />
           Elles sont transmises de manière sécurisée <strong>uniquement à mes partenaires financiers</strong> (banques, compagnies d'assurance, sociétés de gestion) dans le but exclusif d'obtenir une proposition de contrat pour votre projet, et toujours avec votre accord préalable.
         </p>
+        <p style={{ marginTop: '16px' }}>
+          Pour faire fonctionner ce site, mon outil de suivi des dossiers et votre espace client, je fais appel à des <strong>prestataires techniques (sous-traitants)</strong>. Ils agissent uniquement sur mes instructions, sont liés par un contrat de traitement des données (article 28 du RGPD) et ne peuvent pas utiliser vos données pour leur propre compte :
+        </p>
+        <div style={{ overflowX: 'auto', marginTop: '12px' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
+            <thead>
+              <tr style={{ textAlign: 'left', borderBottom: '2px solid #e3e7e4' }}>
+                <th style={{ padding: '8px 10px 8px 0' }}>Prestataire</th>
+                <th style={{ padding: '8px 10px' }}>Rôle</th>
+                <th style={{ padding: '8px 0 8px 10px' }}>Localisation et garanties</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SOUS_TRAITANTS.map(([nom, role, lieu]) => (
+                <tr key={nom} style={{ borderBottom: '1px solid #eef1ef', verticalAlign: 'top' }}>
+                  <td style={{ padding: '8px 10px 8px 0', fontWeight: 600 }}>{nom}</td>
+                  <td style={{ padding: '8px 10px' }}>{role}</td>
+                  <td style={{ padding: '8px 0 8px 10px' }}>{lieu}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ marginTop: '12px' }}>
+          <strong>Transferts hors de l'Union européenne :</strong> certains de ces prestataires sont des sociétés américaines. Les transferts éventuels vers les États-Unis sont encadrés par le cadre de protection des données UE–États-Unis (<em>Data Privacy Framework</em>), auquel ces sociétés adhèrent, et par les clauses contractuelles types de la Commission européenne. Vous pouvez m'en demander le détail à tout moment.
+        </p>
       </section>
 
       <section style={{ marginBottom: '40px' }}>
         <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
           4. Combien de temps je conserve vos données ?
         </h2>
-        <p>Vos données sont conservées le temps nécessaire à la réalisation de votre projet, puis archivées conformément aux durées légales :</p>
+        <p>Vos données sont conservées le temps nécessaire à la réalisation de votre projet, puis <strong>supprimées automatiquement</strong> à l'issue des durées ci-dessous :</p>
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Si vous devenez client :</strong> 5 ans après la fin de notre relation commerciale (obligation légale pour les courtiers).</li>
-          <li style={{ marginBottom: '8px' }}><strong>Si vous restez prospect (pas de contrat signé) :</strong> 3 ans à compter de notre dernier contact.</li>
+          <li style={{ marginBottom: '8px' }}><strong>Si vous devenez client :</strong> 5 ans après la fin de notre relation commerciale (obligation légale pour les courtiers), puis suppression automatique de la fiche, des dossiers, des documents et des rendez-vous.</li>
+          <li style={{ marginBottom: '8px' }}><strong>Si vous restez prospect (pas de contrat signé) :</strong> 3 ans à compter de notre dernier contact, puis suppression automatique.</li>
           <li style={{ marginBottom: '8px' }}><strong>Adresse IP et type d'appareil des formulaires :</strong> 7 jours, puis suppression automatique.</li>
+          <li style={{ marginBottom: '8px' }}><strong>Coordonnées d'un proche recommandé par un client :</strong> effacées sous 30 jours s'il ne souhaite pas être contacté.</li>
           <li style={{ marginBottom: '8px' }}><strong>Messages de l'espace client :</strong> 30 jours, puis suppression automatique.</li>
         </ul>
       </section>
