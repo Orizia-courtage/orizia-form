@@ -9,7 +9,7 @@ const RISQUES = [
     label: 'Perte en capital',
     icon: 'banknote',
     sans: 85,
-    avec: 15,
+    avec: 55,
     desc: 'Sans analyse du promoteur, le risque de défaut est élevé. J\'audite les bilans, les fonds propres et l\'historique de livraisons avant chaque recommandation.',
   },
   {

@@ -32,7 +32,7 @@ const STRATEGIES = {
     fiscal:       { type: 'SCPI Déficit Foncier', tag: 'Intéressant', tagColor: '#3e7f68', tagBg: 'rgba(62,127,104,0.08)', rendement: '2–4%', net: 'Réduction IR + revenus', conseil: 'À 30% de TMI, le Déficit Foncier commence à être intéressant si vous avez des revenus fonciers existants à compenser. À analyser selon votre situation.', color: '#3e7f68' },
   },
   tmi41: {
-    revenus:      { type: 'SCPI européennes en priorité', tag: 'Prioritaire', tagColor: 'var(--orizia-primary)', tagBg: 'rgba(45,106,95,0.08)', rendement: '4–6%', net: '~3,5–5% (sans PS)', conseil: 'À 41% de TMI, les SCPI françaises en direct vous coûtent 59,6% de fiscalité. Les SCPI européennes permettent d\'éviter les 18,6% de PS — un gain net considérable.', color: '#3e7f68' },
+    revenus:      { type: 'SCPI européennes en priorité', tag: 'Prioritaire', tagColor: 'var(--orizia-primary)', tagBg: 'rgba(45,106,95,0.08)', rendement: '4–6%', net: '~3,5–5% (sans PS)', conseil: 'À 41% de TMI, les SCPI françaises en direct vous coûtent 59,6% de fiscalité. Les SCPI européennes permettent souvent d\'éviter les 17,2 % de prélèvements sociaux — un gain net considérable.', color: '#3e7f68' },
     patrimoine:   { type: 'SCPI en nue-propriété', tag: 'Stratégie avancée', tagColor: 'var(--orizia-primary)', tagBg: 'rgba(45,106,95,0.08)', rendement: '0% pendant 5–15 ans', net: 'Décote 15–30% + plus-value', conseil: 'Vous achetez à prix décoté, aucun revenu pendant la période de démembrement (zéro fiscalité), puis récupérez la pleine propriété. Idéal si vous n\'avez pas besoin de revenus immédiats.', color: '#3e7f68' },
     transmission: { type: 'SCPI en assurance vie', tag: 'Optimal', tagColor: '#3e7f68', tagBg: 'rgba(62,127,104,0.08)', rendement: '3–5%', net: 'Flat tax 31,4% → 7,5% après 8 ans', conseil: 'L\'AV est incontournable à ce TMI pour les SCPI. Flat tax 31,4% au lieu de 59,6% en direct. Transmission hors succession jusqu\'à 152 500€/bénéficiaire.', color: '#a87a2c' },
     fiscal:       { type: 'SCPI Déficit Foncier', tag: 'Très intéressant', tagColor: '#3e7f68', tagBg: 'rgba(62,127,104,0.08)', rendement: '2–4%', net: 'Réduction IR 41%', conseil: 'À 41% de TMI, chaque euro de déficit foncier vous économise 0,41€ d\'impôt. Combiné à des revenus fonciers existants, c\'est une stratégie très efficace.', color: '#3e7f68' },
@@ -46,8 +46,8 @@ const STRATEGIES = {
 };
 
 export default function SCPIProfilFiscal() {
-  const [tmi, setTmi] = useState(null);
-  const [objectif, setObjectif] = useState(null);
+  const [tmi, setTmi] = useState('tmi30'); // cas le plus courant présélectionné
+  const [objectif, setObjectif] = useState('revenus');
 
   const strategie = tmi && objectif ? STRATEGIES[tmi]?.[objectif] : null;
 

@@ -18,7 +18,7 @@ const RISQUES = [
     label: 'Perte en capital (UC)',
     icon: 'trending-down',
     sans: 65,
-    avec: 18,
+    avec: 45,
     desc_sans: 'Investir en unités de compte sans gestion pilotée expose à des baisses de marché non anticipées, surtout à l\'approche de la retraite.',
     desc_avec: 'J\'utilise la gestion pilotée : forte exposition UC jeune, sécurisation progressive automatique à l\'approche de l\'échéance. Le risque diminue quand vous en avez le plus besoin.',
   },

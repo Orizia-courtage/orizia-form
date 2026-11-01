@@ -182,8 +182,8 @@ export default function SimulateurCrowdfunding() {
         {/* Comparaison Livret A */}
         <div className="simu-result-tag">
           <div>
-            <Icon name="lightbulb" /> Soit <strong>{rendementNet}% net/an</strong> équivalent
-            — contre ~{crowdfundingConfig.livretANetRate}% pour un livret A
+            <Icon name="lightbulb" /> Soit <strong>{Number(rendementNet).toLocaleString('fr-FR', { maximumFractionDigits: 2 })} % net/an</strong> visés
+            — contre ~{crowdfundingConfig.livretANetRate.toLocaleString('fr-FR')} % pour un Livret A (rendement non garanti, risque de perte en capital)
           </div>
           {surplusVsLivret > 0 && (
             <span className="simu-vs-surplus">

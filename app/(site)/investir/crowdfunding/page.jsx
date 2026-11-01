@@ -152,7 +152,7 @@ const DANGERS = [
 const AVANTAGES = [
   { icon: 'trending-up', title: '8–12% brut/an', text: 'Parmi les meilleurs rendements accessibles aux particuliers, bien au-dessus de l\'inflation et de tous les livrets bancaires.' },
   { icon: 'euro', title: 'Dès 1 000€', text: 'L\'immobilier de rendement à portée de tous, sans mobiliser un apport important ni passer par un notaire.' },
-  { icon: 'timer', title: '12–36 mois', text: 'Durée maîtrisée avec une date de remboursement connue à l\'avance — idéal pour une épargne de moyen terme avec un objectif précis.' },
+  { icon: 'timer', title: '12–36 mois', text: 'Durée cible annoncée dès le départ (des retards sont fréquents) — pour une épargne de moyen terme dont vous n\'avez pas besoin tout de suite.' },
   { icon: 'construction', title: 'Actif tangible', text: 'Votre argent finance un projet immobilier réel : construction, rénovation ou marchand de biens. Un sous-jacent concret, pas de la spéculation.' },
   { icon: 'briefcase', title: 'Diversification efficace', text: 'Complément naturel d\'une assurance vie, d\'un PER ou d\'une SCPI pour dynamiser votre portefeuille sans le déséquilibrer.' },
   { icon: 'target', title: 'Zéro gestion', text: 'Pas de locataire à gérer, pas de travaux imprévus, pas de taxe foncière. Un placement 100% passif et dématérialisé.' },
@@ -250,13 +250,14 @@ export default function CrowdfundingPage() {
               <span>Crowdfunding immobilier</span>
             </nav>
             <span className="fin-badge"><Icon name="handshake" /> Financement participatif immobilier 2026</span>
-            <h1 className="ae-hero-title">Crowdfunding immobilier :<br />8 à 12% par an, sans naviguer à l'aveugle</h1>
+            <h1 className="ae-hero-title">Crowdfunding immobilier :<br />viser 8 à 12 % par an, sans naviguer à l'aveugle</h1>
             <p className="ae-hero-intro">
               Investir seul dans le crowdfunding, c'est analyser des bilans de promoteurs
               sans formation, comparer des plateformes sans critères objectifs, et diversifier
               sans stratégie. Je m'occupe de tout ça à votre place.{' '}
               <strong>Modalités transparentes.</strong>
             </p>
+            <p className="ae-hero-legal">Rendements visés, non garantis. Le crowdfunding comporte un risque de perte en capital, de retard de remboursement et d'illiquidité.</p>
             <div className="ae-hero-btns">
               <ContactPopup label="Échanger avec Cindy" icon="calendar-days" className="fin-btn-primary" />
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
@@ -343,7 +344,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               {/* IMAGE 1 AJOUTÉE ICI */}
               <div className="ae-probleme-image">
                 <Image
-                  src="/images/banque-pression.webp"
+                  src="/images/investir.webp"
                   alt="Particulier inquiet face à la complexité de l'analyse financière"
                   title="Les risques d'investir seul sans analyse expert"
                   width={716}
@@ -378,7 +379,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <h2>Qu'est-ce que le crowdfunding immobilier ?</h2>
               <p>
                 Vous prêtez de l'argent à un promoteur via une plateforme agréée AMF.
-                Il construit ou rénove. Vous percevez des intérêts fixes, puis récupérez votre capital.
+                Il construit ou rénove. Vous percevez les intérêts prévus, puis récupérez votre capital, sauf retard ou défaut du projet.
               </p>
             </div>
 
@@ -402,7 +403,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 <div className="crd-point-icon"><Icon name="timer" /></div>
                 <div>
                   <strong>Durée courte et maîtrisée</strong>
-                  <p>12 à 36 mois. Vous connaissez la date de remboursement à l'avance — contrairement à la bourse ou aux SCPI.</p>
+                  <p>12 à 36 mois. La date de remboursement prévue est connue dès le départ, mais des retards sont possibles.</p>
                 </div>
               </div>
             </div>
@@ -415,7 +416,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 { icon: 'search', label: 'Orizia sélectionne', sub: 'Audit promoteur + stratégie', color: 'var(--orizia-accent)', textColor: '#fff', gold: true },
                 { icon: 'landmark', label: 'Plateforme AMF', sub: 'Collecte et gestion', color: 'var(--orizia-light)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.1)' },
                 { icon: 'shield-check', label: 'Promoteur', sub: 'Construit / rénove / revend', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
-                { icon: 'coins', label: 'Vous êtes remboursé', sub: 'Capital + 8–12%/an', color: 'var(--orizia-gold-light)', textColor: 'var(--orizia-accent)', border: '2px solid var(--orizia-gold)' },
+                { icon: 'coins', label: 'Vous êtes remboursé', sub: 'Capital + intérêts visés', color: 'var(--orizia-gold-light)', textColor: 'var(--orizia-accent)', border: '2px solid var(--orizia-gold)' },
               ].map((step, i, arr) => (
                 <div key={step.label} className="crd-flow-item">
                   <div className="crd-flow-card" style={{ background: step.color, border: step.gold ? '2px solid var(--orizia-gold)' : step.border }}>
@@ -767,7 +768,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'construction',
                   title: 'SCPI',
                   sub: 'Immobilier de rendement',
-                  text: '4–6%/an, risque mutualisé sur des centaines d\'actifs, zéro gestion. Le placement immobilier préféré des Français pour sécuriser le socle.',
+                  text: '4–6 %/an visés (non garantis), risque réparti sur des centaines d\'actifs, zéro gestion. Un complément immobilier pour diversifier, sur 8 à 10 ans.',
                   ribbon: '4–6%/an sans gestion',
                   ribbonColor: 'var(--orizia-primary)',
                   pillBg: 'rgba(45,106,95,0.1)',

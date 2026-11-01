@@ -36,7 +36,7 @@ const USAGES = [
     bg: 'rgba(62,127,104,0.06)',
     border: 'rgba(62,127,104,0.2)',
     titre: 'La fiscalité la plus avantageuse sur l\'épargne longue',
-    desc: 'Après 8 ans : abattement annuel de 4 600€ (9 200€ en couple) sur les gains, puis taux réduit à 7,5%. Aucun autre placement ne combine épargne disponible et fiscalité aussi allégée sur le long terme.',
+    desc: 'Après 8 ans : abattement annuel de 4 600€ (9 200€ en couple) sur les gains, puis taux réduit à 7,5 % (hors prélèvements sociaux, versements < 150 000 €). Aucun autre placement ne combine épargne disponible et fiscalité aussi allégée sur le long terme.',
     chiffre: '7,5%',
     chiffre_label: 'taux réduit après 8 ans',
   },

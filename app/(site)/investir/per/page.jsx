@@ -96,7 +96,7 @@ const faqSchema = {
       name: 'Qu\'est-ce que le Plan Épargne Retraite (PER) ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le PER est un produit d\'épargne retraite créé par la loi PACTE de 2019, qui remplace les anciens PERP, Madelin et PERCO. Son principal avantage : vos versements volontaires sont déductibles de votre revenu imposable, ce qui réduit directement votre impôt l\'année suivante. L\'épargne est en principe bloquée jusqu\'à la retraite, avec des exceptions (achat de résidence principale, invalidité, décès du conjoint…). À la retraite, vous sortez en capital, en rente viagère, ou en combinant les deux.',
+        text: 'Le PER est un produit d\'épargne retraite créé par la loi PACTE de 2019, qui remplace les anciens PERP, Madelin et PERCO. Son principal avantage : vos versements volontaires sont déductibles de votre revenu imposable, ce qui réduit votre impôt l\'année suivante. L\'épargne est en principe bloquée jusqu\'à la retraite, avec des exceptions (achat de résidence principale, invalidité, décès du conjoint…). À la retraite, vous sortez en capital, en rente viagère, ou en combinant les deux.',
       },
     },
     {
@@ -104,7 +104,7 @@ const faqSchema = {
       name: 'Combien puis-je déduire grâce au PER en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour un salarié, le plafond est de 10% des revenus professionnels nets N-1, dans la limite de 10% de 8 fois le PASS (soit environ 35 000€ en 2026). Pour un TNS, le plafond Madelin est bien plus élevé : 10% du bénéfice imposable + 15% sur la part entre 1 et 8 PASS, soit jusqu\'à environ 85 000€. Les plafonds non utilisés sont reportables sur 3 ans — vérifiez votre avis d\'imposition, rubrique « Plafond épargne retraite ».',
+        text: 'Pour un salarié, le plafond est de 10% des revenus professionnels nets N-1, dans la limite de 10% de 8 fois le PASS (soit environ 38 000 € en 2026). Pour un TNS, le plafond Madelin est bien plus élevé : 10% du bénéfice imposable + 15% sur la part entre 1 et 8 PASS, soit jusqu\'à environ 85 000€. Les plafonds non utilisés sont reportables sur 3 ans — vérifiez votre avis d\'imposition, rubrique « Plafond épargne retraite ».',
       },
     },
     {
@@ -152,8 +152,8 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: '~35 000€', label: 'Plafond déduction salarié 2026', icon: 'piggy-bank' },
-  { value: '~85 000€', label: 'Plafond Madelin TNS 2026', icon: 'briefcase-business' },
-  { value: '3 ans', label: 'Report des plafonds non utilisés', icon: 'calendar-days' },
+  { value: '~88 000 €', label: 'Plafond Madelin TNS 2026', icon: 'briefcase-business' },
+  { value: 'Report', label: 'Des plafonds non utilisés les années suivantes', icon: 'calendar-days' },
   { value: '0€', label: 'Frais sur versements via Orizia', icon: 'badge-euro' },
 ];
 
@@ -166,20 +166,20 @@ const DANGERS = [
   {
     icon: 'lightbulb',
     title: 'Plafonds non utilisés : des milliers d\'euros de déduction oubliés',
-    text: 'Les plafonds non utilisés sont reportables sur 3 ans. La grande majorité des épargnants l\'ignorent et laissent filer des milliers d\'euros de déduction. Un audit de votre situation fiscale révèle presque toujours des capacités inexploitées — parfois considerables.',
+    text: 'Les plafonds non utilisés sont reportables sur les années suivantes. La grande majorité des épargnants l\'ignorent et laissent filer des milliers d\'euros de déduction. Un audit de votre situation fiscale révèle presque toujours des capacités inexploitées — parfois considerables.',
   },
   {
     icon: 'timer',
     title: 'Chaque année sans PER est une erreur fiscale qui se paie cash',
-    text: '10 000€ investis à 35 ans valent le double à 60 ans à 5%/an. Et les impôts économisés chaque année — réinvestis eux aussi — multiplient encore l\'effet. Attendre coûte réellement de l\'argent, chaque année.',
+    text: '10 000 € placés à 35 ans peuvent plus que tripler d\'ici 60 ans à 5 %/an (rendement non garanti). Et les impôts économisés chaque année — réinvestis eux aussi — multiplient encore l\'effet. Attendre coûte réellement de l\'argent, chaque année.',
   },
 ];
 
 const AVANTAGES = [
   {
     icon: 'coins',
-    title: 'Réduction d\'impôt immédiate et garantie',
-    text: 'Chaque euro versé réduit votre revenu imposable. À 41% de TMI, 10 000€ versés = 4 100€ d\'impôt récupérés l\'année suivante. C\'est le seul placement avec un rendement fiscal garanti dès jour 1.',
+    title: 'Déduction fiscale dès l\'année suivante',
+    text: 'Chaque euro versé réduit votre revenu imposable. À 41% de TMI, 10 000€ versés = 4 100€ d\'impôt en moins l\'année suivante, dans la limite de votre plafond. Attention : les sommes déduites sont imposées à la sortie.',
   },
   {
     icon: 'house',
@@ -199,7 +199,7 @@ const AVANTAGES = [
   {
     icon: 'briefcase',
     title: 'Plafonds exceptionnels pour les TNS',
-    text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
+    text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à environ 88 000 € déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
   },
   {
     icon: 'users',
@@ -297,8 +297,8 @@ const OBJECTIONS = [
     r: '10 000€ versés à 30 ans valent environ 43 000€ à 60 ans à 5%/an. Les mêmes 10 000€ à 50 ans : 16 000€. Plus tôt vous commencez, moins vous avez besoin de verser pour atteindre le même capital. Et chaque année d\'attente, c\'est aussi une déduction fiscale ratée.',
   },
   {
-    q: '« Mon employeur me propose déjà un PERCO. »',
-    r: 'Le PERCO de votre entreprise et un PER individuel sont cumulables. Profitez de l\'abondement employeur sur le PERCO (c\'est un avantage employeur) ET ouvrez un PER individuel pour les versements volontaires qui bénéficieront de votre plafond personnel.',
+    q: '« Mon employeur me propose déjà un PER collectif. »',
+    r: 'Le PER collectif (PERECO) de votre entreprise et un PER individuel sont cumulables. Profitez de l\'abondement employeur sur le PER collectif (c\'est un avantage employeur) ET ouvrez un PER individuel pour les versements volontaires qui bénéficieront de votre plafond personnel.',
   },
   {
     q: '« J\'ai peur que mon argent soit bloqué. »',
@@ -451,7 +451,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               
               <div className="ae-probleme-image">
                 <Image 
-                  src="/images/banque-pression.webp" 
+                  src="/images/investir.webp" 
                   alt="Pression bancaire et complexité fiscale pour le PER"
                   width={716}
                   height={1024}
@@ -483,7 +483,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <h2>Le PER en clair :<br />comment ça fonctionne vraiment</h2>
               <p>
                 Créé par la loi PACTE en 2019, le PER remplace les anciens PERP, Madelin et PERCO.
-                Chaque euro versé réduit directement votre impôt l'année suivante.
+                Chaque euro versé réduit votre revenu imposable l'année suivante.
               </p>
             </div>
             <PERDefinition />
@@ -508,7 +508,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   key={a.title}
                   className="crowd-avantage-card"
                   style={
-                    a.title === 'Réduction d\'impôt immédiate et garantie' || a.title === 'Plafonds exceptionnels pour les TNS'
+                    a.title === 'Déduction fiscale dès l\'année suivante' || a.title === 'Plafonds exceptionnels pour les TNS'
                       ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(107,182,155,0.04)' }
                       : {}
                   }
@@ -517,7 +517,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}><Icon name={a.icon} /></span>
                   </div>
-                  {(a.title === 'Réduction d\'impôt immédiate et garantie' || a.title === 'Plafonds exceptionnels pour les TNS') && (
+                  {(a.title === 'Déduction fiscale dès l\'année suivante' || a.title === 'Plafonds exceptionnels pour les TNS') && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
@@ -578,12 +578,12 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 <div className="per-plafond-item">
                   <strong>Salarié</strong>
                   <span>10% des revenus nets N-1</span>
-                  <div className="per-plafond-max">Max. ~35 000€/an</div>
+                  <div className="per-plafond-max">Max. ~38 000 €/an</div>
                 </div>
                 <div className="per-plafond-item">
                   <strong>TNS / Indépendant</strong>
                   <span>Plafond Madelin : 10% du bénéfice + 15% sur 1–8 PASS</span>
-                  <div className="per-plafond-max">Max. ~85 000€/an</div>
+                  <div className="per-plafond-max">Max. ~88 000 €/an</div>
                 </div>
                 <div className="per-plafond-item">
                   <strong>Plafonds reportés</strong>

@@ -13,12 +13,12 @@ const STRATEGIES = [
     color: '#5f655f',
     border: 'rgba(100,116,139,0.2)',
     bg: 'rgba(100,116,139,0.04)',
-    desc: 'Revenus fonciers soumis à votre TMI + 18,6% de prélèvements sociaux.',
+    desc: 'Revenus fonciers soumis à votre TMI + 17,2 % de prélèvements sociaux.',
     taux: {
-      tmi11: { brut: '5%', net: '~3,5%', taux_fiscal: '29,6%', note: 'Fiscalité supportable à ce TMI' },
-      tmi30: { brut: '5%', net: '~2,6%', taux_fiscal: '48,6%', note: 'Fiscalité lourde — envisager les européennes' },
-      tmi41: { brut: '5%', net: '~1,7%', taux_fiscal: '59,6%', note: 'Rendement net très dégradé', tone: 'bad' },
-      tmi45: { brut: '5%', net: '~1,4%', taux_fiscal: '63,6%', note: 'Contre-productif à ce TMI', tone: 'bad' },
+      tmi11: { brut: '5%', net: '~3,6%', taux_fiscal: '28,2%', note: 'Fiscalité supportable à ce TMI' },
+      tmi30: { brut: '5%', net: '~2,6%', taux_fiscal: '47,2%', note: 'Fiscalité lourde — envisager les européennes' },
+      tmi41: { brut: '5%', net: '~2,1%', taux_fiscal: '58,2%', note: 'Rendement net très dégradé', tone: 'bad' },
+      tmi45: { brut: '5%', net: '~1,9%', taux_fiscal: '62,2%', note: 'Contre-productif à ce TMI', tone: 'bad' },
     },
     conseil: 'Adapté uniquement aux TMI faibles (11%). Au-delà, la fiscalité ampute trop le rendement net.',
   },
@@ -37,7 +37,7 @@ const STRATEGIES = [
       tmi41: { brut: '4,5%', net: '~3%', taux_fiscal: '~33%', note: 'Nettement meilleur qu\'en direct', tone: 'good' },
       tmi45: { brut: '4,5%', net: '~2,9%', taux_fiscal: '~36%', note: 'Stratégie recommandée à ce TMI', tone: 'good' },
     },
-    conseil: 'Idéal pour les TMI 30%+. Les conventions fiscales avec l\'Allemagne, les Pays-Bas et l\'Irlande permettent d\'éviter les 18,6% de PS français.',
+    conseil: 'Idéal pour les TMI 30%+. Les conventions fiscales avec l\'Allemagne, les Pays-Bas et l\'Irlande permettent souvent d\'éviter les 17,2 % de prélèvements sociaux français.',
   },
   {
     id: 'av',
@@ -47,14 +47,14 @@ const STRATEGIES = [
     color: '#a87a2c',
     border: 'rgba(168,122,44,0.25)',
     bg: 'rgba(168,122,44,0.05)',
-    desc: 'Flat tax 31,4% — voire 7,5% + abattements après 8 ans. Liquidité améliorée.',
+    desc: 'Flat tax 30 % — voire 7,5 % (+ prélèvements sociaux) avec abattements après 8 ans. Liquidité améliorée.',
     taux: {
-      tmi11: { brut: '4%', net: '~2,8%', taux_fiscal: '31,4%', note: 'Moins avantageux qu\'en direct à ce TMI' },
-      tmi30: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Flat tax 31,4% vs 48,6% en direct', tone: 'good' },
-      tmi41: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Économie de 28,2% vs direct', tone: 'good' },
-      tmi45: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Économie de 32,2% vs direct', tone: 'good' },
+      tmi11: { brut: '4%', net: '~2,8%', taux_fiscal: '30%', note: 'Moins avantageux qu\'en direct à ce TMI' },
+      tmi30: { brut: '4%', net: '~2,8%', taux_fiscal: '30%', note: 'Flat tax 30 % vs 47,2 % en direct', tone: 'good' },
+      tmi41: { brut: '4%', net: '~2,8%', taux_fiscal: '30%', note: 'Économie de 28,2% vs direct', tone: 'good' },
+      tmi45: { brut: '4%', net: '~2,8%', taux_fiscal: '30%', note: 'Économie de 32,2% vs direct', tone: 'good' },
     },
-    conseil: 'La meilleure enveloppe pour les TMI 30%+. Après 8 ans, la fiscalité tombe à 7,5% + abattement 4 600€/an. Liquidité améliorée en bonus.',
+    conseil: 'La meilleure enveloppe pour les TMI 30%+. Après 8 ans, l\'impôt tombe à 7,5 % (+ prélèvements sociaux) au-delà d\'un abattement de 4 600 €/an. Liquidité améliorée en bonus.',
   },
   {
     id: 'nuepropriete',
@@ -169,7 +169,7 @@ export default function SCPIFiscaliteSelector() {
       <div className="crowd-risques-note" style={{ marginTop: 20 }}>
         <Icon name="lightbulb" /> <strong>Mon approche :</strong> je commence toujours par analyser votre TMI avant de recommander une SCPI.
         La même SCPI peut être excellente pour un profil et contre-productive pour un autre.
-        <ContactPopup label="Calculer mon rendement net" className="" style={{ color: '#3e7f68', fontWeight: 700, marginLeft: 6 }} />
+        <div style={{ marginTop: 12 }}><ContactPopup label="Calculer mon rendement net" icon="calculator" className="fin-btn-secondary" /></div>
       </div>
     </div>
   );

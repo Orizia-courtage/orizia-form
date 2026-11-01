@@ -106,7 +106,7 @@ const faqSchema = {
       name: 'Quelle est la fiscalité des SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les revenus de SCPI françaises sont intégrés à votre revenu imposable (TMI + 18,6% PS). Un investisseur à 45% de TMI est taxé à 63,6% sur ses revenus SCPI en direct. Les SCPI européennes bénéficient souvent de conventions fiscales plus avantageuses. Loger des SCPI dans une assurance vie permet de bénéficier de la flat tax à 31,4% — voire 7,5% après 8 ans. La bonne stratégie dépend entièrement de votre profil fiscal.',
+        text: 'Les revenus de SCPI françaises sont intégrés à votre revenu imposable (TMI + 17,2 % de prélèvements sociaux). Un investisseur à 45% de TMI est taxé à 63,6% sur ses revenus SCPI en direct. Les SCPI européennes bénéficient souvent de conventions fiscales plus avantageuses. Loger des SCPI dans une assurance vie permet de bénéficier de la flat tax à 31,4% — voire 7,5% après 8 ans. La bonne stratégie dépend entièrement de votre profil fiscal.',
       },
     },
     {
@@ -149,7 +149,7 @@ const AVANTAGES = [
   {
     icon: 'trending-up',
     title: '4–6% brut/an, versés chaque trimestre',
-    text: 'Des rendements stables et réguliers, bien supérieurs aux livrets bancaires et à l\'assurance vie en fonds euros — avec un sous-jacent immobilier tangible et diversifié.',
+    text: 'Des revenus réguliers (non garantis), historiquement supérieurs aux livrets bancaires et à l\'assurance vie en fonds euros — avec un sous-jacent immobilier tangible et diversifié.',
   },
   {
     icon: 'globe',
@@ -273,6 +273,7 @@ export default function SCPIPage() {
               les meilleures SCPI parmi 200+ analysées et j'optimise votre stratégie fiscale.{' '}
               <strong>Modalités transparentes.</strong>
             </p>
+            <p className="ae-hero-legal">Revenus et capital non garantis. Les SCPI comportent un risque de perte en capital et de liquidité ; durée de placement recommandée : 8 à 10 ans.</p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="Trouver mes SCPI idéales" icon="target" className="fin-btn-primary" />
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
@@ -696,7 +697,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               souscription — et au-delà.
             </p>
             <div className="fin-hero-btns">
-              <ContactPopup label="� Poser une question" className="fin-btn-primary" />
+              <ContactPopup label="Poser une question" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{
               marginTop: 24, fontSize: '0.75rem', opacity: 0.55,

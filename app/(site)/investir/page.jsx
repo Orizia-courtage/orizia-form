@@ -88,7 +88,7 @@ const ETAPES = [
   },
   {
     n: '04',
-    title: 'Je suis votre patrimoine dans la durée',
+    title: 'J\'assure le suivi de votre patrimoine dans la durée',
     text: 'Bilan annuel inclus, alertes en cas de changement, arbitrages si votre situation évolue. Je reste votre courtier sur le long terme.',
   },
 ];

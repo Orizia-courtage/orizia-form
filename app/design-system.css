@@ -1012,3 +1012,21 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .icl-critere-desc { font-size: .82rem !important; line-height: 1.5; opacity: 1 !important; }
 .icl-subtitle { font-size: .9rem !important; opacity: 1 !important; }
 .inv-hero-trust-item { font-size: .85rem !important; opacity: 1 !important; color: #4a5a52 !important; }
+/* Icônes masquées en ligne (display:none) que la règle des pastilles réaffichait : doublons d'icônes. */
+.crowd-avantage-icon[style*="display: none"], .crowd-avantage-icon[style*="display:none"] { display: none !important; }
+.crowd-avantage-card[style*="#b0473b"] { border-left: 3px solid var(--oz-bad) !important; }
+/* Jauges « Analyse des risques » : sur téléphone, le libellé passe au-dessus et la barre garde toute sa largeur. */
+@media (max-width: 520px) {
+  .rj-jauge-row, .rj-jauge-header { flex-wrap: wrap !important; }
+  .rj-jauge-label { min-width: 0 !important; flex: 1 1 calc(100% - 44px) !important; }
+  .rj-jauge-bar-wrap { flex: 1 1 auto !important; min-width: 120px !important; width: 100%; }
+}
+.rj-toggle-btn:not(.rj-toggle-btn--active) { color: #4f5852 !important; opacity: 1 !important; }
+/* Crowdfunding : « PSFP » en gras ne doit pas passer seul à la ligne ; schéma de fonctionnement pleine largeur sur téléphone. */
+.crd-point p strong, .crd-point span strong { display: inline !important; }
+@media (max-width: 768px) { .crd-flow-item { width: 100% !important; } .crd-flow-item * { font-size: max(.82rem, 1em); } }
+/* Petits libellés des cartes Investir (RENDEMENT, HORIZON…) et sous-titres : plancher 12 px. */
+.ipg-card-stat-label, .ipg-card-sub, .scpipf-tmi-desc, .per-step-desc, .avvsl-ribbon { font-size: max(.75rem, 1em) !important; }
+.ipg-card-stat-label, .ipg-card-sub, .scpipf-tmi-desc { font-size: .75rem !important; }
+/* Bouton « Rendement visé le plus élevé » : ne déborde plus de sa tuile. */
+.plac-card-star { max-width: calc(100% - 8px); white-space: normal !important; text-align: center; line-height: 1.2; }

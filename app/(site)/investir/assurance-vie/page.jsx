@@ -98,7 +98,7 @@ const faqSchema = {
       name: 'Quelle est la fiscalité de l\'assurance vie après 8 ans ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Après 8 ans, les gains bénéficient d\'un abattement annuel de 4 600€ pour une personne seule ou 9 200€ pour un couple. Au-delà, un taux réduit de 7,5% s\'applique, plus 18,6% de prélèvements sociaux. C\'est la fiscalité la plus avantageuse sur l\'épargne longue durée disponible en France.',
+        text: 'Après 8 ans, les gains bénéficient d\'un abattement annuel de 4 600€ pour une personne seule ou 9 200€ pour un couple. Au-delà, un taux réduit de 7,5% s\'applique, plus 17,2 % de prélèvements sociaux. C\'est la fiscalité la plus avantageuse sur l\'épargne longue durée disponible en France.',
       },
     },
     {
@@ -326,7 +326,7 @@ export default function AssuranceViePage() {
               <span>Assurance Vie</span>
             </nav>
             <span className="fin-badge"><Icon name="shield-check" /> L'enveloppe fiscale préférée des Français</span>
-            <h1 className="ae-hero-title">Assurance vie : le placement<br />que vous avez — mais pas optimisé</h1>
+            <h1 className="ae-hero-title">Assurance vie : le placement<br />que vous avez — mais pas optimisé</h1>
             <p className="ae-hero-intro">
               La majorité des Français possède une assurance vie en banque — et paient
               trop de frais pour des performances insuffisantes. Je sélectionne pour vous
@@ -351,7 +351,7 @@ export default function AssuranceViePage() {
         {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
-            <div className="fin-chiffre"><strong><Icon name="coins" /> 1 900 Mds€</strong><span>Encours total en France</span></div>
+            <div className="fin-chiffre"><strong><Icon name="coins" /> Plus de 2 000 Mds€</strong><span>Encours total en France</span></div>
             <div className="fin-chiffre"><strong><Icon name="trending-up" /> 2,5–5%</strong><span>Rendement annuel selon profil</span></div>
             <div className="fin-chiffre"><strong><Icon name="users" /> 152 500€</strong><span>Exonération par bénéficiaire</span></div>
             <div className="fin-chiffre"><strong><Icon name="calendar-days" /> 8 ans</strong><span>Pour la fiscalité optimale</span></div>
@@ -418,7 +418,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               </div>
               <div className="ae-probleme-image">
                 <Image
-                  src="/images/facture-assurance-hausse.webp"
+                  src="/images/investir.webp"
                   alt="Facture d'assurance vie bancaire avec frais élevés"
                   title="Les frais cachés de votre assurance vie en banque"
                   width={716}

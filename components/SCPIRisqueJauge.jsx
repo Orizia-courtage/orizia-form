@@ -9,7 +9,7 @@ const RISQUES = [
     label: 'Perte en capital',
     icon: 'trending-down',
     sans: 75,
-    avec: 20,
+    avec: 50,
     desc_sans: 'La crise de 2022–2024 sur les SCPI de bureaux a vu certaines valeurs de parts chuter de 15 à 20%. Sans analyse experte du portefeuille et de la solidité de la société de gestion, vous investissez à l\'aveugle.',
     desc_avec: 'Je sélectionne exclusivement des SCPI avec des portefeuilles diversifiés, des bilans solides et un historique de résistance aux crises. Je vérifie le taux d\'occupation financier, la qualité des locataires et la stratégie de la société de gestion.',
   },

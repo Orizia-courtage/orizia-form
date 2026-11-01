@@ -35,7 +35,7 @@ const PRODUITS = [
     tagBg: 'rgba(26,61,53,0.08)',
     tagColor: 'var(--orizia-accent)',
     accentColor: 'var(--orizia-accent)',
-    points: ['Capital disponible', 'Fiscalité 7,5% après 8 ans', '152 500€ exonérés/bénéf.'],
+    points: ['Capital disponible', 'Fiscalité réduite après 8 ans', '152 500€ exonérés/bénéf.'],
     featured: true,
   },
   {
@@ -52,7 +52,7 @@ const PRODUITS = [
     tagBg: 'rgba(180,83,9,0.08)',
     tagColor: '#8a6424',
     accentColor: '#8a6424',
-    points: ['Déduction fiscale immédiate', 'Plafond TNS ~85 000€/an', 'Frais et modalités présentés avant engagement'],
+    points: ['Déduction fiscale immédiate', 'Plafond TNS ~88 000 €/an', 'Frais et modalités présentés avant engagement'],
   },
   {
     href: '/investir/crowdfunding',

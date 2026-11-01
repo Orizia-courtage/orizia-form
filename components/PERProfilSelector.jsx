@@ -56,7 +56,7 @@ const DETAILS = {
 };
 
 export default function PERProfilSelector() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('salarie'); // cas le plus courant présélectionné
   const detail = selected ? DETAILS[selected] : null;
 
   return (
