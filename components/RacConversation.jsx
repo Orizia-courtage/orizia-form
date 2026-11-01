@@ -783,7 +783,7 @@ function Success({ done, racConfig, rappelRef }) {
   return (
     <div className="rc-turn">
       <Bubble who="her" delay={0.1}>{showAppointment ? `C'est envoyé, ${done.prenom} ! 🎉 Votre profil me permet de vous proposer une solution adaptée.` : `Merci ${done.prenom}, j'ai bien reçu votre dossier.`}</Bubble>
-      <Bubble who="her" delay={0.4}>{showAppointment ? 'Choisissez un créneau pour découvrir vos nouvelles mensualités, ou je vous rappelle si vous préférez.' : (configured?.body || 'Après analyse, il nous est malheureusement impossible de vous proposer une solution adaptée à ce jour.')}</Bubble>
+      <Bubble who="her" delay={0.4}>{showAppointment ? 'Choisissez un créneau pour découvrir vos nouvelles mensualités, ou je vous rappelle si vous préférez.' : (configured?.body || 'Après avoir regardé votre situation, je ne peux malheureusement pas vous proposer de regroupement aujourd’hui. Si votre situation évolue, revenez vers moi : je serai là.')}</Bubble>
       <Bubble who="her" delay={0.6}>Un e-mail de confirmation vient de vous être envoyé.</Bubble>
       {showAppointment ? (
         <motion.div className="rc-final" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
