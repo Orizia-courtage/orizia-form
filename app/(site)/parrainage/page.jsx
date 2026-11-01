@@ -1,5 +1,6 @@
 ﻿import Link from 'next/link';
 import ParrainageForm from '@/components/ParrainageForm';
+import RetrouverLien from '@/components/RetrouverLien';
 import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
@@ -68,7 +69,7 @@ const faqSchema = {
       name: 'Comment fonctionne le programme de parrainage Orizia ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Vous me recommandez à un proche en remplissant le formulaire de parrainage. Je prends contact avec votre filleul pour étudier son projet. Dès que son dossier est finalisé et signé, vous recevez un chèque cadeau selon le type de dossier.',
+        text: 'Le plus simple : envoyez votre lien personnel (reçu avec votre carte de recommandation) à votre proche par WhatsApp ou SMS, il laisse lui-même ses coordonnées. Vous pouvez aussi remplir le formulaire ci-dessus : votre proche reçoit alors un e-mail de ma part à votre nom, et je l\'appelle seulement s\'il le souhaite. Dès que son dossier est finalisé et signé, vous recevez un chèque cadeau selon le type de dossier.',
       },
     },
     {
@@ -76,7 +77,7 @@ const faqSchema = {
       name: 'Combien puis-je gagner avec le parrainage ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour un crédit immobilier finalisé : 200€ pour le parrain. Pour une délégation d\'assurance emprunteur : 50€ pour le parrain. Pour un placement (SCPI, PER, assurance vie ou crowdfunding) : 100€ pour le parrain. Il n\'y a pas de limite au nombre de parrainages.',
+        text: 'Pour un financement finalisé (crédit immobilier, regroupement de crédits, prêt personnel) : 200€ pour le parrain. Pour une délégation d\'assurance emprunteur : 50€. Pour un placement (SCPI, PER, assurance vie ou crowdfunding) : 100€. La mutuelle santé et la prévoyance ne donnent pas droit à une récompense. Il n\'y a pas de limite au nombre de parrainages.',
       },
     },
     {
@@ -92,7 +93,15 @@ const faqSchema = {
       name: 'Mon filleul doit-il être au courant avant que je le recommande ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, son accord préalable est obligatoire avant de transmettre ses coordonnées. Conformément au RGPD, vous devez vous assurer que votre filleul accepte d\'être contacté avant de soumettre le formulaire.',
+        text: 'Oui, prévenez-le avant de transmettre ses coordonnées. Il recevra un seul e-mail de ma part, à votre nom, et c\'est lui qui choisit d\'être rappelé ou de prendre rendez-vous : je ne l\'appelle jamais sans son accord. Sans réponse de sa part, ses coordonnées sont effacées sous 30 jours.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'J\'ai perdu mon lien de recommandation, comment le retrouver ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cliquez sur « Lien perdu ? Recevoir à nouveau ma carte » en haut de cette page et indiquez l\'e-mail et le téléphone donnés lors de votre dossier : votre carte et votre lien vous sont renvoyés par e-mail. Si vous avez un espace client, votre lien est aussi dans l\'onglet « Parrainer ».',
       },
     },
     {
@@ -132,6 +141,18 @@ export default function ParrainagePage() {
               Pour vous remercier de votre confiance, je vous offre des chèques cadeaux
               valables dans un large choix de boutiques pour chaque dossier finalisé.
             </p>
+          </div>
+        </section>
+
+        {/* ── LIEN PERSONNEL (déjà client) ── */}
+        <section className="parr-share-section">
+          <div className="parr-share-card">
+            <div className="parr-share-icon"><Icon name="smartphone" /></div>
+            <div className="parr-share-body">
+              <h2>Vous avez déjà votre carte de recommandation ?</h2>
+              <p>Le plus simple : <strong>envoyez votre lien personnel</strong> à votre proche par WhatsApp ou SMS (bouton « Partager » dans l&apos;e-mail de votre carte ou dans votre espace client). Il laisse lui-même ses coordonnées et la recommandation vous est attribuée automatiquement.</p>
+              <RetrouverLien />
+            </div>
           </div>
         </section>
 
@@ -175,6 +196,22 @@ export default function ParrainagePage() {
                 </div>
               </div>
             </div>
+            <p className="parr-reward-note">La mutuelle santé et la prévoyance ne donnent pas droit à une récompense.</p>
+          </div>
+        </section>
+
+        {/* ── COMMENT ÇA SE PASSE POUR VOTRE PROCHE ── */}
+        <section className="parr-steps-section">
+          <div className="parrainage-container">
+            <div className="parrainage-header">
+              <h2>Comment ça se passe pour votre proche</h2>
+              <p>Simple, sans pression, et toujours avec son accord.</p>
+            </div>
+            <ol className="parr-steps">
+              <li><span className="parr-steps-num">1</span><div><h3>Il reçoit un message à votre nom</h3><p>Votre lien par WhatsApp ou SMS, ou un e-mail de ma part si vous passez par le formulaire.</p></div></li>
+              <li><span className="parr-steps-num">2</span><div><h3>Il choisit d&apos;être rappelé</h3><p>Ou il réserve un rendez-vous. Je ne l&apos;appelle jamais sans son accord.</p></div></li>
+              <li><span className="parr-steps-num">3</span><div><h3>Étude gratuite, vous êtes remercié</h3><p>Le premier échange est sans engagement. À la signature de son dossier, vous recevez votre chèque cadeau.</p></div></li>
+            </ol>
           </div>
         </section>
 
@@ -182,9 +219,9 @@ export default function ParrainagePage() {
         <section className="parrainage-form-section">
           <div className="parrainage-form-container">
             <div className="parrainage-header">
-              <h2>Recommander un proche</h2>
+              <h2>Vous préférez que je le contacte ?</h2>
               <p className="form-subtitle">
-                Son accord* est obligatoire, transmettez-moi les coordonnées d'une ou plusieurs personnes de votre entourage et je me charge du reste.
+                Prévenez votre proche, puis transmettez-moi ses coordonnées : il recevra un e-mail de ma part à votre nom et choisira s&apos;il souhaite être rappelé.
               </p>
             </div>
             <ParrainageForm />

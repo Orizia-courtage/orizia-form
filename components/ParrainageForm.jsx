@@ -8,7 +8,7 @@ import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
 const TURNSTILE_KEY = '0x4AAAAAACu8a5g2pFEtNqxD';
 const TURNSTILE_ACTION = 'orizia_parrainage';
 
-function Turnstile({ onToken }) {
+export function Turnstile({ onToken, action = TURNSTILE_ACTION }) {
   const element = useRef(null);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -19,9 +19,9 @@ function Turnstile({ onToken }) {
       script.async = true;
       document.head.appendChild(script);
     }
-    const cleanup = mountTurnstile(element.current, TURNSTILE_ACTION, TURNSTILE_KEY, onToken, setError);
+    const cleanup = mountTurnstile(element.current, action, TURNSTILE_KEY, onToken, setError);
     return () => { cleanup(); onToken(''); };
-  }, [onToken]);
+  }, [onToken, action]);
   return (
     <div className="parr-field" style={{ marginTop: 12 }}>
       <div ref={element} />
@@ -139,7 +139,7 @@ export default function ParrainageForm() {
       <div className="parr-success">
         <div className="parr-success-icon"><Icon name="party-popper" /></div>
         <h3>Merci pour votre recommandation !</h3>
-        <p>Votre demande a bien été envoyée. Je prendrai contact avec votre filleul très prochainement.</p>
+        <p>Votre proche vient de recevoir un e-mail de ma part, à votre nom. Dès qu'il me donne son feu vert, je le contacte. Pensez à le prévenir de surveiller sa boîte mail.</p>
         <button onClick={() => { setIsSuccess(false); setData(EMPTY); setStep(1); }} className="parr-btn-primary">
           Faire un nouveau parrainage
         </button>

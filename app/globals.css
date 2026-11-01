@@ -12036,3 +12036,35 @@ body.contact-popup-open .cw-trigger {
 
 /* Reprise visuelle du booker Cal.com, avec créneaux indisponibles visibles. */
 .cal-replica{display:grid;grid-template-columns:25% 50% 25%;min-height:550px;background:#fff;border:1px solid #dce0e5;border-radius:11px;overflow:hidden;color:#1b1d1a;font-family:Arial,sans-serif}.cal-replica>section,.cal-replica-info{padding:24px 27px;border-right:1px solid #dce0e5}.cal-replica-times{border:0!important;position:relative}.cal-replica-info{color:#5a6878;font-size:15px}.cal-replica-avatar{width:28px;height:28px;border-radius:50%;background:#5f655f;color:#fff;font-size:10px;display:grid;place-items:center;margin-bottom:11px}.cal-replica-info h3{margin:16px 0;font-size:23px;color:#1b1d1a}.cal-replica-info p{margin:18px 0}.cal-replica-info strong{padding:8px 13px;border:2px solid #d4dbe4;border-radius:9px;color:#1b1d1a}.cal-replica-nav{display:flex;justify-content:space-between;align-items:center}.cal-replica-nav h3{text-transform:capitalize;margin:0;font-size:18px}.cal-replica-nav button{border:0;background:#fff;font-size:30px;color:#9aa4b1;padding:0 10px;cursor:pointer}.cal-replica-weekdays,.cal-replica-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.cal-replica-weekdays{margin:28px 0 22px;text-align:center;font-size:13px;color:#111}.cal-replica-days button{height:67px;border:0;border-radius:9px;background:transparent;color:#1b1d1a;font-size:16px}.cal-replica-days button:disabled{color:#687585}.cal-replica-days button.is-available{background:#e1e5e9;color:#1b1d1a;cursor:pointer;font-weight:700}.cal-replica-days button.is-selected{background:#292929!important;color:#fff!important}.cal-replica-days button.is-other-month{opacity:.55}.cal-replica-times h3{text-transform:capitalize;margin:0 0 15px;font-size:17px}.cal-replica-toggles{position:absolute;right:20px;top:14px;border:1px solid #e0e4e8;border-radius:13px;overflow:hidden;font-size:13px}.cal-replica-toggles span,.cal-replica-toggles b{display:inline-block;padding:8px}.cal-replica-toggles b{background:#f5f6f7}.cal-replica-time-list{display:grid;gap:9px}.cal-replica-time-list button{height:41px;border:1px solid #ccd3da;border-radius:11px;background:#eef0f2;color:#89939e;font-size:16px;text-align:left;padding:0 42%;white-space:nowrap;cursor:not-allowed}.cal-replica-time-list button.is-open{background:#fff;color:#465361;cursor:pointer}.cal-replica-time-list button.is-open i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#6bb69b;margin-right:10px}.cal-replica-time-list button.is-selected{border:2px solid #1b1d1a}.cal-replica-confirm{display:block;margin-top:14px;padding:11px;text-align:center;border-radius:8px;background:#1b1d1a;color:#fff;text-decoration:none;font-weight:700}.cal-replica-error{color:#b0473b;font-size:12px}@media(max-width:800px){.cal-replica{grid-template-columns:1fr}.cal-replica-info{display:none}.cal-replica-month{border-bottom:1px solid #dce0e5;border-right:0!important}.cal-replica-days button{height:45px}.cal-replica-times{max-height:500px;overflow:auto}}
+
+/* ── Parrainage : lien personnel, étapes, accord du proche ── */
+.parr-share-section { padding: 0 16px; margin-top: -28px; position: relative; z-index: 2; }
+.parr-share-card { max-width: 860px; margin: 0 auto; display: flex; gap: 18px; align-items: flex-start; background: #fff; border: 1px solid #e3e7e4; border-radius: 18px; padding: 24px; box-shadow: 0 12px 32px rgba(27, 29, 26, .08); }
+.parr-share-icon { flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: #e9f6ef; color: var(--orizia-primary, #3a6f6c); font-size: 1.4rem; }
+.parr-share-body { min-width: 0; }
+.parr-share-body h2 { font-size: 1.2rem; margin: 0 0 6px; }
+.parr-share-body p { margin: 0 0 12px; line-height: 1.55; }
+.parr-link-btn { background: none; border: 0; padding: 0; color: var(--orizia-primary, #3a6f6c); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: .95rem; }
+.parr-find { margin-top: 6px; position: relative; }
+.parr-find .parr-fields-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.parr-found { display: flex; gap: 8px; align-items: flex-start; background: #e9f6ef; border-radius: 12px; padding: 12px 14px; margin: 0; }
+.parr-reward-note { text-align: center; font-size: .9rem; opacity: .75; margin: 18px 0 0; }
+.parr-steps-section { padding: 56px 16px 8px; }
+.parr-steps { list-style: none; padding: 0; margin: 0 auto; max-width: 980px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.parr-steps li { display: flex; gap: 14px; background: #fff; border: 1px solid #e3e7e4; border-radius: 16px; padding: 20px; }
+.parr-steps-num { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--orizia-primary, #3a6f6c); color: #fff; font-weight: 700; }
+.parr-steps h3 { font-size: 1rem; margin: 4px 0 6px; }
+.parr-steps p { margin: 0; font-size: .92rem; line-height: 1.5; opacity: .85; }
+.parr-accord-section { padding-top: 48px; }
+.parr-accord-title { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 8px; }
+.parr-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 18px; }
+.parr-chip { border: 1px solid #cfd8d3; background: #fff; border-radius: 999px; padding: 10px 16px; font-size: .95rem; cursor: pointer; min-height: 44px; }
+.parr-chip.is-on { background: var(--orizia-primary, #3a6f6c); border-color: var(--orizia-primary, #3a6f6c); color: #fff; }
+@media (max-width: 720px) {
+  .parr-share-section { margin-top: 16px; }
+  .parr-share-card { flex-direction: column; padding: 18px; gap: 12px; }
+  .parr-find .parr-fields-row { grid-template-columns: minmax(0, 1fr); }
+  .parr-steps { grid-template-columns: minmax(0, 1fr); }
+}
+.parr-legal a, .parr-share-body .parr-legal a { color: var(--orizia-primary, #3a6f6c); }
+@media (max-width: 720px) { .parr-accord .parr-btn-primary, .parr-find .parr-btn-primary { width: 100%; } }

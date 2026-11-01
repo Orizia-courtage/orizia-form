@@ -6,6 +6,7 @@ import { getSupabaseAdmin } from '@/lib/supabase-server';
 import { takeAdminAttempt, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
 import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 import { resolveReferral } from '@/lib/referral.mjs';
+import { accordLink } from '@/lib/parrainage-accord.mjs';
 
 export const runtime = 'nodejs';
 
@@ -33,11 +34,12 @@ async function notifyCrm(payload) {
       signal: AbortSignal.timeout(9000),
       cache: 'no-store',
     });
-    if (!response.ok) console.error('CRM parrainage:', response.status);
-    return response.ok;
+    if (!response.ok) { console.error('CRM parrainage:', response.status); return null; }
+    const data = await response.json().catch(() => ({}));
+    return typeof data.id === 'string' ? data.id : null;
   } catch (error) {
     console.error('CRM parrainage:', error?.message);
-    return false;
+    return null;
   }
 }
 
@@ -145,34 +147,46 @@ export async function POST(request) {
       projetAffiche: escapeHtml(projetAffiche), siteLink: escapeHtml(siteLink),
     };
 
+    // Remontée CRM d'abord : son identifiant sert au lien « Oui, je souhaite être rappelé(e) ».
+    const crmId = await notifyCrm({
+      filleulPrenom, filleulNom, filleulTel, filleulEmail,
+      parrainPrenom, parrainNom, parrainTel, parrainEmail,
+      projetFilleul: projetRaw, page: viaCard ? '/r' : '/parrainage', visitor: visitorOf(request),
+      ...(viaCard ? { parrainCode: payload.parrainCode } : {}),
+    });
+    const rappelLink = !viaCard && crmId ? accordLink(crmId) : null;
+    const rdvLink = 'https://cal.com/cindy-urbansky/rendez-vous';
+    const cta = (href, label, dark) => `<a href="${escapeHtml(href)}" style="display:inline-block;margin:0 8px 10px 0;background:${dark ? '#1b1d1a' : '#6bb69b'};color:${dark ? '#ffffff' : '#1b1d1a'};text-decoration:none;font-weight:bold;padding:13px 18px;border-radius:10px">${label}</a>`;
+
     // ── 1. ENVOI AU FILLEUL ──
     await resend.emails.send({
       from: emailExpediteur,
       to: [filleulEmail],
-      subject: `${parrainPrenom} m'a suggéré de vous contacter pour votre projet`,
+      subject: viaCard ? `Suite à la recommandation de ${parrainPrenom}` : `${parrainPrenom} vous recommande Orizia Courtage`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
           <p>Bonjour ${e.filleulPrenom},</p>
           ${viaCard
             ? `<p>Merci d'avoir laissé vos coordonnées suite à la recommandation de <strong>${e.parrainPrenom}</strong>. Je suis ravie de pouvoir vous accompagner.</p>`
-            : `<p><strong>${e.parrainPrenom}</strong> m'a informé que vous aviez un projet et m'a confirmé avoir eu votre accord pour que je puisse vous contacter par e-mail.</p>`}
+            : `<p><strong>${e.parrainPrenom} ${e.parrainNom}</strong> m'a parlé de vous et pense que je pourrais vous aider dans un projet. Je suis Cindy Urbansky, courtière chez Orizia Courtage.</p>`}
 
           ${projetContent}
 
-          <p>Sachez qu'il n'est pas nécessaire d'avoir un projet défini avec précision pour échanger. Mon rôle est de vous conseiller et de construire avec vous la stratégie la plus avantageuse.</p>
+          <p>Sachez qu'il n'est pas nécessaire d'avoir un projet défini avec précision pour échanger. Mon rôle est de vous conseiller et de construire avec vous la stratégie la plus avantageuse. Le premier échange est gratuit et sans engagement.</p>
 
+          ${viaCard ? `
           <p><strong>Je me permettrai de vous appeler dans les prochaines 24h via le <a href="tel:+33777259706" style="color:#333; text-decoration:none;">07 77 25 97 06</a>.</strong> Je vous recommande d'enregistrer mon numéro afin de faciliter notre échange.</p>
-
           <p style="background-color: #f9f9f9; padding: 10px; border-left: 3px solid #3a6f6c;">
-            <em>Note :</em> Le numéro ${viaCard ? 'que vous m\'avez indiqué' : `que ${e.parrainPrenom} m'a transmis pour vous joindre`} est le <strong>${e.filleulTel}</strong>. S'il y a une erreur, n'hésitez pas à me le faire savoir en répondant directement à cet e-mail.
+            <em>Note :</em> Le numéro que vous m'avez indiqué est le <strong>${e.filleulTel}</strong>. S'il y a une erreur, n'hésitez pas à me le faire savoir en répondant directement à cet e-mail.
           </p>
-
           <p>Si vous préférez choisir un créneau précis, vous pouvez réserver un rendez-vous directement dans mon agenda :
-          <a href="https://cal.com/cindy-urbansky/rendez-vous" style="color:#3a6f6c; font-weight:bold;">Prendre rendez-vous ici</a>.</p>
+          <a href="${rdvLink}" style="color:#3a6f6c; font-weight:bold;">Prendre rendez-vous ici</a>.</p>` : `
+          <p><strong>Je ne vous appellerai pas sans votre accord.</strong> Si vous souhaitez en parler, choisissez simplement :</p>
+          <div style="margin:14px 0 6px">${rappelLink ? cta(rappelLink, 'Oui, je souhaite être rappelé(e)', false) : ''}${cta(rdvLink, 'Prendre rendez-vous', true)}</div>
+          <p>Vous pouvez aussi répondre directement à cet e-mail.</p>
+          <p style="color:#5d6560; font-size:12px; line-height:1.5; border-top:1px solid #e3e7e4; padding-top:10px; margin-top:16px">Vous recevez ce message unique parce que ${e.parrainPrenom} m'a transmis vos coordonnées. Sans réponse de votre part, elles seront effacées sous 30 jours et vous ne recevrez aucun autre message.</p>`}
 
           <p>Vous pouvez également consulter mon site pour découvrir mes solutions : <a href="${e.siteLink}" style="color:#3a6f6c;">${e.siteLink}</a>.</p>
-
-          <p>Si vous avez la moindre question d'ici notre appel, n'hésitez pas à répondre à cet e-mail.</p>
 
           <p>À très bientôt,</p>
           ${signature}
@@ -188,7 +202,9 @@ export async function POST(request) {
         <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
           <p>Bonjour ${e.parrainPrenom},</p>
           <p>Je vous remercie chaleureusement pour votre confiance et pour m'avoir recommandé auprès de <strong>${e.filleulPrenom}</strong>${viaCard ? ', qui vient de me laisser ses coordonnées grâce à votre carte' : ''}.</p>
-          <p>Je viens de lui envoyer un e-mail et je vais prendre contact avec lui téléphoniquement sous 24h.</p>
+          ${viaCard
+            ? '<p>Je vais prendre contact avec lui téléphoniquement sous 24h.</p>'
+            : `<p>Je viens de lui envoyer un e-mail de votre part. Dès qu'il me donne son feu vert, je le contacte. N'hésitez pas à le prévenir pour qu'il surveille sa boîte mail (et ses indésirables).</p>`}
           <p><strong>Pour rappel :</strong> en cas de finalisation du dossier, vous recevrez par e-mail votre carte cadeau pour vous remercier de votre parrainage.</p>
           <p>À très bientôt,</p>
           ${signature}
@@ -203,6 +219,9 @@ export async function POST(request) {
       html: `
         <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
           <h2 style="color:#3a6f6c;">Détails complets du parrainage</h2>
+          ${viaCard
+            ? '<p style="background:#e9f6ef;padding:10px;border-radius:8px"><strong>Le proche a lui-même laissé ses coordonnées</strong> : vous pouvez l\'appeler.</p>'
+            : '<p style="background:#fff4e0;padding:10px;border-radius:8px"><strong>En attente de son accord</strong> : coordonnées saisies par le parrain. Attendez qu\'il clique « être rappelé » (vous recevrez un e-mail) ou qu\'il prenne rendez-vous avant de l\'appeler. Sans réponse, la demande s\'efface du CRM sous 30 jours.</p>'}
 
           <h3 style="border-bottom: 1px solid #eee; padding-bottom: 5px;">LE PARRAIN</h3>
           <p>
@@ -219,14 +238,6 @@ export async function POST(request) {
             <strong>Projet :</strong> <span style="color:#3a6f6c; font-weight:bold;">${e.projetAffiche}</span>
           </p>
         </div>`,
-    });
-
-    // Remontée CRM best-effort : ne bloque pas la réponse au visiteur.
-    await notifyCrm({
-      filleulPrenom, filleulNom, filleulTel, filleulEmail,
-      parrainPrenom, parrainNom, parrainTel, parrainEmail,
-      projetFilleul: projetRaw, page: viaCard ? '/r' : '/parrainage', visitor: visitorOf(request),
-      ...(viaCard ? { parrainCode: payload.parrainCode } : {}),
     });
 
     return NextResponse.json({ success: true }, { headers: { 'Cache-Control': 'no-store' } });
