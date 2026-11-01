@@ -418,11 +418,11 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               </div>
               <div className="ae-probleme-image">
                 <Image
-                  src="/images/investir.webp"
-                  alt="Facture d'assurance vie bancaire avec frais élevés"
+                  src="/images/pieges-assurance-vie.webp"
+                  alt="Les pièges de l'assurance vie bancaire : frais silencieux, allocation au hasard, clause bénéficiaire bâclée"
                   title="Les frais cachés de votre assurance vie en banque"
-                  width={716}
-                  height={1024}
+                  width={1049}
+                  height={1500}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"

@@ -362,11 +362,11 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               {/* IMAGE 1 */}
               <div className="ae-probleme-image">
                 <Image 
-                  src="/images/banque-pression.webp"
-                  alt="Analyse de la complexité du marché immobilier des SCPI"
+                  src="/images/pieges-scpi.webp"
+                  alt="Choisir sa SCPI seul : SCPI inégales, valeur des parts qui peut baisser, fiscalité qui grignote le rendement"
                   title="Éviter les pièges du marché de la pierre-papier"
-                  width={716}
-                  height={1024}
+                  width={1049}
+                  height={1500}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"

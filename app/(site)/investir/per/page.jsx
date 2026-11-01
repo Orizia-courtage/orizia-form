@@ -451,10 +451,10 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               
               <div className="ae-probleme-image">
                 <Image 
-                  src="/images/investir.webp" 
-                  alt="Pression bancaire et complexité fiscale pour le PER"
-                  width={716}
-                  height={1024}
+                  src="/images/pieges-per.webp" 
+                  alt="Les erreurs qui coûtent cher sur le PER : PER de sa banque, plafonds oubliés, attendre trop longtemps"
+                  width={1049}
+                  height={1500}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"

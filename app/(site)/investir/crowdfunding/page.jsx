@@ -344,11 +344,11 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               {/* IMAGE 1 AJOUTÉE ICI */}
               <div className="ae-probleme-image">
                 <Image
-                  src="/images/investir.webp"
-                  alt="Particulier inquiet face à la complexité de l'analyse financière"
+                  src="/images/pieges-crowdfunding.webp"
+                  alt="Investir seul en crowdfunding : publicité des plateformes, bilans difficiles à lire, manque de diversification"
                   title="Les risques d'investir seul sans analyse expert"
-                  width={716}
-                  height={1024}
+                  width={1049}
+                  height={1500}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"

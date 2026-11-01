@@ -419,8 +419,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   src="/images/dossier_rachat_soulte.webp"
                   alt="Cindy Urbansky montant un dossier de rachat de soulte"
                   title="Accompagnement rachat de soulte – Orizia Courtage"
-                  width={716}
-                  height={1024}
+                  width={1122}
+                  height={1402}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
