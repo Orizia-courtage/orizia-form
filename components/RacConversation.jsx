@@ -414,7 +414,7 @@ export default function RacConversation() {
   ];
 
   return (
-    <div className="rc" ref={rootRef}>
+    <div className={`rc${answered.length === 0 && !done ? ' rc-intro' : ''}`} ref={rootRef}>
       <div className="rc-main">
         <header className="rc-head">
           <img src={AVATAR} alt="" width="40" height="40" className="rc-avatar" />

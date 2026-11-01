@@ -222,7 +222,7 @@ export default function RegroupementCreditsPage() {
         <ReadingProgressRegroupement />
 
         {/* -- HERO -- */}
-        <section className="fin-hero ae-hero">
+        <section className="fin-hero ae-hero rac-hero">
           <div className="ae-hero-bg">
             <Image
               src="/images/discret-hero-bg.webp"
@@ -263,6 +263,29 @@ export default function RegroupementCreditsPage() {
               <span><Icon name="circle-check" /> Modalités transparentes · Accompagnement personnalisé</span>
               <span><Icon name="zap" /> Réponse sous 24h</span>
               <span><Icon name="lock" /> Données sécurisées</span>
+            </div>
+          </div>
+        </section>
+
+        {/* -- FORMULAIRE -- */}
+        <section
+          id="formulaire"
+          className="crowd-section crowd-section--light rac-form-top"
+          style={{ paddingTop: 48, paddingBottom: 60 }}
+        >
+          <div className="fin-section-inner" style={{ maxWidth: 800 }}>
+            <div className="fin-section-head">
+              <span className="fin-badge">Étude personnalisée</span>
+              <h2>Complétez votre dossier en ligne</h2>
+              <p>
+                Une conversation de 3 à 5 minutes avec Cindy · Réponse sous 24h<br />
+                <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>
+                  Aucun document à envoyer à ce stade. Vos données sont sécurisées.
+                </span>
+              </p>
+            </div>
+            <div className="f-wrap-embedded">
+              <RacForm />
             </div>
           </div>
         </section>
@@ -517,29 +540,6 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section id="section-autoevaluation" className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <RegroupementChecklist />
-          </div>
-        </section>
-
-        {/* -- FORMULAIRE -- */}
-        <section
-          id="formulaire"
-          className="crowd-section crowd-section--light"
-          style={{ paddingTop: 60, paddingBottom: 60 }}
-        >
-          <div className="fin-section-inner" style={{ maxWidth: 800 }}>
-            <div className="fin-section-head">
-              <span className="fin-badge">Étude personnalisée</span>
-              <h2>Complétez votre dossier en ligne</h2>
-              <p>
-                Une conversation de 3 à 5 minutes avec Cindy · Réponse sous 24h<br />
-                <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>
-                  Aucun document à envoyer à ce stade. Vos données sont sécurisées.
-                </span>
-              </p>
-            </div>
-            <div className="f-wrap-embedded">
-              <RacForm />
-            </div>
           </div>
         </section>
 

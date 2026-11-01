@@ -215,3 +215,29 @@
   body.rac-chat-active .oz-mobilebar { transform: translateY(140%); }
   body.rac-chat-active .rp-bar { opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
 }
+
+/* Page Regroupement de crédits : sur téléphone, le haut de page est resserré pour que
+   la conversation (premier message de Cindy + champ prénom) soit visible dès l'arrivée. */
+@media (max-width: 640px) {
+  .rac-hero { padding: 28px 18px 12px !important; }
+  .rac-hero::after { display: none; }
+  .rac-hero nav[aria-label="breadcrumb"],
+  .rac-hero .ae-hero-intro,
+  .rac-hero .ae-hero-btns,
+  .rac-hero .ae-hero-trust { display: none !important; }
+  .rac-hero .fin-badge { font-size: .72rem; }
+  .rac-hero .ae-hero-title { font-size: 1.85rem !important; line-height: 1.12 !important; margin: 10px 0 0 !important; }
+  .rac-form-top { padding-top: 6px !important; }
+  .rac-form-top .fin-section-head { display: none; }
+  /* Avant la première réponse, la conversation prend juste la place nécessaire. */
+  .f-wrap-embedded .rc.rc-intro { height: auto; min-height: 0; }
+  .rc.rc-intro .rc-thread { flex: none; overflow: visible; }
+}
+@media (max-width: 640px) and (max-height: 700px) {
+  .rac-hero { padding: 14px 16px 8px !important; }
+  .rac-hero .fin-badge { display: none !important; }
+  .rac-hero .ae-hero-title { font-size: 1.5rem !important; margin: 0 !important; }
+  .rc.rc-intro .rc-head { padding-block: 8px 10px; }
+  .rc.rc-intro .rc-thread { padding-top: 10px; gap: 6px; }
+  .rc.rc-intro .rc-msg { font-size: 15px; padding: 8px 12px; }
+}
