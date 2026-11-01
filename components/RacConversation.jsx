@@ -738,7 +738,7 @@ function Dossier({ facts, ratio, debtConfig, open, onClose }) {
             animate={{ strokeDashoffset: 163.4 * (1 - Math.min(ratio ?? 0, 100) / 100), stroke: ratio > max ? '#b0473b' : ratio > max - 5 ? '#a87a2c' : '#3e7f68' }}
             initial={false} transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 60, damping: 16 }} />
         </svg>
-        <div><b>{ratio ?? 0} %</b><small>Taux d'endettement estimé · seuil des banques {max} %</small></div>
+        <div><b>{ratio ?? 0} %</b><small>Taux d'endettement estimé</small></div>
       </div>
     </>
   );
