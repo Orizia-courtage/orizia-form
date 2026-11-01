@@ -722,3 +722,103 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .cw-email-direct a { display: block; color: var(--oz-ink); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
 .cw-email-direct a:hover { text-decoration: underline; }
 .cw-email-direct button { width: 28px; height: 28px; flex-shrink: 0; border-radius: 8px; border: 0; background: #fff; color: var(--oz-ink); cursor: pointer; display: grid; place-items: center; }
+
+/* ── Bandeau « transparence / accompagnement » (pages produits) ─────────── */
+/* L'icône prenait toute la place libre (flex: 1 hérité) : elle restait seule au milieu du vide. */
+.av-gratuit-bloc {
+  position: relative; overflow: hidden;
+  display: grid !important; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 22px 26px !important;
+  background: linear-gradient(120deg, #ffffff 0%, #f1f9f5 55%, #e3f3ec 100%) !important;
+  border: 1px solid rgba(107, 182, 155, .35) !important; border-radius: 22px !important;
+  padding: 28px 32px !important; box-shadow: var(--oz-shadow);
+}
+.av-gratuit-bloc::after {
+  content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 182, 155, .22), transparent 70%); pointer-events: none;
+}
+.av-gratuit-bloc > div { min-width: 0 !important; }
+.av-gratuit-bloc > .av-gratuit-icon { flex: none !important; width: 60px !important; height: 60px !important; border-radius: 18px !important; font-size: 1.7rem !important; background: var(--oz-ink) !important; color: #bfe6d5 !important; box-shadow: 0 10px 24px -12px rgba(27, 29, 26, .6); }
+.av-gratuit-bloc strong { font-family: var(--oz-font-sans); font-size: 1.12rem !important; font-weight: 700 !important; color: var(--oz-ink) !important; margin-bottom: 6px !important; letter-spacing: -.01em; }
+.av-gratuit-bloc p { font-size: .97rem !important; line-height: 1.6 !important; color: var(--oz-muted) !important; opacity: 1 !important; max-width: 62ch; }
+.av-gratuit-bloc > .cp-wrap { position: relative; z-index: 1; white-space: nowrap; }
+@media (max-width: 860px) {
+  .av-gratuit-bloc { grid-template-columns: auto minmax(0, 1fr); padding: 22px !important; }
+  .av-gratuit-bloc > .cp-wrap { grid-column: 1 / -1; justify-self: stretch; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .av-gratuit-bloc { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) { .av-gratuit-bloc > .cp-wrap > button { width: 100%; justify-content: center; } }
+
+/* ── Section sombre « Zéro paperasse » (assurance habitation) ───────────── */
+#section-hamon {
+  background: radial-gradient(900px 420px at 15% 0%, rgba(107, 182, 155, .20), transparent 60%),
+              radial-gradient(700px 380px at 95% 100%, rgba(107, 182, 155, .14), transparent 60%),
+              #161917 !important;
+  overflow: hidden;
+}
+#section-hamon .fin-section-head > p, .crowd-section[style*="orizia-accent"] .fin-section-head > p { color: rgba(255, 255, 255, .74) !important; }
+#section-hamon .fin-badge { color: #bfe6d5 !important; }
+#section-hamon .ah-hamon-timeline { gap: 16px; margin-bottom: 28px; }
+#section-hamon .ah-hamon-tl-step {
+  padding: 26px 18px 22px; border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .025));
+  border: 1px solid rgba(255, 255, 255, .09);
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s, background .35s;
+}
+#section-hamon .ah-hamon-tl-step:hover { transform: translateY(-4px); border-color: rgba(107, 182, 155, .5); background: linear-gradient(180deg, rgba(107, 182, 155, .14), rgba(255, 255, 255, .03)); }
+#section-hamon .ah-hamon-tl-icon {
+  width: 58px; height: 58px; border: 0; margin-bottom: 16px;
+  background: linear-gradient(145deg, #8fd0b6, #5aa98b); color: #10221b; font-size: 1.5rem;
+  box-shadow: 0 0 0 6px rgba(107, 182, 155, .14), 0 12px 28px -10px rgba(107, 182, 155, .7);
+}
+#section-hamon .ah-hamon-tl-connector { display: none; }
+#section-hamon .ah-hamon-tl-step::before {
+  content: attr(data-step); position: absolute; top: 14px; right: 16px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em; color: rgba(191, 230, 213, .55);
+}
+#section-hamon .ah-hamon-tl-title { font-size: 1.02rem; font-weight: 700; margin-bottom: 8px; }
+#section-hamon .ah-hamon-tl-desc { font-size: .9rem; line-height: 1.55; color: rgba(255, 255, 255, .7); }
+#section-hamon .ah-hamon-chrono { padding: 26px 28px; border-radius: 22px; background: rgba(255, 255, 255, .05); border-color: rgba(255, 255, 255, .1); gap: 12px; }
+#section-hamon .ah-hamon-chrono-icon { background: rgba(107, 182, 155, .18) !important; color: #bfe6d5 !important; }
+#section-hamon .ah-hamon-chrono-val { font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em; margin-top: 6px; }
+#section-hamon .ah-hamon-chrono-item--gold .ah-hamon-chrono-val { color: #8fd0b6; }
+#section-hamon .ah-hamon-chrono-label { font-size: .8rem; color: rgba(255, 255, 255, .6); }
+#section-hamon .ah-hamon-chrono-sep { color: rgba(143, 208, 182, .6); }
+@media (prefers-reduced-motion: no-preference) {
+  #section-hamon .ah-hamon-tl-step { animation: oz-rise .7s cubic-bezier(.2, .8, .2, 1) both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  #section-hamon .ah-hamon-tl-step:nth-child(2) { animation-range: entry 8% entry 68%; }
+  #section-hamon .ah-hamon-tl-step:nth-child(3) { animation-range: entry 16% entry 76%; }
+  #section-hamon .ah-hamon-tl-step:nth-child(4) { animation-range: entry 24% entry 84%; }
+}
+@keyframes oz-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@media (max-width: 768px) {
+  #section-hamon .ah-hamon-timeline { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  #section-hamon .ah-hamon-tl-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 14px; padding: 18px; flex-wrap: wrap; }
+  #section-hamon .ah-hamon-tl-icon { width: 46px; height: 46px; margin: 0; font-size: 1.2rem; }
+  #section-hamon .ah-hamon-tl-step > .ah-hamon-tl-title { flex: 1; align-self: center; margin: 0; }
+  #section-hamon .ah-hamon-tl-step > .ah-hamon-tl-desc { flex-basis: 100%; }
+  #section-hamon .ah-hamon-chrono { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 18px; }
+  #section-hamon .ah-hamon-chrono-sep { display: none; }
+  #section-hamon .ah-hamon-chrono-item { padding: 10px 4px; }
+}
+
+/* Pastilles des cartes « produits liés » : certaines couleurs (sauge clair sur menthe) étaient illisibles. */
+.fin-card .fin-card-pill { background: var(--oz-mint-soft) !important; color: var(--oz-sage-deep) !important; border-color: transparent !important; font-weight: 700; }
+.fin-card--featured .fin-card-pill { background: var(--oz-ink) !important; color: #bfe6d5 !important; }
+@media (max-width: 768px) { #section-hamon .ah-hamon-chrono { align-items: start; } #section-hamon .ah-hamon-chrono-item { justify-content: flex-start; } }
+
+/* ── Présence de Cindy en tête des appels à l'action sombres ─────────── */
+.cta-presence { display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0 auto 30px; }
+.cta-presence-avatar { position: relative; width: 76px; height: 76px; border-radius: 50%; padding: 3px; background: conic-gradient(from 200deg, #8fd0b6, rgba(143, 208, 182, .15), #8fd0b6); box-shadow: 0 0 0 8px rgba(143, 208, 182, .08), 0 18px 40px -18px rgba(143, 208, 182, .6); }
+.cta-presence-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; border: 2px solid #1b1d1a; }
+.cta-presence-dot { position: absolute; right: 3px; bottom: 5px; width: 15px; height: 15px; border-radius: 50%; background: #5fd39b; border: 3px solid #1b1d1a; }
+@media (prefers-reduced-motion: no-preference) { .cta-presence-dot { animation: cta-pulse 2.4s ease-out infinite; } }
+@keyframes cta-pulse { 0% { box-shadow: 0 0 0 0 rgba(95, 211, 155, .55); } 70%, 100% { box-shadow: 0 0 0 10px rgba(95, 211, 155, 0); } }
+.cta-presence-text { display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1.3; }
+.cta-presence-text strong { color: #fff; font-size: .98rem; font-weight: 600; }
+.cta-presence-text span { color: rgba(237, 247, 242, .66); font-size: .85rem; }
+.cta-presence-chips { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.cta-presence-chips li { padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 600; color: #cfeee0; background: rgba(143, 208, 182, .1); border: 1px solid rgba(143, 208, 182, .22); }
+.cta-presence-chips li::before { content: "✓"; margin-right: 6px; color: #8fd0b6; }
+.fin-cta .fin-cta-inner > p:last-child, .fin-cta .fin-cta-inner > p[style*="font-size"] { color: rgba(237, 247, 242, .5) !important; }

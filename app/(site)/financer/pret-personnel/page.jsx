@@ -7,6 +7,7 @@ import PretPersonnelChecklist from '@/components/PretPersonnelChecklist';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Prêt Personnel 2026 : Comparez les taux | Orizia Courtage',
@@ -543,7 +544,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir ?</span>
+                  <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
                 </Link>
               ))}
             </div>
@@ -553,6 +554,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Prêt(e) à financer votre projet<br />au juste prix ?</h2>
             <p>
               On fait le point sur votre budget, je définis l'enveloppe possible et je m'occupe d'aller chercher le meilleur TAEG du marché. Sans engagement.

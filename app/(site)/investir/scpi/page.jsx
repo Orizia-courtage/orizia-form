@@ -10,6 +10,7 @@ import SCPIRisqueJauge from '@/components/SCPIRisqueJauge';
 import SCPIFiscaliteSelector from '@/components/SCPIFiscaliteSelector';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
   title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
@@ -662,7 +663,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div className="fin-card-sub">Financement participatif</div>
                 <h3>Crowdfunding immobilier</h3>
                 <p>8–12%/an sur 12–36 mois. Le complément dynamique idéal aux SCPI pour dynamiser votre rendement global sur le court terme.</p>
-                <span className="fin-card-link">En savoir plus ?</span>
+                <span className="fin-card-link">En savoir plus <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
               <Link href="/investir/assurance-vie" className="fin-card fin-card--featured">
                 <span className="fin-card-pill" style={{ background: 'rgba(107,182,155,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}><Icon name="star" /> Fiscalité optimisée après 8 ans</span>
@@ -670,7 +671,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div className="fin-card-sub">Épargne & transmission</div>
                 <h3>Assurance Vie</h3>
                 <p>L'enveloppe pour loger vos SCPI et bénéficier d'une fiscalité optimisée. Idéal pour les profils TMI 30%+ qui veulent garder la liquidité.</p>
-                <span className="fin-card-link">En savoir plus ?</span>
+                <span className="fin-card-link">En savoir plus <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
               <Link href="/investir/per" className="fin-card">
                 <span className="fin-card-pill" style={{ background: 'rgba(62,127,104,0.08)', color: '#3e7f68', border: '1px solid rgba(62,127,104,0.2)' }}><Icon name="lightbulb" /> Déduction fiscale immédiate</span>
@@ -687,6 +688,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Prête à percevoir vos premiers<br />loyers sans gérer un bien ?</h2>
             <p>
               J'analyse votre situation fiscale et patrimoniale, sélectionne les SCPI

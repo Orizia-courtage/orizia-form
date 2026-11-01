@@ -8,6 +8,7 @@ import ReadingProgressFinancer from '@/components/ReadingProgressFinancer';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
   title: 'Courtier en Crédit 2026 : Comparez 40+ Banques | Orizia Courtage',
@@ -391,7 +392,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier-financer.webp"
                   alt="Cindy Urbansky montant un dossier de crédit immobilier"
                   title="Accompagnement de A à Z – Orizia Courtage"
                   width={716}
@@ -486,6 +487,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* ── CTA FINAL ── */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>
               Prêt(e) à obtenir<br />le meilleur taux du marché ?
             </h2>

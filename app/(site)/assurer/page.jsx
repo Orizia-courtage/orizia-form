@@ -8,6 +8,7 @@ import ReadingProgressAssurer from '@/components/ReadingProgressAssurer';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Assurances 2026 : Emprunteur, Habitation, Auto | Orizia',
@@ -387,6 +388,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>
               Prêt(e) à arrêter de payer trop cher ?
             </h2>

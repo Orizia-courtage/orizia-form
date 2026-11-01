@@ -8,6 +8,7 @@ import ReadingProgressHabitation from '@/components/ReadingProgressHabitation';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
@@ -506,7 +507,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             {/* Timeline 4 étapes */}
             <div className="ah-hamon-timeline">
               {LOI_HAMON_POINTS.map((pt, i) => (
-                <div key={pt.title} className="ah-hamon-tl-step">
+                <div key={pt.title} className="ah-hamon-tl-step" data-step={`0${i + 1}`}>
                   <div className="ah-hamon-tl-icon"><Icon name={pt.icon} /></div>
                   {i < LOI_HAMON_POINTS.length - 1 && (
                     <div className="ah-hamon-tl-connector" />
@@ -671,6 +672,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Prêt(e) à remettre votre assureur<br />en concurrence ?</h2>
             <p>
               Je scanne le marché, j'ajuste vos garanties, je déniche le tarif juste et 

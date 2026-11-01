@@ -9,6 +9,7 @@ import ReadingProgressAutoMoto from '@/components/ReadingProgressAutoMoto';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
@@ -541,7 +542,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir ?</span>
+                  <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
                 </Link>
               ))}
             </div>
@@ -551,6 +552,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
               Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.

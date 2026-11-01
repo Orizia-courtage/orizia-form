@@ -74,7 +74,7 @@ const FORMULES = [
 ];
 
 export default function MotoTarifSelector() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(1); // 125 cc ouvert d'emblée : le plus courant
 
   const current = selected !== null ? TARIFS[selected] : null;
 

@@ -8,6 +8,7 @@ import ContactPopup from '@/components/ContactPopup';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Investir en 2026 : Placements & Patrimoine | Orizia Courtage',
@@ -345,7 +346,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
               </div>
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier-courtage.webp"
+                  src="/images/dossier-investir.webp"
                   alt="Cindy Urbansky préparant une stratégie patrimoniale pour ses clients"
                   title="Accompagnement patrimonial de A à Z – Orizia Courtage"
                   width={716}
@@ -388,6 +389,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>
               Prêt à réveiller votre épargne ?
             </h2>

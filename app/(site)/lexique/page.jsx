@@ -3,6 +3,7 @@ import ContactPopup from '@/components/ContactPopup';
 import LexiqueGrid from '@/components/LexiqueGrid';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: "Lexique Crédit & Assurance : 50+ Termes | Orizia Courtage",
   description:
@@ -232,6 +233,7 @@ export default function LexiquePage() {
         {/* ── CTA ── */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-accent)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2 style={{ color: '#fff' }}>Un terme vous échappe encore ?</h2>
             <p style={{ color: 'rgba(255,255,255,0.8)' }}>
               Je vous explique tout sans jargon, lors d'un premier échange sans engagement.

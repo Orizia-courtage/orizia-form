@@ -4,6 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
   description:
@@ -381,6 +382,7 @@ export default function QuiSuisJePage() {
         {/* ── CTA ── */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Travaillons ensemble</h2>
             <p>
               Que vous ayez un projet immobilier, un crédit à optimiser ou un patrimoine

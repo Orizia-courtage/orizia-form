@@ -9,6 +9,7 @@ import ReadingProgress from '@/components/ReadingProgress';
 import { CrowdfundingTaxBreakdown, CrowdfundingTaxParagraph, CrowdfundingTaxValue } from '@/components/CrowdfundingTaxReferences';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
   title: 'Crowdfunding Immobilier 2026 : 8–12%/an | Orizia Courtage',
@@ -827,6 +828,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Prêt à investir<br />intelligemment ?</h2>
             <p>
               30 minutes avec moi suffisent pour définir votre stratégie, identifier

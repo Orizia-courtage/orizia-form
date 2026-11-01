@@ -8,6 +8,7 @@ import RegroupementChecklist from '@/components/RegroupementChecklist';
 import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Regroupement de Crédits 2026 : -60% mensualités | Orizia',
@@ -625,7 +626,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   <div className="fin-card-sub">{s.sub}</div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="fin-card-link">Découvrir ?</span>
+                  <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
                 </Link>
               ))}
             </div>
@@ -635,6 +636,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Vos mensualités pèsent trop.<br />Faites-les baisser dès maintenant.</h2>
             <p>
               5 minutes de formulaire. 24h de délai. Une proposition concrète.

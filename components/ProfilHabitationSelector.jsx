@@ -39,7 +39,7 @@ const PROFILS = [
 ];
 
 export default function ProfilHabitationSelector() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(1); // profil le plus courant ouvert d'emblée (plus de case vide)
   const profil = selected !== null ? PROFILS[selected] : null;
 
   return (

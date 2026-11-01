@@ -10,6 +10,7 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import BrokerNetwork from '@/components/BrokerNetwork';
 import HomeSteps from '@/components/HomeSteps';
 import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
+import CtaPresence from '@/components/CtaPresence';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -525,6 +526,7 @@ export default function HomePage() {
         {/* ── CTA FINAL ── */}
         <section className="fin-cta">
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Un échange de 30 minutes. Sans engagement, sans jargon.</h2>
             <p>
               On commence par une conversation simple sur votre situation et vos objectifs.

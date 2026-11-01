@@ -8,6 +8,7 @@ import ReadingProgressCredit from '@/components/ReadingProgressCredit';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
   title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
@@ -569,6 +570,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Prêt(e) à savoir combien<br />vous pouvez emprunter ?</h2>
             <p>
               Prenez rendez-vous avec moi. On fait le point sur vos revenus, votre apport, 

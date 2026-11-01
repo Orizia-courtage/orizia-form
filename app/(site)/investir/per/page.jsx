@@ -11,6 +11,7 @@ import ContactPopup from '@/components/ContactPopup';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
@@ -863,6 +864,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Récupérez vos impôts<br />dès cette année</h2>
             <p>
               Je calcule vos plafonds de déduction exacts, sélectionne le meilleur

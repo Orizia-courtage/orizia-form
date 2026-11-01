@@ -11,6 +11,7 @@ import AVvsLivret from '@/components/AVvsLivret';
 import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
+import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant | Orizia Courtage',
   description:
@@ -762,6 +763,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         {/* -- CTA FINAL -- */}
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
+            <CtaPresence />
             <h2>Votre argent mérite mieux<br />qu'un contrat bancaire standard</h2>
             <p>
               J'audite votre contrat actuel, sélectionne le meilleur contrat du marché
