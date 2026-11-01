@@ -22,7 +22,7 @@ if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function IlluTalk() {
   return (
-    <svg viewBox="0 0 160 96" aria-hidden="true">
+    <svg viewBox="0 0 160 96" aria-hidden="true">
       <g className="i-pop" style={{ '--d': '0s' }}>
         <rect x="8" y="6" width="84" height="26" rx="13" className="f-soft" />
         <rect x="20" y="14" width="48" height="4" rx="2" className="f-sage" />
@@ -47,7 +47,7 @@ const BARS = [34, 50, 40, 64, 46, 28];
 const BEST = 3;
 function IlluCompare() {
   return (
-    <svg viewBox="0 0 160 96" aria-hidden="true">
+    <svg viewBox="0 0 160 96" aria-hidden="true">
       <line x1="10" y1="86" x2="150" y2="86" className="s-line" />
       {BARS.map((h, i) => (
         <rect key={i} x={16 + i * 22} y={86 - h} width="14" height={h} rx="4"
@@ -70,13 +70,13 @@ function IlluCompare() {
 const ROWS = [['Taux', 0.52], ['Frais', 0.38], ['Assurance', 0.6]];
 function IlluNegotiate() {
   return (
-    <svg viewBox="0 0 160 96" aria-hidden="true">
+    <svg viewBox="0 0 160 96" aria-hidden="true">
       {ROWS.map(([label, to], i) => (
         <g key={label} transform={`translate(0 ${14 + i * 28})`}>
           <text x="6" y="4" className="i-label">{label}</text>
           <rect x="66" y="-4" width="74" height="9" rx="4.5" className="f-soft" />
           <rect x="66" y="-4" width="74" height="9" rx="4.5" className="f-sage-deep i-shrink" style={{ '--to': to, '--d': `${i * 0.18}s` }} />
-          <path d="M150 -4v9M146.5 2 150 5.5 153.5 2" className="s-sage-deep i-down" style={{ '--d': `${0.6 + i * 0.18}s` }} />
+          <path d="M150 -4v9M146.5 2 150 5.5 153.5 2" className="s-sage-deep i-down" style={{ '--d': `${0.6 + i * 0.18}s` }} />
         </g>
       ))}
     </svg>
@@ -85,7 +85,7 @@ function IlluNegotiate() {
 
 function IlluSign() {
   return (
-    <svg viewBox="0 0 160 96" aria-hidden="true">
+    <svg viewBox="0 0 160 96" aria-hidden="true">
       <rect x="28" y="4" width="104" height="88" rx="9" className="f-white s-line" />
       <rect x="42" y="18" width="62" height="5" rx="2.5" className="f-soft" />
       <rect x="42" y="29" width="76" height="5" rx="2.5" className="f-soft" />

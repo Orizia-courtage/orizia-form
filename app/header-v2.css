@@ -50,7 +50,7 @@
   transition: box-shadow var(--hv2-dur) var(--hv2-ease), background var(--hv2-dur) var(--hv2-ease);
 }
 .hv2--scrolled .hv2-main {
-  background: rgba(252, 253, 252, .84);
+  background: rgba(252, 253, 252, .96);
   box-shadow: 0 10px 30px -18px rgba(27, 29, 26, .28);
 }
 .hv2-main-inner {

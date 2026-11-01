@@ -460,3 +460,7 @@ main:has(> .fin-cta:last-child) + .oz-footer .oz-footer-top { display: none; }
   .hh-ring circle { stroke-dashoffset: 0 !important; }
   .bn-orbit--main, .bn-link, .bn-node--best { animation: none !important; }
 }
+/* L'animation (transform) écrasait la position SVG du nœud « meilleure offre » : on anime le cercle, pas le groupe. */
+.bn-node--best { animation: none; }
+.bn-node--best circle { animation: bn-pulse 3.2s var(--oz-ease) infinite; transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) { .bn-node--best circle { animation: none !important; } }

@@ -337,7 +337,7 @@ export default function MortgageRateWidget() {
         {/* RIGHT PANEL */}
         <div style={{
           background: '#f8f2e6', borderRadius: '26px', padding: '28px 24px 24px',
-          flex: '1 1 380px', minWidth: '320px',
+          flex: '1 1 380px', minWidth: '320px',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px',
           boxShadow: '0 4px 24px rgba(0,0,0,0.04)',
         }}>
