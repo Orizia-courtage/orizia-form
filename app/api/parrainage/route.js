@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
-import { takeAdminAttempt, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
+import { takeAdminAttempt, takeQuota, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
 import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
 import { resolveReferral } from '@/lib/referral.mjs';
 import { accordLink } from '@/lib/parrainage-accord.mjs';
@@ -103,6 +103,18 @@ export async function POST(request) {
     const daily = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: DAILY_SCOPE, limit: DAILY_LIMIT, windowMs: DAY_MS });
     if (!daily.allowed) throw new FormError(DAILY_MESSAGE, 429);
 
+    // 6. Quotas par personne, quelle que soit l'adresse IP (anti-harcèlement, réputation des e-mails) :
+    //    un même proche reçoit au plus 1 e-mail par 24 h, un même parrain génère au plus 5 recommandations
+    //    par 24 h. Au-delà on répond « succès » sans rien envoyer (rien à apprendre pour un robot).
+    const supabase = getSupabaseAdmin();
+    const parrainKey = viaCard ? `code:${String(payload.parrainCode).trim()}` : `mail:${parrainEmail}`;
+    const quotas = await Promise.all([
+      takeQuota({ supabase, scope: 'reco-proche-mail', id: filleulEmail, limit: 1 }),
+      takeQuota({ supabase, scope: 'reco-proche-tel', id: filleulTel.replace(/\D/g, ''), limit: 1 }),
+      takeQuota({ supabase, scope: 'reco-parrain', id: parrainKey, limit: 5 }),
+    ]);
+    if (quotas.some((q) => !q.allowed)) return NextResponse.json({ success: true }, { headers: { 'Cache-Control': 'no-store' } });
+
     const emailExpediteur = 'Cindy - Orizia Courtage <cindy.urbansky@orizia-courtage.fr>';
     const signature = SIGNATURE_BLOCK;
     const siteLink = SITE_URL + (projetKey ? projets[projetKey] : '');
@@ -194,7 +206,9 @@ export async function POST(request) {
     });
 
     // ── 2. ENVOI AU PARRAIN ──
-    if (emailRe.test(parrainEmail)) await resend.emails.send({
+    // Remerciement au parrain : 1 e-mail par 24 h au maximum (même s'il recommande plusieurs proches).
+    const merci = emailRe.test(parrainEmail) ? await takeQuota({ supabase, scope: 'merci-parrain', id: parrainEmail, limit: 1 }) : { allowed: false };
+    if (merci.allowed) await resend.emails.send({
       from: emailExpediteur,
       to: [parrainEmail],
       subject: 'Merci pour votre recommandation ! 🎁',

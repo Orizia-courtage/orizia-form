@@ -3,6 +3,7 @@ import { webhookConfig, forwardWebhook } from '@/lib/automation-webhook.mjs';
 import { readForm, verifyTurnstile, createCallbackProof, FormError } from '@/lib/form-protection.mjs';
 import { defaultSimulationSettings, racOutcomeForSegment, resolveSimulationSettings } from '@/lib/simulationConfig';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
+import { takeAdminAttempt, takeQuota } from '@/lib/admin-rate-limit';
 
 export const runtime = 'nodejs';
 
@@ -21,6 +22,11 @@ export async function POST(request) {
     const { turnstileToken, ...data } = payload;
     delete data.rappelProof;
     await verifyTurnstile(turnstileToken, request, 'orizia_submit');
+    // Le dossier déclenche un e-mail vers l'adresse saisie : limites par IP et par adresse.
+    const attempt = await takeAdminAttempt({ supabase: getSupabaseAdmin(), request, scope: 'rac', limit: 3 });
+    if (!attempt.allowed) throw new FormError('Vous avez déjà envoyé plusieurs demandes. Réessayez dans quelques minutes.', 429);
+    const perMail = await takeQuota({ supabase: getSupabaseAdmin(), scope: 'rac-mail', id: data.profil_mail, limit: 2 });
+    if (!perMail.allowed) throw new FormError('Une demande a déjà été envoyée avec cette adresse aujourd’hui. Cindy vous recontacte très vite, ou appelez le 07 77 25 97 06.', 429);
     // Do not take this decision from the browser: it drives the email branch
     // in n8n and is resolved from the protected administration settings.
     data.rac_outcome = racOutcomeForSegment(await racSettings(), data.Segment);
