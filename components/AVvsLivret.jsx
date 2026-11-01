@@ -52,20 +52,20 @@ const CRITERES = [
     icon: 'receipt',
     livretA: { val: 'Exonéré', note: 'Aucun impôt ni PS', ok: true },
     pel:     { val: 'IR + PS', note: 'Intérêts imposables dès l\'ouverture', ok: false },
-    av:      { val: '7,5% après 8 ans', note: 'Abattement 4 600€/an + taux réduit', ok: true, star: true },
+    av:      { val: '7,5% après 8 ans', note: 'Abattement 4 600€/an + taux réduit', ok: true, star: true },
   },
   {
     label: 'Transmission',
     icon: 'gift',
     livretA: { val: 'Succession', note: 'Intégré à l\'actif successoral', ok: false },
     pel:     { val: 'Succession', note: 'Intégré à l\'actif successoral', ok: false },
-    av:      { val: 'Hors succession', note: '152 500€/bénéf. exonérés', ok: true, star: true },
+    av:      { val: 'Hors succession', note: '152 500€/bénéf. exonérés', ok: true, star: true },
   },
   {
     label: 'Plafond',
     icon: 'arrow-up-to-line',
-    livretA: { val: '22 950€', note: 'Plafond réglementaire', ok: null },
-    pel:     { val: '61 200€', note: 'Plafond réglementaire', ok: null },
+    livretA: { val: '22 950€', note: 'Plafond réglementaire', ok: null },
+    pel:     { val: '61 200€', note: 'Plafond réglementaire', ok: null },
     av:      { val: 'Illimité', note: 'Aucun plafond de versement', ok: true, star: true },
   },
   {
@@ -135,7 +135,7 @@ export default function AVvsLivret() {
       <div className="crowd-risques-note" style={{ marginTop: 20 }}>
         <Icon name="lightbulb" /> <strong>En résumé :</strong> le Livret A est idéal pour l'épargne de précaution (3–6 mois de charges).
         L'assurance vie prend le relais pour tout ce qui dépasse — meilleur rendement, fiscalité avantageuse
-        après 8 ans, et transmission hors succession jusqu'à 152 500€ par bénéficiaire.
+        après 8 ans, et transmission hors succession jusqu'à 152 500€ par bénéficiaire.
       </div>
     </div>
   );

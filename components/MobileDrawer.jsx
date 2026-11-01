@@ -36,7 +36,7 @@ const CATEGORIES = [
     label: 'Assurer',
     href: '/assurer',
     icon: 'shield-check',
-    gradient: 'linear-gradient(135deg, #6bb69b 0%, #2f6352 100%)',
+    gradient: 'linear-gradient(135deg, #6bb69b 0%, #2f6352 100%)',
     products: [
       { href: '/assurer/assurance-emprunteur', label: 'Assurance emprunteur', sub: 'Protégez votre prêt' },
       { href: '/assurer/assurance-habitation', label: 'Assurance habitation', sub: 'Logement sécurisé' },

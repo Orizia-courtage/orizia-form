@@ -9,9 +9,9 @@ const QUESTIONS = [
     id: 'montant',
     question: 'Quel est le montant de votre prêt par personne ?',
     options: [
-      { label: 'Moins de 200 000€', value: 'ok', icon: 'circle-check' },
-      { label: 'Entre 200 000€ et 400 000€', value: 'couple', icon: 'users' },
-      { label: 'Plus de 400 000€', value: 'high', icon: 'landmark' },
+      { label: 'Moins de 200 000€', value: 'ok', icon: 'circle-check' },
+      { label: 'Entre 200 000€ et 400 000€', value: 'couple', icon: 'users' },
+      { label: 'Plus de 400 000€', value: 'high', icon: 'landmark' },
     ],
   },
   {

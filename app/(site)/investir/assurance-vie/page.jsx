@@ -15,7 +15,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Assurance Vie 2026 : Conseil Indépendant | Orizia Courtage',
   description:
-    'Je sélectionne le contrat d\'assurance vie le plus adapté : rendement optimisé et transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky.',
+    'Je sélectionne le contrat d\'assurance vie le plus adapté : rendement optimisé et transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
   openGraph: {
     title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
@@ -98,7 +98,7 @@ const faqSchema = {
       name: 'Quelle est la fiscalité de l\'assurance vie après 8 ans ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Après 8 ans, les gains bénéficient d\'un abattement annuel de 4 600€ pour une personne seule ou 9 200€ pour un couple. Au-delà, un taux réduit de 7,5% s\'applique, plus 18,6% de prélèvements sociaux. C\'est la fiscalité la plus avantageuse sur l\'épargne longue durée disponible en France.',
+        text: 'Après 8 ans, les gains bénéficient d\'un abattement annuel de 4 600€ pour une personne seule ou 9 200€ pour un couple. Au-delà, un taux réduit de 7,5% s\'applique, plus 18,6% de prélèvements sociaux. C\'est la fiscalité la plus avantageuse sur l\'épargne longue durée disponible en France.',
       },
     },
     {
@@ -122,7 +122,7 @@ const faqSchema = {
       name: 'Comment l\'assurance vie permet-elle de transmettre son patrimoine ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'En désignant un bénéficiaire dans votre contrat, le capital lui est transmis hors succession : jusqu\'à 152 500€ par bénéficiaire sans droits de succession pour les versements effectués avant 70 ans. Avec 2 enfants bénéficiaires, c\'est 305 000€ transmis totalement exonérés. C\'est le meilleur outil de transmission disponible en France.',
+        text: 'En désignant un bénéficiaire dans votre contrat, le capital lui est transmis hors succession : jusqu\'à 152 500€ par bénéficiaire sans droits de succession pour les versements effectués avant 70 ans. Avec 2 enfants bénéficiaires, c\'est 305 000€ transmis totalement exonérés. C\'est le meilleur outil de transmission disponible en France.',
       },
     },
     {
@@ -163,7 +163,7 @@ const AVANTAGES = [
   {
     icon: 'euro',
     title: 'Fiscalité ultra-avantageuse',
-    text: 'Après 8 ans : abattement de 4 600€ (ou 9 200€ en couple) + taux réduit à 7,5%. Aucun autre placement ne combine épargne disponible et fiscalité aussi allégée.',
+    text: 'Après 8 ans : abattement de 4 600€ (ou 9 200€ en couple) + taux réduit à 7,5%. Aucun autre placement ne combine épargne disponible et fiscalité aussi allégée.',
   },
   {
     icon: 'lock-open',
@@ -173,7 +173,7 @@ const AVANTAGES = [
   {
     icon: 'users',
     title: 'Transmission hors succession',
-    text: 'Jusqu\'à 152 500€ par bénéficiaire transmis sans droits de succession. Le seul placement qui vous permet de choisir librement qui hérite — et à quel coût fiscal.',
+    text: 'Jusqu\'à 152 500€ par bénéficiaire transmis sans droits de succession. Le seul placement qui vous permet de choisir librement qui hérite — et à quel coût fiscal.',
   },
   {
     icon: 'calendar-days',
@@ -191,7 +191,7 @@ const RISQUES = [
   {
     niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'circle-check',
     title: 'Perte sur fonds en euros',
-    text: 'Le fonds en euros est à capital garanti par l\'assureur. Sauf faillite (couverte jusqu\'à 70 000€ par le FGAP), vous ne pouvez pas perdre cette partie de votre épargne.',
+    text: 'Le fonds en euros est à capital garanti par l\'assureur. Sauf faillite (couverte jusqu\'à 70 000€ par le FGAP), vous ne pouvez pas perdre cette partie de votre épargne.',
     mitigation: 'Mon rôle : sélectionner des assureurs solides avec des fonds euros compétitifs et transparents.',
   },
   {
@@ -209,8 +209,8 @@ const RISQUES = [
   {
     niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'landmark',
     title: 'Défaillance de l\'assureur',
-    text: 'En cas de faillite de l\'assureur, le Fonds de Garantie des Assurances de Personnes (FGAP) couvre jusqu\'à 70 000€ par assureur et par assuré.',
-    mitigation: 'Mon rôle : diversifier sur 2 assureurs si votre capital dépasse 70 000€ — une précaution simple et efficace.',
+    text: 'En cas de faillite de l\'assureur, le Fonds de Garantie des Assurances de Personnes (FGAP) couvre jusqu\'à 70 000€ par assureur et par assuré.',
+    mitigation: 'Mon rôle : diversifier sur 2 assureurs si votre capital dépasse 70 000€ — une précaution simple et efficace.',
   },
 ];
 
@@ -270,19 +270,19 @@ const PROFILS = [
 
 const OBJECTIONS = [
   {
-    q: '« J\'ai déjà une assurance vie en banque. »',
+    q: '« J\'ai déjà une assurance vie en banque. »',
     r: 'C\'est le cas de la majorité de mes clients. Je commence toujours par auditer le contrat existant. Si les frais sont trop élevés ou la performance décevante, je vous guide vers une solution plus adaptée — sans vous forcer à fermer l\'actuel.',
   },
   {
-    q: '« Je ne sais pas combien placer. »',
+    q: '« Je ne sais pas combien placer. »',
     r: 'C\'est précisément pour ça que le premier rendez-vous existe. J\'analyse votre budget, vos charges, vos projets et je vous propose un montant initial et une mensualité qui ne mettent pas votre quotidien en péril.',
   },
   {
-    q: '« J\'ai peur de prendre des risques. »',
+    q: '« J\'ai peur de prendre des risques. »',
     r: 'Je calibre l\'allocation à votre profil réel, pas à un profil théorique. Un profil prudent peut rester à 80–100% sur le fonds en euros, capital garanti. Vous ne prenez jamais plus de risque que ce que vous avez explicitement validé.',
   },
   {
-    q: '« Y a-t-il des frais de dossier ? »',
+    q: '« Y a-t-il des frais de dossier ? »',
     r: 'Les frais et modalités applicables sont présentés de manière transparente dès notre premier échange, conformément au cadre réglementaire.',
   },
 ];
@@ -351,9 +351,9 @@ export default function AssuranceViePage() {
         {/* -- CHIFFRES CLÉS -- */}
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
-            <div className="fin-chiffre"><strong><Icon name="coins" /> 1 900 Mds€</strong><span>Encours total en France</span></div>
+            <div className="fin-chiffre"><strong><Icon name="coins" /> 1 900 Mds€</strong><span>Encours total en France</span></div>
             <div className="fin-chiffre"><strong><Icon name="trending-up" /> 2,5–5%</strong><span>Rendement annuel selon profil</span></div>
-            <div className="fin-chiffre"><strong><Icon name="users" /> 152 500€</strong><span>Exonération par bénéficiaire</span></div>
+            <div className="fin-chiffre"><strong><Icon name="users" /> 152 500€</strong><span>Exonération par bénéficiaire</span></div>
             <div className="fin-chiffre"><strong><Icon name="calendar-days" /> 8 ans</strong><span>Pour la fiscalité optimale</span></div>
           </div>
         </section>
@@ -376,14 +376,14 @@ export default function AssuranceViePage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « L'assurance vie est le placement que presque tout le monde possède
+                  « L'assurance vie est le placement que presque tout le monde possède
                   — et que presque personne n'a vraiment optimisé.
                 </p>
                 <p className="ae-citation-text">
                   Trop de frais, une allocation trop prudente, une clause bénéficiaire
                   rédigée à la va-vite : trois erreurs silencieuses qui coûtent des milliers
                   d'euros sur 20 ans. Mon travail, c'est de les corriger — dès le premier
-                  rendez-vous. »
+                  rendez-vous. »
                 </p>
                 <span className="ae-citation-author">
 Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>

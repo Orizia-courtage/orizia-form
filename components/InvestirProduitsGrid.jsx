@@ -10,7 +10,7 @@ const PRODUITS = [
     icon: 'building-2',
     title: 'SCPI',
     sub: 'Immobilier de rendement',
-    desc: 'Percevez des loyers trimestriels sans gérer un seul bien. Accès à l\'immobilier professionnel dès 1 000€.',
+    desc: 'Percevez des loyers trimestriels sans gérer un seul bien. Accès à l\'immobilier professionnel dès 1 000€.',
     rendement: '4–6%',
     horizon: '8–10 ans',
     risque: 'Modéré',
@@ -19,7 +19,7 @@ const PRODUITS = [
     tagBg: 'rgba(45,106,95,0.1)',
     tagColor: 'var(--orizia-primary)',
     accentColor: 'var(--orizia-primary)',
-    points: ['Zéro gestion locative', 'Loyers trimestriels', 'Dès 1 000€'],
+    points: ['Zéro gestion locative', 'Loyers trimestriels', 'Dès 1 000€'],
   },
   {
     href: '/investir/assurance-vie',
@@ -35,7 +35,7 @@ const PRODUITS = [
     tagBg: 'rgba(26,61,53,0.08)',
     tagColor: 'var(--orizia-accent)',
     accentColor: 'var(--orizia-accent)',
-    points: ['Capital disponible', 'Fiscalité 7,5% après 8 ans', '152 500€ exonérés/bénéf.'],
+    points: ['Capital disponible', 'Fiscalité 7,5% après 8 ans', '152 500€ exonérés/bénéf.'],
     featured: true,
   },
   {
@@ -43,7 +43,7 @@ const PRODUITS = [
     icon: 'landmark',
     title: 'PER',
     sub: 'Retraite & défiscalisation',
-    desc: 'Le seul placement avec un rendement fiscal garanti dès jour 1. Jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
+    desc: 'Le seul placement avec un rendement fiscal garanti dès jour 1. Jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
     rendement: '4–7% + fiscal',
     horizon: 'Retraite',
     risque: 'Modéré',
@@ -52,7 +52,7 @@ const PRODUITS = [
     tagBg: 'rgba(180,83,9,0.08)',
     tagColor: '#8a6424',
     accentColor: '#8a6424',
-    points: ['Déduction fiscale immédiate', 'Plafond TNS ~85 000€/an', 'Frais et modalités présentés avant engagement'],
+    points: ['Déduction fiscale immédiate', 'Plafond TNS ~85 000€/an', 'Frais et modalités présentés avant engagement'],
   },
   {
     href: '/investir/crowdfunding',
@@ -68,7 +68,7 @@ const PRODUITS = [
     tagBg: 'rgba(62,127,104,0.08)',
     tagColor: '#3e7f68',
     accentColor: '#3e7f68',
-    points: ['Durée connue à l\'avance', 'Flat tax 31,4%', 'Dès 1 000€'],
+    points: ['Durée connue à l\'avance', 'Flat tax 31,4%', 'Dès 1 000€'],
   },
 ];
 

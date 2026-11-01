@@ -32,7 +32,7 @@ function Turnstile({ onToken }) {
 }
 
 /**
- * « Être rappelé » : prénom + téléphone + créneau → email à Cindy.
+ * « Être rappelé » : prénom + téléphone + créneau → email à Cindy.
  * Anti-spam : Cloudflare Turnstile, champ piège invisible, délai minimal de saisie,
  * validation stricte et limitation du nombre de demandes côté serveur.
  */

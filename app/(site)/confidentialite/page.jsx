@@ -58,7 +58,7 @@ export default function ConfidentialitePage() {
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
           <li style={{ marginBottom: '8px' }}><strong>Données d'identification :</strong> nom, prénom, adresse, téléphone, e-mail, situation familiale.</li>
           <li style={{ marginBottom: '8px' }}><strong>Données financières :</strong> revenus, charges, patrimoine, crédits en cours, avis d'imposition (strictement nécessaires pour l'étude de faisabilité d'un crédit ou d'un placement).</li>
-          <li style={{ marginBottom: '8px' }}><strong>Données techniques des formulaires :</strong> lorsque vous envoyez une demande (rappel, recommandation, fin de simulation), l'adresse IP de votre connexion et le type d'appareil et de navigateur utilisés (par exemple « iPhone · Safari »).</li>
+          <li style={{ marginBottom: '8px' }}><strong>Données techniques des formulaires :</strong> lorsque vous envoyez une demande (rappel, recommandation, fin de simulation), l'adresse IP de votre connexion et le type d'appareil et de navigateur utilisés (par exemple « iPhone · Safari »).</li>
           <li style={{ marginBottom: '8px' }}><strong>Espace client :</strong> votre identifiant (adresse e-mail), votre mot de passe (enregistré sous forme chiffrée, jamais lisible), vos messages avec votre conseillère et, si vous les activez, les informations techniques nécessaires aux notifications sur votre téléphone.</li>
           <li style={{ marginBottom: '8px' }}><strong>Données de santé :</strong> uniquement dans le cadre précis de la recherche d'une assurance emprunteur (si le questionnaire médical est requis par la loi). Ces données sont traitées avec une confidentialité renforcée.</li>
         </ul>

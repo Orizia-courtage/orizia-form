@@ -62,8 +62,8 @@ const TRANCHES = [
     taux: '7,5%',
     taux_label: 'après abattement',
     detail: [
-      { label: 'Abattement annuel (seul)', value: '4 600€' },
-      { label: 'Abattement annuel (couple)', value: '9 200€' },
+      { label: 'Abattement annuel (seul)', value: '4 600€' },
+      { label: 'Abattement annuel (couple)', value: '9 200€' },
       { label: 'Taux réduit sur surplus', value: '7,5%', highlight: true },
       { label: 'Prélèvements sociaux', value: '18,6%' },
     ],
@@ -75,14 +75,14 @@ const TRANSMISSION = [
   {
     icon: 'baby',
     label: 'Versements avant 70 ans',
-    value: '152 500€',
+    value: '152 500€',
     desc: 'par bénéficiaire, exonérés de droits de succession',
     color: '#3e7f68',
   },
   {
     icon: 'user-round',
     label: 'Versements après 70 ans',
-    value: '30 500€',
+    value: '30 500€',
     desc: 'abattement global sur les primes (gains toujours exonérés)',
     color: '#a87a2c',
   },
@@ -176,7 +176,7 @@ export default function AVFiscalite() {
         </div>
         <div className="crowd-risques-note" style={{ marginTop: 16 }}>
           <Icon name="lightbulb" /> <strong>Exemple concret :</strong> avec 2 enfants bénéficiaires, vous pouvez transmettre jusqu'à{' '}
-          <strong>305 000€ totalement exonérés</strong> de droits de succession via votre assurance vie.
+          <strong>305 000€ totalement exonérés</strong> de droits de succession via votre assurance vie.
           Aucun autre placement ne permet ça.
         </div>
       </div>

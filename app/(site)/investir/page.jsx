@@ -188,7 +188,7 @@ export default function InvestirPage() {
                 <div className="inv-hero-actions">
                   <ContactPopup label="Bilan patrimonial" icon="calendar-days" className="fin-btn-primary inv-hero-cta-main"/>
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: '#3e7f68', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Découvrir les placements ?
+                    Découvrir les placements <Icon name="arrow-down" />
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
@@ -240,8 +240,8 @@ export default function InvestirPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « L'erreur la plus courante n'est pas de faire de mauvais placements —
-                  c'est de laisser son argent se faire grignoter par l'inflation par peur de mal faire. »
+                  « L'erreur la plus courante n'est pas de faire de mauvais placements —
+                  c'est de laisser son argent se faire grignoter par l'inflation par peur de mal faire. »
                 </p>
                 <p className="ae-citation-text">
                   Mon rôle est de démystifier l'investissement. Je filtre les produits toxiques

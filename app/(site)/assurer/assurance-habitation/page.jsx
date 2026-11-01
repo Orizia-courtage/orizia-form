@@ -110,7 +110,7 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: "Pourquoi passer par une courtier indépendant ?",
+      name: "Pourquoi passer par une courtière indépendante ?",
       acceptedAnswer: {
         '@type': 'Answer',
         text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat.",
@@ -124,7 +124,7 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: '+7%', label: 'Hausse moyenne subie en 2026', icon: 'trending-up' },
-  { value: '250€', label: 'Économie annuelle possible', icon: 'coins' },
+  { value: 'Jusqu\'à 100\u00a0€', label: 'Économie annuelle possible', icon: 'coins' },
   { value: '1 an', label: 'Délai pour changer librement', icon: 'calendar-days' },
   { value: '0 effort', label: 'Je gère la résiliation', icon: 'circle-check' },
 ];
@@ -152,7 +152,7 @@ const GARANTIES = [
     icon: 'tornado',
     label: 'Catastrophes naturelles',
     obligatoire: true,
-    desc: 'Inondations, sécheresse, tempêtes. Avec la taxe qui passe à 20%, c\'est le moment de comparer pour absorber cette hausse.',
+    desc: 'Inondations, sécheresse, tempêtes. Avec la taxe catastrophes naturelles passée à 20 % depuis 2025, c\'est le moment de comparer pour absorber cette hausse.',
   },
   {
     icon: 'lock-open',
@@ -184,12 +184,12 @@ const DANGERS = [
   {
     icon: 'trending-up',
     title: 'La hausse silencieuse chaque année',
-    text: 'En 2026, l\'assurance habitation prend +7% en moyenne. Si vous êtes chez le même assureur depuis 5 ans, vous payez probablement 30% de trop pour les mêmes garanties.',
+    text: 'En 2026, l\'assurance habitation prend +7% en moyenne. Si vous êtes chez le même assureur depuis 5 ans, vous payez souvent trop cher pour les mêmes garanties.',
   },
   {
     icon: 'triangle-alert',
     title: 'La sous-assurance, un piège au moment du sinistre',
-    text: 'Si vous avez déclaré 20 000€ de meubles mais que vous en avez 40 000€ suite à des rachats, l\'assureur réduira votre indemnisation de moitié. Je m\'assure que votre contrat colle à la réalité.',
+    text: 'Si vous avez déclaré 20 000€ de meubles mais que vous en avez 40 000€ suite à des rachats, l\'assureur réduira votre indemnisation de moitié. Je m\'assure que votre contrat colle à la réalité.',
   },
   {
     icon: 'search',
@@ -223,19 +223,19 @@ const ETAPES = [
 
 const OBJECTIONS = [
   {
-    q: '« Je n\'ai pas le temps de m\'occuper de la paperasse. »',
+    q: '« Je n\'ai pas le temps de m\'occuper de la paperasse. »',
     r: 'C\'est l\'argument n°1 de mes clients ! C\'est exactement pour cela que je fais tout à votre place. La loi Hamon m\'autorise à résilier votre contrat pour vous. Votre seule action ? Me dire "oui".',
   },
   {
-    q: '« Je suis chez mon banquier, c\'est plus simple pour les prélèvements. »',
+    q: '« Je suis chez mon banquier, c\'est plus simple pour les prélèvements. »',
     r: 'C\'est simple, mais c\'est très cher. Les banques facturent souvent la "praticité" au prix fort. Changer avec moi vous prend 15 minutes et vous fait économiser des centaines d\'euros sur le long terme.',
   },
   {
-    q: '« Est-ce que vos contrats couvrent aussi bien ? »',
+    q: '« Est-ce que vos contrats couvrent aussi bien ? »',
     r: 'Souvent mieux ! Mon indépendance me permet de fuir les contrats "bas de gamme" bourrés d\'exclusions. Je ne vous propose que des assureurs solides avec qui j\'ai l\'habitude de travailler en cas de sinistre.',
   },
   {
-    q: '« Et si j\'ai un dégât des eaux demain ? »',
+    q: '« Et si j\'ai un dégât des eaux demain ? »',
     r: 'Je m\'assure toujours que les dates se chevauchent parfaitement. À minuit le contrat A s\'arrête, à minuit et une seconde le contrat B prend le relais. Vous n\'êtes jamais à découvert.',
   },
 ];
@@ -304,7 +304,7 @@ export default function AssuranceHabitationPage() {
             <h1 className="ae-hero-title">Arrêtez de surpayer<br />votre assurance habitation</h1>
             <p className="ae-hero-intro">
               Votre assureur profite de votre fidélité pour augmenter les prix. Je mets le marché 
-              en concurrence pour vous faire économiser <strong>jusqu'à 250€/an</strong>, 
+              en concurrence pour vous faire économiser <strong>jusqu'à 100 €/an</strong>, 
               avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="ae-hero-btns">
@@ -350,7 +350,7 @@ export default function AssuranceHabitationPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « On paie tous notre assurance habitation par habitude, sans réaliser que les tarifs explosent chaque année. »
+                  « On paie tous notre assurance habitation par habitude, sans réaliser que les tarifs explosent chaque année. »
                 </p>
                 <p className="ae-citation-text">
                   Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
@@ -457,10 +457,10 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 ))}
               </div>
 
-              {/* IMAGE 2 AJOUTÉE ICI */}
+              {/* Illustration : dossier habitation (et non le parcours emprunteur) */}
               <div className="ae-accompagnement-image">
                 <Image
-                  src="/images/dossier_assurance_emprunteur.webp"
+                  src="/images/dossier-courtage-habitation.webp"
                   alt="Courtier préparant un dossier d'assurance habitation"
                   title="Un accompagnement transparent et sans effort"
                   width={863}
@@ -489,7 +489,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
         </section>
 
         {/* -- LOI HAMON -- */}
-        <section id="section-hamon" className="crowd-section" style={{ background: 'var(--orizia-accent)' }}>
+        <section id="section-hamon" className="crowd-section oz-hamon-dark" style={{ background: 'var(--orizia-accent)' }}>
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge" style={{ background: 'rgba(107,182,155,0.15)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}>
@@ -540,7 +540,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <div className="ah-hamon-chrono-sep"><Icon name="arrow-right" className="oz-arrow" /></div>
               <div className="ah-hamon-chrono-item ah-hamon-chrono-item--gold">
                 <div className="ah-hamon-chrono-icon"><Icon name="coins" /></div>
-                <div className="ah-hamon-chrono-val">~250€</div>
+                <div className="ah-hamon-chrono-val">~100 €</div>
                 <div className="ah-hamon-chrono-label">Économies annuelles</div>
               </div>
             </div>
@@ -607,7 +607,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <div className="fin-section-head">
               <span className="fin-badge">Vision Globale</span>
               <h2>On fait le grand ménage<br />dans vos contrats ?</h2>
-              <p>Avoir un courtier dédiée, c'est l'occasion de centraliser et d'optimiser l'ensemble de votre budget.</p>
+              <p>Avoir une courtière dédiée, c'est l'occasion de centraliser et d'optimiser l'ensemble de votre budget.</p>
             </div>
             <div className="fin-cards fin-cards--light">
               {[
@@ -628,8 +628,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'shield-check',
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
-                  text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
+                  badge: 'Économisez jusqu\'à 15 000€',
                   pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
                   pillBorder: 'rgba(107,182,155,0.3)',
@@ -677,7 +677,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <p>
               Je scanne le marché, j'ajuste vos garanties, je déniche le tarif juste et 
               je m'occupe de la lettre de résiliation. Vous n'avez strictement rien à perdre, 
-              à part quelques dizaines d'euros d'économies chaque mois.
+              à part quelques dizaines d'euros d'économies chaque année.
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="Contactez-moi" icon="clipboard-list" className="fin-btn-primary" />

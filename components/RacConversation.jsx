@@ -96,7 +96,7 @@ export const QUESTIONS = [
     id: 'immo', input: 'amounts', when: (f) => f.nb_immo > 0,
     fields: [
       { key: 'mensualite_immo', label: 'Mensualité', unit: '€/mois', min: 100, err: 'Au moins 100 € par mois.' },
-      { key: 'capital_immo', label: 'Capital restant dû', unit: '€', min: 5000, err: 'Au moins 5 000 €.' },
+      { key: 'capital_immo', label: 'Capital restant dû', unit: '€', min: 5000, err: 'Au moins 5 000 €.' },
     ],
     say: (f) => [`Pour ${f.nb_immo > 1 ? 'vos crédits immobiliers' : 'votre crédit immobilier'} : combien remboursez-vous par mois, et combien reste-t-il à rembourser ?`, 'Un ordre de grandeur suffit, vous le trouvez sur votre relevé de prêt.'],
     answer: (f) => `${eur(f.mensualite_immo)}/mois · ${eur(f.capital_immo)} restants`,
@@ -194,7 +194,7 @@ export const QUESTIONS = [
   {
     id: 'charges', input: 'amounts',
     fields: [
-      { key: 'loyer', label: 'Loyer', unit: '€/mois', min: 100, max: 10000, err: 'Entre 100 € et 10 000 €.', when: (f) => f.statut_logement === 'Locataire', hint: 'Charges comprises' },
+      { key: 'loyer', label: 'Loyer', unit: '€/mois', min: 100, max: 10000, err: 'Entre 100 € et 10 000 €.', when: (f) => f.statut_logement === 'Locataire', hint: 'Charges comprises' },
       { key: 'autres_charges', label: 'Autres charges', unit: '€/mois', optional: true, hint: 'Pension alimentaire… (facultatif)' },
     ],
     say: (f) => [f.statut_logement === 'Locataire' ? 'Et vos charges hors crédits : votre loyer, et d\'autres charges régulières ?' : 'Avez-vous des charges régulières hors crédits, comme une pension alimentaire ?'],
@@ -316,7 +316,7 @@ export default function RacConversation() {
     try { sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ form, answered })); } catch { /* ignore */ }
   }, [form, answered, restored, done]);
 
-  // Cindy « écrit » un court instant avant chaque nouvelle question.
+  // Cindy « écrit » un court instant avant chaque nouvelle question.
   useEffect(() => {
     if (!current || !restored) return;
     if (reduce) { setTyping(false); return; }
@@ -356,7 +356,7 @@ export default function RacConversation() {
   function answer(q, overrides = {}) {
     const f = { ...form, ...overrides };
     if (Object.keys(overrides).length) setForm(f);
-    // Prénom et nom : majuscule initiale (« julie » → « Julie », « le gall » → « Le Gall »).
+    // Prénom et nom : majuscule initiale (« julie » → « Julie », « le gall » → « Le Gall »).
     if (q.id === 'prenom' || q.id === 'nom') {
       f[q.field] = f[q.field].trim().replace(/\s+/g, ' ').replace(/(^|[\s'-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase());
       setForm((x) => ({ ...x, [q.field]: f[q.field] }));
@@ -367,7 +367,7 @@ export default function RacConversation() {
     if (!msg && q.field && ['cards', 'chips', 'consent'].includes(q.input) && !f[q.field]) msg = 'Choisissez une réponse.';
     if (msg) { setError(msg); return; }
     setError('');
-    // Réponses qui n'ont plus lieu d'être (ex. « Non » à la LOA) : on vide les montants liés.
+    // Réponses qui n'ont plus lieu d'être (ex. « Non » à la LOA) : on vide les montants liés.
     if (q.id === 'loa' && f.has_loa === 'non') setForm((x) => ({ ...x, loa_mensualite: '', loa_duree: '', loa_total: '' }));
     if (q.id === 'loa_detail') setForm((x) => ({ ...x, loa_total: String(Math.round(n(x.loa_mensualite) * n(x.loa_duree))) }));
     if (q.id === 'paiement' && f.has_paiement === 'non') setForm((x) => ({ ...x, paiement_total: '' }));

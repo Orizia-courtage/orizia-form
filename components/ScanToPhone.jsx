@@ -25,7 +25,7 @@ const CONFETTI = [
 
 /**
  * Passer de l'ordinateur au téléphone : QR code à scanner (viseur animé,
- * confettis), étapes, et alternatives « copier » / « ouvrir l'application ».
+ * confettis), étapes, et alternatives « copier » / « ouvrir l'application ».
  */
 export default function ScanToPhone({ href, icon, color = '#3e7f68', title, value, copyLabel = 'Copier', openLabel, finalStep = 'C’est parti', compact = false, children }) {
   const [qr, setQr] = useState('');
@@ -54,7 +54,7 @@ export default function ScanToPhone({ href, icon, color = '#3e7f68', title, valu
     <div className={`scan${compact ? ' scan--compact' : ''}`}>
       {title && <h2 className="cp-scan-title">{title}</h2>}
       <div className="cp-scan-stage">
-        <svg className="cp-scan-confetti" viewBox="0 0 320 260" aria-hidden="true">
+        <svg className="cp-scan-confetti" viewBox="0 0 320 260" aria-hidden="true">
           {CONFETTI.map((c, i) => (
             <g key={i} className="cp-confetto" style={{ '--x': `${c.dx}px`, '--y': `${c.dy}px`, '--r': `${c.rot}deg`, '--d': `${i * 45}ms`, '--f': `${2.6 + (i % 5) * 0.5}s` }}>
               <g transform={`translate(${c.x} ${c.y})`}>{c.shape}</g>

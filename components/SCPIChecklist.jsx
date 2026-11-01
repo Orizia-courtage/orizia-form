@@ -19,7 +19,7 @@ const CRITERES = [
   },
   {
     id: 'capital',
-    label: 'J\'ai au moins 5 000€ à investir',
+    label: 'J\'ai au moins 5 000€ à investir',
     desc: 'Pour une diversification minimale sur 2–3 SCPI différentes et amortir les frais de souscription.',
     required: true,
   },

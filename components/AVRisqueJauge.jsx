@@ -19,7 +19,7 @@ const RISQUES = [
     icon: 'landmark',
     sans: 80,
     avec: 5,
-    desc_sans: 'Un contrat bancaire avec 3% de frais sur versements sur 20 ans peut vous coûter 30 000€ de performance nette. La plupart des épargnants ne le réalisent jamais.',
+    desc_sans: 'Un contrat bancaire avec 3% de frais sur versements sur 20 ans peut vous coûter 30 000€ de performance nette. La plupart des épargnants ne le réalisent jamais.',
     desc_avec: 'Les frais sur versements et les modalités des contrats sont présentés avec transparence.',
   },
   {

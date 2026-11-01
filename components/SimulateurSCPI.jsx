@@ -75,7 +75,7 @@ export default function SimulateurSCPI() {
                     style={{ '--pct': `${pctCapital}%` }}
                     aria-label="Capital à investir"
                   />
-                  <div className="simu-slider-labels"><span>1 000€</span><span>200 000€</span></div>
+                  <div className="simu-slider-labels"><span>1 000€</span><span>200 000€</span></div>
                 </div>
               </div>
 
@@ -134,7 +134,7 @@ export default function SimulateurSCPI() {
                     style={{ '--pct': `${pctEpargne}%` }}
                     aria-label="Épargne mensuelle"
                   />
-                  <div className="simu-slider-labels"><span>50€</span><span>2 000€</span></div>
+                  <div className="simu-slider-labels"><span>50€</span><span>2 000€</span></div>
                 </div>
               </div>
 

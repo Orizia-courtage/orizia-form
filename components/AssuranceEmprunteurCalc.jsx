@@ -78,7 +78,7 @@ export default function AssuranceEmprunteurCalc() {
             className="aec-slider"
             style={{ '--pct': `${((capital - 50000) / 550000) * 100}%` }}
           />
-          <div className="aec-slider-labels"><span>50 000€</span><span>600 000€</span></div>
+          <div className="aec-slider-labels"><span>50 000€</span><span>600 000€</span></div>
         </div>
 
         {/* Durée */}

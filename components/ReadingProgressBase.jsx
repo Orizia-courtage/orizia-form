@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// Ligne de lecture : une section est « atteinte » quand son haut passe sous le header.
+// Ligne de lecture : une section est « atteinte » quand son haut passe sous le header.
 const READ_LINE = 120;
 // Décalage appliqué quand on clique sur un jalon (hauteur du header + marge).
 const SCROLL_OFFSET = 96;

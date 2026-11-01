@@ -7,7 +7,7 @@ const ETAPES_FLUX = [
   {
     icon: 'user',
     label: 'Vous investissez',
-    desc: 'Dès 1 000€, comptant ou à crédit',
+    desc: 'Dès 1 000€, comptant ou à crédit',
     color: 'var(--orizia-accent)',
   },
   {
@@ -40,8 +40,8 @@ const ETAPES_FLUX = [
 const COMPARATIF = [
   {
     critere: 'Ticket d\'entrée',
-    direct: 'Souvent 200 000€+',
-    scpi: 'Dès 1 000€',
+    direct: 'Souvent 200 000€+',
+    scpi: 'Dès 1 000€',
     scpiGood: true,
   },
   {

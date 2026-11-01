@@ -101,7 +101,7 @@ const faqSchema = {
       name: 'J\'ai perdu mon lien de recommandation, comment le retrouver ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Cliquez sur « Lien perdu ? Recevoir à nouveau ma carte » en haut de cette page et indiquez l\'e-mail et le téléphone donnés lors de votre dossier : votre carte et votre lien vous sont renvoyés par e-mail. Si vous avez un espace client, votre lien est aussi dans l\'onglet « Parrainer ».',
+        text: 'Cliquez sur « Lien perdu ? Recevoir à nouveau ma carte » en haut de cette page et indiquez l\'e-mail et le téléphone donnés lors de votre dossier : votre carte et votre lien vous sont renvoyés par e-mail. Si vous avez un espace client, votre lien est aussi dans l\'onglet « Parrainer ».',
       },
     },
     {
@@ -150,7 +150,7 @@ export default function ParrainagePage() {
             <div className="parr-share-icon"><Icon name="smartphone" /></div>
             <div className="parr-share-body">
               <h2>Vous avez déjà votre carte de recommandation ?</h2>
-              <p>Le plus simple : <strong>envoyez votre lien personnel</strong> à votre proche par WhatsApp ou SMS (bouton « Partager » dans l&apos;e-mail de votre carte ou dans votre espace client). Il laisse lui-même ses coordonnées et la recommandation vous est attribuée automatiquement.</p>
+              <p>Le plus simple : <strong>envoyez votre lien personnel</strong> à votre proche par WhatsApp ou SMS (bouton « Partager » dans l&apos;e-mail de votre carte ou dans votre espace client). Il laisse lui-même ses coordonnées et la recommandation vous est attribuée automatiquement.</p>
               <RetrouverLien />
             </div>
           </div>

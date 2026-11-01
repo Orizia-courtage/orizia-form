@@ -27,9 +27,9 @@ const SITUATIONS = [
     icon: 'shield-check',
     label: 'Payer moins cher mes assurances',
     hint: 'Emprunteur, habitation, auto, moto…',
-    probleme: 'Votre assurance augmente chaque année sans que rien ne change. Vous payez une « taxe à la fidélité » sans le savoir.',
+    probleme: 'Votre assurance augmente chaque année sans que rien ne change. Vous payez une « taxe à la fidélité » sans le savoir.',
     solution: 'Je compare le marché, je résilie votre ancien contrat à votre place (lois Hamon et Lemoine) et je vous trouve une couverture équivalente ou meilleure, moins chère.',
-    gain: 'Jusqu\'à 15 000 € économisés sur l\'assurance emprunteur seule',
+    gain: 'Jusqu\'à 15 000 € économisés sur l\'assurance emprunteur seule',
     liens: [
       { label: 'Assurance emprunteur', href: '/assurer/assurance-emprunteur' },
       { label: 'Assurance habitation', href: '/assurer/assurance-habitation' },

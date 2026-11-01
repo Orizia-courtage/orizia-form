@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-// Petit bloc « humain » en tête des appels à l'action sombres de fin de page :
+// Petit bloc « humain » en tête des appels à l'action sombres de fin de page :
 // le visage de Cindy, sa disponibilité et trois garanties. Purement visuel (aucun état).
 export default function CtaPresence() {
   return (

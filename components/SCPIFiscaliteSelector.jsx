@@ -54,7 +54,7 @@ const STRATEGIES = [
       tmi41: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Économie de 28,2% vs direct', tone: 'good' },
       tmi45: { brut: '4%', net: '~2,7%', taux_fiscal: '31,4%', note: 'Économie de 32,2% vs direct', tone: 'good' },
     },
-    conseil: 'La meilleure enveloppe pour les TMI 30%+. Après 8 ans, la fiscalité tombe à 7,5% + abattement 4 600€/an. Liquidité améliorée en bonus.',
+    conseil: 'La meilleure enveloppe pour les TMI 30%+. Après 8 ans, la fiscalité tombe à 7,5% + abattement 4 600€/an. Liquidité améliorée en bonus.',
   },
   {
     id: 'nuepropriete',

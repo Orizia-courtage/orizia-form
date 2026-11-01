@@ -35,7 +35,7 @@ const CRITERES = [
   },
   {
     id: 'teletravail',
-    label: 'Je roule moins de 10 000 km/an ou je télétravaille',
+    label: 'Je roule moins de 10 000 km/an ou je télétravaille',
     desc: 'Les formules kilométriques ou "Pay as you drive" peuvent réduire votre prime de 20 à 30%.',
     required: false,
     economie: 120,

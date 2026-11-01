@@ -94,7 +94,7 @@ const faqSchema = {
       name: 'Comment est calculée la soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La soulte est calculée sur la valeur vénale du bien au moment de la séparation, déduction faite du capital restant dû sur le crédit immobilier en cours. Par exemple : bien estimé à 300 000€, capital restant dû de 100 000€ ? valeur nette de 200 000€. Pour une détention à 50/50, la soulte est de 100 000€. Un notaire officialise le calcul et la transaction.',
+        text: 'La soulte est calculée sur la valeur vénale du bien au moment de la séparation, déduction faite du capital restant dû sur le crédit immobilier en cours. Par exemple : bien estimé à 300 000€, capital restant dû de 100 000€ ? valeur nette de 200 000€. Pour une détention à 50/50, la soulte est de 100 000€. Un notaire officialise le calcul et la transaction.',
       },
     },
     {
@@ -267,7 +267,7 @@ export default function RachatSoultePage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Un rachat de soulte, c'est souvent l'une des opérations les plus stressantes de la vie — parce qu'elle se passe dans un contexte émotionnel difficile. »
+                  « Un rachat de soulte, c'est souvent l'une des opérations les plus stressantes de la vie — parce qu'elle se passe dans un contexte émotionnel difficile. »
                 </p>
                 <p className="ae-citation-text">
                   Mon rôle est de prendre en charge toute la partie financière pour que vous puissiez vous concentrer sur l'essentiel. Je monte le dossier, je négocie avec les banques, et je coordonne avec votre notaire pour que tout soit prêt à temps. Sans surprise, sans retard.
@@ -497,7 +497,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   title: 'Assurance emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'économiser des milliers d\'euros.',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  badge: 'Économisez jusqu\'à 15 000€',
                   badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(107,182,155,0.3)',

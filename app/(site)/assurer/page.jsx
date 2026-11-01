@@ -192,7 +192,7 @@ export default function AssurerPage() {
                 <div className="inv-hero-actions">
                   <ContactPopup label="Auditer mes contrats" icon="clipboard-list" className="fin-btn-primary inv-hero-cta-main" />
                   <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: '#3e7f68', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Voir mes solutions ?
+                    Voir mes solutions <Icon name="arrow-down" />
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
@@ -244,7 +244,7 @@ export default function AssurerPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Payer une assurance, c'est acheter de la tranquillité d'esprit. Mais quand je vois les tarifs augmenter silencieusement chaque année, je vois surtout de l'argent jeté par les fenêtres. »
+                  « Payer une assurance, c'est acheter de la tranquillité d'esprit. Mais quand je vois les tarifs augmenter silencieusement chaque année, je vois surtout de l'argent jeté par les fenêtres. »
                 </p>
                 <p className="ae-citation-text">
                   Mon rôle n'est pas de vous sur-assurer, mais de trouver le contrat qui vous couvre vraiment, au juste prix, et de gérer toute la paperasse de résiliation à votre place. Vous êtes protégé, je m'occupe du reste.
@@ -398,7 +398,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <strong>Modalités de courtage transparentes.*</strong>
             </p>
             <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
-              <ContactPopup label="Contactez moi" icon="phone" className="fin-btn-primary" />
+              <ContactPopup label="Contactez-moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS, régie par l'ACPR.

@@ -342,7 +342,7 @@ export default function HomePage() {
             </div>
 
             <div className="hh-visual">
-              <svg className="hh-ring" viewBox="0 0 600 600" aria-hidden="true">
+              <svg className="hh-ring" viewBox="0 0 600 600" aria-hidden="true">
                 <circle className="hh-ring-a" cx="300" cy="300" r="290" />
                 <circle className="hh-ring-b" cx="300" cy="300" r="248" />
               </svg>
@@ -402,7 +402,7 @@ export default function HomePage() {
             </div>
             <div className="hq-content">
               <blockquote className="hq-quote">
-                « Je ne travaille pas pour les banques. Je travaille pour vous. »
+                « Je ne travaille pas pour les banques. Je travaille pour vous. »
               </blockquote>
               <p className="hq-text">
                 Quand vous me confiez un dossier, je cherche la solution la plus juste

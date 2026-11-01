@@ -7,7 +7,7 @@ const BASE = [
   { icon: 'flame', label: 'Incendie & Explosions', desc: 'La base absolue. Couvre la destruction de votre logement et de vos biens suite à un incendie ou un court-circuit majeur.' },
   { icon: 'droplets', label: 'Dégâts des eaux', desc: 'Le sinistre n°1 en France. Fuite, canalisation rompue ou infiltration : je vérifie toujours les plafonds d\'indemnisation.' },
   { icon: 'shield-check', label: 'Responsabilité civile', desc: 'Vous blessez quelqu\'un ou vous cassez un objet chez des amis ? Cette garantie prend le relais pour toute votre famille.' },
-  { icon: 'tornado', label: 'Catastrophes naturelles', desc: 'Inondations, sécheresse, tempêtes. Avec la taxe qui passe à 20%, c\'est le moment de comparer pour absorber cette hausse.' },
+  { icon: 'tornado', label: 'Catastrophes naturelles', desc: 'Inondations, sécheresse, tempêtes. Avec la taxe catastrophes naturelles passée à 20 % depuis 2025, c\'est le moment de comparer pour absorber cette hausse.' },
 ];
 
 const OPTIONS = [

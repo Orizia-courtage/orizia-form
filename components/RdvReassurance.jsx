@@ -25,7 +25,7 @@ export default function RdvReassurance() {
       </div>
 
       <div className="rdv-reassurance-quote">
-        « Vous parlez directement à moi — pas à un standard, pas à un commercial. Je réponds personnellement à chaque demande. »
+        « Vous parlez directement à moi — pas à un standard, pas à un commercial. Je réponds personnellement à chaque demande. »
       </div>
 
       <div className="rdv-reassurance-points">

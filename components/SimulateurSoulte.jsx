@@ -11,8 +11,8 @@ const QP_PRESETS = ['25', '33', '50', '67', '75'];
 export default function SimulateurSoulte() {
   const { soulte: soulteConfig } = useSimulationConfig();
   // Exemple pré-rempli : le résultat s'affiche tout de suite (plus de case vide au chargement).
-  const [valeur, setValeur] = useState('300 000');
-  const [crd, setCrd] = useState('100 000');
+  const [valeur, setValeur] = useState('300 000');
+  const [crd, setCrd] = useState('100 000');
   // Droit de partage : 1,1 % après un divorce ou une fin de PACS (depuis 2022), 2,5 % dans les autres cas.
   const [cas, setCas] = useState('separation');
   const [quotePart, setQuotePart] = useState('50');
@@ -80,7 +80,7 @@ export default function SimulateurSoulte() {
               id="ss-valeur"
               type="text"
               inputMode="decimal"
-              placeholder="300 000"
+              placeholder="300 000"
               value={valeur}
               onChange={e => setValeur(e.target.value)}
               className="ss-input"
@@ -102,7 +102,7 @@ export default function SimulateurSoulte() {
               id="ss-crd"
               type="text"
               inputMode="decimal"
-              placeholder="100 000"
+              placeholder="100 000"
               value={crd}
               onChange={e => setCrd(e.target.value)}
               className="ss-input"

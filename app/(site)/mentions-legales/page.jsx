@@ -104,7 +104,7 @@ export default function MentionsLegalesPage() {
             Les informations recueillies via les formulaires (contact, simulation, prise de rendez-vous) sont enregistrées dans un fichier informatisé par {COMPANY.denomination} pour le traitement de votre demande de financement ou d’assurance.
           </p>
           <p style={{ marginTop: '16px' }}>
-            Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d’un droit d’accès, de rectification, de portabilité et d’effacement de vos données. Vous pouvez exercer ce droit en contactant : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>.
+            Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d’un droit d’accès, de rectification, de portabilité et d’effacement de vos données. Vous pouvez exercer ce droit en contactant : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>.
           </p>
         </section>
 

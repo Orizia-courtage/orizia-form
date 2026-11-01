@@ -6,7 +6,7 @@ import { Turnstile } from '@/components/ParrainageForm';
 
 const ACTION = 'orizia_lien';
 
-// « J'ai perdu mon lien » : e-mail + téléphone de la fiche client → la carte est renvoyée par e-mail.
+// « J'ai perdu mon lien » : e-mail + téléphone de la fiche client → la carte est renvoyée par e-mail.
 export default function RetrouverLien() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState('');
@@ -51,7 +51,7 @@ export default function RetrouverLien() {
       <Turnstile onToken={onToken} action={ACTION} />
       {error && <div className="parr-server-error" role="alert"><Icon name="ban" /> {error}</div>}
       <div className="parr-actions"><button type="submit" className="parr-btn-primary" disabled={state === 'sending'}>{state === 'sending' ? 'Envoi…' : 'Recevoir ma carte'}</button></div>
-      <p className="parr-legal">Vous avez un espace client ? Votre lien est aussi dans l&apos;onglet « Parrainer » de l&apos;<a href="https://espace.orizia-courtage.fr">espace client</a>.</p>
+      <p className="parr-legal">Vous avez un espace client ? Votre lien est aussi dans l&apos;onglet « Parrainer » de l&apos;<a href="https://espace.orizia-courtage.fr">espace client</a>.</p>
     </form>
   );
 }

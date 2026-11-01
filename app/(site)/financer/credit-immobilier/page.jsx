@@ -212,20 +212,20 @@ const ETAPES = [
 
 const OBJECTIONS = [
   {
-    q: '« Ma banque me connaît, ça ira plus vite avec eux. »',
+    q: '« Ma banque me connaît, ça ira plus vite avec eux. »',
     r: 'Plus vite, peut-être. Moins cher, c\'est rare. Je dépose d\'ailleurs systématiquement le dossier dans votre propre banque pour qu\'elle doive s\'aligner sur les offres de ses concurrentes. Je l\'oblige à faire un effort.',
   },
   {
-    q: '« Un courtier, ça coûte cher. »',
+    q: '« Un courtier, ça coûte cher. »',
     r: 'C\'est l\'inverse. Les honoraires de courtage sont intégrés dans votre plan de financement. Mais surtout, la baisse du taux et la délégation d\'assurance que je vous obtiens vous font économiser des dizaines de milliers d\'euros sur la durée du prêt.',
   },
   {
-    q: '« On m\'a dit que j\'étais limite au niveau de l\'endettement. »',
+    q: '« On m\'a dit que j\'étais limite au niveau de l\'endettement. »',
     r: 'C\'est précisément là que mon expertise intervient. Le calcul du taux d\'endettement (33 ou 35%) peut varier d\'une banque à l\'autre selon la façon dont on présente vos revenus ou si l\'on restructure vos petits crédits en cours.',
   },
   {
-    q: '« J\'ai eu un problème de santé, je n\'aurai pas mon prêt. »',
-    r: 'Grâce à la loi Lemoine, le questionnaire de santé est supprimé pour les prêts < 200 000€ par personne remboursés avant 60 ans. Et si vous n\'entrez pas dans ce cadre, j\'ai des partenaires assureurs spécialisés dans les risques aggravés.',
+    q: '« J\'ai eu un problème de santé, je n\'aurai pas mon prêt. »',
+    r: 'Grâce à la loi Lemoine, le questionnaire de santé est supprimé pour les prêts < 200 000€ par personne remboursés avant 60 ans. Et si vous n\'entrez pas dans ce cadre, j\'ai des partenaires assureurs spécialisés dans les risques aggravés.',
   },
 ];
 
@@ -316,7 +316,7 @@ export default function CreditImmobilierPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
+                  « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
                 </p>
                 <p className="ae-citation-text">
                   Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
@@ -535,7 +535,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <div className="fin-cards fin-cards--light">
               <Link href="/assurer/assurance-emprunteur" className="fin-card fin-card--featured">
                 <span className="fin-card-pill" style={{ background: 'rgba(107,182,155,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}>
-                  <Icon name="coins" /> Économisez jusqu'à 15 000€
+                  <Icon name="coins" /> Économisez jusqu'à 15 000€
                 </span>
                 <div className="fin-card-icon"><Icon name="shield-check" /></div>
                 <div className="fin-card-sub">L'économie cachée</div>

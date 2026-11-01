@@ -60,7 +60,7 @@ const TARIFS = [
     desc: 'Superbike, custom, touring premium.',
     tiers: 'Dès 500€',
     inter: 'Dès 800€',
-    tousRisques: 'Dès 1 200€',
+    tousRisques: 'Dès 1 200€',
     recommande: 'Tous risques',
     recommandeDesc: 'Aucun compromis possible sur ce niveau de valeur.',
     recommandeColor: 'var(--orizia-primary)',

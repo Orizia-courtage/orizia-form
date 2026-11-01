@@ -19,7 +19,7 @@ const CRITERES = [
   },
   {
     id: 'capital',
-    label: 'J\'ai au moins 1 000€ à investir',
+    label: 'J\'ai au moins 1 000€ à investir',
     desc: 'Le ticket d\'entrée minimum sur la plupart des plateformes sérieuses.',
     required: true,
   },

@@ -8,8 +8,8 @@ import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 import Icon from '@/components/Icon';
 export default function SimulateurRegroupement() {
   const { debt: debtConfig } = useSimulationConfig();
-  const [mensualite, setMensualite] = useState('1 200'); // exemple pré-rempli : la jauge s'affiche dès l'arrivée
-  const [revenus, setRevenus] = useState('3 000');
+  const [mensualite, setMensualite] = useState('1 200'); // exemple pré-rempli : la jauge s'affiche dès l'arrivée
+  const [revenus, setRevenus] = useState('3 000');
   const [nbCredits, setNbCredits] = useState('2');
 
   const fmt = (n) =>
@@ -83,7 +83,7 @@ export default function SimulateurRegroupement() {
               type="text"
               inputMode="numeric"
               pattern="[0-9]*"
-              placeholder="1 200"
+              placeholder="1 200"
               value={mensualite}
               onChange={e => setMensualite(e.target.value)}
               className="sr-input"
@@ -105,7 +105,7 @@ export default function SimulateurRegroupement() {
               type="text"
               inputMode="numeric"
               pattern="[0-9]*"
-              placeholder="3 000"
+              placeholder="3 000"
               value={revenus}
               onChange={e => setRevenus(e.target.value)}
               className="sr-input"

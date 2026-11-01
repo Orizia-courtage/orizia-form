@@ -16,7 +16,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
   description:
-    'Je calcule vos plafonds de déduction exacts et sélectionne le PER le plus adapté, avec jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
+    'Je calcule vos plafonds de déduction exacts et sélectionne le PER le plus adapté, avec jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/per' },
   openGraph: {
     title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
@@ -104,7 +104,7 @@ const faqSchema = {
       name: 'Combien puis-je déduire grâce au PER en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour un salarié, le plafond est de 10% des revenus professionnels nets N-1, dans la limite de 10% de 8 fois le PASS (soit environ 35 000€ en 2026). Pour un TNS, le plafond Madelin est bien plus élevé : 10% du bénéfice imposable + 15% sur la part entre 1 et 8 PASS, soit jusqu\'à environ 85 000€. Les plafonds non utilisés sont reportables sur 3 ans — vérifiez votre avis d\'imposition, rubrique « Plafond épargne retraite ».',
+        text: 'Pour un salarié, le plafond est de 10% des revenus professionnels nets N-1, dans la limite de 10% de 8 fois le PASS (soit environ 35 000€ en 2026). Pour un TNS, le plafond Madelin est bien plus élevé : 10% du bénéfice imposable + 15% sur la part entre 1 et 8 PASS, soit jusqu\'à environ 85 000€. Les plafonds non utilisés sont reportables sur 3 ans — vérifiez votre avis d\'imposition, rubrique « Plafond épargne retraite ».',
       },
     },
     {
@@ -136,7 +136,7 @@ const faqSchema = {
       name: 'Le PER est-il intéressant pour un travailleur indépendant ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'C\'est l\'un des placements les plus efficaces pour un TNS. Le plafond Madelin est bien plus élevé que celui des salariés. Un TNS à 41% de TMI qui verse 10 000€ sur son PER récupère 4 100€ d\'impôt en moins dès l\'année suivante — un rendement fiscal garanti. Comme les revenus d\'un indépendant sont variables, vous pouvez aussi moduler vos versements selon votre bénéfice annuel.',
+        text: 'C\'est l\'un des placements les plus efficaces pour un TNS. Le plafond Madelin est bien plus élevé que celui des salariés. Un TNS à 41% de TMI qui verse 10 000€ sur son PER récupère 4 100€ d\'impôt en moins dès l\'année suivante — un rendement fiscal garanti. Comme les revenus d\'un indépendant sont variables, vous pouvez aussi moduler vos versements selon votre bénéfice annuel.',
       },
     },
     {
@@ -171,7 +171,7 @@ const DANGERS = [
   {
     icon: 'timer',
     title: 'Chaque année sans PER est une erreur fiscale qui se paie cash',
-    text: '10 000€ investis à 35 ans valent le double à 60 ans à 5%/an. Et les impôts économisés chaque année — réinvestis eux aussi — multiplient encore l\'effet. Attendre coûte réellement de l\'argent, chaque année.',
+    text: '10 000€ investis à 35 ans valent le double à 60 ans à 5%/an. Et les impôts économisés chaque année — réinvestis eux aussi — multiplient encore l\'effet. Attendre coûte réellement de l\'argent, chaque année.',
   },
 ];
 
@@ -179,7 +179,7 @@ const AVANTAGES = [
   {
     icon: 'coins',
     title: 'Réduction d\'impôt immédiate et garantie',
-    text: 'Chaque euro versé réduit votre revenu imposable. À 41% de TMI, 10 000€ versés = 4 100€ d\'impôt récupérés l\'année suivante. C\'est le seul placement avec un rendement fiscal garanti dès jour 1.',
+    text: 'Chaque euro versé réduit votre revenu imposable. À 41% de TMI, 10 000€ versés = 4 100€ d\'impôt récupérés l\'année suivante. C\'est le seul placement avec un rendement fiscal garanti dès jour 1.',
   },
   {
     icon: 'house',
@@ -199,12 +199,12 @@ const AVANTAGES = [
   {
     icon: 'briefcase',
     title: 'Plafonds exceptionnels pour les TNS',
-    text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
+    text: 'Les travailleurs indépendants bénéficient du plafond Madelin : jusqu\'à 85 000€ déductibles par an. Un levier fiscal sans équivalent pour optimiser les années à hauts revenus.',
   },
   {
     icon: 'users',
     title: 'Transmission avantageuse au décès',
-    text: 'En cas de décès avant la retraite, le capital est transmis aux bénéficiaires avec la même fiscalité qu\'une assurance vie — exonération jusqu\'à 152 500€ par bénéficiaire pour les versements avant 70 ans.',
+    text: 'En cas de décès avant la retraite, le capital est transmis aux bénéficiaires avec la même fiscalité qu\'une assurance vie — exonération jusqu\'à 152 500€ par bénéficiaire pour les versements avant 70 ans.',
   },
 ];
 
@@ -213,8 +213,8 @@ const PROFILS = [
     icon: 'user',
     title: 'Salarié cadre',
     tmi: '30% ou 41%',
-    gain: '3 000–4 100€ d\'impôt en moins',
-    base: 'pour 10 000€ versés',
+    gain: '3 000–4 100€ d\'impôt en moins',
+    base: 'pour 10 000€ versés',
     conseil: 'Versements réguliers mensuels + rattrapage des plafonds N-3',
     color: '#3e7f68',
     featured: false,
@@ -223,7 +223,7 @@ const PROFILS = [
     icon: 'briefcase',
     title: 'Travailleur indépendant / TNS',
     tmi: '41% ou 45%',
-    gain: 'Jusqu\'à 38 250€ d\'impôt en moins',
+    gain: 'Jusqu\'à 38 250€ d\'impôt en moins',
     base: 'avec plafond Madelin complet',
     conseil: 'Versements modulables selon le bénéfice — idéal les bonnes années',
     color: '#a87a2c',
@@ -293,19 +293,19 @@ const ETAPES = [
 
 const OBJECTIONS = [
   {
-    q: '« Je suis encore jeune, j\'ai le temps. »',
-    r: '10 000€ versés à 30 ans valent environ 43 000€ à 60 ans à 5%/an. Les mêmes 10 000€ à 50 ans : 16 000€. Plus tôt vous commencez, moins vous avez besoin de verser pour atteindre le même capital. Et chaque année d\'attente, c\'est aussi une déduction fiscale ratée.',
+    q: '« Je suis encore jeune, j\'ai le temps. »',
+    r: '10 000€ versés à 30 ans valent environ 43 000€ à 60 ans à 5%/an. Les mêmes 10 000€ à 50 ans : 16 000€. Plus tôt vous commencez, moins vous avez besoin de verser pour atteindre le même capital. Et chaque année d\'attente, c\'est aussi une déduction fiscale ratée.',
   },
   {
-    q: '« Mon employeur me propose déjà un PERCO. »',
+    q: '« Mon employeur me propose déjà un PERCO. »',
     r: 'Le PERCO de votre entreprise et un PER individuel sont cumulables. Profitez de l\'abondement employeur sur le PERCO (c\'est un avantage employeur) ET ouvrez un PER individuel pour les versements volontaires qui bénéficieront de votre plafond personnel.',
   },
   {
-    q: '« J\'ai peur que mon argent soit bloqué. »',
+    q: '« J\'ai peur que mon argent soit bloqué. »',
     r: 'Le déblocage pour achat de résidence principale change la donne : votre PER peut servir d\'apport immobilier. Et pour le reste : c\'est précisément parce que l\'argent est bloqué que l\'État vous offre la déduction. C\'est le deal — et il est très avantageux.',
   },
   {
-    q: '« Je ne sais pas si je serai imposable à la retraite. »',
+    q: '« Je ne sais pas si je serai imposable à la retraite. »',
     r: 'C\'est exactement le calcul qu\'on fait ensemble. Si votre TMI baisse à la retraite — ce qui est le cas pour environ 80% des épargnants — le PER est rentable. Sinon, je vous oriente vers l\'assurance vie. Il n\'y a pas de réponse universelle : il y a votre réponse.',
   },
 ];
@@ -359,7 +359,7 @@ export default function PERPage() {
             <p>
               Le Plan Épargne Retraite vous permet de{' '}
               <strong>déduire vos versements de votre revenu imposable</strong> — jusqu'à{' '}
-              <strong>4 100€ récupérés sur l'impôt</strong> pour 10 000€ versés à 41% de TMI.
+              <strong>4 100€ récupérés sur l'impôt</strong> pour 10 000€ versés à 41% de TMI.
               Je calcule vos plafonds exacts, sélectionne le meilleur contrat et construis
               votre allocation. <strong>Modalités transparentes.</strong>
             </p>
@@ -407,14 +407,14 @@ export default function PERPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Le PER est l'outil fiscal le plus puissant disponible en France
+                  « Le PER est l'outil fiscal le plus puissant disponible en France
                   — et le plus mal utilisé.
                 </p>
                 <p className="ae-citation-text">
                   La plupart de mes clients arrivent avec des plafonds non utilisés
                   depuis 3 ans, un contrat bancaire chargé en frais, et aucune idée
                   du montant qu'ils auraient pu récupérer sur leur impôt. Ce
-                  rendez-vous, c'est souvent une révélation. »
+                  rendez-vous, c'est souvent une révélation. »
                 </p>
                 <span className="ae-citation-author">
 Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
@@ -578,12 +578,12 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 <div className="per-plafond-item">
                   <strong>Salarié</strong>
                   <span>10% des revenus nets N-1</span>
-                  <div className="per-plafond-max">Max. ~35 000€/an</div>
+                  <div className="per-plafond-max">Max. ~35 000€/an</div>
                 </div>
                 <div className="per-plafond-item">
                   <strong>TNS / Indépendant</strong>
                   <span>Plafond Madelin : 10% du bénéfice + 15% sur 1–8 PASS</span>
-                  <div className="per-plafond-max">Max. ~85 000€/an</div>
+                  <div className="per-plafond-max">Max. ~85 000€/an</div>
                 </div>
                 <div className="per-plafond-item">
                   <strong>Plafonds reportés</strong>
@@ -598,7 +598,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               </div>
               <div className="crowd-risques-note" style={{ marginTop: 20 }}>
                 <Icon name="chart-column" /> <strong>Où trouver vos plafonds :</strong> votre avis d'imposition, rubrique{' '}
-                <em>« Plafond épargne retraite »</em>. Je les calcule et les optimise
+                <em>« Plafond épargne retraite »</em>. Je les calcule et les optimise
                 lors du premier rendez-vous — avec les reports des 3 années précédentes.
               </div>
             </div>
@@ -808,7 +808,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'shield-check',
                   title: 'Assurance Vie',
                   sub: 'Épargne disponible & transmission',
-                  text: 'Le complément naturel du PER : épargne liquide à tout moment, fiscalité avantageuse après 8 ans et transmission hors succession jusqu\'à 152 500€ par bénéficiaire.',
+                  text: 'Le complément naturel du PER : épargne liquide à tout moment, fiscalité avantageuse après 8 ans et transmission hors succession jusqu\'à 152 500€ par bénéficiaire.',
                   badge: 'Fiscalité optimisée après 8 ans',
                   pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',

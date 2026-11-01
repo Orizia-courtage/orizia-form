@@ -15,7 +15,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
   description:
-    'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
+    'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/scpi' },
   openGraph: {
     title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
@@ -114,7 +114,7 @@ const faqSchema = {
       name: 'Combien faut-il pour investir en SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtier indépendant, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
+        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtier indépendant, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
       },
     },
   ],
@@ -163,8 +163,8 @@ const AVANTAGES = [
   },
   {
     icon: 'coins',
-    title: 'Accessible dès 1 000€ ou 50€/mois',
-    text: 'Certaines SCPI sont accessibles dès 1 000€ en capital, ou via des versements mensuels programmés à partir de 50€/mois. L\'immobilier professionnel n\'est plus réservé aux gros patrimoines.',
+    title: 'Accessible dès 1 000€ ou 50€/mois',
+    text: 'Certaines SCPI sont accessibles dès 1 000€ en capital, ou via des versements mensuels programmés à partir de 50€/mois. L\'immobilier professionnel n\'est plus réservé aux gros patrimoines.',
   },
   {
     icon: 'construction',
@@ -268,7 +268,7 @@ export default function SCPIPage() {
             <span className="fin-badge"><Icon name="construction" /> Pierre-papier & immobilier de rendement</span>
             <h1 className="ae-hero-title">SCPI : percevez des loyers<br />sans gérer un seul bien</h1>
             <p className="ae-hero-intro">
-              Investissez dans l'immobilier professionnel dès 1 000€ et percevez des revenus
+              Investissez dans l'immobilier professionnel dès 1 000€ et percevez des revenus
               locatifs trimestriels sans aucune contrainte de gestion. Je sélectionne pour vous
               les meilleures SCPI parmi 200+ analysées et j'optimise votre stratégie fiscale.{' '}
               <strong>Modalités transparentes.</strong>
@@ -315,14 +315,14 @@ export default function SCPIPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « La SCPI, c'est l'immobilier locatif dans sa meilleure version :
+                  « La SCPI, c'est l'immobilier locatif dans sa meilleure version :
                   les loyers arrivent, les problèmes restent chez la société de gestion.
                 </p>
                 <p className="ae-citation-text">
                   Ce que je fais, c'est aller plus loin : choisir les SCPI qui ont
                   résisté aux crises de 2022–2024, et structurer la détention pour
                   que vous touchiez vraiment ce qui est affiché — pas une version
-                  amputée par la fiscalité. »
+                  amputée par la fiscalité. »
                 </p>
                 <span className="ae-citation-author">
 Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
@@ -581,19 +581,19 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <div className="crowd-faq-list">
               {[
                 {
-                  q: '« C\'est illiquide — je ne peux pas récupérer mon argent quand je veux. »',
+                  q: '« C\'est illiquide — je ne peux pas récupérer mon argent quand je veux. »',
                   r: 'C\'est vrai, et c\'est assumé. Les SCPI sont des placements de long terme (8–10 ans minimum). C\'est précisément pour ça qu\'elles offrent un rendement supérieur aux livrets. Mon rôle : ne jamais vous orienter vers une SCPI avec des capitaux dont vous pourriez avoir besoin. L\'épargne de précaution reste sur un livret.',
                 },
                 {
-                  q: '« J\'ai peur de la baisse de 2022–2024 sur les SCPI de bureaux. »',
+                  q: '« J\'ai peur de la baisse de 2022–2024 sur les SCPI de bureaux. »',
                   r: 'Cette crise a touché principalement les SCPI mono-secteur bureaux, mal diversifiées géographiquement. Les SCPI multi-secteurs et européennes ont très bien résisté. Mon travail, c\'est précisément de distinguer les SCPI solides de celles qui ont montré leurs faiblesses — et de ne recommander que les premières.',
                 },
                 {
-                  q: '« La fiscalité est trop complexe pour moi. »',
+                  q: '« La fiscalité est trop complexe pour moi. »',
                   r: 'C\'est exactement pour ça que je commence toujours par un audit fiscal. TMI, revenus fonciers existants, objectifs patrimoniaux — je calcule le rendement net réel dans votre situation spécifique. Vous n\'avez pas à comprendre la fiscalité SCPI : c\'est mon métier.',
                 },
                 {
-                  q: '« Je peux investir directement sans passer par un courtier. »',
+                  q: '« Je peux investir directement sans passer par un courtier. »',
                   r: 'Oui, techniquement. Mais sans analyse des 200+ SCPI du marché, sans optimisation fiscale et sans suivi annuel, vous prenez des risques évitables. Les frais et modalités de l\'accompagnement sont présentés avant tout engagement.',
                 },
               ].map((o, i) => (

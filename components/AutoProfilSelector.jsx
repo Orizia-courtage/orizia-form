@@ -87,7 +87,7 @@ const DETAILS = {
       'La cylindrée détermine la formule optimale',
     ],
     conseil: 'Si votre moto hiberne 4 mois dans l\'année, votre facture aussi. Je construis des contrats modulables avec suspension de garanties en hiver.',
-    astuce: 'La garantie équipement est souvent sous-estimée — un casque haut de gamme coûte 500 à 1 500€. Vérifiez qu\'il est couvert.',
+    astuce: 'La garantie équipement est souvent sous-estimée — un casque haut de gamme coûte 500 à 1 500€. Vérifiez qu\'il est couvert.',
   },
 };
 

@@ -124,8 +124,8 @@ const faqSchema = {
 const CHIFFRES = [
   { value: '+5%', label: 'Hausse moyenne subie en 2026', icon: 'trending-up' },
   { value: '1 an', label: 'Délai avant résiliation libre (Hamon)', icon: 'calendar-days' },
-  { value: '0€', label: 'Frais de gestion Orizia', icon: 'target' },
-  { value: '400€', label: 'Économies moyennes constatées/an', icon: 'coins' },
+  { value: '1', label: 'Seule interlocutrice pour tous vos contrats', icon: 'target' },
+  { value: 'Jusqu\'à 400\u00a0€', label: 'D\'économies possibles par an', icon: 'coins' },
 ];
 
 const DANGERS = [
@@ -171,19 +171,19 @@ const ETAPES = [
 
 const OBJECTIONS = [
   {
-    q: '« Je suis dans la même agence depuis 10 ans, ils me connaissent. »',
+    q: '« Je suis dans la même agence depuis 10 ans, ils me connaissent. »',
     r: 'Humainement, c\'est agréable. Financièrement, c\'est souvent une erreur. Les algorithmes des assureurs ne récompensent plus la fidélité. Laissez-moi comparer, juste pour voir.',
   },
   {
-    q: '« J\'ai eu un accrochage récent, personne ne voudra de moi. »',
+    q: '« J\'ai eu un accrochage récent, personne ne voudra de moi. »',
     r: 'Faux. Même avec un petit malus, certaines compagnies spécialisées proposent des tarifs agressifs. C\'est mon métier de savoir à quelle porte frapper.',
   },
   {
-    q: '« Je roule très peu, je télétravaille. »',
+    q: '« Je roule très peu, je télétravaille. »',
     r: 'Excellente nouvelle pour votre portefeuille ! Les formules "Pay as you drive" ou forfait kilométrique peuvent réduire votre facture de 30%.',
   },
   {
-    q: '« Les démarches de changement m\'épuisent d\'avance. »',
+    q: '« Les démarches de changement m\'épuisent d\'avance. »',
     r: 'C\'est la raison d\'être de mon accompagnement : je rédige et j\'envoie la résiliation (Loi Hamon). Vous n\'avez strictement rien à faire.',
   },
 ];
@@ -282,7 +282,7 @@ export default function AssuranceAutoMotoPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Chaque année, votre fidélité est paradoxalement sanctionnée par une hausse de vos cotisations. »
+                  « Chaque année, votre fidélité est paradoxalement sanctionnée par une hausse de vos cotisations. »
                 </p>
                 <p className="ae-citation-text">
                   Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
@@ -321,7 +321,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               {/* IMAGE 1 AJOUTÉE ICI */}
               <div className="ae-probleme-image">
                 <Image
-                  src="/images/hausse-assurance-auto.webp" // À adapter avec ton nom de fichier réel
+                  src="/images/hausse-assurance-auto.webp" 
                   alt="Hausse des tarifs d'assurance auto et moto"
                   title="La fidélité coûte cher en assurance"
                   width={716}
@@ -509,7 +509,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
                   text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  badge: 'Économisez jusqu\'à 15 000€',
                   pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
                   pillBorder: 'rgba(107,182,155,0.3)',
@@ -558,7 +558,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
             <div className="ae-hero-btns">
-              <ContactPopup label="Contactez moi" icon="phone" className="fin-btn-primary" />
+              <ContactPopup label="Contactez-moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée

@@ -53,7 +53,7 @@ const DETAILS = {
     titre: 'Prêt Travaux : valorisez votre bien immobilier',
     points: [
       'Taux préférentiels pour l\'éco-rénovation (isolation, pompe à chaleur)',
-      'Jusqu\'à 75 000€ de budget travaux',
+      'Jusqu\'à 75 000€ de budget travaux',
       'Nécessite généralement des devis d\'artisans',
       'Augmente la valeur de votre bien et réduit vos factures d\'énergie',
     ],
@@ -72,7 +72,7 @@ const DETAILS = {
       'Idéal pour les projets de vie (mariage, voyage, études)',
     ],
     conseil: 'Le prêt personnel non affecté est la meilleure alternative au crédit revolving. Vous savez exactement quand vous aurez fini de rembourser — pas de mauvaise surprise.',
-    astuce: 'Si votre besoin est inférieur à 3 000€, comparez avec un découvert autorisé ou une épargne disponible. Pour les montants plus élevés, le prêt personnel est presque toujours moins cher.',
+    astuce: 'Si votre besoin est inférieur à 3 000€, comparez avec un découvert autorisé ou une épargne disponible. Pour les montants plus élevés, le prêt personnel est presque toujours moins cher.',
   },
 };
 

@@ -60,7 +60,7 @@ const RECOMMANDATIONS = {
     color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
     border: 'rgba(45,106,95,0.2)',
-    raison: 'Si votre voiture cote moins de 3 000€ à l\'Argus, payer un Tous Risques n\'a aucun sens économique. Le Tiers vous protège légalement et votre portefeuille vous remerciera.',
+    raison: 'Si votre voiture cote moins de 3 000€ à l\'Argus, payer un Tous Risques n\'a aucun sens économique. Le Tiers vous protège légalement et votre portefeuille vous remerciera.',
     garanties: ['Responsabilité civile', 'Défense pénale et recours'],
     conseil: 'Ajoutez éventuellement le bris de glace en option — c\'est peu cher et très utile au quotidien.',
     economie: 'Jusqu\'à 400€/an vs Tous Risques',

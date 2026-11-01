@@ -11,7 +11,7 @@ const BEST = 3;
 export default function BrokerNetwork() {
   return (
     <figure className="bn" aria-label="Votre dossier est comparé à plus de 40 offres bancaires et d'assurance ; je retiens la meilleure offre.">
-      <svg viewBox="0 0 520 520" role="img" aria-hidden="true">
+      <svg viewBox="0 0 520 520" role="img" aria-hidden="true">
         <defs>
           <radialGradient id="bn-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0" stopColor="#6bb69b" stopOpacity=".35" />
@@ -37,7 +37,7 @@ export default function BrokerNetwork() {
           </g>
         ))}
 
-        <g className="bn-center" transform="translate(260 260)">
+        <g className="bn-center" transform="translate(260 260)">
           <circle r="64" />
           <text y="-6" textAnchor="middle" className="bn-center-t1">Votre</text>
           <text y="16" textAnchor="middle" className="bn-center-t1">dossier</text>

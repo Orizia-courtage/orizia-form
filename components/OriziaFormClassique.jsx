@@ -493,7 +493,7 @@ function S3({form,set,clr,errors,next}){
           <div className="f-block-title"><i className="fa-solid fa-building-columns"></i> Crédit{form.nb_immo>1?'s':''} immobilier{form.nb_immo>1?'s':''}</div>
           <div className="f-row2">
             <Amt id="mi" label="Mensualité(s)" unit="€/mois" placeholder="ex : 850" value={form.mensualite_immo} onChange={v=>{set('mensualite_immo',v);clr('mensualite_immo');}} error={errors.mensualite_immo} errorMsg="Minimum 100 €/mois."/>
-            <Amt id="ci" label="Capital restant dû" unit="€" placeholder="ex : 120 000" value={form.capital_immo} onChange={v=>{set('capital_immo',v);clr('capital_immo');}} error={errors.capital_immo} errorMsg="Minimum 5 000 €."/>
+            <Amt id="ci" label="Capital restant dû" unit="€" placeholder="ex : 120 000" value={form.capital_immo} onChange={v=>{set('capital_immo',v);clr('capital_immo');}} error={errors.capital_immo} errorMsg="Minimum 5 000 €."/>
           </div>
         </div>
       )}
@@ -502,7 +502,7 @@ function S3({form,set,clr,errors,next}){
           <div className="f-block-title"><i className="fa-solid fa-credit-card"></i> Crédit{form.nb_conso>1?'s':''} conso</div>
           <div className="f-row2">
             <Amt id="mc" label="Mensualité(s)" unit="€/mois" placeholder="ex : 350" value={form.mensualite_conso} onChange={v=>{set('mensualite_conso',v);clr('mensualite_conso');}} error={errors.mensualite_conso} errorMsg="Minimum 30 €/mois."/>
-            <Amt id="cc" label="Capital restant dû" unit="€" placeholder="ex : 15 000" value={form.capital_conso} onChange={v=>{set('capital_conso',v);clr('capital_conso');}} error={errors.capital_conso} errorMsg="Minimum 500 €."/>
+            <Amt id="cc" label="Capital restant dû" unit="€" placeholder="ex : 15 000" value={form.capital_conso} onChange={v=>{set('capital_conso',v);clr('capital_conso');}} error={errors.capital_conso} errorMsg="Minimum 500 €."/>
           </div>
         </div>
       )}
@@ -684,7 +684,7 @@ function S8({form,set,clr,errors,taux,next,debtConfig}){
       <div className="f-block">
         <div className="f-block-title"><i className="fa-solid fa-arrow-trend-down"></i> Charges hors crédits</div>
         <div className="f-row2">
-          {isLoc&&<Amt id="lo" label="Loyer mensuel" unit="€/mois" sub="Charges comprises" value={form.loyer} onChange={v=>{set('loyer',v);clr('loyer');}} error={errors.loyer} errorMsg="Loyer entre 100 € et 10 000 €."/>}
+          {isLoc&&<Amt id="lo" label="Loyer mensuel" unit="€/mois" sub="Charges comprises" value={form.loyer} onChange={v=>{set('loyer',v);clr('loyer');}} error={errors.loyer} errorMsg="Loyer entre 100 € et 10 000 €."/>}
           <Amt id="ac" label="Autres charges récurrentes" unit="€/mois" sub="Pension alimentaire… (optionnel)" value={form.autres_charges} onChange={v=>set('autres_charges',v)}/>
         </div>
       </div>

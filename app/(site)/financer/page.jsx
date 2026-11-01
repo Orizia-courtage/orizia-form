@@ -289,7 +289,7 @@ export default function FinancerPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Une banque ne vous proposera jamais l'offre de son concurrent, même si elle est meilleure pour vous. »
+                  « Une banque ne vous proposera jamais l'offre de son concurrent, même si elle est meilleure pour vous. »
                 </p>
                 <p className="ae-citation-text">
                   Mon rôle est de mettre les banques en compétition pour vous — pas de vous vendre
@@ -447,8 +447,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'clipboard-list',
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie cachée de votre crédit',
-                  text: 'L\'assurance emprunteur représente jusqu\'à 40% du coût total de votre crédit. Je la négocie pour vous faire économiser jusqu\'à 15 000€.',
-                  badge: 'Jusqu\'à 15 000€ d\'économies',
+                  text: 'L\'assurance emprunteur représente jusqu\'à 40% du coût total de votre crédit. Je la négocie pour vous faire économiser jusqu\'à 15 000€.',
+                  badge: 'Jusqu\'à 15 000€ d\'économies',
                 },
                 {
                   href: '/investir/assurance-vie',

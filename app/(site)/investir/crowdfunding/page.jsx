@@ -14,11 +14,11 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Crowdfunding Immobilier 2026 : 8–12%/an | Orizia Courtage',
   description:
-    'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant par Cindy Urbansky.',
+    'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant par Cindy Urbansky.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/crowdfunding' },
   openGraph: {
     title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
-    description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant.',
+    description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant.',
     url: 'https://www.orizia-courtage.fr/investir/crowdfunding',
     siteName: 'Orizia Courtage',
     images: [
@@ -126,7 +126,7 @@ const faqSchema = investirCrowdfundingSchema['@graph'][2];
 
 const CHIFFRES = [
   { value: '8–12%', label: 'Rendement annuel brut moyen', icon: 'trending-up' },
-  { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: 'euro' },
+  { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: 'euro' },
   { value: '12–36 mois', label: "Durée d'investissement typique", icon: 'timer' },
   { value: <>Flat tax <CrowdfundingTaxValue /></>, label: 'Fiscalité applicable aux intérêts', icon: 'landmark' },
 ];
@@ -145,13 +145,13 @@ const DANGERS = [
   {
     icon: 'target',
     title: 'La diversification ne s\'improvise pas',
-    text: 'Mettre 10 000€ sur un seul projet, c\'est un risque inutile. Une vraie stratégie répartit le capital sur plusieurs projets, typologies d\'actifs et zones géographiques — avec méthode, pas au hasard.',
+    text: 'Mettre 10 000€ sur un seul projet, c\'est un risque inutile. Une vraie stratégie répartit le capital sur plusieurs projets, typologies d\'actifs et zones géographiques — avec méthode, pas au hasard.',
   },
 ];
 
 const AVANTAGES = [
   { icon: 'trending-up', title: '8–12% brut/an', text: 'Parmi les meilleurs rendements accessibles aux particuliers, bien au-dessus de l\'inflation et de tous les livrets bancaires.' },
-  { icon: 'euro', title: 'Dès 1 000€', text: 'L\'immobilier de rendement à portée de tous, sans mobiliser un apport important ni passer par un notaire.' },
+  { icon: 'euro', title: 'Dès 1 000€', text: 'L\'immobilier de rendement à portée de tous, sans mobiliser un apport important ni passer par un notaire.' },
   { icon: 'timer', title: '12–36 mois', text: 'Durée maîtrisée avec une date de remboursement connue à l\'avance — idéal pour une épargne de moyen terme avec un objectif précis.' },
   { icon: 'construction', title: 'Actif tangible', text: 'Votre argent finance un projet immobilier réel : construction, rénovation ou marchand de biens. Un sous-jacent concret, pas de la spéculation.' },
   { icon: 'briefcase', title: 'Diversification efficace', text: 'Complément naturel d\'une assurance vie, d\'un PER ou d\'une SCPI pour dynamiser votre portefeuille sans le déséquilibrer.' },
@@ -300,7 +300,7 @@ export default function CrowdfundingPage() {
 
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Je ne vous recommanderais jamais un projet que je n'investirais pas moi-même. »
+                  « Je ne vous recommanderais jamais un projet que je n'investirais pas moi-même. »
                 </p>
                 <p className="ae-citation-text">
                   Avant chaque recommandation, j'analyse le bilan du promoteur, l'historique
@@ -411,7 +411,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <div className="crd-flow-title">Comment ça fonctionne</div>
             <div className="crd-flow">
               {[
-                { icon: 'euro', label: 'Vous investissez', sub: 'Dès 1 000€, en ligne', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
+                { icon: 'euro', label: 'Vous investissez', sub: 'Dès 1 000€, en ligne', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },
                 { icon: 'search', label: 'Orizia sélectionne', sub: 'Audit promoteur + stratégie', color: 'var(--orizia-accent)', textColor: '#fff', gold: true },
                 { icon: 'landmark', label: 'Plateforme AMF', sub: 'Collecte et gestion', color: 'var(--orizia-light)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.1)' },
                 { icon: 'shield-check', label: 'Promoteur', sub: 'Construit / rénove / revend', color: 'var(--orizia-white)', textColor: 'var(--orizia-accent)', border: '1px solid rgba(26,61,53,0.12)' },

@@ -28,8 +28,8 @@ const CRITERES = [
   },
   {
     id: 'montant',
-    label: 'Le montant dont j\'ai besoin est inférieur à 75 000€',
-    desc: 'Au-delà de 75 000€, on sort du cadre légal du crédit à la consommation. Un prêt immobilier ou un regroupement de crédits serait plus adapté.',
+    label: 'Le montant dont j\'ai besoin est inférieur à 75 000€',
+    desc: 'Au-delà de 75 000€, on sort du cadre légal du crédit à la consommation. Un prêt immobilier ou un regroupement de crédits serait plus adapté.',
     required: false,
     signal: 'Plafond légal',
   },

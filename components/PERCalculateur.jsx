@@ -60,7 +60,7 @@ export default function PERCalculateur() {
           <input type="range" min={500} max={50000} step={500} value={versement}
             onChange={e => setVersement(+e.target.value)} className="aec-slider"
             style={{ '--pct': `${((versement - 500) / 49500) * 100}%` }} />
-          <div className="aec-slider-labels"><span>500€</span><span>50 000€</span></div>
+          <div className="aec-slider-labels"><span>500€</span><span>50 000€</span></div>
           {versement > tranche.plafond && (
             <div style={{ fontSize: '0.75rem', color: '#a87a2c', marginTop: 4, fontWeight: 600 }}>
               <Icon name="triangle-alert" /> Plafond de déduction pour votre TMI : {fmt(tranche.plafond)}

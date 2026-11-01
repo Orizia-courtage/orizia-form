@@ -79,7 +79,7 @@ const faqSchema = {
       name: 'Qu\'est-ce qu\'un prêt personnel ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'C\'est un crédit à la consommation qui vous permet d\'emprunter une somme d\'argent (généralement entre 1 000€ et 75 000€) pour financer un projet : achat d\'un véhicule, travaux, mariage, voyage, ou besoin de trésorerie. Contrairement au crédit affecté, le prêt personnel classique ne nécessite pas toujours de justifier l\'achat avec des factures.',
+        text: 'C\'est un crédit à la consommation qui vous permet d\'emprunter une somme d\'argent (généralement entre 1 000€ et 75 000€) pour financer un projet : achat d\'un véhicule, travaux, mariage, voyage, ou besoin de trésorerie. Contrairement au crédit affecté, le prêt personnel classique ne nécessite pas toujours de justifier l\'achat avec des factures.',
       },
     },
     {
@@ -129,7 +129,7 @@ const DANGERS = [
   {
     icon: 'lock',
     title: 'Le piège des taux d\'appel sur internet',
-    text: 'Vous voyez "À partir de 0,90%" en grand, mais en petits caractères, c\'est valable uniquement sur 12 mois pour 5 000€. Pour votre vrai projet sur 48 mois, le taux grimpe à 6% ou 7%. Je vous donne l\'heure juste, sans fausses promesses.',
+    text: 'Vous voyez "À partir de 0,90%" en grand, mais en petits caractères, c\'est valable uniquement sur 12 mois pour 5 000€. Pour votre vrai projet sur 48 mois, le taux grimpe à 6% ou 7%. Je vous donne l\'heure juste, sans fausses promesses.',
   },
   {
     icon: 'triangle-alert',
@@ -168,19 +168,19 @@ const ETAPES = [
 
 const OBJECTIONS = [
   {
-    q: '« Je peux faire une simulation en 2 minutes sur internet, pourquoi passer par vous ? »',
+    q: '« Je peux faire une simulation en 2 minutes sur internet, pourquoi passer par vous ? »',
     r: 'Les simulateurs internet captent vos données pour vous harceler, et le taux final proposé après étude du dossier est rarement le taux affiché au début. Moi, je vous obtiens de vrais accords de principe fermes, sans faire sonner votre téléphone toutes les heures.',
   },
   {
-    q: '« Est-ce que vos services vont me coûter cher ? »',
+    q: '« Est-ce que vos services vont me coûter cher ? »',
     r: 'Les frais et modalités applicables aux prêts personnels vous sont présentés de manière transparente avant tout engagement.',
   },
   {
-    q: '« J\'ai déjà plusieurs petits crédits en cours... »',
+    q: '« J\'ai déjà plusieurs petits crédits en cours... »',
     r: 'Dans ce cas, faire un nouveau prêt est souvent une mauvaise idée. Je vous orienterai plutôt vers un "regroupement de crédits" : on rassemble toutes vos dettes en un seul prêt, pour faire baisser drastiquement votre mensualité globale.',
   },
   {
-    q: '« Quel est le délai pour avoir l\'argent ? »',
+    q: '« Quel est le délai pour avoir l\'argent ? »',
     r: 'Il faut compter 24 à 48h pour un accord de principe. Une fois l\'offre signée, la loi impose un délai de rétractation. Concrètement, vous pouvez avoir les fonds sur votre compte en 8 à 14 jours selon les établissements.',
   },
 ];
@@ -272,7 +272,7 @@ export default function PretPersonnelPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Aujourd'hui, on peut souscrire un crédit en trois clics sur son smartphone. C'est rapide, oui. Mais c'est souvent hors de prix. »
+                  « Aujourd'hui, on peut souscrire un crédit en trois clics sur son smartphone. C'est rapide, oui. Mais c'est souvent hors de prix. »
                 </p>
                 <p className="ae-citation-text">
                   Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.

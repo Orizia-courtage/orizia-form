@@ -76,8 +76,8 @@ export default function SimulateurCrowdfunding() {
               aria-label="Montant investi en crowdfunding immobilier"
             />
             <div className="simu-slider-labels">
-              <span>1 000 €</span>
-              <span>50 000 €</span>
+              <span>1 000 €</span>
+              <span>50 000 €</span>
             </div>
           </div>
         </div>

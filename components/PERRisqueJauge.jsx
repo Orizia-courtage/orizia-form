@@ -37,7 +37,7 @@ const RISQUES = [
     icon: 'landmark',
     sans: 75,
     avec: 5,
-    desc_sans: 'Un PER bancaire avec 3% de frais sur versements sur 25 ans peut vous coûter 30 000€ de performance nette. La déduction fiscale attire l\'œil — les frais la rongent discrètement.',
+    desc_sans: 'Un PER bancaire avec 3% de frais sur versements sur 25 ans peut vous coûter 30 000€ de performance nette. La déduction fiscale attire l\'œil — les frais la rongent discrètement.',
     desc_avec: 'Les frais sur versements et les modalités des contrats sont présentés avec transparence.',
   },
 ];

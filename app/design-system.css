@@ -751,62 +751,62 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 @media (max-width: 860px) { .av-gratuit-bloc > .cp-wrap > button { width: 100%; justify-content: center; } }
 
 /* ── Section sombre « Zéro paperasse » (assurance habitation) ───────────── */
-#section-hamon {
+.oz-hamon-dark {
   background: radial-gradient(900px 420px at 15% 0%, rgba(107, 182, 155, .20), transparent 60%),
               radial-gradient(700px 380px at 95% 100%, rgba(107, 182, 155, .14), transparent 60%),
               #161917 !important;
   overflow: hidden;
 }
-#section-hamon .fin-section-head > p, .crowd-section[style*="orizia-accent"] .fin-section-head > p { color: rgba(255, 255, 255, .74) !important; }
-#section-hamon .fin-badge { color: #bfe6d5 !important; }
-#section-hamon .ah-hamon-timeline { gap: 16px; margin-bottom: 28px; }
-#section-hamon .ah-hamon-tl-step {
+.oz-hamon-dark .fin-section-head > p, .crowd-section[style*="orizia-accent"] .fin-section-head > p { color: rgba(255, 255, 255, .74) !important; }
+.oz-hamon-dark .fin-badge { color: #bfe6d5 !important; }
+.oz-hamon-dark .ah-hamon-timeline { gap: 16px; margin-bottom: 28px; }
+.oz-hamon-dark .ah-hamon-tl-step {
   padding: 26px 18px 22px; border-radius: 20px;
   background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .025));
   border: 1px solid rgba(255, 255, 255, .09);
   transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s, background .35s;
 }
-#section-hamon .ah-hamon-tl-step:hover { transform: translateY(-4px); border-color: rgba(107, 182, 155, .5); background: linear-gradient(180deg, rgba(107, 182, 155, .14), rgba(255, 255, 255, .03)); }
-#section-hamon .ah-hamon-tl-icon {
+.oz-hamon-dark .ah-hamon-tl-step:hover { transform: translateY(-4px); border-color: rgba(107, 182, 155, .5); background: linear-gradient(180deg, rgba(107, 182, 155, .14), rgba(255, 255, 255, .03)); }
+.oz-hamon-dark .ah-hamon-tl-icon {
   width: 58px; height: 58px; border: 0; margin-bottom: 16px;
   background: linear-gradient(145deg, #8fd0b6, #5aa98b); color: #10221b; font-size: 1.5rem;
   box-shadow: 0 0 0 6px rgba(107, 182, 155, .14), 0 12px 28px -10px rgba(107, 182, 155, .7);
 }
-#section-hamon .ah-hamon-tl-connector { display: none; }
-#section-hamon .ah-hamon-tl-step::before {
+.oz-hamon-dark .ah-hamon-tl-connector { display: none; }
+.oz-hamon-dark .ah-hamon-tl-step::before {
   content: attr(data-step); position: absolute; top: 14px; right: 16px;
   font-size: .72rem; font-weight: 700; letter-spacing: .08em; color: rgba(191, 230, 213, .55);
 }
-#section-hamon .ah-hamon-tl-title { font-size: 1.02rem; font-weight: 700; margin-bottom: 8px; }
-#section-hamon .ah-hamon-tl-desc { font-size: .9rem; line-height: 1.55; color: rgba(255, 255, 255, .7); }
-#section-hamon .ah-hamon-chrono { padding: 26px 28px; border-radius: 22px; background: rgba(255, 255, 255, .05); border-color: rgba(255, 255, 255, .1); gap: 12px; }
-#section-hamon .ah-hamon-chrono-icon { background: rgba(107, 182, 155, .18) !important; color: #bfe6d5 !important; }
-#section-hamon .ah-hamon-chrono-val { font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em; margin-top: 6px; }
-#section-hamon .ah-hamon-chrono-item--gold .ah-hamon-chrono-val { color: #8fd0b6; }
-#section-hamon .ah-hamon-chrono-label { font-size: .8rem; color: rgba(255, 255, 255, .6); }
-#section-hamon .ah-hamon-chrono-sep { color: rgba(143, 208, 182, .6); }
+.oz-hamon-dark .ah-hamon-tl-title { font-size: 1.02rem; font-weight: 700; margin-bottom: 8px; }
+.oz-hamon-dark .ah-hamon-tl-desc { font-size: .9rem; line-height: 1.55; color: rgba(255, 255, 255, .7); }
+.oz-hamon-dark .ah-hamon-chrono { padding: 26px 28px; border-radius: 22px; background: rgba(255, 255, 255, .05); border-color: rgba(255, 255, 255, .1); gap: 12px; }
+.oz-hamon-dark .ah-hamon-chrono-icon { background: rgba(107, 182, 155, .18) !important; color: #bfe6d5 !important; }
+.oz-hamon-dark .ah-hamon-chrono-val { font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em; margin-top: 6px; }
+.oz-hamon-dark .ah-hamon-chrono-item--gold .ah-hamon-chrono-val { color: #8fd0b6; }
+.oz-hamon-dark .ah-hamon-chrono-label { font-size: .8rem; color: rgba(255, 255, 255, .6); }
+.oz-hamon-dark .ah-hamon-chrono-sep { color: rgba(143, 208, 182, .6); }
 @media (prefers-reduced-motion: no-preference) {
-  #section-hamon .ah-hamon-tl-step { animation: oz-rise .7s cubic-bezier(.2, .8, .2, 1) both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
-  #section-hamon .ah-hamon-tl-step:nth-child(2) { animation-range: entry 8% entry 68%; }
-  #section-hamon .ah-hamon-tl-step:nth-child(3) { animation-range: entry 16% entry 76%; }
-  #section-hamon .ah-hamon-tl-step:nth-child(4) { animation-range: entry 24% entry 84%; }
+  .oz-hamon-dark .ah-hamon-tl-step { animation: oz-rise .7s cubic-bezier(.2, .8, .2, 1) both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  .oz-hamon-dark .ah-hamon-tl-step:nth-child(2) { animation-range: entry 8% entry 68%; }
+  .oz-hamon-dark .ah-hamon-tl-step:nth-child(3) { animation-range: entry 16% entry 76%; }
+  .oz-hamon-dark .ah-hamon-tl-step:nth-child(4) { animation-range: entry 24% entry 84%; }
 }
 @keyframes oz-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @media (max-width: 768px) {
-  #section-hamon .ah-hamon-timeline { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  #section-hamon .ah-hamon-tl-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 14px; padding: 18px; flex-wrap: wrap; }
-  #section-hamon .ah-hamon-tl-icon { width: 46px; height: 46px; margin: 0; font-size: 1.2rem; }
-  #section-hamon .ah-hamon-tl-step > .ah-hamon-tl-title { flex: 1; align-self: center; margin: 0; }
-  #section-hamon .ah-hamon-tl-step > .ah-hamon-tl-desc { flex-basis: 100%; }
-  #section-hamon .ah-hamon-chrono { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 18px; }
-  #section-hamon .ah-hamon-chrono-sep { display: none; }
-  #section-hamon .ah-hamon-chrono-item { padding: 10px 4px; }
+  .oz-hamon-dark .ah-hamon-timeline { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .oz-hamon-dark .ah-hamon-tl-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 14px; padding: 18px; flex-wrap: wrap; }
+  .oz-hamon-dark .ah-hamon-tl-icon { width: 46px; height: 46px; margin: 0; font-size: 1.2rem; }
+  .oz-hamon-dark .ah-hamon-tl-step > .ah-hamon-tl-title { flex: 1; align-self: center; margin: 0; }
+  .oz-hamon-dark .ah-hamon-tl-step > .ah-hamon-tl-desc { flex-basis: 100%; }
+  .oz-hamon-dark .ah-hamon-chrono { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 18px; }
+  .oz-hamon-dark .ah-hamon-chrono-sep { display: none; }
+  .oz-hamon-dark .ah-hamon-chrono-item { padding: 10px 4px; }
 }
 
 /* Pastilles des cartes « produits liés » : certaines couleurs (sauge clair sur menthe) étaient illisibles. */
 .fin-card .fin-card-pill { background: var(--oz-mint-soft) !important; color: var(--oz-sage-deep) !important; border-color: transparent !important; font-weight: 700; }
 .fin-card--featured .fin-card-pill { background: var(--oz-ink) !important; color: #bfe6d5 !important; }
-@media (max-width: 768px) { #section-hamon .ah-hamon-chrono { align-items: start; } #section-hamon .ah-hamon-chrono-item { justify-content: flex-start; } }
+@media (max-width: 768px) { .oz-hamon-dark .ah-hamon-chrono { align-items: start; } .oz-hamon-dark .ah-hamon-chrono-item { justify-content: flex-start; } }
 
 /* ── Présence de Cindy en tête des appels à l'action sombres ─────────── */
 .cta-presence { display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0 auto 30px; }
@@ -821,7 +821,7 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .cta-presence-chips { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .cta-presence-chips li { padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 600; color: #cfeee0; background: rgba(143, 208, 182, .1); border: 1px solid rgba(143, 208, 182, .22); }
 .cta-presence-chips li::before { content: "✓"; margin-right: 6px; color: #8fd0b6; }
-.fin-cta .fin-cta-inner > p:last-child, .fin-cta .fin-cta-inner > p[style*="font-size"] { color: rgba(237, 247, 242, .5) !important; }
+.fin-cta .fin-cta-inner > p:last-child, .fin-cta .fin-cta-inner > p[style*="font-size"] { color: rgba(237, 247, 242, .72) !important; font-size: .78rem !important; opacity: 1 !important; }
 
 /* ══ Revue complète du site (novembre 2026) ══════════════════════════════ */
 /* Menu mobile fermé : son ombre débordait de 90 px sur l'écran et grisait le bord droit de toutes les pages. */
@@ -1008,3 +1008,7 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .crd-vault-note { font-size: .8rem !important; opacity: 1 !important; color: rgba(237, 247, 242, .66) !important; }
 .crd-vault-desc { color: rgba(237, 247, 242, .78) !important; opacity: 1 !important; }
 .crd-sel-vault .cp-wrap, .crd-sel-vault .cp-wrap > button { width: 100%; justify-content: center; }
+/* Textes d'aide des check-lists et des héros : plus grands et plus foncés (contraste ≥ 4,5:1). */
+.icl-critere-desc { font-size: .82rem !important; line-height: 1.5; opacity: 1 !important; }
+.icl-subtitle { font-size: .9rem !important; opacity: 1 !important; }
+.inv-hero-trust-item { font-size: .85rem !important; opacity: 1 !important; color: #4a5a52 !important; }

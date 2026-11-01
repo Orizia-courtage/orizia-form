@@ -28,7 +28,7 @@ const PROFILS = [
 const DETAILS = {
   salarie: {
     tmi: ['30%', '41%'],
-    plafond: '~35 000€/an',
+    plafond: '~35 000€/an',
     exemple: { versement: 10000, tmi: '41%', gain: 4100 },
     strategie: 'Versements mensuels réguliers + rattrapage des plafonds N-3 non utilisés.',
     conseil: 'Vérifiez votre avis d\'imposition rubrique "Plafond épargne retraite" — vous avez probablement des plafonds reportés des 3 dernières années.',
@@ -37,7 +37,7 @@ const DETAILS = {
   },
   tns: {
     tmi: ['41%', '45%'],
-    plafond: '~85 000€/an (Madelin)',
+    plafond: '~85 000€/an (Madelin)',
     exemple: { versement: 20000, tmi: '41%', gain: 8200 },
     strategie: 'Versements modulables selon le bénéfice annuel — versez plus les bonnes années, moins les années creuses.',
     conseil: 'Le plafond Madelin est 2,5× plus élevé que celui d\'un salarié. C\'est le levier fiscal le plus puissant disponible pour un indépendant.',

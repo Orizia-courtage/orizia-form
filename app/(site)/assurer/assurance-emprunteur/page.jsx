@@ -13,11 +13,11 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Assurance Emprunteur 2026 : Loi Lemoine | Orizia Courtage',
   description:
-    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
+    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
     title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
-    description: "Ne laissez plus votre banque monopoliser votre assurance de prêt. Économisez jusqu'à 15 000€ grâce à la loi Lemoine. Je compare, je résilie, je gère tout.",
+    description: "Ne laissez plus votre banque monopoliser votre assurance de prêt. Économisez jusqu'à 15 000€ grâce à la loi Lemoine. Je compare, je résilie, je gère tout.",
     url: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur',
     siteName: 'Orizia Courtage',
     images: [
@@ -49,7 +49,7 @@ const assuranceEmprunteurSchema = {
       '@type': 'Service',
       name: "Courtage et Délégation d'Assurance Emprunteur",
       description:
-        "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Économies moyennes de 15 000€ constatées.",
+        "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Jusqu'à 15 000€ d'économies selon le capital et la durée.",
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -97,7 +97,7 @@ const faqSchema = {
       name: "Combien d'argent puis-je espérer récupérer ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est l'un des postes où l'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
+        text: "C'est l'un des postes où l'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
       },
     },
     {
@@ -113,7 +113,7 @@ const faqSchema = {
       name: "Vais-je devoir passer des examens médicaux ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.",
+        text: "C'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.",
       },
     },
     {
@@ -129,15 +129,15 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: 'coins' },
-  { value: '15\u00A0000€', label: 'Économies moyennes constatées', icon: 'euro' },
-  { value: '-50%', label: "Sur votre taux d'assurance", icon: 'trending-up' },
+  { value: 'Jusqu\'à\u00A015\u00A0000\u00A0€', label: 'D\'économies sur la durée du prêt', icon: 'euro' },
+  { value: 'Jusqu\'à\u00A0-50\u00A0%', label: "Sur votre taux d'assurance", icon: 'trending-up' },
   { value: '0\u00A0effort', label: 'Je gère toute la paperasse', icon: 'circle-check' },
 ];
 
 const ECONOMIES_EXEMPLES = [
-  { profil: 'Couple, 32 ans',      pret: '250 000€ restants sur 25 ans', tauxBanque: '0,32%', tauxCourt: '0,13%', economie: '11 875€', couleur: '#3e7f68' },
-  { profil: 'Salarié, 38 ans',     pret: '180 000€ restants sur 20 ans', tauxBanque: '0,34%', tauxCourt: '0,15%', economie: '6 840€',  couleur: '#a87a2c' },
-  { profil: 'Indépendant, 44 ans', pret: '300 000€ restants sur 20 ans', tauxBanque: '0,42%', tauxCourt: '0,24%', economie: '10 800€', couleur: 'var(--orizia-primary)' },
+  { profil: 'Couple, 32 ans',      pret: '250 000€ restants sur 25 ans', tauxBanque: '0,32%', tauxCourt: '0,13%', economie: '11 875€', couleur: '#3e7f68' },
+  { profil: 'Salarié, 38 ans',     pret: '180 000€ restants sur 20 ans', tauxBanque: '0,34%', tauxCourt: '0,15%', economie: '6 840€',  couleur: '#a87a2c' },
+  { profil: 'Indépendant, 44 ans', pret: '300 000€ restants sur 20 ans', tauxBanque: '0,42%', tauxCourt: '0,24%', economie: '10 800€', couleur: 'var(--orizia-primary)' },
 ];
 
 const GARANTIES = [
@@ -168,10 +168,10 @@ const ETAPES = [
 ];
 
 const OBJECTIONS = [
-  { q: '« Si je fais ça, ma banque va changer le taux de mon crédit. »',        r: "C'est du chantage pur et simple, et c'est illégal. La loi Lagarde interdit formellement à une banque de modifier votre taux de crédit ou vos conditions si vous prenez une assurance externe." },
-  { q: '« Je viens juste de signer mon prêt, je dois attendre un an, non ? »',  r: "Plus maintenant ! Avec la loi Lemoine, le droit de résiliation est permanent. Vous avez signé hier ? On peut changer demain. Il n'y a plus de période de blocage." },
-  { q: '« Ça a l\'air d\'être une montagne de démarches administratives. »',    r: "Pour vous ? Aucune. Vous me signez un mandat, et je fais absolument tout. Je récupère les documents, je gère les courriers recommandés, je relance le service prêt de votre banque. C'est du clé en main." },
-  { q: "« Mon état de santé s'est dégradé depuis la signature. »",              r: "Si vous êtes éligible à la suppression du questionnaire médical (moins de 200k€ par emprunteur, fin du prêt avant 60 ans), on ne vous posera aucune question. Votre santé actuelle n'impactera pas le tarif." },
+  { q: '« Si je fais ça, ma banque va changer le taux de mon crédit. »',        r: "C'est du chantage pur et simple, et c'est illégal. La loi Lagarde interdit formellement à une banque de modifier votre taux de crédit ou vos conditions si vous prenez une assurance externe." },
+  { q: '« Je viens juste de signer mon prêt, je dois attendre un an, non ? »',  r: "Plus maintenant ! Avec la loi Lemoine, le droit de résiliation est permanent. Vous avez signé hier ? On peut changer demain. Il n'y a plus de période de blocage." },
+  { q: '« Ça a l\'air d\'être une montagne de démarches administratives. »',    r: "Pour vous ? Aucune. Vous me signez un mandat, et je fais absolument tout. Je récupère les documents, je gère les courriers recommandés, je relance le service prêt de votre banque. C'est du clé en main." },
+  { q: "« Mon état de santé s'est dégradé depuis la signature. »",              r: "Si vous êtes éligible à la suppression du questionnaire médical (moins de 200k€ par emprunteur, fin du prêt avant 60 ans), on ne vous posera aucune question. Votre santé actuelle n'impactera pas le tarif." },
 ];
 
 export default function AssuranceEmprunteurPage() {
@@ -225,7 +225,7 @@ export default function AssuranceEmprunteurPage() {
               <strong>loi Lemoine</strong>, changez de contrat à tout moment. En tant que courtière
               indépendante, je compare les taux,{' '}
               <strong>je défie votre banque à votre place</strong>, et je vous fais économiser{' '}
-              <strong>jusqu'à 15 000€</strong>.
+              <strong>jusqu'à 15 000€</strong>.
             </p>
 
             <div className="ae-hero-btns">
@@ -238,7 +238,7 @@ export default function AssuranceEmprunteurPage() {
             <div className="ae-hero-trust">
               <span><Icon name="circle-check" /> Loi Lemoine : je résilie quand je veux</span>
               <span><Icon name="briefcase" /> Service 100% délégué</span>
-              <span><Icon name="coins" /> Mêmes garanties, prix divisé par 2</span>
+              <span><Icon name="coins" /> Garanties équivalentes, prix souvent bien plus bas</span>
             </div>
           </div>
         </section>
@@ -274,9 +274,9 @@ export default function AssuranceEmprunteurPage() {
 
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « L'assurance de prêt est la vache à lait des banques. On vous l'impose
+                  « L'assurance de prêt est la vache à lait des banques. On vous l'impose
                   discrètement à la signature, et vous finissez par payer des milliers d'euros en
-                  trop. »
+                  trop. »
                 </p>
                 <p className="ae-citation-text">
                   Mon métier, c'est de reprendre cet argent pour le remettre dans votre poche. Et
@@ -523,8 +523,8 @@ export default function AssuranceEmprunteurPage() {
                 <strong>Des modalités expliquées avec transparence.</strong>
                 <p>
                   Les frais et modalités applicables sont présentés de manière totalement
-                  transparente. Vous profitez d'une experte dédiée pour affronter votre banque, sans
-                  débourser un centime d'honoraires de courtage.
+                  transparente. Vous profitez d'une experte dédiée pour affronter votre banque, et vous savez
+                  exactement ce que vous payez avant de vous engager.
                 </p>
               </div>
               <ContactPopup label="On lance la machine ?" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
@@ -593,7 +593,7 @@ export default function AssuranceEmprunteurPage() {
               {[
                 { href: '/assurer/assurance-habitation', icon: 'house', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: 'Obligatoire avant la remise des clés', pillBg: 'rgba(168,122,44,0.08)', pillColor: '#a87a2c', pillBorder: 'rgba(168,122,44,0.2)', featured: false },
                 { href: '/assurer/auto-moto', icon: 'car', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.", badge: 'Résiliation gérée pour vous', pillBg: 'rgba(62,127,104,0.08)', pillColor: '#3e7f68', pillBorder: 'rgba(62,127,104,0.2)', featured: false },
-                { href: '/investir/per', icon: 'tree-palm', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: 'Réduisez vos impôts dès cette année', pillBg: 'rgba(107,182,155,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(107,182,155,0.3)', featured: true },
+                { href: '/investir/per', icon: 'tree-palm', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: 'Réduisez vos impôts dès cette année', pillBg: 'rgba(107,182,155,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(107,182,155,0.3)', featured: true },
               ].map(s => (
                 <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (

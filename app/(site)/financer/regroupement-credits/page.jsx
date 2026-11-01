@@ -322,7 +322,7 @@ export default function RegroupementCreditsPage() {
               </div>
               <div className="ae-citation-content">
                 <p className="ae-citation-quote">
-                  « Quand les mensualités dépassent 35% de vos revenus, ce n'est plus un problème de budget — c'est un problème de structure. »
+                  « Quand les mensualités dépassent 35% de vos revenus, ce n'est plus un problème de budget — c'est un problème de structure. »
                 </p>
                 <p className="ae-citation-text">
                   Le regroupement de crédits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immédiatement. Mon rôle est d'analyser votre situation honnêtement, de vous présenter les chiffres réels — économies immédiates et coût total — et de vous laisser décider en toute connaissance de cause.
@@ -598,7 +598,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   title: 'Assurance Emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer des économies supplémentaires.',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  badge: 'Économisez jusqu\'à 15 000€',
                   badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(107,182,155,0.3)',
