@@ -46,7 +46,7 @@ const RECOMMANDATIONS = {
   revenus_long_faible:     { produit: 'Assurance Vie', href: '/investir/assurance-vie', icon: 'shield-check', raison: 'Profil équilibré ou dynamique. Fiscalité optimale après 8 ans.', color: 'var(--orizia-accent)' },
   revenus_long_eleve:      { produit: 'Assurance Vie + SCPI', href: '/investir/assurance-vie', icon: 'shield-check', raison: 'SCPI logées en AV pour combiner rendement immobilier et flat tax 31,4%.', color: 'var(--orizia-accent)' },
   fiscal_court_eleve:      { produit: 'PER', href: '/investir/per', icon: 'landmark', raison: 'Déduction fiscale immédiate dès cette année. Rendement fiscal garanti.', color: '#8a6424' },
-  fiscal_court_tns:        { produit: 'PER (Madelin)', href: '/investir/per', icon: 'landmark', raison: 'Plafond Madelin jusqu\'à 85 000€/an. Le levier fiscal le plus puissant pour un TNS.', color: '#8a6424' },
+  fiscal_court_tns:        { produit: 'PER (Madelin)', href: '/investir/per', icon: 'landmark', raison: 'Plafond Madelin jusqu\'à environ 88 000 €/an. Le levier fiscal le plus puissant pour un TNS.', color: '#8a6424' },
   fiscal_moyen_eleve:      { produit: 'PER', href: '/investir/per', icon: 'landmark', raison: 'Versements déductibles + rattrapage des plafonds N-3. Économie d\'impôt immédiate.', color: '#8a6424' },
   fiscal_long_eleve:       { produit: 'PER + Assurance Vie', href: '/investir/per', icon: 'landmark', raison: 'PER pour la déduction fiscale, AV pour la liquidité. La combinaison optimale.', color: '#8a6424' },
   capital_long_faible:     { produit: 'Assurance Vie', href: '/investir/assurance-vie', icon: 'shield-check', raison: 'Profil dynamique (80% UC). Potentiel 4–5%/an sur 15 ans avec fiscalité avantageuse.', color: 'var(--orizia-accent)' },

@@ -202,7 +202,7 @@ export default function ContactWidget() {
             )}
 
             {tab === 'message' && (
-              isMobile ? (
+              isMobile ? (
                 <div className="cw-action-center">
                   <div className="cw-action-icon"><Icon name="message-circle" /></div>
                   <h3>Envoyez-moi un message</h3>
@@ -352,7 +352,7 @@ export default function ContactWidget() {
             )}
 
             {tab === 'appel' && (
-              isMobile ? (
+              isMobile ? (
                 <div className="cw-action-center">
                   <div className="cw-action-icon"><Icon name="phone" /></div>
                   <h3>Appelez-moi directement</h3>

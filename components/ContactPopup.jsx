@@ -266,7 +266,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
 
             {showRappel ? (
               <RappelForm onBack={() => setShowRappel(false)} />
-            ) : selectedDesktopAction ? (
+            ) : selectedDesktopAction ? (
               <div className="cp-contact-detail" key={selectedDesktopAction.label}>
                 <button className="cp-detail-back" type="button" onClick={() => setSelectedDesktopAction(null)}>
                   <IconArrowLeft /> Retour aux moyens de contact
