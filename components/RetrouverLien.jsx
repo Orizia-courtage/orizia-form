@@ -37,7 +37,7 @@ export default function RetrouverLien() {
   if (!open) return <button type="button" className="parr-link-btn" onClick={() => setOpen(true)}>Lien perdu ? Recevoir à nouveau ma carte</button>;
 
   if (state === 'done') return (
-    <p className="parr-found" role="status"><Icon name="check" /> Si ces coordonnées correspondent à votre dossier, votre carte et votre lien viennent d&apos;être envoyés à <strong>{sentTo.current}</strong>. Pensez à regarder dans les indésirables.</p>
+    <p className="parr-found" role="status"><Icon name="check" /><span>Si ces coordonnées correspondent à votre dossier, votre carte et votre lien viennent d&apos;être envoyés à <strong>{sentTo.current}</strong>. Pensez à regarder dans les indésirables.</span></p>
   );
 
   return (

@@ -12047,7 +12047,7 @@ body.contact-popup-open .cw-trigger {
 .parr-link-btn { background: none; border: 0; padding: 0; color: var(--orizia-primary, #3a6f6c); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: .95rem; }
 .parr-find { margin-top: 6px; position: relative; }
 .parr-find .parr-fields-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.parr-found { display: flex; gap: 8px; align-items: flex-start; background: #e9f6ef; border-radius: 12px; padding: 12px 14px; margin: 0; }
+.parr-found { display: flex; gap: 10px; align-items: flex-start; overflow-wrap: anywhere; background: #e9f6ef; border-radius: 12px; padding: 12px 14px; margin: 0; }
 .parr-reward-note { text-align: center; font-size: .9rem; opacity: .75; margin: 18px 0 0; }
 .parr-steps-section { padding: 56px 16px 8px; }
 .parr-steps { list-style: none; padding: 0; margin: 0 auto; max-width: 980px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -12068,3 +12068,4 @@ body.contact-popup-open .cw-trigger {
 }
 .parr-legal a, .parr-share-body .parr-legal a { color: var(--orizia-primary, #3a6f6c); }
 @media (max-width: 720px) { .parr-accord .parr-btn-primary, .parr-find .parr-btn-primary { width: 100%; } }
+.parr-found .oz-icon { flex: none; margin-top: 4px; color: var(--orizia-primary, #3a6f6c); }
