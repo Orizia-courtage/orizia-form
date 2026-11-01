@@ -41,7 +41,7 @@ export default function CapaciteEmpruntCalc() {
           <input type="range" min={1000} max={15000} step={100} value={revenus}
             onChange={e => setRevenus(+e.target.value)} className="aec-slider"
             style={{ '--pct': `${((revenus - 1000) / 14000) * 100}%` }} />
-          <div className="aec-slider-labels"><span>1 000€</span><span>15 000€</span></div>
+          <div className="aec-slider-labels"><span>1 000 €</span><span>15 000 €</span></div>
         </div>
 
         <div className="cap-field">
@@ -52,7 +52,7 @@ export default function CapaciteEmpruntCalc() {
           <input type="range" min={0} max={3000} step={50} value={charges}
             onChange={e => setCharges(+e.target.value)} className="aec-slider"
             style={{ '--pct': `${(charges / 3000) * 100}%` }} />
-          <div className="aec-slider-labels"><span>0€</span><span>3 000€</span></div>
+          <div className="aec-slider-labels"><span>0 €</span><span>3 000 €</span></div>
         </div>
 
         <div className="cap-field">
@@ -69,7 +69,7 @@ export default function CapaciteEmpruntCalc() {
         <div className="cap-field">
           <div className="cap-field-header">
             <label>Taux estimé</label>
-            <span className="cap-field-value">{taux}%</span>
+            <span className="cap-field-value">{String(taux).replace('.', ',')} %</span>
           </div>
           <input type="range" min={creditConfig.minRate} max={creditConfig.maxRate} step={0.1} value={taux}
             onChange={e => setTaux(+e.target.value)} className="aec-slider"
@@ -110,7 +110,7 @@ export default function CapaciteEmpruntCalc() {
 
         <ContactPopup label="Affiner avec Cindy" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
-          Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié.
+          Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
         </p>
       </div>
     </div>

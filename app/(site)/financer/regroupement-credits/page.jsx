@@ -134,10 +134,10 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '-60%', label: 'de réduction de mensualités possible', icon: 'trending-down' },
+  { value: 'Jusqu\'à -60\u00A0%', label: 'sur la mensualité, en allongeant la durée', icon: 'trending-down' },
   { value: '24h', label: 'pour une première réponse de principe', icon: 'timer' },
-  { value: '100%', label: 'accompagnement personnalisé', icon: 'target' },
-  { value: '10\u00A0questions', label: 'pour une analyse complète de votre profil', icon: 'clipboard-list' },
+  { value: '1', label: 'seule interlocutrice, du premier appel à la signature', icon: 'target' },
+  { value: '3 à 5\u00A0min', label: 'pour compléter votre dossier en ligne', icon: 'clipboard-list' },
 ];
 
 const CREDITS_REGROUPABLES = [
@@ -162,7 +162,7 @@ const PROFILS = [
     title: 'Retraité propriétaire',
     desc: 'Revenu fixe, patrimoine immobilier, besoin de reste à vivre.',
     resultat: 'Rachat adossé à l\'immobilier — durée adaptée à l\'âge.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
   },
   {
     icon: 'trophy',
@@ -185,7 +185,7 @@ const COMMENT_CA_MARCHE = [
     n: '01',
     icon: 'clipboard-list',
     title: 'Vous complétez le formulaire',
-    text: '10 questions sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 5 à 8 minutes.',
+    text: 'Une conversation guidée sur votre situation financière. Aucun document à envoyer à ce stade. Comptez 3 à 5 minutes.',
   },
   {
     n: '02',
@@ -245,23 +245,24 @@ export default function RegroupementCreditsPage() {
               <span>Regroupement de crédits</span>
             </nav>
             <span className="fin-badge"><Icon name="refresh-cw" /> Étude de faisabilité · Réponse sous 24h</span>
-            <h1 className="ae-hero-title">Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à -60%</h1>
+            <h1 className="ae-hero-title">Regroupement de crédits :<br />une seule mensualité, réduite jusqu'à -60 %*</h1>
             <p className="ae-hero-intro">
-              Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
+              Vous cumulez plusieurs crédits et vos mensualités pèsent sur votre budget ?
               Le regroupement de crédits réunit tous vos emprunts en <strong>un seul</strong>,
               avec une mensualité unique et allégée. J'étudie votre
               dossier et vous présente les modalités avant tout engagement.
             </p>
+            <p className="ae-hero-legal">*La baisse de mensualité s'obtient en allongeant la durée, ce qui augmente le coût total du crédit. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
                 <Icon name="rocket" /> Démarrer mon étude
               </a>
               <a href="#section-comprendre" className="fin-btn-secondary">
-                Comment ça marche ?
+                Comment ça marche ?
               </a>
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span><Icon name="circle-check" /> Modalités transparentes · Accompagnement personnalisé</span>
+              <span><Icon name="circle-check" /> Modalités transparentes</span>
               <span><Icon name="zap" /> Réponse sous 24h</span>
               <span><Icon name="lock" /> Données sécurisées</span>
             </div>
@@ -280,7 +281,7 @@ export default function RegroupementCreditsPage() {
               <h2>Complétez votre dossier en ligne</h2>
               <p>
                 Une conversation de 3 à 5 minutes avec Cindy · Réponse sous 24h<br />
-                <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>
+                <span style={{ fontSize: '0.88rem', color: 'var(--oz-muted)' }}>
                   Aucun document à envoyer à ce stade. Vos données sont sécurisées.
                 </span>
               </p>
@@ -327,7 +328,7 @@ export default function RegroupementCreditsPage() {
                   Le regroupement de crédits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immédiatement. Mon rôle est d'analyser votre situation honnêtement, de vous présenter les chiffres réels — économies immédiates et coût total — et de vous laisser décider en toute connaissance de cause.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -348,7 +349,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 </p>
                 <p>
                   Résultat immédiat : votre mensualité globale baisse, parfois de moitié.
-                  Votre taux d'endettement se normalise. Vous retrouvez du <strong>reste à vivre</strong>
+                  Votre taux d'endettement se normalise. Vous retrouvez du <strong>reste à vivre</strong>{' '}
                   chaque mois.
                 </p>
                 <p style={{ fontSize: '0.85rem', opacity: 0.6, fontStyle: 'italic' }}>
@@ -370,11 +371,11 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     fontWeight: 800,
                     textTransform: 'uppercase',
                     letterSpacing: '0.07em',
-                    color: 'var(--orizia-primary)',
+                    color: '#3e7f68',
                     marginBottom: 18,
                     textAlign: 'center',
                   }}>
-                    Quels crédits peut-on regrouper ?
+                    Quels crédits peut-on regrouper ?
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                     {CREDITS_REGROUPABLES.map(c => (
@@ -465,7 +466,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre profil</span>
-              <h2>Le regroupement est-il<br />fait pour votre situation ?</h2>
+              <h2>Le regroupement est-il<br />fait pour votre situation ?</h2>
               <p>
                 Les conditions varient selon votre statut. Voici les profils les plus fréquents
                 et leur potentiel de solution.
@@ -522,9 +523,9 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
 
                 <div className="crowd-cta-band" style={{ margin: 0 }}>
                   <div>
-                    <strong>Vous ne savez pas si votre profil est éligible ?</strong>
+                    <strong>Vous ne savez pas si votre profil est éligible ?</strong>
                     <p>
-                      Le formulaire ci-dessous analyse votre situation en détail et
+                      Le formulaire en haut de page analyse votre situation en détail et
                       vous donne une réponse de principe sous 24h — sans engagement.
                     </p>
                   </div>
@@ -562,7 +563,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question" icon="phone" className="fin-btn-secondary" />
             </div>
@@ -584,7 +585,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   icon: 'house',
                   title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
-                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
+                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
                   badge: '+40 offres bancaires comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
@@ -639,7 +640,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <CtaPresence />
             <h2>Vos mensualités pèsent trop.<br />Faites-les baisser dès maintenant.</h2>
             <p>
-              5 minutes de formulaire. 24h de délai. Une proposition concrète.
+              3 à 5 minutes de formulaire. 24h de délai. Une proposition concrète.
               J'analyse votre profil, j'identifie la solution optimale
               et je vous accompagne jusqu'à la mise en place, avec des modalités expliquées en amont.
             </p>

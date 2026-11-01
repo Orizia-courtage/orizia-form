@@ -66,7 +66,7 @@ const MOYENS = [
     href: '#calendrier',
     primary: true,
     detail: 'Réponse sous 24h garantie',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
@@ -152,7 +152,7 @@ export default function ContactPage() {
                 <span className="inv-hero-badge"><Icon name="zap" /> Réponse sous 24h</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Parlons de<br />
-                  <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>votre projet</em>
+                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>votre projet</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, assurance, investissement — Cindy analyse votre situation
@@ -222,7 +222,7 @@ export default function ContactPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Choisissez votre canal</span>
-              <h2>Comment souhaitez-vous<br />me contacter ?</h2>
+              <h2>Comment souhaitez-vous<br />me contacter ?</h2>
               <p>Pas de standard, pas d'attente. Vous parlez directement avec Cindy.</p>
             </div>
             <div className="contact-moyens-grid">
@@ -265,7 +265,7 @@ export default function ContactPage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Je peux vous aider sur</span>
-              <h2>Quel est votre projet ?</h2>
+              <h2>Quel est votre projet ?</h2>
               <p>
                 Chaque sujet a sa page dédiée avec toutes les informations clés.
                 Consultez-la avant votre rendez-vous pour gagner du temps.
@@ -274,7 +274,7 @@ export default function ContactPage() {
             <ContactSujetsFilter />
             <p style={{ textAlign: 'center', fontSize: '0.85rem', opacity: 0.6, marginTop: 20 }}>
               Votre projet ne figure pas dans la liste ?{' '}
-              <a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: 'var(--orizia-primary)', fontWeight: 700 }}>
+              <a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: '#3e7f68', fontWeight: 700 }}>
                 Écrivez-moi directement
               </a>
             </p>
@@ -370,7 +370,7 @@ export default function ContactPage() {
                   Les informations transmises sont utilisées exclusivement dans le cadre de votre demande.
                   Elles ne sont jamais revendues ni partagées sans votre consentement.
                   Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression.{' '}
-                  <Link href="/mentions-legales" style={{ color: 'var(--orizia-primary)' }}>
+                  <Link href="/mentions-legales" style={{ color: '#3e7f68' }}>
                     En savoir plus
                   </Link>
                 </p>

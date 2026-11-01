@@ -134,7 +134,7 @@ export default function ParrainagePage() {
           <div className="parrainage-hero-inner">
             <span className="parrainage-badge"><Icon name="gift" /> Programme de recommandation</span>
             <h1>
-              Vous êtes satisfait de mon accompagnement ?<br />
+              Vous êtes satisfait de mon accompagnement ?<br />
               Parlez-en autour de vous.
             </h1>
             <p>
@@ -149,7 +149,7 @@ export default function ParrainagePage() {
           <div className="parr-share-card">
             <div className="parr-share-icon"><Icon name="smartphone" /></div>
             <div className="parr-share-body">
-              <h2>Vous avez déjà votre carte de recommandation ?</h2>
+              <h2>Vous avez déjà votre carte de recommandation ?</h2>
               <p>Le plus simple : <strong>envoyez votre lien personnel</strong> à votre proche par WhatsApp ou SMS (bouton « Partager » dans l&apos;e-mail de votre carte ou dans votre espace client). Il laisse lui-même ses coordonnées et la recommandation vous est attribuée automatiquement.</p>
               <RetrouverLien />
             </div>
@@ -219,7 +219,7 @@ export default function ParrainagePage() {
         <section className="parrainage-form-section">
           <div className="parrainage-form-container">
             <div className="parrainage-header">
-              <h2>Vous préférez que je le contacte ?</h2>
+              <h2>Vous préférez que je le contacte ?</h2>
               <p className="form-subtitle">
                 Prévenez votre proche, puis transmettez-moi ses coordonnées : il recevra un e-mail de ma part à votre nom et choisira s&apos;il souhaite être rappelé.
               </p>
@@ -246,7 +246,7 @@ export default function ParrainagePage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="mail" className="fin-btn-secondary"/>
             </div>

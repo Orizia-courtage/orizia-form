@@ -25,7 +25,7 @@ const COLS = [
     id: 'av',
     label: 'Assurance Vie',
     icon: 'shield-check',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.05)',
     border: 'rgba(45,106,95,0.25)',
     best: true,
@@ -36,7 +36,7 @@ const CRITERES = [
   {
     label: 'Rendement 2026',
     icon: 'trending-up',
-    livretA: { val: '2,1%', note: 'Taux réglementé', ok: true },
+    livretA: { val: '1,7\u00a0%', note: 'Taux réglementé', ok: true },
     pel:     { val: '2,25%', note: 'Taux garanti à l\'ouverture', ok: null },
     av:      { val: '2,5–5%', note: 'Selon profil (fonds € + UC)', ok: true, star: true },
   },

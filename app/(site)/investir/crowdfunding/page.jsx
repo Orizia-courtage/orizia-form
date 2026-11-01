@@ -82,7 +82,7 @@ const investirCrowdfundingSchema = {
           name: 'Quel est le rendement moyen du crowdfunding immobilier en 2026 ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'En 2026, les rendements oscillent entre 8% et 12% brut par an — bien au-dessus du livret A (2,1%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
+            text: 'En 2026, les projets visent généralement 8 à 12\u00a0% brut par an, sans garantie — bien au-dessus du Livret A (1,7\u00a0%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
           },
         },
         {
@@ -186,7 +186,7 @@ const RISQUES = [
 ];
 
 const COMPARATIF = [
-  { produit: 'Livret A', rendement: '2,1%', duree: 'Libre', risque: 'Très faible', liquidite: 'Immédiate', highlight: false },
+  { produit: 'Livret A', rendement: '1,7\u00a0%', duree: 'Libre', risque: 'Très faible', liquidite: 'Immédiate', highlight: false },
   { produit: 'Assurance Vie', rendement: '2–4%', duree: '8 ans+', risque: 'Très faible', liquidite: 'Bonne', highlight: false },
   { produit: 'SCPI', rendement: '4–6%', duree: '8–10 ans', risque: 'Faible', liquidite: 'Limitée', highlight: false },
   { produit: 'Crowdfunding immo', rendement: '8–12%', duree: '1–3 ans', risque: 'Moyen', liquidite: 'Bloqué', highlight: true },
@@ -309,7 +309,7 @@ export default function CrowdfundingPage() {
                   votre épargne.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -375,7 +375,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             {/* Titre centré */}
             <div className="fin-section-head" style={{ marginBottom: 40 }}>
               <span className="fin-badge">Définition</span>
-              <h2>Qu'est-ce que le crowdfunding immobilier ?</h2>
+              <h2>Qu'est-ce que le crowdfunding immobilier ?</h2>
               <p>
                 Vous prêtez de l'argent à un promoteur via une plateforme agréée AMF.
                 Il construit ou rénove. Vous percevez des intérêts fixes, puis récupérez votre capital.
@@ -463,7 +463,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
                       background: 'rgba(107,182,155,0.15)',
-                      color: 'var(--orizia-gold)',
+                      color: '#2d6a5f',
                       border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
@@ -494,7 +494,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <PlacementsComparatif />
             <div className="crowd-cta-band" style={{ marginTop: 36 }}>
               <div>
-                <strong>Quelle allocation pour votre profil ?</strong>
+                <strong>Quelle allocation pour votre profil ?</strong>
                 <p>
                   Crowdfunding, SCPI, assurance vie, PER : je construis avec vous la
                   répartition optimale selon vos objectifs et votre tolérance au risque.
@@ -521,7 +521,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <RisqueJauge />
             <div className="crowd-cta-band" style={{ marginTop: 40 }}>
               <div>
-                <strong>Ces risques vous inquiètent ? C'est une très bonne chose.</strong>
+                <strong>Ces risques vous inquiètent ? C'est une très bonne chose.</strong>
                 <p>
                   Les investisseurs qui réussissent comprennent les risques avant d'investir.
                   Mon rôle est de vous aider à les maîtriser — pas à les minimiser pour
@@ -647,7 +647,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   </div>
                 </div>
 
-                <ContactPopup label="Obtenir ma sélection personnalisée" icon="clipboard-list" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
+                <ContactPopup label="Recevoir ma sélection" icon="clipboard-list" className="fin-btn-on-dark" />
                 <p className="crd-vault-note">
                   Modalités transparentes · Sans engagement · Réponse sous 24h
                 </p>
@@ -716,7 +716,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Auto-évaluation</span>
-              <h2>Suis-je prêt à investir<br />dans le crowdfunding ?</h2>
+              <h2>Suis-je prêt à investir<br />dans le crowdfunding ?</h2>
               <p>Cochez les critères qui correspondent à votre situation pour obtenir une recommandation personnalisée.</p>
             </div>
             <InvestisseurChecklist />
@@ -741,7 +741,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="clipboard-list" className="fin-btn-secondary" />
             </div>
@@ -829,7 +829,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prêt à investir<br />intelligemment ?</h2>
+            <h2>Prêt à investir<br />intelligemment ?</h2>
             <p>
               30 minutes avec moi suffisent pour définir votre stratégie, identifier
               les projets adaptés à votre profil et éviter les pièges les plus courants.

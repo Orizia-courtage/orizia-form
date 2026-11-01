@@ -118,7 +118,7 @@ const faqSchema = {
       name: 'Quel est le rôle du notaire dans un rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le notaire est indispensable : il rédige l\'acte de partage ou de licitation, calcule les droits de partage (2,5% de la valeur nette du bien), et officialise le transfert de propriété. Mon rôle est de monter le financement bancaire en parallèle pour que tout soit prêt le jour de la signature chez le notaire.',
+        text: 'Le notaire est indispensable : il rédige l\'acte de partage ou de licitation, calcule les droits de partage (1,1\u00a0% de la valeur nette après un divorce ou une fin de PACS, 2,5\u00a0% dans les autres cas), et officialise le transfert de propriété. Mon rôle est de monter le financement bancaire en parallèle pour que tout soit prêt le jour de la signature chez le notaire.',
       },
     },
     {
@@ -214,7 +214,7 @@ export default function RachatSoultePage() {
             <h1 className="ae-hero-title">Rachat de soulte :<br />conservez votre bien, je monte le financement</h1>
             <p className="ae-hero-intro">
               Vous souhaitez racheter la part de votre ex-conjoint ou d'un co-héritier pour rester
-              seul propriétaire ? Je monte le financement adapté à votre situation, je négocie
+              seul propriétaire ? Je monte le financement adapté à votre situation, je négocie
               les meilleures conditions et je coordonne avec votre notaire.{' '}
               <strong>Étude de faisabilité.</strong>
             </p>
@@ -236,9 +236,9 @@ export default function RachatSoultePage() {
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {[
-              { val: '2,5%', label: 'Droits de partage dus au notaire', icon: 'clipboard-list' },
+              { val: '1,1\u00a0%', label: 'Droits de partage après divorce ou PACS (2,5\u00a0% sinon)', icon: 'clipboard-list' },
               { val: '+40', label: 'Banques partenaires comparées', icon: 'landmark' },
-              { val: '100%', label: 'modalités transparentes', icon: 'circle-check' },
+              { val: '1', label: 'Seule interlocutrice, du début à la signature', icon: 'circle-check' },
               { val: '24h', label: 'Pour une première estimation', icon: 'timer' },
             ].map(c => (
               <div key={c.label} className="fin-chiffre">
@@ -273,7 +273,7 @@ export default function RachatSoultePage() {
                   Mon rôle est de prendre en charge toute la partie financière pour que vous puissiez vous concentrer sur l'essentiel. Je monte le dossier, je négocie avec les banques, et je coordonne avec votre notaire pour que tout soit prêt à temps. Sans surprise, sans retard.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -285,7 +285,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge">Définition</span>
-                <h2>Qu'est-ce que le rachat de soulte ?</h2>
+                <h2>Qu'est-ce que le rachat de soulte ?</h2>
                 <p>
                   La <strong>soulte</strong> est la somme d'argent qu'un co-propriétaire verse
                   à l'autre pour racheter sa part d'un bien immobilier détenu en commun.
@@ -309,7 +309,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 </p>
               </div>
               <div className="crowd-schema">
-                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
+                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#3e7f68' }}>
                   Calcul de la soulte
                 </div>
                 <div className="crowd-schema-step">
@@ -319,7 +319,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     <span>Estimée par un agent ou un notaire</span>
                   </div>
                 </div>
-                <div className="crowd-schema-arrow">-</div>
+                <div className="crowd-schema-arrow">−</div>
                 <div className="crowd-schema-step">
                   <div className="crowd-schema-icon"><Icon name="landmark" /></div>
                   <div className="crowd-schema-text">
@@ -327,7 +327,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                     <span>Sur le crédit immobilier en cours</span>
                   </div>
                 </div>
-                <div className="crowd-schema-arrow">÷ 2</div>
+                <div className="crowd-schema-arrow">× quote-part</div>
                 <div className="crowd-schema-step crowd-schema-step--result">
                   <div className="crowd-schema-icon"><Icon name="scale" /></div>
                   <div className="crowd-schema-text">
@@ -336,7 +336,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   </div>
                 </div>
                 <div style={{ marginTop: 12, background: 'var(--orizia-light)', borderRadius: 10, padding: '12px 14px', fontSize: '0.78rem', color: 'var(--orizia-dark)', opacity: 0.7 }}>
-                  <Icon name="lightbulb" /> <strong>Exemple :</strong> Bien à 300 000€ · CRD 100 000€ → Valeur nette 200 000€ → Soulte = <strong>100 000€</strong>
+                  <Icon name="lightbulb" /> <strong>Exemple (50/50) :</strong> Bien à 300 000 € · CRD 100 000 € → Valeur nette 200 000 € → Soulte = <strong>100 000 €</strong>, plus la reprise du crédit en cours.
                 </div>
               </div>
             </div>
@@ -484,7 +484,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   icon: 'house',
                   title: 'Crédit immobilier',
                   sub: 'Votre projet de vie',
-                  text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
+                  text: 'Après le rachat de soulte, vous souhaitez renégocier votre crédit ou financer un nouveau projet ? Je m\'occupe de tout.',
                   badge: '+40 offres bancaires comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
@@ -537,7 +537,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prêt(e) à conserver votre bien ?</h2>
+            <h2>Prêt(e) à conserver votre bien ?</h2>
             <p>Confiez-moi votre dossier. Je calcule la faisabilité, je monte le financement et je coordonne avec votre notaire pour que tout se passe sans accroc.</p>
             <div className="fin-hero-btns">
               <ContactPopup label="Étudier mon rachat de soulte" icon="scale" className="fin-btn-primary" />

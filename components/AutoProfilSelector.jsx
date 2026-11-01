@@ -48,7 +48,7 @@ const DETAILS = {
     astuce: 'Si vous avez fait la conduite accompagnée, mentionnez-le systématiquement — c\'est un argument fort.',
   },
   experimente: {
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.05)',
     border: 'rgba(45,106,95,0.2)',
     titre: 'Conducteur expérimenté : vous devriez payer le prix plancher',

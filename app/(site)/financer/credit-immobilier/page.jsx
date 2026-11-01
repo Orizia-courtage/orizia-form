@@ -136,7 +136,7 @@ const TYPES_PROJETS = [
       'Optimisation de l\'apport personnel',
     ],
     cta: 'Calculer mon enveloppe',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     featured: true,
   },
   {
@@ -322,7 +322,7 @@ export default function CreditImmobilierPage() {
                   Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -394,14 +394,14 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <p>
                   Mon approche est globale : je vous négocie un excellent taux bancaire, ET je remplace 
                   immédiatement l'assurance très coûteuse de la banque par un contrat externe (délégation d'assurance). 
-                  Résultat ? <strong>Vous gagnez sur les deux tableaux</strong> et la baisse du coût total de votre achat est massive.
+                  Résultat ? <strong>Vous gagnez sur les deux tableaux</strong> et la baisse du coût total de votre achat est massive.
                 </p>
                 <Link href="/assurer/assurance-emprunteur" className="fin-btn-secondary" style={{ display: 'inline-block', marginTop: 16 }}>
                   Comprendre la magie de l'assurance prêt
                 </Link>
               </div>
               <div className="crowd-schema">
-                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
+                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#3e7f68' }}>
                   La méthode Orizia
                 </div>
                 <div className="crowd-schema-step" style={{ background: 'rgba(176,71,59,0.08)', border: '1.5px solid rgba(176,71,59,0.2)' }}>
@@ -468,7 +468,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Estimation rapide</span>
-              <h2>Combien pouvez-vous<br />emprunter ?</h2>
+              <h2>Combien pouvez-vous<br />emprunter ?</h2>
               <p>Ajustez vos revenus et la durée pour obtenir une première estimation. Je calcule votre capacité exacte en rendez-vous.</p>
             </div>
             <CapaciteEmpruntCalc />
@@ -518,7 +518,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
@@ -530,7 +530,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Pendant qu'on y est</span>
-              <h2>On sécurise le reste de votre projet ?</h2>
+              <h2>On sécurise le reste de votre projet ?</h2>
             </div>
             <div className="fin-cards fin-cards--light">
               <Link href="/assurer/assurance-emprunteur" className="fin-card fin-card--featured">
@@ -560,7 +560,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <div className="fin-card-icon"><Icon name="scale" /></div>
                 <div className="fin-card-sub">Divorce · Séparation · Succession</div>
                 <h3>Rachat de soulte</h3>
-                <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
+                <p>Vous souhaitez conserver votre bien en rachetant la part de votre co-propriétaire ? Je monte le financement et coordonne avec votre notaire.</p>
                 <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
             </div>
@@ -571,7 +571,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prêt(e) à savoir combien<br />vous pouvez emprunter ?</h2>
+            <h2>Prêt(e) à savoir combien<br />vous pouvez emprunter ?</h2>
             <p>
               Prenez rendez-vous avec moi. On fait le point sur vos revenus, votre apport, 
               et je vous donne une estimation claire et précise pour démarrer vos visites sereinement.

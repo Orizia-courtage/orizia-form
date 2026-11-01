@@ -325,7 +325,7 @@ export default function SCPIPage() {
                   amputée par la fiscalité. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -390,7 +390,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Définition</span>
-              <h2>Qu'est-ce qu'une SCPI ?</h2>
+              <h2>Qu'est-ce qu'une SCPI ?</h2>
               <p>
                 Une <strong>SCPI (Société Civile de Placement Immobilier)</strong> est un
                 fonds d'investissement collectif qui achète et gère un portefeuille d'actifs
@@ -434,7 +434,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
                       background: 'rgba(107,182,155,0.15)',
-                      color: 'var(--orizia-gold)',
+                      color: '#2d6a5f',
                       border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
@@ -455,7 +455,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Les différentes SCPI</span>
-              <h2>Quelle SCPI pour quel profil fiscal ?</h2>
+              <h2>Quelle SCPI pour quel profil fiscal ?</h2>
               <p>
                 Il n'existe pas une SCPI universelle. Sélectionnez votre TMI et votre
                 objectif pour voir la stratégie optimale adaptée à votre situation.
@@ -637,7 +637,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
@@ -689,7 +689,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prête à percevoir vos premiers<br />loyers sans gérer un bien ?</h2>
+            <h2>Prête à percevoir vos premiers<br />loyers sans gérer un bien ?</h2>
             <p>
               J'analyse votre situation fiscale et patrimoniale, sélectionne les SCPI
               les plus adaptées parmi 200+ analysées et vous accompagne jusqu'à la

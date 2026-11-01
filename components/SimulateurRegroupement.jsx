@@ -8,8 +8,8 @@ import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 import Icon from '@/components/Icon';
 export default function SimulateurRegroupement() {
   const { debt: debtConfig } = useSimulationConfig();
-  const [mensualite, setMensualite] = useState('');
-  const [revenus, setRevenus] = useState('');
+  const [mensualite, setMensualite] = useState('1 200'); // exemple pré-rempli : la jauge s'affiche dès l'arrivée
+  const [revenus, setRevenus] = useState('3 000');
   const [nbCredits, setNbCredits] = useState('2');
 
   const fmt = (n) =>
@@ -151,7 +151,7 @@ export default function SimulateurRegroupement() {
             </div>
             <div className="sr-result-gauge-body">
               <div className="sr-result-gauge-value" style={{ color: cfg.color }}>
-                {result.tauxEndettement.toFixed(1)}%
+                {result.tauxEndettement.toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %
               </div>
               <div className="sr-result-gauge-track-wrap">
                 <div className="sr-result-gauge-track">
@@ -199,7 +199,7 @@ export default function SimulateurRegroupement() {
                   <span className="sr-result-card-value" style={{ color: '#3e7f68' }}>
                     +{fmt(result.gainMensuel)}
                   </span>
-                  <span className="sr-result-card-sub">De reste à vivre</span>
+                  <span className="sr-result-card-sub">de reste à vivre</span>
                 </div>
               </div>
             </div>
@@ -209,7 +209,7 @@ export default function SimulateurRegroupement() {
             <div className="sr-result-ok">
               <span><Icon name="circle-check" /></span>
               <div>
-                <strong>Votre taux d'endettement est sain ({result.tauxEndettement.toFixed(1)}%)</strong>
+                <strong>Votre taux d'endettement est sain ({result.tauxEndettement.toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %)</strong>
                 <p>Le regroupement de crédits n'est peut-être pas la priorité. Je peux néanmoins analyser votre situation pour identifier d'autres optimisations.</p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function SimulateurRegroupement() {
 
           {/* Disclaimer */}
           <p className="sr-disclaimer">
-            <Icon name="info" /> Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet.
+            <Icon name="info" /> Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. Le regroupement peut allonger la durée et augmenter le coût total du crédit.
           </p>
         </div>
       )}

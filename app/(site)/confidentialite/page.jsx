@@ -52,7 +52,7 @@ export default function ConfidentialitePage() {
 
       <section style={{ marginBottom: '40px' }}>
         <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          1. Quelles données je collecte ?
+          1. Quelles données je collecte ?
         </h2>
         <p>Dans le cadre de mon accompagnement, je suis amenée à collecter les données suivantes :</p>
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
@@ -66,7 +66,7 @@ export default function ConfidentialitePage() {
 
       <section style={{ marginBottom: '40px' }}>
         <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          2. Pourquoi je collecte ces données ?
+          2. Pourquoi je collecte ces données ?
         </h2>
         <p>Je ne vous demande jamais d'informations inutiles. Vos données servent exclusivement à :</p>
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
@@ -81,7 +81,7 @@ export default function ConfidentialitePage() {
 
       <section style={{ marginBottom: '40px' }}>
         <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          3. Avec qui je partage vos données ?
+          3. Avec qui je partage vos données ?
         </h2>
         <p>
           <strong>Vos données ne sont JAMAIS vendues à des tiers.</strong><br /><br />
@@ -91,7 +91,7 @@ export default function ConfidentialitePage() {
 
       <section style={{ marginBottom: '40px' }}>
         <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          4. Combien de temps je conserve vos données ?
+          4. Combien de temps je conserve vos données ?
         </h2>
         <p>Vos données sont conservées le temps nécessaire à la réalisation de votre projet, puis archivées conformément aux durées légales :</p>
         <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
@@ -116,10 +116,10 @@ export default function ConfidentialitePage() {
           <li style={{ marginBottom: '8px' }}>De vous opposer à leur traitement.</li>
         </ul>
         <p style={{ marginTop: '16px' }}>
-          Pour exercer ces droits, il vous suffit de m'envoyer un e-mail directement à : <strong><a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: 'var(--orizia-primary)' }}>cindy.urbansky@orizia-courtage.fr</a></strong>. Je vous répondrai personnellement dans les plus brefs délais.
+          Pour exercer ces droits, il vous suffit de m'envoyer un e-mail directement à : <strong><a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: '#3e7f68' }}>cindy.urbansky@orizia-courtage.fr</a></strong>. Je vous répondrai personnellement dans les plus brefs délais.
         </p>
         <p style={{ marginTop: '16px', fontSize: '0.9rem', opacity: 0.8 }}>
-          <em>Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--orizia-primary)' }}>www.cnil.fr</a>).</em>
+          <em>Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.cnil.fr</a>).</em>
         </p>
       </section>
 

@@ -122,7 +122,7 @@ const DIFFERENCIANTS = [
     icon: 'shield-check',
     title: 'Indépendance totale',
     desc: 'Je ne suis rattachée à aucun assureur. Mon seul intérêt, c\'est de trouver le contrat qui sert VOS intérêts.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
@@ -182,7 +182,7 @@ export default function AssurerPage() {
                 <span className="inv-hero-badge"><Icon name="shield-check" /> Courtage en assurance indépendant</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Protégez ce qui compte<br />
-                  <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>sans payer trop cher</em>
+                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>sans payer trop cher</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Emprunteur, habitation, auto/moto — vos assureurs augmentent vos tarifs
@@ -191,8 +191,8 @@ export default function AssurerPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <ContactPopup label="Auditer mes contrats" icon="clipboard-list" className="fin-btn-primary inv-hero-cta-main" />
-                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Voir mes solutions ?
+                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: '#3e7f68', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
+                    Voir mes solutions ?
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
@@ -206,7 +206,7 @@ export default function AssurerPage() {
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    modalités expliquées avant engagement
+                    Modalités expliquées avant engagement
                   </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export default function AssurerPage() {
               <div className="inv-hero-quiz-wrap">
                 <div className="inv-hero-quiz-eyebrow">
                   <span className="inv-hero-quiz-dot" />
-                  Quel contrat optimiser en premier ?
+                  Quel contrat optimiser en premier ?
                 </div>
                 <AssurerQuiz />
               </div>
@@ -250,7 +250,7 @@ export default function AssurerPage() {
                   Mon rôle n'est pas de vous sur-assurer, mais de trouver le contrat qui vous couvre vraiment, au juste prix, et de gérer toute la paperasse de résiliation à votre place. Vous êtes protégé, je m'occupe du reste.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <AssurerProduitsGrid />
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier rendez-vous existe.
+                Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier rendez-vous existe.
               </p>
               <ContactPopup label="Auditer tous mes contrats avec Cindy" icon="clipboard-list" className="fin-btn-primary" />
             </div>
@@ -378,7 +378,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique ? Je vous réponds sous 24h.
+                Vous avez une question spécifique ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
@@ -390,7 +390,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-cta-inner">
             <CtaPresence />
             <h2>
-              Prêt(e) à arrêter de payer trop cher ?
+              Prêt(e) à arrêter de payer trop cher ?
             </h2>
             <p>
               Faites-moi passer vos avis d'échéance. Je vous dirai honnêtement si vous êtes

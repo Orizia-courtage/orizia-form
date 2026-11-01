@@ -6,7 +6,7 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
-  title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
+  title: 'Qui suis-je ? Cindy Urbansky, Courtier Indépendant | Orizia Courtage',
   description:
     'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 20 ans d\'expérience en crédit, assurance et patrimoine. Présidente de l\'AFIB.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
@@ -62,7 +62,7 @@ const PARCOURS = [
     entreprise: 'Simply Miob',
     type: 'CDI',
     icon: 'building-2',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
   },
   {
     periode: '2023 – 2025',
@@ -78,7 +78,7 @@ const PARCOURS = [
     entreprise: 'Brookéo — Groupe VILAVI',
     type: 'CDI · Hauts-de-France',
     icon: 'handshake',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     desc: 'Pilotage de la politique commerciale, animation des partenariats, gestion prévisionnelle des équipes au niveau national.',
   },
   {
@@ -111,7 +111,7 @@ const PARCOURS = [
     entreprise: 'Empruntis',
     type: 'CDI · Île-de-France',
     icon: 'clipboard-list',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
   },
   {
     periode: '2005 – 2008',
@@ -143,7 +143,7 @@ export default function QuiSuisJePage() {
             <nav aria-label="breadcrumb" className="qsj-breadcrumb">
               <Link href="/">Accueil</Link>
               <span>›</span>
-              <span>Qui suis-je ?</span>
+              <span>Qui suis-je ?</span>
             </nav>
 
             <div className="qsj-hero-layout">
@@ -185,7 +185,7 @@ export default function QuiSuisJePage() {
                   directrice commerciale, et aujourd'hui fondatrice d'Orizia Courtage.
                 </p>
                 <p className="qsj-hero-desc">
-                  Ce qui me motive depuis le début ? <strong>Défendre les intérêts des particuliers
+                  Ce qui me motive depuis le début ? <strong>Défendre les intérêts des particuliers
                   face aux établissements financiers.</strong> Pas de quota, pas de conflit d'intérêts —
                   juste une professionnelle engagée pour vous obtenir les meilleures conditions.
                 </p>
@@ -248,7 +248,7 @@ export default function QuiSuisJePage() {
                 </p>
               </div>
               <div className="crowd-schema">
-                <div style={{ textAlign: 'center', marginBottom: 20, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
+                <div style={{ textAlign: 'center', marginBottom: 20, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#3e7f68' }}>
                   Mon engagement
                 </div>
                 {[
@@ -343,7 +343,7 @@ export default function QuiSuisJePage() {
                   {['Marcq-en-Barœul', 'Lille', 'Villeneuve d\'Ascq', 'Roubaix', 'Tourcoing', 'Hauts-de-France'].map(v => (
                     <span key={v} style={{
                       background: 'rgba(45,106,95,0.08)',
-                      color: 'var(--orizia-primary)',
+                      color: '#3e7f68',
                       border: '1px solid rgba(45,106,95,0.2)',
                       borderRadius: 100,
                       padding: '4px 12px',

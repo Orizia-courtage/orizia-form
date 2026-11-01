@@ -13,7 +13,7 @@ const PROFILS = [
     tarif: '~160€/an',
     garanties: ['Risques locatifs (obligatoire)', 'Responsabilité civile', 'Meubles & effets personnels', 'Dégâts des eaux'],
     conseil: 'L\'attestation est exigée par votre propriétaire. Je vous la fournis rapidement.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
   },
   {
     id: 'proprietaire',

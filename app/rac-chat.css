@@ -241,3 +241,5 @@
   .rc.rc-intro .rc-thread { padding-top: 10px; gap: 6px; }
   .rc.rc-intro .rc-msg { font-size: 15px; padding: 8px 12px; }
 }
+.rc-amount input::placeholder { color: #a3aba5; font-weight: 500; font-size: 18px; }
+.rc-error--top { margin: 0 0 10px !important; }

@@ -216,7 +216,7 @@ const PROFILS = [
     gain: '3 000–4 100€ d\'impôt en moins',
     base: 'pour 10 000€ versés',
     conseil: 'Versements réguliers mensuels + rattrapage des plafonds N-3',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     featured: false,
   },
   {
@@ -417,7 +417,7 @@ export default function PERPage() {
                   rendez-vous, c'est souvent une révélation. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -522,7 +522,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
                       background: 'rgba(107,182,155,0.15)',
-                      color: 'var(--orizia-gold)',
+                      color: '#2d6a5f',
                       border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
@@ -543,7 +543,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Calculateur fiscal 2026</span>
-              <h2>Combien allez-vous<br />récupérer sur votre impôt ?</h2>
+              <h2>Combien allez-vous<br />récupérer sur votre impôt ?</h2>
               <p>
                 Sélectionnez votre TMI et ajustez votre versement pour voir votre économie en temps réel.
               </p>
@@ -745,7 +745,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une situation particulière ? Je vous réponds personnellement sous 24h.
+                Une situation particulière ? Je vous réponds personnellement sous 24h.
               </p>
               <div className="ae-hero-btns" style={{ justifyContent: 'center' }}>
                 <ContactPopup label="Prendre rendez-vous" icon="calendar-days" className="fin-btn-primary"/>
@@ -781,7 +781,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary"/>
                 

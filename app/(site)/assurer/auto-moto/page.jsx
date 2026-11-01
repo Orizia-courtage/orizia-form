@@ -14,7 +14,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
   description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon.',
+    'Votre assurance auto ou moto flambe ? Cindy Urbansky compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
   openGraph: {
     title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
@@ -99,7 +99,7 @@ const faqSchema = {
       name: 'Dois-je attendre la date d\'anniversaire pour changer d\'assureur ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
+        text: 'Absolument pas ! Dès que votre contrat a plus d\'un an, la loi Hamon vous autorise à résilier n\'importe quand, sans frais. Le vrai plus ? Je m\'occupe moi-même des démarches de résiliation pour qu\'il n\'y ait aucune coupure de garantie.',
       },
     },
     {
@@ -137,7 +137,7 @@ const DANGERS = [
   {
     icon: 'triangle-alert',
     title: 'Le piège des garanties inutiles',
-    text: 'Payer un "Tous risques" sur une Clio de 2010 qui ne cote plus grand-chose ? C\'est de l\'argent jeté par les fenêtres. Les formules doivent évoluer avec votre voiture.',
+    text: 'Payer un "Tous risques" sur une Clio de 2010 qui ne cote plus grand-chose ? C\'est de l\'argent jeté par les fenêtres. Les formules doivent évoluer avec votre voiture.',
   },
   {
     icon: 'timer',
@@ -160,7 +160,7 @@ const ETAPES = [
   {
     n: '03',
     title: 'Je m\'occupe de la paperasse',
-    text: 'Votre contrat a plus d\'un an ? Parfait. Grâce à la loi Hamon, je résilie votre ancienne assurance en votre nom. Zéro coupure, zéro stress.',
+    text: 'Votre contrat a plus d\'un an ? Parfait. Grâce à la loi Hamon, je résilie votre ancienne assurance en votre nom. Zéro coupure, zéro stress.',
   },
   {
     n: '04',
@@ -288,7 +288,7 @@ export default function AssuranceAutoMotoPage() {
                   Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -474,7 +474,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>          
@@ -486,7 +486,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vision globale</span>
-              <h2>Puisqu'on y est, si on optimisait<br />le reste de vos contrats ?</h2>
+              <h2>Puisqu'on y est, si on optimisait<br />le reste de vos contrats ?</h2>
               <p>Faire le tri dans l'auto, c'est bien. Regrouper ses assurances pour avoir un conseiller unique et faire des économies d'échelle, c'est mieux.</p>
             </div>
             <div className="fin-cards fin-cards--light">
@@ -553,7 +553,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
+            <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
               Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>

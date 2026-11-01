@@ -9,8 +9,8 @@ const PLACEMENTS = [
     id: 'livret',
     icon: 'landmark',
     label: 'Livret A',
-    rendement: '3%',
-    rendementNum: 3,
+    rendement: '1,7 %',
+    rendementNum: 1.7,
     duree: 'Libre',
     risque: 1,
     risqueLabel: 'Très faible',
@@ -24,7 +24,7 @@ const PLACEMENTS = [
     id: 'av',
     icon: 'shield-check',
     label: 'Assurance Vie',
-    rendement: '2–4%',
+    rendement: '2–4 %',
     rendementNum: 3,
     duree: '8 ans+',
     risque: 1,
@@ -39,11 +39,11 @@ const PLACEMENTS = [
     id: 'scpi',
     icon: 'building-2',
     label: 'SCPI',
-    rendement: '4–6%',
+    rendement: '4–6 %',
     rendementNum: 5,
     duree: '8–10 ans',
-    risque: 2,
-    risqueLabel: 'Faible',
+    risque: 3,
+    risqueLabel: 'Moyen · capital non garanti',
     liquidite: 'Limitée',
     liquiditeOk: false,
     desc: 'Immobilier locatif sans gestion. Revenus réguliers, mais capital immobilisé sur le long terme.',
@@ -54,14 +54,14 @@ const PLACEMENTS = [
     id: 'crowd',
     icon: 'trending-up',
     label: 'Crowdfunding',
-    rendement: '8–12%',
+    rendement: '8–12 %',
     rendementNum: 10,
     duree: '1–3 ans',
-    risque: 3,
-    risqueLabel: 'Moyen',
+    risque: 4,
+    risqueLabel: 'Élevé · perte en capital possible',
     liquidite: 'Bloqué',
     liquiditeOk: false,
-    desc: 'Le meilleur rendement à court terme — à condition d\'être bien accompagné pour sélectionner les bons projets.',
+    desc: 'Le rendement visé le plus élevé, en contrepartie d\'un risque de perte en capital et de fonds bloqués jusqu\'à la fin du projet. À réserver à une petite part de votre épargne, avec des projets bien sélectionnés.',
     pour: 'Dynamiser un patrimoine existant',
     highlight: true,
   },
@@ -113,10 +113,10 @@ export default function PlacementsComparatif() {
             onClick={() => setSelected(p.id)}
             className={`plac-card${selected === p.id ? ' plac-card--active' : ''}${p.highlight ? ' plac-card--highlight' : ''}`}
           >
-            {p.highlight && <div className="plac-card-star"><Icon name="star" /> Meilleur rendement</div>}
+            {p.highlight && <div className="plac-card-star"><Icon name="star" /> Rendement visé le plus élevé</div>}
             <span className="plac-card-icon"><Icon name={p.icon} /></span>
             <span className="plac-card-label">{p.label}</span>
-            <span className="plac-card-rendement">{p.rendement}/an</span>
+            <span className="plac-card-rendement">{p.rendement}{p.rendement === 'Variable' ? '' : ' /an'}</span>
           </button>
         ))}
       </div>
@@ -129,10 +129,10 @@ export default function PlacementsComparatif() {
               <span className="plac-detail-icon"><Icon name={current.icon} /></span>
               <h3 className="plac-detail-title">{current.label}</h3>
               {current.highlight && (
-                <span className="plac-detail-badge"><Icon name="star" /> Recommandé par Orizia</span>
+                <span className="plac-detail-badge"><Icon name="star" /> Sélection accompagnée</span>
               )}
             </div>
-            <div className="plac-detail-rendement-big">{current.rendement}<span>/an</span></div>
+            <div className="plac-detail-rendement-big">{current.rendement}{current.rendement !== 'Variable' && <span>/an</span>}</div>
           </div>
 
           <p className="plac-detail-desc">{current.desc}</p>

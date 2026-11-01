@@ -8,7 +8,7 @@ const USAGES = [
     id: 'epargne',
     icon: 'coins',
     label: 'Épargner',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
     border: 'rgba(45,106,95,0.2)',
     titre: 'Une épargne disponible à tout moment',
@@ -121,7 +121,7 @@ export default function AVDefinition() {
             <div className="avdef-support-stats">
               <div className="avdef-support-stat">
                 <span className="avdef-support-stat-label">Rendement potentiel</span>
-                <span className="avdef-support-stat-value" style={{ color: 'var(--orizia-primary)' }}>{s.rendement}</span>
+                <span className="avdef-support-stat-value" style={{ color: '#3e7f68' }}>{s.rendement}</span>
               </div>
               <div className="avdef-support-stat">
                 <span className="avdef-support-stat-label">Niveau de risque</span>

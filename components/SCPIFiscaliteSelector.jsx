@@ -27,7 +27,7 @@ const STRATEGIES = [
     icon: 'globe',
     label: 'SCPI européennes',
     badge: 'TMI 30%+',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     border: 'rgba(45,106,95,0.25)',
     bg: 'rgba(45,106,95,0.05)',
     desc: 'Conventions fiscales bilatérales : souvent exonérées de prélèvements sociaux français.',
@@ -169,7 +169,7 @@ export default function SCPIFiscaliteSelector() {
       <div className="crowd-risques-note" style={{ marginTop: 20 }}>
         <Icon name="lightbulb" /> <strong>Mon approche :</strong> je commence toujours par analyser votre TMI avant de recommander une SCPI.
         La même SCPI peut être excellente pour un profil et contre-productive pour un autre.
-        <ContactPopup label="Calculer mon rendement net" className="" style={{ color: 'var(--orizia-primary)', fontWeight: 700, marginLeft: 6 }} />
+        <ContactPopup label="Calculer mon rendement net" className="" style={{ color: '#3e7f68', fontWeight: 700, marginLeft: 6 }} />
       </div>
     </div>
   );

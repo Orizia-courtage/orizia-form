@@ -245,7 +245,7 @@ const PROFILS = [
     repart: '80% Fonds euros / 20% UC',
     rendement: '~1,4%/an',
     for: 'Horizon < 8 ans · Faible tolérance au risque',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
   },
   {
     icon: 'scale',
@@ -282,7 +282,7 @@ const OBJECTIONS = [
     r: 'Je calibre l\'allocation à votre profil réel, pas à un profil théorique. Un profil prudent peut rester à 80–100% sur le fonds en euros, capital garanti. Vous ne prenez jamais plus de risque que ce que vous avez explicitement validé.',
   },
   {
-    q: '« Y a-t-il des frais de dossier ? »',
+    q: '« Y a-t-il des frais de dossier ? »',
     r: 'Les frais et modalités applicables sont présentés de manière transparente dès notre premier échange, conformément au cadre réglementaire.',
   },
 ];
@@ -386,7 +386,7 @@ export default function AssuranceViePage() {
                   rendez-vous. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -489,7 +489,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
                       background: 'rgba(107,182,155,0.15)',
-                      color: 'var(--orizia-gold)',
+                      color: '#2d6a5f',
                       border: '1px solid rgba(107,182,155,0.3)',
                       borderRadius: 100,
                       padding: '2px 8px',
@@ -510,7 +510,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Votre profil de risque</span>
-              <h2>Prudent, équilibré ou dynamique :<br />quelle allocation pour vous ?</h2>
+              <h2>Prudent, équilibré ou dynamique :<br />quelle allocation pour vous ?</h2>
               <p>
                 Il n'existe pas une assurance vie universelle. Sélectionnez votre profil
                 pour voir la répartition recommandée, le rendement estimé et simuler
@@ -631,7 +631,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Une autre question ? Je vous réponds personnellement sous 24h.
+                Une autre question ? Je vous réponds personnellement sous 24h.
               </p>
               <div className="fin-hero-btns" style={{ justifyContent: 'center' }}>
                 <ContactPopup label="Prendre rendez-vous" icon="calendar-days" className="fin-btn-primary" />
@@ -681,7 +681,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>

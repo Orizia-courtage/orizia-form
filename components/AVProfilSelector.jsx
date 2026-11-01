@@ -11,7 +11,7 @@ const PROFILS = [
     label: 'Prudent',
     desc: 'Je prioritise la sécurité',
     badge: null,
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     ucColor: '#5f655f',
     bg: 'rgba(45,106,95,0.06)',
     border: 'rgba(45,106,95,0.2)',

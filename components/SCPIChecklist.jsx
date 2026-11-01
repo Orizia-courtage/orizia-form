@@ -94,7 +94,7 @@ export default function SCPIChecklist() {
                 {!c.required && (
                   <span style={{
                     fontSize: '0.68rem', fontWeight: 600,
-                    color: 'var(--orizia-primary)',
+                    color: '#3e7f68',
                     background: 'rgba(45,106,95,0.08)',
                     borderRadius: 4, padding: '1px 6px', marginLeft: 8,
                   }}>

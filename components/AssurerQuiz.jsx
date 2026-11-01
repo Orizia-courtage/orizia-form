@@ -41,10 +41,10 @@ const RECOMMANDATIONS = {
   proprio_un3:      { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Après 1 an, vous pouvez changer librement. Je compare les offres MRH et PNO pour votre profil.' },
   proprio_plus3:    { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Vous payez probablement 30% de trop. Je remets le marché en concurrence pour vous.' },
   proprio_sais_pas: { produit: 'Assurance Habitation', href: '/assurer/assurance-habitation', icon: 'house', color: '#a87a2c', raison: 'Envoyez-moi votre contrat actuel. Je l\'analyse avec attention.' },
-  vehicule_moins1:   { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'Contrat récent mais déjà trop cher ? Je vérifie que la formule correspond à la valeur réelle de votre véhicule.' },
-  vehicule_un3:      { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'Après 1 an, la loi Hamon vous libère. Je compare le marché et résilie votre ancien contrat.' },
-  vehicule_plus3:    { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'La taxe de fidélité vous coûte cher. Je remets les assureurs en concurrence pour votre profil.' },
-  vehicule_sais_pas: { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: 'var(--orizia-primary)', raison: 'Envoyez-moi votre contrat. Je vous dis en 24h si vous pouvez faire mieux.' },
+  vehicule_moins1:   { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: '#3e7f68', raison: 'Contrat récent mais déjà trop cher ? Je vérifie que la formule correspond à la valeur réelle de votre véhicule.' },
+  vehicule_un3:      { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: '#3e7f68', raison: 'Après 1 an, la loi Hamon vous libère. Je compare le marché et résilie votre ancien contrat.' },
+  vehicule_plus3:    { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: '#3e7f68', raison: 'La taxe de fidélité vous coûte cher. Je remets les assureurs en concurrence pour votre profil.' },
+  vehicule_sais_pas: { produit: 'Assurance Auto & Moto', href: '/assurer/auto-moto', icon: 'car', color: '#3e7f68', raison: 'Envoyez-moi votre contrat. Je vous dis en 24h si vous pouvez faire mieux.' },
 };
 
 export default function AssurerQuiz() {

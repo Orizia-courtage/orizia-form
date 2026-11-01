@@ -47,7 +47,7 @@
   /* — Compatibilité : les anciens tokens pointent vers la charte — */
   --orizia-dark: var(--oz-ink);
   --orizia-accent: var(--oz-ink);
-  --orizia-primary: var(--oz-sage);
+  --orizia-primary: var(--oz-sage-deep); /* sauge foncé : le sauge clair (#6bb69b) était illisible en texte (2,3:1) */
   --orizia-light: var(--oz-mint-wash);
   --orizia-gold: var(--oz-mint);
   --orizia-gold-light: var(--oz-mint-soft);
@@ -822,3 +822,189 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .cta-presence-chips li { padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 600; color: #cfeee0; background: rgba(143, 208, 182, .1); border: 1px solid rgba(143, 208, 182, .22); }
 .cta-presence-chips li::before { content: "✓"; margin-right: 6px; color: #8fd0b6; }
 .fin-cta .fin-cta-inner > p:last-child, .fin-cta .fin-cta-inner > p[style*="font-size"] { color: rgba(237, 247, 242, .5) !important; }
+
+/* ══ Revue complète du site (novembre 2026) ══════════════════════════════ */
+/* Menu mobile fermé : son ombre débordait de 90 px sur l'écran et grisait le bord droit de toutes les pages. */
+.mdr-v2:not(.mdr-v2--open) { box-shadow: none; visibility: hidden; transition: right .4s cubic-bezier(.4, 0, .2, 1), visibility 0s .4s; }
+/* Icônes des cartes produits : bleu des liens par défaut → couleur de la marque, sur tuile menthe. */
+.fpg-icon { color: var(--oz-sage-deep); width: 52px; height: 52px; border-radius: 14px; display: inline-grid; place-items: center; background: var(--oz-mint-soft); font-size: 1.5rem !important; }
+.fpg-badge { background: var(--oz-ink) !important; color: #bfe6d5 !important; }
+/* ── Passe accessibilité : contrastes de texte (audit axe-core sur toutes les pages, cible ≥ 4,5:1) ── */
+.ae-economie-gain-label { color: #5b615c !important; }
+.ae-economie-gain-val { color: #8a5f1c !important; }
+.ae-economie-pret { color: #5b615c !important; }
+.ae-economie-taux-label { color: #5b615c !important; }
+.ae-economie-taux-val { color: #2f6e58 !important; }
+.ae-garantie-flex-badge { color: #2f6e58 !important; }
+.ae-lemoine-card-title { color: #2f6e58 !important; }
+.aec-disclaimer { color: #e8f5ef !important; }
+.aec-field-value { color: #2f6e58 !important; }
+.aec-inputs-title { color: #2f6e58 !important; }
+.afs-btn-desc { color: #5b615c !important; }
+.apg-card-cta { color: #2f6e58 !important; }
+.apg-card-economie-label { color: #5b615c !important; }
+.apg-card-economie-val { color: #2f6e58 !important; }
+.apg-card-loi { color: #2f6e58 !important; }
+.apg-card-sub { color: #5b615c !important; }
+.aps-btn-badge { background-color: #3e7f68 !important; color: #ffffff !important; }
+.aps-btn-desc { color: #5b615c !important; }
+.avdef-panel-chiffre { color: #2f6e58 !important; }
+.avdef-panel-chiffre-label { color: #5b615c !important; }
+.avdef-panel-title { color: #2f6e58 !important; }
+.avdef-support-stat-label { color: #5b615c !important; }
+.avdef-support-stat-value { color: #8a5f1c !important; }
+.avfis-detail-value { color: #2f6e58 !important; }
+.avfis-panel-tag { color: #2f6e58 !important; }
+.avfis-panel-taux-label { color: #5b615c !important; }
+.avfis-transm-value { color: #2f6e58 !important; }
+.avps-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
+.avps-btn-desc { color: #5b615c !important; }
+.avps-repart-euros { background-color: #3e7f68 !important; color: #ffffff !important; }
+.avps-repart-uc { background-color: #8a5f1c !important; color: #ffffff !important; }
+.avps-sim-disclaimer { color: #5b615c !important; }
+.avps-sim-result-label { color: #5b615c !important; }
+.avps-sim-result-value { color: #8a5f1c !important; }
+.avps-sim-val { color: #8a5f1c !important; }
+.avps-stat-label { color: #5b615c !important; }
+.avps-stat-value { color: #8a5f1c !important; }
+.avps-strategie-title { color: #8a5f1c !important; }
+.avvsl-cell-crit { color: #5b615c !important; }
+.avvsl-cell-note { color: #5b615c !important; }
+.avvsl-cell-val { color: #2f6e58 !important; }
+.avvsl-col-name { color: #2f6e58 !important; }
+.avvsl-ribbon { background-color: #3e7f68 !important; color: #ffffff !important; }
+.cap-field-value { color: #2f6e58 !important; }
+.cap-title { color: #2f6e58 !important; }
+.contact-cindy-role { color: #5b615c !important; }
+.contact-moyen-cta { color: #2f6e58 !important; }
+.contact-moyen-detail { color: #5b615c !important; }
+.cps-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
+.cps-btn-desc { color: #5b615c !important; }
+.crd-critere-desc { color: #5b615c !important; }
+.crd-flow-title { color: #2f6e58 !important; }
+.crd-vault-note { color: #e8f5ef !important; }
+.crowd-schema-arrow { color: #2f6e58 !important; }
+.crowd-table-note { color: #5b615c !important; }
+.fin-badge { color: #2f6e58 !important; }
+.fin-card-pill { color: #2f6e58 !important; }
+.fin-card-sub { color: #2f6e58 !important; }
+.fin-etape-num { background-color: #3e7f68 !important; color: #ffffff !important; }
+.fpg-desc { color: #2f6e58 !important; }
+.fpg-link { color: #8a5f1c !important; }
+.fpg-sub { color: #2f6e58 !important; }
+.fpg-title { color: #8a5f1c !important; }
+.hsit-label { color: #2f6e58 !important; }
+.icl-critere-desc { color: #5b615c !important; }
+.icl-subtitle { color: #5b615c !important; }
+.inv-hero-badge { color: #2f6e58 !important; }
+.inv-hero-cta-ghost { color: #2f6e58 !important; }
+.inv-hero-quiz-eyebrow { color: #2f6e58 !important; }
+.inv-hero-trust-item { color: #5b615c !important; }
+.inv-why-image-badge-label { color: #5b615c !important; }
+.inv-why-item-title { color: #2f6e58 !important; }
+.ipg-card-cta { color: #2f6e58 !important; }
+.ipg-card-stat-label { color: #5b615c !important; }
+.ipg-card-stat-val { color: #2f6e58 !important; }
+.ipg-card-sub { color: #5b615c !important; }
+.ipg-card-tag { color: #2f6e58 !important; }
+.iq-intro-desc { color: #5b615c !important; }
+.lemoine-step-label { color: #2f6e58 !important; }
+.lex-back-btn { color: #5b615c !important; }
+.lex-terme { color: #8a5f1c !important; }
+.mdr-v2-product-sub { color: #5b615c !important; }
+.moto-formule-desc { color: #5b615c !important; }
+.moto-formule-prix { color: #2f6e58 !important; }
+.moto-result-desc { color: #5b615c !important; }
+.parr-btn-primary { background-color: #3e7f68 !important; color: #ffffff !important; }
+.parr-link-btn { color: #2f6e58 !important; }
+.parr-step-label { color: #5b615c !important; }
+.parr-step-sub { color: #2f6e58 !important; }
+.per-def-point-title { color: #2f6e58 !important; }
+.per-fiscal-ex-gain { color: #2f6e58 !important; }
+.per-fiscal-ex-tmi { color: #2f6e58 !important; }
+.per-fiscal-ex-versement { color: #5b615c !important; }
+.per-plafond-max { color: #2f6e58 !important; }
+.per-profil-btn-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
+.per-profil-desc { color: #5b615c !important; }
+.pervsav-badge { color: #8a5f1c !important; }
+.pervsav-col-critere { color: #5b615c !important; }
+.pervsav-col-subtitle { color: #5b615c !important; }
+.pervsav-profil-desc { color: #5b615c !important; }
+.plac-card-rendement { color: #2f6e58 !important; }
+.plac-detail-item-label { color: #5b615c !important; }
+.profil-hab-desc { color: #5b615c !important; }
+.qsj-formation-ecole { color: #2f6e58 !important; }
+.qsj-hero-subtitle { color: #2f6e58 !important; }
+.qsj-timeline-desc { color: #2f6e58 !important; }
+.qsj-timeline-periode { color: #5b615c !important; }
+.qsj-timeline-poste { color: #2f6e58 !important; }
+.qsj-timeline-type { color: #2f6e58 !important; }
+.reward-badge { color: #2f6e58 !important; }
+.rj-jauge-pct { color: #8a5f1c !important; }
+.rj-toggle-btn { color: #5b615c !important; }
+.scpidef-flux-label { color: #8a5f1c !important; }
+.scpidef-toggle-btn { color: #2f6e58 !important; }
+.scpifis-result-name { color: #2f6e58 !important; }
+.scpifis-result-note { color: #2f6e58 !important; }
+.scpifis-result-stat-label { color: #5b615c !important; }
+.scpifis-result-stat-val { color: #2f6e58 !important; }
+.scpifis-strat-badge { background-color: #8a5f1c !important; color: #ffffff !important; }
+.scpifis-tmi-btn { color: #2f6e58 !important; }
+.scpipf-hint { color: #5b615c !important; }
+.scpipf-tmi-desc { color: #5b615c !important; }
+.scpipf-tmi-val { color: #2f6e58 !important; }
+.simu-disclaimer { color: #5b615c !important; }
+.simu-field-value { color: #2f6e58 !important; }
+.simu-positive { color: #2f6e58 !important; }
+.simu-preset-btn { color: #2f6e58 !important; }
+.simu-result-sub { color: #5b615c !important; }
+.sr-hint { color: #5b615c !important; }
+.sr-unit { color: #2f6e58 !important; }
+.ss-hint { color: #5b615c !important; }
+/* Jauge d'endettement : l'étiquette « 33 % » chevauchait la grande valeur sur téléphone → placée sous la barre. */
+.sr-result-gauge-marker span { top: auto !important; bottom: -22px; opacity: .75 !important; font-size: .72rem !important; background: transparent !important; }
+.sr-result-gauge-track-wrap { padding-bottom: 18px; }
+/* Simulateur de soulte : choix de la situation (droit de partage 1,1 % ou 2,5 %) + carte « emprunt total ». */
+.ss-cas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.ss-cas-btn { border: 1px solid var(--oz-line); background: #fff; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: .88rem; font-weight: 600; color: var(--oz-ink); cursor: pointer; min-height: 40px; }
+.ss-cas-btn.is-on { background: var(--oz-ink); color: #fff; border-color: var(--oz-ink); }
+.ss-result-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important; }
+.ss-result-card--total { border: 1px solid var(--oz-sage) !important; background: var(--oz-mint-soft) !important; }
+.crowd-schema-step--result { background: var(--oz-ink) !important; } .crowd-schema-step--result strong, .crowd-schema-step--result span { color: #fff !important; } .crowd-schema-step--result span { color: rgba(255,255,255,.75) !important; }
+.cap-results .cp-wrap, .cap-results .cp-wrap > button { width: 100% !important; justify-content: center; }
+/* Étiquettes des check-lists (« Critère bancaire clé »…) : trop petites (10 px) et coupées en deux lignes. */
+.icl-critere-label > span[style] { display: inline-block; white-space: nowrap; font-size: .72rem !important; vertical-align: 2px; margin-top: 2px; }
+/* Quiz « Quel financement… » : bordures noires épaisses, survol qui éclaircissait au lieu de souligner. */
+.iq-option { border: 1px solid var(--oz-line) !important; background: #fff; }
+.iq-option:hover { border-color: var(--oz-sage) !important; background: var(--oz-mint-wash) !important; }
+.iq-reset { color: var(--oz-sage-deep) !important; opacity: 1 !important; }
+/* Petits textes : plancher de lisibilité. */
+.cps-btn-badge, .aps-btn-badge, .avps-btn-badge, .per-profil-btn-badge { font-size: .72rem !important; }
+.fin-card-pill { font-size: .75rem !important; }
+.rp-jalon-label { font-size: .7rem !important; }
+/* Cartes « fin-card » d'une même rangée : alignées même si une seule porte une pastille. */
+.fin-card:not(:has(.fin-card-pill))::before { content: ""; display: block; height: 30px; }
+@media (max-width: 760px) { .fin-card:not(:has(.fin-card-pill))::before { display: none; } }
+.ae-hero-legal { font-size: .78rem; line-height: 1.5; color: var(--oz-muted); max-width: 60ch; margin: -4px 0 18px; }
+/* « Pourquoi Orizia » (pages Financer / Assurer / Investir) */
+.inv-why-content > .cp-wrap { display: block; margin-top: 28px; }
+.inv-why-item-desc { font-size: .88rem !important; opacity: 1 !important; color: var(--oz-muted) !important; }
+.inv-why-item-title { font-size: .95rem !important; }
+.inv-why-image-badge-label { opacity: 1 !important; color: var(--oz-muted) !important; }
+@media (max-width: 900px) {
+  .inv-why-image img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 30%; }
+  .inv-why-image-badge { bottom: 12px !important; left: 12px !important; padding: 10px 14px !important; }
+}
+/* Comparateur de placements : pastille qui chevauchait le bord, taux pâles, mention de risque. */
+.plac-card { padding-top: 30px !important; position: relative; }
+.plac-card-star { top: 8px !important; font-size: .68rem !important; padding: 3px 9px !important; white-space: nowrap; background: #bfe6d5 !important; color: var(--oz-ink) !important; }
+.plac-card--active .plac-card-rendement { color: #bfe6d5 !important; } .plac-card--active .plac-card-label { color: #fff !important; }
+.plac-card-rendement { font-weight: 700 !important; }
+.plac-disclaimer { margin: 16px auto 0; max-width: 760px; text-align: center; font-size: .82rem; line-height: 1.5; color: var(--oz-muted); }
+/* Carte sombre « Ma liste de plateformes » (crowdfunding) : icône invisible, libellés minuscules, bouton déséquilibré. */
+.crd-vault-lock { width: 56px; height: 56px; border-radius: 16px; display: grid !important; place-items: center; margin: 0 auto 14px; background: linear-gradient(145deg, #8fd0b6, #5aa98b) !important; color: #10221b !important; font-size: 1.5rem !important; opacity: 1 !important; box-shadow: 0 0 0 6px rgba(143, 208, 182, .12); }
+.crd-vault-stat span { font-size: .75rem !important; opacity: 1 !important; color: rgba(237, 247, 242, .72) !important; line-height: 1.3; }
+.crd-vault-stat strong { font-size: 1.35rem !important; }
+.crd-vault-note { font-size: .8rem !important; opacity: 1 !important; color: rgba(237, 247, 242, .66) !important; }
+.crd-vault-desc { color: rgba(237, 247, 242, .78) !important; opacity: 1 !important; }
+.crd-sel-vault .cp-wrap, .crd-sel-vault .cp-wrap > button { width: 100%; justify-content: center; }

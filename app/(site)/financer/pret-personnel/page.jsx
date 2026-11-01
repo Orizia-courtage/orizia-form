@@ -118,7 +118,7 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: 'Jusqu\'à\u00A075k€', label: 'Plafond légal d\'emprunt', icon: 'credit-card' },
+  { value: 'Jusqu\'à\u00A075\u00A0000\u00A0€', label: 'Plafond du crédit à la consommation', icon: 'credit-card' },
   { value: '1 à 7 ans', label: 'Durée de remboursement', icon: 'calendar-days' },
   { value: 'Sur mesure', label: 'Étude personnalisée de votre projet', icon: 'target' },
   { value: '24\u00A0à\u00A048h', label: 'Pour une réponse de principe', icon: 'timer' },
@@ -139,7 +139,7 @@ const DANGERS = [
   {
     icon: 'circle-x',
     title: 'Le crédit renouvelable toxique',
-    text: 'Certaines enseignes transforment habilement votre demande de prêt en "crédit renouvelable" (réserve d\'argent) avec des taux frôlant l\'usure (jusqu\'à 21%). Avec moi, vous signez un prêt amortissable classique, clair, avec une date de fin précise.',
+    text: 'Certaines enseignes transforment habilement votre demande de prêt en "crédit renouvelable" (réserve d\'argent) avec des taux proches du taux d\'usure. Avec moi, vous signez un prêt amortissable classique, clair, avec une date de fin précise.',
   },
 ];
 
@@ -168,11 +168,11 @@ const ETAPES = [
 
 const OBJECTIONS = [
   {
-    q: '« Je peux faire une simulation en 2 minutes sur internet, pourquoi passer par vous ? »',
+    q: '« Je peux faire une simulation en 2 minutes sur internet, pourquoi passer par vous ? »',
     r: 'Les simulateurs internet captent vos données pour vous harceler, et le taux final proposé après étude du dossier est rarement le taux affiché au début. Moi, je vous obtiens de vrais accords de principe fermes, sans faire sonner votre téléphone toutes les heures.',
   },
   {
-    q: '« Est-ce que vos services vont me coûter cher ? »',
+    q: '« Est-ce que vos services vont me coûter cher ? »',
     r: 'Les frais et modalités applicables aux prêts personnels vous sont présentés de manière transparente avant tout engagement.',
   },
   {
@@ -180,7 +180,7 @@ const OBJECTIONS = [
     r: 'Dans ce cas, faire un nouveau prêt est souvent une mauvaise idée. Je vous orienterai plutôt vers un "regroupement de crédits" : on rassemble toutes vos dettes en un seul prêt, pour faire baisser drastiquement votre mensualité globale.',
   },
   {
-    q: '« Quel est le délai pour avoir l\'argent ? »',
+    q: '« Quel est le délai pour avoir l\'argent ? »',
     r: 'Il faut compter 24 à 48h pour un accord de principe. Une fois l\'offre signée, la loi impose un délai de rétractation. Concrètement, vous pouvez avoir les fonds sur votre compte en 8 à 14 jours selon les établissements.',
   },
 ];
@@ -237,7 +237,7 @@ export default function PretPersonnelPage() {
             <div className="ae-hero-trust fin-hero-trust">
               <span><Icon name="circle-check" /> Accompagnement personnalisé</span>
               <span><Icon name="circle-x" /> Zéro crédit toxique (renouvelable)</span>
-              <span><Icon name="zap" /> Réponse de principe sous 48h</span>
+              <span><Icon name="zap" /> Réponse de principe sous 24 à 48 h</span>
             </div>
           </div>
         </section>
@@ -278,7 +278,7 @@ export default function PretPersonnelPage() {
                   Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -350,7 +350,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <span className="fin-badge" style={{ background: 'rgba(62,127,104,0.1)', color: '#3e7f68' }}>
                   <Icon name="refresh-cw" /> Cas particulier : Le regroupement de crédits
                 </span>
-                <h2>Vos mensualités<br />vous étouffent ?</h2>
+                <h2>Vos mensualités<br />vous étouffent ?</h2>
                 <p>
                   Prêt auto + crédit travaux + dettes renouvelables... Si l'accumulation de crédits pèse trop lourd sur votre reste à vivre chaque mois, souscrire un nouveau prêt est dangereux.
                 </p>
@@ -362,7 +362,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                 <ContactPopup label="Calculer mon nouveau reste à vivre" icon="calculator" className="fin-btn-primary" style={{ display: 'inline-block', marginTop: 16 }} />
               </div>
               <div className="crowd-schema">
-                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orizia-primary)' }}>
+                <div style={{ textAlign: 'center', marginBottom: 16, fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#3e7f68' }}>
                   L'effet Regroupement
                 </div>
                 <div className="crowd-schema-step" style={{ background: 'rgba(176,71,59,0.08)', border: '1.5px solid rgba(176,71,59,0.2)' }}>
@@ -382,8 +382,8 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   <strong>Après : 1 crédit = 480€/mois</strong>
                   <span>Budget respirable (+ possibilité d'inclure une trésorerie)</span>
                 </div>
-                <div style={{ marginTop: 12, fontSize: '0.75rem', opacity: 0.6, textAlign: 'center' }}>
-                  *L'allongement de la durée de remboursement entraîne une majoration du coût total du crédit.
+                <div style={{ marginTop: 12, fontSize: '0.78rem', color: 'var(--oz-muted)', textAlign: 'center' }}>
+                  *Exemple illustratif. L'allongement de la durée de remboursement entraîne une majoration du coût total du crédit. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
                 </div>
               </div>
             </div>
@@ -395,7 +395,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Processus clair</span>
-              <h2>Comment on travaille ensemble ?</h2>
+              <h2>Comment on travaille ensemble ?</h2>
               <p>
                 Pas de démarches épuisantes. Vous me confiez vos documents, je m'occupe de trouver l'argent.
               </p>
@@ -481,7 +481,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question" icon="phone" className="fin-btn-secondary" />
             </div>
@@ -502,7 +502,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   icon: 'house',
                   title: 'Crédit Immobilier',
                   sub: 'Votre projet de vie',
-                  text: 'Vous souhaitez acheter un bien immobilier ? La démarche est très différente d\'un prêt personnel. Je vous accompagne de A à Z.',
+                  text: 'Vous souhaitez acheter un bien immobilier ? La démarche est très différente d\'un prêt personnel. Je vous accompagne de A à Z.',
                   badge: 'Votre prochain grand projet',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
@@ -514,7 +514,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   icon: 'car',
                   title: 'Assurance Auto',
                   sub: 'Protéger votre achat',
-                  text: 'Vous venez de financer un véhicule ? Ne payez pas votre assurance plein pot. Je compare le marché pour vous.',
+                  text: 'Vous venez de financer un véhicule ? Ne payez pas votre assurance plein pot. Je compare le marché pour vous.',
                   badge: 'Résiliation gérée pour vous',
                   badgeBg: 'rgba(62,127,104,0.08)',
                   badgeColor: '#3e7f68',
@@ -555,7 +555,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prêt(e) à financer votre projet<br />au juste prix ?</h2>
+            <h2>Prêt(e) à financer votre projet<br />au juste prix ?</h2>
             <p>
               On fait le point sur votre budget, je définis l'enveloppe possible et je m'occupe d'aller chercher le meilleur TAEG du marché. Sans engagement.
             </p>

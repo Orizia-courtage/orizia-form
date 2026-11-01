@@ -33,7 +33,7 @@ const PROJETS = [
 
 const DETAILS = {
   primo: {
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.05)',
     border: 'rgba(45,106,95,0.2)',
     titre: 'Primo-accédant : votre premier achat, bien préparé',
@@ -43,7 +43,7 @@ const DETAILS = {
       'Pédagogie bancaire : je vous explique chaque ligne du contrat',
       'Optimisation de l\'apport personnel pour maximiser votre enveloppe',
     ],
-    conseil: 'Le PTZ peut financer jusqu\'à 40% de votre achat sans intérêts. Beaucoup de primo-accédants passent à côté faute de l\'avoir demandé. Je vérifie systématiquement votre éligibilité.',
+    conseil: 'Le PTZ peut financer jusqu\'à 50\u00a0% de votre achat sans intérêts, selon vos revenus et la zone. Beaucoup de primo-accédants passent à côté faute de l\'avoir demandé. Je vérifie systématiquement votre éligibilité.',
     astuce: 'Contactez-moi avant même de commencer vos visites. Je vous donne une enveloppe précise — vous visitez sereinement et faites des offres avec une attestation de faisabilité.',
   },
   locatif: {
@@ -77,7 +77,7 @@ const DETAILS = {
 };
 
 export default function CreditProjetSelector() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('primo'); // cas le plus courant ouvert d'emblée
   const detail = selected ? DETAILS[selected] : null;
 
   return (

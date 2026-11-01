@@ -146,7 +146,7 @@ const GARANTIES = [
     icon: 'handshake',
     label: 'Responsabilité civile',
     obligatoire: true,
-    desc: 'Vous blessez quelqu\'un ou vous cassez un objet chez des amis ? Cette garantie prend le relais pour toute votre famille.',
+    desc: 'Vous blessez quelqu\'un ou vous cassez un objet chez des amis ? Cette garantie prend le relais pour toute votre famille.',
   },
   {
     icon: 'tornado',
@@ -170,13 +170,13 @@ const GARANTIES = [
     icon: 'scale',
     label: 'Protection juridique',
     obligatoire: false,
-    desc: 'Litige avec un voisin, un artisan ou le syndic ? Vos frais d\'avocat sont pris en charge. Un vrai bouclier au quotidien.',
+    desc: 'Litige avec un voisin, un artisan ou le syndic ? Vos frais d\'avocat sont pris en charge. Un vrai bouclier au quotidien.',
   },
   {
     icon: 'zap',
     label: 'Dommages Électriques',
     obligatoire: false,
-    desc: 'La foudre grille votre frigo et votre TV ? Cette option (souvent ignorée) vous sauve la mise. Idéal pour le télétravail.',
+    desc: 'La foudre grille votre frigo et votre TV ? Cette option (souvent ignorée) vous sauve la mise. Idéal pour le télétravail.',
   },
 ];
 
@@ -217,25 +217,25 @@ const ETAPES = [
   {
     n: '04',
     title: 'Un suivi qui dure',
-    text: 'Vous faites une véranda ? Vous achetez un vélo électrique cher ? Vous m\'appelez, et j\'ajuste le contrat. Vous n\'êtes plus jamais un numéro.',
+    text: 'Vous faites une véranda ? Vous achetez un vélo électrique cher ? Vous m\'appelez, et j\'ajuste le contrat. Vous n\'êtes plus jamais un numéro.',
   },
 ];
 
 const OBJECTIONS = [
   {
     q: '« Je n\'ai pas le temps de m\'occuper de la paperasse. »',
-    r: 'C\'est l\'argument n°1 de mes clients ! C\'est exactement pour cela que je fais tout à votre place. La loi Hamon m\'autorise à résilier votre contrat pour vous. Votre seule action ? Me dire "oui".',
+    r: 'C\'est l\'argument n°1 de mes clients ! C\'est exactement pour cela que je fais tout à votre place. La loi Hamon m\'autorise à résilier votre contrat pour vous. Votre seule action ? Me dire "oui".',
   },
   {
     q: '« Je suis chez mon banquier, c\'est plus simple pour les prélèvements. »',
     r: 'C\'est simple, mais c\'est très cher. Les banques facturent souvent la "praticité" au prix fort. Changer avec moi vous prend 15 minutes et vous fait économiser des centaines d\'euros sur le long terme.',
   },
   {
-    q: '« Est-ce que vos contrats couvrent aussi bien ? »',
+    q: '« Est-ce que vos contrats couvrent aussi bien ? »',
     r: 'Souvent mieux ! Mon indépendance me permet de fuir les contrats "bas de gamme" bourrés d\'exclusions. Je ne vous propose que des assureurs solides avec qui j\'ai l\'habitude de travailler en cas de sinistre.',
   },
   {
-    q: '« Et si j\'ai un dégât des eaux demain ? »',
+    q: '« Et si j\'ai un dégât des eaux demain ? »',
     r: 'Je m\'assure toujours que les dates se chevauchent parfaitement. À minuit le contrat A s\'arrête, à minuit et une seconde le contrat B prend le relais. Vous n\'êtes jamais à découvert.',
   },
 ];
@@ -305,7 +305,7 @@ export default function AssuranceHabitationPage() {
             <p className="ae-hero-intro">
               Votre assureur profite de votre fidélité pour augmenter les prix. Je mets le marché 
               en concurrence pour vous faire économiser <strong>jusqu'à 250€/an</strong>, 
-              avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
+              avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="Lancer mon comparatif" icon="calendar-days" className="fin-btn-primary" />
@@ -356,7 +356,7 @@ export default function AssuranceHabitationPage() {
                   Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -582,7 +582,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
               <h2>Vos questions, mes réponses d'experte</h2>
-              <p>Encore des doutes ? Posez-moi vos questions spécifiques, je réponds sans filtre.</p>
+              <p>Encore des doutes ? Posez-moi vos questions spécifiques, je réponds sans filtre.</p>
             </div>
             <div className="crowd-faq-list">
               {faqSchema.mainEntity.map((f, i) => (
@@ -594,7 +594,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>
@@ -606,7 +606,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vision Globale</span>
-              <h2>On fait le grand ménage<br />dans vos contrats ?</h2>
+              <h2>On fait le grand ménage<br />dans vos contrats ?</h2>
               <p>Avoir un courtier dédiée, c'est l'occasion de centraliser et d'optimiser l'ensemble de votre budget.</p>
             </div>
             <div className="fin-cards fin-cards--light">
@@ -628,7 +628,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   icon: 'shield-check',
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
-                  text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
+                  text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
                   badge: 'Économisez jusqu\'à 15 000€',
                   pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
@@ -673,7 +673,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-light)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Prêt(e) à remettre votre assureur<br />en concurrence ?</h2>
+            <h2>Prêt(e) à remettre votre assureur<br />en concurrence ?</h2>
             <p>
               Je scanne le marché, j'ajuste vos garanties, je déniche le tarif juste et 
               je m'occupe de la lettre de résiliation. Vous n'avez strictement rien à perdre, 

@@ -14,7 +14,7 @@ const ETAPES_FLUX = [
     icon: 'search',
     label: 'Cindy sélectionne',
     desc: 'Analyse de 200+ SCPI selon votre profil fiscal',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     orizia: true,
   },
   {

@@ -21,7 +21,7 @@ const CRITERES = [
   },
   {
     id: 'endettement',
-    label: 'Mon taux d\'endettement actuel est inférieur à 25%',
+    label: 'Mon taux d\'endettement actuel est inférieur à 25\u00a0% (avant votre futur crédit ; le plafond bancaire est de 35\u00a0% après)',
     desc: 'Si vous avez déjà des crédits à la conso, voiture ou autre, votre capacité d\'emprunt est réduite. Je peux restructurer si nécessaire.',
     required: false,
     signal: 'Capacité d\'emprunt',

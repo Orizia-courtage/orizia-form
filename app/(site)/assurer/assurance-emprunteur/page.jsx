@@ -13,7 +13,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Assurance Emprunteur 2026 : Loi Lemoine | Orizia Courtage',
   description:
-    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
+    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' },
   openGraph: {
     title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
@@ -280,11 +280,11 @@ export default function AssuranceEmprunteurPage() {
                 </p>
                 <p className="ae-citation-text">
                   Mon métier, c'est de reprendre cet argent pour le remettre dans votre poche. Et
-                  le meilleur ? Je monte au front face à votre banque et je m'occupe de toutes les
+                  le meilleur ? Je monte au front face à votre banque et je m'occupe de toutes les
                   démarches, sans que vous n'ayez à lever le petit doigt.
                 </p>
                 <span className="ae-citation-author">
-                  Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage
+                  Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage
                 </span>
               </div>
             </div>
@@ -447,7 +447,7 @@ export default function AssuranceEmprunteurPage() {
           <div className="fin-section-inner">
             <div className="ae-garanties-head">
               <span className="fin-badge">Les garanties</span>
-              <h2>Moins cher, oui.<br />Mais aussi bien couvert ? Mieux.</h2>
+              <h2>Moins cher, oui.<br />Mais aussi bien couvert ? Mieux.</h2>
               <p>
                 Je ne sacrifie jamais votre protection pour afficher un prix bas. Mon rôle est
                 d'analyser les exigences strictes de votre banque, et de vous trouver le contrat
@@ -485,7 +485,7 @@ export default function AssuranceEmprunteurPage() {
               <span className="fin-badge">Mon engagement : le "zéro friction"</span>
               <h2>Détendez-vous,<br />j'affronte la banque à votre place</h2>
               <p>
-                Changer d'assurance fait peur car la banque aime faire traîner les choses. Mon job ?
+                Changer d'assurance fait peur car la banque aime faire traîner les choses. Mon job ?
                 Mettre la pression juridique pour que ça aille vite.
               </p>
             </div>
@@ -575,7 +575,7 @@ export default function AssuranceEmprunteurPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une autre question à Cindy" icon="phone" className="fin-btn-secondary" />
             </div>

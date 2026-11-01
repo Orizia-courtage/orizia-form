@@ -57,7 +57,7 @@ const RECOMMANDATIONS = {
   ancien: {
     formule: 'Au tiers',
     icon: 'shield-check',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
     border: 'rgba(45,106,95,0.2)',
     raison: 'Si votre voiture cote moins de 3 000€ à l\'Argus, payer un Tous Risques n\'a aucun sens économique. Le Tiers vous protège légalement et votre portefeuille vous remerciera.',

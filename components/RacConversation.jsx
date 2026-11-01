@@ -330,7 +330,11 @@ export default function RacConversation() {
   // Défile vers le dernier message.
   useEffect(() => {
     const el = threadRef.current; if (!el) return;
-    requestAnimationFrame(() => el.scrollTo({ top: el.scrollHeight, behavior: reduce ? 'auto' : 'smooth' }));
+    const go = () => el.scrollTo({ top: el.scrollHeight, behavior: reduce ? 'auto' : 'smooth' });
+    requestAnimationFrame(go);
+    // La zone de réponse change de taille après l'animation : on redescend une fois qu'elle est posée.
+    const t = setTimeout(go, 420);
+    return () => clearTimeout(t);
   }, [answered.length, typing, merging, done, reduce]);
 
   // Sur téléphone, la barre d'action du site s'efface quand la conversation occupe l'écran.
@@ -358,7 +362,8 @@ export default function RacConversation() {
       setForm((x) => ({ ...x, [q.field]: f[q.field] }));
     }
     let msg = q.check?.(f) || null;
-    if (!msg && q.input === 'amounts') msg = q.fields.filter((x) => !x.when || x.when(f)).map((x) => (!x.optional && (n(f[x.key]) < (x.min || 1) || (x.max && n(f[x.key]) > x.max)) ? x.err : null)).find(Boolean) || null;
+    // Tous les montants invalides sont signalés d'un coup (et pas seulement le premier).
+    if (!msg && q.input === 'amounts') msg = [...new Set(q.fields.filter((x) => !x.when || x.when(f)).map((x) => (!x.optional && (n(f[x.key]) < (x.min || 1) || (x.max && n(f[x.key]) > x.max)) ? x.err : null)).filter(Boolean))].join(' ') || null;
     if (!msg && q.field && ['cards', 'chips', 'consent'].includes(q.input) && !f[q.field]) msg = 'Choisissez une réponse.';
     if (msg) { setError(msg); return; }
     setError('');
@@ -447,8 +452,9 @@ export default function RacConversation() {
             <AnimatePresence mode="wait" initial={false}>
               {!typing && (
                 <motion.div key={current.id} data-q={current.id} initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={reduce ? undefined : { opacity: 0, y: 8 }} transition={{ type: 'spring', stiffness: 420, damping: 34 }}>
+                  {/* Message d'erreur au-dessus des champs (sous le bouton, il passait inaperçu). */}
+                  <AnimatePresence>{error && <motion.p className="rc-error rc-error--top" role="alert" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0, x: reduce ? 0 : [0, -6, 6, -4, 4, 0] }} exit={{ opacity: 0 }}>{error}</motion.p>}</AnimatePresence>
                   <Reply q={current} form={form} set={set} answer={answer} submit={submit} sending={sending} />
-                  <AnimatePresence>{error && <motion.p className="rc-error" role="alert" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0, x: reduce ? 0 : [0, -6, 6, -4, 4, 0] }} exit={{ opacity: 0 }}>{error}</motion.p>}</AnimatePresence>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -569,7 +575,7 @@ function Amount({ field, value, onChange, last }) {
     <label className={`rc-amount${focus ? ' focus' : ''}`}>
       <span className="rc-amount-label">{field.label}{field.optional && <em> · facultatif</em>}</span>
       <span className="rc-amount-row">
-        <input inputMode="numeric" enterKeyHint={last ? 'done' : 'next'} autoComplete="off" placeholder="0" value={shown} 
+        <input inputMode="numeric" enterKeyHint={last ? 'done' : 'next'} autoComplete="off" placeholder="ex. 250" value={shown} 
           onFocus={() => setFocus(true)} onBlur={() => setFocus(false)}
           onChange={(e) => onChange(e.target.value.replace(/\D/g, '').slice(0, 9))} />
         <span>{field.unit}</span>

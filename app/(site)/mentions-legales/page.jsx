@@ -62,7 +62,7 @@ export default function MentionsLegalesPage() {
             {COMPANY.rcs}<br />
             Numéro de gestion : {COMPANY.gestion}<br />
             Identifiant européen (EUID) : {COMPANY.euid}<br />
-            Adresse e-mail : <a href={`mailto:${COMPANY.email}`} style={{ color: 'var(--orizia-primary)' }}>{COMPANY.email}</a><br />
+            Adresse e-mail : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a><br />
             Téléphone : {COMPANY.phone}
           </p>
         </section>
@@ -71,7 +71,7 @@ export default function MentionsLegalesPage() {
           <h2 style={h2}>2. Directrice de la publication</h2>
           <p>
             <strong>{COMPANY.manager}</strong>, gérante.<br />
-            Contact : <a href={`mailto:${COMPANY.email}`} style={{ color: 'var(--orizia-primary)' }}>{COMPANY.email}</a><br />
+            Contact : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a><br />
             Téléphone : {COMPANY.phone}
           </p>
         </section>
@@ -82,7 +82,7 @@ export default function MentionsLegalesPage() {
             Le site est hébergé par :<br />
             <strong>{COMPANY.host.name}</strong><br />
             Adresse : {COMPANY.host.address}<br />
-            Site web : <a href={COMPANY.host.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--orizia-primary)' }}>{COMPANY.host.url}</a>
+            Site web : <a href={COMPANY.host.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>{COMPANY.host.url}</a>
           </p>
         </section>
 
@@ -90,7 +90,7 @@ export default function MentionsLegalesPage() {
           <h2 style={h2}>4. Informations réglementaires (ORIAS &amp; ACPR)</h2>
           <p>
             {COMPANY.denomination} exerce en tant que Courtier en assurance et Courtier en opérations de banque et en services de paiement (COBSP).<br /><br />
-            Immatriculation au Registre Unique des Intermédiaires en Assurance, Banque et Finance (<strong>ORIAS</strong>) : numéro <strong>en cours d’attribution</strong> (vérifiable sur <a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--orizia-primary)' }}>www.orias.fr</a> dès sa publication).
+            Immatriculation au Registre Unique des Intermédiaires en Assurance, Banque et Finance (<strong>ORIAS</strong>) : numéro <strong>en cours d’attribution</strong> (vérifiable sur <a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.orias.fr</a> dès sa publication).
           </p>
           <p style={{ marginTop: '16px' }}>
             L’activité est placée sous le contrôle de l’Autorité de Contrôle Prudentiel et de Résolution (<strong>ACPR</strong>) :<br />
@@ -104,14 +104,14 @@ export default function MentionsLegalesPage() {
             Les informations recueillies via les formulaires (contact, simulation, prise de rendez-vous) sont enregistrées dans un fichier informatisé par {COMPANY.denomination} pour le traitement de votre demande de financement ou d’assurance.
           </p>
           <p style={{ marginTop: '16px' }}>
-            Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d’un droit d’accès, de rectification, de portabilité et d’effacement de vos données. Vous pouvez exercer ce droit en contactant : <a href={`mailto:${COMPANY.email}`} style={{ color: 'var(--orizia-primary)' }}>{COMPANY.email}</a>.
+            Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d’un droit d’accès, de rectification, de portabilité et d’effacement de vos données. Vous pouvez exercer ce droit en contactant : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>.
           </p>
         </section>
 
         <section style={{ marginBottom: '40px' }}>
           <h2 style={h2}>6. Réclamation et Médiation</h2>
           <p>
-            En cas de litige ou de réclamation, vous pouvez adresser votre demande par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: 'var(--orizia-primary)' }}>{COMPANY.email}</a>.<br />
+            En cas de litige ou de réclamation, vous pouvez adresser votre demande par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>.<br />
             Si aucune solution amiable n’est trouvée, vous avez la possibilité de saisir gratuitement le médiateur de la consommation compétent : <strong>médiateur en cours de désignation</strong> (ses coordonnées seront publiées ici dès sa désignation).
           </p>
         </section>

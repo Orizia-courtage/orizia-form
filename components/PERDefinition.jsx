@@ -29,7 +29,7 @@ const ETAPES = [
     icon: 'tree-palm',
     title: 'Vous sortez à la retraite',
     desc: 'En capital (une fois ou progressivement), en rente viagère, ou les deux. Vous choisissez selon votre situation.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     textColor: '#fff',
   },
 ];
@@ -47,7 +47,7 @@ const POINTS = [
     icon: 'calendar-days',
     title: 'Créé par la loi PACTE 2019',
     desc: 'Remplace les anciens PERP, Madelin et PERCO. Un seul contrat, plus simple, plus flexible.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
     border: 'rgba(45,106,95,0.2)',
   },

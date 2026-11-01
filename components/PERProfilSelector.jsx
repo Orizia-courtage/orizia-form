@@ -32,7 +32,7 @@ const DETAILS = {
     exemple: { versement: 10000, tmi: '41%', gain: 4100 },
     strategie: 'Versements mensuels réguliers + rattrapage des plafonds N-3 non utilisés.',
     conseil: 'Vérifiez votre avis d\'imposition rubrique "Plafond épargne retraite" — vous avez probablement des plafonds reportés des 3 dernières années.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     badge: null,
   },
   tns: {

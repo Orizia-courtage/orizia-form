@@ -172,7 +172,7 @@ const DIFFERENCIANTS = [
     icon: 'landmark',
     title: '+40 offres bancaires comparées',
     desc: 'Votre banque ne vous proposera jamais l\'offre de son concurrent. Moi, je consulte tout le marché pour chaque dossier.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
@@ -186,8 +186,8 @@ const DIFFERENCIANTS = [
     icon: 'phone',
     title: 'Interlocutrice unique',
     desc: 'Pas de centre d\'appels, pas de turnover. Je gère votre dossier du premier échange à la remise des clés.',
-    color: '#a87a2c',
-    bg: 'rgba(168,122,44,0.06)',
+    color: '#3e7f68',
+    bg: 'rgba(62,127,104,0.06)',
   },
   {
     icon: 'target',
@@ -226,7 +226,7 @@ export default function FinancerPage() {
                 <span className="inv-hero-badge"><Icon name="landmark" /> Courtage en crédit indépendant</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre projet mérite<br />
-                  <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>le meilleur taux du marché</em>
+                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>les meilleures conditions du marché</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, regroupement, prêt personnel, rachat de soulte —
@@ -236,7 +236,7 @@ export default function FinancerPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <ContactPopup label="Étude de faisabilité avec Cindy" icon="calendar-days" className="fin-btn-primary inv-hero-cta-main" />
-                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
+                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: '#3e7f68', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
                     Voir mes solutions <Icon name="arrow-down" />
                   </ScrollButton>
                 </div>
@@ -251,7 +251,7 @@ export default function FinancerPage() {
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    modalités expliquées avant engagement
+                    Modalités expliquées avant engagement
                   </div>
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default function FinancerPage() {
               <div className="inv-hero-quiz-wrap">
                 <div className="inv-hero-quiz-eyebrow">
                   <span className="inv-hero-quiz-dot" />
-                  Quel financement vous correspond ?
+                  Quel financement vous correspond ?
                 </div>
                 <FinancerQuiz />
               </div>
@@ -297,7 +297,7 @@ export default function FinancerPage() {
                   et les pénalités de remboursement anticipé. Chaque ligne du contrat compte.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -317,7 +317,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <FinancerProduitsGrid />
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier échange existe.
+                Vous ne savez pas par où commencer ? C'est précisément pour ça que le premier échange existe.
               </p>
               <ContactPopup label="Faire le point avec Cindy" icon="calendar-days" className="fin-btn-primary" />
             </div>
@@ -425,7 +425,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une question à Cindy" icon="mail" className="fin-btn-secondary" />
             </div>
@@ -437,7 +437,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Vision globale</span>
-              <h2>Votre financement est bouclé ?<br />Optimisons le reste.</h2>
+              <h2>Votre financement est bouclé ?<br />Optimisons le reste.</h2>
               <p>Un crédit bien négocié est un bon début. Voici comment aller encore plus loin.</p>
             </div>
             <div className="fin-cards fin-cards--light">
@@ -463,7 +463,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
                   icon: 'landmark',
                   title: 'Plan Épargne Retraite',
                   sub: 'Réduire vos impôts',
-                  text: 'Vous remboursez un crédit et payez des impôts ? Le PER vous permet de déduire vos versements de votre revenu imposable dès cette année.',
+                  text: 'Vous remboursez un crédit et payez des impôts ? Le PER vous permet de déduire vos versements de votre revenu imposable dès cette année.',
                   badge: null,
                 },
               ].map(s => (
@@ -489,7 +489,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-cta-inner">
             <CtaPresence />
             <h2>
-              Prêt(e) à obtenir<br />le meilleur taux du marché ?
+              Prêt(e) à obtenir<br />les meilleures conditions ?
             </h2>
             <p>
               Confiez-moi votre dossier. Je compare 40+ offres bancaires, négocie chaque condition

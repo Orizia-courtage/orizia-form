@@ -121,7 +121,7 @@ const DIFFERENCIANTS = [
     icon: 'shield-check',
     title: 'Indépendance totale',
     desc: 'Je n\'appartiens à aucun groupe bancaire. Mon seul intérêt, c\'est de trouver le produit qui sert VOS objectifs — pas ceux de mon employeur.',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
   },
   {
@@ -177,7 +177,7 @@ export default function InvestirPage() {
                 <span className="inv-hero-badge"><Icon name="briefcase" /> Stratégie patrimoniale indépendante</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre argent mérite<br />
-                  <em className="inv-hero-em" style={{ color: 'var(--orizia-primary)', fontStyle: 'normal' }}>mieux qu'une banque</em>
+                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>mieux qu'une banque</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   SCPI, Assurance Vie, PER, Crowdfunding — j'accède aux meilleurs
@@ -187,8 +187,8 @@ export default function InvestirPage() {
                 </p>
                 <div className="inv-hero-actions">
                   <ContactPopup label="Bilan patrimonial" icon="calendar-days" className="fin-btn-primary inv-hero-cta-main"/>
-                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: 'var(--orizia-primary)', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
-                    Découvrir les placements ?
+                  <ScrollButton targetId="produits" className="inv-hero-cta-ghost" style={{ color: '#3e7f68', borderBottomColor: 'rgba(45,106,95,0.3)' }}>
+                    Découvrir les placements ?
                   </ScrollButton>
                 </div>
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
@@ -249,7 +249,7 @@ export default function InvestirPage() {
                   En toute indépendance, sans jargon financier.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage                </span>
+Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             <InvestirProduitsGrid />
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous ne savez pas par quoi commencer ? C'est normal — c'est précisément
+                Vous ne savez pas par quoi commencer ? C'est normal — c'est précisément
                 pour ça que le premier rendez-vous existe.
               </p>
               <ContactPopup label="Définir ma stratégie avec Cindy" icon="calendar-days" className="fin-btn-primary"/>
@@ -379,7 +379,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
             </div>
             <div style={{ textAlign: 'center', marginTop: 36 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 16 }}>
-                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
+                Vous avez une question spécifique à votre situation ? Je vous réponds sous 24h.
               </p>
               <ContactPopup label="Poser une question à Cindy" icon="phone" className="fin-btn-secondary"/>
             </div>
@@ -391,7 +391,7 @@ Cindy Urbansky, courtier indépendant et fondatrice de Orizia Courtage          
           <div className="fin-cta-inner">
             <CtaPresence />
             <h2>
-              Prêt à réveiller votre épargne ?
+              Prêt à réveiller votre épargne ?
             </h2>
             <p>
               Faisons connaissance. Nous analyserons votre patrimoine actuel et définirons

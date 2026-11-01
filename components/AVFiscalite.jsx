@@ -77,7 +77,7 @@ const TRANSMISSION = [
     label: 'Versements avant 70 ans',
     value: '152 500€',
     desc: 'par bénéficiaire, exonérés de droits de succession',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
   },
   {
     icon: 'user-round',

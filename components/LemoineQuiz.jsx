@@ -79,7 +79,7 @@ export default function LemoineQuiz() {
       desc: 'Votre situation dépasse les seuils automatiques de la loi Lemoine, mais des solutions existent. Je calcule votre économie potentielle en rendez-vous.',
       cta: 'Prendre rendez-vous',
       href: '/rendez-vous',
-      color: 'var(--orizia-primary)',
+      color: '#3e7f68',
       bg: 'rgba(45,106,95,0.08)',
       border: 'rgba(45,106,95,0.3)',
     };

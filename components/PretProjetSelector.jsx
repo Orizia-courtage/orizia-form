@@ -61,7 +61,7 @@ const DETAILS = {
     astuce: 'Un prêt travaux "affecté" (lié à des devis précis) a souvent un taux plus bas qu\'un prêt personnel classique. Je vérifie quelle formule est la plus avantageuse pour vous.',
   },
   tresorerie: {
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.05)',
     border: 'rgba(45,106,95,0.2)',
     titre: 'Prêt Trésorerie : liberté totale d\'utilisation',
@@ -77,7 +77,7 @@ const DETAILS = {
 };
 
 export default function PretProjetSelector() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('travaux'); // cas le plus courant ouvert d'emblée
   const detail = selected ? DETAILS[selected] : null;
 
   return (

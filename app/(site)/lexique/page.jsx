@@ -51,7 +51,7 @@ const CATEGORIES = [
   {
     id: 'credit',
     label: 'Crédit & Financement',
-    color: 'var(--orizia-primary)',
+    color: '#3e7f68',
     bg: 'rgba(45,106,95,0.04)',
     termes: [
       { terme: 'TAEG', def: "Taux Annuel Effectif Global. Le seul indicateur fiable pour comparer deux crédits : il inclut le taux nominal, les frais de dossier et les assurances obligatoires. C'est ce chiffre que je négocie à la baisse pour vous — pas seulement le taux affiché." },

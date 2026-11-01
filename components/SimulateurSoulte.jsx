@@ -10,8 +10,11 @@ const QP_PRESETS = ['25', '33', '50', '67', '75'];
 
 export default function SimulateurSoulte() {
   const { soulte: soulteConfig } = useSimulationConfig();
-  const [valeur, setValeur] = useState('');
-  const [crd, setCrd] = useState('');
+  // Exemple pré-rempli : le résultat s'affiche tout de suite (plus de case vide au chargement).
+  const [valeur, setValeur] = useState('300 000');
+  const [crd, setCrd] = useState('100 000');
+  // Droit de partage : 1,1 % après un divorce ou une fin de PACS (depuis 2022), 2,5 % dans les autres cas.
+  const [cas, setCas] = useState('separation');
   const [quotePart, setQuotePart] = useState('50');
   const [customQP, setCustomQP] = useState('');
   const [showCustom, setShowCustom] = useState(false);
@@ -53,9 +56,12 @@ export default function SimulateurSoulte() {
     if (valeurNette <= 0) return { error: 'Le capital restant dû dépasse la valeur du bien.' };
     if (!q || isNaN(q) || q <= 0 || q >= 100) return null;
     const soulte = valeurNette * (q / 100);
-    const droitsPartage = valeurNette * soulteConfig.sharingDutyRate;
-    return { valeurNette, soulte, droitsPartage, quotePart: q };
-  }, [valeur, crd, activeQP]);
+    const taux = cas === 'separation' ? 0.011 : soulteConfig.sharingDutyRate;
+    const droitsPartage = valeurNette * taux;
+    // Celui qui garde le bien finance la soulte ET reprend seul le crédit en cours.
+    const empruntTotal = soulte + crdVal + droitsPartage;
+    return { valeurNette, soulte, droitsPartage, quotePart: q, taux, empruntTotal, crdVal };
+  }, [valeur, crd, activeQP, cas]);
 
   return (
     <div className="ss-wrap">
@@ -157,6 +163,11 @@ export default function SimulateurSoulte() {
       {/* ── RÉSULTAT ── */}
       {result && !result.error && (
         <div className="ss-result">
+          <div className="ss-cas" role="radiogroup" aria-label="Votre situation">
+            {[['separation', 'Divorce ou fin de PACS'], ['autre', 'Concubins, succession, autre']].map(([k, label]) => (
+              <button key={k} type="button" role="radio" aria-checked={cas === k} className={`ss-cas-btn${cas === k ? ' is-on' : ''}`} onClick={() => setCas(k)}>{label}</button>
+            ))}
+          </div>
           <div className="ss-result-cards">
 
             <div className="ss-result-card">
@@ -170,14 +181,21 @@ export default function SimulateurSoulte() {
               <div className="ss-result-card-icon"><Icon name="coins" /></div>
               <span className="ss-result-card-label">Soulte à financer</span>
               <span className="ss-result-card-value ss-result-card-value--main">{fmt(result.soulte)}</span>
-              <span className="ss-result-card-sub">{result.quotePart}% de la valeur nette</span>
+              <span className="ss-result-card-sub">{result.quotePart} % de la valeur nette</span>
             </div>
 
             <div className="ss-result-card">
               <div className="ss-result-card-icon"><Icon name="clipboard-list" /></div>
               <span className="ss-result-card-label">Droits de partage notaire</span>
               <span className="ss-result-card-value">{fmt(result.droitsPartage)}</span>
-              <span className="ss-result-card-sub">{formatPercent(soulteConfig.sharingDutyRate, { ratio: true })} de la valeur nette</span>
+              <span className="ss-result-card-sub">{result.taux === 0.011 ? '1,1\u00a0%' : formatPercent(soulteConfig.sharingDutyRate, { ratio: true })} de la valeur nette</span>
+            </div>
+
+            <div className="ss-result-card ss-result-card--total">
+              <div className="ss-result-card-icon"><Icon name="landmark" /></div>
+              <span className="ss-result-card-label">Emprunt total estimé</span>
+              <span className="ss-result-card-value">{fmt(result.empruntTotal)}</span>
+              <span className="ss-result-card-sub">soulte + reprise du crédit en cours ({fmt(result.crdVal)}) + droits</span>
             </div>
 
           </div>

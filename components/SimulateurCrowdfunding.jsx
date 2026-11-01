@@ -171,7 +171,7 @@ export default function SimulateurCrowdfunding() {
           <div className="simu-result-line simu-result-line--sep" />
           <div className="simu-result-line simu-result-line--bold">
             <span>Intérêts nets perçus</span>
-            <strong style={{ color: 'var(--orizia-primary)' }}>{fmt(interetsNets)}</strong>
+            <strong style={{ color: '#3e7f68' }}>{fmt(interetsNets)}</strong>
           </div>
           <div className="simu-result-line simu-result-line--bold">
             <span>Capital récupéré à terme</span>
