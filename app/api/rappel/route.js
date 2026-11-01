@@ -68,9 +68,9 @@ export async function POST(request) {
     const intl = phone.format('E.164');
     const when = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris', dateStyle: 'full', timeStyle: 'short' });
     const resend = new Resend(process.env.RESEND_API_KEY);
-    // L'e-mail et le CRM partent en parallèle : la demande est acceptée si l'un des deux l'a reçue.
-    const [mail, crm] = await Promise.all([
-      resend.emails.send({
+    // Le CRM d'abord (notification sur le téléphone de Cindy). L'e-mail ne part qu'en secours, si le CRM n'a pas reçu la demande.
+    const crm = await sendToCrm({ prenom, telephone: intl, creneau, sujet, page, visitor: visitorOf(request) });
+    const mail = crm ? true : await resend.emails.send({
       from: 'Orizia Courtage <widget@orizia-courtage.fr>',
       to: TO,
       subject: `À rappeler : ${prenom} — ${national} (${creneau})`,
@@ -91,9 +91,7 @@ export async function POST(request) {
           ${SIGNATURE_BLOCK}
         </div>`,
       }).then(({ error }) => { if (error) throw new Error(error.message || 'resend'); return true; })
-        .catch((err) => { console.error('Resend rappel:', err); return false; }),
-      sendToCrm({ prenom, telephone: intl, creneau, sujet, page, visitor: visitorOf(request) }),
-    ]);
+        .catch((err) => { console.error('Resend rappel:', err); return false; });
     if (!mail && !crm) {
       return Response.json({ error: 'Envoi indisponible. Appelez directement le 07 77 25 97 06.' }, { status: 502 });
     }

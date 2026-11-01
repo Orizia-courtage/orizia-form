@@ -225,8 +225,8 @@ export async function POST(request) {
         </div>`,
     });
 
-    // ── 3. ENVOI À CINDY (récapitulatif complet) ──
-    await resend.emails.send({
+    // ── 3. ENVOI À CINDY : seulement en secours, si le CRM n'a pas reçu la recommandation ──
+    if (!crmId) await resend.emails.send({
       from: emailExpediteur,
       to: ['cindy.urbansky@orizia-courtage.fr'],
       subject: `✨ Nouveau parrainage${viaCard ? ' (carte)' : ''} : ${parrainPrenom} ${parrainNom} recommande ${filleulPrenom} ${filleulNom}`,
