@@ -14,7 +14,7 @@ export default function CtaPresence() {
         <span>Courtière indépendante · répond sous 24 h</span>
       </span>
       <ul className="cta-presence-chips" aria-label="Mes engagements">
-        <li>Premier échange offert</li>
+        <li>Bilan personnalisé</li>
         <li>Sans engagement</li>
         <li>100 % indépendante</li>
       </ul>
