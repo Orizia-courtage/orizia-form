@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 const STATS = [
   { value: 500, suffix: '+', label: 'dossiers accompagnés' },
   { value: 20, suffix: ' ans', label: "d'expérience en intermédiation bancaire" },
-  { value: 98, suffix: ' %', label: 'de clients satisfaits' },
-  { value: 40, prefix: '+', label: "offres bancaires et d'assurance" },
+  { value: 24, suffix: ' h', label: 'délai de réponse' },
+  { value: 40, prefix: '+', label: 'offres bancaires' },
 ];
 
 function useCountUp(target, duration, start) {
