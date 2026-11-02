@@ -22,8 +22,7 @@ const mentionsSchema = {
     name: 'Orizia Courtage',
     legalName: COMPANY.denomination,
     url: 'https://www.orizia-courtage.fr',
-    taxID: COMPANY.sirenCompact,
-    identifier: [
+      identifier: [
       { '@type': 'PropertyValue', propertyID: 'SIREN', value: COMPANY.sirenCompact },
       { '@type': 'PropertyValue', propertyID: 'RCS', value: COMPANY.rcs },
     ],

@@ -17,7 +17,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-contact.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-contact.jpg',
         width: 1200,
         height: 630,
         alt: 'Contacter Cindy Urbansky - Orizia Courtage',

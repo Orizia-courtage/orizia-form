@@ -24,7 +24,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-assurance-vie.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-assurance-vie.jpg',
         width: 1200,
         height: 630,
         alt: 'Assurance Vie avec Orizia Courtage - Cindy Urbansky',

@@ -16,7 +16,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Orizia Courtage — Courtier Indépendant | Hauts-de-France',
   description:
-    'Cindy Urbansky, courtière indépendante certifiée ORIAS à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 offres bancaires comparées.',
+    'Cindy Urbansky, courtière indépendante immatriculée à l\'ORIAS, à Marcq-en-Barœul. Crédit immobilier, assurance emprunteur, SCPI, PER. +40 offres bancaires comparées.',
   keywords: [
     'courtier indépendant Hauts-de-France',
     'courtier crédit immobilier Lille',
@@ -36,7 +36,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/img-orizia.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-accueil.jpg',
         width: 1200,
         height: 630,
         alt: 'Cindy Urbansky, courtière indépendante — Orizia Courtage, Marcq-en-Barœul',
@@ -49,7 +49,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Orizia Courtage — Courtier Indépendant',
     description: 'Crédit, assurance, patrimoine. Je travaille pour vous, pas pour les banques.',
-    images: ['https://www.orizia-courtage.fr/images/img-orizia.webp'],
+    images: ['https://www.orizia-courtage.fr/images/og-accueil.jpg'],
   },
 };
 
@@ -62,7 +62,6 @@ const oriziaSchema = {
   legalName: COMPANY.denomination,
   alternateName: ['Orizia', 'Cindy Urbansky Courtier'],
   foundingDate: COMPANY.registeredAt,
-  taxID: COMPANY.sirenCompact,
   identifier: COMPANY_IDENTIFIERS,
   slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
   url: 'https://www.orizia-courtage.fr',
@@ -72,7 +71,7 @@ const oriziaSchema = {
     width: 160,
     height: 75,
   },
-  image: 'https://www.orizia-courtage.fr/images/img-orizia.webp',
+  image: 'https://www.orizia-courtage.fr/images/og-accueil.jpg',
   description:
     'Cabinet de courtage indépendant fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
   telephone: '+33777259706',
@@ -83,7 +82,6 @@ const oriziaSchema = {
       telephone: '+33777259706',
       contactType: 'customer service',
       availableLanguage: ['French'],
-      contactOption: 'TollFree',
     },
   ],
   sameAs: [
@@ -98,7 +96,7 @@ const oriziaSchema = {
     name: 'Cindy Urbansky',
     jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
     description:
-      'Courtière indépendante certifiée ORIAS avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
+      'Courtière indépendante immatriculée à l\'ORIAS, avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
     image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
@@ -216,7 +214,7 @@ const faqSchema = {
       name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière indépendante, je compare 40+ offres bancaires et d\'assurance pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière indépendante, je compare plus de 40 offres bancaires pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
       },
     },
   ],
@@ -228,7 +226,7 @@ const SERVICES = [
     tag: 'Financer',
     icon: 'landmark',
     title: 'Votre meilleur taux, négocié pour vous',
-    desc: 'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Je compare plus de 40 partenaires et je défends votre dossier jusqu\'à l\'accord.',
+    desc: 'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Je compare plus de 40 offres bancaires et je défends votre dossier jusqu\'à l\'accord.',
     links: [
       { label: 'Crédit immobilier', href: '/financer/credit-immobilier' },
       { label: 'Regroupement de crédits', href: '/financer/regroupement-credits' },
@@ -276,7 +274,7 @@ const ETAPES = [
   {
     icon: 'search',
     title: 'J\'étudie et je compare',
-    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 offres bancaires et d\'assurance.',
+    text: 'J\'analyse votre situation complète et je mets en concurrence plus de 40 offres bancaires.',
     meta: 'Étude sous 24 à 48 h',
   },
   {
@@ -289,14 +287,14 @@ const ETAPES = [
     icon: 'pen-line',
     title: 'Je vous accompagne jusqu\'au bout',
     text: 'Rendez-vous en agence, signature chez le notaire, suivi après la signature : vous parlez toujours à la même personne.',
-    meta: 'Un seul interlocuteur',
+    meta: 'Une seule interlocutrice',
   },
 ];
 
 const POURQUOI = [
   { icon: 'user', title: 'Une seule interlocutrice', text: 'Pas de standard, pas de transfert de dossier. Vous avez mon numéro direct.' },
   { icon: 'scale', title: 'Aucun lien exclusif', text: 'Je ne travaille pour aucune banque. Ma seule mission : la meilleure solution pour vous.' },
-  { icon: 'landmark', title: '+40 partenaires', text: 'Banques et assureurs mis en concurrence pour chaque dossier.' },
+  { icon: 'landmark', title: '+40 offres bancaires', text: 'Mises en concurrence pour chaque dossier.' },
   { icon: 'badge-check', title: 'Réglementée et engagée', text: 'Immatriculée ORIAS, présidente du conseil de surveillance de l\'AFIB.' },
 ];
 
@@ -314,7 +312,7 @@ export default function HomePage() {
             <div className="hh-text">
               <p className="hh-eyebrow">
                 <span className="hh-eyebrow-dot" aria-hidden="true" />
-                Courtière indépendante à Marcq-en-Barœul, certifiée ORIAS
+                Courtière indépendante à Marcq-en-Barœul, immatriculée à l'ORIAS
               </p>
               <h1 className="hh-title">
                 Votre courtière indépendante, de la première question jusqu’à la signature.
@@ -336,7 +334,7 @@ export default function HomePage() {
 
               <ul className="hh-proof" aria-label="Garanties">
                 <li><Icon name="badge-check" /><span><strong>ORIAS</strong> Intermédiaire immatriculée</span></li>
-                <li><Icon name="landmark" /><span><strong>+40</strong> offres bancaires et d'assurance</span></li>
+                <li><Icon name="landmark" /><span><strong>+40</strong> offres bancaires</span></li>
                 <li><Icon name="award" /><span><strong>AFIB</strong> Présidente du conseil de surveillance</span></li>
               </ul>
             </div>
@@ -429,7 +427,7 @@ export default function HomePage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">Mes expertises</span>
-              <h2>Un seul interlocuteur, trois expertises</h2>
+              <h2>Une seule interlocutrice, trois expertises</h2>
               <p>
                 Je traite personnellement chaque dossier, sans déléguer.
                 Vous avez un numéro direct, pas un service client.
@@ -467,7 +465,7 @@ export default function HomePage() {
               </div>
               <div className="hw-text">
                 <span className="fin-badge">Pourquoi Orizia</span>
-                <h2>Le seul courtier à qui vous parlez directement</h2>
+                <h2>Un courtier à qui vous parlez directement</h2>
                 <p className="hw-lead">
                   Je travaille seule, et c’est précisément ce qui fait la différence :
                   c’est moi qui vous réponds, moi qui négocie, moi qui suis votre dossier

@@ -102,7 +102,7 @@ const NAV = [
     href: '/financer',
     color: '#6bb69b',
     tagline: 'Votre meilleur taux, négocié',
-    stat: { number: '+40', label: 'Banques comparées' },
+    stat: { number: '+40', label: 'Offres bancaires comparées' },
     bgImage: '/images/financer.webp',
     links: [
       { href: '/financer/credit-immobilier',    title: 'Crédit immobilier',       sub: 'Votre projet immobilier',      Icon: Icons.CreditImmo },
@@ -142,7 +142,7 @@ export default function HeaderV2() {
   const pathname      = usePathname();
 
   // ── Disponibilité (lun–ven 9h–18h) ─────────────────────────────────────
-  const [dispoText, setDispoText] = useState('');
+  const [dispoText, setDispoText] = useState('Disponible lun–ven 9h–18h');
   
   useEffect(() => {
     const check = () => {
@@ -408,7 +408,7 @@ export default function HeaderV2() {
                   </div>
 
                   <p className="hv2-mega-footer-trust">
-                    Un seul interlocuteur, de l’étude à la signature. Réponse sous 24&nbsp;h.
+                    Une seule interlocutrice, de l’étude à la signature. Réponse sous 24&nbsp;h.
                   </p>
 
                   <button 

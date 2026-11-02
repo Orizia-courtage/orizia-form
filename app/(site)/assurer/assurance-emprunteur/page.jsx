@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-assurance-emprunteur.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-assurance-emprunteur.jpg',
         width: 1200,
         height: 630,
         alt: "Délégation d'assurance emprunteur avec Orizia Courtage",

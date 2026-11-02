@@ -24,7 +24,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-scpi.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-scpi.jpg',
         width: 1200,
         height: 630,
         alt: 'Investissement en SCPI avec Orizia Courtage - Cindy Urbansky',

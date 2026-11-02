@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-assurer.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-assurer.jpg',
         width: 1200,
         height: 630,
         alt: 'Courtage en assurance avec Orizia Courtage - Cindy Urbansky',

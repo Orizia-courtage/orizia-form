@@ -23,7 +23,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-crowdfunding.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-crowdfunding.jpg',
         width: 1200,
         height: 630,
         alt: 'Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky',

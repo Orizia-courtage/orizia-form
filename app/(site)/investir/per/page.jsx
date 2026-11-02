@@ -25,7 +25,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-per.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-per.jpg',
         width: 1200,
         height: 630,
         alt: 'Plan Épargne Retraite avec Orizia Courtage - Cindy Urbansky',

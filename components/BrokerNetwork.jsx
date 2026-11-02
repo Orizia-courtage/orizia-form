@@ -1,6 +1,6 @@
 /**
  * Illustration SVG : votre dossier au centre, mis en concurrence auprès
- * de plus de 40 partenaires. Les flux sont animés en CSS (cf. design-home.css).
+ * de plus de 40 offres bancaires. Les flux sont animés en CSS (cf. design-home.css).
  */
 const NODES = Array.from({ length: 10 }, (_, i) => {
   const a = (-90 + i * 36) * (Math.PI / 180);
@@ -10,7 +10,7 @@ const BEST = 3;
 
 export default function BrokerNetwork() {
   return (
-    <figure className="bn" aria-label="Votre dossier est comparé à plus de 40 offres bancaires et d'assurance ; je retiens la meilleure offre.">
+    <figure className="bn" aria-label="Votre dossier est comparé à plus de 40 offres bancaires ; je retiens la meilleure offre.">
       <svg viewBox="0 0 520 520" role="img" aria-hidden="true">
         <defs>
           <radialGradient id="bn-glow" cx="50%" cy="50%" r="50%">
@@ -44,7 +44,7 @@ export default function BrokerNetwork() {
         </g>
       </svg>
       <figcaption className="bn-caption">
-        <span className="bn-tag bn-tag--a"><strong>+40</strong> offres bancaires et d'assurance</span>
+        <span className="bn-tag bn-tag--a"><strong>+40</strong> offres bancaires</span>
         <span className="bn-tag bn-tag--b"><span className="bn-tag-dot" /> La meilleure offre, retenue pour vous</span>
       </figcaption>
     </figure>

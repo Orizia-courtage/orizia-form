@@ -23,7 +23,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-auto-moto.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-auto-moto.jpg',
         width: 1200,
         height: 630,
         alt: 'Comparaison et courtage en assurance auto moto avec Orizia Courtage - Cindy Urbansky',

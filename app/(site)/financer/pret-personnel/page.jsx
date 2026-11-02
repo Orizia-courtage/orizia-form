@@ -21,7 +21,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-pret-personnel.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-pret-personnel.jpg',
         width: 1200,
         height: 630,
         alt: 'Prêt personnel avec Orizia Courtage - Cindy Urbansky',

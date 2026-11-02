@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-regroupement-credits.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-regroupement-credits.jpg',
         width: 1200,
         height: 630,
         alt: 'Regroupement de crédits avec Orizia Courtage - Cindy Urbansky',

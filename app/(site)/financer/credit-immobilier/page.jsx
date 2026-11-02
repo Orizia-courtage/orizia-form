@@ -21,7 +21,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-credit-immobilier.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-credit-immobilier.jpg',
         width: 1200,
         height: 630,
         alt: 'Crédit immobilier avec Orizia Courtage - Cindy Urbansky',
@@ -118,7 +118,7 @@ const faqSchema = {
 };
 
 const CHIFFRES = [
-  { value: '+40', label: 'Banques partenaires comparées', icon: 'landmark' },
+  { value: '+40', label: 'Offres bancaires comparées', icon: 'landmark' },
   { value: '33%', label: 'Taux d\'endettement maximal légal', icon: 'chart-column' },
   { value: '24h', label: 'Pour calculer votre enveloppe', icon: 'timer' },
   { value: '1', label: 'Interlocutrice unique (moi)', icon: 'user' },

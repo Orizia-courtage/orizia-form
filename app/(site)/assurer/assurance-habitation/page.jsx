@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-assurance-habitation.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-assurance-habitation.jpg',
         width: 1200,
         height: 630,
         alt: 'Comparaison et courtage en assurance habitation avec Orizia',

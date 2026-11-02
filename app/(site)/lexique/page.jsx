@@ -16,7 +16,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-lexique.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-lexique.jpg',
         width: 1200,
         height: 630,
         alt: 'Lexique crédit et assurance — Orizia Courtage',
@@ -29,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Lexique Crédit & Assurance : 50+ Termes | Orizia Courtage",
     description: "TAEG, taux d'endettement, délégation d'assurance, SCPI, PER, loi Lemoine… 50+ termes du crédit et de l'assurance expliqués par Cindy Urbansky.",
-    images: ['https://www.orizia-courtage.fr/images/og-lexique.webp'],
+    images: ['https://www.orizia-courtage.fr/images/og-lexique.jpg'],
   },
 };
 

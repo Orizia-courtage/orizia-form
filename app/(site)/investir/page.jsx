@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-investir.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-investir.jpg',
         width: 1200,
         height: 630,
         alt: 'Investir avec Orizia Courtage - Cindy Urbansky',
@@ -53,7 +53,7 @@ const investirHubSchema = {
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtier certifié ORIAS.',
+      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtier immatriculé à l\'ORIAS.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -126,7 +126,7 @@ const DIFFERENCIANTS = [
   },
   {
     icon: 'scroll-text',
-    title: 'Certifiée & réglementée',
+    title: 'Immatriculée & réglementée',
     desc: 'Immatriculée ORIAS, contrôlée par l\'ACPR. Mon métier est strictement encadré pour protéger votre capital et vos intérêts.',
     color: '#3e7f68',
     bg: 'rgba(62,127,104,0.06)',

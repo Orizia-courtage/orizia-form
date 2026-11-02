@@ -11,13 +11,13 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Courtier en Crédit 2026 : Comparez 40+ Banques | Orizia Courtage',
+  title: 'Courtier en Crédit 2026 : Comparez +40 Offres Bancaires | Orizia Courtage',
   description:
-    'Crédit immobilier, regroupement, prêt personnel, rachat de soulte. Cindy Urbansky négocie votre financement en comparant 40+ offres bancaires. Étude de faisabilité.',
+    'Crédit immobilier, regroupement, prêt personnel, rachat de soulte. Cindy Urbansky négocie votre financement en comparant plus de 40 offres bancaires. Étude de faisabilité.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer' },
   openGraph: {
-    title: 'Courtier en Crédit 2026 : Comparez 40+ Banques | Orizia Courtage',
-    description: 'Ne faites plus le tour des banques. Je compare 40+ établissements, négocie votre taux et votre assurance emprunteur. Étude de faisabilité sans engagement.',
+    title: 'Courtier en Crédit 2026 : Comparez +40 Offres Bancaires | Orizia Courtage',
+    description: 'Ne faites plus le tour des banques. Je compare plus de 40 offres bancaires, négocie votre taux et votre assurance emprunteur. Étude de faisabilité sans engagement.',
     url: 'https://www.orizia-courtage.fr/financer',
     siteName: 'Orizia Courtage',
     images: [
@@ -130,7 +130,7 @@ const faqSchema = {
       name: 'Puis-je faire appel à vous si ma banque a déjà refusé mon dossier ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, et c\'est même l\'une des situations où je suis le plus utile. Un refus d\'une banque ne signifie pas un refus du marché. Chaque établissement a ses propres critères. Je connais les politiques de crédit de mes 40+ partenaires et je sais vers qui orienter votre dossier selon votre profil.',
+        text: 'Oui, et c\'est même l\'une des situations où je suis le plus utile. Un refus d\'une banque ne signifie pas un refus du marché. Chaque établissement a ses propres critères. Je connais les politiques de crédit des banques que je compare (plus de 40 offres bancaires) et je sais vers qui orienter votre dossier selon votre profil.',
       },
     },
     {
@@ -153,7 +153,7 @@ const ETAPES = [
   {
     n: '02',
     title: 'Je mets les banques en compétition',
-    text: 'Je présente votre dossier à mes 40+ partenaires bancaires. Je négocie le taux, les frais de dossier, les pénalités de remboursement anticipé et l\'assurance emprunteur.',
+    text: 'Je compare plus de 40 offres bancaires et je présente votre dossier aux plus adaptées. Je négocie le taux, les frais de dossier, les pénalités de remboursement anticipé et l\'assurance emprunteur.',
   },
   {
     n: '03',
@@ -230,7 +230,7 @@ export default function FinancerPage() {
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, regroupement, prêt personnel, rachat de soulte —
-                  je compare 40+ offres bancaires, négocie chaque dixième de point
+                  je compare plus de 40 offres bancaires, négocie chaque dixième de point
                   et vous accompagne jusqu'à la signature.{' '}
                   <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
@@ -492,7 +492,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               Prêt(e) à obtenir<br />les meilleures conditions ?
             </h2>
             <p>
-              Confiez-moi votre dossier. Je compare 40+ offres bancaires, négocie chaque condition
+              Confiez-moi votre dossier. Je compare plus de 40 offres bancaires, négocie chaque condition
               et vous accompagne jusqu'à la signature.{' '}
               <strong>Modalités de courtage transparentes.*</strong>
             </p>

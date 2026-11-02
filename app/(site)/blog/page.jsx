@@ -14,7 +14,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-blog.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-blog.jpg',
         width: 1200,
         height: 630,
         alt: 'Blog conseils crédit, assurance et patrimoine — Orizia Courtage',
@@ -27,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Blog : Conseils Crédit, Assurance & Patrimoine | Orizia',
     description: 'Conseils pratiques en crédit immobilier, assurance emprunteur, SCPI, PER et patrimoine. Articles par Cindy Urbansky, courtier indépendant.',
-    images: ['https://www.orizia-courtage.fr/images/og-blog.webp'],
+    images: ['https://www.orizia-courtage.fr/images/og-blog.jpg'],
   },
 };
 

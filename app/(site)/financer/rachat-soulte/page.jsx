@@ -21,7 +21,7 @@ export const metadata = {
     siteName: 'Orizia Courtage',
     images: [
       {
-        url: 'https://www.orizia-courtage.fr/images/og-rachat-soulte.webp',
+        url: 'https://www.orizia-courtage.fr/images/og-rachat-soulte.jpg',
         width: 1200,
         height: 630,
         alt: 'Rachat de soulte avec Orizia Courtage - Cindy Urbansky',
@@ -146,7 +146,7 @@ const ETAPES = [
   {
     n: '03',
     title: 'Montage du dossier et mise en concurrence',
-    text: 'Je présente votre dossier à mes 40+ partenaires bancaires. Je négocie le taux, les frais de dossier et l\'assurance emprunteur pour minimiser le coût total de l\'opération.',
+    text: 'Je compare plus de 40 offres bancaires et je présente votre dossier aux plus adaptées. Je négocie le taux, les frais de dossier et l\'assurance emprunteur pour minimiser le coût total de l\'opération.',
   },
   {
     n: '04',
@@ -237,7 +237,7 @@ export default function RachatSoultePage() {
           <div className="ae-chiffres-inner fin-chiffres-inner">
             {[
               { val: '1,1\u00a0%', label: 'Droits de partage après divorce ou PACS (2,5\u00a0% sinon)', icon: 'clipboard-list' },
-              { val: '+40', label: 'Banques partenaires comparées', icon: 'landmark' },
+              { val: '+40', label: 'Offres bancaires comparées', icon: 'landmark' },
               { val: '1', label: 'Seule interlocutrice, du début à la signature', icon: 'circle-check' },
               { val: '24h', label: 'Pour une première estimation', icon: 'timer' },
             ].map(c => (

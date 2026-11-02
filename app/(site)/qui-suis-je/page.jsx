@@ -8,14 +8,14 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   title: 'Qui suis-je ? Cindy Urbansky, Courtière Indépendante | Orizia Courtage',
   description:
-    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 20 ans d\'expérience en crédit, assurance et patrimoine. Présidente de l\'AFIB.',
+    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 20 ans d\'expérience en crédit, assurance et patrimoine. Présidente du conseil de surveillance de l\'AFIB.',
   alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
   openGraph: {
     title: 'Cindy Urbansky — Courtière Indépendante | Orizia Courtage',
-    description: '20 ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
+    description: '20 ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente du conseil de surveillance de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     siteName: 'Orizia Courtage',
-    images: [{ url: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp', width: 581, height: 775, alt: 'Cindy Urbansky - Orizia Courtage' }],
+    images: [{ url: 'https://www.orizia-courtage.fr/images/og-qui-suis-je.jpg', width: 1200, height: 630, alt: 'Cindy Urbansky - Orizia Courtage' }],
     locale: 'fr_FR',
     type: 'profile',
   },
@@ -26,7 +26,7 @@ const personSchema = {
   '@type': 'Person',
   name: 'Cindy Urbansky',
   jobTitle: 'Courtier indépendant en crédit, assurance et gestion de patrimoine',
-  description: 'Courtière indépendante certifiée ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
+  description: 'Courtière indépendante immatriculée à l\'ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
   image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
   url: 'https://www.orizia-courtage.fr/qui-suis-je',
   sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/', 'https://www.instagram.com/orizia_courtage/'],
@@ -54,7 +54,7 @@ const PARCOURS = [
     icon: 'sparkles',
     color: '#3e7f68',
     highlight: true,
-    desc: 'Crédit, assurance et placements : un seul interlocuteur, indépendant des banques, de la première question à la signature.',
+    desc: 'Crédit, assurance et placements : une seule interlocutrice, indépendante des banques, de la première question à la signature.',
   },
   {
     periode: '2025 – 2026',
@@ -136,7 +136,7 @@ const CHIFFRES = [
   { val: '20', label: 'Ans d\'expérience', icon: 'calendar-days' },
   { val: '2005', label: 'Début de carrière dans la banque', icon: 'landmark' },
   { val: 'AFIB', label: 'Présidente du conseil de surveillance', icon: 'scale' },
-  { val: 'ORIAS', label: 'Immatriculée & certifiée', icon: 'shield-check' },
+  { val: 'ORIAS', label: 'Immatriculée au registre', icon: 'shield-check' },
 ];
 
 export default function QuiSuisJePage() {
