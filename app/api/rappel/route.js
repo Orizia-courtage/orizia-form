@@ -71,7 +71,7 @@ export async function POST(request) {
     // Le CRM d'abord (notification sur le téléphone de Cindy). L'e-mail ne part qu'en secours, si le CRM n'a pas reçu la demande.
     const crm = await sendToCrm({ prenom, telephone: intl, creneau, sujet, page, visitor: visitorOf(request) });
     const mail = crm ? true : await resend.emails.send({
-      from: 'Orizia Courtage <widget@orizia-courtage.fr>',
+      from: 'Cindy Urbansky - Orizia Courtage <cindy.urbansky@orizia-courtage.fr>',
       to: TO,
       subject: `À rappeler : ${prenom} — ${national} (${creneau})`,
       html: `
