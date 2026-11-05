@@ -4,7 +4,7 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
 import { takeAdminAttempt, takeQuota, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_MS, DAILY_MESSAGE } from '@/lib/admin-rate-limit';
-import { SIGNATURE_BLOCK } from '@/lib/email-signature.mjs';
+import { FROM, sendClientEmail } from '@/lib/crm-email.mjs';
 import { resolveReferral } from '@/lib/referral.mjs';
 import { accordLink } from '@/lib/parrainage-accord.mjs';
 
@@ -115,8 +115,7 @@ export async function POST(request) {
     ]);
     if (quotas.some((q) => !q.allowed)) return NextResponse.json({ success: true }, { headers: { 'Cache-Control': 'no-store' } });
 
-    const emailExpediteur = 'Cindy - Orizia Courtage <cindy.urbansky@orizia-courtage.fr>';
-    const signature = SIGNATURE_BLOCK;
+    const emailExpediteur = FROM;
     const siteLink = SITE_URL + (projetKey ? projets[projetKey] : '');
     const projetAffiche = projetRaw.trim() || 'Aucun projet défini';
 
@@ -170,13 +169,15 @@ export async function POST(request) {
     const rdvLink = 'https://cal.com/cindy-urbansky/rendez-vous';
     const cta = (href, label, dark) => `<a href="${escapeHtml(href)}" style="display:inline-block;margin:0 8px 10px 0;background:${dark ? '#1b1d1a' : '#6bb69b'};color:${dark ? '#ffffff' : '#1b1d1a'};text-decoration:none;font-weight:bold;padding:13px 18px;border-radius:10px">${label}</a>`;
 
-    // ── 1. ENVOI AU FILLEUL ──
-    await resend.emails.send({
-      from: emailExpediteur,
-      to: [filleulEmail],
-      subject: viaCard ? `Suite à la recommandation de ${parrainPrenom}` : `${parrainPrenom} vous recommande Orizia Courtage`,
+    // ── 1. ENVOI AU FILLEUL ── (par le CRM : gabarit commun ; pas d'envoi à une adresse désinscrite)
+    const filleulSubject = viaCard ? `Suite à la recommandation de ${parrainPrenom}` : `${parrainPrenom} vous recommande Orizia Courtage`;
+    await sendClientEmail({
+      to: filleulEmail,
+      marketing: true,
+      subject: filleulSubject,
+      title: viaCard ? 'Ravie de vous accompagner' : `Une recommandation de ${parrainPrenom}`,
+      closing: 'À très bientôt,',
       html: `
-        <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
           <p>Bonjour ${e.filleulPrenom},</p>
           ${viaCard
             ? `<p>Merci d'avoir laissé vos coordonnées suite à la recommandation de <strong>${e.parrainPrenom}</strong>. Je suis ravie de pouvoir vous accompagner.</p>`
@@ -187,43 +188,54 @@ export async function POST(request) {
           <p>Sachez qu'il n'est pas nécessaire d'avoir un projet défini avec précision pour échanger. Mon rôle est de vous conseiller et de construire avec vous la stratégie la plus avantageuse. Le premier échange est gratuit et sans engagement.</p>
 
           ${viaCard ? `
-          <p><strong>Je me permettrai de vous appeler dans les prochaines 24h via le <a href="tel:+33777259706" style="color:#333; text-decoration:none;">07 77 25 97 06</a>.</strong> Je vous recommande d'enregistrer mon numéro afin de faciliter notre échange.</p>
+          <p><strong>Je me permettrai de vous appeler dans les prochaines 24h via le <a href="tel:+33777259706" style="color:#1b1d1a; text-decoration:none;">07 77 25 97 06</a>.</strong> Je vous recommande d'enregistrer mon numéro afin de faciliter notre échange.</p>
           <div style="margin:4px 0 14px">${cta(`${SITE_URL}/cindy-urbansky.vcf`, '👤 Enregistrer mon contact', true)}</div>
-          <p style="background-color: #f9f9f9; padding: 10px; border-left: 3px solid #3a6f6c;">
+          <p style="background-color:#f1f8f4; padding:10px 14px; border-left:3px solid #6bb69b;">
             <em>Note :</em> Le numéro que vous m'avez indiqué est le <strong>${e.filleulTel}</strong>. S'il y a une erreur, n'hésitez pas à me le faire savoir en répondant directement à cet e-mail.
           </p>
           <p>Si vous préférez choisir un créneau précis, vous pouvez réserver un rendez-vous directement dans mon agenda :
-          <a href="${rdvLink}" style="color:#3a6f6c; font-weight:bold;">Prendre rendez-vous ici</a>.</p>` : `
+          <a href="${rdvLink}" style="color:#1b1d1a; font-weight:bold;">Prendre rendez-vous ici</a>.</p>` : `
           <p><strong>Je ne vous appellerai pas sans votre accord.</strong> Si vous souhaitez en parler, choisissez simplement :</p>
           <div style="margin:14px 0 6px">${rappelLink ? cta(rappelLink, 'Oui, je souhaite être rappelé(e)', false) : ''}${cta(rdvLink, 'Prendre rendez-vous', true)}</div>
           <p>Vous pouvez aussi répondre directement à cet e-mail.</p>
           <p style="color:#5d6560; font-size:12px; line-height:1.5; border-top:1px solid #e3e7e4; padding-top:10px; margin-top:16px">Vous recevez ce message unique parce que ${e.parrainPrenom} m'a transmis vos coordonnées. Sans réponse de votre part, elles seront effacées sous 30 jours et vous ne recevrez aucun autre message.</p>`}
 
-          <p>Vous pouvez également consulter mon site pour découvrir mes solutions : <a href="${e.siteLink}" style="color:#3a6f6c;">${e.siteLink}</a>.</p>
-
-          <p>À très bientôt,</p>
-          ${signature}
-        </div>`,
+          <p>Vous pouvez également consulter mon site pour découvrir mes solutions : <a href="${e.siteLink}" style="color:#1b1d1a;">${e.siteLink}</a>.</p>`,
+      text: [
+        `Bonjour ${filleulPrenom},`,
+        viaCard ? `Merci d'avoir laissé vos coordonnées suite à la recommandation de ${parrainPrenom}. Je suis ravie de pouvoir vous accompagner.` : `${parrainPrenom} ${parrainNom} m'a parlé de vous et pense que je pourrais vous aider dans un projet. Je suis Cindy Urbansky, courtière chez Orizia Courtage.`,
+        "Il n'est pas nécessaire d'avoir un projet défini avec précision pour échanger. Le premier échange est gratuit et sans engagement.",
+        viaCard ? `Je me permettrai de vous appeler dans les prochaines 24h via le 07 77 25 97 06 (numéro indiqué : ${filleulTel}).
+Enregistrer mon contact : ${SITE_URL}/cindy-urbansky.vcf` : `Je ne vous appellerai pas sans votre accord.${rappelLink ? `
+Oui, je souhaite être rappelé(e) : ${rappelLink}` : ''}`,
+        `Prendre rendez-vous : ${rdvLink}`,
+        `Mon site : ${siteLink}`,
+      ].join('\n\n'),
     });
 
     // ── 2. ENVOI AU PARRAIN ──
     // Remerciement au parrain : 1 e-mail par 24 h au maximum (même s'il recommande plusieurs proches).
     const merci = emailRe.test(parrainEmail) ? await takeQuota({ supabase, scope: 'merci-parrain', id: parrainEmail, limit: 1 }) : { allowed: false };
-    if (merci.allowed) await resend.emails.send({
-      from: emailExpediteur,
-      to: [parrainEmail],
+    if (merci.allowed) await sendClientEmail({
+      to: parrainEmail,
+      marketing: true,
       subject: 'Merci pour votre recommandation ! 🎁',
+      title: 'Merci pour votre recommandation',
+      closing: 'À très bientôt,',
       html: `
-        <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
           <p>Bonjour ${e.parrainPrenom},</p>
-          <p>Je vous remercie chaleureusement pour votre confiance et pour m'avoir recommandé auprès de <strong>${e.filleulPrenom}</strong>${viaCard ? ', qui vient de me laisser ses coordonnées grâce à votre carte' : ''}.</p>
+          <p>Je vous remercie chaleureusement pour votre confiance et pour m'avoir recommandée auprès de <strong>${e.filleulPrenom}</strong>${viaCard ? ', qui vient de me laisser ses coordonnées grâce à votre carte' : ''}.</p>
           ${viaCard
             ? '<p>Je vais prendre contact avec lui téléphoniquement sous 24h.</p>'
             : `<p>Je viens de lui envoyer un e-mail de votre part. Dès qu'il me donne son feu vert, je le contacte. N'hésitez pas à le prévenir pour qu'il surveille sa boîte mail (et ses indésirables).</p>`}
-          <p><strong>Pour rappel :</strong> en cas de finalisation du dossier, vous recevrez par e-mail votre carte cadeau pour vous remercier de votre parrainage.</p>
-          <p>À très bientôt,</p>
-          ${signature}
-        </div>`,
+          <p><strong>Pour rappel :</strong> en cas de finalisation du dossier, vous recevrez par e-mail votre carte cadeau pour vous remercier de votre parrainage.</p>`,
+      text: `Bonjour ${parrainPrenom},
+
+Je vous remercie chaleureusement pour votre confiance et pour m'avoir recommandée auprès de ${filleulPrenom}.
+
+${viaCard ? 'Je vais prendre contact avec lui téléphoniquement sous 24h.' : "Je viens de lui envoyer un e-mail de votre part. Dès qu'il me donne son feu vert, je le contacte."}
+
+Pour rappel : en cas de finalisation du dossier, vous recevrez par e-mail votre carte cadeau pour vous remercier de votre parrainage.`,
     });
 
     // ── 3. ENVOI À CINDY : seulement en secours, si le CRM n'a pas reçu la recommandation ──

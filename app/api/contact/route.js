@@ -59,7 +59,7 @@ export async function POST(req) {
     });
     if (crm) return new Response(JSON.stringify({ success: true, message: 'Message envoyé.' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     const data = await resend.emails.send({
-      from: 'widget@orizia-courtage.fr',
+      from: 'Cindy Urbansky - Orizia Courtage <cindy.urbansky@orizia-courtage.fr>',
       to: 'cindy.urbansky@orizia-courtage.fr',
       subject: `Nouveau message de ${prenom} ${nom} — ${typedemande}`,
       html: `
