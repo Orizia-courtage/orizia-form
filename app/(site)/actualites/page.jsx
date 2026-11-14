@@ -2,10 +2,18 @@
 import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
+import ArticleCard from '@/components/ArticleCard';
+import { getPublishedArticles } from '@/lib/articles.mjs';
+import { ROBOTS } from '@/lib/indexing.mjs';
+import '@/app/(site)/article.css';
+
+// Liste mise en cache, rafraîchie à chaque publication depuis le CRM.
+export const revalidate = 600;
 export const metadata = {
   title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
   description:
     'Actualités crédit immobilier, assurance emprunteur et placements. Analyses et décryptages par Cindy Urbansky, courtier indépendant.',
+  robots: ROBOTS,
   alternates: { canonical: 'https://www.orizia-courtage.fr/actualites' },
   openGraph: {
     title: 'Actualités Crédit & Assurance 2026 | Orizia Courtage',
@@ -44,7 +52,9 @@ const actualitesSchema = {
   },
 };
 
-export default function ActualitesPage() {
+export default async function ActualitesPage() {
+  const articles = await getPublishedArticles('actualite');
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(actualitesSchema) }} />
@@ -68,7 +78,7 @@ export default function ActualitesPage() {
           </div>
         </section>
 
-        {/* ── ÉTAT VIDE ── */}
+        {articles.length === 0 ? (
         <section className="crowd-section crowd-section--light" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center' }}>
           <div className="fin-section-inner" style={{ textAlign: 'center', width: '100%' }}>
             <div style={{ fontSize: '3.5rem', marginBottom: 20 }}><Icon name="newspaper" /></div>
@@ -82,6 +92,18 @@ export default function ActualitesPage() {
             <ContactPopup label="Me poser une question" icon="calendar-days" className="fin-btn-primary" />
           </div>
         </section>
+        ) : (
+          <div className="oza-list">
+            <section className="oza-list-section" aria-labelledby="actualites-recentes">
+              <div className="oza-list-head">
+                <h2 id="actualites-recentes">Dernières actualités</h2>
+              </div>
+              <div className="oza-grid">
+                {articles.map((article) => <ArticleCard key={article.slug} article={article} heading="h3" />)}
+              </div>
+            </section>
+          </div>
+        )}
       </main>
     </>
   );

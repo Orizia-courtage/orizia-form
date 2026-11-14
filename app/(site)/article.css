@@ -1,0 +1,144 @@
+/* Articles du blog et des actualités — préfixe « oza- » pour ne rien croiser avec le reste du site. */
+
+.oza-preview {
+  margin: 0; padding: 10px 20px; text-align: center; font-size: .9rem; font-weight: 600;
+  background: var(--oz-warn); color: #fff; position: sticky; top: 0; z-index: 50;
+}
+
+/* ── En-tête ── */
+.oza-hero { min-height: auto !important; padding-bottom: clamp(40px, 5vw, 64px) !important; }
+.fin-hero-inner h1.oza-title {
+  font-size: clamp(2rem, 4.6vw, 3.3rem) !important;
+  line-height: 1.1 !important;
+  margin: 8px 0 20px !important;
+}
+.oza-hero .ae-hero-intro { margin-bottom: 20px !important; }
+.oza-meta { margin: 0; font-size: .92rem; color: var(--oz-muted); }
+.oza-meta a { color: var(--oz-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Mise en page : sommaire + contenu ── */
+.oza-layout {
+  max-width: 1120px; margin: 0 auto; padding: clamp(32px, 5vw, 64px) 24px clamp(56px, 7vw, 96px);
+  display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr);
+}
+.oza-article { min-width: 0; max-width: 760px; width: 100%; margin: 0 auto; }
+
+.oza-toc {
+  background: var(--oz-mint-wash); border: 1px solid var(--oz-line); border-radius: var(--oz-radius);
+  padding: 20px 22px; max-width: 760px; width: 100%; margin: 0 auto; box-sizing: border-box;
+}
+.oza-toc-title { margin: 0 0 10px; font-weight: 700; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--oz-sage-deep); }
+.oza-toc ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.oza-toc li { font-size: .95rem; line-height: 1.4; color: var(--oz-muted); }
+.oza-toc a { color: var(--oz-ink); text-decoration: none; }
+.oza-toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (min-width: 1040px) {
+  .oza-layout:has(.oza-toc) { grid-template-columns: 260px minmax(0, 760px); justify-content: center; gap: 56px; }
+  .oza-toc { position: sticky; top: 110px; align-self: start; max-height: calc(100vh - 140px); overflow: auto; margin: 0; }
+  .oza-layout:has(.oza-toc) .oza-article { margin: 0; }
+}
+
+/* ── Image principale ── */
+.oza-figure { margin: 0 0 36px; }
+.oza-figure img { width: 100%; height: auto; display: block; border-radius: var(--oz-radius); aspect-ratio: 16 / 9; object-fit: cover; }
+.oza-figure figcaption { margin-top: 8px; font-size: .8rem; color: var(--oz-muted); }
+
+/* ── Texte ── */
+.oza-prose { font-size: 1.08rem; line-height: 1.75; color: #2b302b; overflow-wrap: break-word; }
+.oza-prose > :first-child { margin-top: 0; }
+.oza-prose p { margin: 0 0 1.25em; }
+.oza-prose h2, .oza-faq h2, .oza-sources h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin: 2.2em 0 .7em; scroll-margin-top: 110px;
+}
+.oza-prose h3 {
+  font-family: var(--oz-font-sans); font-size: 1.22rem; font-weight: 700; line-height: 1.3;
+  margin: 1.8em 0 .6em; color: var(--oz-ink); scroll-margin-top: 110px;
+}
+.oza-prose a, .oza-parent a, .oza-sources a {
+  color: var(--oz-sage-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.oza-prose a:hover, .oza-parent a:hover, .oza-sources a:hover { color: var(--oz-ink); }
+.oza-prose strong { color: var(--oz-ink); }
+.oza-prose ul, .oza-prose ol { margin: 0 0 1.25em; padding-left: 1.4em; }
+.oza-prose li { margin-bottom: .45em; }
+.oza-prose li::marker { color: var(--oz-sage-deep); }
+.oza-prose img { max-width: 100%; height: auto; border-radius: var(--oz-radius-sm); }
+.oza-prose hr { border: 0; border-top: 1px solid var(--oz-line); margin: 2.4em 0; }
+
+/* Encadré « à retenir » (citation Markdown) */
+.oza-prose blockquote {
+  margin: 1.8em 0; padding: 18px 22px; background: var(--oz-mint-wash);
+  border-left: 3px solid var(--oz-sage); border-radius: 0 var(--oz-radius-sm) var(--oz-radius-sm) 0;
+}
+.oza-prose blockquote p:last-child { margin-bottom: 0; }
+
+/* Tableaux */
+.oza-table { overflow-x: auto; margin: 1.8em 0; border: 1px solid var(--oz-line); border-radius: var(--oz-radius-sm); }
+.oza-table table { width: 100%; border-collapse: collapse; font-size: .97rem; line-height: 1.5; min-width: 480px; }
+.oza-table th { background: var(--oz-ink); color: #fff; text-align: left; font-weight: 600; padding: 12px 16px; }
+.oza-table td { padding: 12px 16px; border-top: 1px solid var(--oz-line); vertical-align: top; }
+.oza-table tbody tr:nth-child(even) td { background: var(--oz-mint-wash); }
+
+/* ── FAQ ── */
+.oza-faq details { border-bottom: 1px solid var(--oz-line); }
+.oza-faq summary {
+  cursor: pointer; list-style: none; padding: 16px 32px 16px 0; position: relative;
+  font-weight: 700; font-size: 1.05rem; line-height: 1.4; color: var(--oz-ink);
+}
+.oza-faq summary::-webkit-details-marker { display: none; }
+.oza-faq summary::after { content: '+'; position: absolute; right: 4px; top: 12px; font-size: 1.4rem; font-weight: 400; color: var(--oz-sage-deep); }
+.oza-faq details[open] summary::after { content: '–'; }
+.oza-faq details p { margin: 0 0 18px; line-height: 1.7; color: #2b302b; }
+
+/* ── Bas d'article ── */
+.oza-parent { margin: 2.2em 0 0; padding: 16px 20px; border: 1px solid var(--oz-line); border-radius: var(--oz-radius-sm); font-weight: 600; }
+.oza-sources ul { margin: 0; padding-left: 1.3em; font-size: .95rem; line-height: 1.7; }
+.oza-notice { margin-top: 2.4em; padding-top: 20px; border-top: 1px solid var(--oz-line); font-size: .88rem; line-height: 1.6; color: var(--oz-muted); }
+.oza-notice p { margin: 0 0 8px; }
+.oza-notice strong { color: var(--oz-ink); }
+
+.oza-author {
+  margin-top: 2em; padding: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+  background: var(--oz-mint-wash); border-radius: var(--oz-radius);
+}
+.oza-author img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.oza-author > div { flex: 1 1 240px; min-width: 0; }
+.oza-author p { margin: 0; font-size: .95rem; line-height: 1.5; color: var(--oz-muted); }
+.oza-author .oza-author-name { font-weight: 700; font-size: 1.05rem; }
+.oza-author .oza-author-name a { color: var(--oz-ink); text-decoration: none; }
+
+/* ── À lire aussi + listes ── */
+.oza-related { background: var(--oz-mint-wash); padding: clamp(48px, 6vw, 88px) 24px; }
+.oza-related-inner, .oza-list { max-width: 1160px; margin: 0 auto; }
+.oza-related h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 28px; }
+
+.oza-list { padding: clamp(40px, 6vw, 80px) 24px clamp(56px, 7vw, 96px); }
+.oza-list-section + .oza-list-section { margin-top: clamp(48px, 6vw, 80px); }
+.oza-list-head { margin-bottom: 24px; }
+.oza-list-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin: 0 0 6px; }
+.oza-list-head p { margin: 0; color: var(--oz-muted); }
+.oza-list-head a { color: var(--oz-sage-deep); font-weight: 600; text-underline-offset: 3px; }
+
+.oza-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+
+.oza-card {
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--oz-paper); border: 1px solid var(--oz-line); border-radius: var(--oz-radius);
+  box-shadow: var(--oz-shadow-sm); transition: box-shadow .25s var(--oz-ease), transform .25s var(--oz-ease);
+}
+.oza-card:hover { box-shadow: var(--oz-shadow); transform: translateY(-2px); }
+.oza-card-image { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.oza-card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.oza-card-tag { margin: 0; font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--oz-sage-deep); }
+.oza-card-title { margin: 0; font-family: var(--oz-font-display); font-weight: 500; font-size: 1.35rem; line-height: 1.22; letter-spacing: -.015em; }
+.oza-card-title a { color: var(--oz-ink); text-decoration: none; }
+/* Toute la carte est cliquable, avec un seul lien pour les lecteurs d'écran. */
+.oza-card-title a::after { content: ''; position: absolute; inset: 0; }
+.oza-card-excerpt { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--oz-muted); }
+.oza-card-meta { margin: auto 0 0; padding-top: 6px; font-size: .84rem; color: var(--oz-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oza-card { transition: none; }
+  .oza-card:hover { transform: none; }
+}

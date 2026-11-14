@@ -2,10 +2,18 @@ import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
+import ArticleCard from '@/components/ArticleCard';
+import { SILOS, getPublishedArticles } from '@/lib/articles.mjs';
+import { ROBOTS } from '@/lib/indexing.mjs';
+import '@/app/(site)/article.css';
+
+// Liste mise en cache, rafraîchie à chaque publication depuis le CRM.
+export const revalidate = 600;
 export const metadata = {
   title: 'Blog : Conseils Crédit, Assurance & Patrimoine | Orizia',
   description:
     'Conseils pratiques en crédit immobilier, assurance emprunteur, SCPI, PER et patrimoine. Articles par Cindy Urbansky, courtier indépendant.',
+  robots: ROBOTS,
   alternates: { canonical: 'https://www.orizia-courtage.fr/blog' },
   openGraph: {
     title: 'Blog : Conseils Crédit, Assurance & Patrimoine | Orizia',
@@ -45,7 +53,16 @@ const blogSchema = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const articles = await getPublishedArticles('blog');
+  // Une partie par univers (cocon sémantique) : les guides piliers d'abord, puis les articles récents.
+  const groups = [
+    ...Object.entries(SILOS).map(([key, silo]) => ({ key, ...silo, items: articles.filter((article) => article.silo === key) })),
+    { key: 'autres', label: 'Autres sujets', path: null, intro: null, items: articles.filter((article) => !SILOS[article.silo]) },
+  ]
+    .filter((group) => group.items.length > 0)
+    .map((group) => ({ ...group, items: [...group.items].sort((a, b) => (b.pillar === true) - (a.pillar === true)) }));
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
@@ -69,7 +86,7 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* ── ÉTAT VIDE ── */}
+        {articles.length === 0 ? (
         <section className="crowd-section crowd-section--light" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center' }}>
           <div className="fin-section-inner" style={{ textAlign: 'center', width: '100%' }}>
             <div style={{ fontSize: '3.5rem', marginBottom: 20 }}><Icon name="pen-line" /></div>
@@ -83,6 +100,23 @@ export default function BlogPage() {
             <ContactPopup label="Poser une question à Cindy" icon="calendar-days" className="fin-btn-primary" />
           </div>
         </section>
+        ) : (
+          <div className="oza-list">
+            {groups.map((group) => (
+              <section key={group.key} className="oza-list-section" aria-labelledby={`blog-${group.key}`}>
+                <div className="oza-list-head">
+                  <h2 id={`blog-${group.key}`}>{group.label}</h2>
+                  {group.intro && (
+                    <p>{group.intro} <Link href={group.path}>Voir mes solutions</Link></p>
+                  )}
+                </div>
+                <div className="oza-grid">
+                  {group.items.map((article) => <ArticleCard key={article.slug} article={article} heading="h3" />)}
+                </div>
+              </section>
+            ))}
+          </div>
+        )}
       </main>
     </>
   );

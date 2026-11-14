@@ -8,6 +8,16 @@ const securityHeaders = [
   ...(process.env.SITE_INDEXING === 'on' ? [] : [{ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }]),
 ];
 
+// Images des articles : hébergées dans le stockage Supabase du site.
+function supabaseImagePatterns() {
+  try {
+    const { hostname } = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL);
+    return [{ protocol: 'https', hostname, pathname: '/storage/v1/object/public/**' }];
+  } catch {
+    return [];
+  }
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -27,6 +37,7 @@ const nextConfig = {
   images: {
     qualities: [75, 80, 90],
     minimumCacheTTL: 31536000,
+    remotePatterns: supabaseImagePatterns(),
   },
   compress: true,
 };

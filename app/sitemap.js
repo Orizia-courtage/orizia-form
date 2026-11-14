@@ -1,6 +1,18 @@
-﻿const BASE_URL = 'https://www.orizia-courtage.fr';
+﻿import { articleUrl, getPublishedArticles } from '@/lib/articles.mjs';
 
-export default function sitemap() {
+const BASE_URL = 'https://www.orizia-courtage.fr';
+
+// Régénéré à chaque publication d'article (et au plus tard toutes les heures).
+export const revalidate = 3600;
+
+export default async function sitemap() {
+  const articles = (await getPublishedArticles()).map((article) => ({
+    url: articleUrl(article),
+    lastModified: new Date(article.updatedAt || article.publishedAt),
+    changeFrequency: article.type === 'blog' ? 'monthly' : 'yearly',
+    priority: article.pillar ? 0.8 : article.type === 'blog' ? 0.7 : 0.5,
+  }));
+
   return [
     // Pages principales
     {
@@ -149,5 +161,8 @@ export default function sitemap() {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+
+    // Articles du blog et actualités
+    ...articles,
   ];
 }
