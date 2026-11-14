@@ -129,7 +129,9 @@ export default async function ArticleView({ article, preview = false }) {
                   sizes="(max-width: 860px) 100vw, 760px"
                   priority
                 />
-                {article.image.credit && <figcaption>{article.image.credit}</figcaption>}
+                {(article.image.caption || article.image.credit) && (
+                  <figcaption>{[article.image.caption, article.image.credit].filter(Boolean).join(' — ')}</figcaption>
+                )}
               </figure>
             )}
 
