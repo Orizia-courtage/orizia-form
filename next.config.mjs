@@ -39,6 +39,8 @@ const nextConfig = {
     minimumCacheTTL: 31536000,
     remotePatterns: supabaseImagePatterns(),
   },
+  // Polices et logo des visuels pour les réseaux sociaux, lus depuis le disque par la route.
+  outputFileTracingIncludes: { '/api/articles/social': ['./lib/social/*'] },
   compress: true,
 };
 
