@@ -11,8 +11,8 @@ const securityHeaders = [
 // Images des articles : hébergées dans le stockage Supabase du site.
 function supabaseImagePatterns() {
   try {
-    const { hostname } = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL);
-    return [{ protocol: 'https', hostname, pathname: '/storage/v1/object/public/**' }];
+    const { protocol, hostname, port } = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL);
+    return [{ protocol: protocol.replace(':', ''), hostname, port, pathname: '/storage/v1/object/public/**' }];
   } catch {
     return [];
   }
