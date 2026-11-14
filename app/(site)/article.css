@@ -87,7 +87,14 @@
 
 /* Images dans le texte */
 .oza-inline-figure { margin: 2em 0; }
-.oza-inline-figure img { width: 100%; height: auto; display: block; border-radius: var(--oz-radius); aspect-ratio: 16 / 9; object-fit: cover; }
+.oza-inline-figure img { width: 100%; height: auto; display: block; border-radius: var(--oz-radius); }
+/* Image en hauteur ou carrée : sur le côté, le texte l'entoure. Sur mobile, elle repasse au centre. */
+.oza-inline-figure--side { float: right; width: min(44%, 340px); margin: .35em 0 1.1em 1.8em; }
+.oza-prose h2, .oza-prose h3, .oza-prose blockquote, .oza-prose .oza-table, .oza-prose hr { clear: both; }
+.oza-prose::after { content: ''; display: block; clear: both; }
+@media (max-width: 640px) {
+  .oza-inline-figure--side { float: none; width: 100%; max-width: 380px; margin: 1.6em auto; }
+}
 .oza-inline-figure figcaption { margin-top: 8px; font-size: .8rem; color: var(--oz-muted); }
 
 /* Tableaux */
