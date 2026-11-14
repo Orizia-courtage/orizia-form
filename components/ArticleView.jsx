@@ -5,7 +5,7 @@ import ArticleCard from '@/components/ArticleCard';
 import { COMPANY } from '@/lib/company.mjs';
 import {
   ARTICLE_TYPES, AUTHOR, BASE_URL, SILOS, SITE_PAGES,
-  absoluteUrl, articleUrl, formatDate, getRelatedArticles,
+  absoluteUrl, articleUrl, formatDate, getRelatedArticles, siloNotice,
 } from '@/lib/articles.mjs';
 import { renderArticleBody } from '@/lib/article-render.mjs';
 import '@/app/(site)/article.css';
@@ -165,7 +165,7 @@ export default async function ArticleView({ article, preview = false }) {
             )}
 
             <aside className="oza-notice">
-              {silo?.notice && <p><strong>{silo.notice}</strong></p>}
+              {siloNotice(silo) && <p><strong>{siloNotice(silo)}</strong></p>}
               <p>
                 Cet article est publié à titre d’information générale et ne constitue pas un conseil personnalisé.
                 Chaque situation mérite une étude dédiée.
@@ -176,7 +176,7 @@ export default async function ArticleView({ article, preview = false }) {
               <Image src={AUTHOR.avatar} alt={AUTHOR.name} width={64} height={64} />
               <div>
                 <p className="oza-author-name"><Link href={AUTHOR.path}>{AUTHOR.name}</Link></p>
-                <p>{AUTHOR.jobTitle} en crédit, assurance et placements, à {COMPANY.address.city} ({COMPANY.address.region}).</p>
+                <p>{AUTHOR.jobTitle}, à {COMPANY.address.city} ({COMPANY.address.region}).</p>
               </div>
               <ContactPopup label="Parler de mon projet" icon="calendar-days" className="fin-btn-primary" />
             </aside>

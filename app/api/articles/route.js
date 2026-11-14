@@ -46,7 +46,9 @@ export async function GET(request) {
     if (!article) return json({ error: 'Article introuvable.' }, 404);
     return json({ article, url: articleUrl(article), previewUrl: previewUrl(article) });
   }
-  const articles = (await getAllArticles()).filter((article) => !type || article.type === type).map(summarize);
+  // ?full=1 : avec le texte des articles (pour placer les liens de maillage dans les articles existants).
+  const full = params.get('full') === '1';
+  const articles = (await getAllArticles()).filter((article) => !type || article.type === type).map((article) => (full ? { ...summarize(article), body: article.body } : summarize(article)));
   const silos = Object.fromEntries(Object.entries(SILOS).map(([key, silo]) => [key, { label: silo.label, path: silo.path }]));
   return json({ articles, silos, pages: SITE_PAGES });
 }
