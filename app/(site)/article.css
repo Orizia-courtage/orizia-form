@@ -73,6 +73,23 @@
 }
 .oza-prose blockquote p:last-child { margin-bottom: 0; }
 
+.oza-prose blockquote > p:first-child > strong:first-child { color: var(--oz-sage-deep); }
+.oza-prose blockquote.oza-callout--warn { background: #fbf3e4; border-left-color: var(--oz-warn); }
+.oza-prose blockquote.oza-callout--warn > p:first-child > strong:first-child { color: #8a5a0f; }
+.oza-prose blockquote.oza-callout--example { background: #f4f5f3; border-left-color: var(--oz-gray); }
+.oza-prose blockquote.oza-callout--example > p:first-child > strong:first-child { color: var(--oz-ink); }
+
+/* Surlignage */
+.oza-prose mark {
+  background: linear-gradient(transparent 55%, var(--oz-mint) 55%); color: inherit;
+  padding: 0 2px; font-weight: 600;
+}
+
+/* Images dans le texte */
+.oza-inline-figure { margin: 2em 0; }
+.oza-inline-figure img { width: 100%; height: auto; display: block; border-radius: var(--oz-radius); aspect-ratio: 16 / 9; object-fit: cover; }
+.oza-inline-figure figcaption { margin-top: 8px; font-size: .8rem; color: var(--oz-muted); }
+
 /* Tableaux */
 .oza-table { overflow-x: auto; margin: 1.8em 0; border: 1px solid var(--oz-line); border-radius: var(--oz-radius-sm); }
 .oza-table table { width: 100%; border-collapse: collapse; font-size: .97rem; line-height: 1.5; min-width: 480px; }
