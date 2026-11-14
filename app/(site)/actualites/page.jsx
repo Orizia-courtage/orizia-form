@@ -2,7 +2,7 @@
 import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
-import ArticleCard from '@/components/ArticleCard';
+import { ArticleHub } from '@/components/ArticleHub';
 import { getPublishedArticles } from '@/lib/articles.mjs';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import '@/app/(site)/article.css';
@@ -93,16 +93,7 @@ export default async function ActualitesPage() {
           </div>
         </section>
         ) : (
-          <div className="oza-list">
-            <section className="oza-list-section" aria-labelledby="actualites-recentes">
-              <div className="oza-list-head">
-                <h2 id="actualites-recentes">Dernières actualités</h2>
-              </div>
-              <div className="oza-grid">
-                {articles.map((article) => <ArticleCard key={article.slug} article={article} heading="h3" />)}
-              </div>
-            </section>
-          </div>
+          <ArticleHub type="actualite" articles={articles} />
         )}
       </main>
     </>

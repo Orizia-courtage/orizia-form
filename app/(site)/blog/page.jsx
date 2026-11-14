@@ -2,8 +2,8 @@ import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
-import ArticleCard from '@/components/ArticleCard';
-import { SILOS, getPublishedArticles } from '@/lib/articles.mjs';
+import { ArticleHub } from '@/components/ArticleHub';
+import { getPublishedArticles } from '@/lib/articles.mjs';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import '@/app/(site)/article.css';
 
@@ -55,14 +55,6 @@ const blogSchema = {
 
 export default async function BlogPage() {
   const articles = await getPublishedArticles('blog');
-  // Une partie par univers (cocon sémantique) : les guides piliers d'abord, puis les articles récents.
-  const groups = [
-    ...Object.entries(SILOS).map(([key, silo]) => ({ key, ...silo, items: articles.filter((article) => article.silo === key) })),
-    { key: 'autres', label: 'Autres sujets', path: null, intro: null, items: articles.filter((article) => !SILOS[article.silo]) },
-  ]
-    .filter((group) => group.items.length > 0)
-    .map((group) => ({ ...group, items: [...group.items].sort((a, b) => (b.pillar === true) - (a.pillar === true)) }));
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
@@ -101,21 +93,7 @@ export default async function BlogPage() {
           </div>
         </section>
         ) : (
-          <div className="oza-list">
-            {groups.map((group) => (
-              <section key={group.key} className="oza-list-section" aria-labelledby={`blog-${group.key}`}>
-                <div className="oza-list-head">
-                  <h2 id={`blog-${group.key}`}>{group.label}</h2>
-                  {group.intro && (
-                    <p>{group.intro} <Link href={group.path}>Voir mes solutions</Link></p>
-                  )}
-                </div>
-                <div className="oza-grid">
-                  {group.items.map((article) => <ArticleCard key={article.slug} article={article} heading="h3" />)}
-                </div>
-              </section>
-            ))}
-          </div>
+          <ArticleHub type="blog" articles={articles} />
         )}
       </main>
     </>

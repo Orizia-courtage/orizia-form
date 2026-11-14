@@ -2,8 +2,8 @@ import { timingSafeEqual } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import {
-  ARTICLE_TYPES, SILOS, SITE_PAGES,
-  articlePath, articleUrl, deleteArticle, getAllArticles, getArticle,
+  SILOS, SITE_PAGES,
+  articleUrl, deleteArticle, getAllArticles, getArticle,
   normalizeArticle, previewUrl, saveArticle, summarize,
 } from '@/lib/articles.mjs';
 
@@ -24,13 +24,11 @@ function guard(request) {
   return null;
 }
 
-function refresh(article) {
-  revalidatePath(ARTICLE_TYPES[article.type].path);
-  revalidatePath(articlePath(article));
+// Une publication touche beaucoup de pages (listes par univers, « À lire aussi », sitemap) :
+// on rafraîchit tout le site, qui est petit, plutôt que de risquer une page restée ancienne.
+function refresh() {
+  revalidatePath('/', 'layout');
   revalidatePath('/sitemap.xml');
-  // Les articles liés affichent ce contenu dans leur bloc « À lire aussi ».
-  revalidatePath('/blog/[slug]', 'page');
-  revalidatePath('/actualites/[slug]', 'page');
 }
 
 // Liste de tous les articles (brouillons compris) + structure du site, pour le maillage du cocon.

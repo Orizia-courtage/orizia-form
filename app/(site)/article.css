@@ -144,6 +144,41 @@
 .oza-list-head p { margin: 0; color: var(--oz-muted); }
 .oza-list-head a { color: var(--oz-sage-deep); font-weight: 600; text-underline-offset: 3px; }
 
+.oza-list-head--row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+.oza-list-head--row h2 { margin: 0; }
+
+/* Choix de l'univers */
+.oza-universes { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.oza-universe {
+  display: flex; flex-direction: column; gap: 10px; padding: 26px 26px 24px; text-decoration: none; color: var(--oz-ink);
+  background: var(--oz-mint-wash); border: 1px solid var(--oz-line); border-radius: var(--oz-radius);
+  transition: box-shadow .25s var(--oz-ease), transform .25s var(--oz-ease), border-color .25s var(--oz-ease);
+}
+a.oza-universe:hover { box-shadow: var(--oz-shadow); transform: translateY(-2px); border-color: var(--oz-sage); }
+.oza-universe--empty { opacity: .6; }
+.oza-universe-count { font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--oz-sage-deep); }
+.oza-universe-title { font-family: var(--oz-font-display); font-size: clamp(1.7rem, 3vw, 2.1rem); line-height: 1.1; letter-spacing: -.02em; }
+.oza-universe-intro { font-size: .96rem; line-height: 1.55; color: var(--oz-muted); }
+.oza-universe-more { margin-top: auto; padding-top: 8px; font-weight: 600; color: var(--oz-sage-deep); }
+
+.oza-more { margin: 32px 0 0; text-align: center; }
+
+/* Liste complète : filtres par univers */
+.oza-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.oza-filters a {
+  padding: 9px 18px; border-radius: 999px; border: 1px solid var(--oz-line); background: var(--oz-paper);
+  color: var(--oz-ink); font-weight: 600; font-size: .92rem; text-decoration: none;
+}
+.oza-filters a:hover { border-color: var(--oz-sage); }
+.oza-filters a[aria-current='page'] { background: var(--oz-ink); border-color: var(--oz-ink); color: #fff; }
+.oza-empty { margin: 0; padding: 40px 0; color: var(--oz-muted); }
+.oza-empty a { color: var(--oz-sage-deep); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oza-universe { transition: none; }
+  a.oza-universe:hover { transform: none; }
+}
+
 .oza-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 
 .oza-card {

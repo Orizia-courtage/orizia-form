@@ -1,4 +1,4 @@
-﻿import { articleUrl, getPublishedArticles } from '@/lib/articles.mjs';
+﻿import { SILOS, articleUrl, getPublishedArticles, listingPath } from '@/lib/articles.mjs';
 
 const BASE_URL = 'https://www.orizia-courtage.fr';
 
@@ -12,6 +12,18 @@ export default async function sitemap() {
     changeFrequency: article.type === 'blog' ? 'monthly' : 'yearly',
     priority: article.pillar ? 0.8 : article.type === 'blog' ? 0.7 : 0.5,
   }));
+
+  const published = await getPublishedArticles();
+  const listings = ['blog', 'actualite'].flatMap((type) => {
+    const ofType = published.filter((article) => article.type === type);
+    const keys = Object.keys(SILOS).filter((key) => ofType.some((article) => article.silo === key));
+    return (ofType.length ? [...keys, 'all'] : []).map((key) => ({
+      url: `${BASE_URL}${listingPath(type, key)}`,
+      lastModified: new Date(ofType[0].updatedAt || ofType[0].publishedAt),
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    }));
+  });
 
   return [
     // Pages principales
@@ -162,7 +174,8 @@ export default async function sitemap() {
       priority: 0.3,
     },
 
-    // Articles du blog et actualités
+    // Listes par univers (seulement celles qui ont des articles), puis articles du blog et actualités
+    ...listings,
     ...articles,
   ];
 }
