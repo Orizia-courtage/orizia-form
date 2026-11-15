@@ -190,7 +190,7 @@ const ETAPES = [
   {
     n: '02',
     title: 'Je fouille le marché',
-    text: 'Je consulte mes partenaires (Cardif, SwissLife, Abeille...) et je vous présente les 2 ou 3 meilleures options, en vous expliquant clairement pourquoi.',
+    text: 'Je consulte mes partenaires (Cardif, SwissLife, Abeille...) et je vous présente les 2 ou 3 options les plus adaptées, en vous expliquant clairement pourquoi.',
   },
   {
     n: '03',
@@ -211,7 +211,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Je suis chez mon banquier, c\'est plus simple pour les prélèvements. »',
-    r: 'C\'est simple, mais c\'est très cher. Les banques facturent souvent la "praticité" au prix fort. Changer avec moi vous prend 15 minutes et vous fait économiser des centaines d\'euros sur le long terme.',
+    r: 'C\'est simple, mais c\'est très cher. Les banques facturent souvent la "praticité" au prix fort. Changer avec moi vous prend 15 minutes et peut vous faire économiser sur le long terme, selon votre contrat actuel.',
   },
   {
     q: '« Est-ce que vos contrats couvrent aussi bien ? »',
@@ -287,7 +287,7 @@ export default function AssuranceHabitationPage() {
             <h1 className="ae-hero-title">Arrêtez de surpayer<br />votre assurance habitation</h1>
             <p className="ae-hero-intro">
               Votre assureur profite de votre fidélité pour augmenter les prix. Je mets le marché 
-              en concurrence pour vous faire économiser <strong>jusqu'à 250 €/an</strong>, 
+              en concurrence pour vous faire économiser <strong>jusqu'à 250 €/an</strong> (estimation selon votre contrat actuel), 
               avec les bonnes garanties. Et la paperasse de résiliation ? <strong>C'est moi qui m'en occupe.</strong>
             </p>
             <div className="ae-hero-btns">
@@ -461,9 +461,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <div>
                 <strong>Un accompagnement expert et personnalisé</strong>
                 <p>
-                  Je suis rémunérée directement par l'assureur que nous choisissons ensemble. 
-                  Les frais et modalités applicables sont présentés de manière transparente,
-                  mais vous gagnez une alliée qui lit les petites lignes à votre place.
+                  Mes honoraires vous sont présentés avant tout engagement : vous savez exactement
+                  ce que vous payez, et vous gagnez une alliée qui lit les petites lignes à votre place.
                 </p>
               </div>
               <ContactPopup label="On fait le point ?" icon="phone" className="fin-btn-primary" style={{ flexShrink: 0 }} />
@@ -599,7 +598,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'car',
                   title: 'Assurance Auto & Moto',
                   sub: 'Couper dans les frais',
-                  text: 'Comme pour la maison, l\'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.',
+                  text: 'Comme pour la maison, l\'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier vos tarifs.',
                   badge: 'Résiliation gérée pour vous',
                   pillBg: 'rgba(62,127,104,0.08)',
                   pillColor: '#3e7f68',
@@ -612,7 +611,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
                   text: 'Vous remboursez un crédit immo ? C\'est là que je vous fais gagner le plus d\'argent (souvent plus de 10 000€ d\'économies).',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  badge: 'Coût du prêt à revoir',
                   pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
                   pillBorder: 'rgba(107,182,155,0.3)',

@@ -137,7 +137,7 @@ const ETAPES = [
   },
   {
     n: '02',
-    title: 'Je chasse le meilleur contrat',
+    title: 'Je cherche le contrat adapté',
     text: 'Je compare les offres de mes partenaires assureurs en épluchant ce qui compte vraiment : le tarif, mais surtout les franchises et les exclusions.',
   },
   {
@@ -492,7 +492,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie massive',
                   text: 'C\'est souvent là que je vous fais gagner le plus d\'argent (plusieurs milliers d\'euros sur un crédit immobilier).',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  badge: 'Coût du prêt à revoir',
                   pillBg: 'rgba(107,182,155,0.12)',
                   pillColor: 'var(--orizia-gold)',
                   pillBorder: 'rgba(107,182,155,0.3)',
@@ -538,14 +538,14 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <CtaPresence />
             <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
-              Je compare les meilleures offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
+              Je compare les offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="Contactez-moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts et suis rémunérée
-              par la compagnie d'assurance choisie, sans surcoût pour vous.
+              Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts : mes honoraires
+                vous sont présentés avant tout engagement.
             </p>
           </div>
         </section>

@@ -10,7 +10,11 @@ import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
+import CreditWarning from '@/components/CreditWarning';
 // ── 1. MÉTADONNÉES SEO ──
+// Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
+export const revalidate = 86400;
+
 export const metadata = {
   ...shareMetadata('financer'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer' },
@@ -89,7 +93,7 @@ const faqSchema = {
       name: 'Combien de banques comparez-vous pour mon crédit ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'J\'étudie plus de 40 offres bancaires pour chaque dossier. Contrairement à votre banque habituelle qui ne peut vous proposer que ses propres offres, je mets l\'ensemble du marché en concurrence pour vous obtenir le meilleur taux et les meilleures conditions.',
+        text: 'J\'étudie plus de 40 offres bancaires pour chaque dossier. Contrairement à votre banque habituelle qui ne peut vous proposer que ses propres offres, je mets l\'ensemble du marché en concurrence pour rechercher un taux et des conditions adaptés à votre profil.',
       },
     },
     {
@@ -141,7 +145,7 @@ const ETAPES = [
   {
     n: '03',
     title: 'Je monte le dossier en béton',
-    text: 'Pièces justificatives, argumentaire bancaire, mise en valeur de votre profil — je construis un dossier qui maximise vos chances d\'accord aux meilleures conditions.',
+    text: 'Pièces justificatives, argumentaire bancaire, mise en valeur de votre profil — je construis un dossier complet et argumenté, présenté aux banques les plus adaptées à votre profil.',
   },
   {
     n: '04',
@@ -209,7 +213,7 @@ export default function FinancerPage() {
                 <span className="inv-hero-badge"><Icon name="landmark" /> Courtage en crédit indépendant</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre projet mérite<br />
-                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>les meilleures conditions du marché</em>
+                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>des conditions adaptées à votre profil</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
                   Crédit immobilier, regroupement, prêt personnel, rachat de soulte —
@@ -430,8 +434,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'clipboard-list',
                   title: 'Assurance Emprunteur',
                   sub: 'L\'économie cachée de votre crédit',
-                  text: 'L\'assurance emprunteur représente jusqu\'à 40% du coût total de votre crédit. Je la négocie pour vous faire économiser jusqu\'à 15 000€.',
-                  badge: 'Jusqu\'à 15 000€ d\'économies',
+                  text: 'L\'assurance emprunteur représente jusqu\'à 40% du coût total de votre crédit. Je la négocie pour en réduire le coût, selon votre profil.',
+                  badge: 'Coût du prêt à revoir',
                 },
                 {
                   href: '/investir/assurance-vie',
@@ -472,7 +476,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
           <div className="fin-cta-inner">
             <CtaPresence />
             <h2>
-              Prêt(e) à obtenir<br />les meilleures conditions ?
+              Prêt(e) à lancer<br />votre projet ?
             </h2>
             <p>
               Confiez-moi votre dossier. Je compare plus de 40 offres bancaires, négocie chaque condition
@@ -483,10 +487,10 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <ContactPopup label="Poser une question" icon="mail" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
-              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               * Les frais et modalités applicables sont présentés avant tout engagement.
-              Orizia Courtage, immatriculée à l'ORIAS, intervient en qualité de Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              Orizia Courtage, immatriculée à l'ORIAS, intervient en qualité de courtier en opérations de banque et en services de paiement (COBSP).
             </p>
           </div>
         </section>

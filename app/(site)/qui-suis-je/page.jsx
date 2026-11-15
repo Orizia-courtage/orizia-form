@@ -186,7 +186,7 @@ export default function QuiSuisJePage() {
                 <p className="qsj-hero-desc">
                   Ce qui me motive depuis le début ? <strong>Défendre les intérêts des particuliers
                   face aux établissements financiers.</strong> Pas de quota, pas de conflit d'intérêts —
-                  juste une professionnelle engagée pour vous obtenir les meilleures conditions.
+                  juste une professionnelle engagée pour défendre vos intérêts.
                 </p>
                 <div className="qsj-hero-actions">
                   <ContactPopup label="Contactez-moi" icon="calendar-days" className="fin-btn-primary" />

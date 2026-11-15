@@ -109,7 +109,7 @@ export default function AssuranceEmprunteurCalc() {
 
         {/* Économie principale */}
         <div className="aec-result-hero">
-          <span className="aec-result-label">Vous économisez</span>
+          <span className="aec-result-label">Économie estimée</span>
           <span className="aec-result-big">{fmt(result.economie)}</span>
           <span className="aec-result-sub">sur {duree} ans restants · {tranche.gain}% de réduction</span>
         </div>

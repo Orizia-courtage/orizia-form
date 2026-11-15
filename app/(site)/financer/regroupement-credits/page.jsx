@@ -10,7 +10,11 @@ import ContactPopup from '@/components/ContactPopup';
 
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
+import CreditWarning from '@/components/CreditWarning';
 // -- 1. MÉTADONNÉES SEO --
+// Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
+export const revalidate = 86400;
+
 export const metadata = {
   ...shareMetadata('regroupement-credits'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/regroupement-credits' },
@@ -235,7 +239,7 @@ export default function RegroupementCreditsPage() {
               avec une mensualité unique et allégée. J'étudie votre
               dossier et vous présente les modalités avant tout engagement.
             </p>
-            <p className="ae-hero-legal">*La baisse de mensualité s'obtient en allongeant la durée, ce qui augmente le coût total du crédit. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
+            <p className="ae-hero-legal">*La baisse de mensualité s'obtient en allongeant la durée, ce qui augmente le coût total du crédit. <CreditWarning /></p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
                 <Icon name="rocket" /> Démarrer mon étude
@@ -568,7 +572,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'house',
                   title: 'Crédit Immobilier',
                   sub: 'Financer un projet',
-                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier aux meilleures conditions.',
+                  text: 'Après assainissement de votre budget, vous souhaitez acquérir un bien ? Je négocie votre crédit immobilier pour vous.',
                   badge: '+40 offres bancaires comparées',
                   badgeBg: 'rgba(45,106,95,0.1)',
                   badgeColor: 'var(--orizia-primary)',
@@ -581,7 +585,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   title: 'Assurance Emprunteur',
                   sub: 'Réduire le coût de votre prêt',
                   text: 'Si votre regroupement inclut un prêt immobilier, optimiser l\'assurance emprunteur peut générer des économies supplémentaires.',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  badge: 'Coût du prêt à revoir',
                   badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(107,182,155,0.3)',
@@ -634,11 +638,11 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <ContactPopup />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
-              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
               Une simulation complète vous sera fournie avant toute décision.
-              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
             </p>
           </div>
         </section>

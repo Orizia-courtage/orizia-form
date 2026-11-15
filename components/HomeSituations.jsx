@@ -13,7 +13,7 @@ const SITUATIONS = [
     hint: 'Achat immobilier, travaux, regroupement…',
     probleme: 'Vous faites le tour des banques, chacune propose un taux différent, et vous ne savez pas si c\'est vraiment le meilleur.',
     solution: 'Je compare plus de 40 offres bancaires en une seule démarche, je négocie le taux et l\'assurance emprunteur, et je vous accompagne jusqu\'à la signature chez le notaire.',
-    gain: 'Jusqu\'à plusieurs milliers d\'euros économisés sur le coût total',
+    gain: 'Un coût total négocié, selon votre profil',
     liens: [
       { label: 'Crédit immobilier', href: '/financer/credit-immobilier' },
       { label: 'Regroupement de crédits', href: '/financer/regroupement-credits' },
@@ -29,7 +29,7 @@ const SITUATIONS = [
     hint: 'Emprunteur, habitation, auto, moto…',
     probleme: 'Votre assurance augmente chaque année sans que rien ne change. Vous payez une « taxe à la fidélité » sans le savoir.',
     solution: 'Je compare le marché, je résilie votre ancien contrat à votre place (lois Hamon et Lemoine) et je vous trouve une couverture équivalente ou meilleure, moins chère.',
-    gain: 'Jusqu\'à 15 000 € économisés sur l\'assurance emprunteur seule',
+    gain: 'Une assurance emprunteur souvent moins chère, à garanties équivalentes',
     liens: [
       { label: 'Assurance emprunteur', href: '/assurer/assurance-emprunteur' },
       { label: 'Assurance habitation', href: '/assurer/assurance-habitation' },

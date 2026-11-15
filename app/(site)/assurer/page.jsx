@@ -63,7 +63,7 @@ const faqSchema = {
       name: 'Pourquoi passer par un courtier plutôt que mon assureur habituel ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtier indépendant, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous trouver le meilleur rapport qualité/prix, en toute objectivité.',
+        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtier indépendant, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous proposer le bon équilibre entre garanties et prix, en toute objectivité.',
       },
     },
     {

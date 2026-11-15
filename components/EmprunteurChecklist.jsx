@@ -22,7 +22,7 @@ const CRITERES = [
   {
     id: 'capital',
     label: 'Mon capital restant dû est supérieur à 100 000€',
-    desc: 'Plus le capital est élevé, plus l\'économie est spectaculaire. Sur 200 000€ à 30 ans, l\'écart peut dépasser 15 000€.',
+    desc: 'Plus le capital est élevé, plus l\'économie potentielle est importante. Sur 200 000€ à 30 ans, l\'écart peut se chiffrer en milliers d\'euros selon les contrats comparés.',
     required: false,
     signal: 'Fort potentiel d\'économie',
   },

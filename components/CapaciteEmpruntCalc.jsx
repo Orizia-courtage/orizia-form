@@ -6,6 +6,7 @@ import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 import Icon from '@/components/Icon';
+import CreditWarning from '@/components/CreditWarning';
 function fmt(n) {
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 }
@@ -110,7 +111,7 @@ export default function CapaciteEmpruntCalc() {
 
         <ContactPopup label="Affiner avec Cindy" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
-          Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+          Simulation indicative. Votre capacité réelle dépend de votre apport, votre profil bancaire et le taux négocié. <CreditWarning />
         </p>
       </div>
     </div>

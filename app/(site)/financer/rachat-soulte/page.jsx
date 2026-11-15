@@ -9,7 +9,11 @@ import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
+import CreditWarning from '@/components/CreditWarning';
 // -- 1. MÉTADONNÉES SEO --
+// Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
+export const revalidate = 86400;
+
 export const metadata = {
   ...shareMetadata('rachat-soulte'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
@@ -93,7 +97,7 @@ const faqSchema = {
       name: 'Ma banque actuelle est-elle obligée d\'accepter le rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier indépendant, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier aux meilleures conditions — y compris si votre banque actuelle refuse.',
+        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier indépendant, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier à des conditions adaptées — y compris si votre banque actuelle refuse.',
       },
     },
     {
@@ -198,7 +202,7 @@ export default function RachatSoultePage() {
             <p className="ae-hero-intro">
               Vous souhaitez racheter la part de votre ex-conjoint ou d'un co-héritier pour rester
               seul propriétaire ? Je monte le financement adapté à votre situation, je négocie
-              les meilleures conditions et je coordonne avec votre notaire.{' '}
+              des conditions adaptées à votre profil et je coordonne avec votre notaire.{' '}
               <strong>Étude de faisabilité.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
@@ -479,8 +483,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   icon: 'shield-check',
                   title: 'Assurance emprunteur',
                   sub: 'Réduire le coût de votre prêt',
-                  text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'économiser des milliers d\'euros.',
-                  badge: 'Économisez jusqu\'à 15 000€',
+                  text: 'Le nouveau crédit lié au rachat de soulte est l\'occasion idéale d\'optimiser votre assurance emprunteur et d\'en réduire le coût, selon votre profil.',
+                  badge: 'Coût du prêt à revoir',
                   badgeBg: 'rgba(107,182,155,0.12)',
                   badgeColor: 'var(--orizia-gold)',
                   badgeBorder: '1px solid rgba(107,182,155,0.3)',
@@ -526,9 +530,9 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <ContactPopup label="Étudier mon rachat de soulte" icon="scale" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
             </p>
           </div>
         </section>

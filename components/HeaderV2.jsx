@@ -101,7 +101,7 @@ const NAV = [
     label: 'Financer',
     href: '/financer',
     color: '#6bb69b',
-    tagline: 'Votre meilleur taux, négocié',
+    tagline: 'Votre taux, négocié pour vous',
     stat: { number: '+40', label: 'Offres bancaires comparées' },
     bgImage: '/images/financer.webp',
     links: [

@@ -10,7 +10,11 @@ import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
+import CreditWarning from '@/components/CreditWarning';
 // -- 1. MÉTADONNÉES SEO --
+// Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
+export const revalidate = 86400;
+
 export const metadata = {
   ...shareMetadata('credit-immobilier'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
@@ -95,7 +99,7 @@ const faqSchema = {
       name: 'Combien coûte votre accompagnement ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Ils sont largement amortis par les économies réalisées sur le taux et l\'assurance. Un premier bilan de faisabilité permet de présenter les modalités avant tout engagement.',
+        text: 'Pour la majorité des dossiers de crédit immobilier, mes honoraires de courtage sont transparents et intégrés au plan de financement. Un premier bilan de faisabilité permet de présenter les modalités avant tout engagement.',
       },
     },
   ],
@@ -190,7 +194,7 @@ const ETAPES = [
   {
     n: '04',
     title: 'L\'accord et le champagne',
-    text: 'Je vous présente les meilleures offres. On choisit la banque ensemble. Je vous accompagne jusqu\'au rendez-vous en agence, puis jusqu\'à la signature chez le notaire.',
+    text: 'Je vous présente les offres les plus adaptées. On choisit la banque ensemble. Je vous accompagne jusqu\'au rendez-vous en agence, puis jusqu\'à la signature chez le notaire.',
   },
 ];
 
@@ -201,7 +205,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Un courtier, ça coûte cher. »',
-    r: 'C\'est l\'inverse. Les honoraires de courtage sont intégrés dans votre plan de financement. Mais surtout, la baisse du taux et la délégation d\'assurance que je vous obtiens vous font économiser des dizaines de milliers d\'euros sur la durée du prêt.',
+    r: 'C\'est l\'inverse. Les honoraires de courtage sont intégrés dans votre plan de financement. Et la négociation du taux et de l\'assurance emprunteur peut réduire sensiblement le coût total de votre crédit, selon votre profil.',
   },
   {
     q: '« On m\'a dit que j\'étais limite au niveau de l\'endettement. »',
@@ -519,12 +523,12 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <div className="fin-cards fin-cards--light">
               <Link href="/assurer/assurance-emprunteur" className="fin-card fin-card--featured">
                 <span className="fin-card-pill" style={{ background: 'rgba(107,182,155,0.12)', color: 'var(--orizia-gold)', border: '1px solid rgba(107,182,155,0.3)' }}>
-                  <Icon name="coins" /> Économisez jusqu'à 15 000€
+                  <Icon name="coins" /> Réduire le coût de votre assurance
                 </span>
                 <div className="fin-card-icon"><Icon name="shield-check" /></div>
                 <div className="fin-card-sub">L'économie cachée</div>
                 <h3>Assurance Emprunteur</h3>
-                <p>Obligatoire avec votre prêt immobilier. Je la négocie pour vous faire économiser des milliers d'euros.</p>
+                <p>Obligatoire avec votre prêt immobilier. Je la négocie pour en réduire le coût, selon votre profil.</p>
                 <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
               <Link href="/assurer/assurance-habitation" className="fin-card">
@@ -534,7 +538,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 <div className="fin-card-icon"><Icon name="house" /></div>
                 <div className="fin-card-sub">Protéger votre nouvel achat</div>
                 <h3>Assurance Habitation</h3>
-                <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous trouve la meilleure couverture au juste prix.</p>
+                <p>Avant la remise des clés chez le notaire, vous devrez assurer les murs. Je vous aide à trouver une couverture adaptée, au juste prix.</p>
                 <span className="fin-card-link">Découvrir <Icon name="arrow-right" className="oz-arrow" /></span>
               </Link>
               <Link href="/financer/rachat-soulte" className="fin-card">
@@ -564,9 +568,9 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <ContactPopup label="Faire un point ensemble" icon="calendar-days" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
               Les modalités de l'étude sont présentées avant tout engagement.
             </p>
           </div>

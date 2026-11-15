@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const STATS = [
-  { value: 500, suffix: '+', label: 'dossiers accompagnés' },
+  { value: 500, suffix: '+', label: 'dossiers accompagnés en 20 ans de carrière' },
   { value: 20, suffix: ' ans', label: "d'expérience en intermédiation bancaire" },
   { value: 24, suffix: ' h', label: 'délai de réponse' },
   { value: 40, prefix: '+', label: 'offres bancaires' },

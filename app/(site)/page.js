@@ -190,7 +190,7 @@ const faqSchema = {
       name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière indépendante, je compare plus de 40 offres bancaires pour trouver la meilleure solution pour votre situation — sans conflit d\'intérêts.',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière indépendante, je compare plus de 40 offres bancaires pour rechercher la solution adaptée à votre situation — sans conflit d\'intérêts.',
       },
     },
   ],
@@ -201,7 +201,7 @@ const SERVICES = [
     img: '/images/financer.webp',
     tag: 'Financer',
     icon: 'landmark',
-    title: 'Votre meilleur taux, négocié pour vous',
+    title: 'Votre taux, négocié pour vous',
     desc: 'Crédit immobilier, regroupement de crédits, prêt personnel, rachat de soulte. Je compare plus de 40 offres bancaires et je défends votre dossier jusqu\'à l\'accord.',
     links: [
       { label: 'Crédit immobilier', href: '/financer/credit-immobilier' },
@@ -256,7 +256,7 @@ const ETAPES = [
   {
     icon: 'handshake',
     title: 'Je négocie pour vous',
-    text: 'Taux, frais de dossier, assurance, pénalités : je défends votre dossier et je vous présente les meilleures offres, expliquées clairement.',
+    text: 'Taux, frais de dossier, assurance, pénalités : je défends votre dossier et je vous présente les offres les plus adaptées, expliquées clairement.',
     meta: 'Vous gardez la main',
   },
   {
@@ -269,7 +269,7 @@ const ETAPES = [
 
 const POURQUOI = [
   { icon: 'user', title: 'Une seule interlocutrice', text: 'Pas de standard, pas de transfert de dossier. Vous avez mon numéro direct.' },
-  { icon: 'scale', title: 'Aucun lien exclusif', text: 'Je ne travaille pour aucune banque. Ma seule mission : la meilleure solution pour vous.' },
+  { icon: 'scale', title: 'Aucun lien exclusif', text: 'Je ne travaille pour aucune banque. Ma seule mission : la solution la plus adaptée pour vous.' },
   { icon: 'landmark', title: '+40 offres bancaires', text: 'Mises en concurrence pour chaque dossier.' },
   { icon: 'badge-check', title: 'Réglementée et engagée', text: 'Immatriculée ORIAS, présidente du conseil de surveillance de l\'AFIB.' },
 ];
@@ -334,7 +334,7 @@ export default function HomePage() {
               </div>
               <div className="hh-card hh-card--a">
                 <span className="hh-card-num">500+</span>
-                <span className="hh-card-label">dossiers accompagnés</span>
+                <span className="hh-card-label">dossiers accompagnés en 20 ans</span>
               </div>
               <div className="hh-card hh-card--b">
                 <span>

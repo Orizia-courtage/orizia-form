@@ -9,7 +9,7 @@ const PRODUITS = [
     badgeColor: 'var(--orizia-primary)',
     title: 'Crédit immobilier',
     sub: 'Achat · Construction · Investissement locatif',
-    desc: 'Je mets plus de 40 offres bancaires en concurrence pour vous obtenir le meilleur taux. Je négocie aussi l\'assurance emprunteur — souvent 2× moins chère qu\'en banque.',
+    desc: 'Je mets plus de 40 offres bancaires en concurrence pour rechercher un taux adapté à votre profil. Je négocie aussi l\'assurance emprunteur — souvent moins chère qu\'en banque, à garanties équivalentes.',
     points: ['Taux négocié parmi plus de 40 offres bancaires', 'Assurance emprunteur optimisée', 'Accompagnement jusqu\'au notaire'],
     color: '#3e7f68',
     featured: true,

@@ -6,6 +6,7 @@ import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 import Icon from '@/components/Icon';
+import CreditWarning from '@/components/CreditWarning';
 export default function SimulateurRegroupement() {
   const { debt: debtConfig } = useSimulationConfig();
   const [mensualite, setMensualite] = useState('1 200'); // exemple pré-rempli : la jauge s'affiche dès l'arrivée
@@ -235,7 +236,7 @@ export default function SimulateurRegroupement() {
 
           {/* Disclaimer */}
           <p className="sr-disclaimer">
-            <Icon name="info" /> Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. Le regroupement peut allonger la durée et augmenter le coût total du crédit.
+            <Icon name="info" /> Estimation indicative basée sur un taux cible de {formatPercent(debtConfig.targetRatio, { ratio: true })}. La simulation complète prend en compte votre profil complet. <CreditWarning /> Le regroupement peut allonger la durée et augmenter le coût total du crédit.
           </p>
         </div>
       )}

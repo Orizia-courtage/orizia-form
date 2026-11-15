@@ -32,7 +32,7 @@ const assuranceEmprunteurSchema = {
       '@type': 'Service',
       name: "Courtage et Délégation d'Assurance Emprunteur",
       description:
-        "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. Jusqu'à 15 000€ d'économies selon le capital et la durée.",
+        "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. L'économie possible dépend du capital, de la durée et de votre contrat actuel.",
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -80,7 +80,7 @@ const faqSchema = {
       name: "Combien d'argent puis-je espérer récupérer ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est l'un des postes où l'optimisation est la plus spectaculaire. Mes clients économisent en moyenne entre 6 500€ et 15 000€ sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
+        text: "C'est l'un des postes où l'optimisation peut être la plus importante. Selon le capital restant, votre âge et votre contrat actuel, l'économie peut atteindre plusieurs milliers d'euros sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
       },
     },
     {
@@ -104,7 +104,7 @@ const faqSchema = {
       name: "Pourquoi faire appel à vous plutôt que de chercher moi-même ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les meilleurs contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous récupérez votre pouvoir d'achat sans la charge mentale. Les frais et modalités sont expliqués avant tout engagement.",
+        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous n'avez pas la charge mentale des démarches. Les frais et modalités sont expliqués avant tout engagement.",
       },
     },
   ],
@@ -145,7 +145,7 @@ const LOI_LEMOINE_POINTS = [
 
 const ETAPES = [
   { n: '01', title: "J'épluche votre contrat actuel",         text: "Envoyez-moi votre offre de prêt. Je décortique ce que vous payez aujourd'hui et je vous donne un chiffre clair : combien vous allez économiser." },
-  { n: '02', title: 'Je sélectionne le contrat parfait',      text: "En tant qu'indépendante, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver le meilleur taux, avec des garanties béton validées par la banque." },
+  { n: '02', title: 'Je sélectionne le contrat parfait',      text: "En tant qu'indépendante, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver un tarif adapté, avec des garanties équivalentes à celles exigées par votre banque." },
   { n: '03', title: 'Je monte au front face à la banque',     text: "C'est la partie que mes clients détestent, et c'est mon expertise. Je prépare le dossier, j'envoie la résiliation, je relance votre banquier. Je gère le bras de fer." },
   { n: '04', title: 'Vous constatez la baisse de vos mensualités', text: 'Une fois la substitution acceptée, votre nouveau contrat prend le relais. Vous êtes aussi bien couvert, mais votre prélèvement mensuel fond considérablement.' },
 ];
@@ -207,8 +207,8 @@ export default function AssuranceEmprunteurPage() {
               Votre assurance de crédit vous coûte probablement beaucoup trop cher. Avec la{' '}
               <strong>loi Lemoine</strong>, changez de contrat à tout moment. En tant que courtière
               indépendante, je compare les taux,{' '}
-              <strong>je défie votre banque à votre place</strong>, et je vous fais économiser{' '}
-              <strong>jusqu'à 15 000€</strong>.
+              <strong>je défie votre banque à votre place</strong>, et je cherche à réduire{' '}
+                <strong>le coût de votre assurance</strong>, à garanties équivalentes.
             </p>
 
             <div className="ae-hero-btns">
@@ -575,8 +575,8 @@ export default function AssuranceEmprunteurPage() {
             <div className="fin-cards fin-cards--white">
               {[
                 { href: '/assurer/assurance-habitation', icon: 'house', title: 'Assurance Habitation', sub: 'Protéger votre cocon', text: "Votre prêt est protégé, mais qu'en est-il de vos murs ? Confiez-moi votre MRH, je m'assure que votre maison est vraiment couverte.", badge: 'Obligatoire avant la remise des clés', pillBg: 'rgba(168,122,44,0.08)', pillColor: '#a87a2c', pillBorder: 'rgba(168,122,44,0.2)', featured: false },
-                { href: '/assurer/auto-moto', icon: 'car', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier les meilleurs tarifs.", badge: 'Résiliation gérée pour vous', pillBg: 'rgba(62,127,104,0.08)', pillColor: '#3e7f68', pillBorder: 'rgba(62,127,104,0.2)', featured: false },
-                { href: '/investir/per', icon: 'tree-palm', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous venez d'économiser 10 000€ sur votre crédit ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: 'Réduisez vos impôts dès cette année', pillBg: 'rgba(107,182,155,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(107,182,155,0.3)', featured: true },
+                { href: '/assurer/auto-moto', icon: 'car', title: 'Assurance Auto & Moto', sub: 'Couper dans les frais', text: "Comme pour la maison, l'auto augmente. Confiez-moi vos contrats, je fais un tir groupé pour négocier vos tarifs.", badge: 'Résiliation gérée pour vous', pillBg: 'rgba(62,127,104,0.08)', pillColor: '#3e7f68', pillBorder: 'rgba(62,127,104,0.2)', featured: false },
+                { href: '/investir/per', icon: 'tree-palm', title: 'Plan Épargne Retraite', sub: 'Réinvestir vos gains', text: "Vous avez réduit le coût de votre assurance de prêt ? Placez cette économie mensuelle sur un PER pour réduire vos impôts intelligemment.", badge: 'Réduisez vos impôts dès cette année', pillBg: 'rgba(107,182,155,0.12)', pillColor: 'var(--orizia-gold)', pillBorder: 'rgba(107,182,155,0.3)', featured: true },
               ].map(s => (
                 <Link href={s.href} key={s.title} className={`fin-card${s.featured ? ' fin-card--featured' : ''}`}>
                   {s.badge && (

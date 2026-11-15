@@ -183,7 +183,7 @@ export default function ContactPage() {
                     </div>
                     <div className="contact-cindy-stat">
                       <strong>+500</strong>
-                      <span>dossiers</span>
+                      <span>dossiers en 20 ans</span>
                     </div>
                     <div className="contact-cindy-stat">
                       <strong>0€</strong>

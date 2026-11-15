@@ -9,7 +9,11 @@ import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
+import CreditWarning from '@/components/CreditWarning';
 // -- 1. MÉTADONNÉES SEO --
+// Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
+export const revalidate = 86400;
+
 export const metadata = {
   ...shareMetadata('pret-personnel'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/pret-personnel' },
@@ -36,7 +40,7 @@ const pretPersonnelSchema = {
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Comparaison et négociation du meilleur TAEG pour vos projets auto, travaux ou trésorerie. Élimination des assurances facultatives imposées. Accès à un réseau de partenaires bancaires.',
+      description: 'Comparaison et négociation du TAEG pour vos projets auto, travaux ou trésorerie. Élimination des assurances facultatives imposées. Accès à un réseau de partenaires bancaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -366,7 +370,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   <span>Budget respirable (+ possibilité d'inclure une trésorerie)</span>
                 </div>
                 <div style={{ marginTop: 12, fontSize: '0.78rem', color: 'var(--oz-muted)', textAlign: 'center' }}>
-                  *Exemple illustratif. L'allongement de la durée de remboursement entraîne une majoration du coût total du crédit. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+                  *Exemple illustratif. L'allongement de la durée de remboursement entraîne une majoration du coût total du crédit. <CreditWarning />
                 </div>
               </div>
             </div>
@@ -540,15 +544,15 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <CtaPresence />
             <h2>Prêt(e) à financer votre projet<br />au juste prix ?</h2>
             <p>
-              On fait le point sur votre budget, je définis l'enveloppe possible et je m'occupe d'aller chercher le meilleur TAEG du marché. Sans engagement.
+              On fait le point sur votre budget, je définis l'enveloppe possible et je mets mes partenaires en concurrence pour rechercher un TAEG adapté à votre profil. Sans engagement.
             </p>
             <div className="fin-hero-btns">
               <ContactPopup label="Lancer mon étude" icon="rocket" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. 
+              <CreditWarning /> 
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que Mandataire Non Exclusif en Opérations de Banque et Services de Paiement (MOBSP).
+              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
             </p>
           </div>
         </section>

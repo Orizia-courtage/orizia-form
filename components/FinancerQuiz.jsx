@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -29,9 +29,9 @@ const QUESTIONS = [
 ];
 
 const RECOMMANDATIONS = {
-  achat_cdi:      { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: '#3e7f68', raison: 'Profil idéal pour un crédit immobilier. Je mets plus de 40 offres bancaires en concurrence pour vous obtenir le meilleur taux et négocier l\'assurance emprunteur.' },
+  achat_cdi:      { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: '#3e7f68', raison: 'Profil idéal pour un crédit immobilier. Je mets plus de 40 offres bancaires en concurrence pour rechercher un taux adapté et négocier l\'assurance emprunteur.' },
   achat_tns:      { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: '#3e7f68', raison: 'Finançable avec 2 bilans solides. Je sais quelles banques sont les plus ouvertes aux TNS et comment présenter votre dossier pour maximiser vos chances.' },
-  achat_retraite: { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: '#3e7f68', raison: 'Votre stabilité de revenus est un atout. Je trouve les banques qui acceptent les dossiers retraités aux meilleures conditions.' },
+  achat_retraite: { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: '#3e7f68', raison: 'Votre stabilité de revenus est un atout. Je trouve les banques qui acceptent les dossiers retraités à des conditions adaptées.' },
   achat_autre:    { produit: 'Crédit immobilier', href: '/financer/credit-immobilier', icon: 'house', color: '#3e7f68', raison: 'Votre situation mérite une analyse personnalisée. Certaines banques ont des critères plus souples — je sais lesquelles.' },
   mensualites_cdi:      { produit: 'Regroupement de crédits', href: '/financer/regroupement-credits', icon: 'refresh-cw', color: '#3e7f68', raison: 'Profil très favorable. En CDI avec plusieurs crédits, je peux réduire vos mensualités de 30 à 60% en un seul dossier.' },
   mensualites_tns:      { produit: 'Regroupement de crédits', href: '/financer/regroupement-credits', icon: 'refresh-cw', color: '#3e7f68', raison: 'Étude au cas par cas selon vos bilans. Des solutions existent pour les TNS — je connais les établissements spécialisés.' },
@@ -39,7 +39,7 @@ const RECOMMANDATIONS = {
   mensualites_autre:    { produit: 'Regroupement de crédits', href: '/financer/regroupement-credits', icon: 'refresh-cw', color: '#3e7f68', raison: 'Votre situation mérite une analyse honnête. Je vous dis clairement ce qui est possible et quelles alternatives existent.' },
   travaux_cdi:      { produit: 'Prêt personnel', href: '/financer/pret-personnel', icon: 'euro', color: '#a87a2c', raison: 'En CDI, vous accédez aux meilleurs TAEG du marché. Je compare les organismes et élimine les assurances inutiles.' },
   travaux_tns:      { produit: 'Prêt personnel', href: '/financer/pret-personnel', icon: 'euro', color: '#a87a2c', raison: 'Finançable avec un historique stable. Je sélectionne les organismes les plus ouverts aux indépendants.' },
-  travaux_retraite: { produit: 'Prêt personnel', href: '/financer/pret-personnel', icon: 'euro', color: '#a87a2c', raison: 'Revenus fixes = dossier rassurant. Je trouve le meilleur TAEG adapté à votre situation.' },
+  travaux_retraite: { produit: 'Prêt personnel', href: '/financer/pret-personnel', icon: 'euro', color: '#a87a2c', raison: 'Revenus fixes = dossier rassurant. Je recherche un TAEG adapté à votre situation.' },
   travaux_autre:    { produit: 'Prêt personnel', href: '/financer/pret-personnel', icon: 'euro', color: '#a87a2c', raison: 'Certains organismes sont plus souples que les banques classiques. Je sais lesquels contacter selon votre profil.' },
   separation_cdi:      { produit: 'Rachat de soulte', href: '/financer/rachat-soulte', icon: 'scale', color: '#3e7f68', raison: 'Profil solide pour un rachat de soulte. Je monte le financement et coordonne avec votre notaire pour que tout soit prêt à temps.' },
   separation_tns:      { produit: 'Rachat de soulte', href: '/financer/rachat-soulte', icon: 'scale', color: '#3e7f68', raison: 'Faisable avec les bons partenaires. Je connais les banques qui acceptent les TNS pour ce type d\'opération.' },
