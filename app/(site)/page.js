@@ -346,14 +346,14 @@ export default function HomePage() {
               </svg>
               <div className="hh-photo">
                 <Image
-                  src="/images/hero-cindy-assis.webp"
+                  src="/images/hero-cindy-portrait.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtière indépendante, à son bureau d'Orizia Courtage"
+                  alt="Cindy Urbansky, courtière indépendante, fondatrice d'Orizia Courtage"
                   fill
                   priority
                   fetchPriority="high"
-                  sizes="(max-width: 900px) 80vw, 480px"
-                  style={{ objectFit: 'cover', objectPosition: '50% 30%' }}
+                  sizes="(max-width: 900px) 72vw, 420px"
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="hh-card hh-card--a">
@@ -361,7 +361,6 @@ export default function HomePage() {
                 <span className="hh-card-label">dossiers accompagnés</span>
               </div>
               <div className="hh-card hh-card--b">
-                <span className="hh-card-avatar"><img src="/images/avatar-cindy.webp" alt="" width="40" height="40" /></span>
                 <span>
                   <strong>Cindy Urbansky</strong>
                   <span>Fondatrice, 20 ans d’expérience</span>
