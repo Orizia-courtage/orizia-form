@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -13,26 +14,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
-  title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
-  description:
-    'Je sélectionne les meilleures SCPI parmi 200+ analysées et j\'optimise votre stratégie fiscale. 4–6%/an, zéro gestion, accessible dès 1 000€. Cindy Urbansky.',
+  ...shareMetadata('scpi'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/scpi' },
-  openGraph: {
-    title: 'SCPI 2026 : Percevez des Loyers sans Gérer un Bien | Orizia Courtage',
-    description: '4–6%/an, mutualisation du risque, zéro gestion. Je sélectionne les meilleures SCPI et j\'optimise votre fiscalité. Conseil indépendant et personnalisé.',
-    url: 'https://www.orizia-courtage.fr/investir/scpi',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-scpi.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Investissement en SCPI avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES (E-E-A-T & Service) --

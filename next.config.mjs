@@ -40,7 +40,10 @@ const nextConfig = {
     remotePatterns: supabaseImagePatterns(),
   },
   // Polices et logo des visuels pour les réseaux sociaux, lus depuis le disque par la route.
-  outputFileTracingIncludes: { '/api/articles/social': ['./lib/social/*'] },
+  outputFileTracingIncludes: {
+    '/api/articles/social': ['./lib/social/*'],
+    '/og/**/*': ['./lib/social/*', './public/images/hero-cindy-portrait.webp'],
+  },
   compress: true,
 };
 

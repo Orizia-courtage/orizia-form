@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedStats from '@/components/AnimatedStats';
@@ -11,26 +12,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Investir en 2026 : Placements & Patrimoine | Orizia Courtage',
-  description:
-    'SCPI, Assurance Vie, PER, Crowdfunding : ne laissez plus votre banque limiter vos rendements. Cindy Urbansky crée votre stratégie patrimoniale.',
+  ...shareMetadata('investir'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir' },
-  openGraph: {
-    title: 'Investir son argent en 2026 : Placements & Patrimoine | Orizia Courtage',
-    description: 'Ne laissez plus votre argent dormir. Je sélectionne les meilleures SCPI, Assurances Vie et PER du marché pour construire votre patrimoine.',
-    url: 'https://www.orizia-courtage.fr/investir',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-investir.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Investir avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

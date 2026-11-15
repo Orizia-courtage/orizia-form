@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -10,26 +11,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Prêt Personnel 2026 : Comparez les taux | Orizia Courtage',
-  description:
-    'Ne financez plus les marges des banques. Cindy Urbansky compare et négocie votre prêt personnel au meilleur TAEG dans les Hauts-de-France. Étude de faisabilité.',
+  ...shareMetadata('pret-personnel'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/pret-personnel' },
-  openGraph: {
-    title: 'Prêt Personnel 2026 : Comparez les taux | Orizia Courtage',
-    description: 'Auto, travaux ou trésorerie : obtenez les fonds nécessaires à vos projets sans vous ruiner. Je négocie votre crédit au meilleur TAEG dans les Hauts-de-France.',
-    url: 'https://www.orizia-courtage.fr/financer/pret-personnel',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-pret-personnel.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Prêt personnel avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -11,26 +12,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Assurances 2026 : Emprunteur, Habitation, Auto | Orizia',
-  description:
-    'Emprunteur, habitation, auto/moto : arrêtez de subir la hausse des tarifs. Cindy Urbansky compare, optimise et résilie vos contrats.',
+  ...shareMetadata('assurer'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer' },
-  openGraph: {
-    title: 'Assurances 2026 : Ne payez plus trop cher | Orizia Courtage',
-    description: 'Ne laissez plus vos contrats s\'envoler chaque année. Je mets le marché en concurrence et gère vos résiliations via la loi Hamon et Lemoine.',
-    url: 'https://www.orizia-courtage.fr/assurer',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-assurer.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Courtage en assurance avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

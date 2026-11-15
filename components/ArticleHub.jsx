@@ -1,3 +1,4 @@
+import { shareImageUrl } from '@/lib/share.mjs';
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
 import { ROBOTS } from '@/lib/indexing.mjs';
@@ -73,7 +74,8 @@ export function listingMetadata(type, key, count) {
     // Une liste encore vide n'a rien à offrir aux moteurs de recherche.
     robots: count > 0 ? ROBOTS : { index: false, follow: true },
     alternates: { canonical: url },
-    openGraph: { type: 'website', title, description: intro, url, siteName: 'Orizia Courtage', locale: 'fr_FR' },
+    openGraph: { type: 'website', title, description: intro, url, siteName: 'Orizia Courtage', locale: 'fr_FR', images: [{ url: shareImageUrl(type === 'blog' ? 'blog' : 'actualites'), width: 1200, height: 630, alt: title }] },
+    twitter: { card: 'summary_large_image', title, description: intro, images: [shareImageUrl(type === 'blog' ? 'blog' : 'actualites')] },
   };
 }
 

@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -12,26 +13,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Assurance Auto & Moto 2026 : Économisez | Orizia Courtage',
-  description:
-    'Votre assurance auto ou moto flambe ? Cindy Urbansky compare les offres, trouve le meilleur tarif et gère la résiliation via la loi Hamon.',
+  ...shareMetadata('auto-moto'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/auto-moto' },
-  openGraph: {
-    title: 'Assurance Auto & Moto 2026 : Baissez vos tarifs | Orizia Courtage',
-    description: 'Ne subissez plus les hausses de tarifs. Je compare le marché, optimise vos garanties et résilie votre ancien contrat via la loi Hamon.',
-    url: 'https://www.orizia-courtage.fr/assurer/auto-moto',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-auto-moto.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Comparaison et courtage en assurance auto moto avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -11,26 +12,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Assurance Emprunteur 2026 : Loi Lemoine | Orizia Courtage',
-  description:
-    "Votre banque vous surfacture votre assurance de prêt ? Grâce à la loi Lemoine, je résilie et vous fais économiser jusqu'à 15 000€. Courtier indépendant.",
+  ...shareMetadata('assurance-emprunteur'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur' },
-  openGraph: {
-    title: 'Assurance Emprunteur 2026 : Économisez avec la Loi Lemoine | Orizia Courtage',
-    description: "Ne laissez plus votre banque monopoliser votre assurance de prêt. Économisez jusqu'à 15 000€ grâce à la loi Lemoine. Je compare, je résilie, je gère tout.",
-    url: 'https://www.orizia-courtage.fr/assurer/assurance-emprunteur',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-assurance-emprunteur.jpg',
-        width: 1200,
-        height: 630,
-        alt: "Délégation d'assurance emprunteur avec Orizia Courtage",
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

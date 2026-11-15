@@ -1,4 +1,5 @@
-﻿import Image from 'next/image';
+import { shareMetadata } from '@/lib/share.mjs';
+import Image from 'next/image';
 import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
@@ -6,19 +7,8 @@ import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
-  title: 'Qui suis-je ? Cindy Urbansky, Courtière Indépendante | Orizia Courtage',
-  description:
-    'Cindy Urbansky, courtier indépendant à Marcq-en-Barœul. 20 ans d\'expérience en crédit, assurance et patrimoine. Présidente du conseil de surveillance de l\'AFIB.',
+  ...shareMetadata('qui-suis-je'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/qui-suis-je' },
-  openGraph: {
-    title: 'Cindy Urbansky — Courtière Indépendante | Orizia Courtage',
-    description: '20 ans d\'expérience en crédit immobilier, assurance et patrimoine. Présidente du conseil de surveillance de l\'AFIB. Basée à Marcq-en-Barœul, Hauts-de-France.',
-    url: 'https://www.orizia-courtage.fr/qui-suis-je',
-    siteName: 'Orizia Courtage',
-    images: [{ url: 'https://www.orizia-courtage.fr/images/og-qui-suis-je.jpg', width: 1200, height: 630, alt: 'Cindy Urbansky - Orizia Courtage' }],
-    locale: 'fr_FR',
-    type: 'profile',
-  },
 };
 
 const personSchema = {

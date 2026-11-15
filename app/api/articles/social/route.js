@@ -40,7 +40,7 @@ export async function POST(request) {
   try {
     const photo = await loadPhoto(supabase, article.image?.url);
     const stamp = Date.now().toString(36);
-    const entries = await Promise.all(Object.entries(SOCIAL_FORMATS).map(async ([format, { suffix }]) => {
+    const entries = await Promise.all(Object.entries(SOCIAL_FORMATS).filter(([format]) => format !== 'og').map(async ([format, { suffix }]) => {
       const jpeg = await renderSocialVisual(format, article, photo);
       const name = `${article.slug}-${suffix}-${stamp}.jpg`;
       const { error } = await supabase.storage.from(BUCKET).upload(name, jpeg, { contentType: 'image/jpeg', cacheControl: '31536000', upsert: false });

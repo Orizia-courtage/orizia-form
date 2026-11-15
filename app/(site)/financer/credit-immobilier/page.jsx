@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -11,25 +12,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
-  description: 'Achat, construction ou investissement locatif. Je négocie votre taux et votre assurance emprunteur dans les Hauts-de-France. Étude de faisabilité.',
+  ...shareMetadata('credit-immobilier'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/credit-immobilier' },
-  openGraph: {
-    title: 'Crédit Immobilier 2026 : Négociez votre taux | Orizia Courtage',
-    description: 'Ne vous épuisez pas à faire le tour des banques. Je négocie votre crédit immobilier et votre assurance de prêt pour faire baisser le coût total de votre achat.',
-    url: 'https://www.orizia-courtage.fr/financer/credit-immobilier',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-credit-immobilier.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Crédit immobilier avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

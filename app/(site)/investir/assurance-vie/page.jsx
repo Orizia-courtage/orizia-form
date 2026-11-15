@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -13,26 +14,8 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
-  title: 'Assurance Vie 2026 : Conseil Indépendant | Orizia Courtage',
-  description:
-    'Je sélectionne le contrat d\'assurance vie le plus adapté : rendement optimisé et transmission jusqu\'à 152 500€/bénéficiaire. Cindy Urbansky.',
+  ...shareMetadata('assurance-vie'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/assurance-vie' },
-  openGraph: {
-    title: 'Assurance Vie 2026 : Conseil Indépendant & Contrats Haut de Gamme | Orizia Courtage',
-    description: 'Je sélectionne pour vous le contrat d\'assurance vie le plus adapté : contrats haut de gamme et accompagnement personnalisé.',
-    url: 'https://www.orizia-courtage.fr/investir/assurance-vie',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-assurance-vie.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Assurance Vie avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 const assuranceVieSchema = {

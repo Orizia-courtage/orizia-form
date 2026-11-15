@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import PERCalculateur from '@/components/PERCalculateur';
@@ -14,26 +15,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
-  title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
-  description:
-    'Je calcule vos plafonds de déduction exacts et sélectionne le PER le plus adapté, avec jusqu\'à 4 100€ récupérés sur l\'impôt pour 10 000€ versés.',
+  ...shareMetadata('per'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/per' },
-  openGraph: {
-    title: 'PER 2026 : Réduire ses Impôts & Préparer sa Retraite | Orizia Courtage',
-    description: 'Réduisez votre impôt dès cette année. Je calcule vos plafonds exacts, sélectionne le meilleur PER du marché et construis l\'allocation adaptée à votre horizon.',
-    url: 'https://www.orizia-courtage.fr/investir/per',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-per.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Plan Épargne Retraite avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES (E-E-A-T, GEO & Service) --

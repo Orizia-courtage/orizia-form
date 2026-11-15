@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -11,26 +12,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Assurance Habitation 2026 : Baissez la facture | Orizia',
-  description:
-    'Hausse des tarifs habitation en 2026. Cindy Urbansky compare les offres MRH, ajuste vos garanties et gère la résiliation via la loi Hamon.',
+  ...shareMetadata('assurance-habitation'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/assurer/assurance-habitation' },
-  openGraph: {
-    title: 'Assurance Habitation 2026 : Baissez la facture | Orizia Courtage',
-    description: 'Ne subissez pas l\'inflation. Je compare le marché, ajuste vos garanties et résilie votre ancien contrat via la loi Hamon, sans coupure.',
-    url: 'https://www.orizia-courtage.fr/assurer/assurance-habitation',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-assurance-habitation.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Comparaison et courtage en assurance habitation avec Orizia',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

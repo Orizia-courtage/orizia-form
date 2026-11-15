@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -10,26 +11,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO --
 export const metadata = {
-  title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
-  description:
-    'Séparation, divorce ou succession : je finance le rachat de soulte pour conserver votre bien. Cindy Urbansky, courtier indépendant. Étude de faisabilité.',
+  ...shareMetadata('rachat-soulte'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer/rachat-soulte' },
-  openGraph: {
-    title: 'Rachat de Soulte 2026 : Financer le Rachat de Part | Orizia Courtage',
-    description: 'Divorce, séparation ou succession : je monte le financement pour que vous puissiez racheter la part de votre co-propriétaire et conserver votre bien. Étude de faisabilité.',
-    url: 'https://www.orizia-courtage.fr/financer/rachat-soulte',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-rachat-soulte.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Rachat de soulte avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES --

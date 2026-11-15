@@ -16,6 +16,8 @@ const LINE = 'rgba(252,253,252,.18)';
 export const SOCIAL_FORMATS = {
   square: { width: 1080, height: 1080, suffix: 'carre' },
   landscape: { width: 1200, height: 627, suffix: 'paysage' },
+  // Image de partage de l'article (WhatsApp, Facebook, LinkedIn) : même composition que le post paysage.
+  og: { width: 1200, height: 630, suffix: 'partage' },
   story: { width: 1080, height: 1920, suffix: 'story' },
 };
 
@@ -111,11 +113,11 @@ function Square({ article, photo, logo }) {
   );
 }
 
-function Landscape({ article, photo, logo }) {
+function Landscape({ article, photo, logo, height = 627 }) {
   const l = labels(article);
   return (
-    <div style={{ display: 'flex', width: 1200, height: 627, background: INK, color: PAPER, fontFamily: 'DM Sans', fontWeight: 500 }}>
-      <div style={{ display: 'flex', flexDirection: 'column', width: 690, height: 627, padding: '48px 30px 46px 60px' }}>
+    <div style={{ display: 'flex', width: 1200, height, background: INK, color: PAPER, fontFamily: 'DM Sans', fontWeight: 500 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', width: 690, height, padding: '48px 30px 46px 60px' }}>
         <img src={logo} width={150} height={87} />
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 'auto' }}>
           <Eyebrow text={l.eyebrow} size={18} bar={40} />
@@ -126,9 +128,9 @@ function Landscape({ article, photo, logo }) {
           </div>
         </div>
       </div>
-      <div style={{ display: 'flex', width: 510, height: 627, position: 'relative' }}>
-        {photo ? <img src={photo} width={510} height={627} /> : null}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: 510, height: 627, backgroundImage: 'linear-gradient(90deg, #1b1d1a 0%, rgba(27,29,26,.25) 28%, rgba(27,29,26,0) 60%)' }} />
+      <div style={{ display: 'flex', width: 510, height, position: 'relative' }}>
+        {photo ? <img src={photo} width={510} height={height} /> : null}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: 510, height, backgroundImage: 'linear-gradient(90deg, #1b1d1a 0%, rgba(27,29,26,.25) 28%, rgba(27,29,26,0) 60%)' }} />
       </div>
     </div>
   );
@@ -158,6 +160,7 @@ function Story({ article, photo, logo }) {
 const LAYOUTS = {
   square: { Component: Square, photo: [1080, 570] },
   landscape: { Component: Landscape, photo: [510, 627] },
+  og: { Component: (props) => <Landscape {...props} height={630} />, photo: [510, 630] },
   story: { Component: Story, photo: [1080, 980] },
 };
 
@@ -168,4 +171,56 @@ export async function renderSocialVisual(format, article, photoBuffer) {
   const [{ fonts, logo }, photo] = await Promise.all([loadAssets(), photoData(photoBuffer, pw, ph)]);
   const png = await new ImageResponse(<Component article={article} photo={photo} logo={logo} />, { width, height, fonts }).arrayBuffer();
   return sharp(Buffer.from(png)).flatten({ background: INK }).jpeg({ quality: 88, mozjpeg: true }).toBuffer();
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Images de partage des pages du site (1200 × 630) : fond encre, titre de la page,
+   portrait de Cindy dans un rond (comme sur l'accueil) et, si besoin, la mention de risque.
+   ───────────────────────────────────────────────────────────────────────────── */
+let portraitPromise;
+const portrait = () => (portraitPromise ||= readFile(path.join(process.cwd(), 'public', 'images', 'hero-cindy-portrait.webp'))
+  .then((buffer) => sharp(buffer).resize(440, 440).jpeg({ quality: 88 }).toBuffer())
+  .then((jpeg) => `data:image/jpeg;base64,${jpeg.toString('base64')}`));
+
+function PageCard({ page, notice, logo, photo }) {
+  const size = titleSize(page.heading, [60, 54, 48, 42]);
+  return (
+    <div style={{ display: 'flex', width: 1200, height: 630, background: INK, color: PAPER, fontFamily: 'DM Sans', fontWeight: 500, position: 'relative' }}>
+      <div style={{ position: 'absolute', right: -170, top: -150, width: 760, height: 760, borderRadius: 999, background: 'radial-gradient(circle, rgba(179,221,203,.16) 0%, rgba(179,221,203,0) 68%)' }} />
+      <div style={{ display: 'flex', flexDirection: 'column', width: 740, height: 630, padding: '52px 20px 44px 64px' }}>
+        <img src={logo} width={150} height={87} />
+        <div style={{ display: 'flex', flexDirection: 'column', marginTop: 'auto' }}>
+          <Eyebrow text={page.eyebrow} size={18} bar={40} />
+          <div style={{ display: 'flex', marginTop: 20 }}><Title text={page.heading} size={size} /></div>
+          <div style={{ display: 'flex', flexDirection: 'column', borderTop: `1px solid ${LINE}`, marginTop: 30, paddingTop: 20, fontSize: 18, color: SOFT }}>
+            <div style={{ display: 'flex' }}>
+              <span style={{ color: PAPER, fontWeight: 700 }}>{AUTHOR.name}</span>
+              <span>&nbsp;·&nbsp;Courtière en crédit et en assurance · Marcq-en-Barœul</span>
+            </div>
+            {notice ? <div style={{ display: 'flex', marginTop: 10, fontSize: 14, color: 'rgba(252,253,252,.62)' }}>{notice}</div> : null}
+          </div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', position: 'absolute', left: 786, top: 125, width: 380, height: 380, alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ position: 'absolute', left: -32, top: -32, width: 444, height: 444, borderRadius: 999, border: '1.5px solid rgba(107,182,155,.55)' }} />
+        <div style={{ position: 'absolute', left: -60, top: -60, width: 500, height: 500, borderRadius: 999, border: '1.5px solid rgba(107,182,155,.25)' }} />
+        <img src={photo} width={380} height={380} style={{ borderRadius: 999 }} />
+      </div>
+    </div>
+  );
+}
+
+// Image de partage d'une page : JPEG 1200 × 630.
+export async function renderPageShare(page, notice) {
+  const [{ fonts, logo }, photo] = await Promise.all([loadAssets(), portrait()]);
+  const png = await new ImageResponse(<PageCard page={page} notice={notice} logo={logo} photo={photo} />, { width: 1200, height: 630, fonts }).arrayBuffer();
+  return sharp(Buffer.from(png)).flatten({ background: INK }).jpeg({ quality: 88, mozjpeg: true }).toBuffer();
+}
+
+// Photo principale d'un article, lue uniquement depuis le stockage public du site.
+export async function loadArticlePhoto(url) {
+  const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!base || typeof url !== 'string' || !url.startsWith(`${base.replace(/\/$/, '')}/storage/v1/object/public/articles/`)) return null;
+  const response = await fetch(url, { signal: AbortSignal.timeout(15000) }).catch(() => null);
+  return response?.ok ? Buffer.from(await response.arrayBuffer()) : null;
 }

@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactSujetsFilter from '@/components/ContactSujetsFilter';
@@ -6,26 +7,8 @@ import ScrollButton from '@/components/ScrollButton';
 
 import Icon from '@/components/Icon';
 export const metadata = {
-  title: 'Contacter Orizia Courtage — Conseil personnalisé',
-  description:
-    'Contactez Cindy Urbansky, courtière indépendante dans les Hauts-de-France. Crédit, assurance, investissement — rendez-vous sans engagement, réponse sous 24h.',
+  ...shareMetadata('contact'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/contact' },
-  openGraph: {
-    title: 'Contacter Orizia Courtage — Conseil personnalisé',
-    description: 'Prenez rendez-vous en quelques clics. Cindy vous répond sous 24h par le canal de votre choix.',
-    url: 'https://www.orizia-courtage.fr/contact',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-contact.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Contacter Cindy Urbansky - Orizia Courtage',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 const contactSchema = {

@@ -1,4 +1,5 @@
-﻿import Link from 'next/link';
+import { shareMetadata } from '@/lib/share.mjs';
+import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
 import AnimatedStats from '@/components/AnimatedStats';
@@ -11,26 +12,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Courtier en Crédit 2026 : Comparez +40 Offres Bancaires | Orizia Courtage',
-  description:
-    'Crédit immobilier, regroupement, prêt personnel, rachat de soulte. Cindy Urbansky négocie votre financement en comparant plus de 40 offres bancaires. Étude de faisabilité.',
+  ...shareMetadata('financer'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/financer' },
-  openGraph: {
-    title: 'Courtier en Crédit 2026 : Comparez +40 Offres Bancaires | Orizia Courtage',
-    description: 'Ne faites plus le tour des banques. Je compare plus de 40 offres bancaires, négocie votre taux et votre assurance emprunteur. Étude de faisabilité sans engagement.',
-    url: 'https://www.orizia-courtage.fr/financer',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/financer.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Courtier en crédit immobilier Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // ── 2. DONNÉES STRUCTURÉES ──

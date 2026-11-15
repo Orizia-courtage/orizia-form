@@ -1,3 +1,4 @@
+import { shareMetadata } from '@/lib/share.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactPopup from '@/components/ContactPopup';
@@ -12,26 +13,8 @@ import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 // -- 1. MÉTADONNÉES SEO (Optimisées) --
 export const metadata = {
-  title: 'Crowdfunding Immobilier 2026 : 8–12%/an | Orizia Courtage',
-  description:
-    'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant par Cindy Urbansky.',
+  ...shareMetadata('crowdfunding'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/investir/crowdfunding' },
-  openGraph: {
-    title: 'Crowdfunding Immobilier 2026 : 8–12%/an avec un Expert | Orizia Courtage',
-    description: 'Je sélectionne et audite les projets de crowdfunding immobilier pour vous. 8–12%/an, dès 1 000€. Conseil indépendant.',
-    url: 'https://www.orizia-courtage.fr/investir/crowdfunding',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-crowdfunding.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Investir dans le Crowdfunding Immobilier avec Orizia Courtage - Cindy Urbansky',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // -- 2. DONNÉES STRUCTURÉES (Optimisées E-E-A-T & GEO) --

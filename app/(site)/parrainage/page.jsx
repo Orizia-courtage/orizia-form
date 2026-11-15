@@ -1,4 +1,5 @@
-﻿import Link from 'next/link';
+import { shareMetadata } from '@/lib/share.mjs';
+import Link from 'next/link';
 import ParrainageForm from '@/components/ParrainageForm';
 import RetrouverLien from '@/components/RetrouverLien';
 import ContactPopup from '@/components/ContactPopup';
@@ -6,26 +7,8 @@ import ContactPopup from '@/components/ContactPopup';
 import Icon from '@/components/Icon';
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
-  title: 'Programme de Parrainage Orizia : jusqu\'à 200€ | Orizia Courtage',
-  description:
-    'Recommandez-moi à vos proches et recevez jusqu\'à 200€ par dossier finalisé. Crédit immobilier, assurance emprunteur et placements.',
+  ...shareMetadata('parrainage'),
   alternates: { canonical: 'https://www.orizia-courtage.fr/parrainage' },
-  openGraph: {
-    title: 'Programme de Parrainage Orizia : Gagnez jusqu\'à 200€',
-    description: 'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux. Crédit, assurance, placements — chaque dossier finalisé est récompensé.',
-    url: 'https://www.orizia-courtage.fr/parrainage',
-    siteName: 'Orizia Courtage',
-    images: [
-      {
-        url: 'https://www.orizia-courtage.fr/images/og-parrainage.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Programme de parrainage Orizia Courtage — Gagnez jusqu\'à 200€',
-      },
-    ],
-    locale: 'fr_FR',
-    type: 'website',
-  },
 };
 
 // ── 2. DONNÉES STRUCTURÉES ──
