@@ -201,3 +201,5 @@ a.oza-universe:hover { box-shadow: var(--oz-shadow); transform: translateY(-2px)
   .oza-card { transition: none; }
   .oza-card:hover { transform: none; }
 }
+
+.oza-author-credentials { margin-top: 4px; font-size: .82rem; color: var(--oz-ink-soft, #4b4f49); }

@@ -1,9 +1,10 @@
+import { notifySearchEngines } from '@/lib/indexnow.mjs';
 import { timingSafeEqual } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import {
-  SILOS, SITE_PAGES,
-  articleUrl, deleteArticle, getAllArticles, getArticle,
+  ARTICLE_TYPES, BASE_URL, SILOS, SITE_PAGES,
+  articleUrl, listingPath, deleteArticle, getAllArticles, getArticle,
   normalizeArticle, previewUrl, saveArticle, summarize,
 } from '@/lib/articles.mjs';
 
@@ -26,9 +27,14 @@ function guard(request) {
 
 // Une publication touche beaucoup de pages (listes par univers, « À lire aussi », sitemap) :
 // on rafraîchit tout le site, qui est petit, plutôt que de risquer une page restée ancienne.
-function refresh() {
+function refresh(article) {
   revalidatePath('/', 'layout');
   revalidatePath('/sitemap.xml');
+  // Moteurs prévenus (seulement quand l'indexation est activée) : l'article, sa liste et la page du blog.
+  if (article) {
+    const section = ARTICLE_TYPES[article.type]?.path || '/blog';
+    notifySearchEngines([articleUrl(article), `${BASE_URL}${section}`, ...(SILOS[article.silo] ? [`${BASE_URL}${listingPath(article.type, article.silo)}`] : [])]);
+  }
 }
 
 // Liste de tous les articles (brouillons compris) + structure du site, pour le maillage du cocon.

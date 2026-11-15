@@ -4,7 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import ArticleCard from '@/components/ArticleCard';
 import { COMPANY } from '@/lib/company.mjs';
 import {
-  ARTICLE_TYPES, AUTHOR, BASE_URL, SILOS, SITE_PAGES,
+  ARTICLE_TYPES, AUTHOR, BASE_URL, CREDENTIALS, SILOS, SITE_PAGES, authorSchema,
   absoluteUrl, articleUrl, formatDate, getRelatedArticles, siloNotice,
 } from '@/lib/articles.mjs';
 import { renderArticleBody } from '@/lib/article-render.mjs';
@@ -32,7 +32,7 @@ function buildSchemas(article) {
       ...(article.image ? { image: [absoluteUrl(article.image.url)] } : {}),
       ...(silo ? { articleSection: silo.label } : {}),
       ...(article.keywords?.length ? { keywords: article.keywords.join(', ') } : {}),
-      author: { '@type': 'Person', name: AUTHOR.name, jobTitle: AUTHOR.jobTitle, url: AUTHOR.url },
+      author: authorSchema(),
       publisher: {
         '@type': 'Organization',
         '@id': `${BASE_URL}/#organization`,
@@ -178,7 +178,8 @@ export default async function ArticleView({ article, preview = false }) {
               <Image src={AUTHOR.avatar} alt={AUTHOR.name} width={64} height={64} />
               <div>
                 <p className="oza-author-name"><Link href={AUTHOR.path}>{AUTHOR.name}</Link></p>
-                <p>{AUTHOR.jobTitle}, à {COMPANY.address.city} ({COMPANY.address.region}).</p>
+                <p>{AUTHOR.jobTitle}, à {COMPANY.address.city} ({COMPANY.address.region}). {AUTHOR.experience}. {AUTHOR.role}.</p>
+                {CREDENTIALS.length > 0 && <p className="oza-author-credentials">{CREDENTIALS.map((item) => item.name).join(' · ')}</p>}
               </div>
               <ContactPopup label="Parler de mon projet" icon="calendar-days" className="fin-btn-primary" />
             </aside>
