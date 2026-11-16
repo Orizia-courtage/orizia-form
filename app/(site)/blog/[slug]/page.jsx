@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
   const listing = listingKey(TYPE, slug);
   if (listing) {
     const articles = await getPublishedArticles(TYPE);
-    return listingMetadata(TYPE, listing, listing === 'all' ? articles.length : articles.filter((article) => article.silo === listing).length);
+    return listingMetadata(TYPE, { silo: listing }, listing === 'all' ? articles.length : articles.filter((article) => article.silo === listing).length);
   }
   const article = await getArticle(TYPE, slug);
   return article ? buildArticleMetadata(article) : {};
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
 export default async function ArticlePage({ params }) {
   const { slug } = await params;
   const listing = listingKey(TYPE, slug);
-  if (listing) return <ArticleListing type={TYPE} listing={listing} articles={await getPublishedArticles(TYPE)} />;
+  if (listing) return <ArticleListing type={TYPE} listing={{ silo: listing }} articles={await getPublishedArticles(TYPE)} />;
   const article = await getArticle(TYPE, slug);
   if (!article) notFound();
   return <ArticleView article={article} />;

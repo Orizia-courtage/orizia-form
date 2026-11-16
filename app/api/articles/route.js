@@ -3,8 +3,8 @@ import { timingSafeEqual } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import {
-  ARTICLE_TYPES, BASE_URL, SILOS, SITE_PAGES,
-  articleUrl, listingPath, deleteArticle, getAllArticles, getArticle,
+  ARTICLE_TYPES, BASE_URL, SILOS, SITE_PAGES, THEMES, getFullArticles,
+  articleUrl, listingHref, listingPath, deleteArticle, getAllArticles, getArticle,
   normalizeArticle, previewUrl, saveArticle, summarize,
 } from '@/lib/articles.mjs';
 
@@ -33,7 +33,7 @@ function refresh(article) {
   // Moteurs prévenus (seulement quand l'indexation est activée) : l'article, sa liste et la page du blog.
   if (article) {
     const section = ARTICLE_TYPES[article.type]?.path || '/blog';
-    notifySearchEngines([articleUrl(article), `${BASE_URL}${section}`, ...(SILOS[article.silo] ? [`${BASE_URL}${listingPath(article.type, article.silo)}`] : [])]);
+    notifySearchEngines([articleUrl(article), `${BASE_URL}${section}`, ...(SILOS[article.silo] ? [`${BASE_URL}${listingPath(article.type, article.silo)}`] : []), ...(article.theme && SILOS[article.silo] ? [`${BASE_URL}${listingHref(article.type, article.silo, article.theme)}`] : [])]);
   }
 }
 
@@ -50,11 +50,20 @@ export async function GET(request) {
     if (!article) return json({ error: 'Article introuvable.' }, 404);
     return json({ article, url: articleUrl(article), previewUrl: previewUrl(article) });
   }
-  // ?full=1 : avec le texte des articles (pour placer les liens de maillage dans les articles existants).
+  // ?bodies=blog:slug-a,actualite:slug-b : ces articles avec leur texte (maillage proposé par le pipeline).
+  if (params.get('bodies')) {
+    const refs = params.get('bodies').split(',').map((ref) => { const [refType, refSlug] = ref.split(':'); return { type: refType, slug: refSlug }; });
+    const full = await getFullArticles(refs);
+    return json({ articles: full.map((article) => ({ ...summarize(article), body: article.body })) });
+  }
+  // ?full=1 (ancien format) : tous les articles avec leur texte. À éviter : lourd quand le blog grandit.
   const full = params.get('full') === '1';
-  const articles = (await getAllArticles()).filter((article) => !type || article.type === type).map((article) => (full ? { ...summarize(article), body: article.body } : summarize(article)));
+  const light = (await getAllArticles()).filter((article) => !type || article.type === type);
+  const bodies = full ? new Map((await getFullArticles(light.slice(0, 20))).map((article) => [`${article.type}:${article.slug}`, article.body])) : null;
+  const articles = light.map((article) => (bodies ? { ...summarize(article), body: bodies.get(`${article.type}:${article.slug}`) || '' } : summarize(article)));
   const silos = Object.fromEntries(Object.entries(SILOS).map(([key, silo]) => [key, { label: silo.label, path: silo.path }]));
-  return json({ articles, silos, pages: SITE_PAGES });
+  const themes = Object.fromEntries(Object.entries(THEMES).map(([key, theme]) => [key, { label: theme.label, silo: theme.silo, path: theme.path }]));
+  return json({ articles, silos, themes, pages: SITE_PAGES });
 }
 
 // Crée ou met à jour un article. status « draft » = visible seulement par le lien d'aperçu ;

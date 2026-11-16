@@ -4,7 +4,7 @@ import ContactPopup from '@/components/ContactPopup';
 import ArticleCard from '@/components/ArticleCard';
 import { COMPANY } from '@/lib/company.mjs';
 import {
-  ARTICLE_TYPES, AUTHOR, BASE_URL, CREDENTIALS, SILOS, SITE_PAGES, authorSchema,
+  ARTICLE_TYPES, AUTHOR, BASE_URL, CREDENTIALS, SILOS, SITE_PAGES, THEMES, authorSchema, listingHref,
   absoluteUrl, articleUrl, formatDate, getRelatedArticles, siloNotice,
 } from '@/lib/articles.mjs';
 import { renderArticleBody } from '@/lib/article-render.mjs';
@@ -47,7 +47,10 @@ function buildSchemas(article) {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: BASE_URL },
         { '@type': 'ListItem', position: 2, name: type.label, item: `${BASE_URL}${type.path}` },
-        { '@type': 'ListItem', position: 3, name: article.title, item: url },
+        // Fil d'Ariane du cocon : blog › univers › thème › article.
+        ...(SILOS[article.silo] ? [{ '@type': 'ListItem', position: 3, name: SILOS[article.silo].label, item: `${BASE_URL}${listingHref(article.type, article.silo)}` }] : []),
+        ...(SILOS[article.silo] && THEMES[article.theme] ? [{ '@type': 'ListItem', position: 4, name: THEMES[article.theme].label, item: `${BASE_URL}${listingHref(article.type, article.silo, article.theme)}` }] : []),
+        { '@type': 'ListItem', position: 2 + (SILOS[article.silo] ? 1 : 0) + (SILOS[article.silo] && THEMES[article.theme] ? 1 : 0) + 1, name: article.title, item: url },
       ],
     },
   ];
@@ -190,6 +193,9 @@ export default async function ArticleView({ article, preview = false }) {
           <section className="oza-related" aria-labelledby="a-lire-aussi">
             <div className="oza-related-inner">
               <h2 id="a-lire-aussi">À lire aussi</h2>
+              {SILOS[article.silo] && THEMES[article.theme] && (
+                <p className="oza-related-more"><Link href={listingHref(article.type, article.silo, article.theme)}>{article.type === 'blog' ? 'Tous les guides' : 'Toutes les actualités'} : {THEMES[article.theme].label} →</Link></p>
+              )}
               <div className="oza-grid">
                 {related.map((item) => <ArticleCard key={`${item.type}:${item.slug}`} article={item} heading="h3" />)}
               </div>

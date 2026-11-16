@@ -1,4 +1,4 @@
-﻿import { SILOS, articleUrl, getPublishedArticles, listingPath } from '@/lib/articles.mjs';
+﻿import { SILOS, THEMES, articleUrl, getPublishedArticles, listingHref, listingPath } from '@/lib/articles.mjs';
 
 const BASE_URL = 'https://www.orizia-courtage.fr';
 
@@ -17,12 +17,12 @@ export default async function sitemap() {
   const listings = ['blog', 'actualite'].flatMap((type) => {
     const ofType = published.filter((article) => article.type === type);
     const keys = Object.keys(SILOS).filter((key) => ofType.some((article) => article.silo === key));
-    return (ofType.length ? [...keys, 'all'] : []).map((key) => ({
-      url: `${BASE_URL}${listingPath(type, key)}`,
-      lastModified: new Date(ofType[0].updatedAt || ofType[0].publishedAt),
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    }));
+    const lastModified = ofType.length ? new Date(ofType[0].updatedAt || ofType[0].publishedAt) : new Date();
+    const silos = (ofType.length ? [...keys, 'all'] : []).map((key) => ({ url: `${BASE_URL}${listingPath(type, key)}`, lastModified, changeFrequency: 'weekly', priority: 0.6 }));
+    // Pages de thème (première page) qui ont des articles.
+    const themes = Object.entries(THEMES).filter(([key]) => ofType.some((article) => article.theme === key))
+      .map(([key, theme]) => ({ url: `${BASE_URL}${listingHref(type, theme.silo, key)}`, lastModified, changeFrequency: 'weekly', priority: 0.6 }));
+    return [...silos, ...themes];
   });
 
   return [
