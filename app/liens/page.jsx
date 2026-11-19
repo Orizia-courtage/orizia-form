@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Icon from '@/components/Icon';
 import { COMPANY } from '@/lib/company.mjs';
-import { getLatestPosts } from '@/lib/blog.mjs';
+import { ARTICLE_TYPES, SILOS, articlePath, getPublishedArticles } from '@/lib/articles.mjs';
+import { CAL_TIME_ZONE, fetchCalSlots } from '@/lib/cal-slots.mjs';
 import LiensTracker from './LiensTracker';
 import LiensStatus from './LiensStatus';
 import LiensBooking from './LiensBooking';
@@ -25,6 +26,18 @@ export const metadata = {
 
 export const viewport = { themeColor: '#1b1d1a' };
 
+// Articles publiés depuis le CRM (la publication relance la page) et créneaux Cal.com : relus toutes les 5 minutes.
+export const revalidate = 300;
+
+// Créneaux des 3 prochaines semaines, chargés avec la page : l'agenda s'affiche même si /api est bloqué par le pare-feu.
+async function initialSlots() {
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: CAL_TIME_ZONE }).format(new Date());
+  const end = new Date(`${today}T12:00:00Z`);
+  end.setUTCDate(end.getUTCDate() + 21);
+  const { slots } = await fetchCalSlots(today, end.toISOString().slice(0, 10), { revalidate: 300 });
+  return slots || null;
+}
+
 // Les liens internes gardent la trace de la provenance (Instagram) dans les statistiques.
 const utm = (href) => `${href}${href.includes('?') ? '&' : '?'}utm_source=instagram&utm_medium=bio`;
 
@@ -32,7 +45,6 @@ const QUICK = [
   { id: 'appel', icon: 'phone', label: 'Appeler', href: `tel:${COMPANY.phoneE164}` },
   { id: 'whatsapp', icon: 'message-circle', label: 'WhatsApp', href: 'https://wa.me/33777259706?text=Bonjour%20Cindy%2C%20je%20viens%20d%E2%80%99Instagram%20%3A%20', external: true },
   { id: 'email', icon: 'mail', label: 'E-mail', href: `mailto:${COMPANY.email}?subject=Contact%20depuis%20Instagram` },
-  { id: 'vcard', icon: 'user-round', label: 'Enregistrer', href: '/cindy-urbansky.vcf', download: true },
 ];
 
 const PROJETS = [
@@ -49,8 +61,17 @@ const SOCIALS = [
 
 const dateFmt = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short', timeZone: 'Europe/Paris' });
 
-export default function LiensPage() {
-  const posts = getLatestPosts(3);
+export default async function LiensPage() {
+  const [articles, slots] = await Promise.all([getPublishedArticles(), initialSlots()]);
+  const posts = articles.slice(0, 3).map((a) => ({
+    url: articlePath(a),
+    title: a.title,
+    excerpt: a.excerpt,
+    image: a.image?.url || (a.silo ? `/images/${a.silo}.webp` : null),
+    label: a.silo ? SILOS[a.silo]?.label : ARTICLE_TYPES[a.type]?.label,
+    date: a.publishedAt || a.updatedAt,
+    minutes: a.readMinutes,
+  }));
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Orizia Courtage, ${COMPANY.addressInline}`)}`;
 
   return (
@@ -90,7 +111,7 @@ export default function LiensPage() {
             <span className="lk-kicker"><Icon name="calendar-check" /> 30 min · visio ou téléphone · gratuit</span>
             <h2 id="lk-rdv-title" className="lk-title">Réservez <em>votre créneau</em></h2>
           </div>
-          <LiensBooking />
+          <LiensBooking initialSlots={slots} />
         </section>
 
         {/* ── Projets ── */}
@@ -126,11 +147,11 @@ export default function LiensPage() {
               {posts.map((post, i) => (
                 <a key={post.url} href={utm(post.url)} className="lk-post" role="listitem" data-track={`article-${i + 1}`}>
                   <span className="lk-post-img">
-                    <Image src={post.image} alt="" fill sizes="(max-width: 520px) 78vw, 340px" style={{ objectFit: 'cover' }} />
+                    {post.image && <Image src={post.image} alt="" fill sizes="(max-width: 520px) 78vw, 340px" style={{ objectFit: 'cover' }} />}
                     {i === 0 && <span className="lk-post-new">Nouveau</span>}
                   </span>
                   <span className="lk-post-body">
-                    <span className="lk-post-meta">{post.categoryLabel} · {dateFmt.format(new Date(post.date))} · {post.readingMinutes} min</span>
+                    <span className="lk-post-meta">{[post.label, post.date && dateFmt.format(new Date(post.date)), post.minutes && `${post.minutes} min`].filter(Boolean).join(' · ')}</span>
                     <strong>{post.title}</strong>
                     {post.excerpt && <small>{post.excerpt}</small>}
                   </span>
