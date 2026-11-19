@@ -2,6 +2,7 @@ import { notifySearchEngines } from '@/lib/indexnow.mjs';
 import { timingSafeEqual } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
+import { cleanArticle } from '@/lib/clean-text.mjs';
 import {
   ARTICLE_TYPES, BASE_URL, SILOS, SITE_PAGES, THEMES, getFullArticles,
   articleUrl, listingHref, listingPath, deleteArticle, getAllArticles, getArticle,
@@ -72,7 +73,8 @@ export async function PUT(request) {
   const denied = guard(request);
   if (denied) return denied;
   const body = await request.json().catch(() => null);
-  const input = body?.article;
+  // Textes nettoyés avant tout enregistrement (caractères invisibles, espaces spéciaux, apostrophes, tirets).
+  const input = body?.article ? cleanArticle(body.article) : body?.article;
   const previous = input?.type && input?.slug ? await getArticle(input.type, input.slug, { includeDrafts: true }) : null;
   const { article, error } = normalizeArticle(input, previous);
   if (error) return json({ code: 'INVALID', error }, 400);
