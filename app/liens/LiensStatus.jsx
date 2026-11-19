@@ -1,16 +1,16 @@
 'use client';
 import { useSyncExternalStore } from 'react';
 
-// Pastille « en ligne / hors bureau » selon l'heure de Paris (lun.–ven. 9 h–19 h, sam. 9 h–12 h).
+// Pastille « en ligne / hors bureau » selon l'heure de Paris (lun.–ven. 9 h–18 h).
 function statusNow() {
   const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
   const day = parts.find((p) => p.type === 'weekday')?.value;
   const hour = Number(parts.find((p) => p.type === 'hour')?.value);
   const weekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(day);
-  if ((weekday && hour >= 9 && hour < 19) || (day === 'Sat' && hour >= 9 && hour < 12)) {
+  if (weekday && hour >= 9 && hour < 18) {
     return { open: true, text: 'Au bureau · réponse dans la journée' };
   }
-  if (day === 'Sat' || day === 'Sun') return { open: false, text: 'Hors bureau · réponse lundi matin' };
+  if (day === 'Sat' || day === 'Sun' || (day === 'Fri' && hour >= 18)) return { open: false, text: 'Hors bureau · réponse lundi matin' };
   if (hour < 9) return { open: false, text: 'Hors bureau · réponse dès 9 h' };
   return { open: false, text: 'Hors bureau · réponse demain matin' };
 }

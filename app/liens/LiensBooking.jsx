@@ -19,37 +19,51 @@ const fLong = fmt({ weekday: 'long', day: 'numeric', month: 'long' });
 const startOf = (v) => (typeof v === 'string' ? v : v?.start);
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function LiensBooking() {
-  const [state, setState] = useState('loading'); // loading | ready | error
-  const [slots, setSlots] = useState({});
-  const [day, setDay] = useState(null);
+// Garde les créneaux à venir, au format jour → [débuts].
+function cleanSlots(data) {
+  const now = new Date();
+  const clean = {};
+  for (const [k, list] of Object.entries(data || {})) {
+    const starts = (list || []).map(startOf).filter((s) => s && new Date(s) > now);
+    if (starts.length) clean[k] = starts;
+  }
+  return clean;
+}
+const firstDay = (slots) => Object.keys(slots).sort()[0] || null;
+
+export default function LiensBooking({ initialSlots = null }) {
+  // Créneaux livrés avec la page (si Cal.com a répondu au serveur), puis rafraîchis en arrière-plan.
+  const [initial] = useState(() => (initialSlots ? cleanSlots(initialSlots) : null));
+  const [state, setState] = useState(initial ? 'ready' : 'loading'); // loading | ready | error
+  const [slots, setSlots] = useState(initial || {});
+  const [day, setDay] = useState(() => (initial ? firstDay(initial) : null));
   const [chosen, setChosen] = useState(null);
   const [form, setForm] = useState({ name: '', email: '', phone: '' });
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState('');
   const [booked, setBooked] = useState(null);
 
-  const load = useCallback(async () => {
-    setState('loading');
+  const load = useCallback(async (silent = false) => {
+    if (!silent) setState('loading');
     const start = parisDay();
     try {
       const res = await fetch(`/api/cal/slots?start=${start}&end=${addDays(start, DAYS_AHEAD)}`);
       if (!res.ok) throw new Error();
       const { slots: data = {} } = await res.json();
-      const clean = {};
-      for (const [k, list] of Object.entries(data)) {
-        const starts = (list || []).map(startOf).filter((s) => s && new Date(s) > new Date());
-        if (starts.length) clean[k] = starts;
-      }
+      const clean = cleanSlots(data);
       setSlots(clean);
-      setDay((current) => (current && clean[current] ? current : Object.keys(clean).sort()[0] || null));
+      setDay((current) => (current && clean[current] ? current : firstDay(clean)));
       setState('ready');
     } catch {
-      setState('error');
+      // Rafraîchissement impossible : on garde les créneaux livrés avec la page s'il y en a.
+      if (!silent) setState('error');
     }
   }, []);
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    const id = setTimeout(() => load(Boolean(initial)), 0);
+    return () => clearTimeout(id);
+  }, [load, initial]);
 
   const days = useMemo(() => Object.keys(slots).sort(), [slots]);
 
@@ -67,14 +81,19 @@ export default function LiensBooking() {
       });
       const payload = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setFormError(payload.error || 'La réservation n’a pas abouti. Réessayez.');
-        if (res.status === 409) { setChosen(null); load(); }
+        if (res.status === 409) {
+          setFormError(payload.error || 'Ce créneau vient d’être pris. Choisissez-en un autre.');
+          setChosen(null);
+          load(true);
+        } else {
+          setFormError('blocked');
+        }
         return;
       }
       track('liens_rdv_reserve');
       setBooked({ start: chosen, email: form.email.trim() });
     } catch {
-      setFormError('Connexion impossible. Vérifiez votre réseau et réessayez.');
+      setFormError('blocked');
     } finally {
       setSending(false);
     }
@@ -161,7 +180,13 @@ export default function LiensBooking() {
             value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
           <input className="lk-input" type="tel" name="phone" autoComplete="tel" inputMode="tel" placeholder="Téléphone (facultatif)"
             value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-          {formError && <p className="lk-form-error" role="alert">{formError}</p>}
+          {formError === 'blocked' ? (
+            <p className="lk-form-error" role="alert">
+              La réservation n’a pas pu partir d’ici.{' '}
+              <a href={`${CAL_URL}?date=${parisDay(new Date(chosen))}`} target="_blank" rel="noopener noreferrer" data-track="rdv-calcom-secours">Finaliser ce créneau sur l’agenda</a>{' '}
+              ou appelez le <a href="tel:+33777259706">07 77 25 97 06</a>.
+            </p>
+          ) : formError && <p className="lk-form-error" role="alert">{formError}</p>}
           <button className="lk-btn lk-btn--full" type="submit" disabled={sending} data-track="rdv-confirmer">
             {sending ? 'Réservation…' : <>Confirmer le rendez-vous <Icon name="arrow-right" /></>}
           </button>
