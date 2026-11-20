@@ -72,7 +72,7 @@ const faqSchema = {
       name: "Puis-je vraiment changer d'assurance quand je veux ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Absolument ! Depuis la loi Lemoine (2022), vous êtes totalement libre de quitter l'assurance de votre banque à n'importe quel moment. Plus besoin d'attendre la date anniversaire. Vous pouvez changer dès le lendemain de la signature de votre prêt, ou 5 ans après.",
+        text: "Absolument ! Depuis la loi Lemoine (2022), vous pouvez changer d'assurance de prêt à tout moment, sans attendre la date anniversaire, dès le lendemain de la signature de votre prêt. La banque doit accepter le nouveau contrat s'il présente un niveau de garanties équivalent à celui qu'elle exige ; à défaut, elle peut refuser en motivant sa décision.",
       },
     },
     {
@@ -80,7 +80,7 @@ const faqSchema = {
       name: "Combien d'argent puis-je espérer récupérer ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est l'un des postes où l'optimisation peut être la plus importante. Selon le capital restant, votre âge et votre contrat actuel, l'économie peut atteindre plusieurs milliers d'euros sur la durée restante de leur prêt. Les contrats indépendants sont souvent 50% moins chers que ceux des banques, à garanties strictement égales.",
+        text: "C'est l'un des postes où l'optimisation peut être la plus importante. Selon le capital restant, votre âge et votre contrat actuel, l'économie peut atteindre plusieurs milliers d'euros sur la durée restante de leur prêt. À garanties équivalentes, un contrat individuel peut coûter sensiblement moins cher que le contrat groupe de la banque : l'écart dépend de votre âge, de votre santé et de votre prêt.",
       },
     },
     {
@@ -96,7 +96,7 @@ const faqSchema = {
       name: "Vais-je devoir passer des examens médicaux ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "C'est la magie de la loi Lemoine : le questionnaire de santé a disparu ! Si vous empruntez moins de 200 000€ par personne (400 000€ pour un couple) et que vous finissez de rembourser avant 60 ans, on ne vous posera aucune question sur votre santé.",
+        text: "Depuis la loi Lemoine, le questionnaire de santé est supprimé sous deux conditions : la part de prêt immobilier assurée ne dépasse pas 200 000 € par personne (400 000 € pour un couple assuré à 100 % chacun), et le prêt est entièrement remboursé avant votre 60e anniversaire. Au-delà, un questionnaire peut être demandé.",
       },
     },
     {
@@ -112,7 +112,7 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: "Jusqu'à\u00A040%", label: 'Du coût total de votre crédit', icon: 'coins' },
-  { value: 'Jusqu\'à\u00A015\u00A0000\u00A0€', label: 'D\'économies sur la durée du prêt', icon: 'euro' },
+  { value: 'Jusqu\'à\u00A015\u00A0000\u00A0€', label: 'D\'économie possible sur la durée du prêt*, selon capital, âge et contrat', icon: 'euro' },
   { value: 'Jusqu\'à\u00A0-50\u00A0%', label: "Sur votre taux d'assurance", icon: 'trending-up' },
   { value: '0\u00A0effort', label: 'Je gère toute la paperasse', icon: 'circle-check' },
 ];
@@ -144,7 +144,7 @@ const LOI_LEMOINE_POINTS = [
 ];
 
 const ETAPES = [
-  { n: '01', title: "J'épluche votre contrat actuel",         text: "Envoyez-moi votre offre de prêt. Je décortique ce que vous payez aujourd'hui et je vous donne un chiffre clair : combien vous allez économiser." },
+  { n: '01', title: "J'épluche votre contrat actuel",         text: "Envoyez-moi votre offre de prêt. Je décortique ce que vous payez aujourd'hui et je vous donne une estimation chiffrée de l'économie possible, avec les hypothèses retenues." },
   { n: '02', title: 'Je sélectionne le contrat parfait',      text: "En tant qu'indépendante, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver un tarif adapté, avec des garanties équivalentes à celles exigées par votre banque." },
   { n: '03', title: 'Je monte au front face à la banque',     text: "C'est la partie que mes clients détestent, et c'est mon expertise. Je prépare le dossier, j'envoie la résiliation, je relance votre banquier. Je gère le bras de fer." },
   { n: '04', title: 'Vous constatez la baisse de vos mensualités', text: 'Une fois la substitution acceptée, votre nouveau contrat prend le relais. Vous êtes aussi bien couvert, mais votre prélèvement mensuel fond considérablement.' },

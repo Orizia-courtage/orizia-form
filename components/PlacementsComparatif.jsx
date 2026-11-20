@@ -27,8 +27,8 @@ const PLACEMENTS = [
     rendement: '2–4 %',
     rendementNum: 3,
     duree: '8 ans+',
-    risque: 1,
-    risqueLabel: 'Très faible',
+    risque: 2,
+    risqueLabel: 'Faible (fonds euros) à élevé (unités de compte)',
     liquidite: 'Bonne',
     liquiditeOk: true,
     desc: 'Enveloppe fiscale polyvalente. Rendement limité sur fonds euros, meilleur avec des UC bien choisies.',
@@ -43,8 +43,8 @@ const PLACEMENTS = [
     rendementNum: 5,
     duree: '8–10 ans',
     risque: 3,
-    risqueLabel: 'Moyen · capital non garanti',
-    liquidite: 'Limitée',
+    risqueLabel: 'Moyen à élevé · capital et revenus non garantis',
+    liquidite: 'Limitée · revente non garantie',
     liquiditeOk: false,
     desc: 'Immobilier locatif sans gestion. Revenus réguliers, mais capital immobilisé sur le long terme.',
     pour: 'Revenus complémentaires réguliers',
@@ -54,16 +54,16 @@ const PLACEMENTS = [
     id: 'crowd',
     icon: 'trending-up',
     label: 'Crowdfunding',
-    rendement: '8–12 %',
+    rendement: '8–12 % brut',
     rendementNum: 10,
     duree: '1–3 ans',
     risque: 4,
-    risqueLabel: 'Élevé · perte en capital possible',
+    risqueLabel: 'Élevé · perte totale du capital possible',
     liquidite: 'Bloqué',
     liquiditeOk: false,
     desc: 'Le rendement visé le plus élevé, en contrepartie d\'un risque de perte en capital et de fonds bloqués jusqu\'à la fin du projet. À réserver à une petite part de votre épargne, avec des projets bien sélectionnés.',
     pour: 'Dynamiser un patrimoine existant',
-    highlight: true,
+    highlight: false,
   },
   {
     id: 'bourse',
@@ -164,7 +164,7 @@ export default function PlacementsComparatif() {
           {/* Barre de rendement visuelle */}
           <div className="plac-rendement-bar-wrap">
             <div className="plac-rendement-bar-label">
-              <span>Rendement potentiel</span>
+              <span>Rendement potentiel, non garanti</span>
               <span>{current.rendement}/an</span>
             </div>
             <div className="plac-rendement-bar-bg">
@@ -184,7 +184,7 @@ export default function PlacementsComparatif() {
       )}
 
       <p className="crowd-table-note" style={{ marginTop: 16 }}>
-        <Icon name="triangle-alert" /> Rendements indicatifs. Tout investissement comporte un risque de perte en capital.
+        <Icon name="triangle-alert" /> Ordres de grandeur indicatifs et non garantis, observés en 2025–2026. Ces chiffres ne mesurent pas la même chose (taux net du Livret A, rendement net de frais de gestion des fonds euros, taux de distribution brut des SCPI, taux d’intérêt brut visé par les projets de crowdfunding) et ne sont donc pas directement comparables. Hors Livret A et fonds euros, tout investissement comporte un risque de perte en capital. Les performances passées ne préjugent pas des performances futures.
       </p>
     </div>
   );

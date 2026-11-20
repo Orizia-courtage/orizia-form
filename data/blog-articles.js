@@ -158,8 +158,8 @@ export const BLOG_ARTICLES = [
   },
   {
     slug: 'credit-immobilier-taux-endettement-33-pourcent',
-    title: 'Taux d\'endettement à 33% : Comment calculer et optimiser',
-    excerpt: 'Le taux d\'endettement maximum est fixé à 33%. Découvrez comment le calculer et les astuces pour augmenter votre capacité d\'emprunt.',
+    title: 'Taux d\'endettement à 35% : Comment calculer et optimiser',
+    excerpt: 'Le taux d\'endettement maximum est fixé à 35%, assurance comprise (règle HCSF). Découvrez comment le calculer et les astuces pour augmenter votre capacité d\'emprunt.',
     silo: 'financer',
     level: 3,
     parent: 'credit-immobilier-obtenir-meilleur-taux-2026',
@@ -167,7 +167,7 @@ export const BLOG_ARTICLES = [
     readTime: '6 min',
     image: '/images/dossier_credit_immobilier.webp',
     author: 'Cindy Urbansky',
-    keywords: ['taux endettement', 'capacité emprunt', 'règle 33%'],
+    keywords: ['taux endettement', 'capacité emprunt', 'règle 35%', 'HCSF'],
   },
   {
     slug: 'regroupement-credits-quand-faire-rachat',

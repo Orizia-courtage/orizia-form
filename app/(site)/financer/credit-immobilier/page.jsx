@@ -107,7 +107,7 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: '+40', label: 'Offres bancaires comparées', icon: 'landmark' },
-  { value: '33%', label: 'Taux d\'endettement maximal légal', icon: 'chart-column' },
+  { value: '35%', label: 'Taux d\'endettement maximal (règle HCSF)', icon: 'chart-column' },
   { value: '24h', label: 'Pour calculer votre enveloppe', icon: 'timer' },
   { value: '1', label: 'Interlocutrice unique (moi)', icon: 'user' },
 ];
@@ -209,7 +209,7 @@ const OBJECTIONS = [
   },
   {
     q: '« On m\'a dit que j\'étais limite au niveau de l\'endettement. »',
-    r: 'C\'est précisément là que mon expertise intervient. Le calcul du taux d\'endettement (33 ou 35%) peut varier d\'une banque à l\'autre selon la façon dont on présente vos revenus ou si l\'on restructure vos petits crédits en cours.',
+    r: 'C\'est précisément là que mon expertise intervient. Le calcul du taux d\'endettement (plafonné à 35%, assurance comprise) peut varier d\'une banque à l\'autre selon la façon dont on présente vos revenus ou si l\'on restructure vos petits crédits en cours.',
   },
   {
     q: '« J\'ai eu un problème de santé, je n\'aurai pas mon prêt. »',
@@ -307,7 +307,7 @@ export default function CreditImmobilierPage() {
                   « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
                 </p>
                 <p className="ae-citation-text">
-                  Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
+                  Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour rechercher les conditions les plus adaptées à votre profil. Je suis votre bouclier face aux exigences des banquiers.
                 </p>
                 <span className="ae-citation-author">
 Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>

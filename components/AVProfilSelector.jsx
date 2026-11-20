@@ -183,15 +183,15 @@ export default function AVProfilSelector() {
               </div>
             </div>
             <div className="avps-repart-legend">
-              <span><span className="avps-dot" style={{ background: 'var(--orizia-primary)' }} />Fonds en euros — capital garanti</span>
-              <span><span className="avps-dot" style={{ background: profil.ucColor }} />Unités de compte — performance</span>
+              <span><span className="avps-dot" style={{ background: 'var(--orizia-primary)' }} />Fonds en euros — capital garanti par l’assureur, hors frais</span>
+              <span><span className="avps-dot" style={{ background: profil.ucColor }} />Unités de compte — risque de perte en capital</span>
             </div>
           </div>
 
           {/* Stats */}
           <div className="avps-stats">
             <div className="avps-stat">
-              <div className="avps-stat-label">Rendement estimé</div>
+              <div className="avps-stat-label">Rendement estimé, non garanti</div>
               <div className="avps-stat-value" style={{ color: profil.color }}>{profil.taux_label}</div>
             </div>
             <div className="avps-stat">
@@ -214,6 +214,11 @@ export default function AVProfilSelector() {
 
           {/* Simulateur */}
           <SimulateurRendement profil={profil} />
+          <p style={{ fontSize: '0.78rem', opacity: 0.7, marginTop: 12 }}>
+            Hypothèses : 0,5 %/an pour le fonds en euros et 5 %/an pour les unités de compte, performances brutes moyennes des 5 dernières années.
+            Rendements non garantis ; les unités de compte présentent un risque de perte en capital : l’assureur garantit le nombre de parts, pas leur valeur.
+            Les performances passées ne préjugent pas des performances futures. Profils donnés à titre d’illustration, sans valeur de conseil personnalisé.
+          </p>
 
           <ContactPopup label="Construire mon allocation sur-mesure" icon="calendar-days" className="fin-btn-primary" style={{ display: 'inline-flex', marginTop: 20 }} />
         </div>

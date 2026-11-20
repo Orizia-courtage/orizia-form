@@ -98,7 +98,7 @@ const faqSchema = {
       name: 'Pourquoi faire appel à un courtier pour un simple crédit conso ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Parce que les écarts de taux entre les organismes peuvent varier du simple au triple ! En passant par moi, vous évitez les "crédits revolving" toxiques, vous gagnez du temps (je consulte tous mes partenaires en une fois) et vous obtenez un prêt sur-mesure qui ne met pas votre budget quotidien dans le rouge.',
+        text: 'Parce que les écarts de taux entre les organismes peuvent varier du simple au triple ! En passant par moi, vous évitez les crédits renouvelables (« revolving ») souvent plus coûteux, vous gagnez du temps (je consulte tous mes partenaires en une fois) et vous obtenez un prêt sur-mesure qui ne met pas votre budget quotidien dans le rouge.',
       },
     },
   ],
@@ -139,7 +139,7 @@ const ETAPES = [
   {
     n: '02',
     title: 'Je consulte mes partenaires',
-    text: 'Je soumets votre dossier à mon réseau d\'organismes de crédit et de banques partenaires. J\'épluche les TAEG pour vous sortir l\'offre la moins chère.',
+    text: 'Je soumets votre dossier à mon réseau d\'organismes de crédit et de banques partenaires. J\'épluche les TAEG pour rechercher l\'offre la plus adaptée à votre profil.',
   },
   {
     n: '03',

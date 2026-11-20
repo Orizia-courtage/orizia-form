@@ -34,6 +34,13 @@ const SOUS_TRAITANTS = [
   ['Orizia Courtage (serveur en France)', 'Automatisation du traitement des demandes du site', 'France'],
 ];
 
+// Cookies et stockage local réellement utilisés (relevé du 20/11/2026) : à tenir à jour à chaque nouvel outil.
+const TRACEURS = [
+  ['Cookie « __cf_bm » (Cal.com, via Cloudflare)', 'Déposé par l\'agenda de prise de rendez-vous Cal.com, sur la page Contact ou quand vous ouvrez l\'agenda. Il sert uniquement à distinguer les visiteurs humains des robots (sécurité). Cal.com transmet aussi ses rapports d\'erreurs techniques à son prestataire Sentry, sans cookie.', '30 minutes'],
+  ['Cloudflare Turnstile', 'Vérification anti-robot des formulaires (contact, rappel, simulation, recommandation). Elle analyse des signaux techniques de votre navigateur au moment de l\'envoi, sans cookie publicitaire ni suivi.', 'Le temps de la vérification'],
+  ['Brouillon du formulaire de simulation', 'Garde vos réponses en mémoire dans votre navigateur (stockage de session) si vous rechargez la page en cours de saisie. Rien n\'est envoyé tant que vous ne validez pas.', 'Effacé à l\'envoi ou à la fermeture de l\'onglet'],
+];
+
 export default function ConfidentialitePage() {
   return (
     <>
@@ -167,7 +174,33 @@ export default function ConfidentialitePage() {
           6. Gestion des Cookies
         </h2>
         <p>
-          Mon site web utilise un minimum de cookies. Ils servent principalement à assurer le bon fonctionnement technique du site (par exemple, la prise de rendez-vous en ligne via Cal.com) et à mesurer anonymement l'audience pour améliorer votre expérience de navigation. Aucun cookie publicitaire intrusif n'est utilisé sans votre consentement explicite.
+          Ce site ne dépose <strong>aucun cookie publicitaire, aucun cookie de réseau social et aucun cookie de mesure d'audience</strong>. C'est pourquoi aucun bandeau ne vous demande votre accord : les seuls éléments utilisés ci-dessous sont nécessaires au service que vous demandez ou à la sécurité du site, et sont dispensés de consentement (article 82 de la loi Informatique et Libertés, lignes directrices de la CNIL).
+        </p>
+        <div style={{ overflowX: 'auto', marginTop: '12px' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
+            <thead>
+              <tr style={{ textAlign: 'left', borderBottom: '2px solid #e3e7e4' }}>
+                <th style={{ padding: '8px 10px 8px 0' }}>Élément</th>
+                <th style={{ padding: '8px 10px' }}>Quand et pourquoi</th>
+                <th style={{ padding: '8px 0 8px 10px' }}>Durée</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TRACEURS.map(([nom, role, duree]) => (
+                <tr key={nom} style={{ borderBottom: '1px solid #eef1ef', verticalAlign: 'top' }}>
+                  <td style={{ padding: '8px 10px 8px 0', fontWeight: 600 }}>{nom}</td>
+                  <td style={{ padding: '8px 10px' }}>{role}</td>
+                  <td style={{ padding: '8px 0 8px 10px' }}>{duree}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ marginTop: '12px' }}>
+          <strong>Mesure d'audience :</strong> j'utilise Vercel Web Analytics et Speed Insights, qui fonctionnent <strong>sans cookie</strong> et ne conservent aucun identifiant d'un jour à l'autre. Ils me donnent uniquement des statistiques globales (pages vues, provenance, temps de chargement), sans permettre de vous suivre d'un site à l'autre.
+        </p>
+        <p style={{ marginTop: '12px' }}>
+          Vous pouvez à tout moment supprimer ou bloquer les cookies depuis les réglages de votre navigateur. Bloquer le cookie de Cal.com peut empêcher l'agenda en ligne de s'afficher : vous pouvez alors me joindre par téléphone ou par e-mail.
         </p>
       </section>
 
