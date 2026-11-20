@@ -32,7 +32,7 @@ const PRODUITS = [
     title: 'Prêt personnel',
     sub: 'Auto · Travaux · Trésorerie',
     desc: 'Je compare les TAEG du marché et élimine les assurances facultatives imposées. Vous financez vos projets, pas les marges des organismes prêteurs.',
-    points: ['TAEG négocié pour votre profil', 'Sans assurances toxiques', 'Réponse de principe sous 24 à 48\u00a0h'],
+    points: ['TAEG négocié pour votre profil', 'Assurances facultatives expliquées', 'Réponse de principe sous 24 à 48\u00a0h'],
     color: '#a87a2c',
     featured: false,
   },

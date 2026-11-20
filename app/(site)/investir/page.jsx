@@ -227,7 +227,7 @@ export default function InvestirPage() {
                   c'est de laisser son argent se faire grignoter par l'inflation par peur de mal faire. »
                 </p>
                 <p className="ae-citation-text">
-                  Mon rôle est de démystifier l'investissement. Je filtre les produits toxiques
+                  Mon rôle est de démystifier l'investissement. J'écarte les produits inadaptés
                   ou trop chargés en frais, et je construis une stratégie qui vous ressemble.
                   En toute indépendance, sans jargon financier.
                 </p>

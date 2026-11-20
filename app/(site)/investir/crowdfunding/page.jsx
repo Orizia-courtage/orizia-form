@@ -65,7 +65,7 @@ const investirCrowdfundingSchema = {
           name: 'Quel est le rendement moyen du crowdfunding immobilier en 2026 ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'En 2026, les projets visent généralement 8 à 12\u00a0% brut par an, sans garantie — bien au-dessus du Livret A (1,7\u00a0%) ou de l\'assurance vie en fonds euros (2–3%). Mais un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
+            text: 'En 2026, les projets visent généralement 8 à 12\u00a0% brut par an, sans garantie et avant impôts. Ce chiffre ne se compare pas directement au Livret A (1,7\u00a0%, net et sans risque) ni au fonds euros d\'une assurance vie (2–3%, capital garanti par l\'assureur) : un rendement élevé s\'accompagne toujours d\'un risque plus élevé. L\'analyse sérieuse du projet et du promoteur n\'est pas facultative.',
           },
         },
         {
@@ -108,7 +108,7 @@ const investirCrowdfundingSchema = {
 const faqSchema = investirCrowdfundingSchema['@graph'][2];
 
 const CHIFFRES = [
-  { value: '8–12%', label: 'Rendement annuel brut moyen', icon: 'trending-up' },
+  { value: '8–12%', label: 'Rendement annuel brut visé, non garanti', icon: 'trending-up' },
   { value: "Dès 1 000€", label: "Ticket d'entrée accessible", icon: 'euro' },
   { value: '12–36 mois', label: "Durée d'investissement typique", icon: 'timer' },
   { value: <>Flat tax <CrowdfundingTaxValue /></>, label: 'Fiscalité applicable aux intérêts', icon: 'landmark' },
@@ -133,12 +133,12 @@ const DANGERS = [
 ];
 
 const AVANTAGES = [
-  { icon: 'trending-up', title: '8–12% brut/an', text: 'Parmi les meilleurs rendements accessibles aux particuliers, bien au-dessus de l\'inflation et de tous les livrets bancaires.' },
+  { icon: 'trending-up', title: '8–12% brut/an', text: 'Taux d\'intérêt visé par les projets, avant impôts et non garanti. Ce rendement plus élevé que celui des livrets rémunère un risque plus élevé : retard, défaut du promoteur, perte du capital.' },
   { icon: 'euro', title: 'Dès 1 000€', text: 'L\'immobilier de rendement à portée de tous, sans mobiliser un apport important ni passer par un notaire.' },
   { icon: 'timer', title: '12–36 mois', text: 'Durée cible annoncée dès le départ (des retards sont fréquents) — pour une épargne de moyen terme dont vous n\'avez pas besoin tout de suite.' },
   { icon: 'construction', title: 'Actif tangible', text: 'Votre argent finance un projet immobilier réel : construction, rénovation ou marchand de biens. Un sous-jacent concret, pas de la spéculation.' },
   { icon: 'briefcase', title: 'Diversification efficace', text: 'Complément naturel d\'une assurance vie, d\'un PER ou d\'une SCPI pour dynamiser votre portefeuille sans le déséquilibrer.' },
-  { icon: 'target', title: 'Zéro gestion', text: 'Pas de locataire à gérer, pas de travaux imprévus, pas de taxe foncière. Un placement 100% passif et dématérialisé.' },
+  { icon: 'target', title: 'Pas de gestion locative', text: 'Pas de locataire à gérer, pas de travaux imprévus, pas de taxe foncière. En revanche, votre argent reste bloqué jusqu\'au remboursement du projet.' },
 ];
 
 const RISQUES = [
@@ -378,8 +378,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <div className="crd-point">
                 <div className="crd-point-icon"><Icon name="circle-check" /></div>
                 <div>
-                  <strong>Zéro gestion</strong>
-                  <p>Aucune gestion locative, aucune taxe foncière, aucun recours notarial. Un investissement 100% passif et dématérialisé.</p>
+                  <strong>Pas de gestion locative</strong>
+                  <p>Aucune gestion locative, aucune taxe foncière, aucun passage chez le notaire. Le suivi se fait en ligne, mais le capital reste bloqué jusqu'au remboursement.</p>
                 </div>
               </div>
               <div className="crd-point">
@@ -423,8 +423,8 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <span className="fin-badge">Les atouts</span>
               <h2>Pourquoi le crowdfunding immobilier<br />mérite une place dans votre patrimoine</h2>
               <p>
-                Haut rendement, durée courte, zéro gestion — à condition d'être bien accompagné
-                et de n'y allouer qu'une fraction adaptée à votre profil.
+                Un rendement visé plus élevé, en contrepartie d'un risque de perte en capital,
+                de retard et d'illiquidité : à réserver à une petite part de votre épargne.
               </p>
             </div>
             <div className="crowd-avantages-grid">
@@ -433,7 +433,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   key={a.title}
                   className="crowd-avantage-card"
                   style={
-                    a.title === '8–12% brut/an' || a.title === 'Zéro gestion'
+                    a.title === '8–12% brut/an'
                       ? { borderTop: '3px solid var(--orizia-gold)', background: 'rgba(107,182,155,0.04)' }
                       : {}
                   }
@@ -442,7 +442,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}><Icon name={a.icon} /></span>
                   </div>
-                  {(a.title === '8–12% brut/an' || a.title === 'Zéro gestion') && (
+                  {false && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
@@ -467,7 +467,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Comparatif objectif</span>
+              <span className="fin-badge">Comparatif indicatif</span>
               <h2>Le crowdfunding face aux autres placements</h2>
               <p>
                 Le crowdfunding n'est pas fait pour 100% de votre épargne — mais il a

@@ -335,7 +335,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   une durée négociés.
                 </p>
                 <p>
-                  Résultat immédiat : votre mensualité globale baisse, parfois de moitié.
+                  Résultat immédiat : votre mensualité globale peut baisser nettement, en contrepartie d’une durée plus longue et d’un coût total du crédit plus élevé.
                   Votre taux d'endettement se normalise. Vous retrouvez du <strong>reste à vivre</strong>{' '}
                   chaque mois.
                 </p>

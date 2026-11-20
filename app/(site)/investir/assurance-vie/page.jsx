@@ -65,7 +65,7 @@ const faqSchema = {
       name: 'Qu\'est-ce que l\'assurance vie ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'L\'assurance vie est une enveloppe fiscale dans laquelle vous investissez sur des supports en euros (capital garanti) et/ou en unités de compte (actions, obligations, SCPI…). Votre argent n\'est pas bloqué : vous pouvez retirer à tout moment. En cas de décès, le capital est transmis aux bénéficiaires désignés hors succession, avec une fiscalité très avantageuse.',
+        text: 'L\'assurance vie est une enveloppe fiscale dans laquelle vous investissez sur des supports en euros (capital garanti par l\'assureur, hors frais) et/ou en unités de compte (actions, obligations, SCPI…). Votre argent n\'est pas bloqué : vous pouvez retirer à tout moment. En cas de décès, le capital est transmis aux bénéficiaires désignés hors succession, avec une fiscalité très avantageuse.',
       },
     },
     {
@@ -73,7 +73,7 @@ const faqSchema = {
       name: 'Quel est le rendement d\'une assurance vie en 2026 ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'En 2026, les fonds en euros rapportent en moyenne 2,5 à 3,5% brut par an. Les unités de compte offrent un potentiel de 4 à 8%/an selon les supports, avec risque de perte en capital. Un profil équilibré (50% fonds euros / 50% UC) peut viser environ 2,75%/an ; un profil dynamique (20/80) peut tabler sur 4–5%/an sur le long terme.',
+        text: 'En 2026, les fonds en euros rapportent en moyenne 2,5 à 3,5% brut par an. Les unités de compte offrent un potentiel de 4 à 8%/an selon les supports, avec risque de perte en capital. Un profil équilibré (50% fonds euros / 50% UC) peut viser environ 2,75%/an ; un profil dynamique (20/80) peut tabler sur 4–5%/an sur le long terme. Ce sont des ordres de grandeur observés en 2025–2026, non garantis : les performances passées ne préjugent pas des performances futures.',
       },
     },
     {
@@ -141,7 +141,7 @@ const AVANTAGES = [
   {
     icon: 'trending-up',
     title: 'Double moteur de performance',
-    text: 'Combinez la sécurité du fonds en euros (capital garanti) avec le potentiel des unités de compte. Résultat : jusqu\'à 5–8%/an sur le long terme, sans tout risquer.',
+    text: 'Combinez la sécurité du fonds en euros (capital garanti) avec le potentiel des unités de compte. Objectif : un rendement potentiellement supérieur au seul fonds en euros sur le long terme, en acceptant un risque de perte en capital sur la part en unités de compte.',
   },
   {
     icon: 'euro',
@@ -174,7 +174,7 @@ const RISQUES = [
   {
     niveau: 'Faible', color: '#3e7f68', bg: '#edf7f2', border: '#b3ddcb', icon: 'circle-check',
     title: 'Perte sur fonds en euros',
-    text: 'Le fonds en euros est à capital garanti par l\'assureur. Sauf faillite (couverte jusqu\'à 70 000€ par le FGAP), vous ne pouvez pas perdre cette partie de votre épargne.',
+    text: 'Le capital placé sur le fonds en euros est garanti par l\'assureur, déduction faite des frais (sur versement et de gestion selon les contrats). En cas de défaillance de l\'assureur, le Fonds de garantie des assurances de personnes (FGAP) couvre jusqu\'à 70 000 € par assuré et par assureur.',
     mitigation: 'Mon rôle : sélectionner des assureurs solides avec des fonds euros compétitifs et transparents.',
   },
   {
@@ -262,7 +262,7 @@ const OBJECTIONS = [
   },
   {
     q: '« J\'ai peur de prendre des risques. »',
-    r: 'Je calibre l\'allocation à votre profil réel, pas à un profil théorique. Un profil prudent peut rester à 80–100% sur le fonds en euros, capital garanti. Vous ne prenez jamais plus de risque que ce que vous avez explicitement validé.',
+    r: 'Je calibre l\'allocation à votre profil réel, pas à un profil théorique. Un profil prudent peut rester à 80–100% sur le fonds en euros, dont le capital est garanti par l\'assureur (hors frais). Vous ne prenez jamais plus de risque que ce que vous avez explicitement validé.',
   },
   {
     q: '« Y a-t-il des frais de dossier ? »',
@@ -335,7 +335,7 @@ export default function AssuranceViePage() {
         <section className="fin-chiffres">
           <div className="ae-chiffres-inner fin-chiffres-inner">
             <div className="fin-chiffre"><strong><Icon name="coins" /> Plus de 2 000 Mds€</strong><span>Encours total en France</span></div>
-            <div className="fin-chiffre"><strong><Icon name="trending-up" /> 2,5–5%</strong><span>Rendement annuel selon profil</span></div>
+            <div className="fin-chiffre"><strong><Icon name="trending-up" /> 2,5–5%</strong><span>Rendement annuel estimé selon profil, non garanti</span></div>
             <div className="fin-chiffre"><strong><Icon name="users" /> 152 500€</strong><span>Exonération par bénéficiaire</span></div>
             <div className="fin-chiffre"><strong><Icon name="calendar-days" /> 8 ans</strong><span>Pour la fiscalité optimale</span></div>
           </div>
