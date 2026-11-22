@@ -7,6 +7,8 @@ import { takeAdminAttempt, takeQuota, visitorOf, DAILY_SCOPE, DAILY_LIMIT, DAY_M
 import { FROM, sendClientEmail } from '@/lib/crm-email.mjs';
 import { resolveReferral } from '@/lib/referral.mjs';
 import { accordLink } from '@/lib/parrainage-accord.mjs';
+import { creditWarning } from '@/lib/credit-notice.mjs';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 
 export const runtime = 'nodejs';
 
@@ -134,7 +136,7 @@ export async function POST(request) {
         <p>Concernant votre projet de <strong>Financement</strong>, voici mes domaines d'expertise :</p>
         <ul>
           <li><strong>Crédit immobilier :</strong> Pour votre projet d'acquisition.</li>
-          <li><strong>Regroupement de crédits :</strong> Pour réduire vos mensualités.</li>
+          <li><strong>Regroupement de crédits :</strong> Pour réunir vos crédits en une seule mensualité.</li>
           <li><strong>Prêt personnel :</strong> Pour financer vos projets divers.</li>
         </ul>`;
     } else if (projetKey === 'Assurer') {
@@ -148,6 +150,11 @@ export async function POST(request) {
     } else {
       projetContent = `<p>Je vous accompagne sur l'ensemble de vos projets de <strong>Financement, d'Assurance et d'Investissement</strong> afin de vous proposer la solution la plus adaptée à votre situation.</p>`;
     }
+
+    // Mentions obligatoires du crédit, quand le message en parle (projet « Financer » ou présentation générale).
+    const parleDeCredit = !['Investir', 'Assurer'].includes(projetKey);
+    const creditAlert = creditWarning();
+    const creditDetails = `Aucun versement, de quelque nature que ce soit, ne peut être exigé d'un particulier avant l'obtention d'un ou plusieurs prêts d'argent. Orizia Courtage n'agit pas en qualité de prêteur. ${CREDIT_STATUS}`;
 
     // Valeurs échappées pour l'interpolation HTML.
     const e = {
@@ -200,7 +207,8 @@ export async function POST(request) {
           <p>Vous pouvez aussi répondre directement à cet e-mail.</p>
           <p style="color:#5d6560; font-size:12px; line-height:1.5; border-top:1px solid #e3e7e4; padding-top:10px; margin-top:16px">Vous recevez ce message unique parce que ${e.parrainPrenom} m'a transmis vos coordonnées. Sans réponse de votre part, elles seront effacées sous 30 jours et vous ne recevrez aucun autre message.</p>`}
 
-          <p>Vous pouvez également consulter mon site pour découvrir mes solutions : <a href="${e.siteLink}" style="color:#1b1d1a;">${e.siteLink}</a>.</p>`,
+          <p>Vous pouvez également consulter mon site pour découvrir mes solutions : <a href="${e.siteLink}" style="color:#1b1d1a;">${e.siteLink}</a>.</p>
+          ${parleDeCredit ? `<p style="color:#5d6560; font-size:12px; line-height:1.5; border-top:1px solid #e3e7e4; padding-top:10px; margin-top:16px"><strong>${escapeHtml(creditAlert)}</strong> ${escapeHtml(creditDetails)}</p>` : ''}`,
       text: [
         `Bonjour ${filleulPrenom},`,
         viaCard ? `Merci d'avoir laissé vos coordonnées suite à la recommandation de ${parrainPrenom}. Je suis ravie de pouvoir vous accompagner.` : `${parrainPrenom} ${parrainNom} m'a parlé de vous et pense que je pourrais vous aider dans un projet. Je suis Cindy Urbansky, courtière chez Orizia Courtage.`,
@@ -210,6 +218,7 @@ Enregistrer mon contact : ${SITE_URL}/cindy-urbansky.vcf` : `Je ne vous appeller
 Oui, je souhaite être rappelé(e) : ${rappelLink}` : ''}`,
         `Prendre rendez-vous : ${rdvLink}`,
         `Mon site : ${siteLink}`,
+        ...(parleDeCredit ? [`${creditAlert} ${creditDetails}`] : []),
       ].join('\n\n'),
     });
 

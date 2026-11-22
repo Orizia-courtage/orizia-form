@@ -150,12 +150,12 @@ export default function InvestirPage() {
                 <span className="inv-hero-badge"><Icon name="briefcase" /> Stratégie patrimoniale sur mesure</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre argent mérite<br />
-                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>mieux qu'une banque</em>
+                  <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>une stratégie à votre mesure</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
-                  SCPI, Assurance Vie, PER, Crowdfunding — j'accède aux meilleurs
-                  placements du marché, inaccessibles en banque classique.
-                  Je construis votre stratégie patrimoniale sur-mesure.{' '}
+                  SCPI, Assurance Vie, PER, Crowdfunding — je vous explique le fonctionnement,
+                  les risques et la fiscalité de chaque placement, puis je construis avec vous
+                  une stratégie adaptée à votre situation. Tout placement comporte un risque de perte en capital.{' '}
                   <strong style={{ color: 'var(--orizia-accent)' }}>Modalités transparentes.</strong>
                 </p>
                 <div className="inv-hero-actions">

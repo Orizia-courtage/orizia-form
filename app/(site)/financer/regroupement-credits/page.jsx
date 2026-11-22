@@ -38,7 +38,7 @@ const regroupementSchema = {
       name: 'Courtage en Regroupement de Crédits',
       serviceType: 'Rachat et Consolidation de Crédits',
       provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
-      description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. Réduction de mensualité jusqu\'à 60%.',
+      description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. La baisse de mensualité dépend du dossier et s\'obtient en allongeant la durée, ce qui augmente le coût total du crédit.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -222,7 +222,7 @@ export default function RegroupementCreditsPage() {
               avec une mensualité unique et allégée. J'étudie votre
               dossier et vous présente les modalités avant tout engagement.
             </p>
-            <p className="ae-hero-legal">*La baisse de mensualité s'obtient en allongeant la durée, ce qui augmente le coût total du crédit. <CreditWarning /></p>
+            <p className="ae-hero-legal">*Baisse maximale, non garantie, obtenue en allongeant la durée : le coût total du crédit augmente. <a href="#mention-baisse" style={{ color: 'inherit', textDecoration: 'underline' }}>Voir la mention complète</a>. <CreditWarning /></p>
             <div className="ae-hero-btns fin-hero-btns">
               <a href="#formulaire" className="fin-btn-primary">
                 <Icon name="rocket" /> Démarrer mon étude
@@ -620,8 +620,13 @@ Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span
               </a>
               <ContactPopup />
             </div>
-            <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '24px auto 0' }}>
-              <CreditWarning />
+            <p id="mention-baisse" style={{ fontSize: '0.75rem', opacity: 0.7, maxWidth: 560, margin: '24px auto 0', scrollMarginTop: 120 }}>
+              * « Jusqu'à -60 % » : baisse de mensualité maximale, correspondant aux situations les plus favorables. Elle n'est pas garantie et dépend de votre dossier (montant, taux et durée restante de vos crédits, revenus, situation personnelle).
+              Elle s'obtient en allongeant la durée de remboursement : vous remboursez moins chaque mois, mais plus longtemps, et le coût total du crédit augmente.
+              Sous réserve d'étude et d'acceptation de votre dossier par l'établissement prêteur.
+            </p>
+            <p style={{ fontSize: '0.75rem', opacity: 0.55, maxWidth: 560, margin: '12px auto 0' }}>
+              <CreditWarning />{' '}
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
               Une simulation complète vous sera fournie avant toute décision.
