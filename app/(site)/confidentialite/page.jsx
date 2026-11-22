@@ -41,12 +41,13 @@ const TRAITEMENTS = [
 // Sous-traitants (article 28 du RGPD) : à tenir à jour avec le registre des traitements.
 const SOUS_TRAITANTS = [
   ['Vercel Inc.', 'Hébergement du site et de l’espace client ; mesure d’audience sans cookie', 'Traitements exécutés à Paris (Union européenne) ; réseau de diffusion mondial · Data Privacy Framework, clauses contractuelles types'],
-  ['MongoDB Inc. (Atlas)', 'Base de données des dossiers et des fiches clients', 'Union européenne'],
+  ['MongoDB Inc. (Atlas)', 'Base de données des dossiers et des fiches clients', 'Union européenne (Paris)'],
+  ['OVHcloud', 'Messagerie du cabinet et envoi des e-mails internes de suivi des demandes', 'France'],
   ['Serveur d’automatisation (n8n)', 'Enregistrement des demandes du site et envoi des e-mails de suivi', 'France, administré par un prestataire technique lié par un engagement de confidentialité ; flux chiffré relayé par Tailscale Inc. (États-Unis, Data Privacy Framework)'],
-  ['Cloudflare Inc. (R2, Turnstile)', 'Stockage chiffré des documents que vous déposez ; protection anti-robot des formulaires', 'Union européenne / États-Unis · Data Privacy Framework'],
+  ['Cloudflare Inc. (R2, Turnstile)', 'Stockage chiffré des documents que vous déposez ; protection anti-robot des formulaires', 'Documents : Union européenne ; anti-robot : réseau mondial · Data Privacy Framework'],
   ['Resend Inc.', 'Envoi des e-mails (confirmations, rendez-vous, demandes de documents)', 'États-Unis · Data Privacy Framework, clauses contractuelles types'],
   ['Cal.com Inc.', 'Prise et gestion des rendez-vous', 'États-Unis / Union européenne · clauses contractuelles types'],
-  ['Supabase Inc.', 'Réglages du site, articles et protection contre les envois abusifs (aucune donnée de dossier)', 'Union européenne'],
+  ['Supabase Inc.', 'Réglages du site, articles et protection contre les envois abusifs (aucune donnée de dossier)', 'Royaume-Uni (Londres) · décision d’adéquation de la Commission européenne'],
   ['Google LLC / Apple Inc.', 'Distribution de l’application (Google Play, App Store), acheminement des notifications vers votre téléphone (identifiant technique de l’appareil, sans contenu de dossier) et carte de recommandation dans le portefeuille du téléphone (uniquement si vous l’ajoutez)', 'États-Unis · Data Privacy Framework'],
 ];
 
@@ -180,7 +181,7 @@ export default function ConfidentialitePage() {
           </ul>
           <Table head={['Prestataire', 'Rôle', 'Localisation et garanties']} rows={SOUS_TRAITANTS} />
           <p style={{ marginTop: '12px' }}>
-            <strong>Transferts hors de l’Union européenne :</strong> certains prestataires sont des sociétés américaines. Les transferts éventuels vers les États-Unis sont encadrés par le cadre de protection des données UE–États-Unis (<em>Data Privacy Framework</em>), auquel ces sociétés adhèrent, et par les clauses contractuelles types de la Commission européenne. Vous pouvez en obtenir le détail sur simple demande.
+            <strong>Transferts hors de l’Union européenne :</strong> certains prestataires sont des sociétés américaines et l’un d’eux héberge des données au Royaume-Uni, pays reconnu par la Commission européenne comme offrant une protection adéquate. Les transferts éventuels vers les États-Unis sont encadrés par le cadre de protection des données UE–États-Unis (<em>Data Privacy Framework</em>), auquel ces sociétés adhèrent, et par les clauses contractuelles types de la Commission européenne. Vous pouvez en obtenir le détail sur simple demande.
           </p>
         </section>
 
