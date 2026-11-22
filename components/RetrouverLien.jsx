@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import Icon from '@/components/Icon';
 import { Turnstile } from '@/components/ParrainageForm';
+import PrivacyNotice from '@/components/PrivacyNotice';
 
 const ACTION = 'orizia_lien';
 
@@ -50,6 +51,7 @@ export default function RetrouverLien() {
       <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true"><label>Site web<input type="text" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} /></label></div>
       <Turnstile onToken={onToken} action={ACTION} />
       {error && <div className="parr-server-error" role="alert"><Icon name="ban" /> {error}</div>}
+      <PrivacyNotice>{"Votre e-mail et votre téléphone servent uniquement à retrouver votre carte de recommandation et à vous l'envoyer."}</PrivacyNotice>
       <div className="parr-actions"><button type="submit" className="parr-btn-primary" disabled={state === 'sending'}>{state === 'sending' ? 'Envoi…' : 'Recevoir ma carte'}</button></div>
       <p className="parr-legal">Vous avez un espace client ? Votre lien est aussi dans l&apos;onglet « Parrainer » de l&apos;<a href="https://espace.orizia-courtage.fr">espace client</a>.</p>
     </form>

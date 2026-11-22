@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Icon from '@/components/Icon';
+import PrivacyNotice from '@/components/PrivacyNotice';
 
 const CRENEAUX = ['Dès que possible', 'Le matin', 'Le midi', "L'après-midi", 'En soirée'];
 const RDV = 'https://cal.com/cindy-urbansky/rendez-vous';
@@ -52,6 +53,7 @@ export default function AccordParrainage({ id, token }) {
       </div>
       {error && <div className="parr-server-error" role="alert"><Icon name="ban" /> {error}</div>}
       <div className="parr-actions">
+        <PrivacyNotice>{"Vos coordonnées nous ont été transmises par la personne qui vous recommande. En confirmant, vous acceptez d'être rappelé(e) par Orizia Courtage au sujet de votre projet ; sans confirmation, elles sont effacées sous 30 jours."}</PrivacyNotice>
         <button type="button" className="parr-btn-primary" onClick={confirm} disabled={state === 'sending'}>
           {state === 'sending' ? 'Envoi…' : 'Oui, je souhaite être rappelé(e)'}
         </button>

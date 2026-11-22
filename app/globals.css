@@ -309,6 +309,8 @@ body {
 /* OPTIN */
 .f-optin { background: var(--orizia-light); border: 1.5px solid rgba(26,61,53,.1); border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
 .f-optin p { font-size: .85rem; color: var(--orizia-accent); margin-bottom: 10px; line-height: 1.5; }
+.f-privacy { font-size: .78rem; line-height: 1.5; color: var(--orizia-accent); opacity: .8; margin: 4px 0 14px; }
+.f-privacy a { text-decoration: underline; }
 
 /* AUTOCOMPLETE */
 .f-ac { position: relative; }
@@ -12069,3 +12071,7 @@ body.contact-popup-open .cw-trigger {
 .parr-legal a, .parr-share-body .parr-legal a { color: var(--orizia-primary, #3a6f6c); }
 @media (max-width: 720px) { .parr-accord .parr-btn-primary, .parr-find .parr-btn-primary { width: 100%; } }
 .parr-found .oz-icon { flex: none; margin-top: 4px; color: var(--orizia-primary, #3a6f6c); }
+
+/* Information RGPD sous les formulaires */
+.privacy-notice { font-size: .78rem; line-height: 1.5; opacity: .75; margin: 10px 0; text-align: left; }
+.privacy-notice a { text-decoration: underline; }

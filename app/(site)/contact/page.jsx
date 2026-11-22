@@ -355,11 +355,11 @@ export default function ContactPage() {
               <div>
                 <strong>Vos données sont protégées</strong>
                 <p>
-                  Les informations transmises sont utilisées exclusivement dans le cadre de votre demande.
-                  Elles ne sont jamais revendues ni partagées sans votre consentement.
-                  Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression.{' '}
-                  <Link href="/mentions-legales" style={{ color: '#3e7f68' }}>
-                    En savoir plus
+                  Les informations transmises sont utilisées par Orizia Courtage uniquement pour traiter votre demande.
+                  Elles ne sont jamais revendues. Elles sont transmises aux banques et assureurs consultés seulement si vous nous confiez votre dossier.
+                  Vous disposez notamment d'un droit d'accès, de rectification, d'effacement et d'opposition.{' '}
+                  <Link href="/confidentialite" style={{ color: '#3e7f68' }}>
+                    Politique de confidentialité
                   </Link>
                 </p>
               </div>

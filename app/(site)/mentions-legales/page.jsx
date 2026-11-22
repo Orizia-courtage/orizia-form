@@ -105,12 +105,14 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section style={{ marginBottom: '40px' }}>
-          <h2 style={h2}>5. Traitement des données personnelles (RGPD)</h2>
+          <h2 style={h2}>5. Données personnelles et cookies</h2>
           <p>
-            Les informations recueillies via les formulaires (contact, simulation, prise de rendez-vous) sont enregistrées dans un fichier informatisé par {COMPANY.denomination} pour le traitement de votre demande de financement ou d’assurance.
+            {COMPANY.denomination} est responsable du traitement des données personnelles collectées sur ce site (formulaires de contact, de rappel, de simulation et de recommandation, prise de rendez-vous, espace client).
+            Les finalités, bases légales, durées de conservation, destinataires et cookies sont détaillés dans la <Link href="/confidentialite" style={{ color: '#3e7f68' }}>politique de confidentialité</Link>.
           </p>
           <p style={{ marginTop: '16px' }}>
-            Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d’un droit d’accès, de rectification, de portabilité et d’effacement de vos données. Vous pouvez exercer ce droit en contactant : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>.
+            Conformément au RGPD et à la loi « Informatique et Libertés », vous disposez des droits d’accès, de rectification, d’effacement, de limitation, de portabilité et d’opposition, ainsi que du droit de définir des directives sur le sort de vos données après votre décès.
+            Pour les exercer : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.cnil.fr</a>).
           </p>
         </section>
 
