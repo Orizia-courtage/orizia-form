@@ -1,225 +1,235 @@
 import Icon from '@/components/Icon';
+import Link from 'next/link';
 import { ROBOTS } from '@/lib/indexing.mjs';
-﻿import Link from 'next/link';
+import { COMPANY } from '@/lib/company.mjs';
 
 export const metadata = {
-  title: 'Politique de Confidentialité & Données | Orizia Courtage',
-  description: 'Découvrez comment Orizia Courtage collecte, utilise et protège vos données personnelles. Conformité RGPD, droits d\'accès et de suppression, gestion des cookies.',
+  title: 'Politique de confidentialité et cookies | Orizia Courtage',
+  description: 'Comment Orizia Courtage collecte, utilise, conserve et protège vos données personnelles : finalités, bases légales, durées, destinataires, vos droits RGPD et cookies.',
   robots: ROBOTS,
   alternates: { canonical: 'https://www.orizia-courtage.fr/confidentialite' },
 };
 
+// Date de la dernière mise à jour de cette politique : à changer à chaque modification.
+const UPDATED = '22 novembre 2026';
+
 const confidentialiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Politique de Confidentialité — Orizia Courtage',
+  name: 'Politique de confidentialité — Orizia Courtage',
   url: 'https://www.orizia-courtage.fr/confidentialite',
-  description: 'Politique de protection des données personnelles du cabinet de courtage Orizia Courtage, conformément au RGPD.',
-  publisher: {
-    '@type': 'LocalBusiness',
-    name: 'Orizia Courtage',
-    url: 'https://www.orizia-courtage.fr',
-  },
+  description: 'Politique de protection des données personnelles du cabinet de courtage Orizia Courtage (RGPD).',
+  dateModified: '2026-11-22',
+  publisher: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
 };
+
+// Finalités, bases légales (art. 6 et 9 du RGPD) et durées de conservation : à tenir à jour avec le registre des traitements.
+const TRAITEMENTS = [
+  ['Répondre à une demande de contact, de rappel ou de simulation', 'Mesures précontractuelles prises à votre demande (art. 6.1.b)', '3 ans après le dernier contact si aucun contrat n’est conclu'],
+  ['Étudier votre projet, monter votre dossier et le présenter aux banques et assureurs que vous nous chargez de consulter', 'Exécution du mandat de courtage (art. 6.1.b)', '5 ans après la fin de la relation'],
+  ['Recueillir les informations de santé nécessaires à une assurance emprunteur', 'Votre consentement explicite (art. 9.2.a), donné au moment de la transmission', 'Avec le dossier, dans les mêmes durées ; transmises uniquement à l’assureur concerné'],
+  ['Premier tri automatique des demandes de regroupement de crédits (voir section 4)', 'Mesures précontractuelles prises à votre demande (art. 6.1.b)', '3 ans après le dernier contact'],
+  ['Respecter nos obligations légales : devoir de conseil, lutte contre le blanchiment, traitement des réclamations, comptabilité', 'Obligation légale (art. 6.1.c)', '5 ans après la fin de la relation (10 ans pour les pièces comptables)'],
+  ['Vous adresser des offres par téléphone, e-mail ou SMS', 'Votre consentement (art. 6.1.a) ; pour un client, l’e-mail sur des services analogues relève de l’intérêt légitime (art. L. 34-5 du Code des postes et communications électroniques)', 'Jusqu’au retrait de votre accord, et au plus 3 ans après le dernier contact'],
+  ['Gérer le programme de recommandation (parrain et proche recommandé)', 'Intérêt légitime du parrain et du cabinet (art. 6.1.f) ; accord du proche avant tout appel', 'Coordonnées du proche effacées sous 30 jours s’il ne souhaite pas être contacté'],
+  ['Espace client : suivi du dossier, dépôt de documents, messagerie, notifications', 'Exécution du mandat (art. 6.1.b) ; notifications et carte de portefeuille : votre consentement', 'Messages : 30 jours ; compte : durée du dossier'],
+  ['Protéger le site contre les abus et les fausses demandes (adresse IP, type d’appareil)', 'Intérêt légitime (art. 6.1.f)', '7 jours'],
+  ['Mesurer l’audience du site, sans cookie', 'Intérêt légitime (art. 6.1.f)', 'Statistiques globales, sans identifiant conservé'],
+];
 
 // Sous-traitants (article 28 du RGPD) : à tenir à jour avec le registre des traitements.
 const SOUS_TRAITANTS = [
-  ['Vercel Inc.', 'Hébergement du site, de l\'outil de suivi des dossiers et de l\'espace client', 'États-Unis / Union européenne · Data Privacy Framework, clauses contractuelles types'],
-  ['MongoDB Inc. (Atlas)', 'Base de données des dossiers et des fiches clients', 'Union européenne · clauses contractuelles types'],
+  ['Vercel Inc.', 'Hébergement du site et de l’espace client ; mesure d’audience sans cookie', 'Traitements exécutés à Paris (Union européenne) ; réseau de diffusion mondial · Data Privacy Framework, clauses contractuelles types'],
+  ['MongoDB Inc. (Atlas)', 'Base de données des dossiers et des fiches clients', 'Union européenne'],
+  ['Serveur d’automatisation (n8n)', 'Enregistrement des demandes du site et envoi des e-mails de suivi', 'France, administré par un prestataire technique lié par un engagement de confidentialité ; flux chiffré relayé par Tailscale Inc. (États-Unis, Data Privacy Framework)'],
   ['Cloudflare Inc. (R2, Turnstile)', 'Stockage chiffré des documents que vous déposez ; protection anti-robot des formulaires', 'Union européenne / États-Unis · Data Privacy Framework'],
   ['Resend Inc.', 'Envoi des e-mails (confirmations, rendez-vous, demandes de documents)', 'États-Unis · Data Privacy Framework, clauses contractuelles types'],
   ['Cal.com Inc.', 'Prise et gestion des rendez-vous', 'États-Unis / Union européenne · clauses contractuelles types'],
-  ['Supabase Inc.', 'Réglages des simulateurs et protection contre les envois abusifs (aucune donnée de dossier)', 'Union européenne'],
-  ['Google LLC / Apple Inc.', 'Carte de recommandation dans le portefeuille du téléphone (uniquement si vous l\'ajoutez)', 'États-Unis · Data Privacy Framework'],
-  ['Orizia Courtage (serveur en France)', 'Automatisation du traitement des demandes du site', 'France'],
+  ['Supabase Inc.', 'Réglages du site, articles et protection contre les envois abusifs (aucune donnée de dossier)', 'Union européenne'],
+  ['Google LLC / Apple Inc.', 'Carte de recommandation dans le portefeuille du téléphone (uniquement si vous l’ajoutez)', 'États-Unis · Data Privacy Framework'],
 ];
 
 // Cookies et stockage local réellement utilisés (relevé du 20/11/2026) : à tenir à jour à chaque nouvel outil.
 const TRACEURS = [
-  ['Cookie « __cf_bm » (Cal.com, via Cloudflare)', 'Déposé par l\'agenda de prise de rendez-vous Cal.com, sur la page Contact ou quand vous ouvrez l\'agenda. Il sert uniquement à distinguer les visiteurs humains des robots (sécurité). Cal.com transmet aussi ses rapports d\'erreurs techniques à son prestataire Sentry, sans cookie.', '30 minutes'],
-  ['Cloudflare Turnstile', 'Vérification anti-robot des formulaires (contact, rappel, simulation, recommandation). Elle analyse des signaux techniques de votre navigateur au moment de l\'envoi, sans cookie publicitaire ni suivi.', 'Le temps de la vérification'],
-  ['Brouillon du formulaire de simulation', 'Garde vos réponses en mémoire dans votre navigateur (stockage de session) si vous rechargez la page en cours de saisie. Rien n\'est envoyé tant que vous ne validez pas.', 'Effacé à l\'envoi ou à la fermeture de l\'onglet'],
+  ['Cookie « __cf_bm » (Cal.com, via Cloudflare)', 'Déposé par l’agenda de prise de rendez-vous Cal.com, sur la page Contact ou quand vous ouvrez l’agenda. Il sert uniquement à distinguer les visiteurs humains des robots (sécurité). Cal.com transmet aussi ses rapports d’erreurs techniques à son prestataire Sentry, sans cookie.', '30 minutes'],
+  ['Cloudflare Turnstile', 'Vérification anti-robot des formulaires (contact, rappel, simulation, recommandation). Elle analyse des signaux techniques de votre navigateur au moment de l’envoi, sans cookie publicitaire ni suivi.', 'Le temps de la vérification'],
+  ['Brouillon du formulaire de simulation', 'Garde vos réponses en mémoire dans votre navigateur (stockage de session) si vous rechargez la page en cours de saisie. Rien n’est envoyé tant que vous ne validez pas.', 'Effacé à l’envoi ou à la fermeture de l’onglet'],
 ];
 
+const h2 = { color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' };
+const section = { marginBottom: '40px' };
+const link = { color: '#3e7f68' };
+const th = (pos) => ({ padding: pos === 0 ? '8px 10px 8px 0' : pos === 2 ? '8px 0 8px 10px' : '8px 10px' });
+
+function Table({ head, rows }) {
+  return (
+    <div style={{ overflowX: 'auto', marginTop: '12px' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
+        <thead>
+          <tr style={{ textAlign: 'left', borderBottom: '2px solid #e3e7e4' }}>
+            {head.map((label, i) => <th key={label} style={th(i)}>{label}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row[0]} style={{ borderBottom: '1px solid #eef1ef', verticalAlign: 'top' }}>
+              {row.map((cell, i) => <td key={i} style={{ ...th(i), fontWeight: i === 0 ? 600 : 400 }}>{cell}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default function ConfidentialitePage() {
+  const mail = <a href={`mailto:${COMPANY.email}`} style={link}>{COMPANY.email}</a>;
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(confidentialiteSchema) }}
-      />
-      <main style={{ 
-      maxWidth: '800px', 
-      margin: '0 auto', 
-      padding: '100px 20px 80px', 
-      color: 'var(--orizia-dark, #333)',
-      lineHeight: '1.7'
-    }}>
-      
-      <h1 style={{ 
-        color: 'var(--orizia-accent, #1a1a1a)', 
-        fontSize: 'clamp(2rem, 4vw, 2.5rem)', 
-        marginBottom: '24px',
-        fontWeight: 900 
-      }}>
-        Politique de Confidentialité
-      </h1>
-      
-      <p style={{ fontSize: '1.1rem', marginBottom: '40px', opacity: 0.8 }}>
-        Chez Orizia Courtage, la transparence n'est pas qu'un argument commercial. En tant que courtier, je traite des informations intimes (finances, santé, projets de vie). La protection de vos données personnelles est donc une priorité absolue. Voici concrètement comment je les gère.
-      </p>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          1. Quelles données je collecte ?
-        </h2>
-        <p>Dans le cadre de mon accompagnement, je suis amenée à collecter les données suivantes :</p>
-        <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Données d'identification :</strong> nom, prénom, adresse, téléphone, e-mail, situation familiale.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Données financières :</strong> revenus, charges, patrimoine, crédits en cours, avis d'imposition (strictement nécessaires pour l'étude de faisabilité d'un crédit ou d'un placement).</li>
-          <li style={{ marginBottom: '8px' }}><strong>Données techniques des formulaires :</strong> lorsque vous envoyez une demande (rappel, recommandation, fin de simulation), l'adresse IP de votre connexion et le type d'appareil et de navigateur utilisés (par exemple « iPhone · Safari »).</li>
-          <li style={{ marginBottom: '8px' }}><strong>Espace client :</strong> votre identifiant (adresse e-mail), votre mot de passe (enregistré sous forme chiffrée, jamais lisible), vos messages avec votre conseillère et, si vous les activez, les informations techniques nécessaires aux notifications sur votre téléphone.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Données de santé :</strong> uniquement dans le cadre précis de la recherche d'une assurance emprunteur (si le questionnaire médical est requis par la loi). Ces données sont traitées avec une confidentialité renforcée.</li>
-        </ul>
-      </section>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          2. Pourquoi je collecte ces données ?
-        </h2>
-        <p>Je ne vous demande jamais d'informations inutiles. Vos données servent exclusivement à :</p>
-        <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
-          <li style={{ marginBottom: '8px' }}>Réaliser des simulations (capacité d'emprunt, économies d'assurance).</li>
-          <li style={{ marginBottom: '8px' }}>Interroger mes partenaires bancaires et assureurs pour rechercher les offres adaptées à votre situation.</li>
-          <li style={{ marginBottom: '8px' }}>Monter votre dossier de financement ou de souscription.</li>
-          <li style={{ marginBottom: '8px' }}>Répondre à mes obligations légales et réglementaires (lutte contre le blanchiment, devoir de conseil ACPR).</li>
-          <li style={{ marginBottom: '8px' }}>Protéger le site contre les abus et les fausses demandes (adresse IP et type d'appareil) : c'est un intérêt légitime au sens du RGPD. Une même adresse IP ne peut pas envoyer plus de 3 demandes par jour.</li>
-          <li style={{ marginBottom: '8px' }}>Vous tenir informé(e) de l'avancement de vos dossiers dans votre espace client et, si vous l'avez accepté (par exemple en ajoutant votre carte de parrainage à votre téléphone), vous adresser des informations commerciales. Vous pouvez retirer cet accord à tout moment en supprimant la carte, en désactivant les notifications ou en me l'écrivant.</li>
-        </ul>
-      </section>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          3. Avec qui je partage vos données ?
-        </h2>
-        <p>
-          <strong>Vos données ne sont JAMAIS vendues à des tiers.</strong><br /><br />
-          Elles sont transmises de manière sécurisée <strong>uniquement à mes partenaires financiers</strong> (banques, compagnies d'assurance, sociétés de gestion) dans le but exclusif d'obtenir une proposition de contrat pour votre projet, et toujours avec votre accord préalable.
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(confidentialiteSchema) }} />
+      <main style={{ maxWidth: '800px', margin: '0 auto', padding: '100px 20px 80px', color: 'var(--orizia-dark, #333)', lineHeight: '1.7' }}>
+        <h1 style={{ color: 'var(--orizia-accent, #1a1a1a)', fontSize: 'clamp(2rem, 4vw, 2.5rem)', marginBottom: '12px', fontWeight: 900 }}>
+          Politique de confidentialité
+        </h1>
+        <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: '24px' }}>Dernière mise à jour : {UPDATED}</p>
+        <p style={{ fontSize: '1.05rem', marginBottom: '40px', opacity: 0.85 }}>
+          En tant que courtier, je traite des informations personnelles et parfois sensibles (situation financière, santé, projets de vie).
+          Cette page explique, conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés,
+          quelles données sont collectées, pourquoi, combien de temps elles sont gardées, à qui elles sont transmises et comment exercer vos droits.
         </p>
-        <p style={{ marginTop: '16px' }}>
-          Pour faire fonctionner ce site, mon outil de suivi des dossiers et votre espace client, je fais appel à des <strong>prestataires techniques (sous-traitants)</strong>. Ils agissent uniquement sur mes instructions, sont liés par un contrat de traitement des données (article 28 du RGPD) et ne peuvent pas utiliser vos données pour leur propre compte :
-        </p>
-        <div style={{ overflowX: 'auto', marginTop: '12px' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
-            <thead>
-              <tr style={{ textAlign: 'left', borderBottom: '2px solid #e3e7e4' }}>
-                <th style={{ padding: '8px 10px 8px 0' }}>Prestataire</th>
-                <th style={{ padding: '8px 10px' }}>Rôle</th>
-                <th style={{ padding: '8px 0 8px 10px' }}>Localisation et garanties</th>
-              </tr>
-            </thead>
-            <tbody>
-              {SOUS_TRAITANTS.map(([nom, role, lieu]) => (
-                <tr key={nom} style={{ borderBottom: '1px solid #eef1ef', verticalAlign: 'top' }}>
-                  <td style={{ padding: '8px 10px 8px 0', fontWeight: 600 }}>{nom}</td>
-                  <td style={{ padding: '8px 10px' }}>{role}</td>
-                  <td style={{ padding: '8px 0 8px 10px' }}>{lieu}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+        <section style={section}>
+          <h2 style={h2}>1. Responsable du traitement</h2>
+          <p>
+            <strong>{COMPANY.denomination}</strong>, {COMPANY.legalForm} au capital de {COMPANY.capital}, {COMPANY.rcs}, dont le siège est au {COMPANY.addressInline},
+            représentée par {COMPANY.manager}, gérante. Contact pour toute question sur vos données : {mail} ou par courrier au siège.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            Le cabinet n’a pas désigné de délégué à la protection des données, cette désignation n’étant pas obligatoire pour son activité : la gérante répond directement à vos demandes.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>2. Les données collectées</h2>
+          <ul style={{ marginLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>Identité et coordonnées :</strong> nom, prénom, date de naissance, adresse, téléphone, e-mail, situation familiale.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Situation professionnelle et financière :</strong> profession, revenus, charges, patrimoine, crédits en cours, avis d’imposition, et votre déclaration d’une éventuelle inscription au fichier de la Banque de France (FICP ou FCC).</li>
+            <li style={{ marginBottom: '8px' }}><strong>Données de santé :</strong> uniquement pour une assurance emprunteur, lorsque l’assureur l’exige, avec votre consentement explicite. Elles sont traitées avec une confidentialité renforcée et transmises à l’assureur seul.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Documents</strong> que vous déposez (justificatifs, offres de prêt, contrats) et vos <strong>messages</strong> dans l’espace client.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Données techniques :</strong> adresse IP et type d’appareil et de navigateur lors de l’envoi d’un formulaire ; identifiants et mot de passe chiffré de l’espace client.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Données de tiers :</strong> co-emprunteur que vous déclarez, ou proche que vous recommandez. Pensez à les informer : nous leur présentons cette politique dès le premier contact.</li>
+          </ul>
+          <p style={{ marginTop: '10px' }}>Les informations marquées comme obligatoires dans les formulaires sont nécessaires pour étudier votre demande ; sans elles, nous ne pouvons pas y donner suite.</p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>3. Pourquoi, sur quelle base et combien de temps</h2>
+          <p>Chaque traitement repose sur une base légale prévue par le RGPD. Les données sont ensuite supprimées automatiquement à l’issue de la durée indiquée.</p>
+          <Table head={['Finalité', 'Base légale', 'Durée de conservation']} rows={TRAITEMENTS} />
+          <p style={{ marginTop: '12px' }}><strong>Vos données ne sont jamais vendues</strong>, ni transmises à des tiers pour leur propre prospection.</p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>4. Premier tri automatique des demandes de regroupement de crédits</h2>
+          <p>
+            Lorsque vous remplissez le formulaire de regroupement de crédits, vos réponses font l’objet d’un premier tri automatique, sans intervention humaine immédiate.
+            Les critères utilisés sont votre déclaration d’une inscription au fichier de la Banque de France, votre statut professionnel (salarié, indépendant, chef d’entreprise),
+            votre statut de logement et l’équilibre entre vos revenus et vos charges, au regard des critères des établissements prêteurs avec lesquels je travaille.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            Ce tri peut conduire à l’envoi automatique d’une réponse indiquant que votre demande ne peut pas être suivie à ce stade. Conformément à l’article 22 du RGPD,
+            vous pouvez à tout moment <strong>demander que votre dossier soit réexaminé personnellement</strong> par la conseillère, faire valoir votre point de vue et contester cette réponse,
+            simplement en répondant à l’e-mail reçu ou en écrivant à {mail}.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>5. Qui reçoit vos données</h2>
+          <ul style={{ marginLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>La gérante du cabinet</strong>, seule personne habilitée à consulter les dossiers.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Les banques, organismes de crédit et compagnies d’assurance</strong> que vous nous chargez de consulter, uniquement pour obtenir une proposition pour votre projet et avec votre accord.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Les autorités</strong> qui peuvent l’exiger dans le cadre de la loi (ACPR, Tracfin, administration fiscale, justice).</li>
+            <li style={{ marginBottom: '8px' }}><strong>Des prestataires techniques (sous-traitants)</strong>, qui agissent uniquement sur nos instructions, sont liés par un engagement de confidentialité et de sécurité (article 28 du RGPD) et ne peuvent pas utiliser vos données pour leur propre compte :</li>
+          </ul>
+          <Table head={['Prestataire', 'Rôle', 'Localisation et garanties']} rows={SOUS_TRAITANTS} />
+          <p style={{ marginTop: '12px' }}>
+            <strong>Transferts hors de l’Union européenne :</strong> certains prestataires sont des sociétés américaines. Les transferts éventuels vers les États-Unis sont encadrés par le cadre de protection des données UE–États-Unis (<em>Data Privacy Framework</em>), auquel ces sociétés adhèrent, et par les clauses contractuelles types de la Commission européenne. Vous pouvez en obtenir le détail sur simple demande.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>6. Sécurité</h2>
+          <p>
+            Les échanges avec le site sont chiffrés (HTTPS). Les documents déposés sont stockés chiffrés, l’accès aux dossiers est protégé par mot de passe et réservé à la gérante,
+            les mots de passe de l’espace client sont enregistrés sous forme chiffrée et les formulaires sont protégés contre les envois automatisés.
+            En cas de violation de données présentant un risque pour vous, la CNIL et, si nécessaire, les personnes concernées sont informées dans les délais prévus par le RGPD.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>7. Démarchage et prospection</h2>
+          <p>
+            Aucun appel commercial ne vous est passé sans votre accord préalable : soit vous avez demandé à être rappelé(e), soit vous avez accepté d’être contacté(e) dans un formulaire.
+            Cet accord est facultatif et peut être retiré à tout moment, par simple e-mail ou en le disant lors d’un appel. Chaque e-mail commercial comporte un lien de désinscription.
+            Si vous êtes déjà client, des informations sur des services comparables à ceux dont vous bénéficiez peuvent vous être envoyées par e-mail, sauf opposition de votre part.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>8. Vos droits</h2>
+          <p>Vous disposez des droits suivants sur vos données :</p>
+          <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
+            <li style={{ marginBottom: '6px' }}><strong>accès</strong> : savoir quelles données sont détenues et en obtenir une copie ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>rectification</strong> des données inexactes ou incomplètes ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>effacement</strong>, sous réserve des durées de conservation imposées par la loi ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>limitation</strong> du traitement, par exemple le temps de vérifier une contestation ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>portabilité</strong> : recevoir les données que vous avez fournies dans un format lisible par machine ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>opposition</strong> au traitement fondé sur l’intérêt légitime, et à tout moment, sans motif, à la prospection ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>retrait de votre consentement</strong>, sans remettre en cause les traitements déjà réalisés ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>réexamen humain</strong> d’une réponse issue du tri automatique (section 4) ;</li>
+            <li style={{ marginBottom: '6px' }}><strong>directives</strong> sur le sort de vos données après votre décès.</li>
+          </ul>
+          <p style={{ marginTop: '16px' }}>
+            Pour les exercer, écrivez à {mail} ou par courrier au {COMPANY.addressInline}. Une réponse vous est apportée dans un délai d’un mois,
+            prolongeable de deux mois pour une demande complexe (vous en seriez alors informé(e)). Une pièce d’identité peut vous être demandée en cas de doute raisonnable sur votre identité.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL :
+            3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, ou en ligne sur <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer" style={link}>cnil.fr</a>.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>9. Cookies et traceurs</h2>
+          <p>
+            Ce site ne dépose <strong>aucun cookie publicitaire, aucun cookie de réseau social et aucun cookie de mesure d’audience</strong>. C’est pourquoi aucun bandeau ne vous demande votre accord :
+            les seuls éléments utilisés ci-dessous sont nécessaires au service que vous demandez ou à la sécurité du site, et sont dispensés de consentement (article 82 de la loi Informatique et Libertés, lignes directrices de la CNIL).
+          </p>
+          <Table head={['Élément', 'Quand et pourquoi', 'Durée']} rows={TRACEURS} />
+          <p style={{ marginTop: '12px' }}>
+            <strong>Mesure d’audience :</strong> Vercel Web Analytics et Speed Insights fonctionnent <strong>sans cookie</strong> et ne conservent aucun identifiant d’un jour à l’autre.
+            Ils fournissent uniquement des statistiques globales (pages vues, provenance, temps de chargement), sans permettre de vous suivre d’un site à l’autre.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            Vous pouvez à tout moment supprimer ou bloquer les cookies depuis les réglages de votre navigateur. Bloquer le cookie de Cal.com peut empêcher l’agenda en ligne de s’afficher :
+            vous pouvez alors nous joindre par téléphone ou par e-mail.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>10. Modifications</h2>
+          <p>
+            Cette politique peut évoluer, notamment lors de l’ajout d’un outil ou d’un prestataire. La date de dernière mise à jour figure en haut de page.
+            Voir aussi les <Link href="/mentions-legales" style={link}>mentions légales</Link>.
+          </p>
+        </section>
+
+        <div style={{ marginTop: '60px', textAlign: 'center' }}>
+          <Link href="/" style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: 'var(--orizia-primary, #3e7f68)', color: '#fff', borderRadius: '8px', textDecoration: 'none', fontWeight: 'bold' }}>
+            <Icon name="arrow-left" /> Retour à l’accueil
+          </Link>
         </div>
-        <p style={{ marginTop: '12px' }}>
-          <strong>Transferts hors de l'Union européenne :</strong> certains de ces prestataires sont des sociétés américaines. Les transferts éventuels vers les États-Unis sont encadrés par le cadre de protection des données UE–États-Unis (<em>Data Privacy Framework</em>), auquel ces sociétés adhèrent, et par les clauses contractuelles types de la Commission européenne. Vous pouvez m'en demander le détail à tout moment.
-        </p>
-      </section>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          4. Combien de temps je conserve vos données ?
-        </h2>
-        <p>Vos données sont conservées le temps nécessaire à la réalisation de votre projet, puis <strong>supprimées automatiquement</strong> à l'issue des durées ci-dessous :</p>
-        <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Si vous devenez client :</strong> 5 ans après la fin de notre relation commerciale (obligation légale pour les courtiers), puis suppression automatique de la fiche, des dossiers, des documents et des rendez-vous.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Si vous restez prospect (pas de contrat signé) :</strong> 3 ans à compter de notre dernier contact, puis suppression automatique.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Adresse IP et type d'appareil des formulaires :</strong> 7 jours, puis suppression automatique.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Coordonnées d'un proche recommandé par un client :</strong> effacées sous 30 jours s'il ne souhaite pas être contacté.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Messages de l'espace client :</strong> 30 jours, puis suppression automatique.</li>
-        </ul>
-      </section>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          5. Vos droits (RGPD)
-        </h2>
-        <p>
-          Conformément au Règlement Général sur la Protection des Données (RGPD), vous êtes maître de vos données. Vous avez le droit :
-        </p>
-        <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
-          <li style={{ marginBottom: '8px' }}>D'accéder aux données que je possède sur vous.</li>
-          <li style={{ marginBottom: '8px' }}>De demander leur rectification si elles sont inexactes.</li>
-          <li style={{ marginBottom: '8px' }}>De demander leur suppression (droit à l'oubli), sous réserve de mes obligations légales de conservation.</li>
-          <li style={{ marginBottom: '8px' }}>De vous opposer à leur traitement.</li>
-        </ul>
-        <p style={{ marginTop: '16px' }}>
-          Pour exercer ces droits, il vous suffit de m'envoyer un e-mail directement à : <strong><a href="mailto:cindy.urbansky@orizia-courtage.fr" style={{ color: '#3e7f68' }}>cindy.urbansky@orizia-courtage.fr</a></strong>. Je vous répondrai personnellement dans les plus brefs délais.
-        </p>
-        <p style={{ marginTop: '16px', fontSize: '0.9rem', opacity: 0.8 }}>
-          <em>Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.cnil.fr</a>).</em>
-        </p>
-      </section>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{ color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.5rem', marginBottom: '16px' }}>
-          6. Gestion des Cookies
-        </h2>
-        <p>
-          Ce site ne dépose <strong>aucun cookie publicitaire, aucun cookie de réseau social et aucun cookie de mesure d'audience</strong>. C'est pourquoi aucun bandeau ne vous demande votre accord : les seuls éléments utilisés ci-dessous sont nécessaires au service que vous demandez ou à la sécurité du site, et sont dispensés de consentement (article 82 de la loi Informatique et Libertés, lignes directrices de la CNIL).
-        </p>
-        <div style={{ overflowX: 'auto', marginTop: '12px' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
-            <thead>
-              <tr style={{ textAlign: 'left', borderBottom: '2px solid #e3e7e4' }}>
-                <th style={{ padding: '8px 10px 8px 0' }}>Élément</th>
-                <th style={{ padding: '8px 10px' }}>Quand et pourquoi</th>
-                <th style={{ padding: '8px 0 8px 10px' }}>Durée</th>
-              </tr>
-            </thead>
-            <tbody>
-              {TRACEURS.map(([nom, role, duree]) => (
-                <tr key={nom} style={{ borderBottom: '1px solid #eef1ef', verticalAlign: 'top' }}>
-                  <td style={{ padding: '8px 10px 8px 0', fontWeight: 600 }}>{nom}</td>
-                  <td style={{ padding: '8px 10px' }}>{role}</td>
-                  <td style={{ padding: '8px 0 8px 10px' }}>{duree}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p style={{ marginTop: '12px' }}>
-          <strong>Mesure d'audience :</strong> j'utilise Vercel Web Analytics et Speed Insights, qui fonctionnent <strong>sans cookie</strong> et ne conservent aucun identifiant d'un jour à l'autre. Ils me donnent uniquement des statistiques globales (pages vues, provenance, temps de chargement), sans permettre de vous suivre d'un site à l'autre.
-        </p>
-        <p style={{ marginTop: '12px' }}>
-          Vous pouvez à tout moment supprimer ou bloquer les cookies depuis les réglages de votre navigateur. Bloquer le cookie de Cal.com peut empêcher l'agenda en ligne de s'afficher : vous pouvez alors me joindre par téléphone ou par e-mail.
-        </p>
-      </section>
-
-      <div style={{ marginTop: '60px', textAlign: 'center' }}>
-        <Link href="/" style={{ 
-          display: 'inline-block', 
-          padding: '12px 24px', 
-          backgroundColor: 'var(--orizia-primary, #3e7f68)', 
-          color: '#fff', 
-          borderRadius: '8px',
-          textDecoration: 'none',
-          fontWeight: 'bold',
-          transition: 'opacity 0.3s'
-        }}>
-          <Icon name="arrow-left" /> Retour à l'accueil
-        </Link>
-      </div>
-
-    </main>
+      </main>
     </>
   );
 }

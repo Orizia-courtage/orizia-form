@@ -5,6 +5,7 @@ import ContactCaptcha from './ContactCaptcha';
 import Icon from '@/components/Icon';
 import RappelForm from './RappelForm';
 import ScanToPhone from './ScanToPhone';
+import PrivacyNotice from '@/components/PrivacyNotice';
 const TABS = [
   { id: 'rdv',        icon: 'calendar-days', label: 'RDV' },
   { id: 'rappel',     icon: 'headset', label: 'Rappel' },
@@ -338,6 +339,7 @@ export default function ContactWidget() {
                     />
 
                     <ContactCaptcha onToken={setTurnstileToken}/>
+                  <PrivacyNotice />
                   <button type="submit" disabled={loading || !turnstileToken}>
                       {loading ? 'Envoi...' : 'Envoyer le message'}
                     </button>

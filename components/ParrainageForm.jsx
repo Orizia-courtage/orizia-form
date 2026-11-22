@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/Icon';
 import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
+import PrivacyNotice from '@/components/PrivacyNotice';
 
 const TURNSTILE_KEY = '0x4AAAAAACu8a5g2pFEtNqxD';
 const TURNSTILE_ACTION = 'orizia_parrainage';
@@ -248,6 +249,7 @@ export default function ParrainageForm() {
               <button type="button" className="parr-btn-secondary" onClick={goBack}>
                 <Icon name="arrow-left" /> Retour
               </button>
+              <PrivacyNotice>{"Vos coordonnées et celles de la personne recommandée sont utilisées par Orizia Courtage uniquement pour gérer cette recommandation ; celles de votre proche sont effacées sous 30 jours s'il ne souhaite pas être contacté."}</PrivacyNotice>
               <button type="submit" className="parr-btn-primary" disabled={isSubmitting}>
                 {isSubmitting ? 'Envoi en cours…' : 'Envoyer la recommandation'}
               </button>

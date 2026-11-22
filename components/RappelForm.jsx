@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Icon from '@/components/Icon';
 import { mountTurnstile } from '@/lib/turnstile-lifecycle.mjs';
 import { CRENEAUX, SUJETS } from '@/lib/rappel-options';
+import PrivacyNotice from '@/components/PrivacyNotice';
 
 const TURNSTILE_KEY = '0x4AAAAAACu8a5g2pFEtNqxD';
 const TURNSTILE_ACTION = 'orizia_rappel_express';
@@ -154,6 +155,7 @@ export default function RappelForm({ onBack, onDone }) {
 
       {error && <p className="rf-error" role="alert"><Icon name="triangle-alert" /> {error}</p>}
 
+      <PrivacyNotice />
       <button type="submit" className="fin-btn-primary rf-submit" disabled={status === 'sending'}>
         <Icon name="phone" />
         {status === 'sending' ? 'Envoi en cours…' : 'Être rappelé(e)'}

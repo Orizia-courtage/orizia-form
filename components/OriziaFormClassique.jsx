@@ -206,7 +206,6 @@ export default function OriziaFormClassique() {
     if(s===10){
       if(!f.ville.trim())e.ville=true;
       if(!f.optin_orizia)e.optin_orizia=true;
-      if(!f.optin_partenaires)e.optin_partenaires=true;
       const tok=getTurnstileToken();
       if(!tok)e.bot=true;
     }
@@ -827,21 +826,19 @@ function S10({form,set,clr,errors,cityInput,setCityInput,citySugg,setCitySugg,su
       </div>
       <div className="f-divider"><span>Consentements</span></div>
       <div className="f-optin">
-        <p>J&apos;accepte de recevoir des appels, emails et SMS sur des offres de solutions de financement et d&apos;assurance proposées par <strong>Orizia Courtage</strong>.</p>
+        <p>J&apos;accepte d&apos;être contacté(e) par <strong>Orizia Courtage</strong> par téléphone, e-mail et SMS pour des offres de financement et d&apos;assurance. Facultatif, retirable à tout moment.</p>
         <div className="f-chips">
           <Chip label="J'accepte" selected={form.optin_orizia==='oui'} onClick={()=>{set('optin_orizia','oui');clr('optin_orizia');}}/>
           <Chip label="Je refuse" selected={form.optin_orizia==='non'} onClick={()=>{set('optin_orizia','non');clr('optin_orizia');}}/>
         </div>
         <Err show={errors.optin_orizia}>Veuillez accepter ou refuser ce consentement.</Err>
       </div>
-      <div className="f-optin">
-        <p>J&apos;accepte de recevoir des offres personnalisées de la part des <strong>partenaires d&apos;Orizia Courtage</strong> par téléphone, email et SMS.</p>
-        <div className="f-chips">
-          <Chip label="J'accepte" selected={form.optin_partenaires==='oui'} onClick={()=>{set('optin_partenaires','oui');clr('optin_partenaires');}}/>
-          <Chip label="Je refuse" selected={form.optin_partenaires==='non'} onClick={()=>{set('optin_partenaires','non');clr('optin_partenaires');}}/>
-        </div>
-        <Err show={errors.optin_partenaires}>Veuillez accepter ou refuser ce consentement.</Err>
-      </div>
+      <p className="f-privacy">
+        Vos réponses sont traitées par Orizia Courtage pour étudier votre demande et vous recontacter.
+        Un premier tri automatique, selon votre situation (fichage Banque de France, statut, revenus et charges),
+        peut conduire à une réponse négative : vous pouvez toujours demander que votre dossier soit réexaminé par la conseillère.
+        Vos droits et la durée de conservation : <a href="/confidentialite" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>.
+      </p>
       <TurnstileWidget action="orizia_submit"/>
       <Err show={errors.bot}>Vérification anti-robot en cours… réessayez dans un instant.</Err>
       <Btn submit={submit} sending={sending}/>

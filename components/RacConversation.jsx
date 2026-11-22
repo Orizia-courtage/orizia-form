@@ -247,17 +247,12 @@ export const QUESTIONS = [
   },
   {
     id: 'optin_orizia', input: 'consent', field: 'optin_orizia',
-    say: () => ["Dernière chose, deux accords à me donner (ou pas, c'est vous qui choisissez) :", "Acceptez-vous de recevoir des appels, e-mails et SMS sur des offres de financement et d'assurance proposées par Orizia Courtage ?"],
+    say: () => ["Dernière chose, un accord à me donner (ou pas, c'est vous qui choisissez, et vous pourrez le retirer à tout moment) :", "Acceptez-vous d'être contacté(e) par Orizia Courtage par téléphone, e-mail et SMS pour des offres de financement et d'assurance ?"],
     answer: (f) => (f.optin_orizia === 'oui' ? "J'accepte" : 'Je refuse'),
   },
   {
-    id: 'optin_partenaires', input: 'consent', field: 'optin_partenaires',
-    say: () => ["Et de recevoir des offres personnalisées de la part des partenaires d'Orizia Courtage, par téléphone, e-mail et SMS ?"],
-    answer: (f) => (f.optin_partenaires === 'oui' ? "J'accepte" : 'Je refuse'),
-  },
-  {
     id: 'envoi', input: 'send',
-    say: (f) => [`Parfait ${f.prenom}, votre dossier est complet ✅`, 'Voici votre situation. Je regroupe tout cela et je reviens vers vous sous 24 h.'],
+    say: (f) => [`Parfait ${f.prenom}, votre dossier est complet ✅`, 'Voici votre situation. Je regroupe tout cela et je reviens vers vous sous 24 h.', "Bon à savoir : un premier tri automatique, selon votre situation (fichage Banque de France, statut, revenus et charges), peut conduire à une réponse négative. Vous pouvez toujours me demander de réexaminer votre dossier moi-même. Vos droits : orizia-courtage.fr/confidentialite."],
   },
 ];
 const visible = (f) => QUESTIONS.filter((q) => !q.when || q.when(f));

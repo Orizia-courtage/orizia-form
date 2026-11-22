@@ -7,6 +7,7 @@ import RappelForm from './RappelForm';
 import ScanToPhone from './ScanToPhone';
 
 import Icon from '@/components/Icon';
+import PrivacyNotice from '@/components/PrivacyNotice';
 // Icônes SVG inline — remplace Font Awesome pour ne pas bloquer le rendu
 const IconXmark = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -443,6 +444,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
                     onChange={e => handleChange('commentaire', e.target.value)} />
 
                   <ContactCaptcha onToken={setTurnstileToken}/>
+                  <PrivacyNotice />
                   <button type="submit" className="cp-form-submit" disabled={loading || !turnstileToken}>
                     {loading ? 'Envoi en cours…' : 'Envoyer le message'}
                   </button>
