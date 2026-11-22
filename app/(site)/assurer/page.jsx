@@ -42,14 +42,8 @@ const assurerHubSchema = {
     {
       '@type': 'Service',
       name: 'Courtage et Optimisation d\'Assurances',
-      provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Analyse, mise en concurrence et gestion de la résiliation pour vos contrats d\'assurance (Emprunteur, Habitation, Auto/Moto).',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Audit, comparaison et résiliation avec présentation transparente des modalités.',
-      },
     },
   ],
 };

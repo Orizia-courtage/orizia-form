@@ -36,11 +36,7 @@ const pretPersonnelSchema = {
       '@type': 'Service',
       name: 'Courtage en Prêt Personnel et Crédit à la Consommation',
       serviceType: 'Courtage en Prêt Personnel',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Comparaison et négociation du TAEG pour vos projets auto, travaux ou trésorerie. Élimination des assurances facultatives imposées. Accès à un réseau de partenaires bancaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -48,12 +44,6 @@ const pretPersonnelSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude et accompagnement avec présentation transparente des modalités.',
-      },
     },
   ],
 };

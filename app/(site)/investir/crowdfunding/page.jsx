@@ -37,24 +37,13 @@ const investirCrowdfundingSchema = {
       serviceType: 'Investissement Participatif Immobilier',
       description:
         "Information et accompagnement pour investir dans des projets de crowdfunding immobilier. Objectif de rendement 8-12%/an.",
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' }
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description:
-          "Audit des promoteurs, sélection des projets et définition de la stratégie de diversification avec présentation transparente des modalités.",
-      },
     },
     // 3. La FAQ existante
     {

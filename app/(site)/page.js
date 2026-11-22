@@ -10,7 +10,7 @@ import HomeSituations from '@/components/HomeSituations';
 import TemoignagesCarousel from '@/components/TemoignagesCarousel';
 import BrokerNetwork from '@/components/BrokerNetwork';
 import HomeSteps from '@/components/HomeSteps';
-import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
+import { COMPANY, COMPANY_IDENTIFIERS, ORGANIZATION_MEMBERSHIPS, STATUS_SHORT } from '@/lib/company.mjs';
 import CtaPresence from '@/components/CtaPresence';
 
 // ── 1. MÉTADONNÉES SEO ──
@@ -39,7 +39,8 @@ const oriziaSchema = {
   alternateName: ['Orizia', 'Cindy Urbansky Courtier'],
   foundingDate: COMPANY.registeredAt,
   identifier: COMPANY_IDENTIFIERS,
-  slogan: 'Je ne travaille pas pour les banques. Je travaille pour vous.',
+  slogan: 'De la première question jusqu’à la signature.',
+  memberOf: ORGANIZATION_MEMBERSHIPS,
   url: 'https://www.orizia-courtage.fr',
   logo: {
     '@type': 'ImageObject',
@@ -49,7 +50,7 @@ const oriziaSchema = {
   },
   image: 'https://www.orizia-courtage.fr/og/page/accueil.jpg',
   description:
-    'Cabinet de courtage fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
+    `Cabinet de courtage fondé par Cindy Urbansky à Marcq-en-Barœul (Hauts-de-France) : crédit immobilier, assurance emprunteur, regroupement de crédits, assurance vie, PER. ${STATUS_SHORT}`,
   telephone: '+33777259706',
   email: 'cindy.urbansky@orizia-courtage.fr',
   contactPoint: [
@@ -72,7 +73,7 @@ const oriziaSchema = {
     name: 'Cindy Urbansky',
     jobTitle: 'Courtier en financement, assurance et gestion de patrimoine',
     description:
-      'Courtière immatriculée à l\'ORIAS, avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
+      'Fondatrice d\'Orizia Courtage (ORIAS n° 26013524), 20 ans d\'expérience en intermédiation bancaire et en assurance. Présidente du conseil de surveillance de l\'AFIB.',
     image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',

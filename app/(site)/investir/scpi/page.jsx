@@ -34,11 +34,7 @@ const investirSCPISchema = {
       '@type': 'Service',
       name: 'Conseil et Courtage en SCPI (Société Civile de Placement Immobilier)',
       serviceType: 'Investissement Immobilier / Pierre-Papier',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Analyse du marché, sélection de SCPI (rendement, européennes, assurance vie) et optimisation fiscale de la détention.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -46,12 +42,6 @@ const investirSCPISchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' }
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Bilan patrimonial, sélection des SCPI et montage du dossier avec présentation transparente des modalités.'
-      }
     }
   ]
 };

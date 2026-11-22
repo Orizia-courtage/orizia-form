@@ -53,19 +53,13 @@ const investirPerSchema = {
       '@type': 'Service',
       name: 'Conseil et Courtage en Plan Épargne Retraite (PER)',
       serviceType: 'Conseil en Investissement Financier',
-      provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Audit fiscal, calcul des plafonds de déduction, sélection du PER le plus adapté et construction de l\'allocation d\'actifs.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
         { '@type': 'City', name: 'Marcq-en-Barœul' }
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'L\'audit initial et le conseil en sélection de PER s\'accompagnent d\'une présentation transparente des modalités.'
-      }
     }
   ]
 };

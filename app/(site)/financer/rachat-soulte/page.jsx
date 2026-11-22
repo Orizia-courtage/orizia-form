@@ -36,18 +36,7 @@ const rachatSoulteSchema = {
       '@type': 'Service',
       name: 'Courtage en Financement de Rachat de Soulte',
       serviceType: 'Courtage en Rachat de Soulte',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-        telephone: '+33XXXXXXXXX',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Marcq-en-Barœul',
-          addressRegion: 'Hauts-de-France',
-          addressCountry: 'FR',
-        },
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Montage du financement pour racheter la part d\'un co-propriétaire lors d\'un divorce, d\'une séparation ou d\'une succession. Accès à plus de 40 offres bancaires partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -55,12 +44,6 @@ const rachatSoulteSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude de faisabilité et présentation transparente des modalités.',
-      },
     },
   ],
 };

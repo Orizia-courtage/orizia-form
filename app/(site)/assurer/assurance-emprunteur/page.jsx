@@ -33,24 +33,13 @@ const assuranceEmprunteurSchema = {
       name: "Courtage et Délégation d'Assurance Emprunteur",
       description:
         "Service d'optimisation et de substitution d'assurance de prêt immobilier via la loi Lemoine. L'économie possible dépend du capital, de la durée et de votre contrat actuel.",
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' }
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description:
-          "Étude de faisabilité et gestion administrative de la résiliation avec présentation transparente des modalités.",
-      },
     },
   ],
 };

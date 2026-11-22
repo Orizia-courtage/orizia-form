@@ -31,11 +31,7 @@ const investirHubSchema = {
       '@type': 'Service',
       name: 'Conseil en Stratégie Patrimoniale & Investissement',
       serviceType: 'Accompagnement patrimonial',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Accompagnement par Cindy Urbansky, courtier en assurance immatriculé à l\'ORIAS (n° 26013524).',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -43,12 +39,6 @@ const investirHubSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Bilan patrimonial et conseil avec présentation transparente des modalités.',
-      },
     },
   ],
 };

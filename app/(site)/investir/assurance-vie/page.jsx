@@ -33,11 +33,7 @@ const assuranceVieSchema = {
       '@type': 'Service',
       name: 'Conseil et Courtage en Assurance Vie',
       serviceType: 'Épargne & Transmission Patrimoniale',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description:
         'Audit de contrat existant, sélection de contrats haut de gamme (Abeille, Cardif, SwissLife), construction d\'allocation sur-mesure et rédaction de clause bénéficiaire.',
       areaServed: [
@@ -46,12 +42,6 @@ const assuranceVieSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Audit, conseil et accompagnement avec présentation transparente des modalités.',
-      },
     },
   ],
 };

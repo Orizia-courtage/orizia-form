@@ -37,18 +37,7 @@ const regroupementSchema = {
       '@type': 'Service',
       name: 'Courtage en Regroupement de Crédits',
       serviceType: 'Rachat et Consolidation de Crédits',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-        telephone: '+33XXXXXXXXX',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Marcq-en-Baroeul',
-          addressRegion: 'Hauts-de-France',
-          addressCountry: 'FR',
-        },
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. Réduction de mensualité jusqu\'à 60%.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -56,12 +45,6 @@ const regroupementSchema = {
         { '@type': 'City', name: 'Marcq-en-Baroeul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude de dossier et présentation transparente des modalités.',
-      },
     },
   ],
 };

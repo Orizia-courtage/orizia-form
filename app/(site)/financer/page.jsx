@@ -37,18 +37,7 @@ const financerHubSchema = {
       '@id': 'https://www.orizia-courtage.fr/#financer',
       name: 'Courtage en Crédit et Financement — Orizia Courtage',
       serviceType: 'Courtage en crédit',
-      provider: {
-        '@type': 'LocalBusiness',
-        '@id': 'https://www.orizia-courtage.fr/#organization',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Marcq-en-Barœul',
-          addressRegion: 'Hauts-de-France',
-          addressCountry: 'FR',
-        },
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description:
         'Négociation de crédit immobilier, regroupement de crédits, prêt personnel et rachat de soulte. Accès à plus de 40 offres bancaires. Étude de faisabilité avec présentation transparente des modalités.',
       areaServed: [
@@ -66,12 +55,6 @@ const financerHubSchema = {
           { '@type': 'Offer', itemOffered: { '@type': 'LoanOrCredit', name: 'Prêt personnel', loanType: 'PersonalLoan' } },
           { '@type': 'Offer', itemOffered: { '@type': 'LoanOrCredit', name: 'Rachat de soulte', loanType: 'Mortgage' } },
         ],
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude de faisabilité et accompagnement complet avec présentation transparente des modalités.',
       },
     },
   ],
