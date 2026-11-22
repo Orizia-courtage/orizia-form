@@ -49,7 +49,7 @@ export default function SimulateurRegroupement() {
         type: 'ok',
         icon: 'circle-check',
         title: nbCredits === '5+' ? `${nbCredits} crédits — profil éligible au regroupement.` : `${nbCredits} crédits — profil adapté au regroupement.`,
-        text: 'Avec plusieurs crédits en cours, le regroupement peut réduire significativement votre mensualité globale. Complétez le formulaire pour obtenir une simulation personnalisée.',
+        text: 'Avec plusieurs crédits en cours, le regroupement peut réduire votre mensualité globale, en contrepartie possible d’un allongement de la durée et d’un coût total plus élevé. Complétez le formulaire pour obtenir une simulation personnalisée.',
         cta: 'Tester mon éligibilité',
         href: '#formulaire',
       };
@@ -196,11 +196,11 @@ export default function SimulateurRegroupement() {
               </div>
               <div className="sr-result-card">
                 <div className="sr-result-card-body">
-                  <span className="sr-result-card-label">Gain mensuel estimé</span>
+                  <span className="sr-result-card-label">Baisse de mensualité possible</span>
                   <span className="sr-result-card-value" style={{ color: '#3e7f68' }}>
-                    +{fmt(result.gainMensuel)}
+                    −{fmt(result.gainMensuel)}
                   </span>
-                  <span className="sr-result-card-sub">de reste à vivre</span>
+                  <span className="sr-result-card-sub">en contrepartie d’une durée plus longue</span>
                 </div>
               </div>
             </div>

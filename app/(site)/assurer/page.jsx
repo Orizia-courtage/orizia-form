@@ -42,14 +42,8 @@ const assurerHubSchema = {
     {
       '@type': 'Service',
       name: 'Courtage et Optimisation d\'Assurances',
-      provider: { '@id': 'https://www.orizia-courtage.fr/#organization' },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Analyse, mise en concurrence et gestion de la résiliation pour vos contrats d\'assurance (Emprunteur, Habitation, Auto/Moto).',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Audit, comparaison et résiliation avec présentation transparente des modalités.',
-      },
     },
   ],
 };
@@ -63,7 +57,7 @@ const faqSchema = {
       name: 'Pourquoi passer par un courtier plutôt que mon assureur habituel ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtier indépendant, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous proposer le bon équilibre entre garanties et prix, en toute objectivité.',
+        text: 'Un agent général ne peut vous proposer que les contrats de sa propre marque. En tant que courtier, je ne suis rattachée à aucun réseau. Je compare les offres de dizaines de compagnies pour vous proposer le bon équilibre entre garanties et prix, en toute objectivité.',
       },
     },
     {
@@ -103,7 +97,7 @@ const ETAPES = [
 const DIFFERENCIANTS = [
   {
     icon: 'shield-check',
-    title: 'Indépendance totale',
+    title: 'Aucun lien exclusif',
     desc: 'Je ne suis rattachée à aucun assureur. Mon seul intérêt, c\'est de trouver le contrat qui sert VOS intérêts.',
     color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
@@ -162,7 +156,7 @@ export default function AssurerPage() {
             <div className="inv-hero-layout">
               {/* Gauche — texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge"><Icon name="shield-check" /> Courtage en assurance indépendant</span>
+                <span className="inv-hero-badge"><Icon name="shield-check" /> Courtage en assurance</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Protégez ce qui compte<br />
                   <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>sans payer trop cher</em>
@@ -217,7 +211,7 @@ export default function AssurerPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en assurance"
+                  alt="Cindy Urbansky, courtier en assurance"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -233,7 +227,7 @@ export default function AssurerPage() {
                   Mon rôle n'est pas de vous sur-assurer, mais de trouver le contrat qui vous couvre vraiment, au juste prix, et de gérer toute la paperasse de résiliation à votre place. Vous êtes protégé, je m'occupe du reste.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -267,7 +261,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <div className="inv-why-image">
                 <Image
                   src="/images/assurer.webp"
-                  alt="Cindy Urbansky, courtier indépendant en assurance – Orizia Courtage"
+                  alt="Cindy Urbansky, courtier en assurance – Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}
@@ -384,7 +378,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <ContactPopup label="Contactez-moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
-              Je suis immatriculée à l'ORIAS, régie par l'ACPR.
+              Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524, sous le contrôle de l'ACPR, membre de VotrAsso.
               Les frais et modalités applicables sont expliqués avant tout engagement.
               * Je ne suis soumise à aucune obligation contractuelle de travailler exclusivement avec une ou plusieurs entreprises d'assurance.
             </p>

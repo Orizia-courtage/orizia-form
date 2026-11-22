@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from '@vnedyalk0v/react19-simple-maps';
 import geoData from '../data/france-zones.json';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
+import CreditWarning from '@/components/CreditWarning';
+import { creditExampleText } from '@/lib/credit-example.mjs';
 
 import ReunionSVG           from '../src/assets/outremer/reunion.svg';
 import GuadeloupeSVG        from '../src/assets/outremer/guadeloupe.svg';
@@ -219,7 +221,7 @@ function OutreMerGrid({ selected, onSelect }) {
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 export default function MortgageRateWidget() {
-  const { credit: creditConfig } = useSimulationConfig();
+  const { credit: creditConfig, updatedAt } = useSimulationConfig();
   const rates = creditConfig.ratesByZone;
   const [tab, setTab]                       = useState('metropole');
   const [selectedRegion, setSelectedRegion] = useState('ile-de-france');
@@ -243,9 +245,10 @@ export default function MortgageRateWidget() {
       ? METROPOLE_ZONE_LABELS[selectedRegion] ?? ''
       : OUTREMER_REGIONS.find(r => r.id === selectedRegion)?.label ?? '';
 
-  const today = new Date().toLocaleDateString('fr-FR', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  });
+  // Date réelle de mise à jour des taux (réglages du CRM), jamais la date du jour.
+  const updatedLabel = updatedAt
+    ? new Date(updatedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' })
+    : null;
 
   const handleTabChange = (next) => {
     setTab(next);
@@ -308,7 +311,12 @@ export default function MortgageRateWidget() {
             </span>
           </div>
           <p style={{ margin: 0, fontSize: '13px', color: '#9AA0B0', lineHeight: '1.5' }}>
-            Taux sur {years} ans mis à jour le&nbsp;: {today}
+            Taux débiteur moyen indicatif sur {years} ans, hors assurance et frais, selon profil
+            {updatedLabel ? <> · mis à jour le&nbsp;{updatedLabel}</> : null}.
+            Source&nbsp;: relevé Orizia Courtage auprès de ses partenaires bancaires. Ne constitue pas une offre de prêt.
+          </p>
+          <p style={{ margin: 0, fontSize: '11.5px', color: '#7A8090', lineHeight: '1.5' }}>
+            {creditExampleText({ capital: 200000, rate, years })} <CreditWarning />
           </p>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>

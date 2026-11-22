@@ -10,6 +10,7 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // -- 1. MÉTADONNÉES SEO --
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -35,11 +36,7 @@ const pretPersonnelSchema = {
       '@type': 'Service',
       name: 'Courtage en Prêt Personnel et Crédit à la Consommation',
       serviceType: 'Courtage en Prêt Personnel',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Comparaison et négociation du TAEG pour vos projets auto, travaux ou trésorerie. Élimination des assurances facultatives imposées. Accès à un réseau de partenaires bancaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -47,12 +44,6 @@ const pretPersonnelSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude et accompagnement avec présentation transparente des modalités.',
-      },
     },
   ],
 };
@@ -98,7 +89,7 @@ const faqSchema = {
       name: 'Pourquoi faire appel à un courtier pour un simple crédit conso ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Parce que les écarts de taux entre les organismes peuvent varier du simple au triple ! En passant par moi, vous évitez les "crédits revolving" toxiques, vous gagnez du temps (je consulte tous mes partenaires en une fois) et vous obtenez un prêt sur-mesure qui ne met pas votre budget quotidien dans le rouge.',
+        text: 'Parce que les écarts de taux entre les organismes peuvent varier du simple au triple ! En passant par moi, vous évitez les crédits renouvelables (« revolving ») souvent plus coûteux, vous gagnez du temps (je consulte tous mes partenaires en une fois) et vous obtenez un prêt sur-mesure qui ne met pas votre budget quotidien dans le rouge.',
       },
     },
   ],
@@ -139,7 +130,7 @@ const ETAPES = [
   {
     n: '02',
     title: 'Je consulte mes partenaires',
-    text: 'Je soumets votre dossier à mon réseau d\'organismes de crédit et de banques partenaires. J\'épluche les TAEG pour vous sortir l\'offre la moins chère.',
+    text: 'Je soumets votre dossier à mon réseau d\'organismes de crédit et de banques partenaires. J\'épluche les TAEG pour rechercher l\'offre la plus adaptée à votre profil.',
   },
   {
     n: '03',
@@ -212,7 +203,7 @@ export default function PretPersonnelPage() {
             <h1 className="ae-hero-title">Financez vos projets,<br />pas les marges des banques</h1>
             <p className="ae-hero-intro">
               Souscrire un prêt personnel sur internet est devenu trop facile, et souvent <strong>trop cher</strong>.
-              En tant que courtier indépendant, je compare les taux (TAEG), j'élimine les assurances inutiles
+              En tant que courtier, je compare les taux (TAEG), j'élimine les assurances inutiles
               et je vous trouve la mensualité qui <strong>respecte votre budget</strong>.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
@@ -249,7 +240,7 @@ export default function PretPersonnelPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en prêt personnel"
+                  alt="Cindy Urbansky, courtier en prêt personnel"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -265,7 +256,7 @@ export default function PretPersonnelPage() {
                   Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -552,7 +543,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               <CreditWarning /> 
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
             </p>
           </div>
         </section>

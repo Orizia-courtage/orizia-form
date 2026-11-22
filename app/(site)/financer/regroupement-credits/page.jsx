@@ -11,6 +11,7 @@ import ContactPopup from '@/components/ContactPopup';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // -- 1. MÉTADONNÉES SEO --
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -36,18 +37,7 @@ const regroupementSchema = {
       '@type': 'Service',
       name: 'Courtage en Regroupement de Crédits',
       serviceType: 'Rachat et Consolidation de Crédits',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-        telephone: '+33XXXXXXXXX',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Marcq-en-Baroeul',
-          addressRegion: 'Hauts-de-France',
-          addressCountry: 'FR',
-        },
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Analyse du profil d\'endettement, mise en concurrence des établissements spécialisés et montage du dossier de regroupement de crédits. Réduction de mensualité jusqu\'à 60%.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -55,12 +45,6 @@ const regroupementSchema = {
         { '@type': 'City', name: 'Marcq-en-Baroeul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude de dossier et présentation transparente des modalités.',
-      },
     },
   ],
 };
@@ -299,7 +283,7 @@ export default function RegroupementCreditsPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en regroupement de crédits"
+                  alt="Cindy Urbansky, courtier en regroupement de crédits"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -315,7 +299,7 @@ export default function RegroupementCreditsPage() {
                   Le regroupement de crédits n'est pas une solution miracle, mais c'est souvent la seule qui redonne de l'air immédiatement. Mon rôle est d'analyser votre situation honnêtement, de vous présenter les chiffres réels — économies immédiates et coût total — et de vous laisser décider en toute connaissance de cause.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -335,7 +319,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                   une durée négociés.
                 </p>
                 <p>
-                  Résultat immédiat : votre mensualité globale baisse, parfois de moitié.
+                  Résultat immédiat : votre mensualité globale peut baisser nettement, en contrepartie d’une durée plus longue et d’un coût total du crédit plus élevé.
                   Votre taux d'endettement se normalise. Vous retrouvez du <strong>reste à vivre</strong>{' '}
                   chaque mois.
                 </p>
@@ -642,7 +626,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               Le regroupement de crédits peut allonger la durée de remboursement et augmenter le coût total du crédit.
               Une simulation complète vous sera fournie avant toute décision.
-              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
             </p>
           </div>
         </section>

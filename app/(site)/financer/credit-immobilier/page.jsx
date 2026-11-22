@@ -11,6 +11,7 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // -- 1. MÉTADONNÉES SEO --
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -36,11 +37,7 @@ const creditImmobilierSchema = {
       '@type': 'Service',
       name: 'Courtage en Crédit Immobilier',
       serviceType: 'Courtage en Crédit Immobilier',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Négociation du taux, délégation d\'assurance emprunteur, montage du dossier bancaire et accompagnement jusqu\'à la signature chez le notaire. Accès à plus de 40 offres bancaires partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -48,12 +45,6 @@ const creditImmobilierSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude de faisabilité et présentation transparente des modalités.',
-      },
     },
   ],
 };
@@ -107,7 +98,7 @@ const faqSchema = {
 
 const CHIFFRES = [
   { value: '+40', label: 'Offres bancaires comparées', icon: 'landmark' },
-  { value: '33%', label: 'Taux d\'endettement maximal légal', icon: 'chart-column' },
+  { value: '35%', label: 'Taux d\'endettement maximal (règle HCSF)', icon: 'chart-column' },
   { value: '24h', label: 'Pour calculer votre enveloppe', icon: 'timer' },
   { value: '1', label: 'Interlocutrice unique (moi)', icon: 'user' },
 ];
@@ -209,7 +200,7 @@ const OBJECTIONS = [
   },
   {
     q: '« On m\'a dit que j\'étais limite au niveau de l\'endettement. »',
-    r: 'C\'est précisément là que mon expertise intervient. Le calcul du taux d\'endettement (33 ou 35%) peut varier d\'une banque à l\'autre selon la façon dont on présente vos revenus ou si l\'on restructure vos petits crédits en cours.',
+    r: 'C\'est précisément là que mon expertise intervient. Le calcul du taux d\'endettement (plafonné à 35%, assurance comprise) peut varier d\'une banque à l\'autre selon la façon dont on présente vos revenus ou si l\'on restructure vos petits crédits en cours.',
   },
   {
     q: '« J\'ai eu un problème de santé, je n\'aurai pas mon prêt. »',
@@ -294,7 +285,7 @@ export default function CreditImmobilierPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
+                  alt="Cindy Urbansky, courtier en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -307,10 +298,10 @@ export default function CreditImmobilierPage() {
                   « Trouver la maison de ses rêves est déjà un parcours du combattant. Chercher le financement ne devrait pas l'être. »
                 </p>
                 <p className="ae-citation-text">
-                  Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour vous obtenir le crédit le moins cher possible. Je suis votre bouclier face aux exigences des banquiers.
+                  Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour rechercher les conditions les plus adaptées à votre profil. Je suis votre bouclier face aux exigences des banquiers.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -570,7 +561,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
               Les modalités de l'étude sont présentées avant tout engagement.
             </p>
           </div>

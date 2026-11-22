@@ -25,7 +25,7 @@ const blogSchema = {
   author: {
     '@type': 'Person',
     name: 'Cindy Urbansky',
-    jobTitle: 'courtier indépendant',
+    jobTitle: 'courtier',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
   },
 };
@@ -49,7 +49,7 @@ export default async function BlogPage() {
             <h1 className="ae-hero-title">Le blog Orizia</h1>
             <p className="ae-hero-intro">
               Des conseils concrets sur le crédit immobilier, l'assurance, les placements
-              et la gestion de patrimoine — rédigés par Cindy Urbansky, courtier indépendant
+              et la gestion de patrimoine — rédigés par Cindy Urbansky, courtier
               dans les Hauts-de-France.
             </p>
           </div>

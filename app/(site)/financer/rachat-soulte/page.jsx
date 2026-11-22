@@ -10,6 +10,7 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // -- 1. MÉTADONNÉES SEO --
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -35,18 +36,7 @@ const rachatSoulteSchema = {
       '@type': 'Service',
       name: 'Courtage en Financement de Rachat de Soulte',
       serviceType: 'Courtage en Rachat de Soulte',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-        telephone: '+33XXXXXXXXX',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Marcq-en-Barœul',
-          addressRegion: 'Hauts-de-France',
-          addressCountry: 'FR',
-        },
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description: 'Montage du financement pour racheter la part d\'un co-propriétaire lors d\'un divorce, d\'une séparation ou d\'une succession. Accès à plus de 40 offres bancaires partenaires.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
@@ -54,12 +44,6 @@ const rachatSoulteSchema = {
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Étude de faisabilité et présentation transparente des modalités.',
-      },
     },
   ],
 };
@@ -97,7 +81,7 @@ const faqSchema = {
       name: 'Ma banque actuelle est-elle obligée d\'accepter le rachat de soulte ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier indépendant, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier à des conditions adaptées — y compris si votre banque actuelle refuse.',
+        text: 'Non. Votre banque actuelle peut refuser ou proposer des conditions peu avantageuses. En tant que courtier, je consulte l\'ensemble de mes partenaires bancaires pour trouver l\'établissement qui accepte votre dossier à des conditions adaptées — y compris si votre banque actuelle refuse.',
       },
     },
     {
@@ -244,7 +228,7 @@ export default function RachatSoultePage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en rachat de soulte"
+                  alt="Cindy Urbansky, courtier en rachat de soulte"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -260,7 +244,7 @@ export default function RachatSoultePage() {
                   Mon rôle est de prendre en charge toute la partie financière pour que vous puissiez vous concentrer sur l'essentiel. Je monte le dossier, je négocie avec les banques, et je coordonne avec votre notaire pour que tout soit prêt à temps. Sans surprise, sans retard.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -532,7 +516,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
             </p>
           </div>
         </section>

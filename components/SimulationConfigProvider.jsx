@@ -13,7 +13,8 @@ export function SimulationConfigProvider({ children }) {
     fetch('/api/site-config', { cache: 'no-store' })
       .then((response) => response.ok ? response.json() : null)
       .then((data) => {
-        if (active && data?.settings) setSettings(resolveSimulationSettings(data.settings));
+        // updatedAt : date réelle du dernier enregistrement des réglages (taux affichés), null si valeurs par défaut.
+        if (active && data?.settings) setSettings({ ...resolveSimulationSettings(data.settings), updatedAt: data.source === 'database' ? data.updatedAt : null });
       })
       .catch(() => {});
     return () => { active = false; };

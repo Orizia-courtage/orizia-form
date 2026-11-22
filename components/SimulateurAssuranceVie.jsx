@@ -700,7 +700,7 @@ export default function SimulateurAssuranceVie() {
 
           <p className="simu-disclaimer" style={{ marginTop: 16 }}>
             Simulation indicative à titre pédagogique. Les rendements ne sont pas garantis.
-            Investir comporte un risque de perte en capital. Orizia Courtage, courtier indépendant.
+            Investir comporte un risque de perte en capital. Orizia Courtage, courtier.
           </p>
         </div>
       </div>

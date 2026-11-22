@@ -34,23 +34,13 @@ const assuranceHabitationSchema = {
       serviceType: 'Assurance Habitation (MRH, Locataire, Propriétaire, PNO)',
       description:
         "Service d'optimisation, de comparaison et de souscription d'assurance habitation pour locataires, propriétaires et PNO. Prise en charge de la résiliation via la loi Hamon.",
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
         { '@type': 'City', name: 'Marcq-en-Barœul' },
         { '@type': 'Country', name: 'France' },
       ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Analyse de vos garanties, comparaison des devis et gestion administrative de la résiliation avec présentation transparente des modalités.',
-      },
     },
   ],
 };
@@ -93,7 +83,7 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: "Pourquoi passer par une courtière indépendante ?",
+      name: "Pourquoi passer par une courtière ?",
       acceptedAnswer: {
         '@type': 'Answer',
         text: "Votre banquier vous propose \"son\" produit. Moi, je vous propose \"le\" produit du marché le plus adapté à votre logement, en comparant des dizaines d'offres. Je chasse les garanties inutiles, je négocie le prix, et je suis votre interlocutrice unique tout au long de la vie du contrat.",
@@ -215,7 +205,7 @@ const OBJECTIONS = [
   },
   {
     q: '« Est-ce que vos contrats couvrent aussi bien ? »',
-    r: 'Souvent mieux ! Mon indépendance me permet de fuir les contrats "bas de gamme" bourrés d\'exclusions. Je ne vous propose que des assureurs solides avec qui j\'ai l\'habitude de travailler en cas de sinistre.',
+    r: 'Souvent mieux ! Ne dépendre d\'aucun assureur me permet de fuir les contrats "bas de gamme" bourrés d\'exclusions. Je ne vous propose que des assureurs solides avec qui j\'ai l\'habitude de travailler en cas de sinistre.',
   },
   {
     q: '« Et si j\'ai un dégât des eaux demain ? »',
@@ -324,7 +314,7 @@ export default function AssuranceHabitationPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant"
+                  alt="Cindy Urbansky, courtier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -339,7 +329,7 @@ export default function AssuranceHabitationPage() {
                   Mon rôle n'est pas de vous vendre un énième contrat, mais d'éplucher les petites lignes de l'actuel. Si vous payez trop cher pour être mal indemnisé en cas de pépin, je vous trouve mieux ailleurs et je m'occupe de résilier pour vous. Vous ne touchez à aucune paperasse.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -422,7 +412,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <span className="fin-badge">De l'humain</span>
               <h2>Je ne suis pas un robot comparateur.<br />Je gère tout, de A à Z.</h2>
               <p>
-                Pas de centre d'appels à l'étranger. Je travaille seule, en totale indépendance, 
+                Pas de centre d'appels à l'étranger. Je travaille seule, en toute transparence, 
                 pour défendre uniquement vos intérêts.
               </p>
             </div>
@@ -666,7 +656,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               Les économies dépendent de votre localisation et de vos antécédents d'assurance.
-              Je suis immatriculée à l'ORIAS, régie par l'ACPR.
+              Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524, sous le contrôle de l'ACPR, membre de VotrAsso.
             </p>
           </div>
         </section>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from '@/components/Icon';
 import RdvButton from '@/components/RdvButton';
-import { COMPANY } from '@/lib/company.mjs';
+import { COMPANY, CREDIT_STATUS } from '@/lib/company.mjs';
 
 const COLS = [
   { title: 'Financer', href: '/financer', links: [['Crédit immobilier', '/financer/credit-immobilier'], ['Regroupement de crédits', '/financer/regroupement-credits'], ['Prêt personnel', '/financer/pret-personnel'], ['Rachat de soulte', '/financer/rachat-soulte']] },
@@ -38,7 +38,7 @@ export default function Footer() {
               className="oz-footer-logo"
               style={{ width: 130, height: 'auto' }}
             />
-            <p>Courtière indépendante en financement, assurance et patrimoine. Immatriculée à l’ORIAS.</p>
+            <p>Courtière en financement, assurance et patrimoine. Courtier en assurance immatriculé à l’ORIAS sous le n° 26013524 ; inscription COBSP en cours.</p>
             <address className="oz-footer-contact">
               <a href="https://www.google.com/maps/search/?api=1&query=23+bd+Clemenceau+59700+Marcq-en-Baroeul" target="_blank" rel="noopener noreferrer">
                 <Icon name="map-pin" /> 23 bd Clemenceau, 59700 Marcq-en-Barœul
@@ -78,13 +78,15 @@ export default function Footer() {
         </div>
 
         <div className="oz-footer-legal">
-          {COMPANY.denomination} · {COMPANY.legalForm} au capital de {COMPANY.capital} · {COMPANY.rcs} · Siège : {COMPANY.addressInline}
+          {COMPANY.denomination} · {COMPANY.legalForm} au capital de {COMPANY.capital} · {COMPANY.rcs} · Siège : {COMPANY.addressInline}<br />
+          {CREDIT_STATUS} Médiateur : {COMPANY.mediator.name}, {COMPANY.mediator.address}.
         </div>
 
         <div className="oz-footer-bottom">
           <span>© {new Date().getFullYear()} Orizia Courtage. Tous droits réservés.</span>
           <div>
             <Link href="/mentions-legales">Mentions légales</Link>
+            <Link href="/honoraires">Honoraires</Link>
             <Link href="/confidentialite">Confidentialité</Link>
           </div>
         </div>

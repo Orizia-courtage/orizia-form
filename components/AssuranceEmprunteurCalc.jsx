@@ -147,7 +147,7 @@ export default function AssuranceEmprunteurCalc() {
         </div>
 
         {/* CTA */}
-        <ContactPopup label="Calculer mon économie exacte" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
+        <ContactPopup label="Affiner mon estimation" icon="calendar-days" className="fin-btn-on-dark" style={{ width: '100%', justifyContent: 'center' }} />
         <p className="aec-disclaimer">
           Simulation indicative. Votre économie réelle dépend de votre profil de santé et du contrat actuel.
         </p>

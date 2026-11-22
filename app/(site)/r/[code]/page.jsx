@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
   const who = referral ? shortName(referral.parrain) : 'Un client';
   return {
     title: `${who} vous recommande Cindy Urbansky | Orizia Courtage`,
-    description: 'Courtière indépendante en crédit, assurance et patrimoine. Laissez vos coordonnées : je vous rappelle sous 24 h.',
+    description: 'Courtière en crédit, assurance et patrimoine. Laissez vos coordonnées : je vous rappelle sous 24 h.',
     robots: { index: false, follow: false },
   };
 }
@@ -35,7 +35,7 @@ export default async function RecommendationPage({ params }) {
               <div>
                 <span className="reco-kicker"><Icon name="heart-handshake" /> Recommandation de {who}</span>
                 <h1><em>{who}</em> vous recommande Cindy Urbansky</h1>
-                <p>Courtière indépendante en crédit, assurance et patrimoine, à Marcq-en-Barœul et partout en France.</p>
+                <p>Courtière en crédit, assurance et patrimoine, à Marcq-en-Barœul et partout en France.</p>
               </div>
             </div>
             <ul className="reco-proofs">

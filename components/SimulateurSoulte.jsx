@@ -6,6 +6,7 @@ import { formatPercent } from '@/lib/simulationConfig';
 import { useSimulationConfig } from '@/components/SimulationConfigProvider';
 
 import Icon from '@/components/Icon';
+import CreditWarning from '@/components/CreditWarning';
 const QP_PRESETS = ['25', '33', '50', '67', '75'];
 
 export default function SimulateurSoulte() {
@@ -203,7 +204,7 @@ export default function SimulateurSoulte() {
           <div className="ss-result-footer">
             <div className="ss-result-disclaimer">
               <span className="ss-result-disclaimer-icon"><Icon name="info" /></span>
-              <p>Estimation indicative. Je vérifie la faisabilité complète de votre financement et vous présente les modalités avant tout engagement.</p>
+              <p>Estimation indicative. Je vérifie la faisabilité complète de votre financement et vous présente les modalités avant tout engagement. <CreditWarning /></p>
             </div>
             <ContactPopup label="Étudier mon financement" icon="calendar-days" className="fin-btn-primary ss-result-cta" />
           </div>

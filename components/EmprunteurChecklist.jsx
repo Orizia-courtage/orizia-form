@@ -36,7 +36,7 @@ const CRITERES = [
   {
     id: 'sante',
     label: 'Mon état de santé est bon (pas de pathologie lourde)',
-    desc: 'Un bon profil de santé permet d\'accéder aux meilleurs taux du marché. La loi Lemoine supprime même le questionnaire médical sous conditions.',
+    desc: 'Un bon profil de santé peut permettre d\'accéder à des tarifs plus favorables. La loi Lemoine supprime même le questionnaire médical sous conditions.',
     required: false,
     signal: 'Profil favorable',
   },
@@ -119,9 +119,9 @@ export default function EmprunteurChecklist() {
                   Vous payez très probablement trop cher
                 </strong>
                 <p>
-                  Les deux signaux les plus forts sont réunis. En 30 minutes, je calcule
-                  votre économie exacte et je vous montre le contrat qui remplace le vôtre
-                  à garanties identiques — ou meilleures.
+                  Les deux signaux les plus forts sont réunis. En 30 minutes, j'estime
+                  l'économie possible et je vous montre le contrat qui remplace le vôtre
+                  à garanties équivalentes.
                 </p>
                 <ContactPopup label="Calculer mon économie" icon="calendar-days" className="fin-btn-primary" style={{ marginTop: 14, display: 'inline-flex' }} />
               </div>

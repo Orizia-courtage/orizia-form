@@ -15,8 +15,8 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Cindy Urbansky',
-  jobTitle: 'Courtier indépendant en crédit, assurance et gestion de patrimoine',
-  description: 'Courtière indépendante immatriculée à l\'ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
+  jobTitle: 'Courtier en crédit, assurance et gestion de patrimoine',
+  description: 'Courtière immatriculée à l\'ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
   image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
   url: 'https://www.orizia-courtage.fr/qui-suis-je',
   sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/', 'https://www.instagram.com/orizia_courtage/'],
@@ -40,11 +40,11 @@ const PARCOURS = [
     periode: '2026 à ce jour',
     poste: 'Fondatrice',
     entreprise: 'Orizia Courtage',
-    type: 'Courtière indépendante · Marcq-en-Barœul',
+    type: 'Courtière · Marcq-en-Barœul',
     icon: 'sparkles',
     color: '#3e7f68',
     highlight: true,
-    desc: 'Crédit, assurance et placements : une seule interlocutrice, indépendante des banques, de la première question à la signature.',
+    desc: 'Crédit, assurance et placements : une seule interlocutrice, non liée à une banque, de la première question à la signature.',
   },
   {
     periode: '2025 – 2026',
@@ -152,7 +152,7 @@ export default function QuiSuisJePage() {
                   <Image
                     src="/images/photo-cindy-gp.webp"
                     quality={90}
-                    alt="Cindy Urbansky — Courtière indépendante, fondatrice d'Orizia Courtage"
+                    alt="Cindy Urbansky — Courtière, fondatrice d'Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
                     priority
@@ -170,7 +170,7 @@ export default function QuiSuisJePage() {
 
               {/* Texte */}
               <div className="qsj-hero-text">
-                <span className="fin-badge"><Icon name="hand" /> Courtier indépendant · Hauts-de-France</span>
+                <span className="fin-badge"><Icon name="hand" /> Courtier · Hauts-de-France</span>
                 <h1 className="qsj-hero-title">
                   Cindy Urbansky
                 </h1>
@@ -180,7 +180,7 @@ export default function QuiSuisJePage() {
                 <p className="qsj-hero-desc">
                   Née en région parisienne, installée à <strong>Marcq-en-Barœul depuis plus de 10 ans</strong>,
                   j'ai construit ma carrière dans l'intermédiation bancaire depuis 2005 — d'abord
-                  comme conseillère en banque, puis analyste crédit, courtier indépendant,
+                  comme conseillère en banque, puis analyste crédit, courtier,
                   directrice commerciale, et aujourd'hui fondatrice d'Orizia Courtage.
                 </p>
                 <p className="qsj-hero-desc">
@@ -226,7 +226,7 @@ export default function QuiSuisJePage() {
             <div className="crowd-2col">
               <div>
                 <span className="fin-badge">Mon histoire</span>
-                <h2>De la banque de détail<br />à l'indépendance totale</h2>
+                <h2>De la banque de détail<br />au courtage</h2>
                 <p>
                   Tout a commencé en 2005 chez LCL, où j'ai appris les fondamentaux de la relation
                   bancaire et du crédit. Puis Empruntis, où j'ai découvert l'analyse crédit et
@@ -238,7 +238,7 @@ export default function QuiSuisJePage() {
                   près de 6 ans pour piloter le réseau Brookéo à l'échelle nationale. C'est là
                   que j'ai développé une vision globale du marché de l'intermédiation bancaire —
                   ses forces, ses dérives, et ce qui manquait : <strong>un accompagnement vraiment
-                  indépendant, centré sur le client.</strong>
+                  centré sur le client.</strong>
                 </p>
                 <p>
                   Orizia Courtage est née de cette conviction. Installée à Marcq-en-Barœul,
@@ -251,7 +251,7 @@ export default function QuiSuisJePage() {
                   Mon engagement
                 </div>
                 {[
-                  { icon: 'target', titre: 'Indépendance totale', desc: 'Aucun lien exclusif avec une banque ou un assureur. Je travaille pour vous, pas pour eux.' },
+                  { icon: 'target', titre: 'Aucun lien exclusif', desc: 'Aucun lien exclusif avec une banque ou un assureur. Je vous indique toujours comment je suis rémunérée.' },
                   { icon: 'search', titre: 'Expertise terrain', desc: '20 ans dans l\'intermédiation bancaire, de l\'analyse crédit à la direction commerciale nationale.' },
                   { icon: 'handshake', titre: 'Relation directe', desc: 'Vous parlez toujours à moi. Pas à un centre d\'appels, pas à un assistant.' },
                   { icon: 'scale', titre: 'Engagement sectoriel', desc: 'Présidente du conseil de surveillance de l\'AFIB — je contribue à l\'amélioration des pratiques du secteur.' },

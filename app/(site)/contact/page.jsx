@@ -24,7 +24,7 @@ const contactSchema = {
     {
       '@type': 'FinancialService',
       name: 'Orizia Courtage',
-      description: 'Courtière indépendante en crédit immobilier, assurance vie et investissement.',
+      description: 'Courtière en crédit immobilier, assurance vie et investissement.',
       url: 'https://www.orizia-courtage.fr',
       telephone: '+33777259706',
       email: 'cindy.urbansky@orizia-courtage.fr',
@@ -107,7 +107,7 @@ const FAQ_CONTACT = [
   },
   {
     q: 'Puis-je être accompagné sur plusieurs sujets à la fois ?',
-    r: 'Tout à fait. En tant que courtière indépendante généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
+    r: 'Tout à fait. En tant que courtière généraliste, je peux vous accompagner simultanément sur un crédit immobilier, une assurance vie et un PER — avec une vision patrimoniale globale cohérente.',
   },
 ];
 
@@ -165,7 +165,7 @@ export default function ContactPage() {
                   <Image
                     src="/images/photo-cindy-gp.webp"
                     quality={90}
-                    alt="Cindy Urbansky, courtière indépendante – Orizia Courtage"
+                    alt="Cindy Urbansky, courtière – Orizia Courtage"
                     fill
                     style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
                     sizes="200px"
@@ -175,7 +175,7 @@ export default function ContactPage() {
                 <div className="contact-cindy-info">
                   <DispoStatus />
                   <div className="contact-cindy-name">Cindy Urbansky</div>
-                  <div className="contact-cindy-role">Courtière indépendante · Orizia Courtage</div>
+                  <div className="contact-cindy-role">Courtière · Orizia Courtage</div>
                   <div className="contact-cindy-stats">
                     <div className="contact-cindy-stat">
                       <strong>20 ans</strong>

@@ -256,7 +256,7 @@ export default function ContactPopup({ label = "M'envoyer un message", className
                 <div className="cp-avatar"><img src="/images/avatar-cindy.webp" alt="Cindy Urbansky" /></div>
                 <div>
                   <strong>Cindy Urbansky</strong>
-                  <span>Orizia Courtage – courtier indépendant</span>
+                  <span>Orizia Courtage – courtier</span>
                 </div>
               </div>
               <button className="cp-close" onClick={closeAll} aria-label="Fermer">
