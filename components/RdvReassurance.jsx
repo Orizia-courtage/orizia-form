@@ -19,7 +19,7 @@ export default function RdvReassurance() {
         </div>
         <div>
           <div className="rdv-reassurance-name">Cindy Urbansky</div>
-          <div className="rdv-reassurance-role">courtier indépendant · Orizia Courtage</div>
+          <div className="rdv-reassurance-role">courtier · Orizia Courtage</div>
           <DispoStatus />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Icon from '@/components/Icon';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import Link from 'next/link';
-import { COMPANY } from '@/lib/company.mjs';
+import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
 
 export const metadata = {
   title: 'Mentions Légales — ORIAS & ACPR | Orizia Courtage',
@@ -22,10 +22,7 @@ const mentionsSchema = {
     name: 'Orizia Courtage',
     legalName: COMPANY.denomination,
     url: 'https://www.orizia-courtage.fr',
-      identifier: [
-      { '@type': 'PropertyValue', propertyID: 'SIREN', value: COMPANY.sirenCompact },
-      { '@type': 'PropertyValue', propertyID: 'RCS', value: COMPANY.rcs },
-    ],
+    identifier: COMPANY_IDENTIFIERS,
     address: {
       '@type': 'PostalAddress',
       streetAddress: COMPANY.address.street,
@@ -88,12 +85,22 @@ export default function MentionsLegalesPage() {
         <section style={{ marginBottom: '40px' }}>
           <h2 style={h2}>4. Informations réglementaires (ORIAS &amp; ACPR)</h2>
           <p>
-            {COMPANY.denomination} exerce en tant que Courtier en assurance et Courtier en opérations de banque et en services de paiement (COBSP).<br /><br />
-            Immatriculation au Registre Unique des Intermédiaires en Assurance, Banque et Finance (<strong>ORIAS</strong>) : numéro <strong>en cours d’attribution</strong> (vérifiable sur <a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.orias.fr</a> dès sa publication).
+            {COMPANY.denomination} est immatriculée au Registre unique des intermédiaires en assurance, banque et finance (<strong>ORIAS</strong>) sous le numéro <strong>{COMPANY.oriasNumber}</strong>, en qualité de <strong>courtier en assurance (COA)</strong>. Immatriculation vérifiable sur <a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.orias.fr</a>.
+          </p>
+          {COMPANY.cobspPending && (
+            <p style={{ marginTop: '16px' }}>
+              Son inscription en qualité de <strong>courtier en opérations de banque et en services de paiement (COBSP)</strong> est en cours. Elle sera indiquée ici dès son enregistrement par l’ORIAS.
+            </p>
+          )}
+          <p style={{ marginTop: '16px' }}>
+            Association professionnelle : {COMPANY.denomination} est membre de <strong>{COMPANY.association.name}</strong>, {COMPANY.association.description}, {COMPANY.association.address} (<a href={COMPANY.association.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>votrasso.org</a>), pour son activité de courtage en assurance.
           </p>
           <p style={{ marginTop: '16px' }}>
-            L’activité est placée sous le contrôle de l’Autorité de Contrôle Prudentiel et de Résolution (<strong>ACPR</strong>) :<br />
-            4 Place de Budapest, CS 92459, 75436 Paris Cedex 09.
+            L’activité est placée sous le contrôle de l’Autorité de contrôle prudentiel et de résolution (<strong>ACPR</strong>) :<br />
+            4 place de Budapest, CS 92459, 75436 Paris Cedex 09.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Rémunération : {COMPANY.denomination} n’est liée par aucun contrat d’exclusivité avec une banque ou un assureur. Elle peut être rémunérée par des honoraires versés par le client et par des commissions versées par les établissements prêteurs et les compagnies d’assurance. La nature et le montant de la rémunération sont communiqués avant tout engagement. Voir le <Link href="/honoraires" style={{ color: '#3e7f68' }}>barème des honoraires</Link>.
           </p>
         </section>
 
@@ -110,8 +117,10 @@ export default function MentionsLegalesPage() {
         <section style={{ marginBottom: '40px' }}>
           <h2 style={h2}>6. Réclamation et Médiation</h2>
           <p>
-            En cas de litige ou de réclamation, vous pouvez adresser votre demande par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>.<br />
-            Si aucune solution amiable n’est trouvée, vous avez la possibilité de saisir gratuitement le médiateur de la consommation compétent : <strong>médiateur en cours de désignation</strong> (ses coordonnées seront publiées ici dès sa désignation).
+            Toute réclamation peut être adressée par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>. Nous en accusons réception sous 10 jours ouvrables et y répondons dans un délai maximal de 2 mois à compter de sa réception.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Si la réponse ne vous satisfait pas, ou en l’absence de réponse dans ce délai, vous pouvez saisir gratuitement le médiateur de la consommation : <strong>{COMPANY.mediator.name}</strong>, {COMPANY.mediator.address} — <a href={COMPANY.mediator.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.mediation-assurance.org</a>. Le médiateur doit être saisi dans un délai d’un an à compter de votre réclamation écrite.
           </p>
         </section>
 

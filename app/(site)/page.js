@@ -17,7 +17,7 @@ import CtaPresence from '@/components/CtaPresence';
 export const metadata = {
   ...shareMetadata('accueil'),
   keywords: [
-    'courtier indépendant Hauts-de-France',
+    'courtier Hauts-de-France',
     'courtier crédit immobilier Lille',
     'assurance emprunteur loi Lemoine',
     'SCPI investissement',
@@ -49,7 +49,7 @@ const oriziaSchema = {
   },
   image: 'https://www.orizia-courtage.fr/og/page/accueil.jpg',
   description:
-    'Cabinet de courtage indépendant fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
+    'Cabinet de courtage fondé par Cindy Urbansky. Expertise en crédit immobilier, assurance emprunteur, regroupement de crédits, SCPI, PER et assurance vie. Immatriculé ORIAS. Basé à Marcq-en-Barœul, Hauts-de-France.',
   telephone: '+33777259706',
   email: 'cindy.urbansky@orizia-courtage.fr',
   contactPoint: [
@@ -70,9 +70,9 @@ const oriziaSchema = {
     '@type': 'Person',
     '@id': 'https://www.orizia-courtage.fr/qui-suis-je#cindy',
     name: 'Cindy Urbansky',
-    jobTitle: 'Courtier Indépendant en financement, assurance et gestion de patrimoine',
+    jobTitle: 'Courtier en financement, assurance et gestion de patrimoine',
     description:
-      'Courtière indépendante immatriculée à l\'ORIAS, avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
+      'Courtière immatriculée à l\'ORIAS, avec 20 ans d\'expérience en intermédiation bancaire. Présidente du conseil de surveillance de l\'AFIB.',
     image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
     sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
@@ -174,7 +174,7 @@ const faqSchema = {
       name: 'Orizia Courtage est-il immatriculé à l\'ORIAS ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, Orizia Courtage est immatriculé à l\'ORIAS et régi par l\'ACPR. Cindy Urbansky est également Présidente du conseil de surveillance de l\'AFIB (Association Française des Intermédiaires en Bancassurance).',
+        text: 'Oui. Orizia Courtage est immatriculée à l\'ORIAS sous le n° 26013524 en qualité de courtier en assurance (COA), sous le contrôle de l\'ACPR, et membre de VotrAsso, association professionnelle agréée par l\'ACPR. Son inscription en qualité de courtier en crédit (COBSP) est en cours. Cindy Urbansky est également Présidente du conseil de surveillance de l\'AFIB (Association Française des Intermédiaires en Bancassurance).',
       },
     },
     {
@@ -190,7 +190,7 @@ const faqSchema = {
       name: 'Quelle est la différence entre un courtier et un conseiller bancaire ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière indépendante, je compare plus de 40 offres bancaires pour rechercher la solution adaptée à votre situation — sans conflit d\'intérêts.',
+        text: 'Un conseiller bancaire ne peut vous proposer que les produits de sa banque. En tant que courtière, je compare plus de 40 offres bancaires pour rechercher la solution adaptée à votre situation — sans conflit d\'intérêts.',
       },
     },
   ],
@@ -288,10 +288,10 @@ export default function HomePage() {
             <div className="hh-text">
               <p className="hh-eyebrow">
                 <span className="hh-eyebrow-dot" aria-hidden="true" />
-                Courtière indépendante à Marcq-en-Barœul, immatriculée à l'ORIAS
+                Courtière à Marcq-en-Barœul · ORIAS n° 26013524
               </p>
               <h1 className="hh-title">
-                Votre courtière indépendante, de la première question jusqu’à la signature.
+                Votre courtière, de la première question jusqu’à la signature.
               </h1>
               <p className="hh-lead">
                 Crédit, assurance, placements : je gère personnellement chaque dossier,
@@ -309,7 +309,7 @@ export default function HomePage() {
               </p>
 
               <ul className="hh-proof" aria-label="Garanties">
-                <li><Icon name="badge-check" /><span><strong>ORIAS</strong> Intermédiaire immatriculée</span></li>
+                <li><Icon name="badge-check" /><span><strong>ORIAS</strong> n° 26013524</span></li>
                 <li><Icon name="landmark" /><span><strong>+40</strong> offres bancaires</span></li>
                 <li><Icon name="award" /><span><strong>AFIB</strong> Présidente du conseil de surveillance</span></li>
               </ul>
@@ -324,7 +324,7 @@ export default function HomePage() {
                 <Image
                   src="/images/hero-cindy-portrait.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtière indépendante, fondatrice d'Orizia Courtage"
+                  alt="Cindy Urbansky, courtière, fondatrice d'Orizia Courtage"
                   fill
                   priority
                   fetchPriority="high"
@@ -367,7 +367,7 @@ export default function HomePage() {
               <Image
                 src="/images/photo-cindy-gp.webp"
                 quality={90}
-                alt="Cindy Urbansky, courtière indépendante, Orizia Courtage"
+                alt="Cindy Urbansky, courtière, Orizia Courtage"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
                 sizes="(max-width: 900px) 70vw, 420px"

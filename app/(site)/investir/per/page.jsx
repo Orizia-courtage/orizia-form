@@ -38,7 +38,7 @@ const investirPerSchema = {
       '@id': 'https://www.orizia-courtage.fr/#organization',
       name: 'Orizia Courtage',
       image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      description: 'Cabinet de courtage indépendant spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
+      description: 'Cabinet de courtage spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '23 boulevard Clemenceau',
@@ -127,7 +127,7 @@ const faqSchema = {
       name: 'Pourquoi ouvrir un PER via un courtier plutôt qu\'en banque ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les PER peuvent comporter des frais sur versements et des frais de gestion qui influent sur la performance à long terme. En tant que courtier indépendant, je sélectionne des contrats haut de gamme avec une large gamme d\'UC (ETF, SCPI, fonds actions) et un suivi personnalisé de l\'allocation selon votre horizon de retraite.',
+        text: 'Les PER peuvent comporter des frais sur versements et des frais de gestion qui influent sur la performance à long terme. En tant que courtier, je sélectionne des contrats haut de gamme avec une large gamme d\'UC (ETF, SCPI, fonds actions) et un suivi personnalisé de l\'allocation selon votre horizon de retraite.',
       },
     },
   ],
@@ -400,7 +400,7 @@ export default function PERPage() {
                   rendez-vous, c'est souvent une révélation. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -864,7 +864,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               Le PER comporte un risque de perte en capital sur les unités de compte.
               Les performances passées ne préjugent pas des performances futures.
               L'avantage fiscal dépend de votre situation personnelle et est susceptible d'évoluer.
-              Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524, sous le contrôle de l'ACPR —
               avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>

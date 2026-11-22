@@ -25,7 +25,7 @@ const actualitesSchema = {
   author: {
     '@type': 'Person',
     name: 'Cindy Urbansky',
-    jobTitle: 'courtier indépendant',
+    jobTitle: 'courtier',
   },
 };
 

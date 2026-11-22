@@ -11,12 +11,12 @@ export default function CtaPresence() {
       </span>
       <span className="cta-presence-text">
         <strong>Cindy Urbansky</strong>
-        <span>Courtière indépendante · répond sous 24 h</span>
+        <span>Courtière · répond sous 24 h</span>
       </span>
       <ul className="cta-presence-chips" aria-label="Mes engagements">
         <li>Bilan personnalisé</li>
         <li>Sans engagement</li>
-        <li>100 % indépendante</li>
+        <li>Non liée à une banque</li>
       </ul>
     </div>
   );

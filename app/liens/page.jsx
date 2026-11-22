@@ -85,12 +85,12 @@ export default async function LiensPage() {
               <circle cx="100" cy="100" r="96" />
             </svg>
             <div className="lk-photo">
-              <Image src="/images/hero-cindy-assis.webp" alt="Cindy Urbansky, courtière indépendante" fill priority sizes="140px" quality={90} style={{ objectFit: 'cover', objectPosition: '50% 25%' }} />
+              <Image src="/images/hero-cindy-assis.webp" alt="Cindy Urbansky, courtière" fill priority sizes="140px" quality={90} style={{ objectFit: 'cover', objectPosition: '50% 25%' }} />
             </div>
           </div>
           <p className="lk-brand">Orizia Courtage</p>
           <h1 className="lk-name">Cindy Urbansky</h1>
-          <p className="lk-role">Courtière indépendante · Crédit, assurance &amp; placements<br />Marcq-en-Barœul &amp; partout en France</p>
+          <p className="lk-role">Courtière · Crédit, assurance &amp; placements<br />Marcq-en-Barœul &amp; partout en France</p>
           <LiensStatus />
 
           <nav className="lk-quick" aria-label="Me contacter">

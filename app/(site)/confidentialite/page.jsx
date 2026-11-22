@@ -66,7 +66,7 @@ export default function ConfidentialitePage() {
       </h1>
       
       <p style={{ fontSize: '1.1rem', marginBottom: '40px', opacity: 0.8 }}>
-        Chez Orizia Courtage, la transparence n'est pas qu'un argument commercial. En tant que courtier indépendant, je traite des informations intimes (finances, santé, projets de vie). La protection de vos données personnelles est donc une priorité absolue. Voici concrètement comment je les gère.
+        Chez Orizia Courtage, la transparence n'est pas qu'un argument commercial. En tant que courtier, je traite des informations intimes (finances, santé, projets de vie). La protection de vos données personnelles est donc une priorité absolue. Voici concrètement comment je les gère.
       </p>
 
       <section style={{ marginBottom: '40px' }}>

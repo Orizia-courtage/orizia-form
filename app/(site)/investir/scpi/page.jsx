@@ -39,7 +39,7 @@ const investirSCPISchema = {
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Analyse du marché, sélection indépendante de SCPI (rendement, européennes, assurance vie) et optimisation fiscale de la détention.',
+      description: 'Analyse du marché, sélection de SCPI (rendement, européennes, assurance vie) et optimisation fiscale de la détention.',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -97,7 +97,7 @@ const faqSchema = {
       name: 'Combien faut-il pour investir en SCPI ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtier indépendant, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
+        text: 'Le ticket d\'entrée varie : certaines SCPI sont accessibles dès 1 000€, d\'autres nécessitent 5 000 à 10 000€ minimum. Il est aussi possible d\'investir par versements programmés mensuels dès 50€/mois, ou à crédit pour bénéficier de l\'effet de levier. En tant que courtier, j\'oriente chaque client vers les SCPI les plus accessibles et adaptées à sa situation.',
       },
     },
   ],
@@ -262,7 +262,7 @@ export default function SCPIPage() {
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust fin-hero-trust">
-              <span><Icon name="circle-check" /> Conseil 100% indépendant</span>
+              <span><Icon name="circle-check" /> Accompagnement personnalisé</span>
               <span><Icon name="chart-column" /> 200+ SCPI analysées</span>
               <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
@@ -309,7 +309,7 @@ export default function SCPIPage() {
                   amputée par la fiscalité. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -362,7 +362,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 J'analyse les SCPI à votre place — vous investissez sereinement.
               </p>
               <p style={{ fontSize: '1rem', opacity: 0.7, marginBottom: 24, maxWidth: 640, margin: '0 auto 24px' }}>
-                Indépendant, personnalisé selon votre situation fiscale et patrimoniale réelle.
+                Personnalisé selon votre situation fiscale et patrimoniale réelle.
               </p>
               <ContactPopup label="Me faire accompagner" icon="handshake" className="fin-btn-primary" />
             </div>
@@ -542,8 +542,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 <strong>Un accompagnement complet et personnalisé</strong>
                 <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8 }}>
                   Les frais et modalités applicables sont présentés de manière transparente,
-                  par vous. Mon indépendance garantit que je travaille exclusivement
-                  dans votre intérêt.
+                  par vous. Je vous indique toujours comment je suis rémunérée.
                 </p>
               </div>
               <ContactPopup label="Démarrer mon accompagnement" icon="rocket" className="fin-btn-primary" style={{ flexShrink: 0 }} />
@@ -688,7 +687,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             }}>
               Investir dans des SCPI comporte des risques de perte en capital et de liquidité.
               Les performances passées ne préjugent pas des performances futures.
-              Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524, sous le contrôle de l'ACPR —
               avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>

@@ -11,6 +11,7 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // -- 1. MÉTADONNÉES SEO --
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -294,7 +295,7 @@ export default function CreditImmobilierPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
+                  alt="Cindy Urbansky, courtier en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -310,7 +311,7 @@ export default function CreditImmobilierPage() {
                   Mon métier, c'est de vous enlever toute cette charge mentale bancaire. Vous visitez, vous choisissez, et pendant ce temps, je mets les banques en compétition pour rechercher les conditions les plus adaptées à votre profil. Je suis votre bouclier face aux exigences des banquiers.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -570,7 +571,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
               Les modalités de l'étude sont présentées avant tout engagement.
             </p>
           </div>

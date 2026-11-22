@@ -19,7 +19,7 @@ const lexiqueSchema = {
   author: {
     '@type': 'Person',
     name: 'Cindy Urbansky',
-    jobTitle: 'Courtier indépendant',
+    jobTitle: 'Courtier',
     url: 'https://www.orizia-courtage.fr/qui-suis-je',
   },
 };
@@ -127,12 +127,12 @@ const CATEGORIES = [
     color: '#3e7f68',
     bg: 'rgba(62,127,104,0.04)',
     termes: [
-      { terme: 'ORIAS', def: "Organisme pour le Registre des Intermédiaires en Assurance, banque et finance. Tout courtier doit y être immatriculé pour exercer légalement. Cindy Urbansky est immatriculée à l'ORIAS." },
+      { terme: 'ORIAS', def: "Organisme pour le Registre des Intermédiaires en Assurance, banque et finance. Tout courtier doit y être immatriculé pour exercer légalement. Orizia Courtage y est immatriculée sous le n° 26013524 en qualité de courtier en assurance (COA) ; son inscription en qualité de courtier en crédit (COBSP) est en cours." },
       { terme: 'ACPR', def: "Autorité de Contrôle Prudentiel et de Résolution. Superviseur des banques et assurances en France, sous l'égide de la Banque de France. Elle contrôle les courtiers et intermédiaires financiers." },
       { terme: 'AMF', def: "Autorité des Marchés Financiers. Régulateur des marchés financiers français. Elle agrée les SCPI, les plateformes de crowdfunding (PSFP) et supervise les conseillers en investissement." },
       { terme: 'DDA (Directive Distribution Assurance)', def: "Réglementation européenne encadrant la distribution des produits d'assurance. Elle impose la transparence sur la rémunération des intermédiaires et l'adéquation des produits aux besoins du client." },
       { terme: 'IOBSP', def: "Intermédiaire en Opérations de Banque et Services de Paiement. Statut réglementé des courtiers en crédit, soumis à des obligations de formation, d'immatriculation et de transparence." },
-      { terme: 'MOBSP', def: "Mandataire Non Exclusif en Opérations de Banque et Services de Paiement : intermédiaire qui agit en vertu d'un mandat d'une ou plusieurs banques, sans exclusivité. Orizia Courtage, elle, est courtier (COBSP) : elle agit pour le compte de ses clients." },
+      { terme: 'MOBSP', def: "Mandataire Non Exclusif en Opérations de Banque et Services de Paiement : intermédiaire qui agit en vertu d'un mandat d'une ou plusieurs banques, sans exclusivité. Un courtier (COBSP), lui, agit pour le compte de ses clients : c'est le statut dont Orizia Courtage a demandé l'inscription." },
       { terme: 'Loi PACTE', def: "Loi relative à la croissance et la transformation des entreprises (2019). Elle a créé le PER en unifiant les anciens produits d'épargne retraite (PERP, Madelin, PERCO) en une enveloppe unique et plus flexible." },
       { terme: 'Loi Lagarde', def: "Loi de 2010 interdisant aux banques de modifier le taux d'un crédit immobilier si l'emprunteur choisit une assurance externe. Elle protège le droit à la délégation d'assurance." },
       { terme: 'FGAP', def: "Fonds de Garantie des Assurances de Personnes. Couvre jusqu'à 70 000 € par assureur et par assuré en cas de faillite d'un assureur vie. Au-delà, je recommande de diversifier sur 2 assureurs." },

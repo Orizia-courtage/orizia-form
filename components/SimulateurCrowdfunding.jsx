@@ -198,7 +198,7 @@ export default function SimulateurCrowdfunding() {
         <p className="simu-disclaimer">
           Simulation indicative. Les rendements passés ne préjugent pas des performances futures.
           Tout investissement comporte un risque de perte en capital.
-          Orizia Courtage, courtier indépendant immatriculée ORIAS.
+          Orizia Courtage, courtier en assurance immatriculé à l'ORIAS sous le n° 26013524.
         </p>
       </div>
     </div>

@@ -97,7 +97,7 @@ const faqSchema = {
       name: 'Pourquoi passer par un courtier pour ouvrir une assurance vie ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Les contrats distribués en banque peuvent afficher des frais sur versements, une gamme UC limitée et des fonds euros peu compétitifs. En tant que courtier indépendant, je sélectionne des contrats haut de gamme adaptés à votre profil et je construis avec vous l\'allocation appropriée.',
+        text: 'Les contrats distribués en banque peuvent afficher des frais sur versements, une gamme UC limitée et des fonds euros peu compétitifs. En tant que courtier, je sélectionne des contrats haut de gamme adaptés à votre profil et je construis avec vous l\'allocation appropriée.',
       },
     },
     {
@@ -349,7 +349,7 @@ export default function AssuranceViePage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en assurance vie"
+                  alt="Cindy Urbansky, courtier en assurance vie"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -369,7 +369,7 @@ export default function AssuranceViePage() {
                   rendez-vous. »
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -762,7 +762,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             }}>
               L'assurance vie comporte un risque de perte en capital sur les unités
               de compte. Les performances passées ne préjugent pas des performances
-              futures. Je suis immatriculée à l'ORIAS, régie par l'ACPR —
+              futures. Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524, sous le contrôle de l'ACPR —
               avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>

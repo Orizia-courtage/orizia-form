@@ -30,13 +30,13 @@ const investirHubSchema = {
     {
       '@type': 'Service',
       name: 'Conseil en Stratégie Patrimoniale & Investissement',
-      serviceType: 'Gestion de Patrimoine Indépendante',
+      serviceType: 'Accompagnement patrimonial',
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
         image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
       },
-      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Conseil 100% indépendant par Cindy Urbansky, courtier immatriculé à l\'ORIAS.',
+      description: 'Bilan patrimonial, sélection de SCPI, assurance vie, PER et crowdfunding immobilier. Accompagnement par Cindy Urbansky, courtier en assurance immatriculé à l\'ORIAS (n° 26013524).',
       areaServed: [
         { '@type': 'State', name: 'Hauts-de-France' },
         { '@type': 'City', name: 'Lille' },
@@ -78,8 +78,8 @@ const ETAPES = [
 
 const FAQ_INVESTIR = [
   {
-    q: 'Pourquoi passer par un courtier indépendant pour investir ?',
-    r: 'Un conseiller bancaire ne peut vous proposer que les produits de son établissement. En tant que courtier indépendant, je n\'appartiens à aucun groupe bancaire et j\'accède à l\'ensemble du marché : SCPI, assurances vie haut de gamme, PER compétitifs, plateformes de crowdfunding agréées. Mon seul objectif est de trouver ce qui correspond à votre situation réelle.',
+    q: 'Pourquoi passer par un courtier pour investir ?',
+    r: 'Un conseiller bancaire ne peut vous proposer que les produits de son établissement. En tant que courtier, je n\'appartiens à aucun groupe bancaire et je travaille avec plusieurs sociétés partenaires : SCPI, assurances vie haut de gamme, PER compétitifs, plateformes de crowdfunding agréées. Mon seul objectif est de trouver ce qui correspond à votre situation réelle.',
   },
   {
     q: 'Combien coûte un bilan patrimonial avec Orizia Courtage ?',
@@ -102,7 +102,7 @@ const FAQ_INVESTIR = [
 const DIFFERENCIANTS = [
   {
     icon: 'shield-check',
-    title: 'Indépendance totale',
+    title: 'Aucun lien exclusif',
     desc: 'Je n\'appartiens à aucun groupe bancaire. Mon seul intérêt, c\'est de trouver le produit qui sert VOS objectifs — pas ceux de mon employeur.',
     color: '#3e7f68',
     bg: 'rgba(45,106,95,0.06)',
@@ -157,7 +157,7 @@ export default function InvestirPage() {
             <div className="inv-hero-layout">
               {/* Gauche — texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge"><Icon name="briefcase" /> Stratégie patrimoniale indépendante</span>
+                <span className="inv-hero-badge"><Icon name="briefcase" /> Stratégie patrimoniale sur mesure</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre argent mérite<br />
                   <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>mieux qu'une banque</em>
@@ -177,7 +177,7 @@ export default function InvestirPage() {
                 <div className="inv-hero-trust" style={{ borderTopColor: 'rgba(26,61,53,0.1)' }}>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
-                    Conseil 100% indépendant
+                    Accompagnement personnalisé
                   </div>
                   <div className="inv-hero-trust-item" style={{ color: 'var(--orizia-dark)', opacity: 0.55 }}>
                     <span className="inv-hero-trust-dot" />
@@ -213,7 +213,7 @@ export default function InvestirPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en gestion de patrimoine"
+                  alt="Cindy Urbansky, courtier en gestion de patrimoine"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -229,10 +229,10 @@ export default function InvestirPage() {
                 <p className="ae-citation-text">
                   Mon rôle est de démystifier l'investissement. J'écarte les produits inadaptés
                   ou trop chargés en frais, et je construis une stratégie qui vous ressemble.
-                  En toute indépendance, sans jargon financier.
+                  En toute transparence, sans jargon financier.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -386,7 +386,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', maxWidth: 540, margin: '24px auto 0' }}>
               L'investissement comporte des risques de perte en capital. Je suis
-              immatriculée à l'ORIAS, indépendante.
+              immatriculée à l'ORIAS sous le n° 26013524 (courtier en assurance).
               * Les frais et modalités applicables sont présentés avant tout engagement.
             </p>
           </div>

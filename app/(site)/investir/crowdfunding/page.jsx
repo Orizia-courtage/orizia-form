@@ -36,7 +36,7 @@ const investirCrowdfundingSchema = {
       name: "Courtage et Conseil en Crowdfunding Immobilier",
       serviceType: 'Investissement Participatif Immobilier',
       description:
-        "Sélection, audit et conseil indépendant pour investir dans des projets de crowdfunding immobilier. Objectif de rendement 8-12%/an.",
+        "Information et accompagnement pour investir dans des projets de crowdfunding immobilier. Objectif de rendement 8-12%/an.",
       provider: {
         '@type': 'LocalBusiness',
         name: 'Orizia Courtage',
@@ -81,7 +81,7 @@ const investirCrowdfundingSchema = {
           name: 'Pourquoi passer par un courtier pour investir dans le crowdfunding ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Les plateformes ont leurs propres modalités de rémunération. En tant que courtier indépendant chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil. Les frais et modalités sont présentés avec transparence.',
+            text: 'Les plateformes ont leurs propres modalités de rémunération. En tant que courtier chez Orizia Courtage, j\'analyse les bilans des promoteurs, sélectionne les plateformes les plus solides et construis une stratégie adaptée à votre profil. Les frais et modalités sont présentés avec transparence.',
           },
         },
         {
@@ -246,7 +246,7 @@ export default function CrowdfundingPage() {
               <ContactPopup label="Poser une question" className="fin-btn-secondary" />
             </div>
             <div className="ae-hero-trust">
-              <span><Icon name="circle-check" /> Conseil 100% indépendant</span>
+              <span><Icon name="circle-check" /> Accompagnement personnalisé</span>
               <span><Icon name="shield-check" /> Plateformes agréées AMF uniquement</span>
               <span><Icon name="zap" /> Réponse sous 24h</span>
             </div>
@@ -293,7 +293,7 @@ export default function CrowdfundingPage() {
                   votre épargne.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -687,7 +687,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
                 <strong>Un accompagnement complet et personnalisé</strong>
                 <p>
                   Les frais et modalités applicables sont expliqués avant tout engagement.
-                  Cette indépendance est ma garantie de travailler uniquement dans votre intérêt.
+                  Je vous indique toujours comment je suis rémunérée, avant tout engagement.
                 </p>
               </div>
               <ContactPopup label="Démarrer mon accompagnement" icon="clipboard-list" className="fin-btn-on-dark" />
@@ -824,7 +824,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 520, margin: '24px auto 0' }}>
               Investir comporte des risques de perte en capital. Les performances passées ne
-              préjugent pas des performances futures. Je suis immatriculée à l'ORIAS —
+              préjugent pas des performances futures. Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524 —
               avec des frais et modalités expliqués avant tout engagement.
             </p>
           </div>

@@ -104,7 +104,7 @@ const faqSchema = {
       name: "Pourquoi faire appel à vous plutôt que de chercher moi-même ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je suis indépendante : je compare les contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous n'avez pas la charge mentale des démarches. Les frais et modalités sont expliqués avant tout engagement.",
+        text: "Parce que changer d'assurance demande d'affronter sa banque, ce qui est souvent usant et technique. Je ne suis liée à aucun assureur : je compare les contrats, je m'assure de l'équivalence des garanties, et je gère 100% des courriers avec votre banque. Vous n'avez pas la charge mentale des démarches. Les frais et modalités sont expliqués avant tout engagement.",
       },
     },
   ],
@@ -145,7 +145,7 @@ const LOI_LEMOINE_POINTS = [
 
 const ETAPES = [
   { n: '01', title: "J'épluche votre contrat actuel",         text: "Envoyez-moi votre offre de prêt. Je décortique ce que vous payez aujourd'hui et je vous donne une estimation chiffrée de l'économie possible, avec les hypothèses retenues." },
-  { n: '02', title: 'Je sélectionne le contrat parfait',      text: "En tant qu'indépendante, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver un tarif adapté, avec des garanties équivalentes à celles exigées par votre banque." },
+  { n: '02', title: 'Je sélectionne le contrat parfait',      text: "En tant que courtière, j'interroge les grands noms de l'assurance (Cardif, SwissLife...) pour trouver un tarif adapté, avec des garanties équivalentes à celles exigées par votre banque." },
   { n: '03', title: 'Je monte au front face à la banque',     text: "C'est la partie que mes clients détestent, et c'est mon expertise. Je prépare le dossier, j'envoie la résiliation, je relance votre banquier. Je gère le bras de fer." },
   { n: '04', title: 'Vous constatez la baisse de vos mensualités', text: 'Une fois la substitution acceptée, votre nouveau contrat prend le relais. Vous êtes aussi bien couvert, mais votre prélèvement mensuel fond considérablement.' },
 ];
@@ -205,8 +205,8 @@ export default function AssuranceEmprunteurPage() {
 
             <p className="ae-hero-intro">
               Votre assurance de crédit vous coûte probablement beaucoup trop cher. Avec la{' '}
-              <strong>loi Lemoine</strong>, changez de contrat à tout moment. En tant que courtière
-              indépendante, je compare les taux,{' '}
+              <strong>loi Lemoine</strong>, changez de contrat à tout moment. En tant que courtière en assurance,
+              je compare les taux,{' '}
               <strong>je défie votre banque à votre place</strong>, et je cherche à réduire{' '}
                 <strong>le coût de votre assurance</strong>, à garanties équivalentes.
             </p>
@@ -267,7 +267,7 @@ export default function AssuranceEmprunteurPage() {
                   démarches, sans que vous n'ayez à lever le petit doigt.
                 </p>
                 <span className="ae-citation-author">
-                  Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage
+                  Cindy Urbansky, courtière et fondatrice d'Orizia Courtage
                 </span>
               </div>
             </div>
@@ -611,7 +611,7 @@ export default function AssuranceEmprunteurPage() {
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               *Les économies potentielles sont données à titre indicatif et dépendent de votre
               capital restant dû, de la durée de votre prêt et de votre profil. Je suis
-              immatriculée à l'ORIAS, indépendante, et je défends vos intérêts face aux
+              immatriculée à l'ORIAS sous le n° 26013524 (courtier en assurance), et je défends vos intérêts face aux
               établissements bancaires.
             </p>
           </div>

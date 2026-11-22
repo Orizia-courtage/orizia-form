@@ -95,7 +95,7 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Pourquoi confier mon assurance à un courtier indépendant comme Orizia ?',
+      name: 'Pourquoi confier mon assurance à un courtier comme Orizia ?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Contrairement à un agent général qui ne vend que sa marque, je travaille pour vous. Je scanne le marché, je négocie les prix, je vous explique les lignes en petits caractères et je gère la paperasse. Vous gagnez du temps, de l\'argent, et vous avez une interlocutrice unique : moi.',
@@ -229,7 +229,7 @@ export default function AssuranceAutoMotoPage() {
             </div>
             <div className="ae-hero-trust">
               <span><Icon name="circle-check" /> Loi Hamon : je m'occupe de résilier</span>
-              <span><Icon name="shield-check" /> Courtage 100% indépendant</span>
+              <span><Icon name="shield-check" /> Aucun lien exclusif avec un assureur</span>
               <span><Icon name="zap" /> Étude personnalisée sous 24h</span>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default function AssuranceAutoMotoPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant"
+                  alt="Cindy Urbansky, courtier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -271,7 +271,7 @@ export default function AssuranceAutoMotoPage() {
                   Mon rôle est de dire stop à ces augmentations silencieuses. Je mets les assureurs en concurrence, je déniche les garanties qui vous protègent vraiment, et surtout : je m'occupe de toute la paperasse pour résilier votre ancien contrat. Vous roulez l'esprit léger, je gère le reste.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -538,13 +538,13 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <CtaPresence />
             <h2>Prêt(e) à arrêter de payer<br />votre assurance trop cher ?</h2>
             <p>
-              Je compare les offres du marché, je vous conseille en totale indépendance et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
+              Je compare les offres du marché, je vous conseille en toute transparence et je m'occupe de la paperasse. Vous n'avez plus d'excuses pour ne pas faire d'économies.
             </p>
             <div className="ae-hero-btns">
               <ContactPopup label="Contactez-moi" icon="phone" className="fin-btn-primary" />
             </div>
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
-              Je suis immatriculée à l'ORIAS. Je travaille dans vos intérêts : mes honoraires
+              Courtier en assurance immatriculé à l'ORIAS sous le n° 26013524, sous le contrôle de l'ACPR. Je travaille dans vos intérêts : mes honoraires
                 vous sont présentés avant tout engagement.
             </p>
           </div>

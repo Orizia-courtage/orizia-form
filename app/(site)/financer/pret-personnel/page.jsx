@@ -10,6 +10,7 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // -- 1. MÉTADONNÉES SEO --
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -212,7 +213,7 @@ export default function PretPersonnelPage() {
             <h1 className="ae-hero-title">Financez vos projets,<br />pas les marges des banques</h1>
             <p className="ae-hero-intro">
               Souscrire un prêt personnel sur internet est devenu trop facile, et souvent <strong>trop cher</strong>.
-              En tant que courtier indépendant, je compare les taux (TAEG), j'élimine les assurances inutiles
+              En tant que courtier, je compare les taux (TAEG), j'élimine les assurances inutiles
               et je vous trouve la mensualité qui <strong>respecte votre budget</strong>.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
@@ -249,7 +250,7 @@ export default function PretPersonnelPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en prêt personnel"
+                  alt="Cindy Urbansky, courtier en prêt personnel"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -265,7 +266,7 @@ export default function PretPersonnelPage() {
                   Mon approche est à l'opposé de cette consommation frénétique : on prend le temps de définir votre vrai besoin, j'élimine les assurances facultatives, et je vais chercher le taux qui respecte votre budget quotidien. Vous financez vos projets, pas les marges des banques.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -552,7 +553,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
             <p style={{ marginTop: 24, fontSize: '0.75rem', opacity: 0.55, maxWidth: 540, margin: '24px auto 0' }}>
               <CreditWarning /> 
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
-              Je suis immatriculée à l'ORIAS en tant que courtière en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
             </p>
           </div>
         </section>

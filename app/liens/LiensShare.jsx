@@ -8,7 +8,7 @@ export default function LiensShare() {
   const share = async () => {
     const data = {
       title: 'Cindy Urbansky — Orizia Courtage',
-      text: 'Je te recommande Cindy, courtière indépendante (crédit, assurance, placements) :',
+      text: 'Je te recommande Cindy, courtière (crédit, assurance, placements) :',
       url: 'https://www.orizia-courtage.fr/liens?utm_source=partage',
     };
     track('liens_clic', { cible: 'partager' });

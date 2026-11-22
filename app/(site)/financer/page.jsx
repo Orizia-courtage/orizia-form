@@ -11,6 +11,7 @@ import ScrollButton from '@/components/ScrollButton';
 import Icon from '@/components/Icon';
 import CtaPresence from '@/components/CtaPresence';
 import CreditWarning from '@/components/CreditWarning';
+import { CREDIT_STATUS } from '@/lib/company.mjs';
 // ── 1. MÉTADONNÉES SEO ──
 // Régénérée chaque jour : la mention légale du crédit change le 20 novembre 2026.
 export const revalidate = 86400;
@@ -35,7 +36,7 @@ const financerHubSchema = {
       '@type': 'FinancialService',
       '@id': 'https://www.orizia-courtage.fr/#financer',
       name: 'Courtage en Crédit et Financement — Orizia Courtage',
-      serviceType: 'Courtage en Opérations de Banque et Services de Paiement (COBSP)',
+      serviceType: 'Courtage en crédit',
       provider: {
         '@type': 'LocalBusiness',
         '@id': 'https://www.orizia-courtage.fr/#organization',
@@ -210,7 +211,7 @@ export default function FinancerPage() {
             <div className="inv-hero-layout">
               {/* Gauche — texte */}
               <div className="inv-hero-text">
-                <span className="inv-hero-badge"><Icon name="landmark" /> Courtage en crédit indépendant</span>
+                <span className="inv-hero-badge"><Icon name="landmark" /> Courtage en crédit</span>
                 <h1 className="inv-hero-title" style={{ color: 'var(--orizia-accent)' }}>
                   Votre projet mérite<br />
                   <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>des conditions adaptées à votre profil</em>
@@ -266,7 +267,7 @@ export default function FinancerPage() {
                 <Image
                   src="/images/photo-cindy-gp.webp"
                   quality={90}
-                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier"
+                  alt="Cindy Urbansky, courtier en crédit immobilier"
                   title="Cindy Urbansky - Orizia Courtage"
                   fill
                   style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
@@ -284,7 +285,7 @@ export default function FinancerPage() {
                   et les pénalités de remboursement anticipé. Chaque ligne du contrat compte.
                 </p>
                 <span className="ae-citation-author">
-Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage                </span>
+Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span>
               </div>
             </div>
           </div>
@@ -318,7 +319,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <div className="inv-why-image">
                 <Image
                   src="/images/financer.webp"
-                  alt="Cindy Urbansky, courtier indépendant en crédit immobilier – Orizia Courtage"
+                  alt="Cindy Urbansky, courtier en crédit immobilier – Orizia Courtage"
                   width={600}
                   height={480}
                   style={{ objectFit: 'cover', borderRadius: 20, width: '100%', height: 'auto' }}
@@ -490,7 +491,7 @@ Cindy Urbansky, courtière indépendante et fondatrice d'Orizia Courtage        
               <CreditWarning />
               Aucun versement de quelque nature que ce soit ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent.
               * Les frais et modalités applicables sont présentés avant tout engagement.
-              Orizia Courtage, immatriculée à l'ORIAS, intervient en qualité de courtier en opérations de banque et en services de paiement (COBSP).
+              {CREDIT_STATUS}
             </p>
           </div>
         </section>
