@@ -32,7 +32,8 @@ const TRAITEMENTS = [
   ['Respecter nos obligations légales : devoir de conseil, lutte contre le blanchiment, traitement des réclamations, comptabilité', 'Obligation légale (art. 6.1.c)', '5 ans après la fin de la relation (10 ans pour les pièces comptables)'],
   ['Vous adresser des offres par téléphone, e-mail ou SMS', 'Votre consentement (art. 6.1.a) ; pour un client, l’e-mail sur des services analogues relève de l’intérêt légitime (art. L. 34-5 du Code des postes et communications électroniques)', 'Jusqu’au retrait de votre accord, et au plus 3 ans après le dernier contact'],
   ['Gérer le programme de recommandation (parrain et proche recommandé)', 'Intérêt légitime du parrain et du cabinet (art. 6.1.f) ; accord du proche avant tout appel', 'Coordonnées du proche effacées sous 30 jours s’il ne souhaite pas être contacté'],
-  ['Espace client : suivi du dossier, dépôt de documents, messagerie, notifications', 'Exécution du mandat (art. 6.1.b) ; notifications et carte de portefeuille : votre consentement', 'Messages : 30 jours ; compte : durée du dossier'],
+  ['Espace client et application mobile Orizia (iPhone, Android) : suivi du dossier, dépôt et numérisation de documents, messagerie et pièces jointes, notifications', 'Exécution du mandat (art. 6.1.b) ; notifications et carte de portefeuille : votre consentement', 'Messages et pièces jointes de la messagerie : 30 jours ; compte : durée du dossier, supprimable à tout moment depuis l’application'],
+  ['Signature électronique des documents du cabinet (mandat, lettre de mission…) et conservation de la preuve de votre signature (voir section 5)', 'Exécution du mandat (art. 6.1.b) ; intérêt légitime à pouvoir prouver votre accord (art. 6.1.f)', 'Document signé et preuve de signature : conservés avec le dossier, 5 ans après la fin de la relation'],
   ['Protéger le site contre les abus et les fausses demandes (adresse IP, type d’appareil)', 'Intérêt légitime (art. 6.1.f)', '7 jours'],
   ['Mesurer l’audience du site, sans cookie', 'Intérêt légitime (art. 6.1.f)', 'Statistiques globales, sans identifiant conservé'],
 ];
@@ -46,7 +47,7 @@ const SOUS_TRAITANTS = [
   ['Resend Inc.', 'Envoi des e-mails (confirmations, rendez-vous, demandes de documents)', 'États-Unis · Data Privacy Framework, clauses contractuelles types'],
   ['Cal.com Inc.', 'Prise et gestion des rendez-vous', 'États-Unis / Union européenne · clauses contractuelles types'],
   ['Supabase Inc.', 'Réglages du site, articles et protection contre les envois abusifs (aucune donnée de dossier)', 'Union européenne'],
-  ['Google LLC / Apple Inc.', 'Carte de recommandation dans le portefeuille du téléphone (uniquement si vous l’ajoutez)', 'États-Unis · Data Privacy Framework'],
+  ['Google LLC / Apple Inc.', 'Distribution de l’application (Google Play, App Store), acheminement des notifications vers votre téléphone (identifiant technique de l’appareil, sans contenu de dossier) et carte de recommandation dans le portefeuille du téléphone (uniquement si vous l’ajoutez)', 'États-Unis · Data Privacy Framework'],
 ];
 
 // Cookies et stockage local réellement utilisés (relevé du 20/11/2026) : à tenir à jour à chaque nouvel outil.
@@ -115,8 +116,8 @@ export default function ConfidentialitePage() {
             <li style={{ marginBottom: '8px' }}><strong>Identité et coordonnées :</strong> nom, prénom, date de naissance, adresse, téléphone, e-mail, situation familiale.</li>
             <li style={{ marginBottom: '8px' }}><strong>Situation professionnelle et financière :</strong> profession, revenus, charges, patrimoine, crédits en cours, avis d’imposition, et votre déclaration d’une éventuelle inscription au fichier de la Banque de France (FICP ou FCC).</li>
             <li style={{ marginBottom: '8px' }}><strong>Données de santé :</strong> uniquement pour une assurance emprunteur, lorsque l’assureur l’exige, avec votre consentement explicite. Elles sont traitées avec une confidentialité renforcée et transmises à l’assureur seul.</li>
-            <li style={{ marginBottom: '8px' }}><strong>Documents</strong> que vous déposez (justificatifs, offres de prêt, contrats) et vos <strong>messages</strong> dans l’espace client.</li>
-            <li style={{ marginBottom: '8px' }}><strong>Données techniques :</strong> adresse IP et type d’appareil et de navigateur lors de l’envoi d’un formulaire ; identifiants et mot de passe chiffré de l’espace client.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Documents</strong> que vous déposez (justificatifs, offres de prêt, contrats), vos <strong>messages</strong> et leurs pièces jointes dans l’espace client, et votre <strong>signature</strong> lorsque vous signez un document en ligne.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Données techniques :</strong> adresse IP et type d’appareil et de navigateur lors de l’envoi d’un formulaire ; identifiants et mot de passe chiffré de l’espace client ; identifiant technique de votre téléphone si vous activez les notifications.</li>
             <li style={{ marginBottom: '8px' }}><strong>Données de tiers :</strong> co-emprunteur que vous déclarez, ou proche que vous recommandez. Pensez à les informer : nous leur présentons cette politique dès le premier contact.</li>
           </ul>
           <p style={{ marginTop: '10px' }}>Les informations marquées comme obligatoires dans les formulaires sont nécessaires pour étudier votre demande ; sans elles, nous ne pouvons pas y donner suite.</p>
@@ -144,7 +145,33 @@ export default function ConfidentialitePage() {
         </section>
 
         <section style={section}>
-          <h2 style={h2}>5. Qui reçoit vos données</h2>
+          <h2 style={h2}>5. Application mobile et signature électronique</h2>
+          <p>
+            L’application <strong>Orizia</strong> (iPhone et Android) donne accès à votre espace client. Elle est réservée aux clients du cabinet : votre compte est créé par votre conseillère.
+            Elle ne contient <strong>aucune publicité</strong>, ne vous suit pas d’une application à l’autre et n’accède ni à votre position, ni à vos contacts.
+          </p>
+          <p style={{ marginTop: '12px' }}>Elle ne demande une autorisation que pour la fonction que vous utilisez :</p>
+          <ul style={{ marginLeft: '20px', marginTop: '8px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>Appareil photo et photos :</strong> pour photographier ou numériser un justificatif, ou en choisir un dans vos photos. Seuls les fichiers que vous envoyez nous sont transmis.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Face ID, Touch ID ou empreinte :</strong> pour vous connecter ou verrouiller l’application. La reconnaissance est faite par votre téléphone : nous ne recevons aucune donnée biométrique.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Notifications :</strong> pour vous prévenir d’un message ou de l’avancement d’un dossier. Vous choisissez ce que vous recevez et pouvez les désactiver à tout moment.</li>
+          </ul>
+          <p style={{ marginTop: '12px' }}>
+            <strong>Suppression du compte :</strong> vous pouvez supprimer votre compte depuis l’application (Compte, puis « Supprimer mon compte »). Votre accès est supprimé immédiatement ; vos dossiers et leurs documents restent conservés pendant les durées indiquées à la section 3, puis sont effacés.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            <strong>Signature électronique :</strong> lorsque le cabinet vous envoie un document à signer, vous pouvez le signer dans votre espace client. Il s’agit d’une signature électronique simple au sens du règlement européen eIDAS (n° 910/2014).
+            Après lecture du document, vous donnez votre accord, tracez votre signature et confirmez avec un code à usage unique envoyé à votre adresse e-mail. Selon le document, la date du jour, la ville que vous indiquez et des informations de votre fiche (nom, prénom, date de naissance, téléphone, e-mail) y sont inscrites.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            <strong>Preuve de signature :</strong> pour pouvoir établir que vous avez bien signé, nous conservons le document signé et un certificat de signature : votre identité et votre identifiant, le texte de votre accord, la date et l’heure de la signature et de la vérification du code, l’adresse IP et le type d’appareil utilisés, l’empreinte numérique du document d’origine et du document signé, et l’image de votre signature.
+            Le document signé est scellé numériquement, de sorte que toute modification ultérieure est détectable. Un exemplaire vous est envoyé par e-mail et reste disponible dans votre espace client.
+            Le document signé et sa preuve sont conservés avec votre dossier, <strong>5 ans après la fin de la relation</strong>, puis supprimés. Vous pouvez toujours préférer signer à la main et nous transmettre le document signé.
+          </p>
+        </section>
+
+        <section style={section}>
+          <h2 style={h2}>6. Qui reçoit vos données</h2>
           <ul style={{ marginLeft: '20px' }}>
             <li style={{ marginBottom: '8px' }}><strong>La gérante du cabinet</strong>, seule personne habilitée à consulter les dossiers.</li>
             <li style={{ marginBottom: '8px' }}><strong>Les banques, organismes de crédit et compagnies d’assurance</strong> que vous nous chargez de consulter, uniquement pour obtenir une proposition pour votre projet et avec votre accord.</li>
@@ -158,7 +185,7 @@ export default function ConfidentialitePage() {
         </section>
 
         <section style={section}>
-          <h2 style={h2}>6. Sécurité</h2>
+          <h2 style={h2}>7. Sécurité</h2>
           <p>
             Les échanges avec le site sont chiffrés (HTTPS). Les documents déposés sont stockés chiffrés, l’accès aux dossiers est protégé par mot de passe et réservé à la gérante,
             les mots de passe de l’espace client sont enregistrés sous forme chiffrée et les formulaires sont protégés contre les envois automatisés.
@@ -167,7 +194,7 @@ export default function ConfidentialitePage() {
         </section>
 
         <section style={section}>
-          <h2 style={h2}>7. Démarchage et prospection</h2>
+          <h2 style={h2}>8. Démarchage et prospection</h2>
           <p>
             Aucun appel commercial ne vous est passé sans votre accord préalable : soit vous avez demandé à être rappelé(e), soit vous avez accepté d’être contacté(e) dans un formulaire.
             Cet accord est facultatif et peut être retiré à tout moment, par simple e-mail ou en le disant lors d’un appel. Chaque e-mail commercial comporte un lien de désinscription.
@@ -176,7 +203,7 @@ export default function ConfidentialitePage() {
         </section>
 
         <section style={section}>
-          <h2 style={h2}>8. Vos droits</h2>
+          <h2 style={h2}>9. Vos droits</h2>
           <p>Vous disposez des droits suivants sur vos données :</p>
           <ul style={{ marginLeft: '20px', marginTop: '10px' }}>
             <li style={{ marginBottom: '6px' }}><strong>accès</strong> : savoir quelles données sont détenues et en obtenir une copie ;</li>
@@ -200,7 +227,7 @@ export default function ConfidentialitePage() {
         </section>
 
         <section style={section}>
-          <h2 style={h2}>9. Cookies et traceurs</h2>
+          <h2 style={h2}>10. Cookies et traceurs</h2>
           <p>
             Ce site ne dépose <strong>aucun cookie publicitaire, aucun cookie de réseau social et aucun cookie de mesure d’audience</strong>. C’est pourquoi aucun bandeau ne vous demande votre accord :
             les seuls éléments utilisés ci-dessous sont nécessaires au service que vous demandez ou à la sécurité du site, et sont dispensés de consentement (article 82 de la loi Informatique et Libertés, lignes directrices de la CNIL).
@@ -217,7 +244,7 @@ export default function ConfidentialitePage() {
         </section>
 
         <section style={section}>
-          <h2 style={h2}>10. Modifications</h2>
+          <h2 style={h2}>11. Modifications</h2>
           <p>
             Cette politique peut évoluer, notamment lors de l’ajout d’un outil ou d’un prestataire. La date de dernière mise à jour figure en haut de page.
             Voir aussi les <Link href="/mentions-legales" style={link}>mentions légales</Link>.
