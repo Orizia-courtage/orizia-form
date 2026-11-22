@@ -78,6 +78,8 @@ export default function MentionsLegalesPage() {
             Le site est hébergé par :<br />
             <strong>{COMPANY.host.name}</strong><br />
             Adresse : {COMPANY.host.address}<br />
+            Téléphone : {COMPANY.host.phone}<br />
+            Contact : <a href={`mailto:${COMPANY.host.email}`} style={{ color: '#3e7f68' }}>{COMPANY.host.email}</a> ou <a href={COMPANY.host.contactUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>vercel.com/contact</a><br />
             Site web : <a href={COMPANY.host.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>{COMPANY.host.url}</a>
           </p>
         </section>

@@ -113,7 +113,7 @@ const faqSchema = {
       name: 'Le PER est-il intéressant pour un travailleur indépendant ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'C\'est l\'un des placements les plus efficaces pour un TNS. Le plafond Madelin est bien plus élevé que celui des salariés. Un TNS à 41% de TMI qui verse 10 000€ sur son PER récupère 4 100€ d\'impôt en moins dès l\'année suivante — un rendement fiscal garanti. Comme les revenus d\'un indépendant sont variables, vous pouvez aussi moduler vos versements selon votre bénéfice annuel.',
+        text: 'C\'est l\'un des placements les plus efficaces pour un TNS. Le plafond Madelin est bien plus élevé que celui des salariés. Par exemple, un TNS à 41 % de TMI qui verse 10 000 € sur son PER, dans la limite de ses plafonds, réduit son impôt d\'environ 4 100 € l\'année suivante. Les sommes déduites seront imposées à la sortie : c\'est un report d\'imposition, pas un gain acquis. Comme les revenus d\'un indépendant sont variables, vous pouvez aussi moduler vos versements selon votre bénéfice annuel.',
       },
     },
     {
@@ -137,8 +137,8 @@ const CHIFFRES = [
 const DANGERS = [
   {
     icon: 'landmark',
-    title: 'Votre banque vous vend son PER — pas le meilleur du marché',
-    text: 'Avec 2 à 4% de frais sur versements et des fonds limités aux gammes maison, un PER bancaire sur 25 ans peut vous coûter plusieurs dizaines de milliers d\'euros de performance nette. La déduction fiscale attire l\'œil — mais les frais la rongent discrètement, année après année.',
+    title: 'Votre banque vous propose son propre PER',
+    text: 'Avec 2 à 4% de frais sur versements et des fonds limités aux gammes maison, les frais d\'un PER pèsent sur sa performance nette, d\'autant plus que la durée de placement est longue. La déduction fiscale attire l\'œil — mais les frais la rongent discrètement, année après année.',
   },
   {
     icon: 'lightbulb',
@@ -148,7 +148,7 @@ const DANGERS = [
   {
     icon: 'timer',
     title: 'Chaque année sans PER est une erreur fiscale qui se paie cash',
-    text: '10 000 € placés à 35 ans peuvent plus que tripler d\'ici 60 ans à 5 %/an (rendement non garanti). Et les impôts économisés chaque année — réinvestis eux aussi — multiplient encore l\'effet. Attendre coûte réellement de l\'argent, chaque année.',
+    text: '10 000 € placés à 35 ans peuvent plus que tripler d\'ici 60 ans à 5 %/an (rendement non garanti). L\'économie d\'impôt à l\'entrée dépend de votre tranche marginale d\'imposition, et les sommes déduites sont imposées à la sortie.',
   },
 ];
 
@@ -190,8 +190,8 @@ const PROFILS = [
     icon: 'user',
     title: 'Salarié cadre',
     tmi: '30% ou 41%',
-    gain: '3 000–4 100€ d\'impôt en moins',
-    base: 'pour 10 000€ versés',
+    gain: 'Économie d\'impôt estimée : 3 000–4 100 €',
+    base: 'pour 10 000 € versés, selon votre TMI ; imposée à la sortie',
     conseil: 'Versements réguliers mensuels + rattrapage des plafonds N-3',
     color: '#3e7f68',
     featured: false,
@@ -200,8 +200,8 @@ const PROFILS = [
     icon: 'briefcase',
     title: 'Travailleur indépendant / TNS',
     tmi: '41% ou 45%',
-    gain: 'Jusqu\'à 38 250€ d\'impôt en moins',
-    base: 'avec plafond Madelin complet',
+    gain: 'Économie d\'impôt estimée : jusqu\'à 38 250 €',
+    base: 'plafond Madelin complet à 45 % de TMI ; imposée à la sortie',
     conseil: 'Versements modulables selon le bénéfice — idéal les bonnes années',
     color: '#a87a2c',
     featured: true,
@@ -336,8 +336,8 @@ export default function PERPage() {
             <p>
               Le Plan Épargne Retraite vous permet de{' '}
               <strong>déduire vos versements de votre revenu imposable</strong> — jusqu'à{' '}
-              <strong>4 100€ récupérés sur l'impôt</strong> pour 10 000€ versés à 41% de TMI.
-              Je calcule vos plafonds exacts, sélectionne le meilleur contrat et construis
+              <strong>environ 4 100 € d'impôt en moins</strong> pour 10 000 € versés à 41 % de TMI, dans la limite de vos plafonds ;
+              les sommes déduites sont imposées à la sortie. Je calcule vos plafonds exacts, recherche un contrat adapté et construis
               votre allocation. <strong>Modalités transparentes.</strong>
             </p>
             <div className="ae-hero-btns fin-hero-btns">
@@ -494,7 +494,7 @@ Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span
                     <h3 style={{ margin: 0 }}>{a.title}</h3>
                     <span style={{ fontSize: '1.6rem', flexShrink: 0, marginLeft: 10 }}><Icon name={a.icon} /></span>
                   </div>
-                  {(a.title === 'Déduction fiscale dès l\'année suivante' || a.title === 'Plafonds exceptionnels pour les TNS') && (
+                  {false && (
                     <div style={{
                       display: 'inline-block',
                       fontSize: '0.65rem', fontWeight: 800,
@@ -842,10 +842,10 @@ Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span
         <section className="fin-cta fin-cta--plain" style={{ background: 'var(--orizia-white)' }}>
           <div className="fin-cta-inner">
             <CtaPresence />
-            <h2>Récupérez vos impôts<br />dès cette année</h2>
+            <h2>Préparez votre retraite,<br />dans la limite de vos plafonds</h2>
             <p>
-              Je calcule vos plafonds de déduction exacts, sélectionne le meilleur
-              contrat PER du marché et vous accompagne de la souscription au suivi annuel.
+              Je calcule vos plafonds de déduction exacts, recherche un
+              contrat PER adapté à votre situation et vous accompagne de la souscription au suivi annuel.
               Frais et modalités présentés avec transparence.
             </p>
             <div className="ae-hero-btns fin-hero-btns">

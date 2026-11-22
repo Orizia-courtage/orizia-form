@@ -767,7 +767,7 @@ Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span
                   title: 'PER',
                   sub: 'Préparez votre retraite',
                   text: 'Réduisez vos impôts cette année et constituez un capital retraite. Un avantage fiscal immédiat qui se voit dès votre prochaine déclaration.',
-                  ribbon: 'Réduisez vos impôts dès cette année',
+                  ribbon: 'Avantage fiscal selon votre situation',
                   ribbonColor: '#3e7f68',
                   pillBg: 'rgba(62,127,104,0.08)',
                   pillColor: '#3e7f68',
