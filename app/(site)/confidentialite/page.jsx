@@ -45,7 +45,7 @@ const SOUS_TRAITANTS = [
   ['OVHcloud', 'Messagerie du cabinet et envoi des e-mails internes de suivi des demandes', 'France'],
   ['Serveur d’automatisation (n8n)', 'Enregistrement des demandes du site et envoi des e-mails de suivi', 'France, administré par un prestataire technique lié par un engagement de confidentialité ; flux chiffré relayé par Tailscale Inc. (États-Unis, Data Privacy Framework)'],
   ['Cloudflare Inc. (R2, Turnstile)', 'Stockage chiffré des documents que vous déposez ; protection anti-robot des formulaires', 'Documents : Union européenne ; anti-robot : réseau mondial · Data Privacy Framework'],
-  ['Resend Inc.', 'Envoi des e-mails (confirmations, rendez-vous, demandes de documents)', 'États-Unis · Data Privacy Framework, clauses contractuelles types'],
+  ['Resend Inc.', 'Envoi des e-mails (confirmations, rendez-vous, demandes de documents, codes de signature et exemplaire des documents signés)', 'États-Unis · Data Privacy Framework, clauses contractuelles types'],
   ['Cal.com Inc.', 'Prise et gestion des rendez-vous', 'États-Unis / Union européenne · clauses contractuelles types'],
   ['Supabase Inc.', 'Réglages du site, articles et protection contre les envois abusifs (aucune donnée de dossier)', 'Royaume-Uni (Londres) · décision d’adéquation de la Commission européenne'],
   ['Google LLC / Apple Inc.', 'Distribution de l’application (Google Play, App Store), acheminement des notifications vers votre téléphone (identifiant technique de l’appareil, sans contenu de dossier) et carte de recommandation dans le portefeuille du téléphone (uniquement si vous l’ajoutez)', 'États-Unis · Data Privacy Framework'],
@@ -55,6 +55,8 @@ const SOUS_TRAITANTS = [
 const TRACEURS = [
   ['Cookie « __cf_bm » (Cal.com, via Cloudflare)', 'Déposé par l’agenda de prise de rendez-vous Cal.com, sur la page Contact ou quand vous ouvrez l’agenda. Il sert uniquement à distinguer les visiteurs humains des robots (sécurité). Cal.com transmet aussi ses rapports d’erreurs techniques à son prestataire Sentry, sans cookie.', '30 minutes'],
   ['Cloudflare Turnstile', 'Vérification anti-robot des formulaires (contact, rappel, simulation, recommandation). Elle analyse des signaux techniques de votre navigateur au moment de l’envoi, sans cookie publicitaire ni suivi.', 'Le temps de la vérification'],
+  ['Cookie de session de l’espace client (« orizia_espace »)', 'Déposé quand vous vous connectez à l’espace client ou à l’application. Il vous garde connecté(e) et protège l’accès à votre dossier ; il ne sert à aucun suivi.', '400 jours au plus, renouvelé à chaque visite ; supprimé à la déconnexion'],
+  ['Réglages de l’espace client et de l’application (stockage local)', 'Gardés sur votre appareil uniquement : notifications activées, verrouillage de l’application activé, visite de découverte déjà vue.', 'Jusqu’à la désinstallation de l’application ou l’effacement des données du navigateur'],
   ['Brouillon du formulaire de simulation', 'Garde vos réponses en mémoire dans votre navigateur (stockage de session) si vous rechargez la page en cours de saisie. Rien n’est envoyé tant que vous ne validez pas.', 'Effacé à l’envoi ou à la fermeture de l’onglet'],
 ];
 
@@ -230,13 +232,13 @@ export default function ConfidentialitePage() {
         <section style={section}>
           <h2 style={h2}>10. Cookies et traceurs</h2>
           <p>
-            Ce site ne dépose <strong>aucun cookie publicitaire, aucun cookie de réseau social et aucun cookie de mesure d’audience</strong>. C’est pourquoi aucun bandeau ne vous demande votre accord :
+            Ce site, l’espace client et l’application ne déposent <strong>aucun cookie publicitaire, aucun cookie de réseau social et aucun cookie de mesure d’audience</strong>. C’est pourquoi aucun bandeau ne vous demande votre accord :
             les seuls éléments utilisés ci-dessous sont nécessaires au service que vous demandez ou à la sécurité du site, et sont dispensés de consentement (article 82 de la loi Informatique et Libertés, lignes directrices de la CNIL).
           </p>
           <Table head={['Élément', 'Quand et pourquoi', 'Durée']} rows={TRACEURS} />
           <p style={{ marginTop: '12px' }}>
             <strong>Mesure d’audience :</strong> Vercel Web Analytics et Speed Insights fonctionnent <strong>sans cookie</strong> et ne conservent aucun identifiant d’un jour à l’autre.
-            Ils fournissent uniquement des statistiques globales (pages vues, provenance, temps de chargement), sans permettre de vous suivre d’un site à l’autre.
+            Ils fournissent uniquement des statistiques globales (pages vues, provenance, temps de chargement), sans permettre de vous suivre d’un site à l’autre. Aucune mesure d’audience n’est faite dans l’espace client ni dans l’application.
           </p>
           <p style={{ marginTop: '12px' }}>
             Vous pouvez à tout moment supprimer ou bloquer les cookies depuis les réglages de votre navigateur. Bloquer le cookie de Cal.com peut empêcher l’agenda en ligne de s’afficher :
