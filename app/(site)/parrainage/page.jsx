@@ -26,11 +26,7 @@ const parrainageSchema = {
       '@type': 'Service',
       name: 'Programme de Parrainage Orizia Courtage',
       serviceType: 'Programme de recommandation client',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Orizia Courtage',
-        image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      },
+      provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },
       description:
         'Recommandez-moi à vos proches et recevez jusqu\'à 200€ en chèques cadeaux pour chaque dossier finalisé (crédit immobilier, assurance emprunteur, placements).',
       offers: {

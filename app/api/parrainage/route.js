@@ -1,4 +1,4 @@
-﻿import { Resend } from 'resend';
+import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { readForm, verifyTurnstile, FormError } from '@/lib/form-protection.mjs';
@@ -141,7 +141,7 @@ export async function POST(request) {
       projetContent = `
         <p>Concernant vos besoins en <strong>Assurance</strong>, je vous propose :</p>
         <ul>
-          <li><strong>Assurance emprunteur :</strong> Pour protéger votre prêt au meilleur prix.</li>
+          <li><strong>Assurance emprunteur :</strong> Pour comparer les garanties et le coût de l'assurance de votre prêt.</li>
           <li><strong>Assurance habitation :</strong> Pour sécuriser votre logement.</li>
           <li><strong>Assurance auto/moto :</strong> Pour rouler en toute sérénité.</li>
         </ul>`;

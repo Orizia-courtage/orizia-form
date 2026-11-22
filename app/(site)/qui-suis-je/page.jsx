@@ -1,4 +1,5 @@
 import { shareMetadata } from '@/lib/share.mjs';
+import { authorSchema } from '@/lib/articles.mjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactPopup from '@/components/ContactPopup';
@@ -13,26 +14,22 @@ export const metadata = {
 
 const personSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Cindy Urbansky',
-  jobTitle: 'Courtier en crédit, assurance et gestion de patrimoine',
-  description: 'Courtière immatriculée à l\'ORIAS, fondatrice d\'Orizia Courtage à Marcq-en-Barœul. Présidente du conseil de surveillance de l\'AFIB. 20 ans d\'expérience dans l\'intermédiation bancaire et l\'assurance.',
-  image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
+  '@type': 'ProfilePage',
+  '@id': 'https://www.orizia-courtage.fr/qui-suis-je#webpage',
   url: 'https://www.orizia-courtage.fr/qui-suis-je',
-  sameAs: ['https://www.linkedin.com/in/cindy-urbansky-034323162/', 'https://www.instagram.com/orizia_courtage/'],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Marcq-en-Barœul',
-    addressRegion: 'Hauts-de-France',
-    addressCountry: 'FR',
+  name: 'Cindy Urbansky, fondatrice d’Orizia Courtage',
+  inLanguage: 'fr-FR',
+  mainEntity: {
+    ...authorSchema(),
+    image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Marcq-en-Barœul',
+      addressRegion: 'Hauts-de-France',
+      addressCountry: 'FR',
+    },
+    alumniOf: { '@type': 'EducationalOrganization', name: 'ISCI — BTS Commerce & Management' },
   },
-  worksFor: {
-    '@type': 'LocalBusiness',
-    name: 'Orizia Courtage',
-    url: 'https://www.orizia-courtage.fr',
-  },
-  alumniOf: { '@type': 'EducationalOrganization', name: 'ISCI — BTS Commerce & Management' },
-  knowsAbout: ['Crédit immobilier', 'Assurance emprunteur', 'Regroupement de crédits', 'SCPI', 'PER', 'Assurance vie', 'Gestion de patrimoine', 'Intermédiation bancaire'],
 };
 
 const PARCOURS = [

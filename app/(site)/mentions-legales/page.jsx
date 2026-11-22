@@ -2,18 +2,21 @@ import Icon from '@/components/Icon';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import Link from 'next/link';
 import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
+import { plainMetadata } from '@/lib/share.mjs';
 
 export const metadata = {
-  title: 'Mentions Légales — ORIAS & ACPR | Orizia Courtage',
-  description: 'Mentions légales du cabinet Orizia Courtage : éditeur, hébergeur, immatriculation ORIAS, contrôle ACPR, médiation et traitement des données personnelles.',
+  ...plainMetadata({
+    path: '/mentions-legales',
+    title: 'Mentions légales : ORIAS, ACPR, médiation | Orizia Courtage',
+    description: 'Mentions légales du cabinet Orizia Courtage : éditeur, hébergeur, immatriculation ORIAS, contrôle ACPR, médiation et traitement des données personnelles.',
+  }),
   robots: ROBOTS,
-  alternates: { canonical: 'https://www.orizia-courtage.fr/mentions-legales' },
 };
 
 const mentionsSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Mentions Légales — Orizia Courtage',
+  name: 'Mentions légales — Orizia Courtage',
   url: 'https://www.orizia-courtage.fr/mentions-legales',
   description: 'Mentions légales et informations réglementaires du cabinet de courtage Orizia Courtage.',
   publisher: {
@@ -43,7 +46,7 @@ export default function MentionsLegalesPage() {
       <main style={{ maxWidth: '800px', margin: '0 auto', padding: '100px 20px 80px', color: 'var(--orizia-dark, #333)', lineHeight: '1.7' }}>
 
         <h1 style={{ color: 'var(--orizia-accent, #1a1a1a)', fontSize: 'clamp(2rem, 4vw, 2.5rem)', marginBottom: '40px', fontWeight: 900 }}>
-          Mentions Légales
+          Mentions légales
         </h1>
 
         <section style={{ marginBottom: '40px' }}>
@@ -119,12 +122,22 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section style={{ marginBottom: '40px' }}>
-          <h2 style={h2}>6. Réclamation et Médiation</h2>
+          <h2 style={h2}>6. Réclamation et médiation</h2>
           <p>
             Toute réclamation peut être adressée par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>. Nous en accusons réception sous 10 jours ouvrables et y répondons dans un délai maximal de 2 mois à compter de sa réception.
           </p>
           <p style={{ marginTop: '16px' }}>
             Si la réponse ne vous satisfait pas, ou en l’absence de réponse dans ce délai, vous pouvez saisir gratuitement le médiateur de la consommation : <strong>{COMPANY.mediator.name}</strong>, {COMPANY.mediator.address} — <a href={COMPANY.mediator.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.mediation-assurance.org</a>. Le médiateur doit être saisi dans un délai d’un an à compter de votre réclamation écrite.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '40px' }}>
+          <h2 style={h2}>7. Propriété intellectuelle</h2>
+          <p>
+            Les textes, visuels, logos, simulateurs et la structure de ce site sont la propriété de {COMPANY.denomination} ou sont utilisés avec l’accord de leurs auteurs. Toute reproduction ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite, à l’exception des courtes citations mentionnant leur source.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Les contenus du site (guides, actualités, lexique, simulateurs) sont fournis à titre d’information générale. Ils ne constituent ni un conseil personnalisé, ni une offre de contrat : seule une étude de votre situation permet de formuler une recommandation.
           </p>
         </section>
 

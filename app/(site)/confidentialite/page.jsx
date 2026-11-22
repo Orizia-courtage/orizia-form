@@ -2,12 +2,15 @@ import Icon from '@/components/Icon';
 import Link from 'next/link';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import { COMPANY } from '@/lib/company.mjs';
+import { plainMetadata } from '@/lib/share.mjs';
 
 export const metadata = {
-  title: 'Politique de confidentialité et cookies | Orizia Courtage',
-  description: 'Comment Orizia Courtage collecte, utilise, conserve et protège vos données personnelles : finalités, bases légales, durées, destinataires, vos droits RGPD et cookies.',
+  ...plainMetadata({
+    path: '/confidentialite',
+    title: 'Politique de confidentialité et cookies | Orizia Courtage',
+    description: 'Comment Orizia Courtage collecte, utilise, conserve et protège vos données personnelles : finalités, bases légales, durées, destinataires, droits RGPD, cookies.',
+  }),
   robots: ROBOTS,
-  alternates: { canonical: 'https://www.orizia-courtage.fr/confidentialite' },
 };
 
 // Date de la dernière mise à jour de cette politique : à changer à chaque modification.

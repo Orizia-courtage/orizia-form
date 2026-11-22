@@ -12,7 +12,7 @@ import { DEFAULT_SHARE, shareImageUrl } from '@/lib/share.mjs';
 // Valeurs par défaut (pages sans métadonnées propres : mentions légales, confidentialité, liens de parrainage…).
 export const metadata = {
   metadataBase: new URL('https://www.orizia-courtage.fr'),
-  title: 'Orizia Courtage | Courtier en crédit et en assurance à Marcq-en-Barœul',
+  title: 'Orizia Courtage | Courtier crédit et assurance à Marcq-en-Barœul',
   description: 'Cindy Urbansky, courtière en crédit et en assurance à Marcq-en-Barœul : crédit immobilier, assurance emprunteur, épargne.',
   robots: ROBOTS,
   openGraph: {

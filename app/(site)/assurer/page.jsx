@@ -28,18 +28,6 @@ const assurerHubSchema = {
       ]
     },
     {
-      '@type': 'InsuranceAgency',
-      '@id': 'https://www.orizia-courtage.fr/#organization',
-      name: 'Orizia Courtage',
-      image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      description: 'Cabinet de courtage en assurances géré par Cindy Urbansky. Spécialiste en délégation d\'assurance emprunteur, habitation et auto/moto.',
-      areaServed: [
-        { '@type': 'State', name: 'Hauts-de-France' },
-        { '@type': 'City', name: 'Lille' },
-        { '@type': 'City', name: 'Marcq-en-Barœul' }
-      ]
-    },
-    {
       '@type': 'Service',
       name: 'Courtage et Optimisation d\'Assurances',
       provider: { '@id': 'https://www.orizia-courtage.fr/#organization', name: 'Orizia Courtage' },

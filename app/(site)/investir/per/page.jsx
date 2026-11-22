@@ -32,22 +32,6 @@ const investirPerSchema = {
         { '@type': 'ListItem', position: 3, name: 'Plan Épargne Retraite (PER)', item: 'https://www.orizia-courtage.fr/investir/per' }
       ]
     },
-    // 2. L'Organisation (Agence) pour l'E-E-A-T
-    {
-      '@type': 'InsuranceAgency',
-      '@id': 'https://www.orizia-courtage.fr/#organization',
-      name: 'Orizia Courtage',
-      image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      description: 'Cabinet de courtage spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '23 boulevard Clemenceau',
-        addressLocality: 'Marcq-en-Barœul',
-        postalCode: '59700',
-        addressRegion: 'Hauts-de-France',
-        addressCountry: 'FR'
-      }
-    },
     // 3. Le Service spécifique
     {
       '@type': 'Service',

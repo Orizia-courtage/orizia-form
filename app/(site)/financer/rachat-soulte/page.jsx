@@ -170,7 +170,6 @@ export default function RachatSoultePage() {
               quality={75}
               sizes="100vw"
               className="hero-image"
-              sizes="100vw"
             />
           </div>
           <div className="ae-hero-inner fin-hero-inner">

@@ -5,7 +5,7 @@ import ArticleCard from '@/components/ArticleCard';
 import { COMPANY } from '@/lib/company.mjs';
 import {
   ARTICLE_TYPES, AUTHOR, BASE_URL, CREDENTIALS, SILOS, SITE_PAGES, THEMES, authorSchema, listingHref,
-  absoluteUrl, articleUrl, formatDate, getRelatedArticles, siloNotice,
+  absoluteUrl, articlePath, articleUrl, formatDate, getPublishedArticles, getRelatedArticles, siloNotice,
 } from '@/lib/articles.mjs';
 import { renderArticleBody } from '@/lib/article-render.mjs';
 import '@/app/(site)/article.css';
@@ -72,7 +72,9 @@ function buildSchemas(article) {
 export default async function ArticleView({ article, preview = false }) {
   const type = ARTICLE_TYPES[article.type];
   const silo = article.silo ? SILOS[article.silo] : null;
-  const [{ html, toc }, related] = await Promise.all([renderArticleBody(article.body), getRelatedArticles(article)]);
+  // En ligne : les liens vers des articles pas encore publiés sont retirés. En aperçu, ils restent visibles.
+  const publishedPaths = preview ? null : new Set((await getPublishedArticles()).map(articlePath));
+  const [{ html, toc }, related] = await Promise.all([renderArticleBody(article.body, { publishedPaths }), getRelatedArticles(article)]);
   const parentLabel = article.parentPath ? SITE_PAGES[article.parentPath] : null;
   const updated = article.updatedAt && article.publishedAt && article.updatedAt.slice(0, 10) !== article.publishedAt.slice(0, 10);
 

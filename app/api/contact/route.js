@@ -93,6 +93,7 @@ export async function POST(req) {
   } catch (error) {
     // 4. Capturer les erreurs inattendues (ex: JSON mal formaté)
     if (error instanceof FormError) return Response.json({error: error.message}, {status: error.status});
+    console.error('Contact:', error);
     return new Response(JSON.stringify({ error: 'Erreur interne du serveur.' }), { 
       status: 500,
       headers: { 'Content-Type': 'application/json' }

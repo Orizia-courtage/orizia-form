@@ -207,7 +207,7 @@ export default function ContactWidget() {
                 <div className="cw-action-center">
                   <div className="cw-action-icon"><Icon name="message-circle" /></div>
                   <h3>Envoyez-moi un message</h3>
-                  <p>Je vous réponds le jour même, du lundi au vendredi.</p>
+                  <p>Je vous réponds sous 24 h, du lundi au vendredi.</p>
                   <div className="cw-btn-stack">
                     <a href="https://wa.me/33777259706" target="_blank" rel="noopener noreferrer" className="cw-btn-action cw-btn-whatsapp"><Icon name="message-circle" /> WhatsApp</a>
                     <a href="sms:+33777259706" className="cw-btn-action cw-btn-ghost"><Icon name="smartphone" /> SMS</a>

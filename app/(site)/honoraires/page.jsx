@@ -2,12 +2,15 @@ import Icon from '@/components/Icon';
 import Link from 'next/link';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import { COMPANY, CREDIT_STATUS } from '@/lib/company.mjs';
+import { plainMetadata } from '@/lib/share.mjs';
 
 export const metadata = {
-  title: 'Barème des honoraires | Orizia Courtage',
-  description: 'Barème des honoraires et modes de rémunération d’Orizia Courtage : crédit immobilier, regroupement de crédits, assurance et placements.',
+  ...plainMetadata({
+    path: '/honoraires',
+    title: 'Barème des honoraires | Orizia Courtage',
+    description: 'Barème des honoraires et modes de rémunération d’Orizia Courtage : crédit immobilier, regroupement de crédits, assurance et placements.',
+  }),
   robots: ROBOTS,
-  alternates: { canonical: 'https://www.orizia-courtage.fr/honoraires' },
 };
 
 const h2 = { color: 'var(--orizia-primary, #3e7f68)', fontSize: '1.4rem', marginBottom: '12px' };
@@ -81,7 +84,7 @@ export default function HonorairesPage() {
 
       <div style={{ marginTop: '48px', textAlign: 'center' }}>
         <Link href="/contact" style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: 'var(--orizia-primary, #3e7f68)', color: '#fff', borderRadius: '8px', textDecoration: 'none', fontWeight: 'bold' }}>
-          <Icon name="arrow-left" /> Poser une question
+          Poser une question <Icon name="arrow-right" />
         </Link>
       </div>
     </main>
