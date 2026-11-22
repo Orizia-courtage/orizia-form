@@ -16,7 +16,7 @@ const RECOMMANDATIONS = {
     titre: 'Priorité PER, complété par l\'Assurance Vie',
     per: { score: 90, label: 'Prioritaire', color: '#3e7f68' },
     av: { score: 60, label: 'Complémentaire', color: '#a87a2c' },
-    conseil: 'À 41% de TMI, chaque euro versé sur le PER vous rapporte 0,41€ d\'impôt en moins dès l\'année suivante. L\'AV prend le relais pour l\'épargne liquide.',
+    conseil: 'À 41% de TMI, chaque euro versé sur le PER réduit votre impôt d\'environ 0,41 € l\'année suivante, dans la limite de vos plafonds ; les sommes déduites sont imposées à la sortie. L\'AV prend le relais pour l\'épargne liquide.',
   },
   tmi_faible: {
     titre: 'Assurance Vie en priorité, PER en complément',

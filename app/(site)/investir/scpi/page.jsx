@@ -651,7 +651,7 @@ Cindy Urbansky, courtière et fondatrice d'Orizia Courtage                </span
                 <div className="fin-card-icon"><Icon name="tree-palm" /></div>
                 <div className="fin-card-sub">Préparez votre retraite ?</div>
                 <h3>PER</h3>
-                <p>Réduisez vos impôts dès cette année et préparez votre retraite. Combiné aux SCPI dans une AV, un duo particulièrement puissant.</p>
+                <p>Préparez votre retraite avec un avantage fiscal à l'entrée, selon votre tranche d'imposition. Combiné aux SCPI dans une AV, un duo particulièrement puissant.</p>
                 <span className="fin-card-link">En savoir plus</span>
               </Link>
             </div>
