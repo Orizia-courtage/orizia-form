@@ -61,6 +61,7 @@ export default function MentionsLegalesPage() {
             {COMPANY.rcs}<br />
             Numéro de gestion : {COMPANY.gestion}<br />
             Identifiant européen (EUID) : {COMPANY.euid}<br />
+            {COMPANY.vatExempt && <>TVA : opérations de courtage exonérées de TVA (article 261 C du Code général des impôts), sans numéro de TVA intracommunautaire<br /></>}
             Adresse e-mail : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a><br />
             Téléphone : {COMPANY.phone}
           </p>
@@ -99,6 +100,12 @@ export default function MentionsLegalesPage() {
           )}
           <p style={{ marginTop: '16px' }}>
             Association professionnelle : {COMPANY.denomination} est membre de <strong>{COMPANY.association.name}</strong>, {COMPANY.association.description}, {COMPANY.association.address} (<a href={COMPANY.association.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>votrasso.org</a>), pour son activité de courtage en assurance.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Responsabilité civile professionnelle : conformément aux articles L. 512-6 et R. 512-14 du Code des assurances, {COMPANY.denomination} a souscrit, pour son activité de courtage en assurance, le contrat n° <strong>{COMPANY.rcPro.policyNumber}</strong> auprès de <strong>{COMPANY.rcPro.insurer}</strong> ({COMPANY.rcPro.insurerAddress}), par l’intermédiaire de {COMPANY.rcPro.broker}. Couverture géographique : {COMPANY.rcPro.territory} ; la garantie s’applique aux réclamations formulées dans un État de l’Union européenne ou de l’Espace économique européen.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Garantie financière : {COMPANY.denomination} n’encaisse aucun fonds destiné à ses clients, aux assureurs ou aux établissements partenaires. Elle n’est donc pas soumise à l’obligation de garantie financière prévue à l’article L. 512-7 du Code des assurances.
           </p>
           <p style={{ marginTop: '16px' }}>
             L’activité est placée sous le contrôle de l’Autorité de contrôle prudentiel et de résolution (<strong>ACPR</strong>) :<br />

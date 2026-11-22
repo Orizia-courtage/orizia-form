@@ -303,13 +303,13 @@ export default function QuiSuisJePage() {
           </div>
         </section>
 
-        {/* ── TÉMOIGNAGES ── */}
+        {/* ── RECOMMANDATIONS PROFESSIONNELLES ── */}
         <section className="crowd-section crowd-section--light">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Ce qu'ils disent de moi</span>
-              <h2>Recommandations LinkedIn<br />de mes pairs et partenaires</h2>
-              <p>Des professionnels du secteur qui ont travaillé avec moi et témoignent de mon engagement.</p>
+              <span className="fin-badge">Parcours professionnel</span>
+              <h2>Recommandations professionnelles<br />de mes pairs et partenaires</h2>
+              <p>Des professionnels du secteur qui ont travaillé avec moi au cours de ma carrière.</p>
             </div>
 
             <TemoignagesCarousel />

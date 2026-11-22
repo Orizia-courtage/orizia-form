@@ -456,13 +456,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── TÉMOIGNAGES ── */}
+        {/* ── RECOMMANDATIONS PROFESSIONNELLES ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Ils en parlent</span>
-              <h2>Ce que disent mes partenaires</h2>
-              <p>Des professionnels de la banque et de l’assurance qui ont travaillé avec moi.</p>
+              <span className="fin-badge">Parcours professionnel</span>
+              <h2>Recommandations professionnelles</h2>
+              <p>Des professionnels de la banque et de l’assurance qui ont travaillé avec moi au cours de ma carrière.</p>
             </div>
             <TemoignagesCarousel />
           </div>
