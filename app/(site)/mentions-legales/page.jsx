@@ -2,18 +2,21 @@ import Icon from '@/components/Icon';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import Link from 'next/link';
 import { COMPANY, COMPANY_IDENTIFIERS } from '@/lib/company.mjs';
+import { plainMetadata } from '@/lib/share.mjs';
 
 export const metadata = {
-  title: 'Mentions Légales — ORIAS & ACPR | Orizia Courtage',
-  description: 'Mentions légales du cabinet Orizia Courtage : éditeur, hébergeur, immatriculation ORIAS, contrôle ACPR, médiation et traitement des données personnelles.',
+  ...plainMetadata({
+    path: '/mentions-legales',
+    title: 'Mentions légales : ORIAS, ACPR, médiation | Orizia Courtage',
+    description: 'Mentions légales du cabinet Orizia Courtage : éditeur, hébergeur, immatriculation ORIAS, contrôle ACPR, médiation et traitement des données personnelles.',
+  }),
   robots: ROBOTS,
-  alternates: { canonical: 'https://www.orizia-courtage.fr/mentions-legales' },
 };
 
 const mentionsSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Mentions Légales — Orizia Courtage',
+  name: 'Mentions légales — Orizia Courtage',
   url: 'https://www.orizia-courtage.fr/mentions-legales',
   description: 'Mentions légales et informations réglementaires du cabinet de courtage Orizia Courtage.',
   publisher: {
@@ -43,7 +46,7 @@ export default function MentionsLegalesPage() {
       <main style={{ maxWidth: '800px', margin: '0 auto', padding: '100px 20px 80px', color: 'var(--orizia-dark, #333)', lineHeight: '1.7' }}>
 
         <h1 style={{ color: 'var(--orizia-accent, #1a1a1a)', fontSize: 'clamp(2rem, 4vw, 2.5rem)', marginBottom: '40px', fontWeight: 900 }}>
-          Mentions Légales
+          Mentions légales
         </h1>
 
         <section style={{ marginBottom: '40px' }}>
@@ -58,6 +61,7 @@ export default function MentionsLegalesPage() {
             {COMPANY.rcs}<br />
             Numéro de gestion : {COMPANY.gestion}<br />
             Identifiant européen (EUID) : {COMPANY.euid}<br />
+            {COMPANY.vatExempt && <>TVA : opérations de courtage exonérées de TVA (article 261 C du Code général des impôts), sans numéro de TVA intracommunautaire<br /></>}
             Adresse e-mail : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a><br />
             Téléphone : {COMPANY.phone}
           </p>
@@ -98,6 +102,12 @@ export default function MentionsLegalesPage() {
             Association professionnelle : {COMPANY.denomination} est membre de <strong>{COMPANY.association.name}</strong>, {COMPANY.association.description}, {COMPANY.association.address} (<a href={COMPANY.association.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>votrasso.org</a>), pour son activité de courtage en assurance.
           </p>
           <p style={{ marginTop: '16px' }}>
+            Responsabilité civile professionnelle : conformément aux articles L. 512-6 et R. 512-14 du Code des assurances, {COMPANY.denomination} a souscrit, pour son activité de courtage en assurance, le contrat n° <strong>{COMPANY.rcPro.policyNumber}</strong> auprès de <strong>{COMPANY.rcPro.insurer}</strong> ({COMPANY.rcPro.insurerAddress}), par l’intermédiaire de {COMPANY.rcPro.broker}. Couverture géographique : {COMPANY.rcPro.territory} ; la garantie s’applique aux réclamations formulées dans un État de l’Union européenne ou de l’Espace économique européen.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Garantie financière : {COMPANY.denomination} n’encaisse aucun fonds destiné à ses clients, aux assureurs ou aux établissements partenaires. Elle n’est donc pas soumise à l’obligation de garantie financière prévue à l’article L. 512-7 du Code des assurances.
+          </p>
+          <p style={{ marginTop: '16px' }}>
             L’activité est placée sous le contrôle de l’Autorité de contrôle prudentiel et de résolution (<strong>ACPR</strong>) :<br />
             4 place de Budapest, CS 92459, 75436 Paris Cedex 09.
           </p>
@@ -119,12 +129,22 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section style={{ marginBottom: '40px' }}>
-          <h2 style={h2}>6. Réclamation et Médiation</h2>
+          <h2 style={h2}>6. Réclamation et médiation</h2>
           <p>
             Toute réclamation peut être adressée par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>. Nous en accusons réception sous 10 jours ouvrables et y répondons dans un délai maximal de 2 mois à compter de sa réception.
           </p>
           <p style={{ marginTop: '16px' }}>
             Si la réponse ne vous satisfait pas, ou en l’absence de réponse dans ce délai, vous pouvez saisir gratuitement le médiateur de la consommation : <strong>{COMPANY.mediator.name}</strong>, {COMPANY.mediator.address} — <a href={COMPANY.mediator.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.mediation-assurance.org</a>. Le médiateur doit être saisi dans un délai d’un an à compter de votre réclamation écrite.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '40px' }}>
+          <h2 style={h2}>7. Propriété intellectuelle</h2>
+          <p>
+            Les textes, visuels, logos, simulateurs et la structure de ce site sont la propriété de {COMPANY.denomination} ou sont utilisés avec l’accord de leurs auteurs. Toute reproduction ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite, à l’exception des courtes citations mentionnant leur source.
+          </p>
+          <p style={{ marginTop: '16px' }}>
+            Les contenus du site (guides, actualités, lexique, simulateurs) sont fournis à titre d’information générale. Ils ne constituent ni un conseil personnalisé, ni une offre de contrat : seule une étude de votre situation permet de formuler une recommandation.
           </p>
         </section>
 

@@ -1102,3 +1102,6 @@ main h1 em, main h1 .inv-hero-em { color: var(--oz-sage-deep) !important; font-s
 .aec-slider-labels span, .sr-slider-labels span, .simu-slider-labels span, [class$="-slider-labels"] span, [class*="-slider-labels "] span { color: #5f655f !important; opacity: 1 !important; }
 .sr-result-card-sub, .ss-result-card-sub, .sr-result-card-label, .ss-result-card-label, .scpipf-obj-desc, .per-profil-stat-label, .scpipf-result-stat-label { color: #565c57 !important; opacity: 1 !important; }
 .per-profil-stat-value, .scpipf-result-stat-val { color: #2a604c !important; }
+
+/* Note sous le carrousel : nature des recommandations (pairs, et non clients). */
+.tc3-note { margin: 22px auto 0; max-width: 720px; text-align: center; font-size: .82rem; line-height: 1.5; color: var(--oz-muted, #6b716b); }

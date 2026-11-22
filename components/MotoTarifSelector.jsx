@@ -142,7 +142,7 @@ export default function MotoTarifSelector() {
 
           {/* CTA */}
           <div className="moto-result-cta">
-            <p>Je compare les offres du marché pour votre {current.label.toLowerCase()} et vous trouve le meilleur tarif.</p>
+            <p>Je compare les offres du marché pour votre {current.label.toLowerCase()} et vous présente celles qui correspondent à votre usage et à votre budget.</p>
             <ContactPopup label="Obtenir mon devis personnalisé" icon="calendar-days" className="fin-btn-on-dark" />
           </div>
         </div>

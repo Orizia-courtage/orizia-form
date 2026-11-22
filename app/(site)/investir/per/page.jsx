@@ -32,22 +32,6 @@ const investirPerSchema = {
         { '@type': 'ListItem', position: 3, name: 'Plan Épargne Retraite (PER)', item: 'https://www.orizia-courtage.fr/investir/per' }
       ]
     },
-    // 2. L'Organisation (Agence) pour l'E-E-A-T
-    {
-      '@type': 'InsuranceAgency',
-      '@id': 'https://www.orizia-courtage.fr/#organization',
-      name: 'Orizia Courtage',
-      image: 'https://www.orizia-courtage.fr/images/Orizia_logo.webp',
-      description: 'Cabinet de courtage spécialisé en épargne retraite (PER) et investissement financier dans les Hauts-de-France.',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '23 boulevard Clemenceau',
-        addressLocality: 'Marcq-en-Barœul',
-        postalCode: '59700',
-        addressRegion: 'Hauts-de-France',
-        addressCountry: 'FR'
-      }
-    },
     // 3. Le Service spécifique
     {
       '@type': 'Service',
@@ -147,8 +131,8 @@ const DANGERS = [
   },
   {
     icon: 'timer',
-    title: 'Chaque année sans PER est une erreur fiscale qui se paie cash',
-    text: '10 000 € placés à 35 ans peuvent plus que tripler d\'ici 60 ans à 5 %/an (rendement non garanti). L\'économie d\'impôt à l\'entrée dépend de votre tranche marginale d\'imposition, et les sommes déduites sont imposées à la sortie.',
+    title: 'Commencer tôt laisse plus de temps à l\'épargne',
+    text: 'Simulation : 10 000 € placés pendant 25 ans donnent environ 33 900 € avec une hypothèse de 5 %/an, et environ 16 400 € avec 2 %/an. Ces taux sont des hypothèses de calcul, pas des prévisions : le rendement n\'est pas garanti et le capital investi en unités de compte peut baisser. L\'économie d\'impôt à l\'entrée dépend de votre tranche marginale d\'imposition, et les sommes déduites sont imposées à la sortie.',
   },
 ];
 
@@ -271,7 +255,7 @@ const ETAPES = [
 const OBJECTIONS = [
   {
     q: '« Je suis encore jeune, j\'ai le temps. »',
-    r: '10 000€ versés à 30 ans valent environ 43 000€ à 60 ans à 5%/an. Les mêmes 10 000€ à 50 ans : 16 000€. Plus tôt vous commencez, moins vous avez besoin de verser pour atteindre le même capital. Et chaque année d\'attente, c\'est aussi une déduction fiscale ratée.',
+    r: 'Plus la durée est longue, plus les intérêts composés jouent. Avec une hypothèse de 5 %/an, 10 000 € versés à 30 ans donnent environ 43 000 € à 60 ans, contre environ 16 000 € s\'ils sont versés à 50 ans. Avec 2 %/an, on obtient environ 18 000 € et 12 000 €. Ce sont des hypothèses de calcul : le rendement n\'est pas garanti et le capital peut baisser. Le plafond de déduction non utilisé reste par ailleurs reportable pendant trois ans.',
   },
   {
     q: '« Mon employeur me propose déjà un PER collectif. »',
@@ -279,11 +263,11 @@ const OBJECTIONS = [
   },
   {
     q: '« J\'ai peur que mon argent soit bloqué. »',
-    r: 'Le déblocage pour achat de résidence principale change la donne : votre PER peut servir d\'apport immobilier. Et pour le reste : c\'est précisément parce que l\'argent est bloqué que l\'État vous offre la déduction. C\'est le deal — et il est très avantageux.',
+    r: 'Le déblocage pour achat de résidence principale change la donne : votre PER peut servir d\'apport immobilier. Et pour le reste : c\'est précisément parce que l\'argent est bloqué que l\'État vous offre la déduction. C\'est la contrepartie de l\'avantage fiscal : à peser selon votre besoin de disponibilité.',
   },
   {
     q: '« Je ne sais pas si je serai imposable à la retraite. »',
-    r: 'C\'est exactement le calcul qu\'on fait ensemble. Si votre TMI baisse à la retraite — ce qui est le cas pour environ 80% des épargnants — le PER est rentable. Sinon, je vous oriente vers l\'assurance vie. Il n\'y a pas de réponse universelle : il y a votre réponse.',
+    r: 'C\'est exactement le calcul qu\'on fait ensemble. Le PER est d\'autant plus intéressant que votre tranche d\'imposition est plus basse à la retraite qu\'aujourd\'hui. Les revenus baissent le plus souvent au départ : pour un ancien salarié à carrière complète né en 1950, la pension représente en médiane 75 % du dernier salaire net (DREES, « Les retraités et les retraites », édition 2025). Cela ne garantit pas un changement de tranche : c\'est ce que l\'on vérifie ensemble. Sinon, je vous oriente vers l\'assurance vie. Il n\'y a pas de réponse universelle : il y a votre réponse.',
   },
 ];
 
@@ -332,13 +316,16 @@ export default function PERPage() {
               <span>Plan Épargne Retraite</span>
             </nav>
             <span className="fin-badge"><Icon name="tree-palm" /> Réduire ses impôts tout en préparant sa retraite</span>
-            <h1>PER : payez moins d'impôts<br />dès cette année</h1>
+            <h1>PER : préparer sa retraite,<br />avec des versements déductibles*</h1>
             <p>
               Le Plan Épargne Retraite vous permet de{' '}
               <strong>déduire vos versements de votre revenu imposable</strong> — jusqu'à{' '}
               <strong>environ 4 100 € d'impôt en moins</strong> pour 10 000 € versés à 41 % de TMI, dans la limite de vos plafonds ;
               les sommes déduites sont imposées à la sortie. Je calcule vos plafonds exacts, recherche un contrat adapté et construis
               votre allocation. <strong>Modalités transparentes.</strong>
+            </p>
+            <p className="ae-hero-legal">
+              *Déduction dans la limite des plafonds légaux (article 163 quatervicies du Code général des impôts). L'économie d'impôt dépend de votre tranche marginale d'imposition et n'est pas acquise à tous. L'épargne est bloquée jusqu'à la retraite, sauf cas de déblocage prévus par la loi, et le PER comporte un risque de perte en capital sur les unités de compte.
             </p>
             <div className="ae-hero-btns fin-hero-btns">
               <ContactPopup label="Calculer mon gain fiscal" icon="calculator" className="fin-btn-primary"/>

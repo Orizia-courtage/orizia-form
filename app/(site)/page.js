@@ -12,6 +12,7 @@ import BrokerNetwork from '@/components/BrokerNetwork';
 import HomeSteps from '@/components/HomeSteps';
 import { COMPANY, COMPANY_IDENTIFIERS, ORGANIZATION_MEMBERSHIPS, STATUS_SHORT } from '@/lib/company.mjs';
 import CtaPresence from '@/components/CtaPresence';
+import { authorSchema } from '@/lib/articles.mjs';
 
 // ── 1. MÉTADONNÉES SEO ──
 export const metadata = {
@@ -36,7 +37,7 @@ const oriziaSchema = {
   '@id': 'https://www.orizia-courtage.fr/#organization',
   name: 'Orizia Courtage',
   legalName: COMPANY.denomination,
-  alternateName: ['Orizia', 'Cindy Urbansky Courtier'],
+  alternateName: ['Orizia'],
   foundingDate: COMPANY.registeredAt,
   identifier: COMPANY_IDENTIFIERS,
   slogan: 'De la première question jusqu’à la signature.',
@@ -67,28 +68,7 @@ const oriziaSchema = {
     'https://www.instagram.com/orizia_courtage/',
     'https://www.linkedin.com/in/cindy-urbansky-034323162/',
   ],
-  founder: {
-    '@type': 'Person',
-    '@id': 'https://www.orizia-courtage.fr/qui-suis-je#cindy',
-    name: 'Cindy Urbansky',
-    jobTitle: 'Courtier en financement, assurance et gestion de patrimoine',
-    description:
-      'Fondatrice d\'Orizia Courtage (ORIAS n° 26013524), 20 ans d\'expérience en intermédiation bancaire et en assurance. Présidente du conseil de surveillance de l\'AFIB.',
-    image: 'https://www.orizia-courtage.fr/images/photo-cindy-gp.webp',
-    url: 'https://www.orizia-courtage.fr/qui-suis-je',
-    sameAs: 'https://www.linkedin.com/in/cindy-urbansky-034323162/',
-    knowsAbout: [
-      'Courtage en Crédit Immobilier',
-      'Assurance Emprunteur',
-      'Loi Lemoine',
-      'Regroupement de crédits',
-      'Rachat de soulte',
-      'SCPI de rendement',
-      'Plan Épargne Retraite (PER)',
-      'Assurance Vie',
-      'Crowdfunding immobilier',
-    ],
-  },
+  founder: authorSchema(),
   address: {
     '@type': 'PostalAddress',
     streetAddress: '23 boulevard Clemenceau',
@@ -156,6 +136,18 @@ const oriziaSchema = {
       },
     ],
   },
+};
+
+// Nom du site dans les résultats de recherche.
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.orizia-courtage.fr/#website',
+  url: 'https://www.orizia-courtage.fr',
+  name: 'Orizia Courtage',
+  alternateName: 'Orizia',
+  inLanguage: 'fr-FR',
+  publisher: { '@id': 'https://www.orizia-courtage.fr/#organization' },
 };
 
 const faqSchema = {
@@ -279,6 +271,7 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(oriziaSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <main className="home">
@@ -463,13 +456,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── TÉMOIGNAGES ── */}
+        {/* ── RECOMMANDATIONS PROFESSIONNELLES ── */}
         <section className="crowd-section crowd-section--white">
           <div className="fin-section-inner">
             <div className="fin-section-head">
-              <span className="fin-badge">Ils en parlent</span>
-              <h2>Ce que disent mes partenaires</h2>
-              <p>Des professionnels de la banque et de l’assurance qui ont travaillé avec moi.</p>
+              <span className="fin-badge">Parcours professionnel</span>
+              <h2>Recommandations professionnelles</h2>
+              <p>Des professionnels de la banque et de l’assurance qui ont travaillé avec moi au cours de ma carrière.</p>
             </div>
             <TemoignagesCarousel />
           </div>

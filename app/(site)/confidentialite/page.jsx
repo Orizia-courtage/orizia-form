@@ -2,12 +2,15 @@ import Icon from '@/components/Icon';
 import Link from 'next/link';
 import { ROBOTS } from '@/lib/indexing.mjs';
 import { COMPANY } from '@/lib/company.mjs';
+import { plainMetadata } from '@/lib/share.mjs';
 
 export const metadata = {
-  title: 'Politique de confidentialité et cookies | Orizia Courtage',
-  description: 'Comment Orizia Courtage collecte, utilise, conserve et protège vos données personnelles : finalités, bases légales, durées, destinataires, vos droits RGPD et cookies.',
+  ...plainMetadata({
+    path: '/confidentialite',
+    title: 'Politique de confidentialité et cookies | Orizia Courtage',
+    description: 'Comment Orizia Courtage collecte, utilise, conserve et protège vos données personnelles : finalités, bases légales, durées, destinataires, droits RGPD, cookies.',
+  }),
   robots: ROBOTS,
-  alternates: { canonical: 'https://www.orizia-courtage.fr/confidentialite' },
 };
 
 // Date de la dernière mise à jour de cette politique : à changer à chaque modification.
@@ -33,6 +36,7 @@ const TRAITEMENTS = [
   ['Vous adresser des offres par téléphone, e-mail ou SMS', 'Votre consentement (art. 6.1.a) ; pour un client, l’e-mail sur des services analogues relève de l’intérêt légitime (art. L. 34-5 du Code des postes et communications électroniques)', 'Jusqu’au retrait de votre accord, et au plus 3 ans après le dernier contact'],
   ['Gérer le programme de recommandation (parrain et proche recommandé)', 'Intérêt légitime du parrain et du cabinet (art. 6.1.f) ; accord du proche avant tout appel', 'Coordonnées du proche effacées sous 30 jours s’il ne souhaite pas être contacté'],
   ['Espace client et application mobile Orizia (iPhone, Android) : suivi du dossier, dépôt et numérisation de documents, messagerie et pièces jointes, notifications', 'Exécution du mandat (art. 6.1.b) ; notifications et carte de portefeuille : votre consentement', 'Messages et pièces jointes de la messagerie : 30 jours ; compte : durée du dossier, supprimable à tout moment depuis l’application'],
+  ['Acceptation des conditions d’utilisation de l’espace client : date d’acceptation et version du texte accepté', 'Intérêt légitime à pouvoir établir que vous les avez acceptées (art. 6.1.f)', 'Conservées avec votre compte, jusqu’à sa suppression'],
   ['Signature électronique des documents du cabinet (mandat, lettre de mission…) et conservation de la preuve de votre signature (voir section 5)', 'Exécution du mandat (art. 6.1.b) ; intérêt légitime à pouvoir prouver votre accord (art. 6.1.f)', 'Document signé et preuve de signature : conservés avec le dossier, 5 ans après la fin de la relation'],
   ['Protéger le site contre les abus et les fausses demandes (adresse IP, type d’appareil)', 'Intérêt légitime (art. 6.1.f)', '7 jours'],
   ['Mesurer l’audience du site, sans cookie', 'Intérêt légitime (art. 6.1.f)', 'Statistiques globales, sans identifiant conservé'],

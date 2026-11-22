@@ -18,9 +18,14 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Configuration Cal.com indisponible.' }, { status: 503 });
   }
 
+  // Demande volumineuse refusée avant lecture (les champs utiles tiennent en quelques centaines d'octets).
+  if (Number(request.headers.get('content-length')) > 8 * 1024) {
+    return NextResponse.json({ error: 'Demande trop volumineuse.' }, { status: 413 });
+  }
   const body = await request.json().catch(() => null);
   const { start, name, email, phone } = body || {};
-  if (typeof start !== 'string' || Number.isNaN(Date.parse(start)) || typeof name !== 'string' || !name.trim() || !EMAIL.test(email || '')) {
+  const tooLong = [name, email, phone, start].some((value) => typeof value === 'string' && value.length > 200);
+  if (tooLong || typeof start !== 'string' || Number.isNaN(Date.parse(start)) || typeof name !== 'string' || !name.trim() || typeof email !== 'string' || !EMAIL.test(email)) {
     return NextResponse.json({ error: 'Veuillez renseigner un créneau, votre nom et une adresse e-mail valide.' }, { status: 400 });
   }
 
@@ -30,33 +35,46 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Trop de demandes de rendez-vous. Réessayez dans quelques minutes.' }, { status: 429 });
   }
 
-  const response = await fetch('https://api.cal.com/v2/bookings', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-      'cal-api-version': '2026-02-25',
-    },
-    body: JSON.stringify({
-      start: new Date(start).toISOString(),
-      eventTypeSlug: 'rendez-vous',
-      username: 'cindy-urbansky',
-      attendee: {
-        name: name.trim(),
-        email: email.trim(),
-        phoneNumber: typeof phone === 'string' && phone.trim() ? phone.trim() : undefined,
-        timeZone: 'Europe/Paris',
-        language: 'fr',
+  // Cal.com injoignable ou trop lent : on le dit, au lieu de laisser croire que le créneau est pris.
+  let response;
+  try {
+    response = await fetch('https://api.cal.com/v2/bookings', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'cal-api-version': '2026-02-25',
       },
-      metadata: { source: 'orizia-courtage.fr' },
-    }),
-    cache: 'no-store',
-  });
+      body: JSON.stringify({
+        start: new Date(start).toISOString(),
+        eventTypeSlug: 'rendez-vous',
+        username: 'cindy-urbansky',
+        attendee: {
+          name: name.trim(),
+          email: email.trim(),
+          phoneNumber: typeof phone === 'string' && phone.trim() ? phone.trim() : undefined,
+          timeZone: 'Europe/Paris',
+          language: 'fr',
+        },
+        metadata: { source: 'orizia-courtage.fr' },
+      }),
+      cache: 'no-store',
+      signal: AbortSignal.timeout(15000),
+    });
+  } catch (error) {
+    console.error('Cal.com booking error', error?.message);
+    return NextResponse.json({ error: 'L’agenda est momentanément indisponible. Réessayez dans un instant ou appelez le 07 77 25 97 06.' }, { status: 502 });
+  }
   const payload = await response.json().catch(() => ({}));
 
   if (!response.ok) {
     console.error('Cal.com booking error', response.status, payload);
-    return NextResponse.json({ error: 'Ce créneau n’est plus disponible. Merci d’en choisir un autre.' }, { status: 409 });
+    // 400 / 409 : créneau déjà pris ou plus proposé. Autre code : panne ou clé invalide côté agenda.
+    const slotGone = response.status === 400 || response.status === 409;
+    return NextResponse.json(
+      { error: slotGone ? 'Ce créneau n’est plus disponible. Merci d’en choisir un autre.' : 'L’agenda est momentanément indisponible. Réessayez dans un instant ou appelez le 07 77 25 97 06.' },
+      { status: slotGone ? 409 : 502 },
+    );
   }
 
   return NextResponse.json({ booking: payload.data || {} }, { status: 201 });
