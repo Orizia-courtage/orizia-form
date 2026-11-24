@@ -100,7 +100,7 @@ const DIFFERENCIANTS = [
   {
     icon: 'user',
     title: 'Interlocutrice unique',
-    desc: 'Pas de centre d\'appels. Je gère votre dossier de l\'audit à la résiliation. Vous parlez toujours à Cindy.',
+    desc: 'Pas de centre d\'appels. Je gère votre dossier de l\'audit à la résiliation. Vous n’avez qu’une interlocutrice : moi.',
     color: '#a87a2c',
     bg: 'rgba(168,122,44,0.06)',
   },

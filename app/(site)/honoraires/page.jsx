@@ -42,8 +42,8 @@ export default function HonorairesPage() {
         Barème des honoraires
       </h1>
       <p style={{ marginBottom: '36px' }}>
-        Chez {COMPANY.legalName}, nous privilégions la transparence et la clarté dans la présentation de nos conditions tarifaires.
-        Nos honoraires sont définis en fonction de la nature de la prestation, du montant de l’opération et de la complexité de votre situation.
+        Chez {COMPANY.legalName}, je privilégie la transparence et la clarté dans la présentation de mes conditions tarifaires.
+        Mes honoraires sont définis en fonction de la nature de la prestation, du montant de l’opération et de la complexité de votre situation.
       </p>
 
       <section style={section}>

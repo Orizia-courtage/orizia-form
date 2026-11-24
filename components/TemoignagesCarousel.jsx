@@ -124,7 +124,7 @@ export default function TemoignagesCarousel() {
 
       {/* Nature de ces textes : recommandations de pairs, antérieures au cabinet, et non avis de clients. */}
       <p className="tc3-note">
-        Recommandations professionnelles publiées sur LinkedIn en 2025 par des personnes ayant travaillé avec Cindy Urbansky, avant la création d’Orizia Courtage. Il ne s’agit pas d’avis de clients du cabinet.
+        Recommandations professionnelles publiées sur LinkedIn en 2025 par des personnes ayant travaillé avec moi, Cindy Urbansky, avant la création d’Orizia Courtage. Il ne s’agit pas d’avis de clients du cabinet.
       </p>
     </div>
   );

@@ -137,7 +137,7 @@ export default function InvestirQuiz() {
           <div className="iq-result-header">
             <span className="iq-result-icon"><Icon name={reco.icon} /></span>
             <div>
-              <div className="iq-result-label">Notre recommandation</div>
+              <div className="iq-result-label">Ma recommandation</div>
               <div className="iq-result-produit" style={{ color: reco.color }}>{reco.produit}</div>
             </div>
           </div>
