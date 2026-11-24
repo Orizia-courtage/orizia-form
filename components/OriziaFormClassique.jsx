@@ -864,7 +864,7 @@ function SuccessScreen({segment,segType,racConfig,rappelSent,onRappel,prenom}){
       </div>
       {showAppointment&&(
         <div className="f-success-body">
-          <p className="f-success-cta">Votre profil nous permet de vous proposer une solution adaptée.<br/><strong>Découvrez vos nouvelles mensualités — Étude personnalisée</strong></p>
+          <p className="f-success-cta">Votre profil me permet de vous proposer une solution adaptée.<br/><strong>Découvrez vos nouvelles mensualités — Étude personnalisée</strong></p>
           <a href="https://zcal.co/cindyurbansky/regroupement-credit" target="_blank" rel="noopener noreferrer" className="f-cta-primary"><i className="fa-regular fa-calendar-check"></i> Choisir mon créneau de rendez-vous</a>
           {rappelSent!=='ok'&&<TurnstileWidget action="orizia_rappel" onToken={setRappelToken}/>}
           {rappelSent!=='ok'

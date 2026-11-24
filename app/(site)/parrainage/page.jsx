@@ -212,7 +212,7 @@ export default function ParrainagePage() {
           <div className="fin-section-inner">
             <div className="fin-section-head">
               <span className="fin-badge">FAQ</span>
-              <h2>Vos questions sur le parrainage,<br />nos réponses directes</h2>
+              <h2>Vos questions sur le parrainage,<br />mes réponses directes</h2>
               <p>Tout ce que vous devez savoir avant de recommander Orizia à vos proches.</p>
             </div>
             <div className="crowd-faq-list">

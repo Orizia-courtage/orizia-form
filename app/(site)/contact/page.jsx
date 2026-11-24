@@ -131,8 +131,8 @@ export default function ContactPage() {
                   <em className="inv-hero-em" style={{ color: '#3e7f68', fontStyle: 'normal' }}>votre projet</em>
                 </h1>
                 <p className="inv-hero-desc" style={{ color: 'var(--orizia-dark)', opacity: 0.75 }}>
-                  Crédit immobilier, assurance, investissement — Cindy analyse votre situation
-                  et vous propose une solution adaptée. Premier rendez-vous{' '}
+                  Crédit immobilier, assurance, investissement — j'analyse votre situation
+                  et je vous propose une solution adaptée. Premier rendez-vous{' '}
                   <strong style={{ color: 'var(--orizia-accent)' }}>sans engagement</strong>,
                   en visio, par téléphone ou à Marcq-en-Barœul.
                 </p>
@@ -199,7 +199,7 @@ export default function ContactPage() {
             <div className="fin-section-head">
               <span className="fin-badge">Choisissez votre canal</span>
               <h2>Comment souhaitez-vous<br />me contacter ?</h2>
-              <p>Pas de standard, pas d'attente. Vous parlez directement avec Cindy.</p>
+              <p>Pas de standard, pas d'attente. Vous me parlez directement.</p>
             </div>
             <div className="contact-moyens-grid">
               {MOYENS.map(m => {

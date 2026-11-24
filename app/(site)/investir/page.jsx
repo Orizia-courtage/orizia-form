@@ -107,7 +107,7 @@ const DIFFERENCIANTS = [
   {
     icon: 'user',
     title: 'Interlocutrice unique',
-    desc: 'Pas de plateforme, pas de turnover. Je gère votre dossier de la première stratégie jusqu\'aux bilans annuels. Vous parlez toujours à Cindy.',
+    desc: 'Pas de plateforme, pas de turnover. Je gère votre dossier de la première stratégie jusqu\'aux bilans annuels. Vous n’avez qu’une interlocutrice : moi.',
     color: '#a87a2c',
     bg: 'rgba(168,122,44,0.06)',
   },

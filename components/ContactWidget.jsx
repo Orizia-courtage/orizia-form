@@ -20,11 +20,11 @@ const EMPTY_FORM = {
 };
 
 const ERRORS_MSG = {
-  prenom:      'Votre prénom nous permettra de personnaliser notre réponse',
+  prenom:      'Votre prénom me permettra de personnaliser ma réponse',
   nom:         'Votre nom est nécessaire pour traiter votre demande.',
   email:       'Un email valide est indispensable pour vous répondre.',
-  typedemande: 'Indiquez-nous votre besoin pour mieux vous orienter.',
-  urgence:     'Votre délai nous aide à prioriser votre demande.',
+  typedemande: 'Indiquez-moi votre besoin pour mieux vous orienter.',
+  urgence:     'Votre délai m’aide à prioriser votre demande.',
 };
 
 const validate = (data) => {
