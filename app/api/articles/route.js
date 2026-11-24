@@ -31,6 +31,7 @@ function guard(request) {
 function refresh(article) {
   revalidatePath('/', 'layout');
   revalidatePath('/sitemap.xml');
+  revalidatePath('/llms.txt');
   // Moteurs prévenus (seulement quand l'indexation est activée) : l'article, sa liste et la page du blog.
   if (article) {
     const section = ARTICLE_TYPES[article.type]?.path || '/blog';
