@@ -3,7 +3,7 @@ import { webhookConfig, forwardWebhook } from '@/lib/automation-webhook.mjs';
 import { readForm, verifyTurnstile, createCallbackProof, FormError } from '@/lib/form-protection.mjs';
 import { defaultSimulationSettings, racOutcomeForSegment, resolveSimulationSettings } from '@/lib/simulationConfig';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
-import { takeAdminAttempt, takeQuota } from '@/lib/admin-rate-limit';
+import { takeAdminAttempt, takeQuota, visitorOf } from '@/lib/admin-rate-limit';
 
 export const runtime = 'nodejs';
 
@@ -30,6 +30,8 @@ export async function POST(request) {
     // Do not take this decision from the browser: it drives the email branch
     // in n8n and is resolved from the protected administration settings.
     data.rac_outcome = racOutcomeForSegment(await racSettings(), data.Segment);
+    // IP lue côté serveur (jamais depuis le navigateur) ; n8n l'enregistre dans le dossier MongoDB.
+    data.visitor = { ip: visitorOf(request).ip };
     const config = webhookConfig('submit');
     const upstream = await forwardWebhook(config, data);
     const numeroDossier = upstream.data?.numero_dossier;
