@@ -33,7 +33,7 @@ const financerHubSchema = {
       ],
     },
     {
-      '@type': 'FinancialService',
+      '@type': 'Service',
       '@id': 'https://www.orizia-courtage.fr/#financer',
       name: 'Courtage en Crédit et Financement — Orizia Courtage',
       serviceType: 'Courtage en crédit',
