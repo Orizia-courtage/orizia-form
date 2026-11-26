@@ -13,18 +13,20 @@ function supabaseOrigin() {
 // Supabase pour les images d'articles). Tout nouveau service externe doit être ajouté ici.
 // 'unsafe-inline' reste nécessaire : Next.js insère des scripts et des styles dans la page.
 const TURNSTILE = 'https://challenges.cloudflare.com';
+// Agenda Cal.com : le script qui ouvre la fenêtre de rendez-vous (embed.js) et les pages affichées dedans.
+const CAL = 'https://cal.com https://app.cal.com';
 // Barre d'outils Vercel, présente seulement sur les aperçus.
 const VERCEL_LIVE = process.env.VERCEL_ENV === 'preview' ? 'https://vercel.live' : '';
 const csp = [
   ["default-src", "'self'"],
   // En développement, les mesures d'audience Vercel chargent une version de test depuis va.vercel-scripts.com ;
   // en ligne, elles sont servies par le site lui-même (/_vercel/...).
-  ["script-src", "'self'", "'unsafe-inline'", isDev ? "'unsafe-eval' https://va.vercel-scripts.com" : '', TURNSTILE, VERCEL_LIVE],
+  ["script-src", "'self'", "'unsafe-inline'", isDev ? "'unsafe-eval' https://va.vercel-scripts.com" : '', TURNSTILE, CAL, VERCEL_LIVE],
   ["style-src", "'self'", "'unsafe-inline'"],
   ["img-src", "'self'", 'data:', 'blob:', supabaseOrigin(), VERCEL_LIVE],
   ["font-src", "'self'", 'data:'],
   ["connect-src", "'self'", TURNSTILE, VERCEL_LIVE, isDev ? 'ws:' : ''],
-  ["frame-src", TURNSTILE, 'https://cal.com', 'https://app.cal.com', VERCEL_LIVE],
+  ["frame-src", TURNSTILE, CAL, VERCEL_LIVE],
   ["worker-src", "'self'", 'blob:'],
   ["object-src", "'none'"],
   ["base-uri", "'self'"],
