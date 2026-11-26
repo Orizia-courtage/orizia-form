@@ -15,6 +15,15 @@ export const metadata = {
   title: 'Orizia Courtage | Courtier crédit et assurance à Marcq-en-Barœul',
   description: 'Cindy Urbansky, courtière en crédit et en assurance à Marcq-en-Barœul : crédit immobilier, assurance emprunteur, épargne.',
   robots: ROBOTS,
+  // Icônes déclarées à la main, depuis /public : leur adresse reste la même d'un déploiement à l'autre
+  // (posées dans app/, Next leur ajoute un identifiant de déploiement, et Google veut une adresse d'icône stable).
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '64x64', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     type: 'website',
     siteName: 'Orizia Courtage',
