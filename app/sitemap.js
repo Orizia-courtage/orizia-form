@@ -12,6 +12,7 @@ const STATIC_PAGES = [
   ['', 'monthly', 1.0],
   ['/qui-suis-je', 'monthly', 0.8],
   ['/contact', 'monthly', 0.7],
+  ['/courtier-marcq-en-baroeul', 'monthly', 0.9],
   ['/parrainage', 'monthly', 0.5],
   ['/actualites', 'weekly', 0.6],
   ['/blog', 'weekly', 0.6],
