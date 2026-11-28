@@ -37,7 +37,7 @@ const MOYENS = [
   {
     icon: 'calendar-days',
     title: 'Prendre rendez-vous',
-    desc: 'Choisissez un créneau directement dans mon agenda. Visioconférence ou téléphone.',
+    desc: 'Choisissez un créneau directement dans mon agenda. Au cabinet à Marcq-en-Barœul, en visio ou par téléphone.',
     cta: 'Réserver un créneau',
     href: '#calendrier',
     primary: true,
@@ -265,7 +265,7 @@ export default function ContactPage() {
               <h2>Réservez votre créneau<br />en quelques secondes</h2>
               <p>
                 Choisissez directement dans mon agenda le jour et l'heure qui vous conviennent.
-                Vous recevrez une confirmation et un lien de visioconférence par email.
+                Basée à Marcq-en-Barœul, je vous reçois au cabinet ou en visio. Vous recevrez une confirmation par e-mail.
               </p>
             </div>
 
@@ -274,8 +274,8 @@ export default function ContactPage() {
               <div className="contact-cal-item">
                 <span><Icon name="calendar-days" /></span>
                 <div>
-                  <strong>Visioconférence ou téléphone</strong>
-                  <span>Le lien vous est envoyé automatiquement</span>
+                  <strong>Au cabinet ou en visio</strong>
+                  <span>À Marcq-en-Barœul ou depuis chez vous</span>
                 </div>
               </div>
               <div className="contact-cal-item">

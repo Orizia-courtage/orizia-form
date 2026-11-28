@@ -58,11 +58,12 @@ export default function MentionsLegalesPage() {
             Capital social : {COMPANY.capital}<br />
             Siège social : {COMPANY.addressInline}<br />
             SIREN : {COMPANY.siren}<br />
+            SIRET (siège) : {COMPANY.siret}<br />
             {COMPANY.rcs}<br />
             Numéro de gestion : {COMPANY.gestion}<br />
             Identifiant européen (EUID) : {COMPANY.euid}<br />
             {COMPANY.vatExempt && <>TVA : opérations de courtage exonérées de TVA (article 261 C du Code général des impôts), sans numéro de TVA intracommunautaire<br /></>}
-            Adresse e-mail : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a><br />
+            Adresse e-mail : <a href={`mailto:${COMPANY.contactEmail}`} style={{ color: '#3e7f68' }}>{COMPANY.contactEmail}</a><br />
             Téléphone : {COMPANY.phone}
           </p>
         </section>
@@ -71,7 +72,7 @@ export default function MentionsLegalesPage() {
           <h2 style={h2}>2. Directrice de la publication</h2>
           <p>
             <strong>{COMPANY.manager}</strong>, gérante.<br />
-            Contact : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a><br />
+            Contact : <a href={`mailto:${COMPANY.contactEmail}`} style={{ color: '#3e7f68' }}>{COMPANY.contactEmail}</a><br />
             Téléphone : {COMPANY.phone}
           </p>
         </section>
@@ -124,14 +125,14 @@ export default function MentionsLegalesPage() {
           </p>
           <p style={{ marginTop: '16px' }}>
             Conformément au RGPD et à la loi « Informatique et Libertés », vous disposez des droits d’accès, de rectification, d’effacement, de limitation, de portabilité et d’opposition, ainsi que du droit de définir des directives sur le sort de vos données après votre décès.
-            Pour les exercer : <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.cnil.fr</a>).
+            Pour les exercer : <a href={`mailto:${COMPANY.contactEmail}`} style={{ color: '#3e7f68' }}>{COMPANY.contactEmail}</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.cnil.fr</a>).
           </p>
         </section>
 
         <section style={{ marginBottom: '40px' }}>
           <h2 style={h2}>6. Réclamation et médiation</h2>
           <p>
-            Toute réclamation peut être adressée par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.email}`} style={{ color: '#3e7f68' }}>{COMPANY.email}</a>. Nous en accusons réception sous 10 jours ouvrables et y répondons dans un délai maximal de 2 mois à compter de sa réception.
+            Toute réclamation peut être adressée par écrit au siège social ({COMPANY.addressInline}) ou par e-mail à <a href={`mailto:${COMPANY.contactEmail}`} style={{ color: '#3e7f68' }}>{COMPANY.contactEmail}</a>. Nous en accusons réception sous 10 jours ouvrables et y répondons dans un délai maximal de 2 mois à compter de sa réception.
           </p>
           <p style={{ marginTop: '16px' }}>
             Si la réponse ne vous satisfait pas, ou en l’absence de réponse dans ce délai, vous pouvez saisir gratuitement le médiateur de la consommation : <strong>{COMPANY.mediator.name}</strong>, {COMPANY.mediator.address} — <a href={COMPANY.mediator.url} target="_blank" rel="noopener noreferrer" style={{ color: '#3e7f68' }}>www.mediation-assurance.org</a>. Le médiateur doit être saisi dans un délai d’un an à compter de votre réclamation écrite.

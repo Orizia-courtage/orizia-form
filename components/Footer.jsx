@@ -8,7 +8,7 @@ const COLS = [
   { title: 'Financer', href: '/financer', links: [['Crédit immobilier', '/financer/credit-immobilier'], ['Regroupement de crédits', '/financer/regroupement-credits'], ['Prêt personnel', '/financer/pret-personnel'], ['Rachat de soulte', '/financer/rachat-soulte']] },
   { title: 'Assurer', href: '/assurer', links: [['Assurance emprunteur', '/assurer/assurance-emprunteur'], ['Assurance habitation', '/assurer/assurance-habitation'], ['Assurance auto et moto', '/assurer/auto-moto']] },
   { title: 'Investir', href: '/investir', links: [['SCPI', '/investir/scpi'], ['Assurance vie', '/investir/assurance-vie'], ['PER', '/investir/per'], ['Crowdfunding', '/investir/crowdfunding']] },
-  { title: 'Orizia', href: '/qui-suis-je', links: [['Qui suis-je ?', '/qui-suis-je'], ['Parrainage', '/parrainage'], ['Blog', '/blog'], ['Actualités', '/actualites'], ['Lexique', '/lexique'], ['Contact', '/contact']] },
+  { title: 'Orizia', href: '/qui-suis-je', links: [['Qui suis-je ?', '/qui-suis-je'], ['Courtier à Marcq-en-Barœul', '/courtier-marcq-en-baroeul'], ['Parrainage', '/parrainage'], ['Blog', '/blog'], ['Actualités', '/actualites'], ['Lexique', '/lexique'], ['Contact', '/contact']] },
 ];
 
 export default function Footer() {

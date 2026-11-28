@@ -331,8 +331,8 @@ export default function QuiSuisJePage() {
                   un avantage concret pour mes clients de la région.
                 </p>
                 <p>
-                  Mais je travaille aussi à distance, en visioconférence, pour accompagner
-                  des clients partout en France. La proximité géographique n'est pas
+                  Je vous reçois au cabinet à Marcq-en-Barœul ou en visio, ce qui me permet aussi
+                  d'accompagner des clients partout en France. La proximité géographique n'est pas
                   une condition — l'engagement, lui, est toujours au rendez-vous.
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 20 }}>

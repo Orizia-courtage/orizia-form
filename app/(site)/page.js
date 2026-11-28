@@ -175,7 +175,7 @@ const faqSchema = {
       name: 'Dans quelles zones géographiques intervenez-vous ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Basée à Marcq-en-Barœul, j\'interviens dans toute la métropole lilloise et les Hauts-de-France. Je travaille également à distance en visioconférence pour les clients partout en France.',
+        text: 'Basée à Marcq-en-Barœul, rendez-vous en visio ou au cabinet. J\'interviens dans toute la métropole lilloise et les Hauts-de-France, et en visio partout en France.',
       },
     },
     {
